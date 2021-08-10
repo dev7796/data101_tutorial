@@ -6,11 +6,10 @@ rmd_files: [
   "./chapters/intro.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/stateval.Rmd",
-  "./chapters/revcommands.Rmd",
-  "./chapters/datatransformation.Rmd",
   "./chapters/modeling.Rmd",
   "./chapters/modeling2.Rmd",
-  "./chapters/predblogs.Rmd"]
+  "./chapters/predblogs.Rmd",
+  "./chapters/appendix.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:
