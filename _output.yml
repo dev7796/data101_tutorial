@@ -3,8 +3,8 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">DATA 101 Book Demo</a>
-        <a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+        <li><a href="./">DATA 101 Book</a>
+        <a href="https://github.com/dev7796/Data101_TextBook" target="blank">Github Source</a>
         </li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
