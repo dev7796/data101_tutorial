@@ -7,7 +7,6 @@ rmd_files: [
   "./chapters/plots.Rmd",
   "./chapters/stateval.Rmd",
   "./chapters/revcommands.Rmd",
-  "./chapters/datatransformation.Rmd",
   "./chapters/modeling.Rmd",
   "./chapters/modeling2.Rmd",
   "./chapters/predblogs.Rmd"]
