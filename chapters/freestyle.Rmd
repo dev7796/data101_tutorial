@@ -35,7 +35,6 @@ _subset(), table() and tapply()_
 
 Through this section we will use our usual initial example, of synthetically generate data describing mysterious methods of grading used by an eccentric Professor Moody. We have been using different versions of this *data puzzle* over the 6 years of teaching data 101. Data is different but narrative is always the same:-->
 
-
 #### Professor Moody Puzzle {#Moodyexplaination}
 
 We start our data exploration with the following data puzzle.
@@ -48,7 +47,7 @@ We start our data exploration with the following data puzzle.
 
 - What is the best advice the new TA can give future students how to get a good grade in Professor Moody's class?  What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.
 
-The Moody data set is defined here by the following attributes
+The Moody data set is defined here by the following attributes:
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
