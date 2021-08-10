@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Introduction | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Introduction | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="dataexp.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a>
+<a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>7</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>7.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>7.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="7.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>7.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>7.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>8</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>8.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="8.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>8.2</b> Random Forest</a></li>
+<li class="chapter" data-level="8.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>8.3</b> SVM</a></li>
+<li class="chapter" data-level="8.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>8.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>9</b> Blog: Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>9.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="9.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>9.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>9.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="9.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>9.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>9.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>9.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="9.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>9.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>9.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>9.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="9.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>9.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>9.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>9.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="9.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>9.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<script src="files/js/dcl.js"></script>
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+<p>The objective of this textbook is to provide you the shortest path to exploring your data, visualizing it, forming hypotheses and validating and defending them. Given a data set, you want to be able to make any plot you wish, find plots which show something actionable and interesting, explore data by slicing and dicing it and finally present your results in statistically convincing manner, perhaps in colorful and visually appealing way.</p>
+<p>Questions which you will have to anticipate and you will have to answer are
+- How do you know that your findings are not random?
+- And fundamental of all questions:
+- <strong>So what?</strong></p>
+<p>Even the most impressing looking results may come up randomly. And you will be asked this question along with the question <em>“what was your p-value and how did you compute it”</em></p>
+<p>And even if you convince your audience that your results are not random, you will have to be ready to explain why should you audience care about the results you reported. In other words, is there any actionable value in your results? Or they are just simply interesting, good to know, but no one really needs to care much about them otherwise? Hopefully it is the former not the latter.</p>
+<p>In the following sections we will address these questions and go through the process of data exploration, validation, and presentation.</p>
+<ul>
+<li>We will start with making plots, follow with free style data exploration – which allows us to form the leads, that is hypotheses. Then we will follow with simple statistical tests which will allow us to validate these hypothesis and defend our findings against randomness claims. - We will learn how to calculate p-values and how to use them to defend our findings.</li>
+<li>We will use as few R commands as possible and reach our goal in shortest possible path. In fact we will demonstrate how using just 7 R commands we can perform quite sophisticated data exploration.</li>
+</ul>
+<div id="setting-up-r" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Setting Up R</h2>
+<ul>
+<li><p><strong>Important Instructions</strong></p>
+<ul>
+<li>Installation of R is required before installing RStudio
+<ul>
+<li>“R” is a programming language, and,</li>
+<li>“RStudio” is an Integrated Development Environment (IDE) which provides you a platform to code in R.</li>
+</ul></li>
+</ul></li>
+<li><p><strong>How to download and install R &amp; RStudio?</strong></p>
+<ul>
+<li><p><em>Downloading and installing R.</em></p>
+<ul>
+<li>For Windows Users.
+<ul>
+<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/base/">https://cran.r-project.org/bin/windows/base/</a></li>
+</ul></li>
+<li>Click on the link at top left where it says “Download R 4.0.3 for windows” or the latest at the time of your installation.</li>
+<li>Open the downloaded file and follow the instructions as it is.</li>
+</ul></li>
+<li>For MAC Users.
+<ul>
+<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
+<ul>
+<li><a href="https://cloud.r-project.org/bin/macosx/">https://cloud.r-project.org/bin/macosx/</a></li>
+</ul></li>
+<li>Under “Latest release”, click on “R-4.0.3.pkg” or the latest at the time of your installation.</li>
+<li>Open the downloaded file and follow the instructions as it is.</li>
+</ul></li>
+</ul></li>
+<li><p><em>Downloading and installing RStudio.</em></p>
+<ul>
+<li>For Windows Users.
+<ul>
+<li>Click on the link below or copy paste it in your favourite browser.
+<ul>
+<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
+</ul></li>
+<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
+<li>Click on the download link beside “Windows 10/8/7” to download the windows version of RStudio.</li>
+<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
+</ul></li>
+<li>For MAC Users.
+<ul>
+<li>Click on the link below or copy paste it in your favourite browser.
+<ul>
+<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
+</ul></li>
+<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
+<li>Click on the link beside “macOS 10.13+” to start your download the MAC version of RStudio.</li>
+<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><p><strong>How to upload a data set?</strong></p></li>
+<li><p>To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.</p></li>
+<li><p>Let us look at the example.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RlZXBsb2toYW5kZS9kYXRhMTAxZGVtb2Jvb2svbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgUHJpbnQgb3V0IGBkZmBcbmhlYWQoZGYpIn0=
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataexp.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

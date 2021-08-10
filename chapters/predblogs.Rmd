@@ -1,0 +1,722 @@
+# Blog: Prediction Challenges {#predblogs}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+
+Until we have studied multiple methods of data analysis in sections \@ref(freestyle),\@ref(datatransformation), statistical testing in sections \@ref(stateval), &   building prediction models for both classification \@ref(classification) and regression \@ref(regression) along with advanced ML models \@ref(models).
+
+Now its time to utilize them in various ways for  analysis and prediction of data.
+
+To do this, in this course, we have designed few prediction challenges, which test your ability to implement skills learnt in the course until now. 
+
+First challenge is a basic prediction challenge using only data analysis using the freestyle techniques from section \@ref(freestyle). 
+
+Then onwards, prediction challenges used multitude of modeling techniques which were studied in \@ref(classification) and \@ref(regression).
+
+---
+
+## General Structure of the Prediction Challenges.
+
+Usually there is a task to be performed in each prediction challenge. 
+
+Either predicting a numerical of categorical values is the task of each challenge.
+
+The way to perform those task are constrained differently for different prediction challenges based on levels of difficulty and ML models to be used.
+
+The submission will take place on **Kaggle** which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submission.
+
+The datasets provided for each prediction challenge is as follows:
+
+1. Training Dataset.
+    - It is used for training and cross-validation purpose in the prediction challenge. 
+    - This data has all the training attributes along and the ideal values of the prediction attribute.
+    - Models for prediction are to be trained using this dataset only.
+2. Testing Dataset.
+    - It is used for prediction only.
+    - It consists of all the attributes that were used for training, but it does not contain any values of the actual prediction attributes, which is actually the attribute that the prediction challenge predicts.
+    - Since its only used for prediction purpose and is not involved in training of the models, it is thus not involved in the cross-validation phase too.
+3. Submission Dataset.
+    - After prediction using the "testing" dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column.
+    - Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.
+
+- To read the datasets use the *read.csv()* function and for writing the dataset to the file, use the *write.csv()* function.
+  - Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.
+  - To avoid this, you can add the parameter, `row.names = F` in the `write.csv()` function. e.g. `write.csv(*dataframe*,*fileaddress*,row.names = F)`.
+
+Now lets look at the prediction challenges that took place in this course along with the top submissions by students.
+
+---
+
+
+## Prediction Challange 1.
+
+In Prediction challange 1, the task was to predict a categorical value using *only free-style* prediction. 
+
+For this prediction challenge we used our favorite dataset, the Moody dataset, and predicted the Grade category of all students. The Grade category had only 2 factors: *Pass* OR *Fail*.
+
+Let look at a snippet of the moody dataset used for training in this challenge.
+
+```{r,echo=FALSE}
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021train.csv") #web load
+temp<-knitr::kable(
+  head(realestate, 10), caption = 'Snippet of Moody Dataset(TRAINING) for Prediction Challenge 1',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+
+```
+
+We can see that there are multiple attributes like *Score, Attendence, Major, etc.* that can be used as predictors, and then there is *Grade* attribute with ideal values for each record of student which will be used while training and then will be predicted on the testing dataset.
+
+<!-- Lets look at the snippet of the moody dataset for testing. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test-students.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Moody Dataset(TESTING) for Prediction Challenge 1', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see that the *Grade* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+
+<!-- Also, lets look at the submission file for prediction challenge 1. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test-submission-file.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 1', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see there are only 2 columns *Studentid* and *Grade*. *Studentid* column's entries corresponds/are similar to the *Studentid* column of the testing data. Thus we need to just fill the *Grade* column with appropriate grade predicted by our analysis, corresponding to the same *Studentid* values in both test and submission data. -->
+
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 1](https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d){target="_blank"} -->
+
+---
+
+### How the data was generated for Challenge 1
+
+Professor Moody data set has been synthetically generated using random generator which follows probabilistic rules implementing "secret patterns" which we embedded in the data. 
+
+These patterns  are presented below in the form of decision tree.   For example a rule that statistics major with score over 60, pass the class - reflects the generated data in which high percentage (but not 100%) of such students indeed pass Moody's class. There will always be random exceptions to these rules.  But majority of stat students with score above 60 will pass the class
+
+The data is based on a tree given by the following conditions:
+
+``` text
+Tree which is embedded in the data (secret pattern for Moody -challenge1/2)
+
+Major
+   Stat
+      Score > 60 Pass
+      Score <= 60  Fail
+   Comm
+      Score >40  Pass
+      Score <=40
+         Texting = Rarely   Fail
+          Texting = Always  PAss
+   Polsci
+      Score >50  Pass
+      Score <=50  
+         Questions = rare    Fail   
+         Questions = always  Pass
+   Cs
+      Score >70      Pass
+      Score <=70
+        Seniority= Freshman 
+             Score >50 Pass
+             Score <=50 
+               Attendance >=60
+                    Score > 40   Pass
+                    Score <=40   Fail
+               Attendance <60    Fail  
+         Seniority= Sophomore
+               Score >50         Pass
+               Score <=50        Fail
+         Seniority= Junior       Fail
+         Seniority = Senior Fail 
+```
+
+We can see this in pictorial representation below based on each subset of Majors.
+
+- For Stats Major:
+  - We can see that the rule was very simple, with the final grade decided based on only the *Score* attribute of the students.
+  - ![The tree used for predicting Stats Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1stat.svg)
+  - Thus finding this pattern would have been easier for students
+
+- For Communication Major Students:
+  - The grade prediction for students from the Communication Major was based not only on the *Score* attribute but was also based on *Texting* attribute of the students records.
+  - ![The tree used for predicting Communications Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1comm.svg)
+  - As we can see, finding this pattern would have been not that difficult.
+
+- For Political Science Major Students:
+  - The grade prediction for students from the Political Science Major was based not only on the *Score* attribute but was also based on *Questions* attribute of the students records.
+  - ![The tree used for predicting Political Science Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1polsc.svg)
+  - As we can see, finding this pattern would have been not that difficult.
+  
+- For Computer Science Major Students:
+  - The grade prediction for students from the Computer Science Major was the most involved and was based on various students attribute.
+  - Attributes like *Score, Seniority and Attendance* were involved in prediction, and the subsetting conditions were very complex. 
+  - ![The tree used for predicting Communications Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1cs.svg)
+  - As we can see, finding this huge pattern would have been very difficult for students.
+  
+If you want to see a well detailed data analysis of the dataset based on Majors as subset, then please look at *Rohit Manjunath's* submission in the Top Submission section for prediction challenge 1.
+  
+- **How the data was generated using R**
+  - You can see a simple way to write the data using the above patterns.
+  
+```{r,height=700}
+# Load Data
+dat<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test-students.csv",stringsAsFactors = T)
+
+# Create an all Fail Category/Predicted Value Vector and append it to the testing dataset.
+dat$Grade<-rep('Fail', nrow(dat))
+
+# The various conditions used to predict grade attribute.
+
+# For Major = Stat
+dat[dat$Major=='Stat' & dat$Score>60,]$Grade <-'Pass'
+
+# For Major = Comm
+dat[dat$Major=='Communication' & dat$Score>40,]$Grade <-'Pass'
+dat[dat$Major=='Communication' & dat$Score<=40 & dat$Texting=='Always',]$Grade <-'Pass'
+
+# For Major = Polsci
+dat[dat$Major=='Polsci' & dat$Score>50,]$Grade <-'Pass'
+dat[dat$Major=='Polsci' & dat$Score<=50 & dat$Questions=='Always',]$Grade <-'Pass'
+
+# For Major = Cs
+dat[dat$Major=='Cs' & dat$Score>70,]$Grade <-'Pass'
+dat[dat$Major=='Cs' & dat$Score<=70 & dat$Seniority=='Freshman' & dat$Score>50,]$Grade <-'Pass'
+dat[dat$Major=='Cs' & dat$Score<=70 & dat$Seniority=='Freshman' & dat$Attendance >=60 & dat$Score>40,]$Grade <-'Pass'
+dat[dat$Major=='Cs' & dat$Score<=70 & dat$Seniority=='Sophomore' & dat$Score>50,]$Grade <-'Pass'
+
+
+# Compare it with the ideal predictions for checking accuracy of our predictions.
+answers<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test_answer.csv",stringsAsFactors = T)
+mean(dat$Grade==answers$Grade) # Accuracy
+```
+
+Thus we can see, using the ideal patterns the students would have expected to score around 83% accuracy.
+
+---
+
+### Top Submissions for Challenge 1.
+
+Students with accuracy over 60% were considered passed for this prediction challenge.
+
+1. *Jeremy Prasad*     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred11">Jeremy's PPT</button>
+<div id="pred11" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/jeremypred1.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - Jeremy performed exceptionally well in this prediction challenge.
+  - His approach was a iterative learning process, where at each step after performing analysis he tried to decrease the error more and more.
+  - He started with a very basic model, of using just the score attribute with a hard threshold for pass or fail grade based on the score value. 
+  - After this, to increase accuracy, he analysed the data more found which attributes effect the prediction of the data, and which are not really useful
+  - After finding these highly effective attributes, he wrote concrete set of attributs that can be used to assign the grade. Most of them were dependent on 2-3 attributes like Major-Senioriy-Score, Major-Score, or Major-Questions-Score,etc. 
+  - This gave him a much better accuracy value for prediction. 
+
+
+2. *Rohit  Manjunath*    <button class="btn btn-primary" data-toggle="collapse" data-target="#pred12">Rohit's PPT</button>
+<div id="pred12" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/rohitpred1.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - Rohit performed well in this prediction challenge, and has a different approach than that of Jeremy's.
+  - In Rohit's approach, instead of finding the minimum global threshold of pass or fail based on score, he found the threshold for the maximum score, above which every student passed the class.
+  - He then analysed the data based on the Majors first and then found interval threshold for each Majors scores.
+  - For some Majors, to increase accuracy, he further explored other attributes in detail to find which effects the final grade.
+  - Rohit obtained accuracy of almost 85%.
+  
+
+
+---
+
+## Prediction Challenge 2.
+
+In Prediction Challenge 2, we introduced the use of Decision Tree algorithm for prediction model building, to complete the same task as we saw in the Prediction Challenge 1.
+
+This was intended to see the first learning model in action, and also to see the ease in which the process of prediction can be completed using such prediction model against the trivial data analysis techniques.
+
+The datasets for this prediction challenge were the same as those in the prediction challenge 1.
+
+Since, the task in the prediction challenge was to predict a categorical value(*Grade* value) the learning algorithm allowed to be used in this task was the Decision Tree algorithm based on the CART model. Read more about how to use decision tree's in section \@ref(decisiontree) .
+
+To implement this algorithm, students were allowed to use the RPART package \@ref(rpart)
+
+With rpart() doing most work of prediction in this task, the students were also asked to provide validation for their models prediction power/accuracy. This involved use of cross-validation techinques, which for the ease of this course level was provided in a custom function, see \@ref(crossvalidation).
+
+<!-- To perform this challenge yourself please visit the kaggle site of this prediction challenge. Link to Kaggle Site: [Prediction Challenge 2](https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b){target="_blank"} -->
+
+---
+
+### How the data was generated to Challenge 2
+
+As we saw that the prediction task and the datasets in challenge 2 are similar to that of the challenge 1. Thus the data analysis of the challenge 1 would applicable in this case too.
+
+<!-- But here we can use the rpart() function of creating the decision tree and predicting on the testing dataset. -->
+
+<!-- - **How the data was generated using R for prediction challenge 2** -->
+
+<!-- ```{r} -->
+<!-- library(rpart) -->
+
+<!-- # Load Data -->
+<!-- dat<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test_answer.csv",stringsAsFactors = T) -->
+
+<!-- # Using  rpart() for prediction -->
+<!-- tree <- rpart(Grade ~ Attendance+Major+Questions+Score+Seniority+Texting, data=dat,method = "class") -->
+
+<!-- # Predict using the built decision tree. -->
+<!-- pred <- predict(tree, newdata = dat, type = "class") -->
+
+<!-- # Confusion matrix for prediction vs actual values. -->
+<!-- table(actual = dat[,8], predicted = pred) -->
+
+<!-- # Accuracy of the prediction -->
+<!-- mean(pred==dat$Grade) -->
+
+<!-- # Code to display the tree. Cannot be used in this interactive box. -->
+<!-- # library(rpart.plot) -->
+<!-- # rpart.plot(tree) -->
+<!-- ``` -->
+<!-- ![Tree Predicted above using the rpart function.](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred2.svg) -->
+
+<!-- - As we can see, the prediction accuracy is near 83%, using just the simple rpart model without any control parameters. -->
+<!--   - Students can use the control parameters for creating decision tree with more accuracy. -->
+<!-- - **Note**, that the decision tree generated using the rpart() function will be different than that of the ideal trees shown in prediction challenge 1. -->
+
+---
+
+### Top Submissions for Challenge 2
+
+Since rpart() is a very powerful function to find patterns with higher accuracy, the passing criteria for this challenge was above 80% accuracy score.
+
+1. Kevin Larkin    <button class="btn btn-primary" data-toggle="collapse" data-target="#pred21">Kevin's PPT</button>
+<div id="pred21" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/kevinpred2.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>  
+  
+  - This was the top submission in terms of accuracy score on Kaggle.
+  - Kevin used the rpart() function, for modeling, with all the attributes of the training dataset except *Studentid*.
+  - To increase the accuracy of his model, he used the `rpart.control()` function parameters, especially the `cp` parameter of the function, which increased the splitting accuracy.
+  - Kevin acheived an accuracy score of over 86% on the test dataset for this challenge.
+  
+
+
+2. Michael Ryvin    <button class="btn btn-primary" data-toggle="collapse" data-target="#pred22">Michael's PPT</button>
+<div id="pred22" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/michaelpred2.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+ 
+  - This was the second best submission as per accuracy score on Kaggle.
+  - Michael used the rpart() function, along with some control parameters for creating the decision tree.
+  - Michael achieved an accuracy score of over 86% on the test dataset.
+ 
+  
+  
+3. Shuohao Ping    <button class="btn btn-primary" data-toggle="collapse" data-target="#pred23">Shuohao's PPT</button>
+<div id="pred23" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/shuohaopred2.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - This was the third best submission as per accuracy score on Kaggle.
+  - Shuohao used multiple iterations to create his final model.
+  - In each iteration, Shuohao tried to vary the control parameters and its values to find the best fit model after cross-validation.
+  - Shuohao, acheived an accuracy score of over 86% on the test dataset.
+  
+
+
+
+---
+
+## Prediction Challenge 3.
+
+After studying prediction of categorical data in the previous 2 prediction challenges, in prediction challenge 3, the task was to predict *Earnings* a numerical variable, using any ML algorithm. 
+
+*Earnings* variable is part of the Earnings dataset which has details about a persons connections, GPA, Major,etc, and using these attributes, the students had to predict the numerical value of earnings of each person in the dataset.
+
+Students were recommended to first find some correlation between data by using free-style analysis, and then proceed to using ML models. This was included so as to show the effect of human intervention/input on the selection and performance of ML model, and also to avoid the trap of blindly applying the most costly ML model which might perform well, but is a overkill to perform task which could be completed using other less costly models. ( Cost here refers to the computation resources and time involved in training the models. )
+
+To read more about prediction of a numerical variable in R, see section \@ref(regression) and \@ref(models)
+
+Lets look at a snippet of the Earnings dataset used for training the models below.
+
+```{r,echo=FALSE}
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/Earnings_Train2021.csv") #web load
+temp<-knitr::kable(
+  head(realestate, 10), caption = 'Snippet of Earnings Dataset(TRAINING) for Prediction Challenge 3',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+
+```
+
+We can see that there are multiple attributes like *GPA,Major,Graduation_Year,Height,etc.* that can be used as predictors, and then there is *Earnings* attribute with ideal values for each record of student which will be used while training and then will be predicted on the testing dataset.
+
+<!-- Lets look at the snippet of the earnings dataset for testing. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/Earnings_Test.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Earnings Dataset(TESTING) for Prediction Challenge 3', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see that the *Earnings* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+
+<!-- Also, lets look at the submission file for prediction challenge 3. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earning_submission.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 3', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see there are only 2 columns *ID* and *Earnings*. *ID* column's entries corresponds/are similar to the *ID* column of the testing data. Thus we need to just fill the *Earnings* column with appropriate earning value predicted by our analysis. -->
+
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 3](https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd){target="_blank"} -->
+
+
+---
+
+### How the data was generated for Challenge 3
+
+In this challenge, the Earnings variable was calculated using the attributes like GPA, Connections and Graduation Year in some cases.
+
+The main attribute on which the data is subsetted is the Education attribute.
+
+Then further, there is a predetermined polynomial formula based on the various attributes. 
+
+The main idea behind these formulas, is to include a linear/ quadratic relation between the predictors and the Earnings attribute which will be predicted.
+
+These mathematical relation can be modeled using the most simplest linear regression algorithm to the most complex neural nets.
+
+The ideal formulas are listed below:
+
+``` text
+
+   Stem                 earn = -100 * gpa +10000
+   Humanities           earn =  100*  gpa + 10000
+   Vocational           earn =  100 * gpa + 13000
+   Professional         earn =  -100gpa +12000
+   other                earn =  connection ^2 +5000
+   business             earn =  gpa  * 100 * parity +10000
+                                where parity   = 1 if graduation year = even
+                                                 0 if graduation year = odd
+```
+
+As we can see, these formulas are mostly linear, while the formula for "other" education attribute is quadratic. Also, for "Business" education attribute subjects, the formula is dependent on an additional attribute.
+
+For more detailed data analysis please view the document attached here. <button class="btn btn-primary" data-toggle="collapse" data-target="#pred3"> Pred 3 Analysis</button>
+<div id="pred3" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/sarahpred3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+- **How the data was modeled in R **
+
+```{r,height=800}
+# Load the dataset
+dat<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/Earnings_Test_answer.csv",stringsAsFactors = T)
+
+# Create a prediction column to store predicted values and append that column to dataset.
+dat$predEarnings <- rep(0,nrow(dat))
+
+
+# Predict Earnings of subjects with Education in STEM field.
+dat[dat$Major=='STEM',]$predEarnings <- (-100*dat[dat$Major=='STEM',]$GPA + 10000)
+
+# Predict Earnings of subjects with Education in Humanities field.
+dat[dat$Major=='Humanities',]$predEarnings <- (100*dat[dat$Major=='Humanities',]$GPA + 10000)
+
+# Predict Earnings of subjects with Education in Vocational field.
+dat[dat$Major=='Vocational',]$predEarnings <- (100*dat[dat$Major=='Vocational',]$GPA + 13000)
+
+# Predict Earnings of subjects with Education in Professional field.
+dat[dat$Major=='Professional',]$predEarnings <- (-100*dat[dat$Major=='Professional',]$GPA + 12000)
+
+# Predict Earnings of subjects with Education in Other fields.
+dat[dat$Major=='Other',]$predEarnings <- (dat[dat$Major=='Other',]$Number_Of_Professional_Connections^2 + 5000)
+
+# Predict Earnings of subjects with Education in Business field.
+dat[dat$Major=='Buisness',]$predEarnings <- (100*dat[dat$Major=='Buisness',]$GPA*((dat[dat$Major=='Buisness',]$Graduation_Year+1)%%2) + 10000)
+
+
+# Compare the predicted Earnings values with the ideal Earnings values in test data.
+library(ModelMetrics)
+mse(dat$Earnings,dat$predEarnings)
+
+
+```
+
+We can see that after using the ideal formulas, we get an MSE of around 3300.
+Thus students who took part in this prediction challenge and scored around this MSE score would be top submissions.
+
+---
+
+
+### Top Submissions for Challenge 3
+
+For this prediction challenge, the MSE score below 30000 was considered a Passing score.
+
+1. Seok Yim     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred31">Seok's PPT</button>
+<div id="pred31" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/seokpred3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - This was the top submission based on MSE score, with a final score less than 100.
+  - The approach to solving this challenge was really well implemented. 
+    - First, he looked at the dataset on whole, tried to find some interesting patterns.
+    - Then, after finding the patterns, he did not predict on the complete dataset using one big model, but subseted the data based on one attribute, and then modeled the ML model on these small subsets.
+  - This not only reduced the MSE to such low levels, thus increasing accuracy, but also led to faster model learning time, and prediction time.
+  
+  
+2. Nick Whelan     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred32">Nick's PPT</button>
+<div id="pred32" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/nickpred3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - This was another top submission based on MSE score, with final score less than 100.
+  - The approach to solving the task was different compared to Seok's implementation, but was equally good, with nearly the same prediction power/accuracy.
+    - Nick tried to use the randomForest algorithm on the whole dataset as the initial model, but the MSE turned out to be near 25,000.
+    - Then he did some free-style analysis and found the linear relationship between various subsets of dataset with the *earnings* value.
+    - To implement this he used the fundamentals of linear regression very well while creating a learning model, and also used a quadratic model where needed.
+  - This resulted in a very accurate model with low MSE score.
+
+
+3. Bennett Garcia     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred33">Bennett's PPT</button>
+<div id="pred33" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/bennetpred3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+    
+  - Bennett had a final MSE score of below 100 and was one of the top submissions for this challenge.
+  - A significantly different learning model was used by Bennett to achieve this low MSE.
+    - He first analyzed the data, and found attributes on which the dataset can be subsetted on.
+    - Then, he here used Neural Networks as models for prediction on those subsets.
+    - This Neural Network approach was very well implemented.
+    
+---
+
+    
+## Prediction Challenge 4.
+
+Challenge 4 was a relatively newer challenge, and was built to test and combine all that has been learnt from the previous challenges.
+
+In this challenge, there was a scenario as described below:
+
+*Mysterious box was found on the beach. *
+
+*Despite spending probably years in the water, it still works! *
+
+*But what does it do? *
+
+*It has four inputs (electric) & a switch. Setting these inputs and different switch positions emits various weird and scary sounds as output in response to the electric signals. *
+
+*It sizzles, gurgles, hisses, ominously tics like a bomb,etc.....but nothing happens - just sounds. So no harm will happen to surroundings.*
+
+As we can see from the scenario, the task now in this challenge, is to predict the sounds that the *Mysterios Box* will make upon providing various set of inputs and different switch positions.
+
+Henceforth, we will refer to this *mysterious* box as *Black Box*.
+
+Also, since there are only finite number of sounds the box can make, the output *sounds* attribute is a categorical value, which will be predicted in this task.
+
+Students were recommended to first find some correlation between data by using free-style analysis, and then proceed to using any ML models. 
+
+To read more about prediction in R, see sections \@ref(classification),\@ref(regression) and \@ref(models)
+
+Lets look at a snippet of the Mysterious Box/ Black Box dataset used for training the models below.
+The training describes which sounds has been noted in the laboratory in nearly 20,000 experiments combining different input signals and switch positions.
+
+```{r,echo=FALSE}
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxtrainApril22.csv") #web load
+temp<-knitr::kable(
+  head(realestate, 10), caption = 'Snippet of Black Box Dataset(TRAINING) for Prediction Challenge 4',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+
+```
+
+We can see that there are multiple attributes like *INPUT1,2,3,4 and Switch* that can be used as predictors, and then there is *Sound* attribute with ideal values for each record of the experiment record which will be used while training and then will be predicted on the testing dataset.
+
+<!-- Lets look at the snippet of the black box dataset for testing. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22-students.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Black Box Dataset(TESTING) for Prediction Challenge 4', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see that the *Sound* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+
+<!-- Also, lets look at the submission file for prediction challenge 4. -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22-submission.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 4', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+
+<!-- We can see there are only 2 columns *ID* and *Sound*. *ID* column's entries corresponds/are similar to the *ID* column of the testing data. Thus we need to just fill the *Sound* column with appropriate earning value predicted by our analysis. -->
+
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 4](https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe){target="_blank"} -->
+
+---
+
+### How the data was generated for Challenge 4
+
+This challenge was the most involved of the 4 challenges in this blog. 
+
+There was no direct and straight forward answer to this challenge, but it required more data analysis, as compared to the other challenge.
+
+Although the relation of the Sound attribute was dependent on the 4 input and the switch position, figuring the relation between various inputs and the correct switch position was a non-trivial task.
+
+The solution to this challenge involved creating a new numeric variable(Say "OUTPUT") which will be dependent on the 4 input values, and also the various switch positions.
+
+The relation between the inputs and the OUTPUT variable is given below:
+
+``` text
+
+The ordering of Switch position is given as:
+  Low = 1
+  Minimum = 2
+  Medium = 3
+  Maximum = 4
+  High = 5
+
+if Switch == 1 i.e. "Low" 
+    then OUTPUT = Input 1+ 5 * Input 2  - 2 * Input3  + sample(2:5,1)
+if Switch == 2  i.e. "Minimum"  
+    then OUTPUT = 3* Input 2 - 2 * Input 4  + sample(2:3,1)
+else  i.e. Position other than "Low" and "Minimum"
+    then OUTPUT =  Input1 ^2 -1.5 * Input 3 + sample(5:10,1)
+
+
+Then SOUND totally depends on OUTPUT attribute, but is distributed probabilistically over all possible sound.
+
+For example, the SOUND when OUTPUT>150 is distributed as 0, 0, 10, 0, 10, 60, 20.
+This number list corresponds to Gargle, Tick, Beep, Kaboom, Rumble, Sizzle, Hiss. And thus we can see that "Sizzle" sound has the max probability of 60%, and is this the most likely sound when the OUTPUT value is above 150.
+
+
+      OUTPUT > 150 -> Max Probability of finding "Sizzle"
+100 < OUTPUT < 150 -> Max Probability of finding "Rumble"
+ 70 < OUTPUT < 100 -> Max Probability of finding "Kaboom"
+ 50 < OUTPUT < 70  -> Max Probability of finding "Hiss"
+ 20 < OUTPUT < 50  -> Max Probability of finding "Tick"
+      OUTPUT < 20  -> Max Probability of finding "Gargle"
+
+```
+
+As we can see, that the 4 Input attributes are used to calculate the OUTPUT values based on a polynomial formula, and the particular formula is choosen by the Switch attribute.
+
+After finding the OUTPUT values, then the decision tree like structure can be implemented to assign Sound attribute to corresponding OUTPUT value based on the chart above.
+
+- **How the data was generated for Challenge 4 in R**
+
+```text
+
+# Load The Data
+dat<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22_answer.csv",stringsAsFactors = T)
+
+dat$OUTPUT <- rep(0,nrow(dat))
+
+dat$OUTPUT <- ((dat$INPUT1^2) - (1.5*dat$INPUT3) + sample(5:10,1))
+
+dat[dat$SWITCH == "Low",]$OUTPUT <- (dat[dat$SWITCH == "Low",]$INPUT1 + (5*dat[dat$SWITCH == "Low",]$INPUT2) - (2*dat[dat$SWITCH == "Low",]$INPUT3) + sample(2:5,1))
+
+dat[dat$SWITCH == "Minimum",]$OUTPUT <- ((3*dat[dat$SWITCH == "Minimum",]$INPUT2) - (2*dat[dat$SWITCH == "Minimum",]$INPUT4) + sample(2:3,1))
+
+
+dat$predSound <- rep('Empty',nrow(dat))
+dat[dat$OUTPUT>150,]$predSound<-'Sizzle'
+dat[dat$OUTPUT>=100 & dat$OUTPUT<150,]$predSound<-'Rumble'
+dat[dat$OUTPUT>=70 & dat$OUTPUT<100,]$predSound<-'Kaboom'
+dat[dat$OUTPUT>=50 & dat$OUTPUT<70,]$predSound<-'Hiss'
+dat[dat$OUTPUT>=20 & dat$OUTPUT<50,]$predSound<-'Tick'
+dat[dat$OUTPUT<20,]$predSound<-'Gargle'
+
+
+mean(dat$SOUND==dat$predSound)
+```
+
+---
+
+### Top Submissions for Challenge 4
+
+Since this challenge involved stochastically generated data, the prediction accuracy required for passing this challenge was above 60%.
+
+1. Nicole Coria     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred41">Nicole's PPT</button>
+<div id="pred41" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/nicolepred41.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - This was the top submission based on accuracy score, with a final score more than 68.7%
+  - The approach to solving this challenge was iterative and trail and error based. 
+    - First, since the task is to predict categorical data, she decided to use rpart(directly).
+    - Then, over iteration, by varying the control parameters of rpart, she tried to find the model with the highest accuracy.
+  - Use of cross-validation also helped in finding the best fit model.
+  
+  
+2. Atharva Patil     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred42">Atharva's PPT</button>
+<div id="pred42" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/atharvapred41.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+  - This was another top submission based on accuracy score, with final score above 68%
+  - The approach to solving the task was very well implemented, using external resources too.
+    - Atharva tried to analyze the data first. To do this, he used Prof. Imielinski's online platform called [Boundless Analytics](http://www.foreveranalytics.com){target="_blank"}.
+      - This online platform has ability to analyze the data automatically, and create plots which only matter or provide more information about the data.
+      - It eliminates the need to perform the data analysis manually.
+  - Then, he proceeded by building the model using the rpart() function and control parameters.
+
+
+3. Andrew Scovell     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred43">Andrew's PPT</button>
+<div id="pred43" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/andrewpred4.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+    
+  - Bennett had a final accuracy score of above 68% and was one of the top submissions for this challenge.
+  - He did a very extensive data analysis using all the attributes of the dataset.
+    - He also tried analyzing using mean, sums, standard deviation, etc of the numerical inputs.
+  - Using the control parameters of the rpart() function he tried to find the best fitting model, and used cross-validation to avoid overfitting.
+  
+---
+
+To perform any of the above challenges yourself, visit the appropriate links.
+
+1. Prediction Challenge 1 [https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d](https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d){target="_blank"}
+1. Prediction Challenge 2 [https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b](https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b){target="_blank"}
+1. Prediction Challenge 3 [https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd](https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd){target="_blank"}
+1. Prediction Challenge 4 [https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe](https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe){target="_blank"}
+    

@@ -1,0 +1,20 @@
+# Saving Generated images.
+svg("../files/img/modeling/rcontrolsplit.svg")
+rpart.plot(tree,extra = 2)
+dev.off()
+
+# Redirect to new tab
+{target="_blank"}
+
+# Scrollable table
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+
+# Embed a PDF file using google docs viewer in HTML
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#pred23">TEXT</button>
+<div id="pred23" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/shuohaopred2.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>

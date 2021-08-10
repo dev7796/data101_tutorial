@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Data Exploration | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Data Exploration | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Data Exploration | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="stateval.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a>
+<a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>7</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>7.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>7.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="7.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>7.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>7.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>8</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>8.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="8.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>8.2</b> Random Forest</a></li>
+<li class="chapter" data-level="8.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>8.3</b> SVM</a></li>
+<li class="chapter" data-level="8.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>8.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>9</b> Blog: Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>9.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="9.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>9.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>9.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="9.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>9.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>9.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>9.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="9.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>9.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>9.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>9.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="9.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>9.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>9.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>9.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="9.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>9.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataexp" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Data Exploration</h1>
+<script src="files/js/dcl.js"></script>
+<div id="plots" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Plots</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 2.1: </span>Snippet of Moody Dataset</caption>
+<thead>
+<tr class="header">
+<th align="right">score</th>
+<th align="left">grade</th>
+<th align="left">texting</th>
+<th align="left">questions</th>
+<th align="right">participation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">26.89</td>
+<td align="left">F</td>
+<td align="left">never</td>
+<td align="left">never</td>
+<td align="right">0.41</td>
+</tr>
+<tr class="even">
+<td align="right">71.57</td>
+<td align="left">B</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td align="right">90.11</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">never</td>
+<td align="right">0.27</td>
+</tr>
+<tr class="even">
+<td align="right">31.52</td>
+<td align="left">D</td>
+<td align="left">sometimes</td>
+<td align="left">rarely</td>
+<td align="right">0.68</td>
+</tr>
+<tr class="odd">
+<td align="right">95.94</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.09</td>
+</tr>
+<tr class="even">
+<td align="right">45.72</td>
+<td align="left">D</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="odd">
+<td align="right">90.82</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="even">
+<td align="right">75.52</td>
+<td align="left">B</td>
+<td align="left">sometimes</td>
+<td align="left">never</td>
+<td align="right">0.28</td>
+</tr>
+<tr class="odd">
+<td align="right">52.31</td>
+<td align="left">C</td>
+<td align="left">never</td>
+<td align="left">never</td>
+<td align="right">0.67</td>
+</tr>
+<tr class="even">
+<td align="right">39.57</td>
+<td align="left">D</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.40</td>
+</tr>
+</tbody>
+</table>
+<!-- --- -->
+<!-- ### Topics visited in this sub-chapter -->
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+<hr />
+<div id="scatter-plot" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Scatter Plot</h3>
+<ul>
+<li>Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)</li>
+<li>Hence it is used when both the labels are numerical values.</li>
+</ul>
+Lets look at example of scatter plot using Moody.
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5wbG90KG1vb2R5JHBhcnRpY2lwYXRpb24sbW9vZHkkc2NvcmUseWxhYj1cInNjb3JlXCIseGxhYj1cInBhcnRpY2lwYXRpb25cIixtYWluPVwiIFBhcnRpY2lwYXRpb24gdnMgU2NvcmVcIixjb2w9XCJyZWRcIikifQ==
+</div>
+<hr />
+</div>
+<div id="bar-plot" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Bar Plot</h3>
+<ul>
+<li>A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector.</li>
+<li>This rectangle height is proportional to the value of the variable in the vector.</li>
+<li>Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)</li>
+<li>In a bar plot, you can also give different colors to each bar.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNsZXRzIG1ha2UgYSB0YWJsZSBmb3IgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyBhbmQgY291bnRzIG9mIHN0dWRlbnRzIGZvciBlYWNoIEdyYWRlLiBcblxudDwtdGFibGUobW9vZHkkZ3JhZGUpXG5cbiNvbmNlIHdlIGhhdmUgdGhlIHRhYmxlIGxldHMgY3JlYXRlIGEgYmFycGxvdCBmb3IgaXQuXG5cbmJhcnBsb3QodCx4bGFiPVwiR3JhZGVcIix5bGFiPVwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsY29sPWNvbG9ycyxcbm1haW49XCJCYXJwbG90IGZvciBzdHVkZW50IGdyYWRlIGRpc3RyaWJ1dGlvblwiLGJvcmRlcj1cImJsYWNrXCIpIn0=
+</div>
+<hr />
+</div>
+<div id="box-plot" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Box Plot</h3>
+<ul>
+<li>A boxplot shows the distribution of data in a dataset.</li>
+<li>A boxplot shows the following things:
+<ul>
+<li>Minimum</li>
+<li>Maximum</li>
+<li>Median</li>
+<li>First quartile</li>
+<li>Third quartile</li>
+<li>Outliers</li>
+</ul></li>
+<li>You can create a single boxplot using just a vector or a multiple boxplot using a formula.</li>
+<li>When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
+</div>
+<!-- ## 4. Histogram -->
+<!-- Refer Slide 15. -->
+<!-- ```{r} -->
+<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
+<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
+<!-- # You can Change column range using breaks. -->
+<!-- ``` -->
+<!-- For more detail,reference and example refer Slides -->
+<hr />
+</div>
+<div id="mosiac-plot" class="section level3" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Mosiac Plot</h3>
+<ul>
+<li>Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.</li>
+<li>The length of the rectangles in the mosaic plot represents the frequency of that particular value.</li>
+<li>The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+-For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at mosiac plot.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNzdXBwb3NlIHlvdSB3YW50IHRvIGZpbmQgbnVtYmVycyBvZiBzdHVkZW50cyB3aXRoIGEgcGFydGljdWxhciBncmFkZSBiYXNlZCBvbiB0aGVpciB0ZXh0aW5nIGhhYml0cy4gVXNlIE1vc2lhYy1wbG90LlxuXG5tb3NhaWNwbG90KG1vb2R5JGdyYWRlfm1vb2R5JHRleHRpbmcseGxhYiA9ICdHcmFkZScseWxhYiA9ICdUZXh0aW5nIGhhYml0JywgbWFpbiA9IFwiTW9zaWFjIG9mIGdyYWRlIHZzIHRleGluZyBoYWJpdCBpbiBjbGFzc1wiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIikifQ==
+</div>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+</div>
+</div>
+<div id="freestyle" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Free Style data exploration with just seven R commands " R.7 "</h2>
+<script src="files/js/dcl.js"></script>
+<p>Now as you know to make simple, but quite colorful, basic graphs it is time to go one step further and use the plots to explore your data. This is the subject of the process known as data exploration.</p>
+<p>We will begin with what we call, the free style data exploration. We call it free style, since we are not going to use any sophisticated libraries, but rather just seven basic of commands of R. We call this set of commands - R.7. And with these seven commands of R.7 we will be able to do quite a bit of data exploration. We will be able to slice and dice data any way we want to.</p>
+<p>No statistics yet, and no more sophisticated R programs.These will come later. For now, we are just feeling the data with four plots and three R instructions:
+<em>subset(), table() and tapply()</em></p>
+<p>Through this section we will use our usual initial example, of synthetically generate data describing mysterious methods of grading used by an eccentric Professor Moody. We have been using different versions of this <em>data puzzle</em> over the 6 years of teaching data 101. Data is different but narrative is always the same:</p>
+<div id="Moodyexplaination" class="section level4" number="2.2.0.1">
+<h4><span class="header-section-number">2.2.0.1</span> Professor Moody Puzzle</h4>
+<ul>
+<li><p>Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint: he DOES NOT seem to assign grades fairly. Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.</p></li>
+<li><p>A new brave TA, managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by ….messing a bit with Moody’s computer….well, let’s not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.</p></li>
+<li><p>Looks like Professor Moody is in fact very alert in class. He is aware of what students do, detecting texting during class and remembering exactly who asked many questions in class. He also keeps the mysterious “participation index” which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class. Remarkable but a little creepy, isn’t it?</p></li>
+<li><p>What is the best advice the new TA, can give future students how to get a good grade in Professor Moody’s class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.</p></li>
+</ul>
+The Moody data set is defined here by the following attributes
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-121">Table 2.2: </span>Snippet of Moody Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+score
+</th>
+<th style="text-align:left;">
+grade
+</th>
+<th style="text-align:left;">
+texting
+</th>
+<th style="text-align:left;">
+questions
+</th>
+<th style="text-align:right;">
+participation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+26.89
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+71.57
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90.11
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+31.52
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+95.94
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.09
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+45.72
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90.82
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+75.52
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+52.31
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.67
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39.57
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moody[score, grade, participation, questions, texting]
+Score and grade are self explanatory. Participation is supposedly measuring students participation in class. We do not know whether higher participation would necessarily be positive, since Professor Moody’s mood changes from year to year and he may be annoyed by students who are too active and bother him too much. Who knows? We have to find out.</p>
+<p>Attribute “questions” has several values “always”, “frequently”, “sometimes” and “never”. So does the attribute “texting”. In our data set there are students who are are always texting and who never ask any questions. Oh, yes, and some students participation index is almost zero. Guess what grade are they getting? F, you probably guess. Well, but about their score.It should matter probably. At least to some degree!</p>
+<p>Grading rules, which Professor Moody applies each year are different. The objective of our free style data exploration is to find some leads/hypotheses which would help us direct students what they should do to get a good grade in his class.</p>
+<p>This is a good illustration of what data exploration is and can achieve. It is just an example, but one can of course easily see that, things we discuss here, applies to any data sets.</p>
+<p>Data exploration can be viewed as an indefinite loop:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="dataexp.html#cb1-1" aria-hidden="true" tabindex="-1"></a>REPEAT{</span>
+<span id="cb1-2"><a href="dataexp.html#cb1-2" aria-hidden="true" tabindex="-1"></a>Plot,one or many plots.</span>
+<span id="cb1-3"><a href="dataexp.html#cb1-3" aria-hidden="true" tabindex="-1"></a>Transform Data.</span>
+<span id="cb1-4"><a href="dataexp.html#cb1-4" aria-hidden="true" tabindex="-1"></a>} UNTIL GRATIFICATION</span></code></pre></div>
+<p>Put yourself in the position of a student in Moody’s class. What does s/he want to know?</p>
+<ul>
+<li><p>What should I do in order to pass his class aside from getting the best score possible?</p></li>
+<li><p>Ask many questions?</p></li>
+<li><p>Do not text?</p></li>
+<li><p>Come to class as often as you can? Presumably improving participation index?</p></li>
+</ul>
+<p><em>What is the approach?</em></p>
+<p>First you need “kick the tires”, make some plots, feel the data and perhaps rule out the obvious. In case of Professor Moody data it may mean the following:
+- Test if straightforward mapping of scores into grades work in Professor Moody’s class.
+Admittedly it is a long shot. We expect more from professor Moody than just merely following the scoring intervals with A above, say 85, B between 70 and 85 etc!</p>
+<p>But we need to establish that it is not the case quickly. Since it would be embarrassing to miss the obvious and simplest recommendation. Just score as high as you can. Otherwise no need to come to class, and in class you can text as much as you want to and ask no questions. Does not matter what else you do. You may never ask any questions, always text in class or simply…never even show up. All it matters is score!</p>
+<p>There is just one plot which can quickly establish whether this simple rule works. And it is the boxplot.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5ib3hwbG90KG1vb2R5JHNjb3JlIH4gbW9vZHkkZ3JhZGUsIG1haW4gPSAnRGlzdHJpYnV0aW9uIG9mIFNjb3JlcyBieSBHcmFkZScsIHlsYWIgPSdTY29yZSAob3V0IG9mIDEwMCknLCB4bGFiID0gJ0xldHRlciBHcmFkZScsY29sPWMoJ3JlZCcsJ2JsdWUnLCdncmVlbicsJ2N5YW4nLCd5ZWxsb3cnKSkifQ==
+</div>
+<p>As illustrated by the boxplot, there are significant overlaps between successive grades. This disproves that there is a deterministic function between score and grade. At least it is not always a function. If your score falls in certain “gray” areas you may get either one of two grades (A or B, B or C, C or D, D or F). And we do not know what is this additional “decider” in such case when score falls into this gray area.</p>
+<p>Here is how we can check which factors may impact the grade. One way of doing this analysis is to make barplots for all possible slices of Moody data frame by a given categorical variable</p>
+<p>For example,we want to know if asking questions “matters” for the grade? This can be validated by comparing barplots of grade distribution for different values of attribute “questions”.You can either do it by applying the mosaic plot which allows for two-dimensional representation of data and allows to create multicolored table for grade x questions to eyeball if values of attribute “questions” matter for values of attribute “grade”.</p>
+<p>To dig deeper into the relationship of categorical variables “questions” and “texting” with “grade” we will use sequence of bar plots over subsets of the Moody data frame. Then we will follow with the mosaic plots.</p>
+<p>The following slices represent subsets of the Moody data frame for each of the values of the attribute “questions”
+<!-- ```txt -->
+<!-- moody[moody$questions==’always’,] --></p>
+<!-- moody[moody$questions==’frequently’,] -->
+<!-- moody[moody$questions==’sometimes’,] -->
+<!-- moody[moody$questions==’never’,] -->
+<!-- ``` -->
+<p>The command <span class="math inline">\(\color{violet}{\text{table}}\)</span> (one of the 7 commands) will provide us grade distribution for each of these slices.
+<!-- `table(moody[moody$questions==’always’,]$grade)` --></p>
+<p>And the barplot, will visualize this table.</p>
+<p>Let’s look at the example of the above process for students who always ask question.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5iYXJwbG90KHRhYmxlKG1vb2R5W21vb2R5JHF1ZXN0aW9ucz09J2Fsd2F5cycsXSRncmFkZSksbWFpbiA9ICdGcmVxdWVuY3kgb2Ygc3R1ZGVudHMgYnkgR3JhZGUgd2hvIFwiYWx3YXlzXCIgYXNrIHF1ZXN0aW9ucycsIHlsYWIgPSdGcmVxdWVuY3knLCB4bGFiID0gJyBHcmFkZScsY29sPWMoJ3JlZCcsJ2JsdWUnLCdncmVlbicsJ2N5YW4nLCd5ZWxsb3cnKSlcblxuI05vdGljZSB0aGF0IHlvdSBjYW4gbW9kaWZ5IHRoZXNlIGJhcnBsb3RzIGdyYXBocyBhbmQgcmVwbGFjZSB0aGUgdmFsdWUgb2YgbW9vZHkkcXVlc3Rpb25zIGF0dHJpYnV0ZXMgZnJvbSBcImFsd2F5c1wiIHRvIFwic29tZXRpbWVzXCIgb3IgXCJuZXZlclwiIGFuZCBzZWUgaW1wYWN0IHRoZXNlIG5ldyBzbGljZXMgaGF2ZSBvbiB0aGUgZ3JhZGUgZGlzdHJpYnV0aW9uLiBKdXN0IGNoYW5nZSB0byBjb2RlIGFib3ZlIGFuZCBydW4gaXQuIFlvdSBjYW4gYWxzbyBjaGFuZ2UgdGhlIG1vb2R5JHF1ZXN0aW9ucyBhdHRyaWJ1dGUgYW5kIHJlcGxhY2UgaXQgd2l0aCB0aGUgbW9vZHkkdGV4dGluZyBhdHRyaWJ1dGUgYW5kIGl0cyBkaWZmZXJlbnQgdmFsdWVzLiBUaHVzIHlvdSBjYW4gcnVuIDYgZGlmZmVyZW50IGJhcnBsb3RzIHVzaW5nIHRoZSBjb2RlIGFib3ZlIGFuZCBzZWUgaG93IEdyYWRlIGRpc3RyaWJ1dGlvbiBpcyBhZmZlY3RlZCBmb3IgZWFjaCBvZiB0aGVzZSA2IGNhc2VzLiJ9
+</div>
+<p>We can also run two mosaic plots of GRADE vs “questions” or “texting” respectively - and be able to asses the same - do these attributes matter for the grade?</p>
+In the following command we can combine attribute grade with anyone of the behavioral attributes
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5tb3NhaWNwbG90KG1vb2R5JGdyYWRlfm1vb2R5JHRleHRpbmcseGxhYiA9ICdHcmFkZScseWxhYiA9ICdUZXh0aW5nIGhhYml0JywgbWFpbiA9IFwiTW9zaWFjIG9mIGdyYWRlIHZzIHRleGluZyBoYWJpdCBpbiBjbGFzc1wiLGNvbD1jKCdyZWQnLCdibHVlJywnZ3JlZW4nLCdjeWFuJywneWVsbG93JyksYm9yZGVyPVwiYmxhY2tcIikifQ==
+</div>
+<p>This can be concluded by comparing different columns and rows of the mosaic table. If grade distribution is similar for different values of behavioral attributes, this would indicate that these attributes do not matter in the establishing the grade. On the other hand we may “catch professor Moody” and find out that for some value of some attribute, grade distribution is significantly affected. This was the case several years ago when students sitting in the first row, got a grade bump up, even if they get similar scores to students sitting in the back row. In that case one of the extra attributes included the row where students were sitting during class.</p>
+<p>We can see that asking many questions (frequently and always) really matters for the grade, there is more A’s and more B’s for these slices than in general.</p>
+<p>But this may have nothing to do with Professor Moody rewarding students with the bonus for asking questions. It may be simply the case that such students are more involved and study harder (or are more interested in the topic) and simply get higher scores. We need to dig deeper and see which of the two is the case. Moody’s just gives his personal bonus to students who ask a lot of questions or no such bonus is given – such students simply score higher.</p>
+<p>We can accomplish this using again one of the seven R commands – the tapply.</p>
+<!-- `tapply(moody$score, moody$questions, mean)` -->
+<pre><code>##   always    never   rarely 
+## 51.08277 56.32474 53.69217</code></pre>
+<p>will return average score for each of the values of the attribute moody$questions.</p>
+If this values are more or less uniform than it will informally (not statistically yet, for this we have to wait for the next sections) show that questions matter in professor moody grading method and are not just correlated with student’s score.
+Take a look at
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5iYXJwbG90KHRhcHBseShtb29keSRzY29yZSwgbW9vZHkkcXVlc3Rpb25zLCBtZWFuKSwgeGxhYiA9ICdxdWVzdGlvbiBjYXRlZ29yaWVzJyx5bGFiID0gJ1Njb3JlIEF2ZXJhZ2UnLCBtYWluID0gXCJNZWFuIFNjb3JlIHZzIFF1ZXN0aW9ucyBBc2tlZCB1c2luZyB0YXBwbHkoKVwiLGNvbD1jKCdyZWQnLCdibHVlJywnZ3JlZW4nLCdjeWFuJywneWVsbG93JyksYm9yZGVyPVwiYmxhY2tcIikifQ==
+</div>
+<p>What is the conclusion?</p>
+<p>Does asking questions often imply higher score? Or it does not affect the score but affects the grade through the grading rules of Professor Moody.</p>
+<p>Similarly, does asking questions often imply higher score? Or it does not affect the score but affects the grade through the grading rules of Professor Moody.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5iYXJwbG90KHRhcHBseShtb29keSRzY29yZSwgbW9vZHkkdGV4dGluZywgbWVhbiksIHhsYWIgPSAndGV4dGluZyBjYXRlZ29yaWVzJyx5bGFiID0gJ1Njb3JlIEF2ZXJhZ2UnLCBtYWluID0gXCJNZWFuIFNjb3JlIHZzIFRleHRpbmcgdXNpbmcgdGFwcGx5KClcIixjb2w9YygncmVkJywnYmx1ZScsJ2dyZWVuJywnY3lhbicsJ3llbGxvdycpLGJvcmRlcj1cImJsYWNrXCIpIn0=
+</div>
+<p>shows that mean scores are the same across different values of the “texting”attribute. Same is true for the mean scores of “questions” attribute.</p>
+<p>Neither do these two attributes “texing” and “questions” seem to have impact on the grade.</p>
+<p>Therefore it seems that the “behavioral” attributes: questions and texting do not seem to have an impact on the grade.</p>
+<p>Lets examine participation attribute. This is the only culprit left - to explain different grades in the “grey” intervals of score.</p>
+<p>We define intervals of score as clear, if there is only one grade associated with scores from such interval. The remaining intervals are defined as grey - scores where grade can be either A or B, B or C, C or D and D or F respectively.<br />
+<!-- We can run a simple R commands to establish the bounds for score intervals for each grade. -->
+<!-- ```txt -->
+<!-- LowestA<-min(moody[moody$grade=='A', ]$score) -->
+<!-- HighestB<-max(moody[moody$grade=='B', ]$score) -->
+<!-- LowestB<-min(moody[moody$grade=='B', ]$score) -->
+<!-- HighestC<-max(moody[moody$grade=='C', ]$score) -->
+<!-- LowestC<-min(moody[moody$grade=='C', ]$score) -->
+<!-- HighestD<-max(moody[moody$grade=='D', ]$score) -->
+<!-- LowestD<-min(moody[moody$grade=='D', ]$score) -->
+<!-- HighestF<-max(moody[moody$grade=='F', ]$score) -->
+<!-- ``` -->
+<!-- Then the grey intervals of score, corresponding to multiple grades are as follows: --></p>
+<!-- - <HighestB, LowestA> -->
+<p>Then we can examine how participation influences grades in these gray areas of score. Our hypothesis is that higher participation would probably offer better odds for higher grade.
+We can run the following command for different values of q.</p>
+<p>Let q be a threshold of participation which we want to test. May be if participation is higher than q, higher grade (from the two possible grades in the gray area of score) is given, while if participation is lower than q, it works against a student, who then gets lower grade?</p>
+<p>Lets check how the grade distribution changes for different values of q from the lower values of q to higher values of q. We can just change q directly in the code below, and see results immediately.</p>
+<p>Run the following command for different values of q. We will only show it for the grey interval between A and B. The same process can be repeated for other gray areas between B and C, C and D and D and F. In fact one can modify the code below by just replacing grade A and B with B and C respectively as well as
+replacing the variables LowestA with Lowest B and Highest B with Highest C respectively.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5cbiNTaW1wbGUgUiBjb21tYW5kcyB0byBnZXQgaW50ZXJ2YWwgZm9yIGVhY2ggZ3JhZGUuXG5Mb3dlc3RBPC1taW4obW9vZHlbbW9vZHkkZ3JhZGU9PSdBJywgXSRzY29yZSlcbkhpZ2hlc3RCPC1tYXgobW9vZHlbbW9vZHkkZ3JhZGU9PSdCJywgXSRzY29yZSkgXG4jVGhpcyBnaXZlcyB1cyBpbnRlcnZhbCA8SGlnaGVzdEIsIExvd2VzdEE+XG5wcmludChjKExvd2VzdEEsSGlnaGVzdEIpKVxuXG5xPTAuNSAjIFBsZWFzZSBFZGl0IHRoaXMgXCIgcSBcIiB2YWx1ZSBhbmQgc2VlIHRoZSBjaGFuZ2VzIGFzIG1lbnRpb25lZCBhYm92ZS5cbnRhYmxlKG1vb2R5W21vb2R5JHNjb3JlPkxvd2VzdEEgJiBtb29keSRzY29yZTxIaWdoZXN0QiYgbW9vZHkkcGFydGljaXBhdGlvbiA+IHEsXSRncmFkZSlcblxuI05vdGUgdGhlIHNhbWUgcHJvY2VzcyBjYW4gYmUgcmVwZWF0ZWQgd2l0aCBvdGhlciBhZGphY2VudCBncmFkZXMuIEV4OiA8QixDPiBldGMuIn0=
+</div>
+<p>Please verify that for higher values of 0&lt;q&lt;1, the table operation show higher percentages of better grades.</p>
+<p>Is there a critical value of q which clearly separates, say A’s from B’s? It seems to be q=0.6 - but it is not a clear cut deterministic. Rather, higher value of participation threshold, q increases probability (frequency) of getting As.</p>
+<p>We come to conclusion that participation matter in grey area of score, in having higher chance for better grade, if participation is higher. Thus, just in case (since no one can predict if they will end up in border line score) it is better to earn high participation index – by (probably) coming to class more often and participating in discussions, and answering professor Moody’s questions.</p>
+<p>Simply put “come to as many classes as you can”. But while in class, do not worry about texting or asking questions. These two attributes do not seem to matter.</p>
+<p><strong>Now we can reveal how data was generated? What was the real rule embedded in the data.</strong></p>
+<p>Now it is time to reveal how we generated our data?</p>
+<p>This what we embedded in our data generation method: participation increases the chances of higher grade in the gray areas of score (border areas).</p>
+<p>We have indeed defined border areas in score value. In this border areas of score, participation plays a role.
+Student whose’s score falls into the grey area may get one of two grades, A or B, B or C, C or D and D or F, depending on the score.For example score of 72 may result in A or B. It is more likely to be A if student’s participation is high (higher the better the odds of getting A). If student’s participation is low, it is much more likely to result in lower grade, for the score of 72, it would be B.</p>
+<p>Therefore we have discovered more or less the rule which guided generation of the Moody’s data set and provided students with actionable intelligence how to increase chances of getting higher grade.</p>
+<p>Relationship between participation, score and grade</p>
+<p>In the process of slicing, dicing and plotting the data we would also discover other interesting relationships still using just 7 commands.</p>
+<p>Does higher participation mean higher score, in general? Meaning that coming to class is positively correlated with higher score?</p>
+We can run scatter plot
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5wbG90KG1vb2R5JHBhcnRpY2lwYXRpb24sIG1vb2R5JHNjb3JlKSJ9
+</div>
+<p>To our surprise it looks like the higher the participation, the lower the score! The distinct linear patterns in scatter graph seem to be sloping down with participation. We are tempted to infer that participation is bad for score, that somehow Moody’s lectures have negative impact on the score - hence do not carry pedagogical value. Such conclusion is typical confusion between correlation and causation. What is true in our simulated data set - that students had some prior background in the subject matter of Professor Moody just do not show up in class that often. They already know the material. Students who do show up are the ones who are not confident in their knowledge of the subject matter - in general “weak A’s” and below. Then of course lower grade students (D’s and F’s) just simply do not apply themselves that much - are not invested into the class and just show up in class even less. Thus, the explanation probably has more to do with the students attribute about the class than with the pedagogical value of Professor Moody’s lectures.</p>
+<p>We can change values of parameters q and s
+and examine in more detail the relationships between scores and participation.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5cbiNJbnRlcmVzaW5nIGFuYWx5c2lzIGhhcyB0byBkbyB3aXRoIGRpZ2dpbmcgZGVlcGVyIGludG8gcmVsYXRpb25zaGlwIGJldHdlZW4gcGFydGljcGF0aW9uIGFuZCBzY29yZS4gV2hhdCBhcmUgdGhlIHNjb3JlcyBvZiBzdHVkZW50cyB3aG8gcGFydGljaXBhdGUgbGVzcyB0aGFuIHNvbWUgdmFsdWUgcSA8MS4gV2hhdCBhcmUgdGhlIHBhcnRpY2lwYXRpb24gdmFsdWVzIG9mIHN0dWRlbmV0cyB3aG8gc2NvcmUgbGVzcyB0aGFuIHM/ICAgQnkgY2hhbmdpbmcgdGhlIHZhbHVlcyBvZiBxIGFuZCBzIGluIHRoZSBjb2RlIHlvdSBjYW4gZ2FpbiBtb3JlIGluc2lnaHQgaW50byByZWxhdGlvbnNoaXAgYmV0d2VlbiBwYXJ0aXBhdGlvbiBhbmQgc2NvcmUuXG5cbiMgQ2hhbmdlIHRoZSB2YWx1ZXMgb2YgXCJxXCIgYW5kIFwic1wiIGJlbG93LlxucTwtMC4xXG5zPC03MFxubWVhbihtb29keVttb29keSRwYXJ0aWNpcGF0aW9uIDxxLF0kc2NvcmUpXG5tZWFuKG1vb2R5W21vb2R5JHNjb3JlIDxzLF0kcGFydGljaXBhdGlvbikifQ==
+</div>
+Exploring Behaviors of Students in professor Moody’s class.
+One may even drop the grade entirely from the picture and simply inquire about behavioral characteristics of Professor Moody’s students.
+We already know what is the distribution of each type of behavior
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG50YWJsZShtb29keSRxdWVzdGlvbnMpO1xudGFibGUobW9vZHkkdGV4dGluZykifQ==
+</div>
+<p>But lets ask for associations between behaviors</p>
+<ul>
+<li><p>Do students who ask a lot of questions also spend little time texting?</p></li>
+<li><p>Do students who participate more, generally texting less?</p></li>
+</ul>
+<p>These questions have nothing to do with students performance.</p>
+<p>But can all be answered using simple R.7 commands.</p>
+<p>Same data may serve different purposes. We started with predicting what behaviors help getting higher grade in professor Moody’s class. But we can imagine a different study – which is addressing student behavior in professor Moody’s class. Yet another study could address the impact of behavioral attributes on students scores (not grades). All these analysis can be done using or free style exploration and R.7.</p>
+<p><em>What we discover, and lets be very clear about it is not yet guaranteed to be statistically valid. </em></p>
+<p>For this we need statistical evaluation, The p-values, the z-tests etc. Later we will also find statistical functions which can greatly help in data exploration.</p>
+<p>Free style exploration role is to generate leads known otherwise as conjectures or hypotheses.</p>
+<p>Our professor Moody’s data puzzle has been traditional the first data puzzle we ask students to solve in data 101 class. Here are some examples of conclusions reached on different instances of professor Moody’s data set in the past semesters. Notice that attributes of Moody’s data set in past may have been different (like “sleeping in class”)</p>
+<p>Here is the set of recommendations from former student who cracked that year’s professor Moody’s puzzle (or did she?)</p>
+<pre><code>“Judging by plots and means calculated earlier, there are several factors, besides score, that affect students’ grades:
+•   Sleeping in class increases grade
+•   Texting in class decreases grades a little
+•   Being active(participating) in class all the time significantly increases the  grade, BUT:
+•   Being active(participating) in class just occasionally decreases the grade even more, than not participating at all.
+•   Being active only occasionally significantly decreases the grades.
+•   Texting does not significantly affect grades .
+So for students in order to succeed in professor Moody’s class, my advice will be(besides getting high score):
+•   VERY IMPORTANT: Participate all the time., or do not participate at all!!!
+•   Sleep in class(especially if you do not participate anyway)
+•   While texting might bring down your grade a little bit, the difference is very small”
+</code></pre>
+<!-- ```{r child="./chapters/datatransformation.Rmd"} -->
+<!-- ``` -->
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stateval.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

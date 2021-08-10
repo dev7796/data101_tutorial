@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Blog: Prediction Challenges | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Blog: Prediction Challenges | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Blog: Prediction Challenges | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="models.html"/>
+
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a>
+<a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>7</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>7.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>7.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="7.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>7.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>7.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>8</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>8.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="8.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>8.2</b> Random Forest</a></li>
+<li class="chapter" data-level="8.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>8.3</b> SVM</a></li>
+<li class="chapter" data-level="8.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>8.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>9</b> Blog: Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>9.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="9.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>9.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>9.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="9.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>9.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>9.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>9.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="9.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>9.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>9.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>9.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="9.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>9.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>9.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>9.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="9.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>9.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="predblogs" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Blog: Prediction Challenges</h1>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<p>Until we have studied multiple methods of data analysis in sections <a href="dataexp.html#freestyle">2.2</a>,<a href="datatransformation.html#datatransformation">5</a>, statistical testing in sections <a href="stateval.html#stateval">3</a>, &amp; building prediction models for both classification <a href="classification.html#classification">6</a> and regression <a href="regression.html#regression">7</a> along with advanced ML models <a href="models.html#models">8</a>.</p>
+<p>Now its time to utilize them in various ways for analysis and prediction of data.</p>
+<p>To do this, in this course, we have designed few prediction challenges, which test your ability to implement skills learnt in the course until now.</p>
+<p>First challenge is a basic prediction challenge using only data analysis using the freestyle techniques from section <a href="dataexp.html#freestyle">2.2</a>.</p>
+<p>Then onwards, prediction challenges used multitude of modeling techniques which were studied in <a href="classification.html#classification">6</a> and <a href="regression.html#regression">7</a>.</p>
+<hr />
+<div id="general-structure-of-the-prediction-challenges." class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> General Structure of the Prediction Challenges.</h2>
+<p>Usually there is a task to be performed in each prediction challenge.</p>
+<p>Either predicting a numerical of categorical values is the task of each challenge.</p>
+<p>The way to perform those task are constrained differently for different prediction challenges based on levels of difficulty and ML models to be used.</p>
+<p>The submission will take place on <strong>Kaggle</strong> which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submission.</p>
+<p>The datasets provided for each prediction challenge is as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Training Dataset.
+<ul>
+<li>It is used for training and cross-validation purpose in the prediction challenge.</li>
+<li>This data has all the training attributes along and the ideal values of the prediction attribute.</li>
+<li>Models for prediction are to be trained using this dataset only.</li>
+</ul></li>
+<li>Testing Dataset.
+<ul>
+<li>It is used for prediction only.</li>
+<li>It consists of all the attributes that were used for training, but it does not contain any values of the actual prediction attributes, which is actually the attribute that the prediction challenge predicts.</li>
+<li>Since its only used for prediction purpose and is not involved in training of the models, it is thus not involved in the cross-validation phase too.</li>
+</ul></li>
+<li>Submission Dataset.
+<ul>
+<li>After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column.</li>
+<li>Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.</li>
+</ul></li>
+</ol>
+<ul>
+<li>To read the datasets use the <em>read.csv()</em> function and for writing the dataset to the file, use the <em>write.csv()</em> function.
+<ul>
+<li>Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.</li>
+<li>To avoid this, you can add the parameter, <code>row.names = F</code> in the <code>write.csv()</code> function. e.g. <code>write.csv(*dataframe*,*fileaddress*,row.names = F)</code>.</li>
+</ul></li>
+</ul>
+<p>Now lets look at the prediction challenges that took place in this course along with the top submissions by students.</p>
+<hr />
+</div>
+<div id="prediction-challange-1." class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Prediction Challange 1.</h2>
+<p>In Prediction challange 1, the task was to predict a categorical value using <em>only free-style</em> prediction.</p>
+<p>For this prediction challenge we used our favorite dataset, the Moody dataset, and predicted the Grade category of all students. The Grade category had only 2 factors: <em>Pass</em> OR <em>Fail</em>.</p>
+<p>Let look at a snippet of the moody dataset used for training in this challenge.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-115">Table 9.1: </span>Snippet of Moody Dataset(TRAINING) for Prediction Challenge 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Studentid
+</th>
+<th style="text-align:right;">
+Attendance
+</th>
+<th style="text-align:left;">
+Major
+</th>
+<th style="text-align:left;">
+Questions
+</th>
+<th style="text-align:right;">
+Score
+</th>
+<th style="text-align:left;">
+Seniority
+</th>
+<th style="text-align:left;">
+Texting
+</th>
+<th style="text-align:left;">
+Grade
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+29998
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+Stat
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+Freshman
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29999
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+Cs
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:left;">
+Fail
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30000
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30001
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Polsci
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30002
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:left;">
+Cs
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Fail
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30003
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Stat
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30004
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:left;">
+Stat
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30005
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Polsci
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+Junior
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Fail
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30006
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:left;">
+Polsci
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Sophomore
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Fail
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30007
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Rarely
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+Always
+</td>
+<td style="text-align:left;">
+Pass
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see that there are multiple attributes like <em>Score, Attendence, Major, etc.</em> that can be used as predictors, and then there is <em>Grade</em> attribute with ideal values for each record of student which will be used while training and then will be predicted on the testing dataset.</p>
+<!-- Lets look at the snippet of the moody dataset for testing. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test-students.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Moody Dataset(TESTING) for Prediction Challenge 1', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see that the *Grade* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+<!-- Also, lets look at the submission file for prediction challenge 1. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test-submission-file.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 1', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see there are only 2 columns *Studentid* and *Grade*. *Studentid* column's entries corresponds/are similar to the *Studentid* column of the testing data. Thus we need to just fill the *Grade* column with appropriate grade predicted by our analysis, corresponding to the same *Studentid* values in both test and submission data. -->
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 1](https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d){target="_blank"} -->
+<hr />
+<div id="how-the-data-was-generated-for-challenge-1" class="section level3" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> How the data was generated for Challenge 1</h3>
+<p>Professor Moody data set has been synthetically generated using random generator which follows probabilistic rules implementing “secret patterns” which we embedded in the data.</p>
+<p>These patterns are presented below in the form of decision tree. For example a rule that statistics major with score over 60, pass the class - reflects the generated data in which high percentage (but not 100%) of such students indeed pass Moody’s class. There will always be random exceptions to these rules. But majority of stat students with score above 60 will pass the class</p>
+<p>The data is based on a tree given by the following conditions:</p>
+<pre class="text"><code>Tree which is embedded in the data (secret pattern for Moody -challenge1/2)
+
+Major
+   Stat
+      Score &gt; 60 Pass
+      Score &lt;= 60  Fail
+   Comm
+      Score &gt;40  Pass
+      Score &lt;=40
+         Texting = Rarely   Fail
+          Texting = Always  PAss
+   Polsci
+      Score &gt;50  Pass
+      Score &lt;=50  
+         Questions = rare    Fail   
+         Questions = always  Pass
+   Cs
+      Score &gt;70      Pass
+      Score &lt;=70
+        Seniority= Freshman 
+             Score &gt;50 Pass
+             Score &lt;=50 
+               Attendance &gt;=60
+                    Score &gt; 40   Pass
+                    Score &lt;=40   Fail
+               Attendance &lt;60    Fail  
+         Seniority= Sophomore
+               Score &gt;50         Pass
+               Score &lt;=50        Fail
+         Seniority= Junior       Fail
+         Seniority = Senior Fail </code></pre>
+<p>We can see this in pictorial representation below based on each subset of Majors.</p>
+<ul>
+<li>For Stats Major:
+<ul>
+<li>We can see that the rule was very simple, with the final grade decided based on only the <em>Score</em> attribute of the students.</li>
+<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1stat.svg" title="fig:" alt="The tree used for predicting Stats Major students grade" /></li>
+<li>Thus finding this pattern would have been easier for students</li>
+</ul></li>
+<li>For Communication Major Students:
+<ul>
+<li>The grade prediction for students from the Communication Major was based not only on the <em>Score</em> attribute but was also based on <em>Texting</em> attribute of the students records.</li>
+<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1comm.svg" title="fig:" alt="The tree used for predicting Communications Major students grade" /></li>
+<li>As we can see, finding this pattern would have been not that difficult.</li>
+</ul></li>
+<li>For Political Science Major Students:
+<ul>
+<li>The grade prediction for students from the Political Science Major was based not only on the <em>Score</em> attribute but was also based on <em>Questions</em> attribute of the students records.</li>
+<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1polsc.svg" title="fig:" alt="The tree used for predicting Political Science Major students grade" /></li>
+<li>As we can see, finding this pattern would have been not that difficult.</li>
+</ul></li>
+<li>For Computer Science Major Students:
+<ul>
+<li>The grade prediction for students from the Computer Science Major was the most involved and was based on various students attribute.</li>
+<li>Attributes like <em>Score, Seniority and Attendance</em> were involved in prediction, and the subsetting conditions were very complex.</li>
+<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1cs.svg" title="fig:" alt="The tree used for predicting Communications Major students grade" /></li>
+<li>As we can see, finding this huge pattern would have been very difficult for students.</li>
+</ul></li>
+</ul>
+<p>If you want to see a well detailed data analysis of the dataset based on Majors as subset, then please look at <em>Rohit Manjunath’s</em> submission in the Top Submission section for prediction challenge 1.</p>
+<ul>
+<li><strong>How the data was generated using R</strong>
+<ul>
+<li>You can see a simple way to write the data using the above patterns.</li>
+</ul></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgRGF0YVxuZGF0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMXRlc3Qtc3R1ZGVudHMuY3N2XCIsc3RyaW5nc0FzRmFjdG9ycyA9IFQpXG5cbiMgQ3JlYXRlIGFuIGFsbCBGYWlsIENhdGVnb3J5L1ByZWRpY3RlZCBWYWx1ZSBWZWN0b3IgYW5kIGFwcGVuZCBpdCB0byB0aGUgdGVzdGluZyBkYXRhc2V0LlxuZGF0JEdyYWRlPC1yZXAoJ0ZhaWwnLCBucm93KGRhdCkpXG5cbiMgVGhlIHZhcmlvdXMgY29uZGl0aW9ucyB1c2VkIHRvIHByZWRpY3QgZ3JhZGUgYXR0cmlidXRlLlxuXG4jIEZvciBNYWpvciA9IFN0YXRcbmRhdFtkYXQkTWFqb3I9PSdTdGF0JyAmIGRhdCRTY29yZT42MCxdJEdyYWRlIDwtJ1Bhc3MnXG5cbiMgRm9yIE1ham9yID0gQ29tbVxuZGF0W2RhdCRNYWpvcj09J0NvbW11bmljYXRpb24nICYgZGF0JFNjb3JlPjQwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDb21tdW5pY2F0aW9uJyAmIGRhdCRTY29yZTw9NDAgJiBkYXQkVGV4dGluZz09J0Fsd2F5cycsXSRHcmFkZSA8LSdQYXNzJ1xuXG4jIEZvciBNYWpvciA9IFBvbHNjaVxuZGF0W2RhdCRNYWpvcj09J1BvbHNjaScgJiBkYXQkU2NvcmU+NTAsXSRHcmFkZSA8LSdQYXNzJ1xuZGF0W2RhdCRNYWpvcj09J1BvbHNjaScgJiBkYXQkU2NvcmU8PTUwICYgZGF0JFF1ZXN0aW9ucz09J0Fsd2F5cycsXSRHcmFkZSA8LSdQYXNzJ1xuXG4jIEZvciBNYWpvciA9IENzXG5kYXRbZGF0JE1ham9yPT0nQ3MnICYgZGF0JFNjb3JlPjcwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDcycgJiBkYXQkU2NvcmU8PTcwICYgZGF0JFNlbmlvcml0eT09J0ZyZXNobWFuJyAmIGRhdCRTY29yZT41MCxdJEdyYWRlIDwtJ1Bhc3MnXG5kYXRbZGF0JE1ham9yPT0nQ3MnICYgZGF0JFNjb3JlPD03MCAmIGRhdCRTZW5pb3JpdHk9PSdGcmVzaG1hbicgJiBkYXQkQXR0ZW5kYW5jZSA+PTYwICYgZGF0JFNjb3JlPjQwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDcycgJiBkYXQkU2NvcmU8PTcwICYgZGF0JFNlbmlvcml0eT09J1NvcGhvbW9yZScgJiBkYXQkU2NvcmU+NTAsXSRHcmFkZSA8LSdQYXNzJ1xuXG5cbiMgQ29tcGFyZSBpdCB3aXRoIHRoZSBpZGVhbCBwcmVkaWN0aW9ucyBmb3IgY2hlY2tpbmcgYWNjdXJhY3kgb2Ygb3VyIHByZWRpY3Rpb25zLlxuYW5zd2VyczwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvTTIwMjF0ZXN0X2Fuc3dlci5jc3ZcIixzdHJpbmdzQXNGYWN0b3JzID0gVClcbm1lYW4oZGF0JEdyYWRlPT1hbnN3ZXJzJEdyYWRlKSAjIEFjY3VyYWN5In0=
+</div>
+<p>Thus we can see, using the ideal patterns the students would have expected to score around 83% accuracy.</p>
+<hr />
+</div>
+<div id="top-submissions-for-challenge-1." class="section level3" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Top Submissions for Challenge 1.</h3>
+<p>Students with accuracy over 60% were considered passed for this prediction challenge.</p>
+<ol style="list-style-type: decimal">
+<li><em>Jeremy Prasad</em> <button class="btn btn-primary" data-toggle="collapse" data-target="#pred11">Jeremy’s PPT</button>
+<div id="pred11" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/jeremypred1.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>Jeremy performed exceptionally well in this prediction challenge.</li>
+<li>His approach was a iterative learning process, where at each step after performing analysis he tried to decrease the error more and more.</li>
+<li>He started with a very basic model, of using just the score attribute with a hard threshold for pass or fail grade based on the score value.</li>
+<li>After this, to increase accuracy, he analysed the data more found which attributes effect the prediction of the data, and which are not really useful</li>
+<li>After finding these highly effective attributes, he wrote concrete set of attributs that can be used to assign the grade. Most of them were dependent on 2-3 attributes like Major-Senioriy-Score, Major-Score, or Major-Questions-Score,etc.</li>
+<li>This gave him a much better accuracy value for prediction.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><em>Rohit Manjunath</em> <button class="btn btn-primary" data-toggle="collapse" data-target="#pred12">Rohit’s PPT</button>
+<div id="pred12" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/rohitpred1.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>Rohit performed well in this prediction challenge, and has a different approach than that of Jeremy’s.</li>
+<li>In Rohit’s approach, instead of finding the minimum global threshold of pass or fail based on score, he found the threshold for the maximum score, above which every student passed the class.</li>
+<li>He then analysed the data based on the Majors first and then found interval threshold for each Majors scores.</li>
+<li>For some Majors, to increase accuracy, he further explored other attributes in detail to find which effects the final grade.</li>
+<li>Rohit obtained accuracy of almost 85%.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="prediction-challenge-2." class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Prediction Challenge 2.</h2>
+<p>In Prediction Challenge 2, we introduced the use of Decision Tree algorithm for prediction model building, to complete the same task as we saw in the Prediction Challenge 1.</p>
+<p>This was intended to see the first learning model in action, and also to see the ease in which the process of prediction can be completed using such prediction model against the trivial data analysis techniques.</p>
+<p>The datasets for this prediction challenge were the same as those in the prediction challenge 1.</p>
+<p>Since, the task in the prediction challenge was to predict a categorical value(<em>Grade</em> value) the learning algorithm allowed to be used in this task was the Decision Tree algorithm based on the CART model. Read more about how to use decision tree’s in section <a href="classification.html#decisiontree">6.1</a> .</p>
+<p>To implement this algorithm, students were allowed to use the RPART package <a href="classification.html#rpart">6.2</a></p>
+<p>With rpart() doing most work of prediction in this task, the students were also asked to provide validation for their models prediction power/accuracy. This involved use of cross-validation techinques, which for the ease of this course level was provided in a custom function, see <a href="classification.html#crossvalidation">6.7</a>.</p>
+<!-- To perform this challenge yourself please visit the kaggle site of this prediction challenge. Link to Kaggle Site: [Prediction Challenge 2](https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b){target="_blank"} -->
+<hr />
+<div id="how-the-data-was-generated-to-challenge-2" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> How the data was generated to Challenge 2</h3>
+<p>As we saw that the prediction task and the datasets in challenge 2 are similar to that of the challenge 1. Thus the data analysis of the challenge 1 would applicable in this case too.</p>
+<!-- But here we can use the rpart() function of creating the decision tree and predicting on the testing dataset. -->
+<!-- - **How the data was generated using R for prediction challenge 2** -->
+<!-- ```{r} -->
+<!-- library(rpart) -->
+<!-- # Load Data -->
+<!-- dat<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/M2021test_answer.csv",stringsAsFactors = T) -->
+<!-- # Using  rpart() for prediction -->
+<!-- tree <- rpart(Grade ~ Attendance+Major+Questions+Score+Seniority+Texting, data=dat,method = "class") -->
+<!-- # Predict using the built decision tree. -->
+<!-- pred <- predict(tree, newdata = dat, type = "class") -->
+<!-- # Confusion matrix for prediction vs actual values. -->
+<!-- table(actual = dat[,8], predicted = pred) -->
+<!-- # Accuracy of the prediction -->
+<!-- mean(pred==dat$Grade) -->
+<!-- # Code to display the tree. Cannot be used in this interactive box. -->
+<!-- # library(rpart.plot) -->
+<!-- # rpart.plot(tree) -->
+<!-- ``` -->
+<!-- ![Tree Predicted above using the rpart function.](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred2.svg) -->
+<!-- - As we can see, the prediction accuracy is near 83%, using just the simple rpart model without any control parameters. -->
+<!--   - Students can use the control parameters for creating decision tree with more accuracy. -->
+<!-- - **Note**, that the decision tree generated using the rpart() function will be different than that of the ideal trees shown in prediction challenge 1. -->
+<hr />
+</div>
+<div id="top-submissions-for-challenge-2" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Top Submissions for Challenge 2</h3>
+<p>Since rpart() is a very powerful function to find patterns with higher accuracy, the passing criteria for this challenge was above 80% accuracy score.</p>
+<ol style="list-style-type: decimal">
+<li>Kevin Larkin <button class="btn btn-primary" data-toggle="collapse" data-target="#pred21">Kevin’s PPT</button>
+<div id="pred21" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/kevinpred2.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was the top submission in terms of accuracy score on Kaggle.</li>
+<li>Kevin used the rpart() function, for modeling, with all the attributes of the training dataset except <em>Studentid</em>.</li>
+<li>To increase the accuracy of his model, he used the <code>rpart.control()</code> function parameters, especially the <code>cp</code> parameter of the function, which increased the splitting accuracy.</li>
+<li>Kevin acheived an accuracy score of over 86% on the test dataset for this challenge.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Michael Ryvin <button class="btn btn-primary" data-toggle="collapse" data-target="#pred22">Michael’s PPT</button>
+<div id="pred22" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/michaelpred2.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was the second best submission as per accuracy score on Kaggle.</li>
+<li>Michael used the rpart() function, along with some control parameters for creating the decision tree.</li>
+<li>Michael achieved an accuracy score of over 86% on the test dataset.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Shuohao Ping <button class="btn btn-primary" data-toggle="collapse" data-target="#pred23">Shuohao’s PPT</button>
+<div id="pred23" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/shuohaopred2.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was the third best submission as per accuracy score on Kaggle.</li>
+<li>Shuohao used multiple iterations to create his final model.</li>
+<li>In each iteration, Shuohao tried to vary the control parameters and its values to find the best fit model after cross-validation.</li>
+<li>Shuohao, acheived an accuracy score of over 86% on the test dataset.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="prediction-challenge-3." class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Prediction Challenge 3.</h2>
+<p>After studying prediction of categorical data in the previous 2 prediction challenges, in prediction challenge 3, the task was to predict <em>Earnings</em> a numerical variable, using any ML algorithm.</p>
+<p><em>Earnings</em> variable is part of the Earnings dataset which has details about a persons connections, GPA, Major,etc, and using these attributes, the students had to predict the numerical value of earnings of each person in the dataset.</p>
+<p>Students were recommended to first find some correlation between data by using free-style analysis, and then proceed to using ML models. This was included so as to show the effect of human intervention/input on the selection and performance of ML model, and also to avoid the trap of blindly applying the most costly ML model which might perform well, but is a overkill to perform task which could be completed using other less costly models. ( Cost here refers to the computation resources and time involved in training the models. )</p>
+<p>To read more about prediction of a numerical variable in R, see section <a href="regression.html#regression">7</a> and <a href="models.html#models">8</a></p>
+<p>Lets look at a snippet of the Earnings dataset used for training the models below.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-117">Table 9.2: </span>Snippet of Earnings Dataset(TRAINING) for Prediction Challenge 3
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+GPA
+</th>
+<th style="text-align:right;">
+Number_Of_Professional_Connections
+</th>
+<th style="text-align:right;">
+Earnings
+</th>
+<th style="text-align:left;">
+Major
+</th>
+<th style="text-align:right;">
+Graduation_Year
+</th>
+<th style="text-align:right;">
+Height
+</th>
+<th style="text-align:right;">
+Number_Of_Credits
+</th>
+<th style="text-align:right;">
+Number_Of_Parking_Tickets
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2.50
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9756.15
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+64.22
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.98
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9709.03
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+69.55
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.98
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+9711.37
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+68.98
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.35
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9656.15
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:right;">
+69.23
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.47
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+9751.92
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+1981
+</td>
+<td style="text-align:right;">
+70.45
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.75
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9728.30
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+65.26
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.66
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+9847.59
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+65.91
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.59
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+9743.36
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+1990
+</td>
+<td style="text-align:right;">
+66.35
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.89
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+9793.38
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+1975
+</td>
+<td style="text-align:right;">
+70.42
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.89
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+9810.38
+</td>
+<td style="text-align:left;">
+STEM
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+65.18
+</td>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see that there are multiple attributes like <em>GPA,Major,Graduation_Year,Height,etc.</em> that can be used as predictors, and then there is <em>Earnings</em> attribute with ideal values for each record of student which will be used while training and then will be predicted on the testing dataset.</p>
+<!-- Lets look at the snippet of the earnings dataset for testing. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/Earnings_Test.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Earnings Dataset(TESTING) for Prediction Challenge 3', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see that the *Earnings* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+<!-- Also, lets look at the submission file for prediction challenge 3. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earning_submission.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 3', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see there are only 2 columns *ID* and *Earnings*. *ID* column's entries corresponds/are similar to the *ID* column of the testing data. Thus we need to just fill the *Earnings* column with appropriate earning value predicted by our analysis. -->
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 3](https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd){target="_blank"} -->
+<hr />
+<div id="how-the-data-was-generated-for-challenge-3" class="section level3" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> How the data was generated for Challenge 3</h3>
+<p>In this challenge, the Earnings variable was calculated using the attributes like GPA, Connections and Graduation Year in some cases.</p>
+<p>The main attribute on which the data is subsetted is the Education attribute.</p>
+<p>Then further, there is a predetermined polynomial formula based on the various attributes.</p>
+<p>The main idea behind these formulas, is to include a linear/ quadratic relation between the predictors and the Earnings attribute which will be predicted.</p>
+<p>These mathematical relation can be modeled using the most simplest linear regression algorithm to the most complex neural nets.</p>
+<p>The ideal formulas are listed below:</p>
+<pre class="text"><code>
+   Stem                 earn = -100 * gpa +10000
+   Humanities           earn =  100*  gpa + 10000
+   Vocational           earn =  100 * gpa + 13000
+   Professional         earn =  -100gpa +12000
+   other                earn =  connection ^2 +5000
+   business             earn =  gpa  * 100 * parity +10000
+                                where parity   = 1 if graduation year = even
+                                                 0 if graduation year = odd</code></pre>
+<p>As we can see, these formulas are mostly linear, while the formula for “other” education attribute is quadratic. Also, for “Business” education attribute subjects, the formula is dependent on an additional attribute.</p>
+For more detailed data analysis please view the document attached here. <button class="btn btn-primary" data-toggle="collapse" data-target="#pred3"> Pred 3 Analysis</button>
+<div id="pred3" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/sarahpred3.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div>
+<ul>
+<li><strong>How the data was modeled in R </strong></li>
+</ul>
+<div data-datacamp-exercise="" data-height="800" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXRcbmRhdDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvRWFybmluZ3NfVGVzdF9hbnN3ZXIuY3N2XCIsc3RyaW5nc0FzRmFjdG9ycyA9IFQpXG5cbiMgQ3JlYXRlIGEgcHJlZGljdGlvbiBjb2x1bW4gdG8gc3RvcmUgcHJlZGljdGVkIHZhbHVlcyBhbmQgYXBwZW5kIHRoYXQgY29sdW1uIHRvIGRhdGFzZXQuXG5kYXQkcHJlZEVhcm5pbmdzIDwtIHJlcCgwLG5yb3coZGF0KSlcblxuXG4jIFByZWRpY3QgRWFybmluZ3Mgb2Ygc3ViamVjdHMgd2l0aCBFZHVjYXRpb24gaW4gU1RFTSBmaWVsZC5cbmRhdFtkYXQkTWFqb3I9PSdTVEVNJyxdJHByZWRFYXJuaW5ncyA8LSAoLTEwMCpkYXRbZGF0JE1ham9yPT0nU1RFTScsXSRHUEEgKyAxMDAwMClcblxuIyBQcmVkaWN0IEVhcm5pbmdzIG9mIHN1YmplY3RzIHdpdGggRWR1Y2F0aW9uIGluIEh1bWFuaXRpZXMgZmllbGQuXG5kYXRbZGF0JE1ham9yPT0nSHVtYW5pdGllcycsXSRwcmVkRWFybmluZ3MgPC0gKDEwMCpkYXRbZGF0JE1ham9yPT0nSHVtYW5pdGllcycsXSRHUEEgKyAxMDAwMClcblxuIyBQcmVkaWN0IEVhcm5pbmdzIG9mIHN1YmplY3RzIHdpdGggRWR1Y2F0aW9uIGluIFZvY2F0aW9uYWwgZmllbGQuXG5kYXRbZGF0JE1ham9yPT0nVm9jYXRpb25hbCcsXSRwcmVkRWFybmluZ3MgPC0gKDEwMCpkYXRbZGF0JE1ham9yPT0nVm9jYXRpb25hbCcsXSRHUEEgKyAxMzAwMClcblxuIyBQcmVkaWN0IEVhcm5pbmdzIG9mIHN1YmplY3RzIHdpdGggRWR1Y2F0aW9uIGluIFByb2Zlc3Npb25hbCBmaWVsZC5cbmRhdFtkYXQkTWFqb3I9PSdQcm9mZXNzaW9uYWwnLF0kcHJlZEVhcm5pbmdzIDwtICgtMTAwKmRhdFtkYXQkTWFqb3I9PSdQcm9mZXNzaW9uYWwnLF0kR1BBICsgMTIwMDApXG5cbiMgUHJlZGljdCBFYXJuaW5ncyBvZiBzdWJqZWN0cyB3aXRoIEVkdWNhdGlvbiBpbiBPdGhlciBmaWVsZHMuXG5kYXRbZGF0JE1ham9yPT0nT3RoZXInLF0kcHJlZEVhcm5pbmdzIDwtIChkYXRbZGF0JE1ham9yPT0nT3RoZXInLF0kTnVtYmVyX09mX1Byb2Zlc3Npb25hbF9Db25uZWN0aW9uc14yICsgNTAwMClcblxuIyBQcmVkaWN0IEVhcm5pbmdzIG9mIHN1YmplY3RzIHdpdGggRWR1Y2F0aW9uIGluIEJ1c2luZXNzIGZpZWxkLlxuZGF0W2RhdCRNYWpvcj09J0J1aXNuZXNzJyxdJHByZWRFYXJuaW5ncyA8LSAoMTAwKmRhdFtkYXQkTWFqb3I9PSdCdWlzbmVzcycsXSRHUEEqKChkYXRbZGF0JE1ham9yPT0nQnVpc25lc3MnLF0kR3JhZHVhdGlvbl9ZZWFyKzEpJSUyKSArIDEwMDAwKVxuXG5cbiMgQ29tcGFyZSB0aGUgcHJlZGljdGVkIEVhcm5pbmdzIHZhbHVlcyB3aXRoIHRoZSBpZGVhbCBFYXJuaW5ncyB2YWx1ZXMgaW4gdGVzdCBkYXRhLlxubGlicmFyeShNb2RlbE1ldHJpY3MpXG5tc2UoZGF0JEVhcm5pbmdzLGRhdCRwcmVkRWFybmluZ3MpIn0=
+</div>
+<p>We can see that after using the ideal formulas, we get an MSE of around 3300.
+Thus students who took part in this prediction challenge and scored around this MSE score would be top submissions.</p>
+<hr />
+</div>
+<div id="top-submissions-for-challenge-3" class="section level3" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Top Submissions for Challenge 3</h3>
+<p>For this prediction challenge, the MSE score below 30000 was considered a Passing score.</p>
+<ol style="list-style-type: decimal">
+<li>Seok Yim <button class="btn btn-primary" data-toggle="collapse" data-target="#pred31">Seok’s PPT</button>
+<div id="pred31" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/seokpred3.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was the top submission based on MSE score, with a final score less than 100.</li>
+<li>The approach to solving this challenge was really well implemented.
+<ul>
+<li>First, he looked at the dataset on whole, tried to find some interesting patterns.</li>
+<li>Then, after finding the patterns, he did not predict on the complete dataset using one big model, but subseted the data based on one attribute, and then modeled the ML model on these small subsets.</li>
+</ul></li>
+<li>This not only reduced the MSE to such low levels, thus increasing accuracy, but also led to faster model learning time, and prediction time.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Nick Whelan <button class="btn btn-primary" data-toggle="collapse" data-target="#pred32">Nick’s PPT</button>
+<div id="pred32" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/nickpred3.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was another top submission based on MSE score, with final score less than 100.</li>
+<li>The approach to solving the task was different compared to Seok’s implementation, but was equally good, with nearly the same prediction power/accuracy.
+<ul>
+<li>Nick tried to use the randomForest algorithm on the whole dataset as the initial model, but the MSE turned out to be near 25,000.</li>
+<li>Then he did some free-style analysis and found the linear relationship between various subsets of dataset with the <em>earnings</em> value.</li>
+<li>To implement this he used the fundamentals of linear regression very well while creating a learning model, and also used a quadratic model where needed.</li>
+</ul></li>
+<li>This resulted in a very accurate model with low MSE score.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Bennett Garcia <button class="btn btn-primary" data-toggle="collapse" data-target="#pred33">Bennett’s PPT</button>
+<div id="pred33" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/bennetpred3.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>Bennett had a final MSE score of below 100 and was one of the top submissions for this challenge.</li>
+<li>A significantly different learning model was used by Bennett to achieve this low MSE.
+<ul>
+<li>He first analyzed the data, and found attributes on which the dataset can be subsetted on.</li>
+<li>Then, he here used Neural Networks as models for prediction on those subsets.</li>
+<li>This Neural Network approach was very well implemented.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="prediction-challenge-4." class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Prediction Challenge 4.</h2>
+<p>Challenge 4 was a relatively newer challenge, and was built to test and combine all that has been learnt from the previous challenges.</p>
+<p>In this challenge, there was a scenario as described below:</p>
+<p><em>Mysterious box was found on the beach. </em></p>
+<p><em>Despite spending probably years in the water, it still works! </em></p>
+<p><em>But what does it do? </em></p>
+<p><em>It has four inputs (electric) &amp; a switch. Setting these inputs and different switch positions emits various weird and scary sounds as output in response to the electric signals. </em></p>
+<p><em>It sizzles, gurgles, hisses, ominously tics like a bomb,etc…..but nothing happens - just sounds. So no harm will happen to surroundings.</em></p>
+<p>As we can see from the scenario, the task now in this challenge, is to predict the sounds that the <em>Mysterios Box</em> will make upon providing various set of inputs and different switch positions.</p>
+<p>Henceforth, we will refer to this <em>mysterious</em> box as <em>Black Box</em>.</p>
+<p>Also, since there are only finite number of sounds the box can make, the output <em>sounds</em> attribute is a categorical value, which will be predicted in this task.</p>
+<p>Students were recommended to first find some correlation between data by using free-style analysis, and then proceed to using any ML models.</p>
+<p>To read more about prediction in R, see sections <a href="classification.html#classification">6</a>,<a href="regression.html#regression">7</a> and <a href="models.html#models">8</a></p>
+<p>Lets look at a snippet of the Mysterious Box/ Black Box dataset used for training the models below.
+The training describes which sounds has been noted in the laboratory in nearly 20,000 experiments combining different input signals and switch positions.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-119">Table 9.3: </span>Snippet of Black Box Dataset(TRAINING) for Prediction Challenge 4
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
+INPUT1
+</th>
+<th style="text-align:right;">
+INPUT2
+</th>
+<th style="text-align:right;">
+INPUT3
+</th>
+<th style="text-align:right;">
+INPUT4
+</th>
+<th style="text-align:left;">
+SWITCH
+</th>
+<th style="text-align:left;">
+SOUND
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+86623
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Gargle
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+57936
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Tick
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+54301
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Tick
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2678
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:left;">
+Minimum
+</td>
+<td style="text-align:left;">
+Beep
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+65827
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Beep
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22420
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Gargle
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2285
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Tick
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+62571
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Minimum
+</td>
+<td style="text-align:left;">
+Kaboom
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49229
+</td>
+<td style="text-align:right;">
+92
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Gargle
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+63532
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Gargle
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see that there are multiple attributes like <em>INPUT1,2,3,4 and Switch</em> that can be used as predictors, and then there is <em>Sound</em> attribute with ideal values for each record of the experiment record which will be used while training and then will be predicted on the testing dataset.</p>
+<!-- Lets look at the snippet of the black box dataset for testing. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22-students.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Black Box Dataset(TESTING) for Prediction Challenge 4', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see that the *Sound* attribute is not present in this dataset, since it is the attribute that will be predicted using our analysis of the training dataset. -->
+<!-- Also, lets look at the submission file for prediction challenge 4. -->
+<!-- ```{r,echo=FALSE} -->
+<!-- realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22-submission.csv") #web load -->
+<!-- temp<-knitr::kable( -->
+<!--   head(realestate, 10), caption = 'Snippet of Submission file for Prediction Challenge 4', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- library(kableExtra) -->
+<!-- kableExtra::scroll_box(temp,width = "100%") -->
+<!-- ``` -->
+<!-- We can see there are only 2 columns *ID* and *Sound*. *ID* column's entries corresponds/are similar to the *ID* column of the testing data. Thus we need to just fill the *Sound* column with appropriate earning value predicted by our analysis. -->
+<!-- Now that we have seen the data, feel free to go to the Kaggle site of this prediction challenge and take the challenge yourself. The link for challenge: [Prediction Challenge 4](https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe){target="_blank"} -->
+<hr />
+<div id="how-the-data-was-generated-for-challenge-4" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> How the data was generated for Challenge 4</h3>
+<p>This challenge was the most involved of the 4 challenges in this blog.</p>
+<p>There was no direct and straight forward answer to this challenge, but it required more data analysis, as compared to the other challenge.</p>
+<p>Although the relation of the Sound attribute was dependent on the 4 input and the switch position, figuring the relation between various inputs and the correct switch position was a non-trivial task.</p>
+<p>The solution to this challenge involved creating a new numeric variable(Say “OUTPUT”) which will be dependent on the 4 input values, and also the various switch positions.</p>
+<p>The relation between the inputs and the OUTPUT variable is given below:</p>
+<pre class="text"><code>
+The ordering of Switch position is given as:
+  Low = 1
+  Minimum = 2
+  Medium = 3
+  Maximum = 4
+  High = 5
+
+if Switch == 1 i.e. &quot;Low&quot; 
+    then OUTPUT = Input 1+ 5 * Input 2  - 2 * Input3  + sample(2:5,1)
+if Switch == 2  i.e. &quot;Minimum&quot;  
+    then OUTPUT = 3* Input 2 - 2 * Input 4  + sample(2:3,1)
+else  i.e. Position other than &quot;Low&quot; and &quot;Minimum&quot;
+    then OUTPUT =  Input1 ^2 -1.5 * Input 3 + sample(5:10,1)
+
+
+Then SOUND totally depends on OUTPUT attribute, but is distributed probabilistically over all possible sound.
+
+For example, the SOUND when OUTPUT&gt;150 is distributed as 0, 0, 10, 0, 10, 60, 20.
+This number list corresponds to Gargle, Tick, Beep, Kaboom, Rumble, Sizzle, Hiss. And thus we can see that &quot;Sizzle&quot; sound has the max probability of 60%, and is this the most likely sound when the OUTPUT value is above 150.
+
+
+      OUTPUT &gt; 150 -&gt; Max Probability of finding &quot;Sizzle&quot;
+100 &lt; OUTPUT &lt; 150 -&gt; Max Probability of finding &quot;Rumble&quot;
+ 70 &lt; OUTPUT &lt; 100 -&gt; Max Probability of finding &quot;Kaboom&quot;
+ 50 &lt; OUTPUT &lt; 70  -&gt; Max Probability of finding &quot;Hiss&quot;
+ 20 &lt; OUTPUT &lt; 50  -&gt; Max Probability of finding &quot;Tick&quot;
+      OUTPUT &lt; 20  -&gt; Max Probability of finding &quot;Gargle&quot;
+</code></pre>
+<p>As we can see, that the 4 Input attributes are used to calculate the OUTPUT values based on a polynomial formula, and the particular formula is choosen by the Switch attribute.</p>
+<p>After finding the OUTPUT values, then the decision tree like structure can be implemented to assign Sound attribute to corresponding OUTPUT value based on the chart above.</p>
+<ul>
+<li><strong>How the data was generated for Challenge 4 in R</strong></li>
+</ul>
+<pre class="text"><code>
+# Load The Data
+dat&lt;-read.csv(&quot;https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/BlackBoxTestApril22_answer.csv&quot;,stringsAsFactors = T)
+
+dat$OUTPUT &lt;- rep(0,nrow(dat))
+
+dat$OUTPUT &lt;- ((dat$INPUT1^2) - (1.5*dat$INPUT3) + sample(5:10,1))
+
+dat[dat$SWITCH == &quot;Low&quot;,]$OUTPUT &lt;- (dat[dat$SWITCH == &quot;Low&quot;,]$INPUT1 + (5*dat[dat$SWITCH == &quot;Low&quot;,]$INPUT2) - (2*dat[dat$SWITCH == &quot;Low&quot;,]$INPUT3) + sample(2:5,1))
+
+dat[dat$SWITCH == &quot;Minimum&quot;,]$OUTPUT &lt;- ((3*dat[dat$SWITCH == &quot;Minimum&quot;,]$INPUT2) - (2*dat[dat$SWITCH == &quot;Minimum&quot;,]$INPUT4) + sample(2:3,1))
+
+
+dat$predSound &lt;- rep(&#39;Empty&#39;,nrow(dat))
+dat[dat$OUTPUT&gt;150,]$predSound&lt;-&#39;Sizzle&#39;
+dat[dat$OUTPUT&gt;=100 &amp; dat$OUTPUT&lt;150,]$predSound&lt;-&#39;Rumble&#39;
+dat[dat$OUTPUT&gt;=70 &amp; dat$OUTPUT&lt;100,]$predSound&lt;-&#39;Kaboom&#39;
+dat[dat$OUTPUT&gt;=50 &amp; dat$OUTPUT&lt;70,]$predSound&lt;-&#39;Hiss&#39;
+dat[dat$OUTPUT&gt;=20 &amp; dat$OUTPUT&lt;50,]$predSound&lt;-&#39;Tick&#39;
+dat[dat$OUTPUT&lt;20,]$predSound&lt;-&#39;Gargle&#39;
+
+
+mean(dat$SOUND==dat$predSound)</code></pre>
+<hr />
+</div>
+<div id="top-submissions-for-challenge-4" class="section level3" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Top Submissions for Challenge 4</h3>
+<p>Since this challenge involved stochastically generated data, the prediction accuracy required for passing this challenge was above 60%.</p>
+<ol style="list-style-type: decimal">
+<li>Nicole Coria <button class="btn btn-primary" data-toggle="collapse" data-target="#pred41">Nicole’s PPT</button>
+<div id="pred41" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/nicolepred41.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was the top submission based on accuracy score, with a final score more than 68.7%</li>
+<li>The approach to solving this challenge was iterative and trail and error based.
+<ul>
+<li>First, since the task is to predict categorical data, she decided to use rpart(directly).</li>
+<li>Then, over iteration, by varying the control parameters of rpart, she tried to find the model with the highest accuracy.</li>
+</ul></li>
+<li>Use of cross-validation also helped in finding the best fit model.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Atharva Patil <button class="btn btn-primary" data-toggle="collapse" data-target="#pred42">Atharva’s PPT</button>
+<div id="pred42" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/atharvapred41.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>This was another top submission based on accuracy score, with final score above 68%</li>
+<li>The approach to solving the task was very well implemented, using external resources too.
+<ul>
+<li>Atharva tried to analyze the data first. To do this, he used Prof. Imielinski’s online platform called <a href="http://www.foreveranalytics.com" target="_blank">Boundless Analytics</a>.
+<ul>
+<li>This online platform has ability to analyze the data automatically, and create plots which only matter or provide more information about the data.</li>
+<li>It eliminates the need to perform the data analysis manually.</li>
+</ul></li>
+</ul></li>
+<li>Then, he proceeded by building the model using the rpart() function and control parameters.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Andrew Scovell <button class="btn btn-primary" data-toggle="collapse" data-target="#pred43">Andrew’s PPT</button>
+<div id="pred43" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/andrewpred4.pdf&amp;embedded=true" width="100%" height="500px">
+</embed>
+</div></li>
+</ol>
+<ul>
+<li>Bennett had a final accuracy score of above 68% and was one of the top submissions for this challenge.</li>
+<li>He did a very extensive data analysis using all the attributes of the dataset.
+<ul>
+<li>He also tried analyzing using mean, sums, standard deviation, etc of the numerical inputs.</li>
+</ul></li>
+<li>Using the control parameters of the rpart() function he tried to find the best fitting model, and used cross-validation to avoid overfitting.</li>
+</ul>
+<hr />
+<p>To perform any of the above challenges yourself, visit the appropriate links.</p>
+<ol style="list-style-type: decimal">
+<li>Prediction Challenge 1 <a href="https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d" target="_blank">https://www.kaggle.com/t/8099c3c8bd5940928d102a6ddda0ee3d</a></li>
+<li>Prediction Challenge 2 <a href="https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b" target="_blank">https://www.kaggle.com/t/607a8221c6a647048f88ffa380ad1e4b</a></li>
+<li>Prediction Challenge 3 <a href="https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd" target="_blank">https://www.kaggle.com/t/951a9ad1d7e9444bb29b0dca65aed1cd</a></li>
+<li>Prediction Challenge 4 <a href="https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe" target="_blank">https://www.kaggle.com/t/423f51ea45be4efea1ddb12fee969cfe</a></li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="models.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

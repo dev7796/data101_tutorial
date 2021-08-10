@@ -1,0 +1,567 @@
+# Data Modelling and Prediction techniques for Regression. {#regression}
+
+<script src="files/js/dcl.js"></script>
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+
+In chapter \@ref(classification) we studied modeling and prediction techniques for Classification, where we predicted the class of the output variable, using Decision tree based algorithms.
+
+In this chapter we will study techniques for regression based prediction and create models for it. As opposite the the classification where we predict a particular class of the output variable, here we will predict a numerical/continuous value.
+
+We will look at two methods of performing this regression based modeling and prediction, first simple linear regression and second regression using decision tree.
+
+---
+
+## Linear Regression.
+
+Linear regression is a linear approach to modeling the relationship between a *scalar* response ($Y$) and one or more *explanatory* variables($X_i$, where i is the number of explanatory variables).
+
+- Scalar response means the predicted output. These variables are also known as dependent variables i.e. they are derived by applying some law/rule or function onto some other variable/s
+  - Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+    - First when there is only one explanatory variable and one output variable. This type of linear regression model known as *simple linear regression*.
+    - Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as *multiple linear regression*.
+  - But in the case of prediction of multiple correlated output variables, we call this type of prediction using linear regression model as *multivariate linear regression*.
+- Explanatory variables are the predictors on which the output predictions are based on. These variables are also known as independent variables and are independently sufficient to be used as predictors in regression models.
+
+![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/lmvariants.svg)
+
+Since the relationship between the explanatory variables and the output variable is modeled linearly, these models are called as linear models. To do this, we need to find a linear regression equation for the set of input predictors and the output variable. 
+
+But without going into the mathematics of finding this linear regression equation, we will use a tool/function provided in R to model and predict the output variable.
+
+---
+
+### Linear regression using lm() function {#lm}
+
+Syntax for building the regression model using the *lm()* function is as follows:
+
+- `lm(formula, data, ...)`
+  - *formula*: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on. 
+    - `prediction ~ predictor1 + predictor2 + predictor3 + ...`
+  - *data*: here we provide the dataset on which the linear regression model is to be trained.
+  
+For more info on the *lm()* function visit [lm()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm)
+
+Lets look at the example on the RealEstate dataset.
+
+A snippet of the Realestate Dataset is given below.
+
+```{r,echo=FALSE}
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/RealEstate.csv") #web load
+temp<-knitr::kable(
+  head(realestate, 10), caption = 'Snippet of Real Estate Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Now we can build a simple linear regression model to predict the Price attribute based on the various other attributes present in the dataset, as shown above. 
+
+Since we will be predicting only one attribute values, this model will be called simple linear regression model.
+
+For the first example we will predict the price value of house using only  *size* attribute as the predictor.
+
+```{r}
+library(ModelMetrics)
+
+# Load the dataset.
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/RealEstate.csv")
+
+# spliting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(realestate), replace = TRUE, prob = c(.7, .3))
+train <- realestate[idx == 1,]
+test <- realestate[idx == 2,]
+
+# Use the lm() function to predict the price based on size of the house.
+# Thus this is an example of simple linear regression since only one predictor and one output value is used.
+simple.fit <- lm(Price~Size,data=train)
+
+# summary of the model
+summary(simple.fit)
+
+# Linear relation between the Price and Size attribute.
+plot(train$Size,train$Price)
+abline(simple.fit , col="red")
+
+# Predicting values on the test dataset.
+PredictedPrice.simple <- predict(simple.fit,test)
+# Predicted Values
+head(as.integer(unname(PredictedPrice.simple)))
+# Actual Values
+head(test$Price)
+```
+We can see that,
+
+- The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+- The plot of *Size* vs *Price*, and the red line represents the fitted line or the linear model line which will be used for prediction.
+- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the actual values, the predicted values are some times close,some time far and few are very far. 
+
+
+We saw above an example of simple linear regression model, where only one predictor was used for predicting a single output attribute.
+
+Now we will see an example of *multiple linear regression* model, where there can be multiple predictors to predict a single output attribute. (Note: Please do not confuse this with the *multivariate linear regression*.)
+
+Let look at an example of predicting the *Price* of the real estate, based on 3 attributes *Size, Number of Bedrooms and Number of Bathrooms*.
+
+```{r}
+library(ModelMetrics)
+
+# Load the dataset.
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/RealEstate.csv")
+
+# spliting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(realestate), replace = TRUE, prob = c(.7, .3))
+train <- realestate[idx == 1,]
+test <- realestate[idx == 2,]
+
+
+# Use the lm() function to predict the price based on size, bathrooms and bedrooms of the house.
+# Thus this is an example of multiple linear regression since multiple predictor and one output value is used.
+multiple.fit <- lm(Price~Size + Bathrooms + Bedrooms,data=train)
+
+# summary of the model
+summary(multiple.fit)
+
+# Predicting values on the test dataset.
+PredictedPrice.multiple <- predict(multiple.fit,test)
+# Predicted Values
+head(as.integer(unname(PredictedPrice.multiple)))
+# Actual Values
+head(test$Price)
+```
+We can see that,
+
+- The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model based on just the *Size* as predictor, here, when we used 3 predictors, we have more accurate predictions, thus increasing the overall accuracy of the model.
+
+---
+
+### Calculating the Error using mse() {#mse}
+
+As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won't prove useful now in our numerical predictions scenario.
+
+Also we don't want to eyeball everytime we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.
+
+To do this we will use the Mean Squared Error(MSE).
+
+- The MSE is a measure of the quality of an predictor/estimator
+- It is always non-negative
+- Values closer to zero are better.
+
+The equation to calculate the MSE is as follows:
+
+\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}
+
+To implement this, we will use the *mse()* function present in the Metrics Package, so remember to install the Metrics package and use `library(Metrics)` in the code for local use.
+
+The syntax for *mse()* function is very simple:
+
+- `mse(actual,predicted)`
+  - *actual*: vector of the actual values of the attribute we want to predict.
+  - *predicted*: vector of the predicted values obtained using our model.
+
+Now lets look at the MSE of the previous example.
+
+```{r}
+library(ModelMetrics)
+
+# Load the dataset.
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/RealEstate.csv")
+
+# spliting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(realestate), replace = TRUE, prob = c(.7, .3))
+train <- realestate[idx == 1,]
+test <- realestate[idx == 2,]
+
+# Use the lm() function to predict the price based on size of the house.
+simple.fit <- lm(Price~Size,data=train)
+# Predicting values on the test dataset.
+PredictedPrice.simple <- predict(simple.fit,test)
+# Predicted Values
+head(as.integer(unname(PredictedPrice.simple)))
+# Actual Values
+head(test$Price)
+
+# Lets use the mse() function to 
+mse(test$Price,PredictedPrice.simple)
+
+```
+We can see the MSE is too large above 200 billion, and this is huge value could be understandable as we are taking the squared differences of all the records that we predicted. 
+
+The main intention is to get this huge value to as low as possible possibly near zero, which could be difficult but can be achieved upto a relative error by using a better model and training data.
+
+---
+
+## Regression using RPART
+
+Since we have already used the rpart library for performing decision tree algorithms also referred as CART(classification and regression tree) algorithms, we will now look at this type algorithm for regression based prediction.
+
+Remember we have discussed the usage of Rpart in the section \@ref(rpart) in great detail. Thus for using Rpart for regression based prediction we will need to provide the *rpart()* functions, *method* attribute, with the keyword *"anova"*. 
+
+For more details on the use of Rpart for prediction please refer to section \@ref(rpart).
+
+Lets look at an example of regression based prediction using Rpart for the *Price* attribute of the Real estate Dataset with *Size, Number of Bedrooms and Number of Bathrooms* as predictors.
+
+```{r}
+library(rpart)
+library(ModelMetrics)
+
+# Load the dataset.
+realestate<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/RealEstate.csv")
+
+# spliting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(realestate), replace = TRUE, prob = c(.7, .3))
+train <- realestate[idx == 1,]
+test <- realestate[idx == 2,]
+
+# Use of the rpart() function to predict the price based on the size, bathrooms and bedrooms of the house.
+rpart.fit <- rpart(Price~Size+Bathrooms+Bedrooms,data=train,method = "anova")
+
+# Predicting values on the test dataset.
+PredictedPrice.rpart <- predict(rpart.fit,test)
+# Predicted Values
+head(as.integer(unname(PredictedPrice.rpart)))
+# Actual Values
+head(test$Price)
+
+# Lets use the mse() function to 
+mse(test$Price,PredictedPrice.rpart)
+```
+
+![Output tree plot of rpart() model using for regression using "anova" method](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/rpartanova.svg)
+
+We can see,
+
+- The output decision tree of the *rpart()* function
+- The predicted values obtained using the model created by the rpart() function.
+- The MSE of the model on the testing dataset.
+
+An important point to note while using decision trees for regression purpose, is that since the underlying process of modeling is still a decision tree, the output still represent a set of distinct classes, even though the values of the classes are numeric. Thus we can see that the predicted values are repeated even for varying inputs.
+
+Hence Decision tree must be used carefully when used for regression based prediction models.
+
+---
+EOC
+
+# Additional Modeling techniques. {#models}
+
+<script src="files/js/dcl.js"></script>
+
+
+In this chapter, we will see some additional machine learning models used in practice, for various purpose.
+
+After studying both classification models and regression models in the previous 2 chapters \@ref(classification) & \@ref(regression) respectively,  we will now look into other generic models used for classification and/or regression purpose.
+
+Below is the list some of the widely used algorithms with their use case(either classification/regression or both) and training and prediction complexities for using particular learning models.
+
+![Usage and Complexity of various machine learning algorithms. Credits:thekerneltrip.com](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/MLmodelcomplexity.png)
+
+As we can see that many of these algorithms can be used for classification and regression all together, as we saw in the case of the Decision tree models using Rpart in section \@ref(decisiontree), and also some model used for only a particular type of prediction e.g. linear regression.
+
+We will look at few algorithms from the above list:
+
+- Random Forest
+- Support Vector Machine (SVM)
+- Neural Networks
+
+---
+
+## Four Line Method for creating most type of prediction models in R {#model4step}
+But before we learn about these algorithms, let us see a four line method to build models using any of the above algorithms using R.
+
+We can safely assume that the data going to be used to build the model, has been pre-processed and based on requirements split into the required subsets. To see how to split the data refer to section \@ref(splitdata).
+
+0. The zeroth step now will be obviously to install and load the packages that contain the ML algorithm. To do that on your local machine, use the following code.
+``` text
+# Install the library
+install.packages("package name")
+
+# Load the library in R
+library(package_name)
+```
+1. Once we have the algorithm library loaded, we then proceed to build the model.
+- `pred.model = model_function(formula, data, method*,...)`
+  - *model_function()*: the function present in the library to build the model. e.g. *rpart()* 
+  - *formula*: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on. 
+    - `prediction ~ predictor1 + predictor2 + predictor3 + ...`
+  - *data*: here we provide the dataset on which the ML model is to be trained on. Remember never used the test data to build the model.
+  - *method*: (OPTIONAL) Used to denote the method of prediction or underlying algorithm. This parameter could be present in some model_function() but not all.
+2. Prediction using the predict() function on the training data to assess the models performance/accuracy in next step.
+- `pred = predict(pred.model, newdata = train)`
+  - *predict()*: the common function for all models used for prediction.
+  - *pred.model*: output of the step 1.
+  - *newdata*: here we assign the data on which the prediction is to be done.
+3. Evaluate error in Training phase. We use the mse() function for finding the accuracy of the model. To read more in dept about the mse() function refer to section \@ref(mse).
+- `mse(actual, pred)`
+  - *actual*: vector of the actual values of the attribute we want to predict.
+  - *pred*: vector of the predicted values obtained using our model.
+
+Repeat steps 0,1,2 and 3 by changing the ML algorithm or manipulating dataset to perform better when used to train using ML model, so as to achieve as low MSE value as possible.
+
+4. Finally we predict on the testing data using the same predict function as in step 2 but replacing the train data with test data.
+- `pred = predict(pred.model, newdata = test)`
+
+These are the 4 steps to follow while performing any prediction task using ML models in R.
+
+We can also add one more step between step 3 and 4, which is step of performing the cross validation process on the newly built models. 
+
+This can be done either manually, or by using third party libraries. 
+
+One such library is the `rModeling` package, which has function *crossValidation()* which can be used for any type of model_functions(). For more information visit [crossValidation()](https://www.rdocumentation.org/packages/rModeling/versions/0.0.3/topics/crossValidation)
+
+
+Before we proceed to the next section, please look at the snippet of the *earnings.csv* dataset, which we will be using for predicting the *Earnings* attribute based on various other attributes provided in the dataset, using different prediction models.
+
+```{r,echo=FALSE,error=FALSE,warning=FALSE}
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earnings.csv") #web load
+temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Earnings Dataset',booktabs=TRUE) 
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Now that we saw the general structure of the model and took a glace at the dataset we will be using, lets look at few of the algorithms as we promised from the list above.
+
+---
+
+## Random Forest {#randomforest}
+
+Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operates by constructing a multitude of decision trees at training time and outputting the value that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. 
+
+In simpler terms, the random forest  algorithm creates multiple decision trees based on varying attributes and biases, and then predicts the output for each tree, and aggregates this prediction into one final output by some technique like majority count or average/etc.
+
+![Visual Representation of a Random Forest learning model. Credits: Random Forest Wikipedia](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/randomforest2.png)
+
+The main idea behind Random Forest arise from a method called ensemble learning method.
+
+Ensemble learning is the method of solving a problem by building multiple ML models and combining them. It is primarily used to improve the performance of classification, prediction, and function approximation models.
+
+Forests are type of ensemble learning methods, where they act like, pulling together all of decision tree algorithm efforts. Taking the teamwork of many trees thus improving the performance of a single random decision tree.
+
+Random decision forests correct for decision trees' habit of overfitting to their training set.
+
+Now lets look at an example of prediction by the random forest model using the *randomForest()* function present in the `randomForest` library package. For more information about the *randomForest()* function and its attributes visit **[randomforest()](https://www.rdocumentation.org/packages/randomForest/versions/4.6-14/topics/randomForest)**
+
+Thus following the 4 step method of prediction for predicting a numerical attribute "Earnings" using the randomForest() function.
+
+```{r}
+library(randomForest)
+library(ModelMetrics)
+
+# Load the dataset.
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earnings.csv",stringsAsFactors = T)
+
+# splitting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(earningdata), replace = TRUE, prob = c(.8, .2))
+train <- earningdata[idx == 1,]
+test <- earningdata[idx == 2,]
+
+# 1. Build prediction model using randomForest() function.
+pred.model <- randomForest(Earnings ~., data = train)
+
+# Lets see the summary of the randomForest model.
+pred.model
+
+# 2. Predict using the newly built model on the training dataset.
+pred.train <- predict(pred.model,newdata = train)
+
+# 3. Evaluate error on training using the mse() function.
+mse(train$Earnings,pred.train)
+
+# 4. Predict on the testing data.
+pred.test <- predict(pred.model,newdata = test)
+
+# Additionally since here we have the actual/real prediction values we can also check the accuracy of our prediction on testing data.
+mse(test$Earnings,pred.test)
+
+```
+We can see,
+
+- the summary of the output randomForest model with details of:
+  - Formula used.
+  - Type of random forest
+  - Number of trees created in the forest
+  - Number of variables used at each split.
+  - And some performance parameter.
+- The mean squared error of the predicted values using training sub-dataset.
+- The mean squared error of the predicted values using the testing sub-dataset.
+
+Note: Since a random forest is an ensemble learning method, it will usually take a lot more time to train that its counterparts. Thus you can see a significant waiting/execution time while running the above code and acquiring answer.
+
+---
+
+## SVM {#svm}
+
+Support-Vector Machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification(mostly) and regression(also works in some cases) analysis.
+
+The goal of the SVM is to find a hyperplane in an N-dimensional space (where N corresponds with the number of features) that distinctly classifies/regresses the data points. The accuracy of the results directly correlates with the hyperplane that we choose. We should find a plane that has the maximum distance between data points of both classes.
+
+Intuitively, a good separation is achieved by the hyperplane that has the largest distance to the nearest training-data point of any class (so-called functional margin), since in general the larger the margin, the lower the generalization error of the classifier.
+
+![Support Vector Machine Linear classification hyperplane(line) example. Credits: Support Vector Machines Wikipedia](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/svm2.png)
+
+Note that the dimension of the hyperplane depends on the number of features. If the number of input features is two, then the hyperplane is just a line. If the number of input features is three, then the hyperplane becomes a two-dimensional plane. It becomes difficult to draw on a graph a model when the number of features exceeds three.
+
+In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
+
+![Example of the kernal trick for non-linear classifier. Credits: Support Vector Machines Wikipedia](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/Kernel_Machine.svg)
+
+Why is this called a support vector machine? *Support vectors* are *data points* closest to the hyperplane. They directly influence the position and orientation of the hyperplane and minimizes the margin of the classifier. Deleting the support vectors will change the position of the hyperplane. These points thus help to build our SVM model.
+
+SVM is great because it gives quite accurate results with minimum computation power.
+
+Lets look at the example of Support vector machine algorithm in use for predicting the *Earnings* attribute of the Earnings dataset. 
+
+We will use the *svm()* function from the *e1071* package. For more information about this function and its attributes visit **[svm()](https://www.rdocumentation.org/packages/e1071/versions/1.7-6/topics/svm)**
+
+
+Thus following the 4 step model for prediction and using the "*svm()*" function as the model function. 
+
+```{r}
+library(e1071)
+library(ModelMetrics)
+
+# Load the dataset.
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earnings.csv",stringsAsFactors = T)
+
+
+# splitting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(earningdata), replace = TRUE, prob = c(.8, .2))
+train <- earningdata[idx == 1,]
+test <- earningdata[idx == 2,]
+
+# 1. Build prediction model using svm() function.
+pred.model <- svm(Earnings ~., data = train)
+
+# Lets see the summary of the svm model.
+pred.model
+
+# 2. Predict using the newly built model on the training dataset.
+pred.train <- predict(pred.model,newdata = train)
+
+# 3. Evaluate error on training using the mse() function.
+mse(train$Earnings,pred.train)
+
+# 4. Predict on the testing data.
+pred.test <- predict(pred.model,newdata = test)
+
+# Additionally since here we have the actual/real prediction values we can also check the accuracy of our prediction on testing data.
+mse(test$Earnings,pred.test)
+
+```
+We can see,
+
+- the summary of the output svm model with details of:
+  - Formula used.
+  - Type of SVM model
+  - The SVM Kernel Used
+  - And some performance parameter.
+  - Also, the Number of Support Vectors.
+- The mean squared error of the predicted values using training sub-dataset.
+- The mean squared error of the predicted values using the testing sub-dataset.
+
+
+---
+
+## Neural Network. {#nnet}
+
+An Artificial Neural Network (ANN), usually simply called neural network(NN) is based on a collection of connected units or nodes called artificial neurons, which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit a signal to other neurons. 
+
+Thus in other words, a neural network is a sequence of neurons connected by synapses, which reminds of the structure of the human brain. However, the human brain is even more complex, and a NN is just a model that mimics a human brain.
+
+An artificial neuron that receives a signal then processes it and can signal neurons connected to it. The "signal" at a connection is a real number, and the output of each neuron is computed by some non-linear function of the sum of its inputs. The connections are called edges. 
+
+Neurons and edges typically have a weight that adjusts as learning proceeds. The weight increases or decreases the strength of the signal at a connection. Neurons may have a threshold such that a signal is sent only if the aggregate signal crosses that threshold. 
+
+Typically, neurons are aggregated into layers. Different layers may perform different transformations on their inputs. 
+
+Signals travel from the first layer (the input layer), to the last layer (the output layer), possibly after traversing the layers multiple times.
+
+![A visual representation of typical neural network with various nodes and edges along with layers. Credits: Artificial Neural Network Wikipedia](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/neuralnetwork.svg)
+
+What is great about neural networks is that they can be used for basically any task from spam filtering to computer vision. However, they are normally applied for machine translation, anomaly detection and risk management, speech recognition and language generation, face recognition, and more.
+
+To accommodate such a wide variety of application, neural nets are transformed and models in various different ways. To find multiple types of neural networks please visit **[Neural Network Zoo](https://www.asimovinstitute.org/neural-network-zoo/) **
+
+Now lets try to implement a neural network learning model for the Earnings prediction problem of Earnings dataset. 
+
+To do this we will use the 4 step method of prediction and use the *nnet()* function from the "nnet" package as the model_function.
+
+Let look at the *nnet()* function and its parameters.
+
+- `nnet(formula,data,size,linout,...)`
+  - *formula* and *data* are the same as mentions in Step 1 of section \@ref(model4step).
+  - *size*: denotes the number of units in the hidden layer.
+  - *linout*: Assign TRUE is predicting numerical value. Default is FALSE, for predicting categorical value.
+  - *rang*: set the initial random weights on each edge.
+  - *maxit*: maximum number of iterations.
+  - *decay*: weight decay parameter. Can also be understood as learning rate.
+- **Note**: The *nnet()* function can only create a single hidden layer neural network model. To create more complex models please use different packages like [neuralnet](https://www.rdocumentation.org/packages/neuralnet/versions/1.44.2) or *h2o, deepnet*, etc
+
+Now lets use the *nnet()* function for predction.
+
+```{r}
+library(nnet)
+library(ModelMetrics)
+
+# Load the dataset.
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/earnings.csv",stringsAsFactors = T)
+
+# splitting the dataset into training and testing.
+idx <- sample( 1:2, size = nrow(earningdata), replace = TRUE, prob = c(.8, .2))
+train <- earningdata[idx == 1,]
+test <- earningdata[idx == 2,]
+
+# 1. Build prediction model using nnet() function.
+pred.model <- nnet(Earnings/20000 ~., data = train, size = 50, decay=5e-5,maxit = 500,linout = T)
+
+# Lets see the summary of the nnet model.
+pred.model
+
+# 2. Predict using the newly built model on the training dataset.
+pred.train <- predict(pred.model,newdata = train)*20000
+
+# 3. Evaluate error on training using the mse() function.
+mse(train$Earnings,pred.train)
+
+# 4. Predict on the testing data.
+pred.test <- predict(pred.model,newdata = test)*20000
+
+# Additionally since here we have the actual/real prediction values we can also check the accuracy of our prediction on testing data.
+mse(test$Earnings,pred.test)
+```
+
+**NOTE**: If you see a very high value of MSE after running the above code, please re-run it. Usually you will find the MSE to be better than all the models we have studied uptil now for the Earnings prediction problem.
+
+We can see from the output,
+
+- the summary of the output, neural network model, with details of:
+  - Number of weights in the complete neural network
+  - Initial Value and Final Value of the model weights along with iter value.
+  - Structure of the neural network in I-H-O format where the numbers, I is input, H is hidden and O is output nodes.
+  - Input node attributes. 
+    - Note that the Majors column attribute are split into unique number of factors, thus creating new individual attributes.
+  - Output node attributes.
+  - Network Options.
+- The mean squared error of the predicted values using training sub-dataset.
+- The mean squared error of the predicted values using the testing sub-dataset.
+
+---
+
+After Comparing all these models, we can see that the MSE values for the 3 models are SVM > Random Forest > Neural Network. This suggest one trend that, to get as best result as possible, one must invest most time in choosing the right model,and use the model with cleaned dataset for training. 
+
+Eventually, since we use R language here, the code for model creation just boils down to few lines of code, 4 steps to be more accurate. But since we might find one model works better than other, we must choose the best fit model.
+
+Also, we saw the trend of time required for training of the models studied above was SVM > RandomForest > Neural Net. This also suggest a proportional relationship with the time required for a particular model to train and in turn producing the best possible results.
+
+Although one can say that, we can just use Neural Networks all the time, well this statement is true to some extent, but depending on the resources, the complexity of the data, and the complexity of the model itself, one needs to make some trade-offs. One should not try to throw a ball just few meters with a cannon, using mere hands will do the job. In essence, do not try to overuse the neural net model for the sake of adding 2 mumbers, simple addition will suffice. Studying these tradeoffs and more models in depth though is out of this course scope.
+
+---
+
+**EOC**

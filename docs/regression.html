@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data Modelling and Prediction techniques for Regression. | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data Modelling and Prediction techniques for Regression. | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data Modelling and Prediction techniques for Regression. | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="classification.html"/>
+<link rel="next" href="models.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a>
+<a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>7</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>7.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>7.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="7.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>7.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>7.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>8</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>8.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="8.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>8.2</b> Random Forest</a></li>
+<li class="chapter" data-level="8.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>8.3</b> SVM</a></li>
+<li class="chapter" data-level="8.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>8.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>9</b> Blog: Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>9.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="9.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>9.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>9.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="9.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>9.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>9.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>9.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="9.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>9.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>9.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>9.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="9.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>9.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>9.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>9.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="9.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>9.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regression" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data Modelling and Prediction techniques for Regression.</h1>
+<script src="files/js/dcl.js"></script>
+<p>In chapter <a href="classification.html#classification">6</a> we studied modeling and prediction techniques for Classification, where we predicted the class of the output variable, using Decision tree based algorithms.</p>
+<p>In this chapter we will study techniques for regression based prediction and create models for it. As opposite the the classification where we predict a particular class of the output variable, here we will predict a numerical/continuous value.</p>
+<p>We will look at two methods of performing this regression based modeling and prediction, first simple linear regression and second regression using decision tree.</p>
+<hr />
+<div id="linear-regression." class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Linear Regression.</h2>
+<p>Linear regression is a linear approach to modeling the relationship between a <em>scalar</em> response (<span class="math inline">\(Y\)</span>) and one or more <em>explanatory</em> variables(<span class="math inline">\(X_i\)</span>, where i is the number of explanatory variables).</p>
+<ul>
+<li>Scalar response means the predicted output. These variables are also known as dependent variables i.e. they are derived by applying some law/rule or function onto some other variable/s
+<ul>
+<li>Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+<ul>
+<li>First when there is only one explanatory variable and one output variable. This type of linear regression model known as <em>simple linear regression</em>.</li>
+<li>Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as <em>multiple linear regression</em>.</li>
+</ul></li>
+<li>But in the case of prediction of multiple correlated output variables, we call this type of prediction using linear regression model as <em>multivariate linear regression</em>.</li>
+</ul></li>
+<li>Explanatory variables are the predictors on which the output predictions are based on. These variables are also known as independent variables and are independently sufficient to be used as predictors in regression models.</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/lmvariants.svg" alt="" />
+<p class="caption">Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.</p>
+</div>
+<p>Since the relationship between the explanatory variables and the output variable is modeled linearly, these models are called as linear models. To do this, we need to find a linear regression equation for the set of input predictors and the output variable.</p>
+<p>But without going into the mathematics of finding this linear regression equation, we will use a tool/function provided in R to model and predict the output variable.</p>
+<hr />
+<div id="lm" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Linear regression using lm() function</h3>
+<p>Syntax for building the regression model using the <em>lm()</em> function is as follows:</p>
+<ul>
+<li><code>lm(formula, data, ...)</code>
+<ul>
+<li><em>formula</em>: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+<ul>
+<li><code>prediction ~ predictor1 + predictor2 + predictor3 + ...</code></li>
+</ul></li>
+<li><em>data</em>: here we provide the dataset on which the linear regression model is to be trained.</li>
+</ul></li>
+</ul>
+<p>For more info on the <em>lm()</em> function visit <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm()</a></p>
+<p>Lets look at the example on the RealEstate dataset.</p>
+<p>A snippet of the Realestate Dataset is given below.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-105">Table 7.1: </span>Snippet of Real Estate Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Price
+</th>
+<th style="text-align:right;">
+Bedrooms
+</th>
+<th style="text-align:right;">
+Bathrooms
+</th>
+<th style="text-align:right;">
+Size
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+795000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2371
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+399000
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2818
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+545000
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3032
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+909000
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3540
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+109900
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1249
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+324900
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1800
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+192900
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1603
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+215000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1450
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+999000
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3360
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+319000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1323
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now we can build a simple linear regression model to predict the Price attribute based on the various other attributes present in the dataset, as shown above.</p>
+<p>Since we will be predicting only one attribute values, this model will be called simple linear regression model.</p>
+<p>For the first example we will predict the price value of house using only <em>size</em> attribute as the predictor.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxuIyBMb2FkIHRoZSBkYXRhc2V0LlxucmVhbGVzdGF0ZTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvUmVhbEVzdGF0ZS5jc3ZcIilcblxuIyBzcGxpdGluZyB0aGUgZGF0YXNldCBpbnRvIHRyYWluaW5nIGFuZCB0ZXN0aW5nLlxuaWR4IDwtIHNhbXBsZSggMToyLCBzaXplID0gbnJvdyhyZWFsZXN0YXRlKSwgcmVwbGFjZSA9IFRSVUUsIHByb2IgPSBjKC43LCAuMykpXG50cmFpbiA8LSByZWFsZXN0YXRlW2lkeCA9PSAxLF1cbnRlc3QgPC0gcmVhbGVzdGF0ZVtpZHggPT0gMixdXG5cbiMgVXNlIHRoZSBsbSgpIGZ1bmN0aW9uIHRvIHByZWRpY3QgdGhlIHByaWNlIGJhc2VkIG9uIHNpemUgb2YgdGhlIGhvdXNlLlxuIyBUaHVzIHRoaXMgaXMgYW4gZXhhbXBsZSBvZiBzaW1wbGUgbGluZWFyIHJlZ3Jlc3Npb24gc2luY2Ugb25seSBvbmUgcHJlZGljdG9yIGFuZCBvbmUgb3V0cHV0IHZhbHVlIGlzIHVzZWQuXG5zaW1wbGUuZml0IDwtIGxtKFByaWNlflNpemUsZGF0YT10cmFpbilcblxuIyBzdW1tYXJ5IG9mIHRoZSBtb2RlbFxuc3VtbWFyeShzaW1wbGUuZml0KVxuXG4jIExpbmVhciByZWxhdGlvbiBiZXR3ZWVuIHRoZSBQcmljZSBhbmQgU2l6ZSBhdHRyaWJ1dGUuXG5wbG90KHRyYWluJFNpemUsdHJhaW4kUHJpY2UpXG5hYmxpbmUoc2ltcGxlLmZpdCAsIGNvbD1cInJlZFwiKVxuXG4jIFByZWRpY3RpbmcgdmFsdWVzIG9uIHRoZSB0ZXN0IGRhdGFzZXQuXG5QcmVkaWN0ZWRQcmljZS5zaW1wbGUgPC0gcHJlZGljdChzaW1wbGUuZml0LHRlc3QpXG4jIFByZWRpY3RlZCBWYWx1ZXNcbmhlYWQoYXMuaW50ZWdlcih1bm5hbWUoUHJlZGljdGVkUHJpY2Uuc2ltcGxlKSkpXG4jIEFjdHVhbCBWYWx1ZXNcbmhlYWQodGVzdCRQcmljZSkifQ==
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The plot of <em>Size</em> vs <em>Price</em>, and the red line represents the fitted line or the linear model line which will be used for prediction.</li>
+<li>The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the actual values, the predicted values are some times close,some time far and few are very far.</li>
+</ul>
+<p>We saw above an example of simple linear regression model, where only one predictor was used for predicting a single output attribute.</p>
+<p>Now we will see an example of <em>multiple linear regression</em> model, where there can be multiple predictors to predict a single output attribute. (Note: Please do not confuse this with the <em>multivariate linear regression</em>.)</p>
+<p>Let look at an example of predicting the <em>Price</em> of the real estate, based on 3 attributes <em>Size, Number of Bedrooms and Number of Bathrooms</em>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxuIyBMb2FkIHRoZSBkYXRhc2V0LlxucmVhbGVzdGF0ZTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvUmVhbEVzdGF0ZS5jc3ZcIilcblxuIyBzcGxpdGluZyB0aGUgZGF0YXNldCBpbnRvIHRyYWluaW5nIGFuZCB0ZXN0aW5nLlxuaWR4IDwtIHNhbXBsZSggMToyLCBzaXplID0gbnJvdyhyZWFsZXN0YXRlKSwgcmVwbGFjZSA9IFRSVUUsIHByb2IgPSBjKC43LCAuMykpXG50cmFpbiA8LSByZWFsZXN0YXRlW2lkeCA9PSAxLF1cbnRlc3QgPC0gcmVhbGVzdGF0ZVtpZHggPT0gMixdXG5cblxuIyBVc2UgdGhlIGxtKCkgZnVuY3Rpb24gdG8gcHJlZGljdCB0aGUgcHJpY2UgYmFzZWQgb24gc2l6ZSwgYmF0aHJvb21zIGFuZCBiZWRyb29tcyBvZiB0aGUgaG91c2UuXG4jIFRodXMgdGhpcyBpcyBhbiBleGFtcGxlIG9mIG11bHRpcGxlIGxpbmVhciByZWdyZXNzaW9uIHNpbmNlIG11bHRpcGxlIHByZWRpY3RvciBhbmQgb25lIG91dHB1dCB2YWx1ZSBpcyB1c2VkLlxubXVsdGlwbGUuZml0IDwtIGxtKFByaWNlflNpemUgKyBCYXRocm9vbXMgKyBCZWRyb29tcyxkYXRhPXRyYWluKVxuXG4jIHN1bW1hcnkgb2YgdGhlIG1vZGVsXG5zdW1tYXJ5KG11bHRpcGxlLmZpdClcblxuIyBQcmVkaWN0aW5nIHZhbHVlcyBvbiB0aGUgdGVzdCBkYXRhc2V0LlxuUHJlZGljdGVkUHJpY2UubXVsdGlwbGUgPC0gcHJlZGljdChtdWx0aXBsZS5maXQsdGVzdClcbiMgUHJlZGljdGVkIFZhbHVlc1xuaGVhZChhcy5pbnRlZ2VyKHVubmFtZShQcmVkaWN0ZWRQcmljZS5tdWx0aXBsZSkpKVxuIyBBY3R1YWwgVmFsdWVzXG5oZWFkKHRlc3QkUHJpY2UpIn0=
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model based on just the <em>Size</em> as predictor, here, when we used 3 predictors, we have more accurate predictions, thus increasing the overall accuracy of the model.</li>
+</ul>
+<hr />
+</div>
+<div id="mse" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Calculating the Error using mse()</h3>
+<p>As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won’t prove useful now in our numerical predictions scenario.</p>
+<p>Also we don’t want to eyeball everytime we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.</p>
+<p>To do this we will use the Mean Squared Error(MSE).</p>
+<ul>
+<li>The MSE is a measure of the quality of an predictor/estimator</li>
+<li>It is always non-negative</li>
+<li>Values closer to zero are better.</li>
+</ul>
+<p>The equation to calculate the MSE is as follows:</p>
+<p><span class="math display">\[\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}\]</span></p>
+<p>To implement this, we will use the <em>mse()</em> function present in the Metrics Package, so remember to install the Metrics package and use <code>library(Metrics)</code> in the code for local use.</p>
+<p>The syntax for <em>mse()</em> function is very simple:</p>
+<ul>
+<li><code>mse(actual,predicted)</code>
+<ul>
+<li><em>actual</em>: vector of the actual values of the attribute we want to predict.</li>
+<li><em>predicted</em>: vector of the predicted values obtained using our model.</li>
+</ul></li>
+</ul>
+<p>Now lets look at the MSE of the previous example.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxuIyBMb2FkIHRoZSBkYXRhc2V0LlxucmVhbGVzdGF0ZTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvUmVhbEVzdGF0ZS5jc3ZcIilcblxuIyBzcGxpdGluZyB0aGUgZGF0YXNldCBpbnRvIHRyYWluaW5nIGFuZCB0ZXN0aW5nLlxuaWR4IDwtIHNhbXBsZSggMToyLCBzaXplID0gbnJvdyhyZWFsZXN0YXRlKSwgcmVwbGFjZSA9IFRSVUUsIHByb2IgPSBjKC43LCAuMykpXG50cmFpbiA8LSByZWFsZXN0YXRlW2lkeCA9PSAxLF1cbnRlc3QgPC0gcmVhbGVzdGF0ZVtpZHggPT0gMixdXG5cbiMgVXNlIHRoZSBsbSgpIGZ1bmN0aW9uIHRvIHByZWRpY3QgdGhlIHByaWNlIGJhc2VkIG9uIHNpemUgb2YgdGhlIGhvdXNlLlxuc2ltcGxlLmZpdCA8LSBsbShQcmljZX5TaXplLGRhdGE9dHJhaW4pXG4jIFByZWRpY3RpbmcgdmFsdWVzIG9uIHRoZSB0ZXN0IGRhdGFzZXQuXG5QcmVkaWN0ZWRQcmljZS5zaW1wbGUgPC0gcHJlZGljdChzaW1wbGUuZml0LHRlc3QpXG4jIFByZWRpY3RlZCBWYWx1ZXNcbmhlYWQoYXMuaW50ZWdlcih1bm5hbWUoUHJlZGljdGVkUHJpY2Uuc2ltcGxlKSkpXG4jIEFjdHVhbCBWYWx1ZXNcbmhlYWQodGVzdCRQcmljZSlcblxuIyBMZXRzIHVzZSB0aGUgbXNlKCkgZnVuY3Rpb24gdG8gXG5tc2UodGVzdCRQcmljZSxQcmVkaWN0ZWRQcmljZS5zaW1wbGUpIn0=
+</div>
+<p>We can see the MSE is too large above 200 billion, and this is huge value could be understandable as we are taking the squared differences of all the records that we predicted.</p>
+<p>The main intention is to get this huge value to as low as possible possibly near zero, which could be difficult but can be achieved upto a relative error by using a better model and training data.</p>
+<hr />
+</div>
+</div>
+<div id="regression-using-rpart" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Regression using RPART</h2>
+<p>Since we have already used the rpart library for performing decision tree algorithms also referred as CART(classification and regression tree) algorithms, we will now look at this type algorithm for regression based prediction.</p>
+<p>Remember we have discussed the usage of Rpart in the section <a href="classification.html#rpart">6.2</a> in great detail. Thus for using Rpart for regression based prediction we will need to provide the <em>rpart()</em> functions, <em>method</em> attribute, with the keyword <em>“anova”</em>.</p>
+<p>For more details on the use of Rpart for prediction please refer to section <a href="classification.html#rpart">6.2</a>.</p>
+<p>Lets look at an example of regression based prediction using Rpart for the <em>Price</em> attribute of the Real estate Dataset with <em>Size, Number of Bedrooms and Number of Bathrooms</em> as predictors.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubGlicmFyeShNb2RlbE1ldHJpY3MpXG5cbiMgTG9hZCB0aGUgZGF0YXNldC5cbnJlYWxlc3RhdGU8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RlZXBsb2toYW5kZS9kYXRhMTAxZGVtb2Jvb2svbWFpbi9maWxlcy9kYXRhc2V0L1JlYWxFc3RhdGUuY3N2XCIpXG5cbiMgc3BsaXRpbmcgdGhlIGRhdGFzZXQgaW50byB0cmFpbmluZyBhbmQgdGVzdGluZy5cbmlkeCA8LSBzYW1wbGUoIDE6Miwgc2l6ZSA9IG5yb3cocmVhbGVzdGF0ZSksIHJlcGxhY2UgPSBUUlVFLCBwcm9iID0gYyguNywgLjMpKVxudHJhaW4gPC0gcmVhbGVzdGF0ZVtpZHggPT0gMSxdXG50ZXN0IDwtIHJlYWxlc3RhdGVbaWR4ID09IDIsXVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQoKSBmdW5jdGlvbiB0byBwcmVkaWN0IHRoZSBwcmljZSBiYXNlZCBvbiB0aGUgc2l6ZSwgYmF0aHJvb21zIGFuZCBiZWRyb29tcyBvZiB0aGUgaG91c2UuXG5ycGFydC5maXQgPC0gcnBhcnQoUHJpY2V+U2l6ZStCYXRocm9vbXMrQmVkcm9vbXMsZGF0YT10cmFpbixtZXRob2QgPSBcImFub3ZhXCIpXG5cbiMgUHJlZGljdGluZyB2YWx1ZXMgb24gdGhlIHRlc3QgZGF0YXNldC5cblByZWRpY3RlZFByaWNlLnJwYXJ0IDwtIHByZWRpY3QocnBhcnQuZml0LHRlc3QpXG4jIFByZWRpY3RlZCBWYWx1ZXNcbmhlYWQoYXMuaW50ZWdlcih1bm5hbWUoUHJlZGljdGVkUHJpY2UucnBhcnQpKSlcbiMgQWN0dWFsIFZhbHVlc1xuaGVhZCh0ZXN0JFByaWNlKVxuXG4jIExldHMgdXNlIHRoZSBtc2UoKSBmdW5jdGlvbiB0byBcbm1zZSh0ZXN0JFByaWNlLFByZWRpY3RlZFByaWNlLnJwYXJ0KSJ9
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/rpartanova.svg" alt="" />
+<p class="caption">Output tree plot of rpart() model using for regression using “anova” method</p>
+</div>
+<p>We can see,</p>
+<ul>
+<li>The output decision tree of the <em>rpart()</em> function</li>
+<li>The predicted values obtained using the model created by the rpart() function.</li>
+<li>The MSE of the model on the testing dataset.</li>
+</ul>
+<p>An important point to note while using decision trees for regression purpose, is that since the underlying process of modeling is still a decision tree, the output still represent a set of distinct classes, even though the values of the classes are numeric. Thus we can see that the predicted values are repeated even for varying inputs.</p>
+<p>Hence Decision tree must be used carefully when used for regression based prediction models.</p>
+<hr />
+<p>EOC</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

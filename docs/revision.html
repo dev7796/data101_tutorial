@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Revision of R commands | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Revision of R commands | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Revision of R commands | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-06-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="stateval.html"/>
+<link rel="next" href="datatransformation.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a>
+<a href="https://github.com/deeplokhande/data101demobook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>7</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>7.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>7.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="7.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>7.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>7.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>8</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>8.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="8.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>8.2</b> Random Forest</a></li>
+<li class="chapter" data-level="8.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>8.3</b> SVM</a></li>
+<li class="chapter" data-level="8.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>8.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>9</b> Blog: Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>9.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="9.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>9.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>9.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="9.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>9.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>9.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>9.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="9.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>9.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>9.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>9.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="9.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>9.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>9.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>9.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="9.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>9.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="revision" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Revision of R commands</h1>
+<script src="files/js/dcl.js"></script>
+<p>In this chapter we are going to recap at some <strong>basic</strong> and useful functions we have used in R.
+The examples we use here will be helpful in revising few of the functions we studied and would give an baseline of function we would need in the future while programming in R.</p>
+<p>List of commands:</p>
+<ol style="list-style-type: decimal">
+<li>c()</li>
+<li>data.frame()</li>
+<li>subset()</li>
+<li>table()</li>
+<li>tapply()</li>
+<li>cut()</li>
+<li>summary(), mean(),length(), max(),min(), sd(),nrow(), ncol()</li>
+<li>class()</li>
+</ol>
+<p>And also all the plot commands present in section <a href="dataexp.html#plots">2.1</a></p>
+<hr />
+<div id="dataframe" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> c() &amp; data.frame() &amp; class()</h2>
+<ul>
+<li>c()
+<ul>
+<li>The c() function is used for combining arguments.</li>
+<li>The default behavior of the c() method is to combine its arguments to form a vector.</li>
+<li>All arguments are coerced (forcibly converted) to a common type which is the type of the returned value.</li>
+<li>For example,the non-character values are coerced to character type if one of the elements is a character.</li>
+<li>the hierarchy followed is NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression.</li>
+</ul></li>
+<li>dataframe()
+<ul>
+<li>A data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column.</li>
+<li>Following are the characteristics of a data frame.
+<ul>
+<li>The column names should be non-empty.</li>
+<li>The row names should be unique.</li>
+<li>The data stored in a data frame can be of numeric, factor or character type.</li>
+<li>Each column should contain same number of data items.</li>
+</ul></li>
+</ul></li>
+<li>class()
+<ul>
+<li>The class() function has multiple uses, but for here, it is used to check the type of object.</li>
+</ul></li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgMyB2ZWN0b3JzIHdpdGggdGl0bGUsIGF1dGhvciBhbmQgeWVhci5cbnRpdGxlIDwtIGMoJ0RhdGEgU21hcnQnLCdPcmllbnRhbGlzbScsJ0ZhbHNlIEltcHJlc3Npb25zJywnTWFraW5nIFNvZnR3YXJlJylcbmF1dGhvciA8LSBjKCdGb3JlbWFuLCBKb2huJywnU2FpZCwgRWR3YXJkJywnQXJjaGVyLCBKZWZmZXJ5JywnT3JhbSwgQW5keScpXG55ZWFyIDwtIGMoMjAxMCwyMDExLDIwMTIsMTk5OClcblxuI0xldHMgbG9vayBhdCBob3cgdGhlIGNyZWF0ZWQgdmVjdG9ycyBsb29rLlxudGl0bGVcbmF1dGhvclxueWVhclxuXG4jIEFsc28gbGV0cyBsb29rIGF0IHRoZWlyIHR5cGVzIHVzaW5nIHRoZSBjbGFzcyBmdW5jdGlvbi5cbmNsYXNzKHRpdGxlKVxuY2xhc3MoYXV0aG9yKVxuY2xhc3MoeWVhcilcblxuXG4jIE5vdyBsZXRzIGNyZWF0ZSBhIGRhdGFmcmFtZSB1c2luZyB0aGUgYWJvdmUgY29sdW1uIHZlY3RvcnMuXG5cbmRmIDwtIGRhdGEuZnJhbWUodGl0bGUsIGF1dGhvciwgeWVhcilcbmRmICMgTGV0cyBsb29rIGF0IGhvdyB0aGUgZGF0YWZyYW1lIGxvb2tzLiJ9
+</div>
+<hr />
+</div>
+<div id="basicfunction" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</h2>
+<p>The functions in this section are very simple yet are always useful to get more information from data.</p>
+<ul>
+<li>summary() function computes summary statistics of data.</li>
+<li>mean() function is used to find the average of the data.</li>
+<li>sd() fucntion is used to find the standard deviation of the data.</li>
+<li>length() function is used to get or set the length of data.</li>
+<li>max() function is used to get the maximum valued element in the data.</li>
+<li>min() function is used to get the minimum valued element in the data.</li>
+<li>nrow() function is used to find the number/count of the rows present in data.</li>
+<li>ncol() function is used to find the number/count of the columns present in data.</li>
+<li>dim() function is used to find the dimensions of the data.</li>
+</ul>
+<p>Lets look at example of all these functions.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkIGRhdGFzZXRcblxuIyBMZXRzIGxvb2sgYXQgdGhlIHN1bW1hcnlcbnN1bW1hcnkobW9vZHkpXG5cbiNMZXRzIGxvb2sgYXQgdGhlIG51bWJlciBvZiByb3dzIGluIHRoZSBkYXRhc2V0LlxubnJvdyhtb29keSlcblxuI0xldHMgbG9vayBhdCB0aGUgbnVtYmVyIG9mIGNvbHVtbnMgaW4gdGhlIGRhdGFzZXQuXG5uY29sKG1vb2R5KVxuXG4jTGV0cyBsb29rIGF0IHRoZSBkaW1lbnNpb25zIGkuZS4gYm90aCBudW1iZXJzIG9mIHJvd3MgYW5kIGNvbHVtbnMgb2YgdGhlIGRhdGEgdXNpbmcganVzdCBvbmUgY29tbWFuZFxuZGltKG1vb2R5KVxuXG4jTGV0cyBsb29rIGF0IHRoZSBtZWFuIG9mIHNjb3JlIGNvbHVtbi5cbm1lYW4obW9vZHkkc2NvcmUpXG5cbiNMZXRzIGxvb2sgYXQgdGhlIHN0YW5kYXJkIGRldmlhdGlvbiBvZiBzY29yZSBjb2x1bW5cbnNkKG1vb2R5JHNjb3JlKVxuXG4jTGV0cyBsb29rIGF0IHRoZSBsZW5ndGggb2YgdGhlIGdyYWRlIGNvbHVtbiBcbmxlbmd0aChtb29keSRncmFkZSlcblxuI0xldHMgbG9vayBhdCB0aGUgbWluaW11bSB2YWx1ZSBvZiBzY29yZSBpbiB0aGUgc2NvcmUgY29sdW1uLlxubWluKG1vb2R5JHNjb3JlKVxuXG4jbGV0cyBsb29rIGF0IHRoZSBtYXhpbXVtIHZhbHVlIG9mIHRoZSBzY29yZSBpbiB0aGUgc2NvcmUgY29sdW1uXG5tYXgobW9vZHkkc2NvcmUpIn0=
+</div>
+<hr />
+</div>
+<div id="table" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Table</h2>
+<ul>
+<li>table() function in R Language is used to create a categorical representation of data with variable name and the frequency in the form of a table.</li>
+<li>More use of table() is when you use multiple categorical columns. For example, we’ll see the count of <em>grade</em> vs <em>asks_questions</em> in example 2.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxuXG50YWJsZWV4MTwtIHRhYmxlKG1vb2R5JEdSQURFKSAjVXNlIG9mIHRhYmxlICBmdW5jdGlvbiBvbiB0aGUgbmV3IGNvbHVtbi5cbnRhYmxlZXgxXG5iYXJwbG90KHRhYmxlZXgxLGNvbCA9YyhcInJlZFwiLFwicHVycGxlXCIsXCJjeWFuXCIsXCJ5ZWxsb3dcIixcImdyZWVuXCIpLHhsYWIgPSBcIkxhYmVsc1wiLCB5bGFiID0gXCJGcmVxdWVuY3lcIixtYWluID0gXCJ0YWJsZSgpIGV4YW1wbGUgMVwiKSAjcGxvdC5cblxuXG50YWJsZWV4MjwtdGFibGUobW9vZHkkR1JBREUsbW9vZHkkQVNLU19RVUVTVElPTlMpXG50YWJsZWV4MlxubW9zYWljcGxvdCh0YWJsZWV4Mixjb2wgPWMoXCJyZWRcIixcInB1cnBsZVwiLFwiY3lhblwiLFwieWVsbG93XCIsXCJncmVlblwiKSxtYWluID0gXCJ0YWJsZSgpIGV4YW1wbGUgMlwiKSJ9
+</div>
+<div id="question-what-would-r-say" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxudGFibGUobW9vZHlbbW9vZHkkQVNLU19RVUVTVElPTlMhPSdhbHdheXMnLF0kR1JBREUpXG4jV2hhdCB3aWxsIFIgc2F5P1xuXG4jIEEuIGVycm9yXG4jIEIuIGRpc3RyaWJ1dGlvbiBvZiBncmFkZXMgZm9yIHN0dWRlbnRzIHdobyBhbHdheXMgYXNrIHF1ZXN0aW9uc1xuIyBDLiBkaXN0cmlidXRpb24gb2YgZ3JhZGVzIGZvciBzdHVkZW50cyB3aG8gZG8gbm90IGFsd2F5cyBhc2sgcXVlc3Rpb25zICJ9
+</div>
+</div>
+<div id="question-what-would-r-say-1" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxudGFibGUobW9vZHlbbW9vZHkkQVNLU19RVUVTVElPTlM9PWxpc3QoJ2Fsd2F5cycsJ25ldmVyJyksXSRHUkFERSlcbiNXaGF0IHdpbGwgUiBzYXk/XG5cbiMgQS4gZXJyb3IuXG4jIEIuIGRpc3RyaWJ1dGlvbiBvZiBncmFkZXMgZm9yIHN0dWRlbnRzIHdobyBhbHdheXMgb3IgbmV2ZXIgYXNrIHF1ZXN0aW9ucy4gIFxuIyBDLiBkaXN0cmlidXRpb24gb2YgZ3JhZGVzIGZvciBzdHVkZW50cyB3aG8gZG8gbm90IGFzayBxdWVzdGlvbnMgYWx3YXlzIG9yIG5ldmVyLiAifQ==
+</div>
+<hr />
+</div>
+</div>
+<div id="subset" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Subset</h2>
+<ul>
+<li><p>subset() function in R programming is used to create a subset of vectors, matrices or data frames based on the conditions provided in the parameters.</p></li>
+<li><p>NOTE: To create a subset, not only can you use the subset() function, but also:</p>
+<ul>
+<li>You can use [ ] operator. Ex: dataFrameName[‘columnName’]</li>
+<li>Even $ operator is a subset operator. Ex: dataFrameName$columnName</li>
+</ul></li>
+<li><p>Also, subsetting in R (commonly called “subscripting”) is done with square brackets. When subscripting a data frame there will be two places inside the square brackets separated by a comma.</p></li>
+<li><p>The first part inside the square brackets corresponds to rows. The second part corresponds to columns.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxuXG4jU3Vic2V0IG9mIHJvd3Ncbm1vb2R5X25ldmVyX3NtYXJ0cGhvbmU8LXN1YnNldChtb29keSxPTl9TTUFSVFBIT05FPT1cIm5ldmVyXCIpXG5ucm93KG1vb2R5KVxubnJvdyhtb29keV9uZXZlcl9zbWFydHBob25lKVxudGFibGUobW9vZHlfbmV2ZXJfc21hcnRwaG9uZSRPTl9TTUFSVFBIT05FKSAjIFlvdSBjYW4gc2VlIG9ubHkgc3R1ZGVudCBuZXZlciBvbiBzbWFydHBob25lIGFyZSBpbiB0aGUgc3Vic2V0LlxuXG4jQWx0ZXJuYXRlIHdheSB0byBzdWJzZXQuXG5tb29keV9uZXZlcl9zbWFydHBob25lX2FsdDwtbW9vZHlbbW9vZHkkT05fU01BUlRQSE9ORT09XCJuZXZlclwiLCBdXG50YWJsZShtb29keV9uZXZlcl9zbWFydHBob25lX2FsdCRPTl9TTUFSVFBIT05FKSAjIFlvdSBjYW4gc2VlIGEgc2ltaWxhciB0YWJsZSBhcyBhYm92ZS5cblxuXG4jc3Vic2V0IG9mIGNvbHVtbnNcbm1vb2R5X2V4Y2VwdDg8LXN1YnNldChtb29keSwgc2VsZWN0ID0gLWMoOCkpXG5uY29sKG1vb2R5KVxubmNvbChtb29keV9leGNlcHQ4KSAjIFlvdSBjYW4gc2VlIHRoZSBudW1iZXIgb2YgY29sdW1ucyBoYXMgYmVlbiByZWR1Y2VkIGJ5IDEsIGR1ZSB0byBzdWJzZXR0aW5nIHdpdGhvdXQgY29sdW1uIDhcblxuI1N1YnNldCBvZiBSb3dzIGFuZCBDb2x1bW5zXG5tb29keV9leGNlcHQ4X25ldmVyPC1zdWJzZXQobW9vZHksIHNlbGVjdCA9IC1jKDgpLCBPTl9TTUFSVFBIT05FID09IFwibmV2ZXJcIilcbnRhYmxlKG1vb2R5X2V4Y2VwdDhfbmV2ZXIkT05fU01BUlRQSE9ORSlcbmRpbShtb29keSlcbmRpbShtb29keV9leGNlcHQ4X25ldmVyKSMgWW91IGNhbiBzZWUgb25seSBzdHVkZW50IG5ldmVyIG9uIHNtYXJ0cGhvbmVzIHdpdGhvdXQgY29sdW1uIDggZGF0YSBhcmUgcHJlc2VudCBpbiB0aGUgc3Vic2V0LiJ9
+</div>
+<div id="question-what-would-r-say-2" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxubW9vZHlbbW9vZHkkU0NPUkU+PTkwLDNdXG4jIFdoYXQgd2lsbCBSIHNheT9cblxuXG4jIEEuIEdldCBzdWJzZXQgb2YgYWxsIGNvbHVtbnMgd2hpY2ggY29udGFpbnMgc3R1ZGVudHMgd2hvIHNjb3JlZCBtb3JlIHRoYW4gZXF1YWwgdG8gOTBcbiMgQi4gZXJyb3JcbiMgQy4gZ2V0IGFsbCBzY29yZSB2YWx1ZXMgd2hpY2ggYXJlIG1vcmUgdGhhbiBlcXVhbCB0byA5MFxuIyBELiBnZXQgc3Vic2V0IG9mIG9ubHkgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyB3aXRoIHNjb3JlIGdyZWF0ZXIgdGhhbiBlcXVhbCB0byA5MCJ9
+</div>
+</div>
+<div id="question-what-would-r-say-3" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxubW9vZHlbbW9vZHkkU0NPUkU+PTgwLjAgJiBtb29keSRHUkFERSA9PSdCJyxdIFxuIyBXaGF0IHdpbGwgUiBzYXk/XG5cbiMgQS4gc3Vic2V0IG9mIG1vb2R5IGRhdGEgZnJhbWUgd2hvIGdvdCBCIGdyYWRlLlxuIyBCLiBlcnJvci5cbiMgQy4gc3Vic2V0IG9mIG1vb2R5IGRhdGEgZnJhbWUgd2l0aCBzY29yZSBncmVhdGVyIHRoYW4gODAuXG4jIEQuIHN1YnNldCBvZiBtb29keSBkYXRhIGZyYW1lIHdpdGggc2NvcmUgbW9yZSB0aGFuIDgwIGFuZCBnb3QgQiBncmFkZS4ifQ==
+</div>
+<hr />
+</div>
+</div>
+<div id="tapply" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> tapply</h2>
+<ul>
+<li>tapply() function in R Language is used to apply a function over a subset of vectors given by a combination of factors</li>
+<li>This is a very versatile function, as we’ll see from the use case.</li>
+<li>Note : There are different aggregate functions that can be used. For example, Mean, Median, Variance, Sum etc.</li>
+<li>We can also factor it on multiple attributes.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxuXG4jIFRvIGFwcGx5IHRhcHBseSgpIG9uIFNDT1JFIGZhY3RvcmVkIG9uIE9OX1NNQVJUUEhPTkVcblxubW9vZHlfc2NvcmVhdmc8LXRhcHBseShtb29keSRTQ09SRSxtb29keSRPTl9TTUFSVFBIT05FLG1lYW4pXG5tb29keV9zY29yZWF2ZyAjIFdlIGNhbiBzZWUgaXQgY2FsY3VsYXRlZCBtZWFuIHZhbHVlIG9mIHRoZSBzY29yZSBieSBzdHVkZW50cyB3aXRoIHJlc3BlY3QgdG8gdGhlaXIgdXNlIG9mIHBob25lIGluIGNsYXNzLlxuXG5iYXJwbG90KG1vb2R5X3Njb3JlYXZnLGNvbCA9IFwiY3lhblwiLHhsYWIgPSBcIkxhYmVsc1wiLCB5bGFiID0gXCJtZWFuX3ZhbFwiLG1haW4gPSBcInRhcHBseSgpIGV4YW1wbGUgMVwiLGxhcyA9IDIsIGNleC5uYW1lcyA9IDAuNzUpI3Bsb3RcblxuI0xldHMgZmFjdG9yIHRoZSBncmFkZXMgb24gb25fc21hcnRwaG9uZSBhcyB3ZWxsIGFzIGdyYWRlIGNhdGVnb3J5LlxuXG5tb29keS5zY29yZWF2ZzJkPC10YXBwbHkobW9vZHkkR1JBREUsbGlzdChtb29keSRPTl9TTUFSVFBIT05FLG1vb2R5JEdSQURFKSxsZW5ndGgpXG5tb29keS5zY29yZWF2ZzJkW2lzLm5hKG1vb2R5LnNjb3JlYXZnMmQpXTwtMFxubW9vZHkuc2NvcmVhdmcyZCMgV2UgY2FuIHNlZSBpdCBjYWxjdWxhdGVkIGNvdW50IG9mIHRoZSBncmFkZSBvZiBzdHVkZW50IHdpdGggcmVzcGVjdCB0byB0aGVpciBpbi1jbGFzcyBzbWFydHBob25lIHVzYWdlICBhbmQgZ3JhZGUgY2F0ZWdvcnkuXG5iYXJwbG90KG1vb2R5LnNjb3JlYXZnMmQsY29sPWMoXCJyZWRcIixcImN5YW5cIixcIm9yYW5nZVwiLFwiYmx1ZVwiKSxtYWluID0gXCJ0YXBwbHkoKSBleGFtcGxlIDJcIixiZXNpZGUgPSBUUlVFLGxlZ2VuZD1yb3duYW1lcyhtb29keS5zY29yZWF2ZzJkKSkifQ==
+</div>
+<div id="question-what-would-r-say-4" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxudGFwcGx5KG1vb2R5LCBHUkFERSwgU0NPUkUsIG1pbilcbiMgV2hhdCB3aWxsIFIgc2F5P1xuXG4jIEEuIG1pbmltdW0gc2NvcmUgZm9yIGVhY2ggZ3JhZGVcbiMgQi4gbWluaW11bSBncmFkZSBmb3IgZWFjaCBzY29yZVxuIyBDLiBtaW5pbXVtIGdyYWRlIG9ubHkgXG4jIEQuIEVycm9yLiJ9
+</div>
+</div>
+<div id="question-what-would-r-say-5" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Question What would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxudGFwcGx5KG1vb2R5JEFTS19RVUVTVElPTlMsIG1vb2R5JEdSQURFLCBtZWFuKVxuIyBXaGF0IHdpbGwgUiBzYXk/XG5cbiMgQS4gbWVhbiBncmFkZSBmb3IgZWFjaCB2YWx1ZXMgb2YgYXNrX3F1ZXN0aW9uIGF0dHJpYnV0ZVxuIyBCLiBtZWFuIHZhbHVlIG9mIGFza19xdWVzdGlvbnMgYXR0cmlidXRlIGZvciBlYWNoIGdyYWRlXG4jIEMuIG1lYW4gY2F0ZWdvcnkgb2YgYXNrX3F1ZXN0aW9ucyBvbmx5IFxuIyBELiBlcnJvci4ifQ==
+</div>
+<hr />
+</div>
+</div>
+<div id="cut" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Cut</h2>
+<ul>
+<li>cut() function in R Language is used to divide a <strong>numeric vector</strong> into different ranges</li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxuXG4jIFdlIGFjY2VzcyB0aGUgU2NvcmUgY29sdW1uIGZyb20gbW9vZHkgZGF0YXNldC5cbnNjb3JlMCA8LSBjdXQobW9vZHkkU0NPUkUsMTApXG50YWJsZShzY29yZTApICNsZXRzIGNoZWNrIHRoZSBkaXN0cmlidXRpb24gb2YgcGVvcGxlIGluIGVhY2ggcGFydGl0aW9uLlxuXG4jIEN1dCBFeGFtcGxlIHVzaW5nIGJyZWFrcyAtIEN1dHRpbmcgZGF0YSB1c2luZyBkZWZpbmVkIHZlY3Rvci4gXG5zY29yZTEgPC0gY3V0KG1vb2R5JFNDT1JFLGJyZWFrcz1jKDAsNTAsMTAwKSxsYWJlbHM9YyhcIkZcIixcIlBcIikpXG50YWJsZShzY29yZTEpIn0=
+</div>
+<div id="questionwhat-would-r-say" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> QuestionWhat would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxuY3V0KG1vb2R5JFNDT1JFLCBicmVha3M9YygwLDI1LDcwLDEwMCksbGFiZWxzPWMoXCJsb3dcIiwgXCJtZWRpdW1cIiwgXCJoaWdoXCIpKVxuI1doYXQgd291bGQgUiBzYXk/XG5cbiMgQS4gNSBpbnRlcnZhbHMgb2YgYXR0cmlidXRlIHNjb3JlXG4jIEIuIDMgaW50ZXJ2YWxzICgwLDI1KSAoMjUsNzApICg3NSwxMDApXG4jIEMuIDMgY2F0ZWdvcmljYWwgdmFsdWVzIFwibG93XCIsIFwibWVkaXVtXCIgYW5kIFwiaGlnaFwiIGZvciBkaWZmZXJlbnQgc2NvcmUgaW50ZXJ2YWxzXG4jIEQuIDMgc2VwYXJhdGUgZGF0YXNldHMgd2l0aCBzaW1pbGFyIHNjb3JlIHZhbHVlcyJ9
+</div>
+</div>
+<div id="questionwhat-would-r-say-1" class="section level3" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> QuestionWhat would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxub3V0cHV0PC1jdXQobW9vZHkkU0NPUkUsIDUpXG5zdW1tYXJ5KG91dHB1dClcbiNXaGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEuIDUgaW50ZXJ2YWxzIG9mIGF0dHJpYnV0ZSBzY29yZSBvZiB1bmVxdWFsIGNvdW50IG9mIGVsZW1lbnRzXG4jIEIuIDUgaW50ZXJ2YWxzIG9mIGF0dHJpYnV0ZSBzY29yZSBvZiBlcXVhbCBjb3VudCBvZiBlbGVtZW50c1xuIyBDLiA1IGNhdGVnb3JpY2FsIHZhbHVlcyBmb3IgZGlmZmVyZW50IHNjb3JlIGludGVydmFsc1xuIyBELiA1IHNlcGFyYXRlIGRhdGFzZXQgd2l0aCBzaW1pbGFyIHNjb3JlIHZhbHVlcyJ9
+</div>
+</div>
+<div id="questionwhat-would-r-say-2" class="section level3" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> QuestionWhat would R say?</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMV90ZXN0L21haW4vTU9PRFktMjAxOS5jc3ZcIilcblxub3V0cHV0PC1jdXQobW9vZHkkQVNLU19RVUVTVElPTlMsIDIpXG5zdW1tYXJ5KG91dHB1dClcbiNXaGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEuIDIgaW50ZXJ2YWxzIG9mIGF0dHJpYnV0ZSBhc2tfcXVlc3Rpb25zIG9mIHVuZXF1YWwgY291bnQgb2YgZWxlbWVudHMgaW4gZWFjaCBpbnRlcnZhbFxuIyBCLiAyIGludGVydmFscyBvZiBhdHRyaWJ1dGUgYXNrX3F1ZXN0aW9ucyBvZiBlcXVhbCBjb3VudCBvZiBlbGVtZW50cyBpbiBlYWNoIGludGVydmFsXG4jIEMuIDIgY2F0ZWdvcmljYWwgdmFsdWVzIGZvciBkaWZmZXJlbnQgYXNrX3F1ZXN0aW9ucyBpbnRlcnZhbHNcbiMgRC4gRXJyb3IuIn0=
+</div>
+<hr />
+</div>
+<div id="a-complex-example" class="section level3" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> A complex example</h3>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkIGRhdGFzZXRcblxuXG5tb29keSRjb25kaXRpb25hbCA8LTBcbm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kc2NvcmUgLTEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRwYXJ0aWNpcGF0aW9uXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG5zdW1tYXJ5KG1vb2R5JGNvbmRpdGlvbmFsKVxuXG5ib3hwbG90KG1vb2R5JGNvbmRpdGlvbmFsLGNvbCA9IGMoXCJyZWRcIiksbWFpbj1cIkNvbXBsZXggRXhhbXBsZVwiKSJ9
+</div>
+<hr />
+</div>
+</div>
+<div id="basicexamples" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> What would R say?</h2>
+<p>In this section we will look at few examples based on the question <em>“What do you think would R say?”</em>
+All the questions are based on what we have studied in the sections above.</p>
+<p><em>INSTRUCTIONS</em>: Do not run the following examples directly, first ask yourself and note down, what <em>do you think</em> would R say? Only then run them. This is the only way to learn simple commands - and have them memorized so you can write code without having to check every single command.</p>
+<div id="question" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Question</h3>
+<div data-datacamp-exercise="" data-height="100" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ3ZWF0aGVyID1kYXRhLmZyYW1lKERheT1jKCd3ZWVrZGF5JywgJ3dlZWtlbmQnKSwgQ29uZGl0aW9ucyA9Yygnc3VubnknLCdyYWlueScsJ2Nsb3VkeScsICdzbm93JywgJ3N0b3JtJywnaWNlJykpXG5kaW0od2VhdGhlcilcbiN3aGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEpIDYgNlxuIyBCKSAyIDZcbiMgQykgNiAyXG4jIEQpIEVycm9yIn0=
+</div>
+</div>
+<div id="question-1" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Question</h3>
+<div data-datacamp-exercise="" data-height="150" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ3ZWF0aGVyID1kYXRhLmZyYW1lKERheT1jKCd3ZWVrZGF5JywgJ3dlZWtlbmQnKSwgQ29uZGl0aW9ucyA9Yygnc3VubnknLCdyYWlueScsJ2Nsb3VkeScsICdzbm93JywgJ3N0b3JtJywnaWNlJykpXG53ZWF0aGVyJHRlbXBlcmF0dXJlID1jKDgwLCA3MCwgNjUsIDQwLCAzMCwyNSlcbndlYXRoZXJbd2VhdGhlciR0ZW1wZXJhdHVyZSA+IDQwLF1cbmRpbSh3ZWF0aGVyKVxuI3doYXQgd291bGQgUiBzYXk/XG5cbiMgQSkgNiAzXG4jIEIpIHN1YnNldCBvZiB0aGUgZGF0YWZyYW1lIHdpdGggdGVtcGVyYXR1cmUgPiA0MC5cbiMgQykgQm90aCBBIGFuZCBCXG4jIEQpIEVycm9yIn0=
+</div>
+</div>
+<div id="question-2" class="section level3" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> Question</h3>
+<div data-datacamp-exercise="" data-height="150" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJTQ09SRT1jKDMwLDE1LDY2KTtcbkdSQURFPWMoJ0MnLCAnRicsICdBJylcbk9OX1NNQVJUUEhPTkU9YygnYWx3YXlzJywgJ25ldmVyJywgJ3NvbWV0aW1lcycpXG5GSU5BTEVYQU09YygxMiw1LDIwKVxuTT1kYXRhLmZyYW1lKFNDT1JFLCBHUkFERSwgT05fU01BUlRQSE9ORSwgRklOQUxFWEFNKVxuc3Vic2V0KE0sIEdSQURFPT0nRicpXG4jd2hhdCB3b3VsZCBSIHNheT9cblxuIyBBKSBTdWJzZXQgb2YgZGF0YWZyYW1lIGJhc2VkIG9uIEdyYWRlIGVxdWFsIHRvIEZcbiMgQikgU3Vic2V0IG9mIHRoZSBkYXRhZnJhbWUgYmFzZWQgb24gR3JhZGUgbm90IGVxdWFsIHRvIEZcbiMgQykgdGhlIGNvbXBsZXRlIGRhdGFmcmFtZVxuIyBEKSBFcnJvciJ9
+</div>
+</div>
+<div id="question-3" class="section level3" number="4.7.4">
+<h3><span class="header-section-number">4.7.4</span> Question</h3>
+<div data-datacamp-exercise="" data-height="150" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJTQ09SRT1jKDMwLDE1LDY2KTtcbkdSQURFPWMoJ0MnLCAnRicsICdBJylcbk9OX1NNQVJUUEhPTkU9YygnYWx3YXlzJywgJ25ldmVyJywgJ3NvbWV0aW1lcycpXG5GSU5BTEVYQU09YygxMiw1LDIwKVxuTT1kYXRhLmZyYW1lKFNDT1JFLCBHUkFERSwgT05fU01BUlRQSE9ORSwgRklOQUxFWEFNKVxuTVtGSU5BTEVYQU0gPiA1LF1cbiN3aGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEpIFN1YnNldCBvZiBkYXRhZnJhbWUgd2l0aCBmaW5hbGV4YW0gdmFsdWVzIGdyZWF0ZXIgdGhhbiBlcXVhbCB0byA2XG4jIEIpIFN1YnNldCBvZiBkYXRhZnJhbWUgd2l0aCBmaW5hbGV4YW0gdmFsdWVzIGdyZWF0ZXIgdGhhbiBlcXVhbCB0byA1XG4jIEMpIFN1YnNldCBvZiBkYXRhZnJhbWUgd2l0aCBmaW5hbGV4YW0gdmFsdWVzIGxlc3MgdGhhbiA1LiJ9
+</div>
+</div>
+<div id="question-4" class="section level3" number="4.7.5">
+<h3><span class="header-section-number">4.7.5</span> Question</h3>
+<div data-datacamp-exercise="" data-height="150" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJTQ09SRT1jKDMwLDE1LDY2KVxuR1JBREU9YygnQycsICdGJywgJ0EnKVxuT05fU01BUlRQSE9ORT1jKCdhbHdheXMnLCAnbmV2ZXInLCAnc29tZXRpbWVzJylcbkZJTkFMRVhBTT1jKDEyLDUsMjApXG5NPWRhdGEuZnJhbWUoU0NPUkUsIEdSQURFLCBPTl9TTUFSVFBIT05FLCBGSU5BTEVYQU0pXG5NJFFVRVNUSU9OUz0nbm9uZSdcbk1bLDVdXG4jd2hhdCB3b3VsZCBSIHNheT9cblxuIyBBKSBPdXRwdXQgdGhlIGNvbnRlbnQgb2YgYWxsIHRoZSBjb2x1bW5zXG4jIEIpIE91dHB1dCB3b3JkIFwibm9uZVwiIGZvciAzIHRpbWVzIFxuIyBDKSBPdXRwdXQgd29yZCBcIm5vbmVcIiBmb3IgNSB0aW1lc1xuIyBEKSBFcnJvciJ9
+</div>
+</div>
+<div id="question-5" class="section level3" number="4.7.6">
+<h3><span class="header-section-number">4.7.6</span> Question</h3>
+<div data-datacamp-exercise="" data-height="150" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJTQ09SRT1jKDMwLDE1LDY2KVxuR1JBREU9YygnQycsICdGJywgJ0EnKVxuT05fU01BUlRQSE9ORT1jKCdhbHdheXMnLCAnbmV2ZXInLCAnc29tZXRpbWVzJylcbkZJTkFMRVhBTT1jKDEyLDUsMjApXG5NPWRhdGEuZnJhbWUoU0NPUkUsIEdSQURFLCBPTl9TTUFSVFBIT05FLCBGSU5BTEVYQU0pXG50YWJsZShNJFNDT1JFPjE1LCBNJEdSQURFKVxuI3doYXQgd291bGQgUiBzYXk/XG5cbiMgQSkgT3V0cHV0IHRoZSB0YWJsZSBvZiBjb3VudCBvZiBTY29yZSBncmVhdGVyIHRoYW4gMTUgdnMgR3JhZGVcbiMgQikgT3V0cHV0IHRoZSB0YWJsZSBvZiBjb3VudCBvZiBzY29yZSBncmVhdGVyIHRoYW4gMTUgb25seVxuIyBDKSBPdXRwdXQgdGhlIHRhYmxlIG9mIGNvdW50IG9mIGdyYWRlcyBvbmx5XG4jIEQpIE91dHB1dCB0aGUgdGFibGUgb2YgZ3JhZGUgZGlzdHJpYnV0aW9uIHZzIGFsbCBzY29yZS4ifQ==
+</div>
+</div>
+<div id="question-6" class="section level3" number="4.7.7">
+<h3><span class="header-section-number">4.7.7</span> Question</h3>
+<div data-datacamp-exercise="" data-height="100" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ1PC1jKDE6MTApXG53IDwtYygxLC0xLDMpXG51W3c+MF1cbiN3aGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEpICAxICAzICA0ICA2ICA3ICA5IDEwIFxuIyBCKSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAgMTBcbiMgQykgIDEgIDMgIDEgIDMgIDEgIDMgIDEgIDMgIDEgIDMgXG4jIEQpIEVycm9yIn0=
+</div>
+</div>
+<div id="question-7" class="section level3" number="4.7.8">
+<h3><span class="header-section-number">4.7.8</span> Question</h3>
+<div data-datacamp-exercise="" data-height="100" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2IDwtIGMoLTIsMCwyLC01KVxudlt2PjBdXG4jd2hhdCB3b3VsZCBSIHNheT9cblxuIyBBKSAyXG4jIEIpIDAgMlxuIyBDKSBGQUxTRSBGQUxTRSAgVFJVRSBGQUxTRVxuIyBEKSBFcnJvciJ9
+</div>
+</div>
+<div id="question-8" class="section level3" number="4.7.9">
+<h3><span class="header-section-number">4.7.9</span> Question</h3>
+<div data-datacamp-exercise="" data-height="100" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjKFwiYVwiLDEsVClcbiN3aGF0IHdvdWxkIFIgc2F5P1xuXG4jIEEpIE5hTiAgMSAgTmFOXG4jIEIpIFwiYVwiICAxICBUXG4jIEMpIFwiYVwiICBcIjFcIiAgXCJUUlVFXCJcbiMgRCkgXCJhXCIgIFwiMVwiICBcIlRcIiJ9
+</div>
+</div>
+<div id="question-9" class="section level3" number="4.7.10">
+<h3><span class="header-section-number">4.7.10</span> Question</h3>
+<div data-datacamp-exercise="" data-height="100" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4PC0xOjRcbnk8LTI6OVxueCt5XG4jd2hhdCB3b3VsZCBSIHNheT9cblxuIyBBKSAzICA1ICA3ICA5ICA3ICA5IDExIDEzXG4jIEIpIDEgIDIgIDMgIDQgIDIgIDMgIDQgIDUgIDYgIDcgIDggIDlcbiMgQykgMyAgNSAgNyAgOVxuIyBEKSBFcnJvciJ9
+</div>
+</div>
+<div id="question-10" class="section level3" number="4.7.11">
+<h3><span class="header-section-number">4.7.11</span> Question</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2MTwtIGMoMSwyLDMsNClcbnYyPC0gYygxLDIsMyw0KVxudjM8LSBjKDEsMiwzLDQpXG5cbmRmPC1kYXRhLmZyYW1lKHYxLHYyLHYzKVxuIzFcbmRmW2RmPjJdICBcblxuIyBBLiB2YWx1ZXMgb2YgdjEgdmFyaWFibGUgd2hpY2ggYXJlIGxhcmdlciB0aGFuIDIgXG5cbiMgQi4gdmFsdWVzIG9mIHYxLCB2MiBhbmQgdjMgd2hpY2ggYXJlIGxhcmdlciB0aGFuIDIuIFxuXG4jIEMuIGVycm9yICJ9
+</div>
+</div>
+<div id="question-11" class="section level3" number="4.7.12">
+<h3><span class="header-section-number">4.7.12</span> Question</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2MTwtIGMoMSwyLDMsNClcbnYyPC0gYygxLDIsMyw0KVxudjM8LSBjKDEsMiwzLDQpXG5cbmRmPC1kYXRhLmZyYW1lKHYxLHYyLHYzKVxuXG5kZiR2MSA+IDIgXG5cbiMgQS4gZXJyb3IgXG5cbiMgQi4gdmFsdWVzIG9mIHYxIHZhcmlhYmxlIHdoaWNoIGFyZSBsYXJnZXIgdGhhbiAyLlxuXG4jIEMuIFRSVUUgd2hlcmUgdGhlIHZhbHVlIGlzIGdyZWF0ZXIgdGhhbiAyIGFuZCBGYWxzZSB3aGVyZSB0aGUgdmFsdWUgaXMgbGVzcyB0aGFuIDIuICJ9
+</div>
+</div>
+<div id="question-12" class="section level3" number="4.7.13">
+<h3><span class="header-section-number">4.7.13</span> Question</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2MTwtIGMoMSwyLDMsNClcbnYyPC0gYygxLDIsMyw0KVxudjM8LSBjKDEsMiwzLDQpXG5cbmRmPC1kYXRhLmZyYW1lKHYxLHYyLHYzKVxuXG52MT4yXG5cbiMgQS4gVFJVRSB3aGVyZSB0aGUgdmFsdWUgaXMgZ3JlYXRlciB0aGFuIDIgYW5kIEZhbHNlIHdoZXJlIHRoZSB2YWx1ZSBpcyBsZXNzIHRoYW4gMi5cblxuIyBCLiB2YWx1ZXMgb2YgdjEgdmFyaWFibGUgd2hpY2ggYXJlIGxhcmdlciB0aGFuIDJcblxuIyBDLiBlcnJvciJ9
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stateval.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datatransformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+# Data Exploration {#dataexp}
+
+<script src="files/js/dcl.js"></script>
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+
+
+## Plots {#plots}
+
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+# head(moody)
+
+temp<-knitr::kable(
+  head(moody, 10), caption = 'Snippet of Moody Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+<!-- --- -->
+
+<!-- ### Topics visited in this sub-chapter -->
+
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+
+---
+
+### Scatter Plot
+
+- Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)
+- Hence it is used when both the labels are numerical values.
+
+
+Lets look at example of scatter plot using Moody.
+```{r,tut=TRUE,height=700}
+# Let's look at a 2 attribute scatter plot.
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+plot(moody$participation,moody$score,ylab="score",xlab="participation",main=" Participation vs Score",col="red")
+
+
+```
+
+
+---
+
+### Bar Plot
+
+- A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector. 
+- This rectangle height is proportional to the value of the variable in the vector.
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar.
+
+
+
+```{r, tut=TRUE,height=700}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+#lets make a table for the grades of students and counts of students for each Grade. 
+
+t<-table(moody$grade)
+
+#once we have the table lets create a barplot for it.
+
+barplot(t,xlab="Grade",ylab="Number of Students",col=colors,
+main="Barplot for student grade distribution",border="black")
+```
+
+
+---
+
+###  Box Plot
+
+- A boxplot shows the distribution of data in a dataset. 
+- A boxplot shows the following things:
+  - Minimum
+  - Maximum
+  - Median
+  - First quartile
+  - Third quartile
+  - Outliers
+- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
+- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.
+
+
+
+```{r,tut=TRUE,height=700}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+
+#Suppose you want to find the distribution of students score per Grade. We use box plot for getting that. 
+boxplot(score~grade,data=moody,xlab="Grade",ylab="Score", main="Boxplot of grade vs score",col=colors,border="black")
+
+# the circles represent outliers.
+```
+
+
+<!-- ## 4. Histogram -->
+
+<!-- Refer Slide 15. -->
+
+<!-- ```{r} -->
+
+<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
+
+<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
+
+<!-- # You can Change column range using breaks. -->
+
+<!-- ``` -->
+
+
+<!-- For more detail,reference and example refer Slides -->
+
+---
+###  Mosiac Plot
+
+- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
+- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
+- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+-For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at mosiac plot.
+
+
+```{r,tut=TRUE,height=700}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+#suppose you want to find numbers of students with a particular grade based on their texting habits. Use Mosiac-plot.
+
+mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main = "Mosiac of grade vs texing habit in class",col=colors,border="black")
+
+
+```
+
+
+```{r child="./chapters/freestyle.Rmd"}
+
+```
+
+<!-- ```{r child="./chapters/datatransformation.Rmd"} -->
+
+<!-- ``` -->
+

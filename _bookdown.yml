@@ -1,0 +1,18 @@
+book_filename: "bookdemo"
+output_dir: "docs"
+delete_merged_file: true
+rmd_files: [
+  "index.Rmd",
+  "./chapters/intro.Rmd",
+  "./chapters/plots.Rmd",
+  "./chapters/stateval.Rmd",
+  "./chapters/revcommands.Rmd",
+  "./chapters/datatransformation.Rmd",
+  "./chapters/modeling.Rmd",
+  "./chapters/modeling2.Rmd",
+  "./chapters/predblogs.Rmd"]
+# rmd_subdir: "./chapters"
+
+language:
+  ui:
+    chapter_name: "Chapter "

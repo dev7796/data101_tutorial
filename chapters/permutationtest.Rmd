@@ -1,0 +1,190 @@
+## Permutation Test {#permtest}
+
+<script src="files/js/dcl.js"></script>
+
+
+Permutation test allows us to observe randomness directly, with naked eye, without the lenses of statistical tests such as z-tests etc. We shuffle data randomly like a deck of cards. There may be many such shuffles - 10,000, 100,000 etc. The goal is always to see how often we can obtained the observed difference of means (since we are testing either one sided or two sided hypothesis), by purely random shuffles of our data. These permutations (shuffles) destroy all relationships which may pre-exist in our data. We are hoping to show that our observed difference of means can be obtained very rarely in completely random fashion. Then we "experimentally" show that our result is unlikely to randomly occur under null hypothesis. Then we can reject the null hypothesis.
+
+The less often our result appear in the histogram of permutation test results, the better the news for our alternative hypothesis. 
+
+
+What is surprising to many newcomers, is that permutation test will give different p-values (not dramatically different, but still different) in each run of permutation test. This is the case because permutation test in random itself. It is not like z-test which will give the same result when run again for the same hypothesis and same data set. Also p-value computed by permutation test will be, in general, different than p-value computed by z-test. Not very different but different. Again, it is the case because permutation test provides only approximation of p-value. Great advantage of permutation test is that it is universal and robust. One can test different relationships between two variables than just difference of means. For example we can use permutation test to validate whether traffic in Lincoln tunnel is more than twice the traffic in Holland tunnel or even provide different weights for different days of the week.
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+tutorial::go_interactive(greedy = FALSE)
+```
+
+
+### Permutation Test One Step {#permonestep}
+
+- Permutation test in one step  is the most direct way to see randomness close by. One step permutation function shows one single data shuffle. By shuffling the data one destroys associations which exist between values of the data frame. This make data frame random. 
+
+- You can execute the one step permutation multiple times. This will show how data frame varies and how does it affect the observed difference of means.
+
+- Apply one step permutation function first, multiple times before you move to the proper Permutation test function. One of the parameters of the Permutation test function
+specifies the number of "shuffles" which will be preformed. This could be a very large number, 10,000 or even 100,000. The purpose of making so many random permutations is to test how often observed difference of means can arise in just random data. The more often this takes place, the more likely you observation is just random. To reject the null hypothesis you need to show that the observed difference of means will come very infrequently in permutation test. Less than 5% of the time, to be exact.
+
+
+
+```{r ,tut=TRUE,ex="permutationtestonestep",type="pre-exercise-code"}
+traffic<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/TRAFFIC.csv')
+```
+
+```{r ,tut=TRUE,ex="permutationtestonestep",type="sample-code"}
+summary(traffic)
+D<- mean(traffic[traffic$TUNNEL=='Holland',3]) - mean(traffic[traffic$TUNNEL=='Lincoln',3])
+null_tunnel <- rep("Holland",2801) # Create 2801 copies of Holland 
+null_tunnel[sample(2801,1400)] <- "Lincoln" # Replace RANDOMLY 1400 copies with Lincoln
+null <- data.frame(null_tunnel,traffic[,3])
+names(null) <- c("TUNNEL","VOLUME_PER_MINUTE")
+summary(null)
+holland_null <- null[null$TUNNEL == "Holland",2]
+lincoln_null <- null[null$TUNNEL == "Lincoln",2]
+mean(holland_null)
+mean(lincoln_null)
+D_null <- mean(lincoln_null) - mean(holland_null)
+cat("The mean difference of permutation one step data: ", D_null,"\n")# Calculate the difference between the mean of the random data.
+cat("The mean difference of original data: ", D) # Difference of mean value of original data.
+```
+
+---
+
+### Permutation Function {#permfunction}
+
+- The permutation function is used to run multiple iteration of the one-step permutation studied above, to get a complete relational understanding between the components involved in any hypothesis. 
+
+- Here you can run the example of running the permutation test on the Traffic.csv dataset, on volume of traffic in Holland and Lincoln Tunnel.
+
+
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="pre-exercise-code"}
+traffic<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/TRAFFIC.csv')
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+
+```
+
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=700}
+
+Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
+
+```
+
+
+- Note: You can find the permutation function code here: [Permutation()](https://raw.githubusercontent.com/devanshagr/PermutationTestSecond/master/R/hello.R)
+
+- **NOTE**: The red line in the output plots of the permutation test function is not the p-value, but it is just the difference of the value of means of the two categories under test. 
+
+
+### Exercise - How p-value is affected by difference of means and standard deviations {#aniceexample}
+
+- Here, you can generate your own data by changing parameters of the rnorm() function. 
+
+- See how changing the mean and sd in rnorm distributions affects the p-value! 
+Again you can do it *directly in the code* and observe the results immediately.
+It is very revealing.. Think of Val1, and Val2 as traffic volumes in Holland and Lincoln tunnels respectively.  The larger the difference between the means of rnorm() function the smaller the p-value - since it is less and less likely that observed difference of means would come frequently, due to random shuffles of permutation function.  
+- Now keep the same means and change the variances. See how changing the variances in rnorm() will affect the p-value and try to explain the effect that standard deviations have on the p-value. In general, the higher the standard deviation, the more widely data is centered around the mean. Thus even for the same two means, and two different value of deviations, we can see larger value of deviation to lead to higher p-value. Since we are less certain of the role of the "mean"  if standard deviation is higher. Therefore, the chance of randomly obtaining the observed result, is higher.
+
+
+
+```{r,tut=TRUE,ex="permutationniceexample",type="pre-exercise-code"}
+
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+
+```{r,tut=TRUE,ex="permutationniceexample",type="sample-code",height=700}
+
+N.h <- 10 #Number of tuples for Holland Tunnel
+N.l <- 10 #Number of tuples for Lincoln Tunnel
+
+Cat1<-rep("GroupA",N.h)  # for example GroupA can be Holland Tunnel
+Cat2<-rep("GroupB",N.l)  # for example Group B will be Lincoln Tunnel
+
+Cat1
+Cat2
+
+#The rep command will repeat, the variables will be of type character and will contain 10 values each.
+
+Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
+Cat
+
+#Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
+
+Val1<-rnorm(N.h,mean=25, sd=10) #say, traffic volume in Holland T as normal distribution with mean and sd
+Val2<-rnorm(N.l,mean=30, sd=10) #say, traffic volume in Lincoln T as normal distribution with mean and sd
+
+Val<-c(Val1,Val2) #A variable with 20 rows, with first 10 rows containing 10 random normal values of Val1 #and the next 10 values of Val2
+
+Val
+
+d<-data.frame(Cat,Val)
+
+Observed_Difference<-mean(d[d$Cat=='GroupA',2])-mean(d[d$Cat=='GroupB',2])
+
+#This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
+Observed_Difference
+
+
+Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB")
+
+#The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
+```

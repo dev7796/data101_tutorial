@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Data Modeling and Prediction. | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Data Modeling and Prediction. | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Data Modeling and Prediction. | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://deeplokhande.github.io/data101demobook/) Published using Bookdown for R." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datatransformation.html"/>
+<link rel="next" href="pred1blog.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book Demo</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosiac-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosiac Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#z-test"><i class="fa fa-check"></i><b>3.1</b> *z-test</a></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#multiple-hypothesis---bonferroni-correction."><i class="fa fa-check"></i><b>3.3</b> *Multiple Hypothesis - Bonferroni Correction.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="revision.html"><a href="revision.html"><i class="fa fa-check"></i><b>4</b> Revision of R commands</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revision.html"><a href="revision.html#dataframe"><i class="fa fa-check"></i><b>4.1</b> c() &amp; data.frame() &amp; class()</a></li>
+<li class="chapter" data-level="4.2" data-path="revision.html"><a href="revision.html#basicfunction"><i class="fa fa-check"></i><b>4.2</b> summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim()</a></li>
+<li class="chapter" data-level="4.3" data-path="revision.html"><a href="revision.html#table"><i class="fa fa-check"></i><b>4.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say"><i class="fa fa-check"></i><b>4.3.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-1"><i class="fa fa-check"></i><b>4.3.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="revision.html"><a href="revision.html#subset"><i class="fa fa-check"></i><b>4.4</b> Subset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-2"><i class="fa fa-check"></i><b>4.4.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-3"><i class="fa fa-check"></i><b>4.4.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="revision.html"><a href="revision.html#tapply"><i class="fa fa-check"></i><b>4.5</b> tapply</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="revision.html"><a href="revision.html#question-what-would-r-say-4"><i class="fa fa-check"></i><b>4.5.1</b> Question What would R say?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="revision.html"><a href="revision.html#question-what-would-r-say-5"><i class="fa fa-check"></i><b>4.5.2</b> Question What would R say?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="revision.html"><a href="revision.html#cut"><i class="fa fa-check"></i><b>4.6</b> Cut</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say"><i class="fa fa-check"></i><b>4.6.1</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-1"><i class="fa fa-check"></i><b>4.6.2</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.3" data-path="revision.html"><a href="revision.html#questionwhat-would-r-say-2"><i class="fa fa-check"></i><b>4.6.3</b> QuestionWhat would R say?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="revision.html"><a href="revision.html#a-complex-example"><i class="fa fa-check"></i><b>4.6.4</b> A complex example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="revision.html"><a href="revision.html#basicexamples"><i class="fa fa-check"></i><b>4.7</b> What would R say?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="revision.html"><a href="revision.html#question"><i class="fa fa-check"></i><b>4.7.1</b> Question</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revision.html"><a href="revision.html#question-1"><i class="fa fa-check"></i><b>4.7.2</b> Question</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revision.html"><a href="revision.html#question-2"><i class="fa fa-check"></i><b>4.7.3</b> Question</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revision.html"><a href="revision.html#question-3"><i class="fa fa-check"></i><b>4.7.4</b> Question</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revision.html"><a href="revision.html#question-4"><i class="fa fa-check"></i><b>4.7.5</b> Question</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revision.html"><a href="revision.html#question-5"><i class="fa fa-check"></i><b>4.7.6</b> Question</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revision.html"><a href="revision.html#question-6"><i class="fa fa-check"></i><b>4.7.7</b> Question</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revision.html"><a href="revision.html#question-7"><i class="fa fa-check"></i><b>4.7.8</b> Question</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revision.html"><a href="revision.html#question-8"><i class="fa fa-check"></i><b>4.7.9</b> Question</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revision.html"><a href="revision.html#question-9"><i class="fa fa-check"></i><b>4.7.10</b> Question</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revision.html"><a href="revision.html#question-10"><i class="fa fa-check"></i><b>4.7.11</b> Question</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revision.html"><a href="revision.html#question-11"><i class="fa fa-check"></i><b>4.7.12</b> Question</a></li>
+<li class="chapter" data-level="4.7.13" data-path="revision.html"><a href="revision.html#question-12"><i class="fa fa-check"></i><b>4.7.13</b> Question</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datatransformation.html"><a href="datatransformation.html"><i class="fa fa-check"></i><b>5</b> Data Frames &amp; Transformation.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datatransformation.html"><a href="datatransformation.html#create-column"><i class="fa fa-check"></i><b>5.1</b> Create Column</a></li>
+<li class="chapter" data-level="5.2" data-path="datatransformation.html"><a href="datatransformation.html#factor"><i class="fa fa-check"></i><b>5.2</b> Factor Function: factor()</a></li>
+<li class="chapter" data-level="5.3" data-path="datatransformation.html"><a href="datatransformation.html#coerce"><i class="fa fa-check"></i><b>5.3</b> Coercing Values in data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="datatransformation.html"><a href="datatransformation.html#merge"><i class="fa fa-check"></i><b>5.4</b> Merging Two Relational Data Frames.</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="datatransformation.html"><a href="datatransformation.html#inner-join"><i class="fa fa-check"></i><b>5.4.1</b> Inner Join</a></li>
+<li class="chapter" data-level="5.4.2" data-path="datatransformation.html"><a href="datatransformation.html#full-join"><i class="fa fa-check"></i><b>5.4.2</b> Full Join</a></li>
+<li class="chapter" data-level="5.4.3" data-path="datatransformation.html"><a href="datatransformation.html#left-join"><i class="fa fa-check"></i><b>5.4.3</b> Left Join</a></li>
+<li class="chapter" data-level="5.4.4" data-path="datatransformation.html"><a href="datatransformation.html#right-join"><i class="fa fa-check"></i><b>5.4.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="datatransformation.html"><a href="datatransformation.html#sliceanddice"><i class="fa fa-check"></i><b>5.5</b> Slicing and Dicing.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="datatransformation.html"><a href="datatransformation.html#dicing"><i class="fa fa-check"></i><b>5.5.1</b> Subsetting on Columns ( DICING )</a></li>
+<li class="chapter" data-level="5.5.2" data-path="datatransformation.html"><a href="datatransformation.html#slicing"><i class="fa fa-check"></i><b>5.5.2</b> Subsetting on Rows ( SLICING )</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="datatransformation.html"><a href="datatransformation.html#group-by"><i class="fa fa-check"></i><b>5.6</b> Group By</a></li>
+<li class="chapter" data-level="5.7" data-path="datatransformation.html"><a href="datatransformation.html#handling-date-and-time-in-dataframes."><i class="fa fa-check"></i><b>5.7</b> Handling Date and Time in dataframes.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>6</b> Data Modeling and Prediction.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="modeling.html"><a href="modeling.html#decisiontree"><i class="fa fa-check"></i><b>6.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="6.2" data-path="modeling.html"><a href="modeling.html#use-of-rpart"><i class="fa fa-check"></i><b>6.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="6.3" data-path="modeling.html"><a href="modeling.html#rpartplot"><i class="fa fa-check"></i><b>6.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="6.4" data-path="modeling.html"><a href="modeling.html#rpartcontrol"><i class="fa fa-check"></i><b>6.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="6.5" data-path="modeling.html"><a href="modeling.html#rpartpredict"><i class="fa fa-check"></i><b>6.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="6.6" data-path="modeling.html"><a href="modeling.html#splitdata"><i class="fa fa-check"></i><b>6.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="6.7" data-path="modeling.html"><a href="modeling.html#crossvalidation"><i class="fa fa-check"></i><b>6.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="pred1blog.html"><a href="pred1blog.html"><i class="fa fa-check"></i><b>7</b> Blog: Prediction Challenge 1.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="pred1blog.html"><a href="pred1blog.html#the-prediction-challange."><i class="fa fa-check"></i><b>7.1</b> The prediction challange.</a></li>
+<li class="chapter" data-level="7.2" data-path="pred1blog.html"><a href="pred1blog.html#top-submissions-and-their-experience."><i class="fa fa-check"></i><b>7.2</b> Top Submissions and their experience.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Data .</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>8.1</b> Linear Regression.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="additional-modeling-techniques-.html"><a href="additional-modeling-techniques-.html"><i class="fa fa-check"></i><b>9</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="additional-modeling-techniques-.html"><a href="additional-modeling-techniques-.html#random-forest"><i class="fa fa-check"></i><b>9.1</b> Random Forest</a></li>
+<li class="chapter" data-level="9.2" data-path="additional-modeling-techniques-.html"><a href="additional-modeling-techniques-.html#svm"><i class="fa fa-check"></i><b>9.2</b> SVM</a></li>
+<li class="chapter" data-level="9.3" data-path="additional-modeling-techniques-.html"><a href="additional-modeling-techniques-.html#nnet"><i class="fa fa-check"></i><b>9.3</b> nnet</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modeling" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Modeling and Prediction.</h1>
+<script src="files/js/dcl.js"></script>
+<div id="decisiontree" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Decision Tree.</h2>
+<p>Decision tree is one of the most powerful and popular tool for classification and prediction.
+It is a supervised learning predictive model that uses a set of binary rules to calculate a target value.
+It is a flow chart like tree structure, where each internal node has a test on a particular attribute, each branch denotes the outcome of the test, and each leaf node holds a class label/ numeric value.</p>
+<p>The reason decision tree are very popular are:
+- It is able to generate rules easier to understand as compared to other models..
+- It require much less computations for performing modeling and prediction.
+- Both continuous/numerical and categorical variables are handled easily while creating the decision trees.</p>
+<p>There are a few drawbacks too while using decision trees in certain case of inputs and tasks. But for the scope of discussion of this course we won’t go into much details of it.
+Also, we won’t go into the depth of the internals of the formation/creation of the decision tree and its underlying algorithm, but we will look at decision tree as a way to create prediction model for both classification and regression.</p>
+<hr />
+</div>
+<div id="use-of-rpart" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Use of Rpart</h2>
+<p>Recursive Partitioning and Regression Tree <code>RPART</code> library is a collection of routines which implement Classification and Regression Tree (CART) which is a type of Decision Tree.The resulting model can be represented as a binary tree.</p>
+<p>The library associated with this <code>RPART</code> is called <code>rpart</code>. Install this library using <code>install.packages("rpart")</code>.</p>
+<p>Syntax for building the decision tree using rpart():</p>
+<ul>
+<li><code>rpart( _formula_ , _method_, _data_, _control_,...)</code>
+<ul>
+<li><em>formula</em>: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+<ul>
+<li><code>prediction ~ predictor1 + predictor2 + predictor3 + ...</code></li>
+</ul></li>
+<li><em>method</em>: here we describe the type of decision tree we want. If nothing is provided, the function makes an intelligent guess. We can use “anova” for regression, “class” for classification, etc.</li>
+<li><em>data</em>: here we provide the dataset on which we want to fit the decision tree on.</li>
+<li><em>control</em>: here we provide the control parametes for the decision tree. Explained more in detail in section further in this chapter.</li>
+</ul></li>
+</ul>
+<p>For more info on the rpart function visit <a href="https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart">rpart documentation</a></p>
+<p>Lets look at an example on the Moody 2019 dataset.</p>
+<ul>
+<li>We will use the rpart() function with the following inputs:
+<ul>
+<li>prediction -&gt; GRADE</li>
+<li>predictors -&gt; SCORE, ON_SMARTPHONE, ASKS_QUESTIONS, LEAVES_EARLY, LATE_IN_CLASS</li>
+<li>data -&gt; moody dataset</li>
+<li>method -&gt; “class” for classification.</li>
+</ul></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHkgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvTU9PRFktMjAxOS5jc3ZcIilcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG5ycGFydChHUkFERSB+IFNDT1JFK09OX1NNQVJUUEhPTkUrQVNLU19RVUVTVElPTlMrTEVBVkVTX0VBUkxZK0xBVEVfSU5fQ0xBU1MsIGRhdGEgPSBtb29keVssLWMoMSldLG1ldGhvZCA9IFwiY2xhc3NcIikifQ==
+</div>
+<p>We can see that the output of the rpart() function is the decision tree with details of,</p>
+<ul>
+<li>node -&gt; node number</li>
+<li>split -&gt; split conditions/tests</li>
+<li>n -&gt; number of records in either branch i.e. subset</li>
+<li>yval -&gt; output value i.e. the target predicted value.</li>
+<li>yprob -&gt; probability of obtaining a particular category as the predicted output.</li>
+</ul>
+<p>Using output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section <a href="modeling.html#rpartpredict">6.5</a></p>
+<p>But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.</p>
+<hr />
+</div>
+<div id="rpartplot" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Visualize the Decision tree</h2>
+<p>To visualize and understand the rpart() tree output in the easiest way possible, we use a library called <code>rpart.plot</code>. The function <code>rpart.plot()</code> of the rpart.plot library is the function used to visualize decision trees.</p>
+<p>The <code>rpart.plot</code> library is a front-end wrapper to the library <code>prp</code> which is the most basic library for plotting decision trees. <code>prp</code> allows various aesthetic modifications for visualizing the decision tree. We will look at a few examples of using <code>prp</code> below.</p>
+<p>But, first lets look at a example to visualize the output decision tree in the previous example on Moody dataset using <code>rpart.plot()</code></p>
+<p><em>NOTE</em>: The online runnable code block does not support <code>rpart.plot and prp</code> library and functions, thus the output of the following code examples are provided directly.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="modeling.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First lets import the rpart library</span></span>
+<span id="cb4-2"><a href="modeling.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb4-3"><a href="modeling.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="modeling.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import dataset</span></span>
+<span id="cb4-5"><a href="modeling.html#cb4-5" aria-hidden="true" tabindex="-1"></a>moody <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv&quot;</span>)</span>
+<span id="cb4-6"><a href="modeling.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="modeling.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the rpart() function.</span></span>
+<span id="cb4-8"><a href="modeling.html#cb4-8" aria-hidden="true" tabindex="-1"></a>tree <span class="ot">&lt;-</span> <span class="fu">rpart</span>(GRADE <span class="sc">~</span> SCORE<span class="sc">+</span>ON_SMARTPHONE<span class="sc">+</span>ASKS_QUESTIONS<span class="sc">+</span>LEAVES_EARLY<span class="sc">+</span>LATE_IN_CLASS, <span class="at">data =</span> moody,<span class="at">method =</span> <span class="st">&quot;class&quot;</span>)</span>
+<span id="cb4-9"><a href="modeling.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="modeling.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Now lets import the rpart.plot library to use the rpart.plot() function.</span></span>
+<span id="cb4-11"><a href="modeling.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)</span>
+<span id="cb4-12"><a href="modeling.html#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="modeling.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the rpart.plot() function  to visualize the decision tree.</span></span>
+<span id="cb4-14"><a href="modeling.html#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rpart.plot</span>(tree)</span></code></pre></div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rpartplot1.svg" alt="" />
+<p class="caption">Output Plot of <em>rpart.plot()</em> function</p>
+</div>
+<p>We can see that after plotting the tree using rpart.plot() function, the tree is more readable and provides better information about the splitting conditions, and the probability of outcomes. Each leaf node has information about</p>
+<ul>
+<li>the grade category.</li>
+<li>the outcome probability of each grade category.</li>
+<li>the records percentage out of total records.</li>
+</ul>
+<p>To study more in detail the arguments that can be passed to the rpart.plot() function, please look at these guides <a href="https://www.rdocumentation.org/packages/rpart.plot/versions/3.0.9/topics/rpart.plot">rpart.plot</a> and <a href="http://www.milbo.org/doc/prp.pdf">Plotting with rpart.plot (PDF)</a></p>
+<p>Note that for any beginner using rpart.plot() function is the easiest way. But if you want to learn another way of plotting rpart trees then the following function can be used.</p>
+<p>So,another form of plotting rpart trees in a very minimalistic way is using the <code>plot rpart i.e. prp()</code> function, which is actually the working function behind rpart.plot().</p>
+<p>Lets look at a same example like above but using prp().</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modeling.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First lets import the rpart library</span></span>
+<span id="cb5-2"><a href="modeling.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb5-3"><a href="modeling.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="modeling.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import dataset</span></span>
+<span id="cb5-5"><a href="modeling.html#cb5-5" aria-hidden="true" tabindex="-1"></a>moody <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv&quot;</span>)</span>
+<span id="cb5-6"><a href="modeling.html#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="modeling.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the rpart() function.</span></span>
+<span id="cb5-8"><a href="modeling.html#cb5-8" aria-hidden="true" tabindex="-1"></a>tree <span class="ot">&lt;-</span> <span class="fu">rpart</span>(GRADE <span class="sc">~</span> SCORE<span class="sc">+</span>ON_SMARTPHONE<span class="sc">+</span>ASKS_QUESTIONS<span class="sc">+</span>LEAVES_EARLY<span class="sc">+</span>LATE_IN_CLASS, <span class="at">data =</span> moody[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>)],<span class="at">method =</span> <span class="st">&quot;class&quot;</span>)</span>
+<span id="cb5-9"><a href="modeling.html#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="modeling.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Now lets import the rpart.plot library to use the rpart.plot() function.</span></span>
+<span id="cb5-11"><a href="modeling.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)</span>
+<span id="cb5-12"><a href="modeling.html#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="modeling.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of the prp function  to visualize the decision tree.</span></span>
+<span id="cb5-14"><a href="modeling.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">prp</span>(tree)</span></code></pre></div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/prp1.svg" alt="" />
+<p class="caption">Output Plot of <em>prp()</em> function</p>
+</div>
+<p>We can see that the output of the prp() function is a very minimalist tree, without any colors with minimum required information. There are other arguments that can be passed to the prp() function to increase the aesthetic look and the information provided. To learn those extra arguments visit this guide <a href="https://www.rdocumentation.org/packages/rpart.plot/versions/3.0.9/topics/prp">prp()</a></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>NOTE</strong>: In this chapter, from this point forward, the rpart.plots() generated in any example below will be shown as images, and also the code to generate those rpart.plots will be commented in the interactive code blocks. If you want to generate these plots yourself, please use a local Rstudio or R environment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="rpartcontrol" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Rpart Control</h2>
+<p>We will now look at the control argument used in <code>rpart()</code> function, which is one of the important argument. The control argument of rpart() function is used to manually decide the control parameters of the decision tree.</p>
+<p>The advantages of using control method:
+- It restricts the height of the decision tree.
+- It avoids overfitting on the training dataset.
+- It can be used to eliminate attributes that affect less significantly on the splitting constraints.
+- Helps to terminate the creation process of tree earlier, thus reducing required computational time.</p>
+<p>The disadvantages of using control method:
+- It creates risk of generating trees with lesser accuracy compared to uncontrolled tree.
+- It could hamper the splitting condition selection in negative way.
+- Could result in underfitting, if control parameters not chosen carefully.</p>
+<p>As we can see, that controlling the decision tree provides us with lot of advantage in certain condition, we also risk in reducing the accuracy of the prediction from using the tree.</p>
+<p>Thus these control methods must be applied only in certain case, where the uncontrolled method takes large amount of time to create the tree, and overfits the train data. When the datasets have more significantly higher count of columns but less records of data, using control methods could be suitable.</p>
+<p>Now lets look at the rpart.control() function used to pass the control parameters to the control argument of the rpart() function.</p>
+<ul>
+<li><code>rpart.control( *minsplit*, *minbucket*, *cp*,...)</code></li>
+<li><em>minsplit</em>: the minimum number of observations that must exist in a node in order for a split to be attempted. For example, minsplit=500 -&gt; the minimum number of observations in a node must be 500 or up, in order to perform the split at the testing condition.</li>
+<li><em>minbucket</em>: minimum number of observations in any terminal(leaf) node. For example, minbucket=500 -&gt; the minimum number of observation in the terminal/leaf node of the trees must be 500 or above.<br />
+</li>
+<li><em>cp</em>: complexity parameter. Using this informs the program that any split which does not increase the accuracy of the fit by <em>cp</em>, will not be made in the tree.</li>
+</ul>
+<p>For more information of the other arguments of the <code>rpart.control()</code> function visit <a href="https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart.control">rpart.control</a></p>
+<p>Note: The ratio of minsplt to minbucket is 3:1. Thus if only one of the minsplit/minbucket is provided the other value is set using the above ratio. Also if both values are provided, unless the values are not in the above ratio, the rpart.control() the resorts to the default value. Also note, the default value of cp is <code>0.01</code>.</p>
+<p>Let look at few examples.</p>
+<p>Suppose you want to set the control parameter minsplit=200.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIGxpYnJhcnkocnBhcnQpXG5tb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQoKSBmdW5jdGlvbiB3aXRoIHRoZSBjb250cm9sIHBhcmFtZXRlciBtaW5zcGxpdD0yMDBcbnRyZWUgPC0gcnBhcnQoR1JBREUgfiAuLCBkYXRhID0gbW9vZHlbLC1jKDEpXSxtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbD1ycGFydC5jb250cm9sKG1pbnNwbGl0ID0gMjAwKSlcblxuIyBDaGVjayB0aGUgY291bnQgb2Ygb2JzZXJ2YXRpb24gYXQgZWFjaCBzcGxpdCB0ZXN0LiBUbyBkbyB0aGlzIHdlIGZpbmQgdGhlIGNvdW50IGF0IGVhY2ggbm9uLWxlYWYvbm9uLXRlcm1pbmFsIG5vZGUuXG50cmVlJGZyYW1lW3RyZWUkZnJhbWUkdmFyIT1cIjxsZWFmPlwiLGMoXCJ2YXJcIixcIm5cIildXG5cbiMgbGlicmFyeShycGFydC5wbG90KVxuIyBycGFydC5wbG90KHRyZWUsZXh0cmEgPSAyKSJ9
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolsplit.svg" alt="" />
+<p class="caption">Output tree plot of after setting minsplit=200 in rpart.control() function</p>
+</div>
+<p>We can see from the output of <code>tree$splits</code> and the tree plot, that at each split the total amount of observations are above 200. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.</p>
+<p>Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHkgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvTU9PRFktMjAxOS5jc3ZcIilcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24gd2l0aCB0aGUgY29udHJvbCBwYXJhbWV0ZXIgbWluc3BsaXQ9MjAwXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gLiwgZGF0YSA9IG1vb2R5WywtYygxKV0sbWV0aG9kID0gXCJjbGFzc1wiLGNvbnRyb2w9cnBhcnQuY29udHJvbChtaW5idWNrZXQgPSAxMDApKVxuXG4jIENoZWNrIHRoZSBjb3VudCBvZiBvYnNlcnZhdGlvbiBpbiBlYWNoIGxlYWYgbm9kZS5cbnRyZWUkZnJhbWVbdHJlZSRmcmFtZSR2YXI9PVwiPGxlYWY+XCIsYyhcInZhclwiLFwiblwiKV1cblxuIyBsaWJyYXJ5KHJwYXJ0LnBsb3QpXG4jIHJwYXJ0LnBsb3QodHJlZSxleHRyYSA9IDIpIn0=
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolbucket.svg" alt="" />
+<p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
+</div>
+<p>We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.</p>
+<p>Lets now use the <code>cp</code> parameter and see its effect on the tree.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHkgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvTU9PRFktMjAxOS5jc3ZcIilcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24gd2l0aCB0aGUgY29udHJvbCBwYXJhbWV0ZXIgY3A9MC4wMDVcbnRyZWUgPC0gcnBhcnQoR1JBREUgfiAuLCBkYXRhID0gbW9vZHlbLC1jKDEpXSxtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbD1ycGFydC5jb250cm9sKGNwID0gMC4wMDUpKVxuXG4jIENoZWNrIHRoZSBhY2N1cmFjeSBpbmNyZWFzZSBmYWN0b3IgYXQgZWFjaCBzcGxpdC5cbnRyZWUkY3B0YWJsZVxuXG4jIGxpYnJhcnkocnBhcnQucGxvdCkpXG4jIHJwYXJ0LnBsb3QodHJlZSkifQ==
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolcp.svg" alt="" />
+<p class="caption">Output tree plot of after setting cp=0.005 in rpart.control() function</p>
+</div>
+<p>We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.</p>
+<p>Now we saw the most important control parameters of the rpart.control function. Remember there are other parameters too, which you can study if you wish, but studying just these 3 discussed above are sufficient for the scope of this course.</p>
+<p><strong>Also</strong>, note we have not check the effects of the control parameters on the prediction accuracy of the decision tree. Using the control parameters you could either increase the accuracy, but also risk, decreasing the accuracy. So choosing the controls parameter very carefully is very important to push the accuracy in the right direction.</p>
+<hr />
+</div>
+<div id="rpartpredict" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Prediction using rpart.</h2>
+<p>Now that we saw process to create a decision tree and also plotting it, we will like to use the output tree to predict the required attribute.</p>
+<p>From the moody example, we are trying to predict the grade of students. Lets look at the <code>predict()</code> function to predict the outcomes.</p>
+<ul>
+<li><code>predict(*object*,*data*,*type*,...)</code>
+<ul>
+<li><em>object</em>: the generated tree from the rpart function.</li>
+<li><em>data</em>: the data on which the prediction is to be performed.</li>
+<li><em>type</em>: the type of prediction required. One of “vector”, “prob”, “class” or “matrix”.</li>
+</ul></li>
+</ul>
+<p>Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQoKSBmdW5jdGlvbi5cbnRyZWUgPC0gcnBhcnQoR1JBREUgfiBTQ09SRStPTl9TTUFSVFBIT05FK0FTS1NfUVVFU1RJT05TK0xFQVZFU19FQVJMWStMQVRFX0lOX0NMQVNTLCBkYXRhID0gbW9vZHlbLC1jKDEpXSxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZCkifQ==
+</div>
+<p>We see that the output of the predict function is a vector of grades corresponding to each record of the Moody dataframe. Each index has a grade among “A”, “B”, “C”, “D”, “F”.</p>
+<p>Although we see the output, how do we compare the accuracy and correctness of the outputs.</p>
+<p>Lets look at one of the basic test we can do is perform a record by record comparison of the grade already in the dataset and the predicted grade, in the example below.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQoKSBmdW5jdGlvbi5cbnRyZWUgPC0gcnBhcnQoR1JBREUgfiBTQ09SRStPTl9TTUFSVFBIT05FK0FTS1NfUVVFU1RJT05TK0xFQVZFU19FQVJMWStMQVRFX0lOX0NMQVNTLCBkYXRhID0gbW9vZHlbLC1jKDEpXSxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZClcblxuIyBMZXRzIGNoZWNrIHRoZSBjb3JyZWN0bmVzcyBvZiBlYWNoIHByZWRpY3Rpb24gZm9yIGVhY2ggcmVjb3JkXG5tZWFuKG1vb2R5JEdSQURFPT1wcmVkKSoxMDAifQ==
+</div>
+<p>Using just a row by row comparison we can see that the outcomes of the predicted grades and the original grades from the Moody dataset, are matching 93.73%. Thus our prediction accuracy is 93.73% and the error rate is 6.27%, which is very good.</p>
+<p>This prediction accuracy calculated on the training dataset is called <em>training accuracy</em>.</p>
+<p>Notice that we just compared the predicted grades with the already present grades from the Moody dataset, the same dataset on which the tree was built.</p>
+<p>In such scenario, one can say that you are predicting the grades on data already considered while training. So in some sense, you just output the known grades, and did not do any useful prediction.</p>
+<p>But to really see the use of our tree, we must predict on a data which has never been used in the training of the tree, OR, where the Prof. Moody has not assigned the grades.</p>
+<p>In the latter case it is difficult to prove the accuracy, without actually checking with Prof. Moody, if he/she would have assigned the same grade as the grade predicted by our model.</p>
+<p>But we have a solution for the former case, where we can predict grades on a subset of data, which we have not used while training. For that we would need to split the provided data into 2 parts, Training and Testing and then repeat the training process on the training dataset and the prediction on testing dataset.</p>
+<hr />
+</div>
+<div id="splitdata" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Split the data yourself.</h2>
+<p>We introduced the first and basic model for data analysis, Decision tree, in the section above.</p>
+<p>But we found that we need to perform a basic routine before dwelling deep into the creation of decision tree.</p>
+<p>The routine is to split the dataset in multiple parts, to check the accuracy of our tree’s prediction.</p>
+<p>This routine is the first step you perform after acquiring a cleaned dataset.</p>
+<p>The most useful splitting of dataset is done in 2 parts, Training and Testing.</p>
+<ul>
+<li>While splitting, the split ratio between training and testing should be decided properly. Mostly, training data is kept bigger,and testing is done on a relatively smaller subset. But the ratio should not be too biased, where there are only few observations in test data compared to training data.</li>
+<li>Usually, the math behind splitting is that, even after split, the smaller subset, i.e. the test subset should represent the distribution of the complete dataset. This means the test data should at-least have few record of each possible combination of attribute’s categories if categorical data, or, if numerical data then the numerical distribution is same as of the complete dataset.</li>
+<li>Thus, typically the train-test ratio is 80-20 or 70-30 or in some case even 60-40.</li>
+</ul>
+<p>Also, while selecting the records to assign to either training/testing data, they should be randomly picked from the original data, so as to avoid unbalanced distribution.</p>
+<p>We will look at a small example of splitting the complete dataset into training and testing dataset with a 70-30 ratio.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCBkYXRhc2V0XG5tb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIFNwbGl0IHJhbmRvbWx5IGludG8gMiBzZXRzIHdpdGggY2VydGFpbiByYXRpby9wcm9iYWJpbGl0eS5cbmlkeCA8LSBzYW1wbGUoIDE6Miwgc2l6ZSA9IG5yb3cobW9vZHkpLCByZXBsYWNlID0gVFJVRSwgcHJvYiA9IGMoLjcsIC4zKSlcbm1vb2R5LnRyYWluIDwtIG1vb2R5W2lkeCA9PSAxLF1cbm1vb2R5LnRlc3QgPC0gbW9vZHlbaWR4ID09IDIsXVxuXG5ucm93KG1vb2R5KVxubnJvdyhtb29keS50cmFpbilcbm5yb3cobW9vZHkudHJhaW4pL25yb3cobW9vZHkpXG5ucm93KG1vb2R5LnRlc3QpXG5ucm93KG1vb2R5LnRlc3QpL25yb3cobW9vZHkpIn0=
+</div>
+<p>As we can see we split the original data with 1580 rows into two dataset, training data with almost 70% of rows of the original, and testing data with almost 30% of the original. Notice that we used a random sampling of the data, and not just sequential, to avoid any unbalanced distribution of attributes.</p>
+<p>Now, we looked at a method to split the dataset into training and testing data. But there is another type of splitting of the dataset which involves splitting the data into 3 parts namely, training, cross-validation and testing. We will look at the use of cross-validation and the process, in the next section <a href="modeling.html#crossvalidation">6.7</a>.</p>
+<p>Typically, the ratio of train-validation-test is 60-20-20 or 50-25-25.</p>
+<p>Before that lets look at a simple method to perform a 3 way split with ratio 60-20-20.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCBkYXRhc2V0XG5tb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIFNwbGl0IHJhbmRvbWx5IGludG8gMyBzZXRzIHdpdGggY2VydGFpbiByYXRpby9wcm9iYWJpbGl0eS5cbmlkeCA8LSBzYW1wbGUoIDE6Mywgc2l6ZSA9IG5yb3cobW9vZHkpLCByZXBsYWNlID0gVFJVRSwgcHJvYiA9IGMoMC42LCAwLjIsIDAuMikpXG5tb29keS50cmFpbiA8LSBtb29keVtpZHggPT0gMSxdXG5tb29keS52YWxpZGF0aW9uIDwtIG1vb2R5W2lkeCA9PSAyLF1cbm1vb2R5LnRlc3QgPC0gbW9vZHlbaWR4ID09IDMsXVxuXG5ucm93KG1vb2R5KVxubnJvdyhtb29keS50cmFpbilcbm5yb3cobW9vZHkudHJhaW4pL25yb3cobW9vZHkpXG5ucm93KG1vb2R5LnZhbGlkYXRpb24pXG5ucm93KG1vb2R5LnZhbGlkYXRpb24pL25yb3cobW9vZHkpXG5ucm93KG1vb2R5LnRlc3QpXG5ucm93KG1vb2R5LnRlc3QpL25yb3cobW9vZHkpIn0=
+</div>
+<p>We can see that the dataset is split into 3 parts, with 60% in training data, 20% in validation data, and 20% in testing data.</p>
+<hr />
+</div>
+<div id="crossvalidation" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Cross Validation</h2>
+<p>Cross validation is a model validation technique for assessing generalization of the results of statistical analysis to an independent dataset. In other words, it is a technique to estimate the accuracy of a predictive model’s performance in practice.</p>
+<p>The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating/training it, in order to avoid problems like <em>over-fitting</em> and <em>selection bias</em>, and to give an insight on how the model will generalize to an independent dataset(i.e., an unknown dataset).</p>
+<p>Cross-validation also helps in selecting and fine-tuning the hyper-parameters of the models. In our case of decision tree, the hyper parameters could be the control parameters that determind the size of the decision tree, which in-turn determines the accuracy of the tree.</p>
+<p>One round of cross-validation involves partitioning data into complementary subsets, and then performing model training on one subset, and validating the results on the other subset. In most methods, multiple rounds of cross-validation are performed using different partitions in each round, and the validation results are combined (e.g. averaged) over the rounds to give an estimate of the model’s predictive performance.</p>
+<p>Another use of cross-validation is when you don’t have the test data, and hence, you don’t have a way to determine the true accuracy of the model. Because we cannot determine accuracy on test dataset, we partition our training dataset into train and validation (testing). We train our model (rpart or lm) on train partition and test on the validation partition.
+The accuracy on the validation data is called <em>cross-validation accuracy</em>, while that on the train data is called <em>training accuracy</em>.</p>
+<p>Lets not dive too deep into the theory of this cross validation technique, but lets learn about the cross_validate() function, that helps us achieve this.</p>
+<ul>
+<li><code>cross_validate(*data*, *tree*, *n_iter*, *split_ratio*, *method*)</code>
+<ul>
+<li><em>data</em>: The dataset on which cross validation is to be performed.</li>
+<li><em>tree</em>: The decision tree generated using rpart.</li>
+<li><em>n_iter</em>: Number of iterations.</li>
+<li><em>split_ratio</em>: The splitting ratio of the data into train data and validation data.</li>
+<li><em>method</em>: Method of the prediction. “class” for classification.</li>
+</ul></li>
+</ul>
+<p>The way the function works is as follows:</p>
+<ul>
+<li>It randomly partitions your data into training and validation.</li>
+<li>It then constructs the following two decision trees on training partition:
+<ul>
+<li>The tree that you pass to the function.</li>
+<li>The tree constructed on all attributes as predictors and with no control parameters.
+-It then determines the accuracy of the two trees on validation partition and returns you the accuracy values for both the trees.</li>
+</ul></li>
+</ul>
+<p>The first column corresponds to the cross-validation accuracy on the tree that you pass; the second is the cross-validation accuracy on the tree without any control and all attributes.</p>
+<p>The values in the first column(accuracy_subset) returned by cross-validation function are more important when it comes to detecting overfitting. If these values are much lower than the training accuracy you get, that means you are overfitting.</p>
+<p>We would also want the values in accuracy_subset to be close to each other (in other words, have low variance). If the values are quite different from each other, that means your model (or tree) has a high variance which is not desired.</p>
+<p>The second column(accuracy_all) tells you what happens if you construct a tree based on all attributes. If these values are larger than accuracy_subset, that means you are probably leaving out attributes from your tree that are relevant.</p>
+<p>Each iteration of cross-validation creates a different random partition of train and validation, and so you have possibly different accuracy values for every iteration.</p>
+<p>Lets look at the cross_validate() function in action in the example below.</p>
+<p>We will pass the tree with formula as <code>GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY</code>, and control parameter, with <code>minsplit=100</code>.
+And for cross_validate() function, we will use<code>n_iter=5, and split_raitio=0.7</code></p>
+<p><em>NOTE</em>: Cross-Validation repository is already preloaded for the following interactive code block. Thus you can directly use the cross_validate() function in the following interactive code block. But if you wish to use the code_validate() function locally, please use</p>
+<pre><code>install.packages(&quot;devtools&quot;) 
+devtools::install_github(&quot;devanshagr/CrossValidation&quot;)
+CrossValidation::cross_validate()</code></pre>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoXCJycGFydFwiKVxuXG5jcm9zc192YWxpZGF0ZSA8LSBmdW5jdGlvbihkZiwgdHJlZSwgbl9pdGVyLCBzcGxpdF9yYXRpbywgbWV0aG9kID0gJ2NsYXNzJylcbntcbiAgIyB0cmFpbmluZyBkYXRhIGZyYW1lIGRmXG4gIGRmIDwtIGFzLmRhdGEuZnJhbWUoZGYpXG5cbiAgIyBtZWFuX3N1YnNldCBpcyBhIHZlY3RvciBvZiBhY2N1cmFjeSB2YWx1ZXMgZ2VuZXJhdGVkIGZyb20gdGhlIHNwZWNpZmllZCBmZWF0dXJlcyBpbiB0aGUgdHJlZSBvYmplY3RcbiAgbWVhbl9zdWJzZXQgPC0gYygpXG5cbiAgIyBtZWFuX2FsbCBpcyBhIHZlY3RvciBvZiBhY2N1cmFjeSB2YWx1ZXMgZ2VuZXJhdGVkIGZyb20gYWxsIHRoZSBhdmFpbGFibGUgZmVhdHVyZXMgaW4gdGhlIGRhdGEgZnJhbWVcbiAgbWVhbl9hbGwgPC0gYygpXG5cbiAgIyBjb250cm9sIHBhcmFtZXRlcnMgZm9yIHRoZSBkZWNpc2lvbiB0cmVlXG4gIGNvbnRybyA9IHRyZWUkY29udHJvbFxuXG4gICMgdGhlIGZvbGxvd2luZyBzbmlwcGV0IHdpbGwgY3JlYXRlIHJlbGF0aW9ucyB0byBnZW5lcmF0ZSBkZWNpc2lvbiB0cmVlc1xuICAjIHJlbGF0aW9uX2FsbCB3aWxsIGNyZWF0ZSBhIGRlY2lzaW9uIHRyZWUgd2l0aCBhbGwgdGhlIGZlYXR1cmVzXG4gICMgcmVsYXRpb25fc3Vic2V0IHdpbGwgY3JlYXRlIGEgZGVjaXNpb24gdHJlZSB3aXRoIG9ubHkgdXNlci1zcGVjaWZpZWQgZmVhdHVyZXMgaW4gdHJlZVxuICBkZXAgPC0gYWxsLnZhcnModGVybXModHJlZSkpWzFdXG4gIGluZGVwIDwtIGxpc3QoKVxuICByZWxhdGlvbl9hbGwgPSBhcy5mb3JtdWxhKHBhc3RlKGRlcCwgJy4nLCBzZXAgPSBcIn5cIikpXG4gIGkgPC0gMVxuICB3aGlsZSAoaSA8IGxlbmd0aChhbGwudmFycyh0ZXJtcyh0cmVlKSkpKSB7XG4gICAgaW5kZXBbW2ldXSA8LSBhbGwudmFycyh0ZXJtcyh0cmVlKSlbaSArIDFdXG4gICAgaSA8LSBpICsgMVxuICB9XG4gIGIgPC0gcGFzdGUoaW5kZXAsIGNvbGxhcHNlID0gXCIrXCIpXG4gIHJlbGF0aW9uX3N1YnNldCA8LSBhcy5mb3JtdWxhKHBhc3RlKGRlcCwgYiwgc2VwID0gXCJ+XCIpKVxuXG4gICMgY3JlYXRpbmcgdHJhaW4gYW5kIHRlc3Qgc2FtcGxlcyB3aXRoIHRoZSBnaXZlbiBzcGxpdCByYXRpb1xuICAjIHBlcmZvcm1pbmcgY3Jvc3MtdmFsaWRhdGlvbiBuX2l0ZXIgdGltZXNcbiAgZm9yIChpIGluIDE6bl9pdGVyKSB7XG4gICAgc2FtcGxlIDwtXG4gICAgICBzYW1wbGUuaW50KG4gPSBucm93KGRmKSxcbiAgICAgICAgICAgICAgICAgc2l6ZSA9IGZsb29yKHNwbGl0X3JhdGlvICogbnJvdyhkZikpLFxuICAgICAgICAgICAgICAgICByZXBsYWNlID0gRilcbiAgICB0cmFpbiA8LSBkZltzYW1wbGUsXVxuICAgIHRlc3RpbmcgIDwtIGRmWy1zYW1wbGUsXVxuICAgIHR5cGUgPSB0eXBlb2YodW5saXN0KHRlc3RpbmdbZGVwXSkpXG5cbiAgICAjIGRlY2lzaW9uIHRyZWUgZm9yIHJlZ3Jlc3Npb24gaWYgdGhlIG1ldGhvZCBzcGVjaWZpZWQgaXMgXCJhbm92YVwiXG4gICAgaWYgKG1ldGhvZCA9PSAnYW5vdmEnKSB7XG4gICAgICBmaXJzdC50cmVlIDwtXG4gICAgICAgIHJwYXJ0KFxuICAgICAgICAgIHJlbGF0aW9uX3N1YnNldCxcbiAgICAgICAgICBkYXRhID0gdHJhaW4sXG4gICAgICAgICAgY29udHJvbCA9IGNvbnRybyxcbiAgICAgICAgICBtZXRob2QgPSAnYW5vdmEnXG4gICAgICAgIClcbiAgICAgIHNlY29uZC50cmVlIDwtIHJwYXJ0KHJlbGF0aW9uX2FsbCwgZGF0YSA9IHRyYWluLCBtZXRob2QgPSAnYW5vdmEnKVxuICAgICAgcHJlZDEudHJlZSA8LSBwcmVkaWN0KGZpcnN0LnRyZWUsIG5ld2RhdGEgPSB0ZXN0aW5nKVxuICAgICAgcHJlZDIudHJlZSA8LSBwcmVkaWN0KHNlY29uZC50cmVlLCBuZXdkYXRhID0gdGVzdGluZylcbiAgICAgIG1lYW4xIDwtIG1lYW4oKGFzLm51bWVyaWMocHJlZDEudHJlZSkgLSB0ZXN0aW5nWywgZGVwXSkgXiAyKVxuICAgICAgbWVhbjIgPC0gbWVhbigoYXMubnVtZXJpYyhwcmVkMi50cmVlKSAtIHRlc3RpbmdbLCBkZXBdKSBeIDIpXG4gICAgICBtZWFuX3N1YnNldCA8LSBjKG1lYW5fc3Vic2V0LCBtZWFuMSlcbiAgICAgIG1lYW5fYWxsIDwtIGMobWVhbl9hbGwsIG1lYW4yKVxuICAgIH1cblxuICAgICMgZGVjaXNpb24gdHJlZSBmb3IgY2xhc3NpZmljYXRpb25cbiAgICAjIGlmIHRoZSBtZXRob2Qgc3BlY2lmaWVkIGlzIG5vdCBcImFub3ZhXCIsIHRoZW4gdGhpcyBibG9jayBpcyBleGVjdXRlZFxuICAgICMgaWYgdGhlIG1ldGhvZCBpcyBub3Qgc3BlY2lmaWVkIGJ5IHRoZSB1c2VyLCB0aGUgZGVmYXVsdCBvcHRpb24gaXMgdG8gcGVyZm9ybSBjbGFzc2lmaWNhdGlvblxuICAgIGVsc2V7XG4gICAgICBmaXJzdC50cmVlIDwtXG4gICAgICAgIHJwYXJ0KFxuICAgICAgICAgIHJlbGF0aW9uX3N1YnNldCxcbiAgICAgICAgICBkYXRhID0gdHJhaW4sXG4gICAgICAgICAgY29udHJvbCA9IGNvbnRybyxcbiAgICAgICAgICBtZXRob2QgPSAnY2xhc3MnXG4gICAgICAgIClcbiAgICAgIHNlY29uZC50cmVlIDwtIHJwYXJ0KHJlbGF0aW9uX2FsbCwgZGF0YSA9IHRyYWluLCBtZXRob2QgPSAnY2xhc3MnKVxuICAgICAgcHJlZDEudHJlZSA8LSBwcmVkaWN0KGZpcnN0LnRyZWUsIG5ld2RhdGEgPSB0ZXN0aW5nLCB0eXBlID0gJ2NsYXNzJylcbiAgICAgIHByZWQyLnRyZWUgPC1cbiAgICAgICAgcHJlZGljdChzZWNvbmQudHJlZSwgbmV3ZGF0YSA9IHRlc3RpbmcsIHR5cGUgPSAnY2xhc3MnKVxuICAgICAgbWVhbjEgPC1cbiAgICAgICAgbWVhbihhcy5jaGFyYWN0ZXIocHJlZDEudHJlZSkgPT0gYXMuY2hhcmFjdGVyKHRlc3RpbmdbLCBkZXBdKSlcbiAgICAgIG1lYW4yIDwtXG4gICAgICAgIG1lYW4oYXMuY2hhcmFjdGVyKHByZWQyLnRyZWUpID09IGFzLmNoYXJhY3Rlcih0ZXN0aW5nWywgZGVwXSkpXG4gICAgICBtZWFuX3N1YnNldCA8LSBjKG1lYW5fc3Vic2V0LCBtZWFuMSlcbiAgICAgIG1lYW5fYWxsIDwtIGMobWVhbl9hbGwsIG1lYW4yKVxuICAgIH1cbiAgfVxuXG4gICMgYXZlcmFnZV9hY2N1cmFjeV9zdWJzZXQgaXMgdGhlIGF2ZXJhZ2UgYWNjdXJhY3kgb2Ygbl9pdGVyIGl0ZXJhdGlvbnMgb2YgY3Jvc3MtdmFsaWRhdGlvbiB3aXRoIHVzZXItc3BlY2lmaWVkIGZlYXR1cmVzXG4gICMgYXZlcmFnZV9hY3VyYWN5X2FsbCBpcyB0aGUgYXZlcmFnZSBhY2N1cmFjeSBvZiBuX2l0ZXIgaXRlcmF0aW9ucyBvZiBjcm9zcy12YWxpZGF0aW9uIHdpdGggYWxsIHRoZSBhdmFpbGFibGUgZmVhdHVyZXNcbiAgIyB2YXJpYW5jZV9hY2N1cmFjeV9zdWJzZXQgaXMgdGhlIHZhcmlhbmNlIG9mIGFjY3VyYWN5IG9mIG5faXRlciBpdGVyYXRpb25zIG9mIGNyb3NzLXZhbGlkYXRpb24gd2l0aCB1c2VyLXNwZWNpZmllZCBmZWF0dXJlc1xuICAjIHZhcmlhbmNlX2FjY3VyYWN5X2FsbCBpcyB0aGUgdmFyaWFuY2Ugb2YgYWNjdXJhY3kgb2Ygbl9pdGVyIGl0ZXJhdGlvbnMgb2YgY3Jvc3MtdmFsaWRhdGlvbiB3aXRoIGFsbCB0aGUgYXZhaWxhYmxlIGZlYXR1cmVzXG4gIGNyb3NzX3ZhbGlkYXRpb25fc3RhdHMgPC1cbiAgICBsaXN0KFxuICAgICAgXCJhdmVyYWdlX2FjY3VyYWN5X3N1YnNldFwiID0gbWVhbihtZWFuX3N1YnNldCwgbmEucm0gPSBUKSxcbiAgICAgIFwiYXZlcmFnZV9hY2N1cmFjeV9hbGxcIiA9IG1lYW4obWVhbl9hbGwsIG5hLnJtID0gVCksXG4gICAgICBcInZhcmlhbmNlX2FjY3VyYWN5X3N1YnNldFwiID0gdmFyKG1lYW5fc3Vic2V0LCBuYS5ybSA9IFQpLFxuICAgICAgXCJ2YXJpYW5jZV9hY2N1cmFjeV9hbGxcIiA9IHZhcihtZWFuX2FsbCwgbmEucm0gPSBUKVxuICAgIClcblxuICAjIGNyZWF0aW5nIGEgZGF0YSBmcmFtZSBvZiBhY2N1cmFjeV9zdWJzZXQgYW5kIGFjY3VyYWN5X2FsbFxuICAjIGFjY3VyYWN5X3N1YnNldCBjb250YWlucyBuX2l0ZXIgYWNjdXJhY3kgdmFsdWVzIG9uIGNyb3NzLXZhbGlkYXRpb24gd2l0aCB1c2VyLXNwZWNpZmllZCBmZWF0dXJlc1xuICAjIGFjY3VyYWN5X2FsbCBjb250YWlucyBuX2l0ZXIgYWNjdXJhY3kgdmFsdWVzIG9uIGNyb3NzLXZhbGlkYXRpb24gd2l0aCBhbGwgdGhlIGF2YWlsYWJsZSBmZWF0dXJlc1xuICBjcm9zc192YWxpZGF0aW9uX2RmIDwtXG4gICAgZGF0YS5mcmFtZShhY2N1cmFjeV9zdWJzZXQgPSBtZWFuX3N1YnNldCwgYWNjdXJhY3lfYWxsID0gbWVhbl9hbGwpXG4gIHJldHVybihsaXN0KGNyb3NzX3ZhbGlkYXRpb25fZGYsIGNyb3NzX3ZhbGlkYXRpb25fc3RhdHMpKVxufSIsInNhbXBsZSI6IiMgRmlyc3QgbGV0cyBpbXBvcnQgdGhlIHJwYXJ0IGxpYnJhcnlcbmxpYnJhcnkocnBhcnQpXG5cbiMgSW1wb3J0IGRhdGFzZXRcbm1vb2R5LnRyYWluIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RlZXBsb2toYW5kZS9kYXRhMTAxZGVtb2Jvb2svbWFpbi9maWxlcy9kYXRhc2V0L01PT0RZLTIwMTkuY3N2XCIsc3RyaW5nc0FzRmFjdG9ycyA9IFQpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uLlxudHJlZSA8LSBycGFydChHUkFERSB+IFNDT1JFK09OX1NNQVJUUEhPTkUrTEVBVkVTX0VBUkxZLCBkYXRhID0gbW9vZHkudHJhaW5bLC1jKDEpXSxtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbCA9IHJwYXJ0LmNvbnRyb2wobWluc3BsaXQgPSAxMDApKVxuXG4jIE5vdyBsZXRzIHByZWRpY3QgdGhlIEdyYWRlcyBvZiB0aGUgTW9vZHkgRGF0YXNldC5cbnByZWQgPC0gcHJlZGljdCh0cmVlLCBtb29keS50cmFpbiwgdHlwZT1cImNsYXNzXCIpXG5oZWFkKHByZWQpXG5cbiMgTGV0cyBjaGVjayB0aGUgVHJhaW5pbmcgQWNjdXJhY3lcbm1lYW4obW9vZHkudHJhaW4kR1JBREU9PXByZWQpXG5cbiMgTGV0cyB1cyB0aGUgY3Jvc3NfdmFsaWRhdGUoKSBmdW5jdGlvbi5cbmNyb3NzX3ZhbGlkYXRlKG1vb2R5LnRyYWluLHRyZWUsNSwwLjcpIn0=
+</div>
+<p><em>NOTE</em>: If you encounter error while running the cross-validation function that said “new levels encountered” in test, make sure the dataset is imported again with read.csv() attribute <code>stringsAsFactors</code> as <code>TRUE or T</code>. For more information about the inner-working of the cross_validate() function visit <a href="https://github.com/devanshagr/CrossValidation/blob/master/R/cross_validation.R">cross_validate()</a></p>
+<p>We can see in the output the Training accuracy, the table of cross-validation accuracy at each iteration for both the passed tree and the tree on all attribute and also their averages and variances.</p>
+<p>Few Observation from the selected example above are:</p>
+<ul>
+<li>For the tree passed with selected attributes and some control parameters, the cross-validation accuracy’s (i.e. accuracy values in the <code>accuracy_subset</code> column) are fairly high for all iterations and have very low variance.</li>
+<li>They are close to the training accuracy which indicates we are not overfitting.</li>
+<li>Observe that the accuracy at each iteration of the accuracy_subset and accuracy_all column are relatively, close but not exact, suggesting that there are more attributes or other control parameters that can be included to the passed tree, to further increase the accuracy, thus closing the gap.</li>
+</ul>
+<p>Thus using cross-validation we were able to figure out with certainty, that the passed tree, is not the best tree that can be created using the training data. Also, we saw whether the generated tree overfits the training data or not.</p>
+<hr />
+<p>EOC</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datatransformation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pred1blog.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
