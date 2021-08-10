@@ -1,0 +1,462 @@
+# Appendix {#appendix}
+
+<script src="files/js/dcl.js"></script>
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy=TRUE,height=700)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+The biggest enemy of your findings is randomness. In order to convince your audience that you have found something you need to address the question “how do you know your result is simply sheer luck, it is random?”
+
+This is where you need statistical tests for use in hypothesis testing. 
+
+---
+
+#### Two Important Formula's:
+
+- _Mean_
+\begin{equation}
+\bar{X}=\frac{\sum{X}}{N}
+\ \text{where, X is set of numbers and 
+N is size of set.}
+\end{equation}
+
+- _Standard Deviation_
+
+\begin{equation}
+
+\sigma = \sqrt{\frac{\sum{(X - \mu)^2}}{N}}\\
+\text{where, X is set of numbers, $\mu$ is average of set of numbers, }\\ \text{ N is size of the set, $\sigma$ is standard deviation}
+
+
+\end{equation}
+
+---
+
+## Z-test {#ztest} 
+
+A z-test is any statistical test used in hypothesis testing with an underlying normal distribution.
+
+In other words, when the distribution of the test statistic under the null hypothesis can be approximated by a normal distribution, z-test can be used.
+
+Outcome of the z-test is the z-score which is a numerical measure to test the mean of a distribution.
+z-score is measured in terms of standard deviation from mean.
+
+### Steps for hypothesis testing using Z-test.
+
+Running a Z-test requires 5 steps:
+
+1. State the null hypothesis and the alternate hypothesis
+    - Select a null hypothesis and an alternate hypothesis which will be tested using the z-test.
+2. Choose an Alpha $\alpha$ level.
+    - Usually this is selected to be small, such that the area under the normal distribution curve is accumulated most in the range between the alpha level.
+    - Thus mostly in statistical testing, $\alpha = 0.05$ is selected.
+3. Calculate the z-test statistic.
+    - The z-test statistic is calculated using the z-score formula.
+      \begin{equation} z = \frac{x-\mu}{\sigma}\text{ where, $z$ = z-score, $x$ = raw score, $\mu$ = mean and $\sigma$ = standard deviation } \end{equation}
+4. Calculate the p-value using the z-score
+    - Once we have the z-score we want to calculate the p-value from it.
+    - To do this, there are 2 ways,
+      - First use the z-table available online at [z-table.com](http://www.z-table.com/)
+      - Second, use the pnorm() function in R to find the p-value.
+5. Compare the p-value with $\alpha$
+    - After getting the p-value from step 4, compare it with the $\alpha$ level we selected in step 2.
+    - This decides if we can reject the null hypothesis or not.
+      - If the p-value obtained is lower than $\alpha$, then we can reject the null hypothesis.
+      - If the p-value is more than $\alpha$, we fail to reject the null hypothesis due to lack of significant evidence.
+      
+      
+Some important relation between one-sided and two sided test while using hypothesis testing is as follows:
+
+- First, estimate the expected value $\mu$ of T(statistic) under the null hypothesis, and obtain an estimate $\sigma$ of the standard deviation of T.
+- Second, determine the properties of T : one tailed or two tailed.
+  - For Null hypothesis H0: $\mu \geq \mu_0$ vs alternative hypothesis H1: $\mu < \mu_0$ , it is upper/right-tailed (one tailed).
+  - For Null hypothesis H0:$\mu \leq \mu_0$ vs alternative hypothesis H1: $\mu > \mu_0$ , it is lower/left-tailed (one tailed).
+  - For Null hypothesis H0: $\mu = \mu_0$ vs alternative hypothesis H1: $\mu \neq \mu_0$ , it is two-tailed.
+- Once you calculate the pnorm() in step 4, depending on the properties of two as described above, 
+  - use `pnorm(-Z)` for right tailed tests,
+  - use `2*pnorm(-Z)` for two tailed test, and 
+  - use `pnorm(Z)` for left tailed tests.
+  - *Note*: (Here Z = z-score). Also the method mentioned above works similar to that studied in class/recitations, but is simple to understand, and does not require subtracting the pnorm() output from 1.
+
+---
+
+### Z-test Example 1 (Right Sided)
+Now lets look at an example to use this z-test for hypothesis testing.
+
+We will study the example to statistically find the relation of the traffic volume per minute between two tunnels, namely Holland and Lincoln .
+
+```{r,echo=FALSE,error=FALSE,warning=FALSE}
+library(kableExtra)
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv") #web load
+temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Traffic Dataset',booktabs=TRUE) 
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Thus stating out Null Hypothesis and Alternate Hypothesis.
+
+- Null Hypothesis H0: Traffic in Lincoln is same as Traffic in Holland tunnel.
+- Alternate Hypothesis H1: Traffic in Lincoln is higher than traffic in Holland tunnel.
+
+Once we have stated our hypothesis, lets see the z-test in practice.
+
+```{r}
+# Load Dataset
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv')
+summary(TRAFFIC) #gives us the data statistics
+
+#data clean and subset
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+# traffic at lincoln
+# This variable is a column of 1401 rows.
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+# traffic at holland
+# This variable is a column of 1401 rows.
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+
+# standard deviation of two samples.
+# The final value is the standard deviation, in Volume per minute.
+sd.lincoln <- sd(lincoln.traffic)
+sd.holland <- sd(holland.traffic)
+
+# means of two samples
+mean.lincoln <- mean(lincoln.traffic)
+mean.holland <- mean(holland.traffic)
+
+# length of lincoln and holland
+len_lincoln <- length(lincoln.traffic)
+len_holland <- length(holland.traffic)
+
+# standard deviation of traffic
+sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+
+# z score
+zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
+zeta
+
+# get p
+p = pnorm(-zeta)
+p
+
+# plot the zeta value on the normal distribution curve.
+plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+abline(v=zeta, col='red')
+```
+
+We can see that form the P-Value obtained is near to 0, which is less than 0.05. 
+
+Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that traffic in Lincoln is higher than traffic Holland. 
+
+
+---
+
+### Z-test Example 2 (Left Sided)
+Now lets look at another example to use this z-test for hypothesis testing.
+
+We will study the example to statistically find the relation between capital gains of people with two Zodiac Signs , namely Aquarius and Libra.
+
+```{r,echo=FALSE,error=FALSE,warning=FALSE}
+library(kableExtra)
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv") #web load
+temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Zodiac Dataset',booktabs=TRUE) 
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Now stating out Null Hypothesis and Alternate Hypothesis.
+
+- Null Hypothesis H0: Capital Gains of people with Aquarius is same as people with Libra zodiac sign.
+- Alternate Hypothesis H1: Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
+
+Once we have stated our hypothesis, lets see the z-test in practice.
+
+```{r}
+# Load Dataset
+ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
+summary(ZodiacData) #gives us the data statistics
+
+#data clean and subset
+Aquarius.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Aquarius")
+Libra.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Libra")
+
+# Zodiac Aquarius
+Aquarius.Zodiac <- Aquarius.data$CAPITALGAINS
+
+# Zodiac  Libra
+Libra.Zodiac <- Libra.data$CAPITALGAINS
+
+# standard deviation of two samples.
+sd.Aquarius <- sd(Aquarius.Zodiac)
+sd.Libra <- sd(Libra.Zodiac)
+
+# means of two samples
+mean.Aquarius <- mean(Aquarius.Zodiac)
+mean.Libra <- mean(Libra.Zodiac)
+
+# length of Aquarius and Libra
+len_Aquarius <- length(Aquarius.Zodiac)
+len_Libra <- length(Libra.Zodiac)
+
+# standard deviation
+sd.aqu.lib <- sqrt(sd.Aquarius^2/len_Aquarius + sd.Libra^2/len_Libra)
+
+# z score
+zeta <- (mean.Aquarius - mean.Libra)/sd.aqu.lib
+zeta
+
+# get p
+p = pnorm(zeta)
+p
+
+# plot the zeta value on the normal distribution curve.
+plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+abline(v=zeta, col='red')
+```
+We can see that form the P-Value obtained is less than 0.05. 
+
+Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
+
+---
+
+### Z-test Example 3 (Two Tailed)
+
+We will study the example to statistically find the relation between capital gains of people with two Countries, namely US and Columbia.
+
+Now stating out Null Hypothesis and Alternate Hypothesis.
+
+- Null Hypothesis H0: Capital Gains of people of United States is same as people of Colombia.
+- Alternate Hypothesis H1: Capital Gains of people of United States is not equal to that of the people of Colombia.
+
+Once we have stated our hypothesis, lets see the z-test in practice.
+
+```{r}
+# Load Dataset
+ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
+summary(ZodiacData) #gives us the data statistics
+
+#data clean and subset
+US.data <- subset(ZodiacData, ZodiacData$NATIVE == "United-States")
+Columbia.data <- subset(ZodiacData, ZodiacData$NATIVE == "Columbia")
+
+# Country US
+US.country <- US.data$CAPITALGAINS
+
+# Country  Columbia
+Columbia.country <- Columbia.data$CAPITALGAINS
+
+# standard deviation of two samples.
+sd.US <- sd(US.country)
+sd.Columbia <- sd(Columbia.country)
+
+# means of two samples
+mean.US <- mean(US.country)
+mean.Columbia <- mean(Columbia.country)
+
+# length of US and Columbia
+len_US <- length(US.country)
+len_Columbia <- length(Columbia.country)
+
+# standard deviation
+sd.us.col <- sqrt(sd.US^2/len_US + sd.Columbia^2/len_Columbia)
+
+# z score
+zeta <- (mean.US - mean.Columbia)/sd.us.col
+zeta
+
+# get p
+p = 2*pnorm(-zeta)
+p
+
+# plot the zeta value on the normal distribution curve.
+plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+abline(v=zeta, col='red')
+```
+
+We can see that form the P-Value obtained is less than 0.05. 
+
+Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people of United States is not equal to that of the people of Colombia.
+
+---
+
+```{r child="./chapters/permutationtest.Rmd"}
+
+```
+
+---
+
+## Multiple Hypothesis - Bonferroni Correction. {#bonferroni}
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy=TRUE,height=700)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+<script src="files/js/dcl.js"></script>
+
+While dealing with the dataset with several number of dimensions, it is possible to get a lot of amazing and interesting insights and conclusions from it.
+
+But, unfortunately, sometimes a lot of the data included in case of such large dataset, might be junk.
+
+We can make multiple assumptions from such data. But, while doing so, we may consider some useless data/patterns that might hamper our results and lead to the pitfall of believing in hypotheses, that are not actually true.
+
+This is common when performing multiple hypothesis testing.
+
+Multiple hypothesis testing refers to any instance that involves the simultaneous testing of more than one hypothesis.
+
+Let’s consider the example of Traffic dataset.
+
+- We have given two tunnels ”Holland” and “Lincoln”, but what if we were given all the tunnels in the US? 
+- We can make a lot of hypotheses in that case. 
+- And for each set of hypothesis, would you still consider the value of α as 0.05 as the cut-off for P-value? 
+
+It may seem to be a good idea to just go and check the p-value for any set of hypotheses with the cut-off value of $\alpha$ as 0.05. 
+
+But this might not give you the correct answer always. 
+
+If you have 100 different hypotheses to consider in the data, then the probability of getting at least one significant result with $\alpha = 0.05$ will be,
+$$P(\text{at least one significant result}) = 1- (1-0.05)^{100} ≈ 0.99$$
+
+This means that if we consider 0.05 as our cut-off value, then the probability of getting at least one significant result will be about 99%, which leads to overfitting of data and it clearly doesn’t give us proper idea about our hypothesis. 
+
+Methods for dealing with multiple testing frequently call for adjusting $\alpha$ in some way, so that the probability of observing at least one significant result due to chance remains below your desired significance level.
+
+One such method for adjusting $\alpha$ is *BONFERRONI CORRECTION!*
+
+The Bonferroni correction sets the significance cut-off at $\alpha / N$ where N is the number of possible hypotheses. 
+
+For example, in the example above, with 100 tests and $\alpha = 0.05$, you’d only reject a null hypothesis if the p-value is less than $\alpha/N = 0.05/100 = 0.0005$
+
+Thus, the value of $\alpha$ after Bonferroni correction would be $0.0005$.
+
+Again, let’s calculate the probability of observing at least one significant result when using the correction just described:
+
+$$P(\text{at least one significant result}) = 1 − P(\text{no significant results}) \\
+= 1 − (1 − 0.0005)^{100} ≈ 0.048$$
+
+This gives us 4.8% probability of getting at least one significant result. 
+
+As we can see this value of probability using Bonferroni correction is much better than the 99% which we saw before when  we did not use correction for performing multiple hypothesis testing.
+
+But there are some downfall of using Bonferroni correction too. (Although for the scope of this course Bonferroni Correction works fine.)
+
+  - The Bonferroni correction tends to be a bit too conservative. 
+  - Also, we benefit here from assuming that all tests are independent of each other. In practical applications, that is often not the case. 
+  - Depending on the correlation structure of the tests, the Bonferroni correction could beextremely conservative, leading to a high rate of false negatives.
+
+---
+
+### Examples for Multiple hypothesis testing.
+
+Let’s consider the Happiness dataset as an example.
+<script src="files/js/dcl.js"></script>
+
+
+```{r,echo=FALSE,error=FALSE,warning=FALSE,tut=FALSE}
+library(kableExtra)
+earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv") #web load
+temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Happiness Dataset',booktabs=TRUE) 
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+There are 156 unique countries in the dataset. 
+This can be checked using the unique() function – `unique(indiv_happiness$country)`
+
+Since there are 156 distinct countries, we have ${{n}\choose{2}} = {156\choose2}=(156 * 155)/2 = 12090$ different hypotheses. Let’s call this value N. 
+
+Using this N, the P-value cutoff after Bonferroni correction will be, $α = 0.05 / 12090 ≈ 4.13 *10^{-6}$
+
+#### Example 1 
+
+Let’s calculate the P-value for the following hypotheses from the dataset.
+
+- Our hypothesis: People from Canada are happier than people from Iceland.
+- Null hypothesis: There is no difference in happiness levels of people from Canada and people from Iceland.
+
+<script src="files/js/dcl.js"></script>
+
+```{r,tut=TRUE}
+# Load dataset
+happiness <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv", stringsAsFactors = T) #web load
+
+# Two subsets of Canada and Iceland 
+happiness.canada <- subset(happiness$HAPPINESS, happiness$COUNTRY =="Canada")
+happiness.iceland <- subset(happiness$HAPPINESS, happiness$COUNTRY == "Iceland")
+
+# Mean of subsets.
+mean.canada <- mean(happiness.canada)
+mean.iceland <- mean(happiness.iceland)
+
+mean.canada
+mean.iceland
+
+# Length of subsets
+len.canada <- length(happiness.canada)
+len.iceland <- length(happiness.iceland)
+
+# Standard Deviation of Subsets.
+sd.canada <- sd(happiness.canada)
+sd.iceland <- sd(happiness.iceland)
+
+# Calculating Z-score 
+zeta <- (mean.canada - mean.iceland)/ sqrt((sd.canada^2)/len.canada + (sd.iceland^2)/len.iceland)
+zeta
+
+# Calculate p-value from Z-score
+p_value <- pnorm(-zeta)
+p_value
+```
+
+In this case, after applying Bonferroni Correction we get the value of $α = 0.05/12090 ≈ 4.14 * 10^{-06}$
+Here, we get the p-value of 0.25 which is much higher than the value of our α.
+Based on this we fail reject our null hypothesis.
+
+#### Example 2
+<script src="files/js/dcl.js"></script>
+
+Let’s consider the following hypotheses from the dataset.
+
+- Our hypothesis: People from Italy are happier than people from Afghanistan.
+- Null hypothesis: There is no difference in happiness levels of people from Italy and people from Afghanistan.
+
+```{r,tut=TRUE}
+# Load dataset
+happiness <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv", stringsAsFactors = T) #web load
+
+# Two subsets of Italy and Afghanistan 
+happiness.italy <- subset(happiness$HAPPINESS, happiness$COUNTRY =="Italy")
+happiness.afghanistan <- subset(happiness$HAPPINESS, happiness$COUNTRY == "Afghanistan")
+
+# Mean of subsets.
+mean.italy <- mean(happiness.italy)
+mean.afghanistan <- mean(happiness.afghanistan)
+
+mean.italy
+mean.afghanistan
+
+# Length of subsets
+len.italy <- length(happiness.italy)
+len.afghanistan <- length(happiness.afghanistan)
+
+# Standard Deviation of Subsets.
+sd.italy <- sd(happiness.italy)
+sd.afghanistan <- sd(happiness.afghanistan)
+
+# Calculating Z-score 
+zeta <- (mean.italy - mean.afghanistan)/ sqrt((sd.italy^2)/len.italy + (sd.afghanistan^2)/len.afghanistan)
+zeta
+
+# Calculate p-value from Z-score
+p_value <- pnorm(-zeta)
+p_value
+```
+In this case, after applying Bonferroni Correction we get the value of $α = 0.05/12090 ≈ 4.14 * 10^{-06}$
+
+Here, we get the p-value of 0.00364 which is lower than the value of default p-value cutoff $α = 0.05$, but this obtained p-value is higher than our Bonferroni correction cutoff.
+
+So, based on the results, we fail to reject our null hypothesis even though the obtained p-value is less than 0.05.
+
+---
+
+**EOC**

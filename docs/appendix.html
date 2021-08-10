@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Appendix | DATA 101 Shortest Textbook</title>
+  <meta name="description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://dev7796.github.io/Data101_TextBook/) Published using Bookdown for R." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Appendix | DATA 101 Shortest Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://dev7796.github.io/Data101_TextBook/) Published using Bookdown for R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Appendix | DATA 101 Shortest Textbook" />
+  
+  <meta name="twitter:description" content="This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://dev7796.github.io/Data101_TextBook/) Published using Bookdown for R." />
+  
+
+
+
+<meta name="date" content="2021-08-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="predblogs.html"/>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book</a>
+<a href="https://github.com/dev7796/Data101_TextBook" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-r"><i class="fa fa-check"></i><b>1.1</b> Setting Up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dataexp.html"><a href="dataexp.html"><i class="fa fa-check"></i><b>2</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dataexp.html"><a href="dataexp.html#plots"><i class="fa fa-check"></i><b>2.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dataexp.html"><a href="dataexp.html#scatter-plot"><i class="fa fa-check"></i><b>2.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dataexp.html"><a href="dataexp.html#bar-plot"><i class="fa fa-check"></i><b>2.1.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dataexp.html"><a href="dataexp.html#box-plot"><i class="fa fa-check"></i><b>2.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dataexp.html"><a href="dataexp.html#mosaic-plot"><i class="fa fa-check"></i><b>2.1.4</b> Mosaic Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dataexp.html"><a href="dataexp.html#freestyle"><i class="fa fa-check"></i><b>2.2</b> Free Style data exploration with just seven R commands " R.7 "</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stateval.html"><a href="stateval.html"><i class="fa fa-check"></i><b>3</b> Simple Statistical Evaluation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>3.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="stateval.html"><a href="stateval.html#steps-for-hypothesis-testing-using-z-test."><i class="fa fa-check"></i><b>3.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stateval.html"><a href="stateval.html#z-test-example-1-right-sided"><i class="fa fa-check"></i><b>3.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stateval.html"><a href="stateval.html#z-test-example-2-left-sided"><i class="fa fa-check"></i><b>3.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stateval.html"><a href="stateval.html#z-test-example-3-two-tailed"><i class="fa fa-check"></i><b>3.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>3.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>3.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>3.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>3.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>3.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="stateval.html"><a href="stateval.html#examples-for-multiple-hypothesis-testing."><i class="fa fa-check"></i><b>3.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>4</b> Data Modeling and Prediction techniques for Classification.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="classification.html"><a href="classification.html#decisiontree"><i class="fa fa-check"></i><b>4.1</b> Decision Tree.</a></li>
+<li class="chapter" data-level="4.2" data-path="classification.html"><a href="classification.html#rpart"><i class="fa fa-check"></i><b>4.2</b> Use of Rpart</a></li>
+<li class="chapter" data-level="4.3" data-path="classification.html"><a href="classification.html#rpartplot"><i class="fa fa-check"></i><b>4.3</b> Visualize the Decision tree</a></li>
+<li class="chapter" data-level="4.4" data-path="classification.html"><a href="classification.html#rpartcontrol"><i class="fa fa-check"></i><b>4.4</b> Rpart Control</a></li>
+<li class="chapter" data-level="4.5" data-path="classification.html"><a href="classification.html#rpartpredict"><i class="fa fa-check"></i><b>4.5</b> Prediction using rpart.</a></li>
+<li class="chapter" data-level="4.6" data-path="classification.html"><a href="classification.html#splitdata"><i class="fa fa-check"></i><b>4.6</b> Split the data yourself.</a></li>
+<li class="chapter" data-level="4.7" data-path="classification.html"><a href="classification.html#crossvalidation"><i class="fa fa-check"></i><b>4.7</b> Cross Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Data Modelling and Prediction techniques for Regression.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html#linear-regression."><i class="fa fa-check"></i><b>5.1</b> Linear Regression.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression using lm() function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#mse"><i class="fa fa-check"></i><b>5.1.2</b> Calculating the Error using mse()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#regression-using-rpart"><i class="fa fa-check"></i><b>5.2</b> Regression using RPART</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>6</b> Additional Modeling techniques.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="models.html"><a href="models.html#model4step"><i class="fa fa-check"></i><b>6.1</b> Four Line Method for creating most type of prediction models in R</a></li>
+<li class="chapter" data-level="6.2" data-path="models.html"><a href="models.html#randomforest"><i class="fa fa-check"></i><b>6.2</b> Random Forest</a></li>
+<li class="chapter" data-level="6.3" data-path="models.html"><a href="models.html#svm"><i class="fa fa-check"></i><b>6.3</b> SVM</a></li>
+<li class="chapter" data-level="6.4" data-path="models.html"><a href="models.html#nnet"><i class="fa fa-check"></i><b>6.4</b> Neural Network.</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="predblogs.html"><a href="predblogs.html"><i class="fa fa-check"></i><b>7</b> Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="predblogs.html"><a href="predblogs.html#general-structure-of-the-prediction-challenges."><i class="fa fa-check"></i><b>7.1</b> General Structure of the Prediction Challenges.</a></li>
+<li class="chapter" data-level="7.2" data-path="predblogs.html"><a href="predblogs.html#prediction-challange-1."><i class="fa fa-check"></i><b>7.2</b> Prediction Challange 1.</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-1"><i class="fa fa-check"></i><b>7.2.1</b> How the data was generated for Challenge 1</a></li>
+<li class="chapter" data-level="7.2.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-1."><i class="fa fa-check"></i><b>7.2.2</b> Top Submissions for Challenge 1.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-2."><i class="fa fa-check"></i><b>7.3</b> Prediction Challenge 2.</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-to-challenge-2"><i class="fa fa-check"></i><b>7.3.1</b> How the data was generated to Challenge 2</a></li>
+<li class="chapter" data-level="7.3.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-2"><i class="fa fa-check"></i><b>7.3.2</b> Top Submissions for Challenge 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-3."><i class="fa fa-check"></i><b>7.4</b> Prediction Challenge 3.</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-3"><i class="fa fa-check"></i><b>7.4.1</b> How the data was generated for Challenge 3</a></li>
+<li class="chapter" data-level="7.4.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-3"><i class="fa fa-check"></i><b>7.4.2</b> Top Submissions for Challenge 3</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="predblogs.html"><a href="predblogs.html#prediction-challenge-4."><i class="fa fa-check"></i><b>7.5</b> Prediction Challenge 4.</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="predblogs.html"><a href="predblogs.html#how-the-data-was-generated-for-challenge-4"><i class="fa fa-check"></i><b>7.5.1</b> How the data was generated for Challenge 4</a></li>
+<li class="chapter" data-level="7.5.2" data-path="predblogs.html"><a href="predblogs.html#top-submissions-for-challenge-4"><i class="fa fa-check"></i><b>7.5.2</b> Top Submissions for Challenge 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stateval.html"><a href="stateval.html#ztest"><i class="fa fa-check"></i><b>8.1</b> Z-test</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#steps-for-hypothesis-testing-using-z-test.-1"><i class="fa fa-check"></i><b>8.1.1</b> Steps for hypothesis testing using Z-test.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="appendix.html"><a href="appendix.html#z-test-example-1-right-sided-1"><i class="fa fa-check"></i><b>8.1.2</b> Z-test Example 1 (Right Sided)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="appendix.html"><a href="appendix.html#z-test-example-2-left-sided-1"><i class="fa fa-check"></i><b>8.1.3</b> Z-test Example 2 (Left Sided)</a></li>
+<li class="chapter" data-level="8.1.4" data-path="appendix.html"><a href="appendix.html#z-test-example-3-two-tailed-1"><i class="fa fa-check"></i><b>8.1.4</b> Z-test Example 3 (Two Tailed)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="stateval.html"><a href="stateval.html#permtest"><i class="fa fa-check"></i><b>8.2</b> Permutation Test</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="stateval.html"><a href="stateval.html#permonestep"><i class="fa fa-check"></i><b>8.2.1</b> Permutation Test One Step</a></li>
+<li class="chapter" data-level="8.2.2" data-path="stateval.html"><a href="stateval.html#permfunction"><i class="fa fa-check"></i><b>8.2.2</b> Permutation Function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="stateval.html"><a href="stateval.html#aniceexample"><i class="fa fa-check"></i><b>8.2.3</b> Exercise - How p-value is affected by difference of means and standard deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="stateval.html"><a href="stateval.html#bonferroni"><i class="fa fa-check"></i><b>8.3</b> Multiple Hypothesis - Bonferroni Correction.</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="appendix.html"><a href="appendix.html#examples-for-multiple-hypothesis-testing.-1"><i class="fa fa-check"></i><b>8.3.1</b> Examples for Multiple hypothesis testing.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DATA 101 Shortest Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Appendix</h1>
+<script src="files/js/dcl.js"></script>
+<p>The biggest enemy of your findings is randomness. In order to convince your audience that you have found something you need to address the question “how do you know your result is simply sheer luck, it is random?”</p>
+<p>This is where you need statistical tests for use in hypothesis testing.</p>
+<hr />
+<div id="two-important-formulas-1" class="section level4" number="8.0.0.1">
+<h4><span class="header-section-number">8.0.0.1</span> Two Important Formula’s:</h4>
+<ul>
+<li><p><em>Mean</em>
+<span class="math display">\[\begin{equation}
+\bar{X}=\frac{\sum{X}}{N}
+\ \text{where, X is set of numbers and 
+N is size of set.}
+\end{equation}\]</span></p></li>
+<li><p><em>Standard Deviation</em></p></li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+
+\sigma = \sqrt{\frac{\sum{(X - \mu)^2}}{N}}\\
+\text{where, X is set of numbers, $\mu$ is average of set of numbers, }\\ \text{ N is size of the set, $\sigma$ is standard deviation}
+
+
+\end{equation}\]</span></p>
+<hr />
+</div>
+<div id="ztest" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Z-test</h2>
+<p>A z-test is any statistical test used in hypothesis testing with an underlying normal distribution.</p>
+<p>In other words, when the distribution of the test statistic under the null hypothesis can be approximated by a normal distribution, z-test can be used.</p>
+<p>Outcome of the z-test is the z-score which is a numerical measure to test the mean of a distribution.
+z-score is measured in terms of standard deviation from mean.</p>
+<div id="steps-for-hypothesis-testing-using-z-test.-1" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Steps for hypothesis testing using Z-test.</h3>
+<p>Running a Z-test requires 5 steps:</p>
+<ol style="list-style-type: decimal">
+<li>State the null hypothesis and the alternate hypothesis
+<ul>
+<li>Select a null hypothesis and an alternate hypothesis which will be tested using the z-test.</li>
+</ul></li>
+<li>Choose an Alpha <span class="math inline">\(\alpha\)</span> level.
+<ul>
+<li>Usually this is selected to be small, such that the area under the normal distribution curve is accumulated most in the range between the alpha level.</li>
+<li>Thus mostly in statistical testing, <span class="math inline">\(\alpha = 0.05\)</span> is selected.</li>
+</ul></li>
+<li>Calculate the z-test statistic.
+<ul>
+<li>The z-test statistic is calculated using the z-score formula.
+<span class="math display">\[\begin{equation} z = \frac{x-\mu}{\sigma}\text{ where, $z$ = z-score, $x$ = raw score, $\mu$ = mean and $\sigma$ = standard deviation } \end{equation}\]</span></li>
+</ul></li>
+<li>Calculate the p-value using the z-score
+<ul>
+<li>Once we have the z-score we want to calculate the p-value from it.</li>
+<li>To do this, there are 2 ways,
+<ul>
+<li>First use the z-table available online at <a href="http://www.z-table.com/">z-table.com</a></li>
+<li>Second, use the pnorm() function in R to find the p-value.</li>
+</ul></li>
+</ul></li>
+<li>Compare the p-value with <span class="math inline">\(\alpha\)</span>
+<ul>
+<li>After getting the p-value from step 4, compare it with the <span class="math inline">\(\alpha\)</span> level we selected in step 2.</li>
+<li>This decides if we can reject the null hypothesis or not.
+<ul>
+<li>If the p-value obtained is lower than <span class="math inline">\(\alpha\)</span>, then we can reject the null hypothesis.</li>
+<li>If the p-value is more than <span class="math inline">\(\alpha\)</span>, we fail to reject the null hypothesis due to lack of significant evidence.</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Some important relation between one-sided and two sided test while using hypothesis testing is as follows:</p>
+<ul>
+<li>First, estimate the expected value <span class="math inline">\(\mu\)</span> of T(statistic) under the null hypothesis, and obtain an estimate <span class="math inline">\(\sigma\)</span> of the standard deviation of T.</li>
+<li>Second, determine the properties of T : one tailed or two tailed.
+<ul>
+<li>For Null hypothesis H0: <span class="math inline">\(\mu \geq \mu_0\)</span> vs alternative hypothesis H1: <span class="math inline">\(\mu &lt; \mu_0\)</span> , it is upper/right-tailed (one tailed).</li>
+<li>For Null hypothesis H0:<span class="math inline">\(\mu \leq \mu_0\)</span> vs alternative hypothesis H1: <span class="math inline">\(\mu &gt; \mu_0\)</span> , it is lower/left-tailed (one tailed).</li>
+<li>For Null hypothesis H0: <span class="math inline">\(\mu = \mu_0\)</span> vs alternative hypothesis H1: <span class="math inline">\(\mu \neq \mu_0\)</span> , it is two-tailed.</li>
+</ul></li>
+<li>Once you calculate the pnorm() in step 4, depending on the properties of two as described above,
+<ul>
+<li>use <code>pnorm(-Z)</code> for right tailed tests,</li>
+<li>use <code>2*pnorm(-Z)</code> for two tailed test, and</li>
+<li>use <code>pnorm(Z)</code> for left tailed tests.</li>
+<li><em>Note</em>: (Here Z = z-score). Also the method mentioned above works similar to that studied in class/recitations, but is simple to understand, and does not require subtracting the pnorm() output from 1.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="z-test-example-1-right-sided-1" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Z-test Example 1 (Right Sided)</h3>
+<p>Now lets look at an example to use this z-test for hypothesis testing.</p>
+<p>We will study the example to statistically find the relation of the traffic volume per minute between two tunnels, namely Holland and Lincoln .</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-53">Table 8.1: </span>Snippet of Traffic Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+TUNNEL
+</th>
+<th style="text-align:left;">
+DAY
+</th>
+<th style="text-align:right;">
+VOLUME_PER_MINUTE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+834
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1394
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1329
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1653
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1668
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+398
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+423
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1348
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2393
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+661
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+55
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Thus stating out Null Hypothesis and Alternate Hypothesis.</p>
+<ul>
+<li>Null Hypothesis H0: Traffic in Lincoln is same as Traffic in Holland tunnel.</li>
+<li>Alternate Hypothesis H1: Traffic in Lincoln is higher than traffic in Holland tunnel.</li>
+</ul>
+<p>Once we have stated our hypothesis, lets see the z-test in practice.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgRGF0YXNldFxuVFJBRkZJQzwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9UUkFGRklDLmNzdicpXG5zdW1tYXJ5KFRSQUZGSUMpICNnaXZlcyB1cyB0aGUgZGF0YSBzdGF0aXN0aWNzXG5cbiNkYXRhIGNsZWFuIGFuZCBzdWJzZXRcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jIHRyYWZmaWMgYXQgbGluY29sblxuIyBUaGlzIHZhcmlhYmxlIGlzIGEgY29sdW1uIG9mIDE0MDEgcm93cy5cbmxpbmNvbG4udHJhZmZpYyA8LSBsaW5jb2xuLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcblxuIyB0cmFmZmljIGF0IGhvbGxhbmRcbiMgVGhpcyB2YXJpYWJsZSBpcyBhIGNvbHVtbiBvZiAxNDAxIHJvd3MuXG5ob2xsYW5kLnRyYWZmaWMgPC0gaG9sbGFuZC5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuIyBUaGUgZmluYWwgdmFsdWUgaXMgdGhlIHN0YW5kYXJkIGRldmlhdGlvbiwgaW4gVm9sdW1lIHBlciBtaW51dGUuXG5zZC5saW5jb2xuIDwtIHNkKGxpbmNvbG4udHJhZmZpYylcbnNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuXG4jIG1lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5cbiMgbGVuZ3RoIG9mIGxpbmNvbG4gYW5kIGhvbGxhbmRcbmxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG5sZW5faG9sbGFuZCA8LSBsZW5ndGgoaG9sbGFuZC50cmFmZmljKVxuXG4jIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0cmFmZmljXG5zZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuXG4jIHogc2NvcmVcbnpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuemV0YVxuXG4jIGdldCBwXG5wID0gcG5vcm0oLXpldGEpXG5wXG5cbiMgcGxvdCB0aGUgemV0YSB2YWx1ZSBvbiB0aGUgbm9ybWFsIGRpc3RyaWJ1dGlvbiBjdXJ2ZS5cbnBsb3QoeD1zZXEoZnJvbSA9IC0yNSwgdG89IDI1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtMjUsIHRvPSAyNSwgIGJ5PTAuMSksbWVhbj0wKSx0eXBlPSdsJyx4bGFiID0gJ21lYW4gZGlmZmVyZW5jZScsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpIn0=
+</div>
+<p>We can see that form the P-Value obtained is near to 0, which is less than 0.05.</p>
+<p>Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that traffic in Lincoln is higher than traffic Holland.</p>
+<hr />
+</div>
+<div id="z-test-example-2-left-sided-1" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Z-test Example 2 (Left Sided)</h3>
+<p>Now lets look at another example to use this z-test for hypothesis testing.</p>
+<p>We will study the example to statistically find the relation between capital gains of people with two Zodiac Signs , namely Aquarius and Libra.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-55">Table 8.2: </span>Snippet of Zodiac Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+AGE
+</th>
+<th style="text-align:left;">
+STATUS
+</th>
+<th style="text-align:left;">
+EDUCATION
+</th>
+<th style="text-align:right;">
+YEARS
+</th>
+<th style="text-align:left;">
+PROFESSION
+</th>
+<th style="text-align:right;">
+CAPITALGAINS
+</th>
+<th style="text-align:right;">
+CAPITALLOSS
+</th>
+<th style="text-align:left;">
+NATIVE
+</th>
+<th style="text-align:left;">
+ZODIAK
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+27988
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+Self-emp-inc
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Exec-managerial
+</td>
+<td style="text-align:right;">
+2829
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Scorpio
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18550
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+Bachelors
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+Exec-managerial
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+13905
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Leo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16742
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Sales
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Cancer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17779
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Machine-op-inspct
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Leo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+246
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Other-service
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Gemini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1873
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+Some-college
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Sales
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Leo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9754
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+Some-college
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Tech-support
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Taurus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10574
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:left;">
+Self-emp-not-inc
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Craft-repair
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Taurus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4307
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Exec-managerial
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Leo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12378
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+Private
+</td>
+<td style="text-align:left;">
+HS-grad
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Craft-repair
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+United-States
+</td>
+<td style="text-align:left;">
+Taurus
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now stating out Null Hypothesis and Alternate Hypothesis.</p>
+<ul>
+<li>Null Hypothesis H0: Capital Gains of people with Aquarius is same as people with Libra zodiac sign.</li>
+<li>Alternate Hypothesis H1: Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.</li>
+</ul>
+<p>Once we have stated our hypothesis, lets see the z-test in practice.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgRGF0YXNldFxuWm9kaWFjRGF0YTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9ab2RpYWNDaGFsbGVuZ2UuY3N2JylcbnN1bW1hcnkoWm9kaWFjRGF0YSkgI2dpdmVzIHVzIHRoZSBkYXRhIHN0YXRpc3RpY3NcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldFxuQXF1YXJpdXMuZGF0YSA8LSBzdWJzZXQoWm9kaWFjRGF0YSwgWm9kaWFjRGF0YSRaT0RJQUsgPT0gXCJBcXVhcml1c1wiKVxuTGlicmEuZGF0YSA8LSBzdWJzZXQoWm9kaWFjRGF0YSwgWm9kaWFjRGF0YSRaT0RJQUsgPT0gXCJMaWJyYVwiKVxuXG4jIFpvZGlhYyBBcXVhcml1c1xuQXF1YXJpdXMuWm9kaWFjIDwtIEFxdWFyaXVzLmRhdGEkQ0FQSVRBTEdBSU5TXG5cbiMgWm9kaWFjICBMaWJyYVxuTGlicmEuWm9kaWFjIDwtIExpYnJhLmRhdGEkQ0FQSVRBTEdBSU5TXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QuQXF1YXJpdXMgPC0gc2QoQXF1YXJpdXMuWm9kaWFjKVxuc2QuTGlicmEgPC0gc2QoTGlicmEuWm9kaWFjKVxuXG4jIG1lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLkFxdWFyaXVzIDwtIG1lYW4oQXF1YXJpdXMuWm9kaWFjKVxubWVhbi5MaWJyYSA8LSBtZWFuKExpYnJhLlpvZGlhYylcblxuIyBsZW5ndGggb2YgQXF1YXJpdXMgYW5kIExpYnJhXG5sZW5fQXF1YXJpdXMgPC0gbGVuZ3RoKEFxdWFyaXVzLlpvZGlhYylcbmxlbl9MaWJyYSA8LSBsZW5ndGgoTGlicmEuWm9kaWFjKVxuXG4jIHN0YW5kYXJkIGRldmlhdGlvblxuc2QuYXF1LmxpYiA8LSBzcXJ0KHNkLkFxdWFyaXVzXjIvbGVuX0FxdWFyaXVzICsgc2QuTGlicmFeMi9sZW5fTGlicmEpXG5cbiMgeiBzY29yZVxuemV0YSA8LSAobWVhbi5BcXVhcml1cyAtIG1lYW4uTGlicmEpL3NkLmFxdS5saWJcbnpldGFcblxuIyBnZXQgcFxucCA9IHBub3JtKHpldGEpXG5wXG5cbiMgcGxvdCB0aGUgemV0YSB2YWx1ZSBvbiB0aGUgbm9ybWFsIGRpc3RyaWJ1dGlvbiBjdXJ2ZS5cbnBsb3QoeD1zZXEoZnJvbSA9IC0yNSwgdG89IDI1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtMjUsIHRvPSAyNSwgIGJ5PTAuMSksbWVhbj0wKSx0eXBlPSdsJyx4bGFiID0gJ21lYW4gZGlmZmVyZW5jZScsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpIn0=
+</div>
+<p>We can see that form the P-Value obtained is less than 0.05.</p>
+<p>Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.</p>
+<hr />
+</div>
+<div id="z-test-example-3-two-tailed-1" class="section level3" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Z-test Example 3 (Two Tailed)</h3>
+<p>We will study the example to statistically find the relation between capital gains of people with two Countries, namely US and Columbia.</p>
+<p>Now stating out Null Hypothesis and Alternate Hypothesis.</p>
+<ul>
+<li>Null Hypothesis H0: Capital Gains of people of United States is same as people of Colombia.</li>
+<li>Alternate Hypothesis H1: Capital Gains of people of United States is not equal to that of the people of Colombia.</li>
+</ul>
+<p>Once we have stated our hypothesis, lets see the z-test in practice.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgRGF0YXNldFxuWm9kaWFjRGF0YTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9ab2RpYWNDaGFsbGVuZ2UuY3N2JylcbnN1bW1hcnkoWm9kaWFjRGF0YSkgI2dpdmVzIHVzIHRoZSBkYXRhIHN0YXRpc3RpY3NcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldFxuVVMuZGF0YSA8LSBzdWJzZXQoWm9kaWFjRGF0YSwgWm9kaWFjRGF0YSROQVRJVkUgPT0gXCJVbml0ZWQtU3RhdGVzXCIpXG5Db2x1bWJpYS5kYXRhIDwtIHN1YnNldChab2RpYWNEYXRhLCBab2RpYWNEYXRhJE5BVElWRSA9PSBcIkNvbHVtYmlhXCIpXG5cbiMgQ291bnRyeSBVU1xuVVMuY291bnRyeSA8LSBVUy5kYXRhJENBUElUQUxHQUlOU1xuXG4jIENvdW50cnkgIENvbHVtYmlhXG5Db2x1bWJpYS5jb3VudHJ5IDwtIENvbHVtYmlhLmRhdGEkQ0FQSVRBTEdBSU5TXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QuVVMgPC0gc2QoVVMuY291bnRyeSlcbnNkLkNvbHVtYmlhIDwtIHNkKENvbHVtYmlhLmNvdW50cnkpXG5cbiMgbWVhbnMgb2YgdHdvIHNhbXBsZXNcbm1lYW4uVVMgPC0gbWVhbihVUy5jb3VudHJ5KVxubWVhbi5Db2x1bWJpYSA8LSBtZWFuKENvbHVtYmlhLmNvdW50cnkpXG5cbiMgbGVuZ3RoIG9mIFVTIGFuZCBDb2x1bWJpYVxubGVuX1VTIDwtIGxlbmd0aChVUy5jb3VudHJ5KVxubGVuX0NvbHVtYmlhIDwtIGxlbmd0aChDb2x1bWJpYS5jb3VudHJ5KVxuXG4jIHN0YW5kYXJkIGRldmlhdGlvblxuc2QudXMuY29sIDwtIHNxcnQoc2QuVVNeMi9sZW5fVVMgKyBzZC5Db2x1bWJpYV4yL2xlbl9Db2x1bWJpYSlcblxuIyB6IHNjb3JlXG56ZXRhIDwtIChtZWFuLlVTIC0gbWVhbi5Db2x1bWJpYSkvc2QudXMuY29sXG56ZXRhXG5cbiMgZ2V0IHBcbnAgPSAyKnBub3JtKC16ZXRhKVxucFxuXG4jIHBsb3QgdGhlIHpldGEgdmFsdWUgb24gdGhlIG5vcm1hbCBkaXN0cmlidXRpb24gY3VydmUuXG5wbG90KHg9c2VxKGZyb20gPSAtMjUsIHRvPSAyNSwgYnk9MC4xKSx5PWRub3JtKHNlcShmcm9tID0gLTI1LCB0bz0gMjUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuYWJsaW5lKHY9emV0YSwgY29sPSdyZWQnKSJ9
+</div>
+<p>We can see that form the P-Value obtained is less than 0.05.</p>
+<p>Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people of United States is not equal to that of the people of Colombia.</p>
+<hr />
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+</div>
+</div>
+<div id="permtest" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Permutation Test</h2>
+<script src="files/js/dcl.js"></script>
+<p>Permutation test allows us to observe randomness directly, with naked eye, without the lenses of statistical tests such as z-tests etc. We shuffle data randomly like a deck of cards. There may be many such shuffles - 10,000, 100,000 etc. The goal is always to see how often we can obtained the observed difference of means (since we are testing either one sided or two sided hypothesis), by purely random shuffles of our data. These permutations (shuffles) destroy all relationships which may pre-exist in our data. We are hoping to show that our observed difference of means can be obtained very rarely in completely random fashion. Then we “experimentally” show that our result is unlikely to randomly occur under null hypothesis. Then we can reject the null hypothesis.</p>
+<p>The less often our result appear in the histogram of permutation test results, the better the news for our alternative hypothesis.</p>
+<p>What is surprising to many newcomers, is that permutation test will give different p-values (not dramatically different, but still different) in each run of permutation test. This is the case because permutation test in random itself. It is not like z-test which will give the same result when run again for the same hypothesis and same data set. Also p-value computed by permutation test will be, in general, different than p-value computed by z-test. Not very different but different. Again, it is the case because permutation test provides only approximation of p-value. Great advantage of permutation test is that it is universal and robust. One can test different relationships between two variables than just difference of means. For example we can use permutation test to validate whether traffic in Lincoln tunnel is more than twice the traffic in Holland tunnel or even provide different weights for different days of the week.</p>
+<div id="permonestep" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Permutation Test One Step</h3>
+<ul>
+<li><p>Permutation test in one step is the most direct way to see randomness close by. One step permutation function shows one single data shuffle. By shuffling the data one destroys associations which exist between values of the data frame. This make data frame random.</p></li>
+<li><p>You can execute the one step permutation multiple times. This will show how data frame varies and how does it affect the observed difference of means.</p></li>
+<li><p>Apply one step permutation function first, multiple times before you move to the proper Permutation test function. One of the parameters of the Permutation test function
+specifies the number of “shuffles” which will be preformed. This could be a very large number, 10,000 or even 100,000. The purpose of making so many random permutations is to test how often observed difference of means can arise in just random data. The more often this takes place, the more likely you observation is just random. To reject the null hypothesis you need to show that the observed difference of means will come very infrequently in permutation test. Less than 5% of the time, to be exact.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20va3VuYWwwODk1L1JEYXRhc2V0cy9tYXN0ZXIvVFJBRkZJQy5jc3YnKSIsInNhbXBsZSI6InN1bW1hcnkodHJhZmZpYylcbkQ8LSBtZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdIb2xsYW5kJywzXSkgLSBtZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywzXSlcbm51bGxfdHVubmVsIDwtIHJlcChcIkhvbGxhbmRcIiwyODAxKSAjIENyZWF0ZSAyODAxIGNvcGllcyBvZiBIb2xsYW5kIFxubnVsbF90dW5uZWxbc2FtcGxlKDI4MDEsMTQwMCldIDwtIFwiTGluY29sblwiICMgUmVwbGFjZSBSQU5ET01MWSAxNDAwIGNvcGllcyB3aXRoIExpbmNvbG5cbm51bGwgPC0gZGF0YS5mcmFtZShudWxsX3R1bm5lbCx0cmFmZmljWywzXSlcbm5hbWVzKG51bGwpIDwtIGMoXCJUVU5ORUxcIixcIlZPTFVNRV9QRVJfTUlOVVRFXCIpXG5zdW1tYXJ5KG51bGwpXG5ob2xsYW5kX251bGwgPC0gbnVsbFtudWxsJFRVTk5FTCA9PSBcIkhvbGxhbmRcIiwyXVxubGluY29sbl9udWxsIDwtIG51bGxbbnVsbCRUVU5ORUwgPT0gXCJMaW5jb2xuXCIsMl1cbm1lYW4oaG9sbGFuZF9udWxsKVxubWVhbihsaW5jb2xuX251bGwpXG5EX251bGwgPC0gbWVhbihsaW5jb2xuX251bGwpIC0gbWVhbihob2xsYW5kX251bGwpXG5jYXQoXCJUaGUgbWVhbiBkaWZmZXJlbmNlIG9mIHBlcm11dGF0aW9uIG9uZSBzdGVwIGRhdGE6IFwiLCBEX251bGwsXCJcXG5cIikjIENhbGN1bGF0ZSB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSBtZWFuIG9mIHRoZSByYW5kb20gZGF0YS5cbmNhdChcIlRoZSBtZWFuIGRpZmZlcmVuY2Ugb2Ygb3JpZ2luYWwgZGF0YTogXCIsIEQpICMgRGlmZmVyZW5jZSBvZiBtZWFuIHZhbHVlIG9mIG9yaWdpbmFsIGRhdGEuIn0=
+</div>
+<hr />
+</div>
+<div id="permfunction" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Permutation Function</h3>
+<ul>
+<li><p>The permutation function is used to run multiple iteration of the one-step permutation studied above, to get a complete relational understanding between the components involved in any hypothesis.</p></li>
+<li><p>Here you can run the example of running the permutation test on the Traffic.csv dataset, on volume of traffic in Holland and Lincoln Tunnel.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20va3VuYWwwODk1L1JEYXRhc2V0cy9tYXN0ZXIvVFJBRkZJQy5jc3YnKVxuUGVybXV0YXRpb24gPC0gZnVuY3Rpb24oZGYxLGMxLGMyLG4sdzEsdzIpe1xuICBkZiA8LSBhcy5kYXRhLmZyYW1lKGRmMSlcbiAgRF9udWxsPC1jKClcbiAgVjE8LWRmWyxjMV1cbiAgVjI8LWRmWyxjMl1cbiAgc3ViLnZhbHVlMSA8LSBkZltkZlssIGMxXSA9PSB3MSwgYzJdXG4gIHN1Yi52YWx1ZTIgPC0gZGZbZGZbLCBjMV0gPT0gdzIsIGMyXVxuICBEIDwtICBhYnMobWVhbihzdWIudmFsdWUyLCBuYS5ybT1UUlVFKSAtIG1lYW4oc3ViLnZhbHVlMSwgbmEucm09VFJVRSkpXG4gIG09bGVuZ3RoKFYxKVxuICBsPWxlbmd0aChWMVtWMT09dzJdKVxuICBmb3IoamogaW4gMTpuKXtcbiAgICBudWxsIDwtIHJlcCh3MSxsZW5ndGgoVjEpKVxuICAgIG51bGxbc2FtcGxlKG0sbCldIDwtIHcyXG4gICAgbmYgPC0gZGF0YS5mcmFtZShLZXk9bnVsbCwgVmFsdWU9VjIpXG4gICAgbmFtZXMobmYpIDwtIGMoXCJLZXlcIixcIlZhbHVlXCIpXG4gICAgdzFfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzEsMl1cbiAgICB3Ml9udWxsIDwtIG5mW25mJEtleSA9PSB3MiwyXVxuICAgIERfbnVsbCA8LSBjKERfbnVsbCxtZWFuKHcyX251bGwsIG5hLnJtPVRSVUUpIC0gbWVhbih3MV9udWxsLCBuYS5ybT1UUlVFKSlcbiAgfVxuICBteWhpc3Q8LWhpc3QoRF9udWxsLCBwcm9iPVRSVUUpXG4gIG11bHRpcGxpZXIgPC0gbXloaXN0JGNvdW50cyAvIG15aGlzdCRkZW5zaXR5XG4gIG15ZGVuc2l0eSA8LSBkZW5zaXR5KERfbnVsbCwgYWRqdXN0PTIpXG4gIG15ZGVuc2l0eSR5IDwtIG15ZGVuc2l0eSR5ICogbXVsdGlwbGllclsxXVxuICBwbG90KG15aGlzdClcbiAgbGluZXMobXlkZW5zaXR5LCBjb2w9J2JsdWUnKVxuICBhYmxpbmUodj1ELCBjb2w9J3JlZCcpXG4gIE08LW1lYW4oRF9udWxsPkQpXG4gIHJldHVybihNKVxufSIsInNhbXBsZSI6IlBlcm11dGF0aW9uKHRyYWZmaWMsIFwiVFVOTkVMXCIsIFwiVk9MVU1FX1BFUl9NSU5VVEVcIiwxMDAwLFwiSG9sbGFuZFwiLCBcIkxpbmNvbG5cIikifQ==
+</div>
+<ul>
+<li><p>Note: You can find the permutation function code here: <a href="https://raw.githubusercontent.com/devanshagr/PermutationTestSecond/master/R/hello.R">Permutation()</a></p></li>
+<li><p><strong>NOTE</strong>: The red line in the output plots of the permutation test function is not the p-value, but it is just the difference of the value of means of the two categories under test.</p></li>
+</ul>
+</div>
+<div id="aniceexample" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Exercise - How p-value is affected by difference of means and standard deviations</h3>
+<ul>
+<li><p>Here, you can generate your own data by changing parameters of the rnorm() function.</p></li>
+<li><p>See how changing the mean and sd in rnorm distributions affects the p-value!
+Again you can do it <em>directly in the code</em> and observe the results immediately.
+It is very revealing.. Think of Val1, and Val2 as traffic volumes in Holland and Lincoln tunnels respectively. The larger the difference between the means of rnorm() function the smaller the p-value - since it is less and less likely that observed difference of means would come frequently, due to random shuffles of permutation function.<br />
+</p></li>
+<li><p>Now keep the same means and change the variances. See how changing the variances in rnorm() will affect the p-value and try to explain the effect that standard deviations have on the p-value. In general, the higher the standard deviation, the more widely data is centered around the mean. Thus even for the same two means, and two different value of deviations, we can see larger value of deviation to lead to higher p-value. Since we are less certain of the role of the “mean” if standard deviation is higher. Therefore, the chance of randomly obtaining the observed result, is higher.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJOLmggPC0gMTAgI051bWJlciBvZiB0dXBsZXMgZm9yIEhvbGxhbmQgVHVubmVsXG5OLmwgPC0gMTAgI051bWJlciBvZiB0dXBsZXMgZm9yIExpbmNvbG4gVHVubmVsXG5cbkNhdDE8LXJlcChcIkdyb3VwQVwiLE4uaCkgICMgZm9yIGV4YW1wbGUgR3JvdXBBIGNhbiBiZSBIb2xsYW5kIFR1bm5lbFxuQ2F0MjwtcmVwKFwiR3JvdXBCXCIsTi5sKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuI1RyeSBjaGFuZ2luZyBtZWFuIGFuZCBzZCB2YWx1ZXMuIFdoZW4geW91IHJ1biB0aGlzIHlvdSB3aWxsIHNlZSB0aGF0IHRoZSBkaWZmZXJlbmNlIGlzIHNvbWV0aW1lcyBuZWdhdGl2ZSAjb3Igc29tZXRpbWVzIHBvc2l0aXZlLlxuXG5WYWwxPC1ybm9ybShOLmgsbWVhbj0yNSwgc2Q9MTApICNzYXksIHRyYWZmaWMgdm9sdW1lIGluIEhvbGxhbmQgVCBhcyBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggbWVhbiBhbmQgc2RcblZhbDI8LXJub3JtKE4ubCxtZWFuPTMwLCBzZD0xMCkgI3NheSwgdHJhZmZpYyB2b2x1bWUgaW4gTGluY29sbiBUIGFzIG5vcm1hbCBkaXN0cmlidXRpb24gd2l0aCBtZWFuIGFuZCBzZFxuXG5WYWw8LWMoVmFsMSxWYWwyKSAjQSB2YXJpYWJsZSB3aXRoIDIwIHJvd3MsIHdpdGggZmlyc3QgMTAgcm93cyBjb250YWluaW5nIDEwIHJhbmRvbSBub3JtYWwgdmFsdWVzIG9mIFZhbDEgI2FuZCB0aGUgbmV4dCAxMCB2YWx1ZXMgb2YgVmFsMlxuXG5WYWxcblxuZDwtZGF0YS5mcmFtZShDYXQsVmFsKVxuXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKVxuXG4jVGhpcyB3aWxsIGNhbGN1bGF0ZSB0aGUgbWVhbiBvZiB0aGUgc2Vjb25kIGNvbHVtbiAoaGF2aW5nIDEwIHJhbmRvbSB2YWx1ZXMgZm9yIGVhY2ggZ3JvdXApLCBhbmQgdGhlIG1lYW4gb2YgZ3JvdXBCIHZhbHVlcyBpcyBzdWJ0cmFjdGVkIGZyb20gdGhlIG1lYW4gb2YgZ3JvdXBBIHZhbHVlcywgd2hpY2ggd2lsbCBnaXZlIHlvdSB0aGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2Ugb2YgdGhlIG1lYW4uXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cblxuUGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIilcblxuI1RoZSBQZXJtdXRhdGlvbiBmdW5jdGlvbiByZXR1cm5zIHRoZSBhYnNvbHV0ZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZS4gU28gdGhlIHJlZCBsaW5lIGlzIHRoZSBhYnNvbHV0ZSB2YWx1ZSBvZiB0aGUgb2JzZXJ2ZWQgZGlmZmVyZW5jZS4gWW91IHdpbGwgc2VlIGEgaGlzdG9ncmFtIGhhdmluZyBhIG5vcm1hbCBkaXN0cmlidXRpb24gd2l0aCBhIHJlZCBzaG93aW5nIHRoZSBvYnNlcnZlZCBkaWZmZXJlbmNlLiJ9
+</div>
+<hr />
+</div>
+</div>
+<div id="bonferroni" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Multiple Hypothesis - Bonferroni Correction.</h2>
+<script src="files/js/dcl.js"></script>
+<p>While dealing with the dataset with several number of dimensions, it is possible to get a lot of amazing and interesting insights and conclusions from it.</p>
+<p>But, unfortunately, sometimes a lot of the data included in case of such large dataset, might be junk.</p>
+<p>We can make multiple assumptions from such data. But, while doing so, we may consider some useless data/patterns that might hamper our results and lead to the pitfall of believing in hypotheses, that are not actually true.</p>
+<p>This is common when performing multiple hypothesis testing.</p>
+<p>Multiple hypothesis testing refers to any instance that involves the simultaneous testing of more than one hypothesis.</p>
+<p>Let’s consider the example of Traffic dataset.</p>
+<ul>
+<li>We have given two tunnels ”Holland” and “Lincoln”, but what if we were given all the tunnels in the US?</li>
+<li>We can make a lot of hypotheses in that case.</li>
+<li>And for each set of hypothesis, would you still consider the value of α as 0.05 as the cut-off for P-value?</li>
+</ul>
+<p>It may seem to be a good idea to just go and check the p-value for any set of hypotheses with the cut-off value of <span class="math inline">\(\alpha\)</span> as 0.05.</p>
+<p>But this might not give you the correct answer always.</p>
+<p>If you have 100 different hypotheses to consider in the data, then the probability of getting at least one significant result with <span class="math inline">\(\alpha = 0.05\)</span> will be,
+<span class="math display">\[P(\text{at least one significant result}) = 1- (1-0.05)^{100} ≈ 0.99\]</span></p>
+<p>This means that if we consider 0.05 as our cut-off value, then the probability of getting at least one significant result will be about 99%, which leads to overfitting of data and it clearly doesn’t give us proper idea about our hypothesis.</p>
+<p>Methods for dealing with multiple testing frequently call for adjusting <span class="math inline">\(\alpha\)</span> in some way, so that the probability of observing at least one significant result due to chance remains below your desired significance level.</p>
+<p>One such method for adjusting <span class="math inline">\(\alpha\)</span> is <em>BONFERRONI CORRECTION!</em></p>
+<p>The Bonferroni correction sets the significance cut-off at <span class="math inline">\(\alpha / N\)</span> where N is the number of possible hypotheses.</p>
+<p>For example, in the example above, with 100 tests and <span class="math inline">\(\alpha = 0.05\)</span>, you’d only reject a null hypothesis if the p-value is less than <span class="math inline">\(\alpha/N = 0.05/100 = 0.0005\)</span></p>
+<p>Thus, the value of <span class="math inline">\(\alpha\)</span> after Bonferroni correction would be <span class="math inline">\(0.0005\)</span>.</p>
+<p>Again, let’s calculate the probability of observing at least one significant result when using the correction just described:</p>
+<p><span class="math display">\[P(\text{at least one significant result}) = 1 − P(\text{no significant results}) \\
+= 1 − (1 − 0.0005)^{100} ≈ 0.048\]</span></p>
+<p>This gives us 4.8% probability of getting at least one significant result.</p>
+<p>As we can see this value of probability using Bonferroni correction is much better than the 99% which we saw before when we did not use correction for performing multiple hypothesis testing.</p>
+<p>But there are some downfall of using Bonferroni correction too. (Although for the scope of this course Bonferroni Correction works fine.)</p>
+<ul>
+<li>The Bonferroni correction tends to be a bit too conservative.</li>
+<li>Also, we benefit here from assuming that all tests are independent of each other. In practical applications, that is often not the case.</li>
+<li>Depending on the correlation structure of the tests, the Bonferroni correction could beextremely conservative, leading to a high rate of false negatives.</li>
+</ul>
+<hr />
+<div id="examples-for-multiple-hypothesis-testing.-1" class="section level3" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Examples for Multiple hypothesis testing.</h3>
+Let’s consider the Happiness dataset as an example.
+<script src="files/js/dcl.js"></script>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-60">Table 8.3: </span>Snippet of Happiness Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+IDN
+</th>
+<th style="text-align:right;">
+AGE
+</th>
+<th style="text-align:left;">
+COUNTRY
+</th>
+<th style="text-align:left;">
+GENDER
+</th>
+<th style="text-align:right;">
+IMMIGRANT
+</th>
+<th style="text-align:right;">
+INCOME
+</th>
+<th style="text-align:right;">
+HAPPINESS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+4658
+</td>
+<td style="text-align:right;">
+45506
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+Mauritania
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+60160
+</td>
+<td style="text-align:right;">
+5.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2030
+</td>
+<td style="text-align:right;">
+55952
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:left;">
+Kyrgyzstan
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+70893
+</td>
+<td style="text-align:right;">
+5.47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4232
+</td>
+<td style="text-align:right;">
+41463
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+Tanzania
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+55170
+</td>
+<td style="text-align:right;">
+4.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5198
+</td>
+<td style="text-align:right;">
+43857
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+Vietnam
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+59841
+</td>
+<td style="text-align:right;">
+9.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1621
+</td>
+<td style="text-align:right;">
+75249
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+Belarus
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+91394
+</td>
+<td style="text-align:right;">
+7.83
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4573
+</td>
+<td style="text-align:right;">
+62002
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+Poland
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+77943
+</td>
+<td style="text-align:right;">
+8.43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6390
+</td>
+<td style="text-align:right;">
+18042
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+Mauritius
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+33528
+</td>
+<td style="text-align:right;">
+2.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5226
+</td>
+<td style="text-align:right;">
+28619
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+42594
+</td>
+<td style="text-align:right;">
+3.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+476
+</td>
+<td style="text-align:right;">
+88429
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+Montenegro
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+103580
+</td>
+<td style="text-align:right;">
+8.62
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2789
+</td>
+<td style="text-align:right;">
+69660
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+Malaysia
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+85449
+</td>
+<td style="text-align:right;">
+7.59
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There are 156 unique countries in the dataset.
+This can be checked using the unique() function – <code>unique(indiv_happiness$country)</code></p>
+<p>Since there are 156 distinct countries, we have <span class="math inline">\({{n}\choose{2}} = {156\choose2}=(156 * 155)/2 = 12090\)</span> different hypotheses. Let’s call this value N.</p>
+<p>Using this N, the P-value cutoff after Bonferroni correction will be, <span class="math inline">\(α = 0.05 / 12090 ≈ 4.13 *10^{-6}\)</span></p>
+<div id="example-1-1" class="section level4" number="8.3.1.1">
+<h4><span class="header-section-number">8.3.1.1</span> Example 1</h4>
+<p>Let’s calculate the P-value for the following hypotheses from the dataset.</p>
+<ul>
+<li>Our hypothesis: People from Canada are happier than people from Iceland.</li>
+<li>Null hypothesis: There is no difference in happiness levels of people from Canada and people from Iceland.</li>
+</ul>
+<script src="files/js/dcl.js"></script>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgZGF0YXNldFxuaGFwcGluZXNzIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RlZXBsb2toYW5kZS9kYXRhMTAxZGVtb2Jvb2svbWFpbi9maWxlcy9kYXRhc2V0L0hBUFBJTkVTUzIwMTcuY3N2XCIsIHN0cmluZ3NBc0ZhY3RvcnMgPSBUKSAjd2ViIGxvYWRcblxuIyBUd28gc3Vic2V0cyBvZiBDYW5hZGEgYW5kIEljZWxhbmQgXG5oYXBwaW5lc3MuY2FuYWRhIDwtIHN1YnNldChoYXBwaW5lc3MkSEFQUElORVNTLCBoYXBwaW5lc3MkQ09VTlRSWSA9PVwiQ2FuYWRhXCIpXG5oYXBwaW5lc3MuaWNlbGFuZCA8LSBzdWJzZXQoaGFwcGluZXNzJEhBUFBJTkVTUywgaGFwcGluZXNzJENPVU5UUlkgPT0gXCJJY2VsYW5kXCIpXG5cbiMgTWVhbiBvZiBzdWJzZXRzLlxubWVhbi5jYW5hZGEgPC0gbWVhbihoYXBwaW5lc3MuY2FuYWRhKVxubWVhbi5pY2VsYW5kIDwtIG1lYW4oaGFwcGluZXNzLmljZWxhbmQpXG5cbm1lYW4uY2FuYWRhXG5tZWFuLmljZWxhbmRcblxuIyBMZW5ndGggb2Ygc3Vic2V0c1xubGVuLmNhbmFkYSA8LSBsZW5ndGgoaGFwcGluZXNzLmNhbmFkYSlcbmxlbi5pY2VsYW5kIDwtIGxlbmd0aChoYXBwaW5lc3MuaWNlbGFuZClcblxuIyBTdGFuZGFyZCBEZXZpYXRpb24gb2YgU3Vic2V0cy5cbnNkLmNhbmFkYSA8LSBzZChoYXBwaW5lc3MuY2FuYWRhKVxuc2QuaWNlbGFuZCA8LSBzZChoYXBwaW5lc3MuaWNlbGFuZClcblxuIyBDYWxjdWxhdGluZyBaLXNjb3JlIFxuemV0YSA8LSAobWVhbi5jYW5hZGEgLSBtZWFuLmljZWxhbmQpLyBzcXJ0KChzZC5jYW5hZGFeMikvbGVuLmNhbmFkYSArIChzZC5pY2VsYW5kXjIpL2xlbi5pY2VsYW5kKVxuemV0YVxuXG4jIENhbGN1bGF0ZSBwLXZhbHVlIGZyb20gWi1zY29yZVxucF92YWx1ZSA8LSBwbm9ybSgtemV0YSlcbnBfdmFsdWUifQ==
+</div>
+<p>In this case, after applying Bonferroni Correction we get the value of <span class="math inline">\(α = 0.05/12090 ≈ 4.14 * 10^{-06}\)</span>
+Here, we get the p-value of 0.25 which is much higher than the value of our α.
+Based on this we fail reject our null hypothesis.</p>
+</div>
+<div id="example-2-1" class="section level4" number="8.3.1.2">
+<h4><span class="header-section-number">8.3.1.2</span> Example 2</h4>
+<script src="files/js/dcl.js"></script>
+<p>Let’s consider the following hypotheses from the dataset.</p>
+<ul>
+<li>Our hypothesis: People from Italy are happier than people from Afghanistan.</li>
+<li>Null hypothesis: There is no difference in happiness levels of people from Italy and people from Afghanistan.</li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgZGF0YXNldFxuaGFwcGluZXNzIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RlZXBsb2toYW5kZS9kYXRhMTAxZGVtb2Jvb2svbWFpbi9maWxlcy9kYXRhc2V0L0hBUFBJTkVTUzIwMTcuY3N2XCIsIHN0cmluZ3NBc0ZhY3RvcnMgPSBUKSAjd2ViIGxvYWRcblxuIyBUd28gc3Vic2V0cyBvZiBJdGFseSBhbmQgQWZnaGFuaXN0YW4gXG5oYXBwaW5lc3MuaXRhbHkgPC0gc3Vic2V0KGhhcHBpbmVzcyRIQVBQSU5FU1MsIGhhcHBpbmVzcyRDT1VOVFJZID09XCJJdGFseVwiKVxuaGFwcGluZXNzLmFmZ2hhbmlzdGFuIDwtIHN1YnNldChoYXBwaW5lc3MkSEFQUElORVNTLCBoYXBwaW5lc3MkQ09VTlRSWSA9PSBcIkFmZ2hhbmlzdGFuXCIpXG5cbiMgTWVhbiBvZiBzdWJzZXRzLlxubWVhbi5pdGFseSA8LSBtZWFuKGhhcHBpbmVzcy5pdGFseSlcbm1lYW4uYWZnaGFuaXN0YW4gPC0gbWVhbihoYXBwaW5lc3MuYWZnaGFuaXN0YW4pXG5cbm1lYW4uaXRhbHlcbm1lYW4uYWZnaGFuaXN0YW5cblxuIyBMZW5ndGggb2Ygc3Vic2V0c1xubGVuLml0YWx5IDwtIGxlbmd0aChoYXBwaW5lc3MuaXRhbHkpXG5sZW4uYWZnaGFuaXN0YW4gPC0gbGVuZ3RoKGhhcHBpbmVzcy5hZmdoYW5pc3RhbilcblxuIyBTdGFuZGFyZCBEZXZpYXRpb24gb2YgU3Vic2V0cy5cbnNkLml0YWx5IDwtIHNkKGhhcHBpbmVzcy5pdGFseSlcbnNkLmFmZ2hhbmlzdGFuIDwtIHNkKGhhcHBpbmVzcy5hZmdoYW5pc3RhbilcblxuIyBDYWxjdWxhdGluZyBaLXNjb3JlIFxuemV0YSA8LSAobWVhbi5pdGFseSAtIG1lYW4uYWZnaGFuaXN0YW4pLyBzcXJ0KChzZC5pdGFseV4yKS9sZW4uaXRhbHkgKyAoc2QuYWZnaGFuaXN0YW5eMikvbGVuLmFmZ2hhbmlzdGFuKVxuemV0YVxuXG4jIENhbGN1bGF0ZSBwLXZhbHVlIGZyb20gWi1zY29yZVxucF92YWx1ZSA8LSBwbm9ybSgtemV0YSlcbnBfdmFsdWUifQ==
+</div>
+<p>In this case, after applying Bonferroni Correction we get the value of <span class="math inline">\(α = 0.05/12090 ≈ 4.14 * 10^{-06}\)</span></p>
+<p>Here, we get the p-value of 0.00364 which is lower than the value of default p-value cutoff <span class="math inline">\(α = 0.05\)</span>, but this obtained p-value is higher than our Bonferroni correction cutoff.</p>
+<p>So, based on the results, we fail to reject our null hypothesis even though the obtained p-value is less than 0.05.</p>
+<hr />
+<p><strong>EOC</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="predblogs.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
