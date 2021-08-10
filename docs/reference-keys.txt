@@ -19,7 +19,7 @@ plots
 scatter-plot
 bar-plot
 box-plot
-mosiac-plot
+mosaic-plot
 freestyle
 Moodyexplaination
 stateval

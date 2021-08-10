@@ -126,12 +126,12 @@ boxplot(score~grade,data=moody,xlab="Grade",ylab="Score", main="Boxplot of grade
 <!-- For more detail,reference and example refer Slides -->
 
 ---
-###  Mosiac Plot
+###  Mosaic Plot
 
 - Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
 - The length of the rectangles in the mosaic plot represents the frequency of that particular value.
 - The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
--For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at mosiac plot.
+- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot.
 
 
 ```{r,tut=TRUE,height=700}
