@@ -1,462 +1,1648 @@
 # Appendix {#appendix}
 
 <script src="files/js/dcl.js"></script>
-```{r ,include=FALSE}
-tutorial::go_interactive(greedy=TRUE,height=700)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
-The biggest enemy of your findings is randomness. In order to convince your audience that you have found something you need to address the question “how do you know your result is simply sheer luck, it is random?”
-
-This is where you need statistical tests for use in hypothesis testing. 
-
----
-
-#### Two Important Formula's:
-
-- _Mean_
-\begin{equation}
-\bar{X}=\frac{\sum{X}}{N}
-\ \text{where, X is set of numbers and 
-N is size of set.}
-\end{equation}
-
-- _Standard Deviation_
-
-\begin{equation}
-
-\sigma = \sqrt{\frac{\sum{(X - \mu)^2}}{N}}\\
-\text{where, X is set of numbers, $\mu$ is average of set of numbers, }\\ \text{ N is size of the set, $\sigma$ is standard deviation}
-
-
-\end{equation}
-
----
-
-## Z-test {#ztest} 
-
-A z-test is any statistical test used in hypothesis testing with an underlying normal distribution.
-
-In other words, when the distribution of the test statistic under the null hypothesis can be approximated by a normal distribution, z-test can be used.
-
-Outcome of the z-test is the z-score which is a numerical measure to test the mean of a distribution.
-z-score is measured in terms of standard deviation from mean.
-
-### Steps for hypothesis testing using Z-test.
-
-Running a Z-test requires 5 steps:
-
-1. State the null hypothesis and the alternate hypothesis
-    - Select a null hypothesis and an alternate hypothesis which will be tested using the z-test.
-2. Choose an Alpha $\alpha$ level.
-    - Usually this is selected to be small, such that the area under the normal distribution curve is accumulated most in the range between the alpha level.
-    - Thus mostly in statistical testing, $\alpha = 0.05$ is selected.
-3. Calculate the z-test statistic.
-    - The z-test statistic is calculated using the z-score formula.
-      \begin{equation} z = \frac{x-\mu}{\sigma}\text{ where, $z$ = z-score, $x$ = raw score, $\mu$ = mean and $\sigma$ = standard deviation } \end{equation}
-4. Calculate the p-value using the z-score
-    - Once we have the z-score we want to calculate the p-value from it.
-    - To do this, there are 2 ways,
-      - First use the z-table available online at [z-table.com](http://www.z-table.com/)
-      - Second, use the pnorm() function in R to find the p-value.
-5. Compare the p-value with $\alpha$
-    - After getting the p-value from step 4, compare it with the $\alpha$ level we selected in step 2.
-    - This decides if we can reject the null hypothesis or not.
-      - If the p-value obtained is lower than $\alpha$, then we can reject the null hypothesis.
-      - If the p-value is more than $\alpha$, we fail to reject the null hypothesis due to lack of significant evidence.
-      
-      
-Some important relation between one-sided and two sided test while using hypothesis testing is as follows:
-
-- First, estimate the expected value $\mu$ of T(statistic) under the null hypothesis, and obtain an estimate $\sigma$ of the standard deviation of T.
-- Second, determine the properties of T : one tailed or two tailed.
-  - For Null hypothesis H0: $\mu \geq \mu_0$ vs alternative hypothesis H1: $\mu < \mu_0$ , it is upper/right-tailed (one tailed).
-  - For Null hypothesis H0:$\mu \leq \mu_0$ vs alternative hypothesis H1: $\mu > \mu_0$ , it is lower/left-tailed (one tailed).
-  - For Null hypothesis H0: $\mu = \mu_0$ vs alternative hypothesis H1: $\mu \neq \mu_0$ , it is two-tailed.
-- Once you calculate the pnorm() in step 4, depending on the properties of two as described above, 
-  - use `pnorm(-Z)` for right tailed tests,
-  - use `2*pnorm(-Z)` for two tailed test, and 
-  - use `pnorm(Z)` for left tailed tests.
-  - *Note*: (Here Z = z-score). Also the method mentioned above works similar to that studied in class/recitations, but is simple to understand, and does not require subtracting the pnorm() output from 1.
-
----
-
-### Z-test Example 1 (Right Sided)
-Now lets look at an example to use this z-test for hypothesis testing.
-
-We will study the example to statistically find the relation of the traffic volume per minute between two tunnels, namely Holland and Lincoln .
-
-```{r,echo=FALSE,error=FALSE,warning=FALSE}
-library(kableExtra)
-earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv") #web load
-temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Traffic Dataset',booktabs=TRUE) 
-kableExtra::scroll_box(temp,width = "100%")
-```
-
-Thus stating out Null Hypothesis and Alternate Hypothesis.
-
-- Null Hypothesis H0: Traffic in Lincoln is same as Traffic in Holland tunnel.
-- Alternate Hypothesis H1: Traffic in Lincoln is higher than traffic in Holland tunnel.
-
-Once we have stated our hypothesis, lets see the z-test in practice.
-
-```{r}
-# Load Dataset
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv')
-summary(TRAFFIC) #gives us the data statistics
-
-#data clean and subset
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-# traffic at lincoln
-# This variable is a column of 1401 rows.
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-# traffic at holland
-# This variable is a column of 1401 rows.
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-# The final value is the standard deviation, in Volume per minute.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-
-# means of two samples
-mean.lincoln <- mean(lincoln.traffic)
-mean.holland <- mean(holland.traffic)
-
-# length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
-
-# standard deviation of traffic
-sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
-
-# z score
-zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
-zeta
-
-# get p
-p = pnorm(-zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-
-We can see that form the P-Value obtained is near to 0, which is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that traffic in Lincoln is higher than traffic Holland. 
-
-
----
-
-### Z-test Example 2 (Left Sided)
-Now lets look at another example to use this z-test for hypothesis testing.
-
-We will study the example to statistically find the relation between capital gains of people with two Zodiac Signs , namely Aquarius and Libra.
-
-```{r,echo=FALSE,error=FALSE,warning=FALSE}
-library(kableExtra)
-earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv") #web load
-temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Zodiac Dataset',booktabs=TRUE) 
-kableExtra::scroll_box(temp,width = "100%")
-```
-
-Now stating out Null Hypothesis and Alternate Hypothesis.
-
-- Null Hypothesis H0: Capital Gains of people with Aquarius is same as people with Libra zodiac sign.
-- Alternate Hypothesis H1: Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
-
-Once we have stated our hypothesis, lets see the z-test in practice.
-
-```{r}
-# Load Dataset
-ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
-summary(ZodiacData) #gives us the data statistics
-
-#data clean and subset
-Aquarius.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Aquarius")
-Libra.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Libra")
-
-# Zodiac Aquarius
-Aquarius.Zodiac <- Aquarius.data$CAPITALGAINS
-
-# Zodiac  Libra
-Libra.Zodiac <- Libra.data$CAPITALGAINS
-
-# standard deviation of two samples.
-sd.Aquarius <- sd(Aquarius.Zodiac)
-sd.Libra <- sd(Libra.Zodiac)
-
-# means of two samples
-mean.Aquarius <- mean(Aquarius.Zodiac)
-mean.Libra <- mean(Libra.Zodiac)
-
-# length of Aquarius and Libra
-len_Aquarius <- length(Aquarius.Zodiac)
-len_Libra <- length(Libra.Zodiac)
-
-# standard deviation
-sd.aqu.lib <- sqrt(sd.Aquarius^2/len_Aquarius + sd.Libra^2/len_Libra)
-
-# z score
-zeta <- (mean.Aquarius - mean.Libra)/sd.aqu.lib
-zeta
-
-# get p
-p = pnorm(zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-We can see that form the P-Value obtained is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
-
----
-
-### Z-test Example 3 (Two Tailed)
-
-We will study the example to statistically find the relation between capital gains of people with two Countries, namely US and Columbia.
-
-Now stating out Null Hypothesis and Alternate Hypothesis.
-
-- Null Hypothesis H0: Capital Gains of people of United States is same as people of Colombia.
-- Alternate Hypothesis H1: Capital Gains of people of United States is not equal to that of the people of Colombia.
-
-Once we have stated our hypothesis, lets see the z-test in practice.
-
-```{r}
-# Load Dataset
-ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
-summary(ZodiacData) #gives us the data statistics
-
-#data clean and subset
-US.data <- subset(ZodiacData, ZodiacData$NATIVE == "United-States")
-Columbia.data <- subset(ZodiacData, ZodiacData$NATIVE == "Columbia")
-
-# Country US
-US.country <- US.data$CAPITALGAINS
-
-# Country  Columbia
-Columbia.country <- Columbia.data$CAPITALGAINS
-
-# standard deviation of two samples.
-sd.US <- sd(US.country)
-sd.Columbia <- sd(Columbia.country)
-
-# means of two samples
-mean.US <- mean(US.country)
-mean.Columbia <- mean(Columbia.country)
-
-# length of US and Columbia
-len_US <- length(US.country)
-len_Columbia <- length(Columbia.country)
-
-# standard deviation
-sd.us.col <- sqrt(sd.US^2/len_US + sd.Columbia^2/len_Columbia)
-
-# z score
-zeta <- (mean.US - mean.Columbia)/sd.us.col
-zeta
-
-# get p
-p = 2*pnorm(-zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-
-We can see that form the P-Value obtained is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people of United States is not equal to that of the people of Colombia.
-
----
-
-```{r child="./chapters/permutationtest.Rmd"}
-
-```
-
----
-
-## Multiple Hypothesis - Bonferroni Correction. {#bonferroni}
 
 ```{r ,include=FALSE}
-tutorial::go_interactive(greedy=TRUE,height=700)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+tutorial::go_interactive()
 ```
 
-<script src="files/js/dcl.js"></script>
+In this chapter we are going to recap at some **basic** and useful functions we have used in R.
+The examples we use here will be helpful in revising few of the functions we studied and would give an baseline of function we would need in the future while programming in R.
 
-While dealing with the dataset with several number of dimensions, it is possible to get a lot of amazing and interesting insights and conclusions from it.
+List of commands:
 
-But, unfortunately, sometimes a lot of the data included in case of such large dataset, might be junk.
+1. c()
+2. data.frame()
+3. subset()
+4. table()
+5. tapply()
+6. cut()
+7. summary(), mean(),length(), max(),min(), sd(),nrow(), ncol()
+8. class()
 
-We can make multiple assumptions from such data. But, while doing so, we may consider some useless data/patterns that might hamper our results and lead to the pitfall of believing in hypotheses, that are not actually true.
-
-This is common when performing multiple hypothesis testing.
-
-Multiple hypothesis testing refers to any instance that involves the simultaneous testing of more than one hypothesis.
-
-Let’s consider the example of Traffic dataset.
-
-- We have given two tunnels ”Holland” and “Lincoln”, but what if we were given all the tunnels in the US? 
-- We can make a lot of hypotheses in that case. 
-- And for each set of hypothesis, would you still consider the value of α as 0.05 as the cut-off for P-value? 
-
-It may seem to be a good idea to just go and check the p-value for any set of hypotheses with the cut-off value of $\alpha$ as 0.05. 
-
-But this might not give you the correct answer always. 
-
-If you have 100 different hypotheses to consider in the data, then the probability of getting at least one significant result with $\alpha = 0.05$ will be,
-$$P(\text{at least one significant result}) = 1- (1-0.05)^{100} ≈ 0.99$$
-
-This means that if we consider 0.05 as our cut-off value, then the probability of getting at least one significant result will be about 99%, which leads to overfitting of data and it clearly doesn’t give us proper idea about our hypothesis. 
-
-Methods for dealing with multiple testing frequently call for adjusting $\alpha$ in some way, so that the probability of observing at least one significant result due to chance remains below your desired significance level.
-
-One such method for adjusting $\alpha$ is *BONFERRONI CORRECTION!*
-
-The Bonferroni correction sets the significance cut-off at $\alpha / N$ where N is the number of possible hypotheses. 
-
-For example, in the example above, with 100 tests and $\alpha = 0.05$, you’d only reject a null hypothesis if the p-value is less than $\alpha/N = 0.05/100 = 0.0005$
-
-Thus, the value of $\alpha$ after Bonferroni correction would be $0.0005$.
-
-Again, let’s calculate the probability of observing at least one significant result when using the correction just described:
-
-$$P(\text{at least one significant result}) = 1 − P(\text{no significant results}) \\
-= 1 − (1 − 0.0005)^{100} ≈ 0.048$$
-
-This gives us 4.8% probability of getting at least one significant result. 
-
-As we can see this value of probability using Bonferroni correction is much better than the 99% which we saw before when  we did not use correction for performing multiple hypothesis testing.
-
-But there are some downfall of using Bonferroni correction too. (Although for the scope of this course Bonferroni Correction works fine.)
-
-  - The Bonferroni correction tends to be a bit too conservative. 
-  - Also, we benefit here from assuming that all tests are independent of each other. In practical applications, that is often not the case. 
-  - Depending on the correlation structure of the tests, the Bonferroni correction could beextremely conservative, leading to a high rate of false negatives.
+And also all the plot commands present in section \@ref(plots)
 
 ---
 
-### Examples for Multiple hypothesis testing.
+## c() & data.frame() & class() {#dataframe}
 
-Let’s consider the Happiness dataset as an example.
-<script src="files/js/dcl.js"></script>
+- c() 
+  - The c() function is used for combining arguments.
+  - The default behavior of the c() method is to combine its arguments to form a vector. 
+  - All arguments are coerced (forcibly converted) to a common type which is the type of the returned value.
+  - For example,the non-character values are coerced to character type if one of the elements is a character.
+  - the hierarchy followed is NULL < raw < logical < integer < double < complex < character < list < expression. 
+  
+- dataframe()
+  - A data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column.
+  - Following are the characteristics of a data frame.
+    - The column names should be non-empty.
+    - The row names should be unique.
+    - The data stored in a data frame can be of numeric, factor or character type.
+    - Each column should contain same number of data items.
+    
+- class()
+  - The class() function has multiple uses, but for here, it is used to check the type of object.  
+  
+  
+```{r,error=TRUE}
+
+#Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+#Lets look at how the created vectors look.
+title
+author
+year
+
+# Also lets look at their types using the class function.
+class(title)
+class(author)
+class(year)
 
 
-```{r,echo=FALSE,error=FALSE,warning=FALSE,tut=FALSE}
+# Now lets create a dataframe using the above column vectors.
+
+df <- data.frame(title, author, year)
+df # Lets look at how the dataframe looks.
+
+```
+
+---
+
+## summary(), mean(),length(), max(),min(), sd(),nrow(), ncol(), dim() {#basicfunction}
+
+The functions in this section are very simple yet are always useful to get more information from data.
+
+- summary() function computes summary statistics of data.
+- mean() function is used to find the average of the data.
+- sd() fucntion is used to find the standard deviation of the data.
+- length() function is used to get or set the length of data.
+- max() function is used to get the maximum valued element in the data.
+- min() function is used to get the minimum valued element in the data.
+- nrow() function is used to find the number/count of the rows present in data.
+- ncol() function is used to find the number/count of the columns present in data.
+- dim() function is used to find the dimensions of the data.
+
+Lets look at example of all these functions.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# Lets look at the summary
+summary(moody)
+
+#Lets look at the number of rows in the dataset.
+nrow(moody)
+
+#Lets look at the number of columns in the dataset.
+ncol(moody)
+
+#Lets look at the dimensions i.e. both numbers of rows and columns of the data using just one command
+dim(moody)
+
+#Lets look at the mean of score column.
+mean(moody$score)
+
+#Lets look at the standard deviation of score column
+sd(moody$score)
+
+#Lets look at the length of the grade column 
+length(moody$grade)
+
+#Lets look at the minimum value of score in the score column.
+min(moody$score)
+
+#lets look at the maximum value of the score in the score column
+max(moody$score)
+```
+
+---
+
+## Table {#table}
+
+- table() function in R Language is used to create a categorical representation of data with variable name and the frequency in the form of a table.
+- More use of table() is when you use multiple categorical columns. For example, we'll see the count of *grade* vs *asks_questions* in example 2.
+
+```{r,height=700}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+tableex1<- table(moody$GRADE) #Use of table  function on the new column.
+tableex1
+barplot(tableex1,col =c("red","purple","cyan","yellow","green"),xlab = "Labels", ylab = "Frequency",main = "table() example 1") #plot.
+
+
+tableex2<-table(moody$GRADE,moody$ASKS_QUESTIONS)
+tableex2
+mosaicplot(tableex2,col =c("red","purple","cyan","yellow","green"),main = "table() example 2")
+```
+
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
+#What will R say?
+
+# A. error
+# B. distribution of grades for students who always ask questions
+# C. distribution of grades for students who do not always ask questions 
+```
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
+#What will R say?
+
+# A. error.
+# B. distribution of grades for students who always or never ask questions.  
+# C. distribution of grades for students who do not ask questions always or never. 
+```
+
+
+---
+
+## Subset {#subset}
+
+- subset() function in R programming is used to create a subset of vectors, matrices or data frames based on the conditions provided in the parameters.
+
+
+- NOTE: To create a subset, not only can you use the subset() function, but also:
+    - You can use [ ] operator. Ex: dataFrameName['columnName'] 
+    - Even \$ operator is a subset operator. Ex: dataFrameName\$columnName
+    
+- Also, subsetting in R (commonly called “subscripting”) is done with square brackets.  When subscripting a data frame there will be two places inside the square brackets separated by a comma.
+- The first part inside the square brackets corresponds to rows.  The second part corresponds to columns.
+    
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+#Subset of rows
+moody_never_smartphone<-subset(moody,ON_SMARTPHONE=="never")
+nrow(moody)
+nrow(moody_never_smartphone)
+table(moody_never_smartphone$ON_SMARTPHONE) # You can see only student never on smartphone are in the subset.
+
+#Alternate way to subset.
+moody_never_smartphone_alt<-moody[moody$ON_SMARTPHONE=="never", ]
+table(moody_never_smartphone_alt$ON_SMARTPHONE) # You can see a similar table as above.
+
+
+#subset of columns
+moody_except8<-subset(moody, select = -c(8))
+ncol(moody)
+ncol(moody_except8) # You can see the number of columns has been reduced by 1, due to subsetting without column 8
+
+#Subset of Rows and Columns
+moody_except8_never<-subset(moody, select = -c(8), ON_SMARTPHONE == "never")
+table(moody_except8_never$ON_SMARTPHONE)
+dim(moody)
+dim(moody_except8_never)# You can see only student never on smartphones without column 8 data are present in the subset.
+
+
+```
+
+
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+moody[moody$SCORE>=90,3]
+# What will R say?
+
+
+# A. Get subset of all columns which contains students who scored more than equal to 90
+# B. error
+# C. get all score values which are more than equal to 90
+# D. get subset of only the grades of students with score greater than equal to 90
+
+
+```
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
+# What will R say?
+
+# A. subset of moody data frame who got B grade.
+# B. error.
+# C. subset of moody data frame with score greater than 80.
+# D. subset of moody data frame with score more than 80 and got B grade.
+
+
+```
+
+
+---
+
+## tapply {#tapply}
+
+- tapply() function in R Language is used to apply a function over a subset of vectors given by a combination of factors
+- This is a very versatile function, as we'll see from the use case. 
+- Note : There are different aggregate functions that can be used. For example, Mean, Median, Variance, Sum etc.
+-  We can also factor it on multiple attributes.
+
+```{r,height=700}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+# To apply tapply() on SCORE factored on ON_SMARTPHONE
+
+moody_scoreavg<-tapply(moody$SCORE,moody$ON_SMARTPHONE,mean)
+moody_scoreavg # We can see it calculated mean value of the score by students with respect to their use of phone in class.
+
+barplot(moody_scoreavg,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot
+
+#Lets factor the grades on on_smartphone as well as grade category.
+
+moody.scoreavg2d<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
+moody.scoreavg2d[is.na(moody.scoreavg2d)]<-0
+moody.scoreavg2d# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
+barplot(moody.scoreavg2d,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody.scoreavg2d))
+```
+
+
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+tapply(moody, GRADE, SCORE, min)
+# What will R say?
+
+# A. minimum score for each grade
+# B. minimum grade for each score
+# C. minimum grade only 
+# D. Error.
+
+
+```
+### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
+# What will R say?
+
+# A. mean grade for each values of ask_question attribute
+# B. mean value of ask_questions attribute for each grade
+# C. mean category of ask_questions only 
+# D. error.
+```
+
+---
+
+## Cut {#cut}
+
+- cut() function in R Language is used to divide a **numeric vector** into different ranges
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+# We access the Score column from moody dataset.
+score0 <- cut(moody$SCORE,10)
+table(score0) #lets check the distribution of people in each partition.
+
+# Cut Example using breaks - Cutting data using defined vector. 
+score1 <- cut(moody$SCORE,breaks=c(0,50,100),labels=c("F","P"))
+table(score1)
+
+```
+
+
+### QuestionWhat would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+cut(moody$SCORE, breaks=c(0,25,70,100),labels=c("low", "medium", "high"))
+#What would R say?
+
+# A. 5 intervals of attribute score
+# B. 3 intervals (0,25) (25,70) (75,100)
+# C. 3 categorical values "low", "medium" and "high" for different score intervals
+# D. 3 separate datasets with similar score values
+
+```
+
+
+### QuestionWhat would R say?
+
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+output<-cut(moody$SCORE, 5)
+summary(output)
+#What would R say?
+
+# A. 5 intervals of attribute score of unequal count of elements
+# B. 5 intervals of attribute score of equal count of elements
+# C. 5 categorical values for different score intervals
+# D. 5 separate dataset with similar score values
+
+```
+
+
+### QuestionWhat would R say?
+
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+output<-cut(moody$ASKS_QUESTIONS, 2)
+summary(output)
+#What would R say?
+
+# A. 2 intervals of attribute ask_questions of unequal count of elements in each interval
+# B. 2 intervals of attribute ask_questions of equal count of elements in each interval
+# C. 2 categorical values for different ask_questions intervals
+# D. Error.
+
+```
+
+
+
+---
+
+### A complex example
+
+
+```{r,height=700}
+
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+
+moody$conditional <-0
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*moody[moody$participation<0.50, ]$participation
+moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+
+summary(moody$conditional)
+
+boxplot(moody$conditional,col = c("red"),main="Complex Example")
+
+```
+
+
+--- 
+
+## What would R say? {#basicexamples}
+
+In this section we will look at few examples based on the question _"What do you think would R say?"_
+All the questions are based on what we have studied in the sections above.
+
+_INSTRUCTIONS_: Do not run the following examples directly, first ask yourself and note down, what *do you think* would R say?  Only then run them. This is the only way to learn simple commands - and have them memorized so you can write code without having to check every single command. 
+
+
+### Question  
+
+```{r,height=100}
+weather =data.frame(Day=c('weekday', 'weekend'), Conditions =c('sunny','rainy','cloudy', 'snow', 'storm','ice'))
+dim(weather)
+#what would R say?
+
+# A) 6 6
+# B) 2 6
+# C) 6 2
+# D) Error
+```
+
+### Question 
+
+```{r,height=150}
+weather =data.frame(Day=c('weekday', 'weekend'), Conditions =c('sunny','rainy','cloudy', 'snow', 'storm','ice'))
+weather$temperature =c(80, 70, 65, 40, 30,25)
+weather[weather$temperature > 40,]
+dim(weather)
+#what would R say?
+
+# A) 6 3
+# B) subset of the dataframe with temperature > 40.
+# C) Both A and B
+# D) Error
+```
+
+### Question 
+
+```{r,height=150}
+SCORE=c(30,15,66);
+GRADE=c('C', 'F', 'A')
+ON_SMARTPHONE=c('always', 'never', 'sometimes')
+FINALEXAM=c(12,5,20)
+M=data.frame(SCORE, GRADE, ON_SMARTPHONE, FINALEXAM)
+subset(M, GRADE=='F')
+#what would R say?
+
+# A) Subset of dataframe based on Grade equal to F
+# B) Subset of the dataframe based on Grade not equal to F
+# C) the complete dataframe
+# D) Error
+
+```
+
+### Question 
+
+```{r,height=150}
+SCORE=c(30,15,66);
+GRADE=c('C', 'F', 'A')
+ON_SMARTPHONE=c('always', 'never', 'sometimes')
+FINALEXAM=c(12,5,20)
+M=data.frame(SCORE, GRADE, ON_SMARTPHONE, FINALEXAM)
+M[FINALEXAM > 5,]
+#what would R say?
+
+# A) Subset of dataframe with finalexam values greater than equal to 6
+# B) Subset of dataframe with finalexam values greater than equal to 5
+# C) Subset of dataframe with finalexam values less than 5.
+```
+
+### Question 
+
+```{r,height=150}
+SCORE=c(30,15,66)
+GRADE=c('C', 'F', 'A')
+ON_SMARTPHONE=c('always', 'never', 'sometimes')
+FINALEXAM=c(12,5,20)
+M=data.frame(SCORE, GRADE, ON_SMARTPHONE, FINALEXAM)
+M$QUESTIONS='none'
+M[,5]
+#what would R say?
+
+# A) Output the content of all the columns
+# B) Output word "none" for 3 times 
+# C) Output word "none" for 5 times
+# D) Error
+```
+
+### Question 
+
+```{r,height=150}
+SCORE=c(30,15,66)
+GRADE=c('C', 'F', 'A')
+ON_SMARTPHONE=c('always', 'never', 'sometimes')
+FINALEXAM=c(12,5,20)
+M=data.frame(SCORE, GRADE, ON_SMARTPHONE, FINALEXAM)
+table(M$SCORE>15, M$GRADE)
+#what would R say?
+
+# A) Output the table of count of Score greater than 15 vs Grade
+# B) Output the table of count of score greater than 15 only
+# C) Output the table of count of grades only
+# D) Output the table of grade distribution vs all score.
+
+
+```
+
+### Question 
+
+```{r,height=100}
+u<-c(1:10)
+w <-c(1,-1,3)
+u[w>0]
+#what would R say?
+
+# A)  1  3  4  6  7  9 10 
+# B)  1  2  3  4  5  6  7  8  9  10
+# C)  1  3  1  3  1  3  1  3  1  3 
+# D) Error
+```
+
+### Question 
+
+```{r,height=100}
+v <- c(-2,0,2,-5)
+v[v>0]
+#what would R say?
+
+# A) 2
+# B) 0 2
+# C) FALSE FALSE  TRUE FALSE
+# D) Error
+```
+
+### Question 
+
+```{r,height=100}
+c("a",1,T)
+#what would R say?
+
+# A) NaN  1  NaN
+# B) "a"  1  T
+# C) "a"  "1"  "TRUE"
+# D) "a"  "1"  "T"
+
+```
+
+### Question 
+
+```{r,height=100}
+x<-1:4
+y<-2:9
+x+y
+#what would R say?
+
+# A) 3  5  7  9  7  9 11 13
+# B) 1  2  3  4  2  3  4  5  6  7  8  9
+# C) 3  5  7  9
+# D) Error
+```
+
+
+
+### Question
+
+```{r}
+v1<- c(1,2,3,4)
+v2<- c(1,2,3,4)
+v3<- c(1,2,3,4)
+
+df<-data.frame(v1,v2,v3)
+#1
+df[df>2]  
+
+# A. values of v1 variable which are larger than 2 
+
+# B. values of v1, v2 and v3 which are larger than 2. 
+
+# C. error 
+
+```
+
+### Question
+
+```{r}
+v1<- c(1,2,3,4)
+v2<- c(1,2,3,4)
+v3<- c(1,2,3,4)
+
+df<-data.frame(v1,v2,v3)
+
+df$v1 > 2 
+
+# A. error 
+
+# B. values of v1 variable which are larger than 2.
+
+# C. TRUE where the value is greater than 2 and False where the value is less than 2. 
+
+```
+
+### Question
+
+```{r}
+v1<- c(1,2,3,4)
+v2<- c(1,2,3,4)
+v3<- c(1,2,3,4)
+
+df<-data.frame(v1,v2,v3)
+
+v1>2
+
+# A. TRUE where the value is greater than 2 and False where the value is less than 2.
+
+# B. values of v1 variable which are larger than 2
+
+# C. error
+
+```
+
+Now we have to introduce the core data structure of R – the data frame and show we can expand it with extra attributes.
+
+Defining new attributes can very often be critical in data exploration and help to find patterns and relationships which otherwise would not be visible.
+
+For example, may be participation matters but only to Pass/Fail grades? In other words students who Pass (A or B or C) always have participation above a certain threshold?  Perhaps students who always text never pass the class?  And students who always ask questions never fail?  Such rules can only be discovered if we define a new  Pass/Fail attribute, additional to grade attribute.
+
+
+Similarly intervals of participation or score may discover important relationships which would not emerge with just numerical values of such attributes. May be High scores correlate with High participation? To establish it one would have first to define categorical attributes with named intervals of their numerical counterparts.
+
+---
+
+## Create Column
+
+* Lets put a column I have created using score. 
+* Suppose I am given a new column " pf " with same number of rows as that of the dataframe with the categories ("P" , "F").
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+
+# pf column has 2 category and divides on the basis of score.
+pf <- cut(moody$score,breaks=c(0,50,100),labels=c("F","P"))
+# length(pf) # Number of rows in new column.
+# nrow(moody) # Number of Rows in dataframe
+
+# To add this new column pf in dataframe moody.
+names(moody) # Initially dataframe has 5 columns
+moody$passfail <- pf #Put syntax dataFrameName$columnHeaderName <- newColumn
+names(moody) # Now dataframe has 6 columns
+```
+
+```{r ,error=TRUE}
+
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+
+#What happens when you have column size mismatch.
+badcol <- c(1:10)
+length(badcol)
+
+moody$badcol <- badcol #Throws Compatibility error. 
+```
+
+---
+
+
+## Factor Function: factor() {#factor}
+
+- Factors are the data objects which are used to categorize the data and store it as levels. 
+- They can store both strings and numbers. 
+- They are useful in the columns which have a limited number of unique values. Like "Male, "Female" and True, False etc. 
+- Factor data objects are useful in data analysis for statistical modeling.
+
+- The factor function is used to encode a vector as a factor.
+
+Lets look at first example, checking if a data object is of factor type using the function _is.factor(x)_
+
+```{r}
+# Create a vector as input.
+gender <- c("male","male","female","female","male","female","male")
+
+gender
+
+#Check if data object is factor.
+is.factor(gender)
+
+```
+
+Now lets convert the above vector to a factor data object.
+To do this we will use the function _factor(x)_.
+
+
+```{r}
+# Create a vector as input.
+gender <- c("male","male","female","female","male","female","male")
+
+# Apply the factor function.
+factor_gender <- factor(gender)
+
+factor_gender
+is.factor(factor_gender)
+
+```
+
+Notice that for the factor data objects, the attribute _Levels_ is also created. This is an extremely important feature of the factor data object.
+
+
+Lets look at how the factor data object looks when included in a dataframe.
+
+```{r}
+# Create the vectors for data frame.
+height <- c(132,151,162,139,166,147,122)
+weight <- c(48,49,66,53,67,52,40)
+gender_not_factor <- c("male","male","female","female","male","female","male")
+
+# COnvert the gender_not_factor vector to a factor data object.
+gender <- factor(gender_not_factor)
+
+# Create the data frame.
+input_data <- data.frame(height,weight,gender)
+print(input_data)
+
+# Test if the gender column is a factor.
+print(is.factor(input_data$gender))
+
+# Print the gender column so see the levels.
+print(input_data$gender)
+```
+
+Note: Sometimes depending on your version of R and packages, you might find that while inserting categorical vector into the data frame using the _data.frame()_ function, without converting the categorical vector to factor, it automatically gets converted into a factor column. But to avoid confusion, it is a better technique to convert the categorical vector into factor using _factor()_ function and then insert it in the data frame.
+
+
+- Lets look at an example where the use of factor data object turns out to be useful.
+  - We have a categorical vector that we want to coerce as numeric for use in some model/application.
+  - Lets look at what happens when we just have a categorical vector, and we try to coerce it to numeric vector.
+  - We see that the outcome of the _as.numeric()_ function on a normal categorical vector is coercion to "NA" of all elements.
+  - But when we convert the same categorical vector to factor, then after coercion to numeric type, we get a numeric vector of elements corresponding the the index of the labels of the factor data object.
+  
+```{r}
+gender_not_factor <- c("male","male","female","female","male","female","male")
+gender_not_factor
+
+# Coerce into numeric vector without converting to factor
+as.numeric(gender_not_factor)
+
+
+# COnvert the gender_not_factor vector to a factor data object.
+gender <- factor(gender_not_factor)
+gender
+
+# Coerce into numeric vector after converting to factor data object.
+as.numeric(gender)
+
+```
+
+
+- Lets look at another example where factor is useful.
+
+  - We want to see the distribution of price of each quality for the wine dataset. 
+  - Upon plotting, it gives us a scatter plot, which makes it hard for us to see the distribution.
+  - Thus we convert the quality vector which is numeric initially, to factor and the plot it again.
+
+
+```{r,height=600}
+wine <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/541WINE.csv")
+plot(wine$QUALITY,wine$PRICE)
+#we want to see the distribution of price of each quality, but it gives us a scatter plot, which makes it hard for us to see the distribution.
+is.factor(wine$QUALITY)
+#the result is false, which means quality is a numeric value rather than a factor
+
+factor_quality <- factor(wine$QUALITY)
+#convert quality values into factors
+plot(factor_quality,wine$PRICE)
+#now we can generate the box plot and see the distribution clearly.
+```
+
+
+---
+
+## Coercing Values in data frames {#coerce}
+
+Before coercing data into data frames, lets look at small examples.
+
+- Lets look at a coerced vector.
+
+
+```{r}
+
+#Lets look at a coerced vector.
+
+#vector containing 4 elements
+myVect<-c("Robert", "Ethan", 6, 4)
+myVect
+
+#You will notice that the last two elements , which are an integers, are coerced into a character type.
+
+#class() is used to check the type of an object
+class(myVect)
+
+
+```
+
+We see that when a vector has elements of mixed data types, they gets coerced into a type with precedence over other types. 
+For example in the above case there were character elements and numeric elements types in the vector. But character type has precedence over numeric type and hence the whole vector is coerced into character type.
+
+
+We can check the types of vectors using a specific type of _is_ function: _is.character(), is.double(), is.integer(), is.logical(),etc_. There are many other types under the _is_ function, for checking if the data object given is a dataframe, factor, etc. 
+
+- Lets look at the examples.
+
+```{r}
+
+#vector containing 4 elements
+myVect<-c("Robert", "Ethan", 6, 4)
+myVect
+
+# Check if vector is of Character type.
+is.character(myVect)
+
+# Check if vector is of numeric type.
+is.numeric(myVect)
+
+# Use TRUE and FALSE (or T and F) to create logical vectors
+log_vec <- c(TRUE, FALSE, T, F)
+
+# Check if vector is of logical type.
+is.logical(log_vec)
+
+```
+
+
+We saw how to check the type of the data. But if you want to convert a column into your choice of data type, you can use the specific type of _as_ function: _as.character(), as.double(), as.integer(), as.logical(),etc._ Again as we saw above about the _is_ function types, there are also many other types of the _as_ function.
+
+- Lets look at the example of coercing a vector into character type. 
+
+<!-- Note: although the above myVect is a character vector, you can still use the function. -->
+```{r}
+
+#vector containing 4 elements
+myVect<-c(2, 3, 6, 4, TRUE, FALSE)
+myVect
+
+# First lets look at the class of the vector
+class(myVect)
+
+# Coerce the vector to Character type. 
+as.character(myVect) 
+
+# You can see that the elements of the numeric vector are coerced into character type.
+```
+
+- Lets look at an example of coercing a mixed type vector into numeric type.
+
+```{r}
+
+myvec<-c("Robert", "22", 45)
+myvec
+
+# First lets look at the class of the vector
+class(myvec)
+
+# Coerce the character vector to numeric type. 
+as.numeric(myvec) 
+
+# You can see that the elements of the mixed vector are coerced into numeric type.
+
+
+
+myvec2 <- c(TRUE, FALSE, F, T, T)
+myvec2
+
+# First lets look at the class of the vector
+class(myvec2)
+
+# Coerce the logical vector to numeric type. 
+as.numeric(myvec2) 
+
+# You can see that the elements of the mixed vector are coerced into numeric type.
+
+```
+
+We can see in the above example, while converting the character type vector to numeric if we encounter, numbers in character type, they get converted to numeric type. But the characters in character type, are not not converted, and instead we get a warning saying _"NAs introduced by coercion"_. 
+Also, while converting a logical vector to numeric vector, we see that "TRUE" or "T" is coerced as _1_ and "FALSE" or "F" is coerced as _0_.
+
+
+- Now lets look at how to coerce data column and rewrite it into the dataframe.
+
+- Suppose in the Moody dataset, you want to change the categorical vector of letter grade to numeric grades between 1 to 5, where A=1, B=2, ..., F=5.
+  - First, you will convert the grade column vector to factor using the _factor()_ function.
+  - Then, convert the grade column with the command _as.numeric()_ to numeric column.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# Convert the categorical column grade to factor data column.
+moody$grade<-factor(moody$grade)
+head(moody$grade)
+
+# Now convert the levels to numeric using the as.numeric function
+moody$grade <- factor(as.numeric(moody$grade))
+head(moody$grade)
+```
+
+- We can see that the outcome of the above code, gives us a moody dataframe with grade column as a numeric column converted from the previous categorical column.
+We can also see that the we used the as.numeric() function inside the factor function while converting from categorical to numeric, to maintain the levels information of the grade column.
+
+- Now, suppose you also want to change the labels of the grade column. 
+  - Lets change the grades from capital letters to small letters, i.e. A -> a, B -> b, and so on.
+  - To do this, we can provide our user defined labels vector to the labels attribute of the _factor()_ function.
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# Convert the categorical column grade to factor data column with user defined labels.
+moody$grade <- factor(moody$grade,labels = c("a","b","c","d","f"))
+head(moody$grade)
+```
+
+We can see that the capital letter are now transformed to small letters.
+
+---
+
+
+## Merging Two Relational Data Frames. {#merge} 
+
+Often, we have data from multiple sources/multiple databases, files etc. To perform analysis, we need to merge these dataframes together with one or more common key variables.
+
+In R the  _merge()_ function allows merging two data frames by common columns or row names. This function allows you to perform different SQL joins, like `left join, inner join, right join or full join`, among others.
+
+We will look at merging datasets in R with this function, along with examples.
+
+Consider the following 2 datasets.
+
+First is a smaller just 4 record data subset of the Moody dataset.  
+```{r tut=FALSE,echo=FALSE}
+library(knitr)
+moodysm<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv") #web load
+temp<-knitr::kable(
+  head(moodysm), caption = 'Small subset of Moody Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
-earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv") #web load
-temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Happiness Dataset',booktabs=TRUE) 
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-There are 156 unique countries in the dataset. 
-This can be checked using the unique() function – `unique(indiv_happiness$country)`
+Second is another dataset of students with respective GPA and Majors.
 
-Since there are 156 distinct countries, we have ${{n}\choose{2}} = {156\choose2}=(156 * 155)/2 = 12090$ different hypotheses. Let’s call this value N. 
-
-Using this N, the P-value cutoff after Bonferroni correction will be, $α = 0.05 / 12090 ≈ 4.13 *10^{-6}$
-
-#### Example 1 
-
-Let’s calculate the P-value for the following hypotheses from the dataset.
-
-- Our hypothesis: People from Canada are happier than people from Iceland.
-- Null hypothesis: There is no difference in happiness levels of people from Canada and people from Iceland.
-
-<script src="files/js/dcl.js"></script>
-
-```{r,tut=TRUE}
-# Load dataset
-happiness <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv", stringsAsFactors = T) #web load
-
-# Two subsets of Canada and Iceland 
-happiness.canada <- subset(happiness$HAPPINESS, happiness$COUNTRY =="Canada")
-happiness.iceland <- subset(happiness$HAPPINESS, happiness$COUNTRY == "Iceland")
-
-# Mean of subsets.
-mean.canada <- mean(happiness.canada)
-mean.iceland <- mean(happiness.iceland)
-
-mean.canada
-mean.iceland
-
-# Length of subsets
-len.canada <- length(happiness.canada)
-len.iceland <- length(happiness.iceland)
-
-# Standard Deviation of Subsets.
-sd.canada <- sd(happiness.canada)
-sd.iceland <- sd(happiness.iceland)
-
-# Calculating Z-score 
-zeta <- (mean.canada - mean.iceland)/ sqrt((sd.canada^2)/len.canada + (sd.iceland^2)/len.iceland)
-zeta
-
-# Calculate p-value from Z-score
-p_value <- pnorm(-zeta)
-p_value
+```{r tut=FALSE,echo=F}
+library(knitr)
+moodyst<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv") #web load
+temp<-knitr::kable(
+  head(moodyst), caption = 'Small dataset of students information',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
 ```
 
-In this case, after applying Bonferroni Correction we get the value of $α = 0.05/12090 ≈ 4.14 * 10^{-06}$
-Here, we get the p-value of 0.25 which is much higher than the value of our α.
-Based on this we fail reject our null hypothesis.
+_NOTE:_ We can see from the above snippets of the above the top 3 records in both dataset have same `STUDENTID`, but the 4th records in both datasets are of different students. The most important element while discussing the examples below, will focus on what happens to the 4th records of both datasets when using the various merge options and attributes.
 
-#### Example 2
-<script src="files/js/dcl.js"></script>
 
-Let’s consider the following hypotheses from the dataset.
+### Inner Join
 
-- Our hypothesis: People from Italy are happier than people from Afghanistan.
-- Null hypothesis: There is no difference in happiness levels of people from Italy and people from Afghanistan.
+This is the most usual type of join of datasets that you can perform. It consists of merging two dataframes in one that contains _common_ elements of both.
 
-```{r,tut=TRUE}
-# Load dataset
-happiness <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv", stringsAsFactors = T) #web load
+In order to merge the two datasets, you just have to pass them to the _merge()_ function without the need of changing other arguments. Inner join merge is the default merge of the _merge()_ function.
 
-# Two subsets of Italy and Afghanistan 
-happiness.italy <- subset(happiness$HAPPINESS, happiness$COUNTRY =="Italy")
-happiness.afghanistan <- subset(happiness$HAPPINESS, happiness$COUNTRY == "Afghanistan")
+```{r}
+# Import Datasets.
+moody_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv")
+student_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv")
 
-# Mean of subsets.
-mean.italy <- mean(happiness.italy)
-mean.afghanistan <- mean(happiness.afghanistan)
-
-mean.italy
-mean.afghanistan
-
-# Length of subsets
-len.italy <- length(happiness.italy)
-len.afghanistan <- length(happiness.afghanistan)
-
-# Standard Deviation of Subsets.
-sd.italy <- sd(happiness.italy)
-sd.afghanistan <- sd(happiness.afghanistan)
-
-# Calculating Z-score 
-zeta <- (mean.italy - mean.afghanistan)/ sqrt((sd.italy^2)/len.italy + (sd.afghanistan^2)/len.afghanistan)
-zeta
-
-# Calculate p-value from Z-score
-p_value <- pnorm(-zeta)
-p_value
+# Use the merge function, without any attributes.
+merge(moody_df,student_df)
 ```
-In this case, after applying Bonferroni Correction we get the value of $α = 0.05/12090 ≈ 4.14 * 10^{-06}$
+We can see that there are only 3 record in the output. The reason being that, the studentid of the fourth record in both the dataset did not match. And thus the merge function did not know which datasets record to be kept and which not.
 
-Here, we get the p-value of 0.00364 which is lower than the value of default p-value cutoff $α = 0.05$, but this obtained p-value is higher than our Bonferroni correction cutoff.
+Also the reason the merge function tried to match and merge the two datasets, is by using the first columns from both the datasets, which in both case was the _"STUDENTID"_ column. 
 
-So, based on the results, we fail to reject our null hypothesis even though the obtained p-value is less than 0.05.
+We can also do the same process, and get he same outcome, by defining the index column by yourself.
+Lets look at this in the example below.
+
+```{r}
+# Import Datasets.
+moody_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv")
+student_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv")
+
+# Use the merge function, with the " by "  attribute.
+merge(moody_df,student_df,by = "STUDENTID")
+```
+
+As we can see, the output remains the same. But we understand that we can define any other common column as the index column based on which the merging can occur.
+
+**IMPORTANT NOTE:** There are also arguments like `by.x and by.y` which correspond to indexing based on one of the column from the left(first) or right(second) datasets respectively.
+This could come extremely handy, when the two datasets you want to merge, have different column name for the index column.
+
+For example, suppose in the two dataset that we have considered above, the first dataset had students records indexed by the `studentid` column where the indexing column name is `studentid`, but in the second dataset the indexing column even though with same student id's as entries but with the column name of `stu-id`.
+
+Now while merging, you can face error since the _merge()_ function will have trouble finding the two index columns to match since they are named differently in the two datasets. 
+Here you can provide the argument ` by.x = "studentid" , by.y = "stu-id" ` in the function while merging.
+
+#### Another example
+Suppose you have the happiness index dataset,
+
+```{r tut=FALSE,echo=F}
+library(knitr)
+happy<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv") #web load
+temp<-knitr::kable(
+  head(happy), caption = 'Happiness Index Dataset for all countries',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+where you have the survey data of people of various countries with records of information about ` AGE, COUNTRY, GENDER, IMMIGRANT, INCOME, and HAPPINESS`.
+
+You can do analysis on the above dataset per country, per age group,etc. 
+
+But if you want to do analysis based on per continent, then you will have to create lists of all the countries in each continent, and then subset using the appropriate subset method/s from section below \@ref(sliceanddice).
+
+Alternate method will be acquiring another dataset, with information of each country and its respective continent, and do merge, which we can then use to subset easily.
+
+Lets look at an example of this process below.
+
+```{r}
+# Import the Happiness index dataset.
+happy<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv")
+head(happy)
+
+# Now lets load the simple dataset of country and continents.
+continents<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/country-continents.csv")
+head(continents)
+
+# Now we can use the merge function to include the continents of each country in the happiness dataset against each other.
+happy.c<-merge(happy,continents)
+head(happy.c)
+
+happy.c[sample(nrow(happy.c),10),]
+
+
+```
+We can see from the output of the above example, the new dataframe created in `happy.c` after applying _merge()_ function on the Happiness index dataset and the country-continents dataset, the `CONTINENT` column is added from the country-continents dataset into the happyness index dataset. And each country in the `happy.c` dataframe has now the value of its respective continent in the the `CONTINENT` column.
+
+
+### Full Join
+
+Full Join is also known as the `outer join` or the full outer join.
+It merges all the columns of both datasets into one. 
+
+For those records with non-intersecting index elements, Full join keeps both the records, and fills the missing values with NA , i.e. Not Available(NA) keyword.
+
+In order to create this type of full join of the two dataframes in R, we need to set the argument `all` to `TRUE or T`.
+Lets look at this in the example below.
+
+
+```{r}
+# Import Datasets.
+moody_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv")
+student_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv")
+
+# Use the merge function, with the " all "  attribute.
+merge(moody_df,student_df,all = TRUE)
+```
+
+We can see that the first record of the output with `studentid = 10001 ` was present in the second dataset only, thus the values corresponding to the columns of the first dataset are set to `NA`. 
+Similarly, the same occurs with the record with `studentid = 16792  `, which was only present in the first dataset, and thus has `NA` in the place of columns of second dataset.
+
+
+### Left Join
+
+The left join in R involves matching all the rows in the first data frame with the corresponding records on the second dataframe. 
+
+To create this left join, you just have to set the argument ` all.x` to ` TRUE or T`.
+
+Recall while doing the full join, we set the argument `all` to ` TRUE or T`. Similarly, since we consider `x` as the first dataset or the left dataset, we will set the argument of `all.x` where the `.x` is the key to select the first dataset.
+
+We have seen in the snippets above, the student with ` studentid = 16792` is only present in the first dataset but not the second. 
+
+So lets see the result of merging using the left join in the example below.
+
+
+```{r}
+# Import Datasets.
+moody_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv")
+student_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv")
+
+# Use the merge function, with the " all "  attribute.
+merge(moody_df,student_df,all.x = TRUE)
+```
+We can see that the record of student with `studentid = 16792` has `NA` as the entry in the columns merged from the right dataset. Also, the record of student with `studentid = 10001` is completely excluded, since it belongs to the second dataset.
+
+### Right Join
+
+The right join merge involves joining all the rows in the second data frame with the corresponding records on the first dataframe.
+
+The right join is opposite to that of left join.
+
+In consequence, here, you will need to set the argument ` all.y` to `TRUE or T`, since we consider the right dataset or the second dataset as `y`.
+
+We have seen in the snippet above, that the student with `studenid = 10001` is only present in the second dataset but not the first. 
+
+So lets see the result of merging using the right join in the example below.
+
+```{r}
+# Import Datasets.
+moody_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallMoody.csv")
+student_df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/SmallSt.csv")
+
+
+# Use the merge function, with the " all "  attribute.
+merge(moody_df,student_df,all.y = TRUE)
+```
+We can see that the record of student with `studentid = 10001` has `NA` as the entry in the columns merged from the left dataset. Also, the record of student with `studentid = 16792` is completely excluded, since it belongs to the first dataset.
+
 
 ---
+
+
+## Slicing and Dicing.{#sliceanddice}
+
+
+R was made especially for data analysis and graphics.  SQL was made especially for databases.  They are allies in this field of data science.
+
+The data structure in R that most closely matches a SQL table is a data frame.  The terms rows and columns are used in both.
+
+There is an R package called `sqldf` that allows you to use SQL commands to extract data from an R data frame.  We will not use this package in the examples but look at a way the operations in SQL translate to basic R commands that we have studied in previous chapter \@ref(revision).
+
+In R we have seen how subsetting of rows and columns happen using the subset function in earlier chapters \@ref(subset).
+Please review this section before proceeding ahead.
+
+### Subsetting on Columns ( DICING ) {#dicing}
+
+So lets start with dicing the dataframe. In other words, lets look at subsetting operations on columns.
+
+Columns in SQL are also called “fields”.  In R it is commonly called “variables”.
+
+In SQL the subset of columns is determined by `SELECT` statement.
+
+We can do these type of SQL operation in R using the normal subsetting method, either using the _subset()_ function or using the square brackets ` [ ] `. 
+
+_NOTE_: In most of the examples below, to avoid printing of the complete dataset after any operations, we have used the _head()_ function to truncate the output to only top 6 rows. However you can always remove the function or change the limit or output records to your choice by passing additional attribute  ` n = user_defined_limit ` to the _head()_ function.
+
+
+Just to recap subsetting on columns,
+
+#### Subset single column.
+
+**Remember:** You can either use the column names or the column location index, to dice the dataframe.
+
+Suppose we want to subset the moody dataset only the grade column.
+Lets look at this example.
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# Lets subset the grade column form the moody dataset and look at its first few elements..
+head(moody[,'grade',drop=F])
+
+# Without `drop=F` in the attribute, you will get only the values of the column.
+head(moody[,'grade'])
+```
+
+We can see that only one column is selected form the dataframe. The `drop = F` attribute is provided to keep the dataframe structure. You can also see the effect of not using the `drop = F` attribute in the above example.
+**Note**: In some cases, where you want to use the subsetted column with other function, e.g. `mean(subsetted_column)` you must not use the `drop=F` attribute, otherwise it will result in error.
+
+
+#### Subset multiple column.
+
+Suppose you want to subset multiple columns by name, you can create a vector or the column names you want to subset and then include it wile subsetting.
+
+Lets look at the example.
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# here we create a vector of column name that we want to subset.
+columnNames<- c("grade","score")
+
+# Including the above vector wile subsetting.
+head(moody[,columnNames])
+```
+We can see that only the two column of "grade" and "score" are kept in the subset.
+Similarly, we can include the multiple column names and get subset.
+
+#### Subset on all columns
+You can get all the columns in the subset, by keeping the space after the comma blank. This gives the complete set of columns.
+
+Suppose you did some slicing on the dataframe and want to keep all the columns in the output, you can just keep the space after the comma blank while subsetting.
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# here we can see that we sliced the dataframe to only keep the records of students with grade "A". 
+head(moody[moody$grade=="A", ])
+
+
+# We  will look at slicing in the subsequent sections.
+
+```
+
+
+
+
+
+### Subsetting on Rows ( SLICING ) {#slicing}
+
+Now that we have seen dicing Or subsetting on columns, which is similar to the `select` statement of SQL,
+we will now look at slicing on the dataframe. Or in other words subsetting on rows.
+
+There are many statements of SQL that does subsetting on rows, i.e. `SELECT, WHERE, AND, OR, IN, LIKE, LIMIT`, and many more.
+We will look at few of them, by implementing them using the basic R functions.
+
+
+#### Subsetting based on single condition.
+
+We will look at a subsetting condition based on value.
+
+For subsetting based on value, you can use the relational operators e.g. _> , < , >= , <= , == , etc_ between the attribute name and the value.
+
+Lets look at this in the following example.
+
+Suppose you want to keep all the observations of where score of students are greater than 80.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# here we can see that we sliced the dataframe to only keep the records of students with score greater than 80. 
+head(moody[moody$score>80, ])
+
+```
+We can see from the above result, the subset has only records of students having score greater than 80.
+This example is similar to using `where` statement in SQL.
+
+
+#### Subsetting based on multiple conditions.
+
+Similar to the above example, suppose you want to subset based on multiple conditions.
+
+To do this, we will use the logical operators e.g. ` AND (" & ") , OR (" | ") , NOT (" ! ") ` between the various conditions.
+
+Lets look at an example for this type of subsetting.
+
+Suppose you want to slice the records of the moody dataset, based on two conditions:
+- Students with grade equal to " A " 
+- AND
+- Students with score greater than 90.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# here we can see that we sliced the dataframe to only keep the records of students with score greater than 90 AND with grade equal to "A" . 
+head(moody[moody$score>90 & moody$grade == c("A"), ])
+
+```
+
+We can see that the records of students with score greater than 90 and grade equal to A are kept, rest all records are removed.
+
+This example is similar to using the ` AND, OR, NOT ` clause in SQL.
+
+#### Subset based on multiple values.
+
+We will look at subsetting the dataframe based on one condition with multiple values.
+
+Suppose you want to subset the moody dataset, based on the students grade, but you want to keep students records with grade equal to both "B" and "C"
+
+Well you can use multiple conditions as seen above with an AND clause between the two conditions with different values on the same variable/columns, but there is a simple and useful way to do this with just one conditional statement.
+
+We will make use of a vector of all the values that we want to use, and then assign this vector to the condition statement.
+
+Lets look at this in the following example.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+# lets create a vector of values required in the conditional statement
+condValues<- c("B","C")
+
+# here we can see that we sliced the dataframe to only keep the records of students with grade equal to "B" or "C" . 
+head(moody[moody$grade == condValues, ])
+unique(moody[moody$grade == condValues, ]$grade)
+
+# we can also directly write the vector without assigning a variable.
+head(moody[moody$grade == c("B","C"),])
+unique(moody[moody$grade == c("B","C"),]$grade)
+
+
+```
+
+
+We can see that the output has only records of students with grades B or C.
+And both the methods, result in same output.
+This example is similar to the  `IN` operator of the SQL
+
+#### Subset based on a partial/complete text/character.
+
+We will look at subsetting the dataset based on a specific pattern of text/characters.
+
+This type of subsetting proves useful in text columns where each record has one or more than one sentence, and you want to search for a particular keyword or pattern.
+
+Most simple example would be of a survey dateset, where each record in the dataset consists of text paragraph, answering the questions asked in the survey, and you want to figure out the count of particular keywords in each response.
+
+Lets look at an example based on the Happiness dataset.
+We would like to find the subset of countries with the letters " and " in their name. eg. Iceland, Uganda, Poland, etc.
+
+```{r}
+happy<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/HAPPINESS2017.csv") #web load dataset
+
+# Subset using the grep function to find the pattern "and" in the names of the countries
+head(happy[grep("and",happy$COUNTRY,ignore.case = T),])
+unique(happy[grep("and",happy$COUNTRY,ignore.case = T),]$COUNTRY)
+```
+
+We can see the output has subset of the happy dataset with records of only those countries with the pattern "and" in its name.
+To do this we have used the _grep()_ function, which is a really important function for finding patterns in text and data.
+We don't need to study this _grep()_ function in detail, but one can find very good resources explaining it online.
+This example is similar to the `LIKE` operator in SQL.
+
+
+
+
+## Group By
+
+<!-- The reason we call this section as Psuedo Equivalent of Group By is the fact that there are no direct functions that combine select ans Group -->
+
+Now that we have done Slicing and Dicing, we will like to apply some functions and gain measured information form the subsets.
+
+Although there is no straightforward, direct/ one step function to perform the function as that of the ` GROUP BY` from SQL, but we can get the required functionality, by combining various functions step by step from the R.7 commands list \@ref(freestyle) and the things we learned in this section \@ref(datatransformation) and the revision section \@ref(revision).
+
+This section will involve use of the _table(), tapply()_ function to apply the functions like `mean, count, sum, etc` on the subsets categorical or numerical columns. More importantly, we will look at a very useful example below, which will tie together all that we have learned until now.
+
+Suppose you want to get the statistics/numbers of average scores per grade and frequency of students per grade, and then use this table afterwards. 
+
+So the SQL query will look something like `SELECT grade, avg(score) as averagescore,  count(*)  as student_number FROM moody GROUP BY grade`.
+
+To implement this above query functionality in R we would fisrt need to use the tapply function to find get the average score per grade and frequency per grade, and then combine it. Lets look at this process in the code below.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load dataset
+
+
+# Create a table of frequency of students per grade.
+grade.count <- tapply(moody$grade,moody$grade,length)
+
+# Create a table of average of students score per grade.
+grade.mean <- tapply(moody$score,moody$grade,mean)
+
+# We now combine the two tables together using cbind and store it as data.frame for simple post-processing.
+out<-as.data.frame(cbind(grade.count,grade.mean))
+out
+
+```
+We can see the combined table of both the average scores and frequency per grade.
+
+Now suppose we want to go one step ahead and want to order the `out` table from the example above, based on decreasing value of frequency of students per grade.
+
+To do this, we introduce the _order()_ function.
+
+- __Order() Function__
+  - The order() function returns a permutation of the order of the elements of a vector.
+  - You can decide by passing the argument to order the elements in ascending or descending order.
+
+An important thing to note, is that for our use for the example we discussed above, we will use the order function as a subset parameter. Lets look at this in the example below.
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv")
+grade.count <- tapply(moody$grade,moody$grade,length)
+grade.mean <- tapply(moody$score,moody$grade,mean)
+out<-as.data.frame(cbind(grade.count,grade.mean))
+
+out
+
+# Now lets order the out data, based on the grade.count column, in ascending order.
+out[order(out[,'grade.count']),]
+
+# If you want the output in descending order just pass 'TRUE' or 'T' the  decreasing argument of the order function.
+out[order(out[,'grade.count'],decreasing = T),]
+
+```
+We saw how we can use implement ordering in R. This is similar to using the `ORDER BY` statement of SQL.
+
+Another thing we can do is subsetting on the output. 
+Suppose you want to keep only those grade records in the `out` data with frequency of students greater than 150 for particular grade.
+
+To do this we will use the technique studied in the slicing section \@ref(slicing).
+Lets look at the working of the above example.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv")
+grade.count <- tapply(moody$grade,moody$grade,length)
+grade.mean <- tapply(moody$score,moody$grade,mean)
+out<-as.data.frame(cbind(grade.count,grade.mean))
+
+out
+
+# To keep the records where frequency of students in particular grade is greater than 150.
+out[out$grade.count>150,]
+
+
+```
+We see that the `B` Grade had only 108 students in the record, it is removed from the `out` dataframe.
+This is similar to using the `HAVING` clause of SQL.
+
+
+
+## Handling Date and Time in dataframes.
+
+one of the most common issue that a novice or even an experienced R user can face is of handling date and time information available into the dataset, and importing it to use as a variable that is appropriate ans usable during analysis.
+
+Also getting R to agree that your data contains the dates and times can be tricky sometimes. We will see an example where the usual R data import fails to read date and time as actually date and time.
+
+To simplify this issue, we use a package called `lubridate`, which makes it easier to work with dates and times and converts them into POSIXct format. POSIXct is a class of data recognized by R as being a date or date and time. Lubridate's functions handle wide variety of formats and separators, which simplifies the parsing process.
+
+
+Lets look how easy it is to use it and convert date and time input to be used in analysis.
+First we will look at converting date in character format to POSIXct.
+
+- First we will convert ` "20200317" `which is in year-month-date format. To convert this we will use the `ymd()` function of the `lubridate` package.
+- Second we will convert ` "03-17-2020" `which is in month-date-year format. To convert this we will use the `mdy()` function of the `lubridate` package. 
+- Third we will convert ` "17/03/2020" `which is in date-month-year format. To convert this we will use the `dmy()` function of the `lubridate` package.
+
+```{r}
+library(lubridate) # include the lubridate library.
+
+# First we use the ymd() function.
+ymd("20200317")
+
+# Second we use the mdy() function.
+mdy("03-17-2020")
+
+# Third we use the dmy() function.
+dmy("17/03/2020")
+
+
+```
+We can see the output of all the 3 function is the same, this means that the functions used have successfully converted all the input character type dates into the standardized POSIXct data type.
+
+
+Now lets look at converting time in character format to POSIXct.
+
+- First we will convert ` "18:20" ` which is in hour-minutes format. To convert this we ill use the `hm()` function of the `lubridate` package.
+- Second we will convert ` "18:20:30" ` which is in hour-minute-second format. To convert this we ill use the `hms()` function of the `lubridate` package.
+
+```{r}
+library(lubridate) # include the lubridate library.
+
+# First we will use the hm() function.
+hm("18:20")
+
+# Second we will use the hms() function.
+hms("18:20:30")
+```
+We can see that the output of the 2 functions above are in POSIXct format and has the information of hours minutes and seconds annotated properly.
+
+There are various other functions in the lubridate package like for various use case, but we will not cover them since they are not useful here. To learn more about it you can visit the official `lubridate` package vignette linked here: [lubridate](https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html) 
+
+
+Now coming back to the main example of avoiding issues/errors while importing date and time attributes present in dataset. For this we will look at the `AirQualityUCI` dataset. And here is the snippet of the dataset below.
+
+```{r tut=FALSE,echo=F}
+library(knitr)
+aq<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/AirQualityUCI.csv") #web load
+temp<-knitr::kable(
+  head(aq[,1:6]), caption = 'Air Quality Dataset of amount of elements and pollutants in air.',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+You will see from the dataset that the date and time columns are imported correctly. But in fact, and as we will see in the code below, the date column is of type `character` and the time is also of type `character`.
+
+Now to convert these columns into POSIXct supported date time columns we will use the lubridate functions.
+And then we will count the number of records in the dataset per _year_ using the `year()` function.
+
+```{r}
+aq<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/AirQualityUCI.csv") #web load
+aq<-aq[,1:6] # Reducing the number of columns.
+
+head(aq)
+
+# Lets look at the type of the Date column after importing the dataset.
+class(aq$Date) # Date Column
+
+# Now lets use the mdy() function which converts the month-day-year format to POSIXct format.
+aq$Date<-mdy(aq$Date)
+head(aq)
+
+# Now lets check the type of the Date column again.
+class(aq$Date)
+
+
+# Lets create a frequency table for the frequency of records per year using the table() and year() function
+table(year(aq$Date))
+```
+We can see that the original type of the date column was `"character"` but then after using the lubridate's function, we converted it to a suitable POSIXct format of `"Date"`. Then we were easily able to subset the dataset based on the year, and get the frequency count of the records per year, as seen from the table for the years ` 2004 and 2005`.
+
+Similarly, we can also convert the time column and probably use it later in analysis process.
+
+```{r}
+aq<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/AirQualityUCI.csv") #web load
+aq<-aq[,1:6] # Reducing the number of columns.
+
+head(aq)
+
+# Lets look at the type of the Time column after importing the dataset.
+class(aq$Time) # Time Column
+
+# Similarly for the time column lets use the hms() function.
+aq$Time<-hms(aq$Time)
+
+# Now lets check the type of the Time column again.
+class(aq$Time)
+```
+We can see that the original type of the time column was `"character"` but then after using the lubridate's function, we converted it to a suitable POSIXct format of `"Period"` which is used to represent time information.
+
+
 
 **EOC**
+
+
+
+
+
+
+
+
+
+
+<!-- --- -->
+
+<!-- ## Table -->
+
+<!-- - table() function in R Language is used to create a categorical representation of data with variable name and the frequency in the form of a table. -->
+
+<!-- ```{r} -->
+<!-- tableex1<- table(mdy$GRADE) #Use of table  function on the new column. -->
+<!-- tableex1 -->
+<!-- barplot(tableex1,col =c("red","purple","cyan","yellow","green"),xlab = "Labels", ylab = "Frequency",main = "table() example 1") #plot. -->
+<!-- ``` -->
+
+
+<!-- - More use of table() is when you use multiple categorical columns. For example, lets see the count of *grade* vs *asks_questions*. -->
+
+<!-- ```{r} -->
+<!-- tableex2<-table(mdy$GRADE,mdy$ASKS_QUESTIONS) -->
+<!-- tableex2 -->
+<!-- mosaicplot(tableex2,col =c("red","purple","cyan","yellow","green"),main = "table() example 2") -->
+<!-- ``` -->
+
+
+
+
+
+
+<!-- --- -->
+
+<!-- ## Subset -->
+
+<!-- - subset() function in R programming is used to create a subset of vectors, matrices or data frames based on the conditions provided in the parameters. -->
+
+<!-- - NOTE: To create a subset, not only can you use the subset() function, but also: -->
+<!--     - you can use [ ] operator. Ex: dataFrameName['columnName']  -->
+<!--     - Even \$ operator is a subset operator. Ex: dataFrameName\$columnName -->
+
+<!-- ```{r} -->
+<!-- #Subset of rows -->
+<!-- mdy_never_smartphone<-subset(mdy,ON_SMARTPHONE=="never") -->
+<!-- nrow(mdy) -->
+<!-- nrow(mdy_never_smartphone) -->
+<!-- table(mdy_never_smartphone$ON_SMARTPHONE) # You can see only student never on smartphone are in the subset. -->
+
+<!-- #subset of columns -->
+<!-- mdy_except8<-subset(mdy, select = -c(8)) -->
+<!-- ncol(mdy) -->
+<!-- ncol(mdy_except8) # You can see the number of columns has been reduced by 1, due to subsetting without column 8 -->
+
+<!-- #Subset of Rows and Columns -->
+<!-- mdy_except8_never<-subset(mdy, select = -c(8), ON_SMARTPHONE == "never") -->
+<!-- table(mdy_except8_never$ON_SMARTPHONE) -->
+<!-- dim(mdy) -->
+<!-- dim(mdy_except8_never)# You can see only student never on smartphones without column 8 data are present in the subset. -->
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ## tapply -->
+
+<!-- - tapply() function in R Language is used to apply a function over a subset of vectors given by a combination of factors -->
+<!-- - This is a very versatile function, as we'll see from the use case.  -->
+<!-- - Note : There are different aggregate functions that can be used. For example, Mean, Median, Variance, Sum etc. -->
+
+<!-- ```{r} -->
+<!-- # To apply tapply() on capital gains factored on mdydiac sign. -->
+
+<!-- mdy_scoreavg<-tapply(mdy$SCORE,mdy$ON_SMARTPHONE,mean) -->
+<!-- mdy_scoreavg # We can see it calculated mean value of the score by students with respect to their use of phone in class. -->
+
+<!-- barplot(mdy_scoreavg,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot -->
+<!-- ``` -->
+
+<!-- - We can also factor it on multiple attributes. -->
+<!-- - Lets factor the grades on on_smartphone as well as grade category. -->
+
+
+<!-- ```{r} -->
+
+<!-- mdy.scoreavg2d<-tapply(mdy$GRADE,list(mdy$ON_SMARTPHONE,mdy$GRADE),length) -->
+<!-- mdy.scoreavg2d[is.na(mdy.scoreavg2d)]<-0 -->
+<!-- mdy.scoreavg2d# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category. -->
+<!-- barplot(mdy.scoreavg2d,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(mdy.scoreavg2d)) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ## Cut -->
+
+<!-- - cut() function in R Language is used to divide a **numeric vector** into different ranges -->
+
+<!-- ```{r} -->
+
+<!-- # We access the Score column from moody dataset. -->
+<!-- score0 <- cut(mdy$SCORE,10) -->
+
+<!-- levels(score0) # Lets make sure that the cut really create how many partitions.  -->
+<!-- table(score0) #lets check the distribution of people in each partition. -->
+
+<!-- # Cut Example using breaks - Cutting data using defined vector.  -->
+<!-- score1 <- cut(mdy$SCORE,breaks=c(0,50,100),labels=c("NC","P")) -->
+<!-- table(score1) -->
+
+<!-- # Example using pretty - Cutting the numerical data into categories. -->
+<!-- score2<- cut(mdy$SCORE,pretty(mdy$SCORE,2),labels=c("NC","P")) -->
+<!-- table(score2) -->
+
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ### Some helpful functions -->
+<!-- * pretty() function in R Language is used to decide sequence of equally spaced round values. -->
+
+<!-- ```{r} -->
+<!-- pretty(1:50,n=5) #The values are chosen so that they are 1, 2 or 5 times a power of 10. -->
+<!-- ``` -->
+
+<!-- * seq() function in R Language is used to create a sequence of elements in a Vector. It takes the length and difference between values as optional argument. -->
+
+<!-- ```{r} -->
+<!-- seq(2,10,2) -->
+<!-- ``` -->
