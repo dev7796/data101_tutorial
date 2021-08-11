@@ -1,9 +1,9 @@
 ## Free Style data exploration with just seven R commands " R.7 " {#freestyle}
 
 <script src="files/js/dcl.js"></script>
+
 ```{r ,include=FALSE}
-tutorial::go_interactive(greedy = FALSE,height=700)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+tutorial::go_interactive()
 ```
 
 We have to know 7 commands in R which we call R.7.
@@ -12,11 +12,343 @@ We have to know 7 commands in R which we call R.7.
 
 These we have already discussed.
 
+---
+
 One command to slice and dice data: _subset()_ or _df[condition,]$variable_
+
+---
+
+### Subset {#subset}
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+#Subset of rows
+moody_never_smartphone<-subset(moody,ON_SMARTPHONE=="never")
+nrow(moody)
+nrow(moody_never_smartphone)
+table(moody_never_smartphone$ON_SMARTPHONE) # You can see only student never on smartphone are in the subset.
+
+#Alternate way to subset.
+moody_never_smartphone_alt<-moody[moody$ON_SMARTPHONE=="never", ]
+table(moody_never_smartphone_alt$ON_SMARTPHONE) # You can see a similar table as above.
+
+
+#subset of columns
+moody_except8<-subset(moody, select = -c(8))
+ncol(moody)
+ncol(moody_except8) # You can see the number of columns has been reduced by 1, due to subsetting without column 8
+
+#Subset of Rows and Columns
+moody_except8_never<-subset(moody, select = -c(8), ON_SMARTPHONE == "never")
+table(moody_except8_never$ON_SMARTPHONE)
+dim(moody)
+dim(moody_except8_never)# You can see only student never on smartphones without column 8 data are present in the subset.
+
+
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+moody[moody$SCORE>=90,3]
+# What will R say?
+
+
+# A. Get subset of all columns which contains students who scored more than equal to 90
+# B. error
+# C. get all score values which are more than equal to 90
+# D. get subset of only the grades of students with score greater than equal to 90
+
+
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
+# What will R say?
+
+# A. subset of moody data frame who got B grade.
+# B. error.
+# C. subset of moody data frame with score greater than 80.
+# D. subset of moody data frame with score more than 80 and got B grade.
+
+
+```
+
+---
 
 Two commands to aggregate data: _table()_ and _tapply()_
 
+---
+
+### Table {#table}
+
+```{r,height=700}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+tableex1<- table(moody$GRADE) #Use of table  function on the new column.
+tableex1
+barplot(tableex1,col =c("red","purple","cyan","yellow","green"),xlab = "Labels", ylab = "Frequency",main = "table() example 1") #plot.
+
+
+tableex2<-table(moody$GRADE,moody$ASKS_QUESTIONS)
+tableex2
+mosaicplot(tableex2,col =c("red","purple","cyan","yellow","green"),main = "table() example 2")
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
+#What will R say?
+
+# A. error
+# B. distribution of grades for students who always ask questions
+# C. distribution of grades for students who do not always ask questions 
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
+#What will R say?
+
+# A. error.
+# B. distribution of grades for students who always or never ask questions.  
+# C. distribution of grades for students who do not ask questions always or never. 
+```
+
+---
+
+### tapply {#tapply}
+
+```{r,height=700}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+
+# To apply tapply() on SCORE factored on ON_SMARTPHONE
+
+moody_scoreavg<-tapply(moody$SCORE,moody$ON_SMARTPHONE,mean)
+moody_scoreavg # We can see it calculated mean value of the score by students with respect to their use of phone in class.
+
+barplot(moody_scoreavg,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot
+
+#Lets factor the grades on on_smartphone as well as grade category.
+
+moody.scoreavg2d<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
+moody.scoreavg2d[is.na(moody.scoreavg2d)]<-0
+moody.scoreavg2d# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
+barplot(moody.scoreavg2d,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody.scoreavg2d))
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+tapply(moody, GRADE, SCORE, min)
+# What will R say?
+
+# A. minimum score for each grade
+# B. minimum grade for each score
+# C. minimum grade only 
+# D. Error.
+
+
+```
+
+#### Question What would R say?
+
+```{r}
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+
+tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
+# What will R say?
+
+# A. mean grade for each values of ask_question attribute
+# B. mean value of ask_questions attribute for each grade
+# C. mean category of ask_questions only 
+# D. error.
+```
+
+---
+
 One data structure: _Data frame_
+
+---
+
+### data.frame() {#dataframe}
+
+```{r,error=TRUE}
+
+#Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+#Lets look at how the created vectors look.
+title
+author
+year
+
+# Also lets look at their types using the class function.
+class(title)
+class(author)
+class(year)
+
+
+# Now lets create a dataframe using the above column vectors.
+
+df <- data.frame(title, author, year)
+df # Lets look at how the dataframe looks.
+
+```
+
+---
+
+<!-- --- -->
+
+<!-- ## Table -->
+
+<!-- - table() function in R Language is used to create a categorical representation of data with variable name and the frequency in the form of a table. -->
+
+<!-- ```{r} -->
+<!-- tableex1<- table(mdy$GRADE) #Use of table  function on the new column. -->
+<!-- tableex1 -->
+<!-- barplot(tableex1,col =c("red","purple","cyan","yellow","green"),xlab = "Labels", ylab = "Frequency",main = "table() example 1") #plot. -->
+<!-- ``` -->
+
+
+<!-- - More use of table() is when you use multiple categorical columns. For example, lets see the count of *grade* vs *asks_questions*. -->
+
+<!-- ```{r} -->
+<!-- tableex2<-table(mdy$GRADE,mdy$ASKS_QUESTIONS) -->
+<!-- tableex2 -->
+<!-- mosaicplot(tableex2,col =c("red","purple","cyan","yellow","green"),main = "table() example 2") -->
+<!-- ``` -->
+
+
+
+
+
+
+<!-- --- -->
+
+<!-- ## Subset -->
+
+<!-- - subset() function in R programming is used to create a subset of vectors, matrices or data frames based on the conditions provided in the parameters. -->
+
+<!-- - NOTE: To create a subset, not only can you use the subset() function, but also: -->
+<!--     - you can use [ ] operator. Ex: dataFrameName['columnName']  -->
+<!--     - Even \$ operator is a subset operator. Ex: dataFrameName\$columnName -->
+
+<!-- ```{r} -->
+<!-- #Subset of rows -->
+<!-- mdy_never_smartphone<-subset(mdy,ON_SMARTPHONE=="never") -->
+<!-- nrow(mdy) -->
+<!-- nrow(mdy_never_smartphone) -->
+<!-- table(mdy_never_smartphone$ON_SMARTPHONE) # You can see only student never on smartphone are in the subset. -->
+
+<!-- #subset of columns -->
+<!-- mdy_except8<-subset(mdy, select = -c(8)) -->
+<!-- ncol(mdy) -->
+<!-- ncol(mdy_except8) # You can see the number of columns has been reduced by 1, due to subsetting without column 8 -->
+
+<!-- #Subset of Rows and Columns -->
+<!-- mdy_except8_never<-subset(mdy, select = -c(8), ON_SMARTPHONE == "never") -->
+<!-- table(mdy_except8_never$ON_SMARTPHONE) -->
+<!-- dim(mdy) -->
+<!-- dim(mdy_except8_never)# You can see only student never on smartphones without column 8 data are present in the subset. -->
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ## tapply -->
+
+<!-- - tapply() function in R Language is used to apply a function over a subset of vectors given by a combination of factors -->
+<!-- - This is a very versatile function, as we'll see from the use case.  -->
+<!-- - Note : There are different aggregate functions that can be used. For example, Mean, Median, Variance, Sum etc. -->
+
+<!-- ```{r} -->
+<!-- # To apply tapply() on capital gains factored on mdydiac sign. -->
+
+<!-- mdy_scoreavg<-tapply(mdy$SCORE,mdy$ON_SMARTPHONE,mean) -->
+<!-- mdy_scoreavg # We can see it calculated mean value of the score by students with respect to their use of phone in class. -->
+
+<!-- barplot(mdy_scoreavg,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot -->
+<!-- ``` -->
+
+<!-- - We can also factor it on multiple attributes. -->
+<!-- - Lets factor the grades on on_smartphone as well as grade category. -->
+
+
+<!-- ```{r} -->
+
+<!-- mdy.scoreavg2d<-tapply(mdy$GRADE,list(mdy$ON_SMARTPHONE,mdy$GRADE),length) -->
+<!-- mdy.scoreavg2d[is.na(mdy.scoreavg2d)]<-0 -->
+<!-- mdy.scoreavg2d# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category. -->
+<!-- barplot(mdy.scoreavg2d,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(mdy.scoreavg2d)) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ## Cut -->
+
+<!-- - cut() function in R Language is used to divide a **numeric vector** into different ranges -->
+
+<!-- ```{r} -->
+
+<!-- # We access the Score column from moody dataset. -->
+<!-- score0 <- cut(mdy$SCORE,10) -->
+
+<!-- levels(score0) # Lets make sure that the cut really create how many partitions.  -->
+<!-- table(score0) #lets check the distribution of people in each partition. -->
+
+<!-- # Cut Example using breaks - Cutting data using defined vector.  -->
+<!-- score1 <- cut(mdy$SCORE,breaks=c(0,50,100),labels=c("NC","P")) -->
+<!-- table(score1) -->
+
+<!-- # Example using pretty - Cutting the numerical data into categories. -->
+<!-- score2<- cut(mdy$SCORE,pretty(mdy$SCORE,2),labels=c("NC","P")) -->
+<!-- table(score2) -->
+
+<!-- ``` -->
+
+
+<!-- --- -->
+
+<!-- ### Some helpful functions -->
+<!-- * pretty() function in R Language is used to decide sequence of equally spaced round values. -->
+
+<!-- ```{r} -->
+<!-- pretty(1:50,n=5) #The values are chosen so that they are 1, 2 or 5 times a power of 10. -->
+<!-- ``` -->
+
+<!-- * seq() function in R Language is used to create a sequence of elements in a Vector. It takes the length and difference between values as optional argument. -->
+
+<!-- ```{r} -->
+<!-- seq(2,10,2) -->
+<!-- ``` -->
+
+<script src="files/js/dcl.js"></script>
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE,height=700)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
 
 And with these seven commands of R.7 we will be able to do quite a bit of data exploration. Manipulate data any way we want to.
 
@@ -35,7 +367,7 @@ _subset(), table() and tapply()_
 
 Through this section we will use our usual initial example, of synthetically generate data describing mysterious methods of grading used by an eccentric Professor Moody. We have been using different versions of this *data puzzle* over the 6 years of teaching data 101. Data is different but narrative is always the same:-->
 
-#### Professor Moody Puzzle {#Moodyexplaination}
+## Professor Moody Puzzle {#Moodyexplaination}
 
 We start our data exploration with the following data puzzle.
 
@@ -326,3 +658,4 @@ So for students in order to succeed in professor Moody’s class, my advice will
 •	While texting might bring down your grade a little bit, the difference is very small”
 
 ```
+
