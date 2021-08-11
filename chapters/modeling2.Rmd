@@ -1,4 +1,4 @@
-# Data Modelling and Prediction techniques for Regression. {#regression}
+# Data Modelling and Prediction techniques for Classification {#regression}
 
 <script src="files/js/dcl.js"></script>
 ```{r ,include=FALSE}
@@ -11,26 +11,24 @@ In chapter \@ref(classification) we studied modeling and prediction techniques f
 
 In this chapter we will study techniques for regression based prediction and create models for it. As opposite the the classification where we predict a particular class of the output variable, here we will predict a numerical/continuous value.
 
-We will look at two methods of performing this regression based modeling and prediction, first simple linear regression and second regression using decision tree.
+We will look at two methods of performing this regression based modeling and prediction, first simple linear regression and second regression using a decision tree.
 
 ---
 
 ## Linear Regression.
 
-Linear regression is a linear approach to modeling the relationship between a *scalar* response ($Y$) and one or more *explanatory* variables($X_i$, where i is the number of explanatory variables).
+<!--Linear regression is a linear approach to modeling the relationship between a *scalar* response ($Y$) and one or more *explanatory* variables($X_i$, where i is the number of explanatory variables).
 
 - Scalar response means the predicted output. These variables are also known as dependent variables i.e. they are derived by applying some law/rule or function onto some other variable/s
   - Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
     - First when there is only one explanatory variable and one output variable. This type of linear regression model known as *simple linear regression*.
     - Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as *multiple linear regression*.
   - But in the case of prediction of multiple correlated output variables, we call this type of prediction using linear regression model as *multivariate linear regression*.
-- Explanatory variables are the predictors on which the output predictions are based on. These variables are also known as independent variables and are independently sufficient to be used as predictors in regression models.
+- Explanatory variables are the predictors on which the output predictions are based on. These variables are also known as independent variables and are independently sufficient to be used as predictors in regression models.-->
+
+Linear regression is a linear approach to modeling the relationship between a numerical response ($Y$) and one or more independent variables ($X_i$).
 
 ![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling2/lmvariants.svg)
-
-Since the relationship between the explanatory variables and the output variable is modeled linearly, these models are called as linear models. To do this, we need to find a linear regression equation for the set of input predictors and the output variable. 
-
-But without going into the mathematics of finding this linear regression equation, we will use a tool/function provided in R to model and predict the output variable.
 
 ---
 
@@ -94,18 +92,12 @@ head(as.integer(unname(PredictedPrice.simple)))
 # Actual Values
 head(test$Price)
 ```
-We can see that,
 
 - The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
 - The plot of *Size* vs *Price*, and the red line represents the fitted line or the linear model line which will be used for prediction.
-- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the actual values, the predicted values are some times close,some time far and few are very far. 
+- The predicted values are obtained from the predict function using the trained model and the test data.
 
-
-We saw above an example of simple linear regression model, where only one predictor was used for predicting a single output attribute.
-
-Now we will see an example of *multiple linear regression* model, where there can be multiple predictors to predict a single output attribute. (Note: Please do not confuse this with the *multivariate linear regression*.)
-
-Let look at an example of predicting the *Price* of the real estate, based on 3 attributes *Size, Number of Bedrooms and Number of Bathrooms*.
+Now we will see an example of multiple linear regression model, where there can be multiple predictors to predict a single output attribute. Let look at an example of predicting the Price of real estate, based on three  attributes: Size, Number of Bedrooms and Number of Bathrooms.
 
 ```{r}
 library(ModelMetrics)
@@ -133,24 +125,13 @@ head(as.integer(unname(PredictedPrice.multiple)))
 # Actual Values
 head(test$Price)
 ```
-We can see that,
 
 - The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
-- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model based on just the *Size* as predictor, here, when we used 3 predictors, we have more accurate predictions, thus increasing the overall accuracy of the model.
+- The predicted values are obtained from the predict function using the trained model and the test data. In comparison to the previous model based on just the Size as predictor, here, when we used 3 predictors, we have more accurate predictions, thus increasing the overall accuracy of the model.
 
 ---
 
 ### Calculating the Error using mse() {#mse}
-
-As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won't prove useful now in our numerical predictions scenario.
-
-Also we don't want to eyeball everytime we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.
-
-To do this we will use the Mean Squared Error(MSE).
-
-- The MSE is a measure of the quality of an predictor/estimator
-- It is always non-negative
-- Values closer to zero are better.
 
 The equation to calculate the MSE is as follows:
 
@@ -197,6 +178,10 @@ We can see the MSE is too large above 200 billion, and this is huge value could 
 
 The main intention is to get this huge value to as low as possible possibly near zero, which could be difficult but can be achieved upto a relative error by using a better model and training data.
 
+---
+
+EOC
+<!--
 ---
 
 ## Regression using RPART
@@ -246,16 +231,20 @@ We can see,
 An important point to note while using decision trees for regression purpose, is that since the underlying process of modeling is still a decision tree, the output still represent a set of distinct classes, even though the values of the classes are numeric. Thus we can see that the predicted values are repeated even for varying inputs.
 
 Hence Decision tree must be used carefully when used for regression based prediction models.
+-->
 
----
-EOC
 
-# Additional Modeling techniques. {#models}
+# Additional Predition techniques. {#models}
 
 <script src="files/js/dcl.js"></script>
 
+There are a number of machine learning methods, beyond rpart() and lm() which can be used to build prediction models. As promised, we will show here how to use more sophisticated methods without explaining  how these methods work. For example, we use methods such as Support Vector Machines (SVM) and Random Forest (RF). We encourage students to use other methods such as Neural Networks and Linear Discriminant Analysis (LDA).
 
-In this chapter, we will see some additional machine learning models used in practice, for various purpose.
+Turns out the same script can be used to apply many advanced ML methods to build prediction models. 
+
+Here we present a general 4-step  script to use  these more complex and sophisticated models.
+
+<!--In this chapter, we will see some additional machine learning models used in practice, for various purpose.
 
 After studying both classification models and regression models in the previous 2 chapters \@ref(classification) & \@ref(regression) respectively,  we will now look into other generic models used for classification and/or regression purpose.
 
@@ -269,16 +258,14 @@ We will look at few algorithms from the above list:
 
 - Random Forest
 - Support Vector Machine (SVM)
-- Neural Networks
+- Neural Networks-->
 
 ---
 
 ## Four Line Method for creating most type of prediction models in R {#model4step}
-But before we learn about these algorithms, let us see a four line method to build models using any of the above algorithms using R.
 
-We can safely assume that the data going to be used to build the model, has been pre-processed and based on requirements split into the required subsets. To see how to split the data refer to section \@ref(splitdata).
+The first step now will obviously be to install and load the packages that contain a given ML algorithm. To do that on your local machine, use the following code.
 
-0. The zeroth step now will be obviously to install and load the packages that contain the ML algorithm. To do that on your local machine, use the following code.
 ``` text
 # Install the library
 install.packages("package name")
@@ -303,7 +290,7 @@ library(package_name)
   - *actual*: vector of the actual values of the attribute we want to predict.
   - *pred*: vector of the predicted values obtained using our model.
 
-Repeat steps 0,1,2 and 3 by changing the ML algorithm or manipulating dataset to perform better when used to train using ML model, so as to achieve as low MSE value as possible.
+Repeat steps 1-4 by changing the ML algorithm.
 
 4. Finally we predict on the testing data using the same predict function as in step 2 but replacing the train data with test data.
 - `pred = predict(pred.model, newdata = test)`
@@ -316,7 +303,6 @@ This can be done either manually, or by using third party libraries.
 
 One such library is the `rModeling` package, which has function *crossValidation()* which can be used for any type of model_functions(). For more information visit [crossValidation()](https://www.rdocumentation.org/packages/rModeling/versions/0.0.3/topics/crossValidation)
 
-
 Before we proceed to the next section, please look at the snippet of the *earnings.csv* dataset, which we will be using for predicting the *Earnings* attribute based on various other attributes provided in the dataset, using different prediction models.
 
 ```{r,echo=FALSE,error=FALSE,warning=FALSE}
@@ -326,13 +312,13 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-Now that we saw the general structure of the model and took a glace at the dataset we will be using, lets look at few of the algorithms as we promised from the list above.
+Now that we have seen the general structure of the model and took a glance at the dataset we will be using, let's  show how we can use Random Forest (RF) and SVM from the R library.
 
 ---
 
 ## Random Forest {#randomforest}
 
-Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operates by constructing a multitude of decision trees at training time and outputting the value that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. 
+<!--Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operates by constructing a multitude of decision trees at training time and outputting the value that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. 
 
 In simpler terms, the random forest  algorithm creates multiple decision trees based on varying attributes and biases, and then predicts the output for each tree, and aggregates this prediction into one final output by some technique like majority count or average/etc.
 
@@ -347,8 +333,9 @@ Forests are type of ensemble learning methods, where they act like, pulling toge
 Random decision forests correct for decision trees' habit of overfitting to their training set.
 
 Now lets look at an example of prediction by the random forest model using the *randomForest()* function present in the `randomForest` library package. For more information about the *randomForest()* function and its attributes visit **[randomforest()](https://www.rdocumentation.org/packages/randomForest/versions/4.6-14/topics/randomForest)**
+Thus following the 4 step method of prediction for predicting a numerical attribute "Earnings" using the randomForest() function.-->
 
-Thus following the 4 step method of prediction for predicting a numerical attribute "Earnings" using the randomForest() function.
+Here is how we use the 4-step script to use Random Forest:
 
 ```{r}
 library(randomForest)
@@ -381,24 +368,14 @@ pred.test <- predict(pred.model,newdata = test)
 mse(test$Earnings,pred.test)
 
 ```
-We can see,
 
-- the summary of the output randomForest model with details of:
-  - Formula used.
-  - Type of random forest
-  - Number of trees created in the forest
-  - Number of variables used at each split.
-  - And some performance parameter.
-- The mean squared error of the predicted values using training sub-dataset.
-- The mean squared error of the predicted values using the testing sub-dataset.
-
-Note: Since a random forest is an ensemble learning method, it will usually take a lot more time to train that its counterparts. Thus you can see a significant waiting/execution time while running the above code and acquiring answer.
+After we run RF, we see the summary of the output randomForest model. We are only interested here in the mean squared error of the predicted values using the training sub-dataset and  mean squared error of the predicted values using the testing sub-dataset.
 
 ---
 
 ## SVM {#svm}
 
-Support-Vector Machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification(mostly) and regression(also works in some cases) analysis.
+<!--Support-Vector Machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data for classification(mostly) and regression(also works in some cases) analysis.
 
 The goal of the SVM is to find a hyperplane in an N-dimensional space (where N corresponds with the number of features) that distinctly classifies/regresses the data points. The accuracy of the results directly correlates with the hyperplane that we choose. We should find a plane that has the maximum distance between data points of both classes.
 
@@ -421,7 +398,9 @@ Lets look at the example of Support vector machine algorithm in use for predicti
 We will use the *svm()* function from the *e1071* package. For more information about this function and its attributes visit **[svm()](https://www.rdocumentation.org/packages/e1071/versions/1.7-6/topics/svm)**
 
 
-Thus following the 4 step model for prediction and using the "*svm()*" function as the model function. 
+Thus following the 4 step model for prediction and using the "*svm()*" function as the model function.--> 
+
+SVM is another ML method to predict numerical variables. Again, we won’t describe how it works, but rather how to use it, again referring to the 4-step script described earlier.
 
 ```{r}
 library(e1071)
@@ -455,19 +434,20 @@ pred.test <- predict(pred.model,newdata = test)
 mse(test$Earnings,pred.test)
 
 ```
-We can see,
 
-- the summary of the output svm model with details of:
-  - Formula used.
-  - Type of SVM model
-  - The SVM Kernel Used
-  - And some performance parameter.
-  - Also, the Number of Support Vectors.
-- The mean squared error of the predicted values using training sub-dataset.
-- The mean squared error of the predicted values using the testing sub-dataset.
+We will use the *svm()* function from the *e1071* package. For more information about this function and its attributes visit [svm()](https://www.rdocumentation.org/packages/e1071/versions/1.7-6/topics/svm)
 
+Again, from the summary of the output svm model  we are interested only in the MSE of the predicted values using the training sub-dataset and the MSE of the predicted values using the testing sub-dataset.
+
+There are tens of packages such as Naive Bayes, LDA,  or Neural Networks in the R library which we can use following the same simple 4-step script.  In order to learn how these methods actually work you need to take more advanced classes on Machine learning and Data Science/ But you already know how to use them. You drive the car! 
 
 ---
+
+**EOC**
+
+<!--
+---
+  
 
 ## Neural Network. {#nnet}
 
@@ -560,8 +540,5 @@ Eventually, since we use R language here, the code for model creation just boils
 
 Also, we saw the trend of time required for training of the models studied above was SVM > RandomForest > Neural Net. This also suggest a proportional relationship with the time required for a particular model to train and in turn producing the best possible results.
 
-Although one can say that, we can just use Neural Networks all the time, well this statement is true to some extent, but depending on the resources, the complexity of the data, and the complexity of the model itself, one needs to make some trade-offs. One should not try to throw a ball just few meters with a cannon, using mere hands will do the job. In essence, do not try to overuse the neural net model for the sake of adding 2 mumbers, simple addition will suffice. Studying these tradeoffs and more models in depth though is out of this course scope.
+Although one can say that, we can just use Neural Networks all the time, well this statement is true to some extent, but depending on the resources, the complexity of the data, and the complexity of the model itself, one needs to make some trade-offs. One should not try to throw a ball just few meters with a cannon, using mere hands will do the job. In essence, do not try to overuse the neural net model for the sake of adding 2 mumbers, simple addition will suffice. Studying these tradeoffs and more models in depth though is out of this course scope.-->
 
----
-
-**EOC**

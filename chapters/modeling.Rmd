@@ -8,17 +8,7 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 
 ## Decision Tree. {#decisiontree}
 
-Decision tree is one of the most powerful and popular tool for classification and prediction. 
-It is a supervised learning predictive model that uses a set of binary rules to calculate a target value.
-It is a flow chart like tree structure, where each internal node has a test on a particular attribute, each branch denotes the outcome of the test, and each leaf node holds a class label/ numeric value.
-
-The reason decision tree are very popular are:
-- It is able to generate rules easier to understand as compared to other models..
-- It require much less computations for performing modeling and prediction.
-- Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
-
-There are a few drawbacks too while using decision trees in certain case of inputs and tasks. But for the scope of discussion of this course we won't go into much details of it.
-Also, we won't go into the depth of the internals of the formation/creation of the decision tree and its underlying algorithm, but we will look at decision tree as a way to create prediction model for both classification and regression.
+Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can  generate rules which are  easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
 
 ---
 
@@ -35,7 +25,7 @@ Syntax for building the decision tree using rpart():
     - `prediction ~ predictor1 + predictor2 + predictor3 + ...`
   - *method*: here we describe the type of decision tree we want. If nothing is provided, the function makes an intelligent guess. We can use "anova" for regression, "class" for classification, etc.
   - *data*: here we provide the dataset on which we want to fit the decision tree on.
-  - *control*: here we provide the control parametes for the decision tree. Explained more in detail in section further in this chapter.
+  - *control*: here we provide the control parameters for the decision tree. Explained more in detail in the section further in this chapter.
   
   
 For more info on the rpart function visit [rpart documentation](https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart)
@@ -64,15 +54,13 @@ We can see that the output of the rpart() function is the decision tree with det
 - yval -> output value i.e. the target predicted value.
 - yprob -> probability of obtaining a particular category as the predicted output.
 
-Using output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section \@ref(rpartpredict)
+Using the output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section \@ref(rpartpredict)
 
 But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.
-
 
 ---
 
 ## Visualize the Decision tree {#rpartplot}
-
 
 To visualize and understand the rpart() tree output in the easiest way possible, we use a library called `rpart.plot`. The function `rpart.plot()` of the rpart.plot library is the function used to visualize decision trees.
 
@@ -141,25 +129,7 @@ We can see that the output of the prp() function is a very minimalist tree, with
 
 ## Rpart Control {#rpartcontrol}
 
-We will now look at the control argument used in `rpart()` function, which is one of the important argument. The control argument of rpart() function is used to manually decide the control parameters of the decision tree.
-
-The advantages of using control method:
-- It restricts the height of the decision tree.
-- It avoids overfitting on the training dataset.
-- It can be used to eliminate attributes that affect less significantly on the splitting constraints.
-- Helps to terminate the creation process of tree earlier, thus reducing required computational time.
-
-
-The disadvantages of using control method:
-- It creates risk of generating trees with lesser accuracy compared to uncontrolled tree.
-- It could hamper the splitting condition selection in negative way.
-- Could result in underfitting, if control parameters not chosen carefully.
-
-As we can see, that controlling the decision tree provides us with lot of advantage in certain condition, we also risk in reducing the accuracy of the prediction from using the tree.
-
-Thus these control methods must be applied only in certain case, where the uncontrolled method takes large amount of time to create the tree, and overfits the train data. When the datasets have more significantly higher count of columns but less records of data, using control methods could be suitable.
-
-Now lets look at the rpart.control() function used to pass the control parameters to the control argument of the rpart() function.
+Now let's look at the rpart.control() function used to pass the control parameters to the control argument of the rpart() function.
 
 - `rpart.control( *minsplit*, *minbucket*, *cp*,...)`
  - *minsplit*: the minimum number of observations that must exist in a node in order for a split to be attempted. For example, minsplit=500 -> the minimum number of observations in a node must be 500 or up, in order to perform the split at the testing condition.
@@ -235,16 +205,11 @@ tree$cptable
 
 We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.
 
-
-Now we saw the most important control parameters of the rpart.control function. Remember there are other parameters too, which you can study if you wish, but studying just these 3 discussed above are sufficient for the scope of this course.
-
-**Also**, note we have not check the effects of the control parameters on the prediction accuracy of the decision tree. Using the control parameters you could either increase the accuracy, but also risk, decreasing the accuracy. So choosing the controls parameter very carefully is very important to push the accuracy in the right direction.
-
 ---
 
 ## Prediction using rpart. {#rpartpredict}
 
-Now that we saw process to create a decision tree and also plotting it, we will like to use the output tree to predict the required attribute.
+Now that we have seen the process to create a decision tree and also plot it, we will like to use the output tree to predict the required attribute.
 
 From the moody example, we are trying to predict the grade of students. Lets look at the `predict()` function to predict the outcomes.
 
@@ -269,11 +234,10 @@ tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+ASKS_QUESTIONS+LEAVES_EARLY+LATE_IN_CL
 pred <- predict(tree, moody, type="class")
 head(pred)
 ```
-We see that the output of the predict function is a vector of grades corresponding to each record of the Moody dataframe. Each index has a grade among "A", "B", "C", "D", "F". 
 
-Although we see the output, how do we compare the accuracy and correctness of the outputs.
+Our prediction accuracy  on the training data set is 93.73% and the error rate is 6.27%.This prediction accuracy calculated on the training dataset is called training accuracy.  However, what we are really interested in is testing data accuracy. How can we make sure that our prediction model will achieve good testing data accuracy? It is not enough to see good training data accuracy.  We need to do more work. It is called cross validation.Use only part of the training data for training the prediction model and the remaining part for testing. For that we would need to split the training  data at least into two parts, Training and Testing and then repeat the training process on the training dataset and the prediction on testing dataset.
 
-Lets look at one of the basic test we can do is perform a record by record comparison of the grade already in the dataset and the predicted grade, in the example below.
+One way of doing this is to randomly assign data to either training or testing subset. We will look at a small example of splitting the complete dataset into training and testing dataset with a 70-30 ratio.
 
 ```{r}
 # First lets import the rpart library
@@ -292,41 +256,10 @@ head(pred)
 # Lets check the correctness of each prediction for each record
 mean(moody$GRADE==pred)*100
 ```
-Using just a row by row comparison we can see that the outcomes of the predicted grades and the original grades from the Moody dataset, are matching 93.73%. Thus our prediction accuracy is 93.73% and the error rate is 6.27%, which is very good.
-
-This prediction accuracy calculated on the training dataset is called *training accuracy*.
-
-Notice that we just compared the predicted grades with the already present grades from the Moody dataset, the same dataset on which the tree was built. 
-
-In such scenario, one can say that you are predicting the grades on data already considered while training. So in some sense, you just output the known grades, and did not do any useful prediction.
-
-But to really see the use of our tree, we must predict on a data which has never been used in the training of the tree, OR, where the Prof. Moody has not assigned the grades.
-
-In the latter case it is difficult to prove the accuracy, without actually checking with Prof. Moody, if he/she would have assigned the same grade as the grade predicted by our model.
-
-But we have a solution for the former case, where we can predict grades on a subset of data, which we have not used while training. For that we would need to split the provided data into 2 parts, Training and Testing and then repeat the training process on the training dataset and the prediction on testing dataset.
 
 ---
 
 ## Split the data yourself. {#splitdata}
-
-We introduced the first and basic model for data analysis, Decision tree, in the section above. 
-
-But we found that we need to perform a basic routine before dwelling deep into the creation of decision tree. 
-
-The routine is to split the dataset in multiple parts, to check the accuracy of our tree's prediction. 
-
-This routine is the first step you perform after acquiring a cleaned dataset.
-
-The most useful splitting of dataset is done in 2 parts, Training and Testing.
-
-- While splitting, the split ratio between training and testing should be decided properly. Mostly, training data is kept bigger,and testing is done on a relatively smaller subset. But the ratio should not be too biased, where there are only few observations in test data compared to training data. 
-- Usually, the math behind splitting is that, even after split, the smaller subset, i.e. the test subset should represent the distribution of the complete dataset. This means the test data should at-least have few record of each possible combination of attribute's categories if categorical data, or, if numerical data then the numerical distribution is same as of the complete dataset.
-- Thus, typically the train-test ratio is 80-20 or 70-30 or in some case even 60-40.
-
-Also, while selecting the records to assign to either training/testing data, they should be randomly picked from the original data, so as to avoid unbalanced distribution.
-
-We will look at a small example of splitting the complete dataset into training and testing dataset with a 70-30 ratio. 
 
 
 ```{r}
@@ -371,24 +304,26 @@ nrow(moody.validation)/nrow(moody)
 nrow(moody.test)
 nrow(moody.test)/nrow(moody)
 ```
+
 We can see that the dataset is split into 3 parts, with 60% in training data, 20% in validation data, and 20% in testing data.
+
+In general, this process of repetitively using subsets of training data  for training and testing is called cross validation. 
+
 
 ---
 
 ## Cross Validation {#crossvalidation}
 
-Cross validation is a model validation technique for assessing generalization of the results of statistical analysis to an independent dataset. In other words, it is a technique to estimate the accuracy of a predictive model's performance in practice. 
+The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating/training it, in order to avoid problems like overfitting and selection bias, and to give an insight on how the model will generalize to an independent dataset(i.e., an unknown dataset).
 
-The goal of cross-validation is to test the model's ability to predict new data that was not used in estimating/training it, in order to avoid problems like *over-fitting* and *selection bias*, and to give an insight on how the model will generalize to an independent dataset(i.e., an unknown dataset).
+Cross-validation also helps in selecting and fine-tuning the hyper-parameters of the models. In our case of the decision tree, the hyper parameters could be the control parameters that determine the size of the decision tree, which in-turn determines the accuracy of the tree.
 
-Cross-validation also helps in selecting and fine-tuning the hyper-parameters of the models. In our case of decision tree, the hyper parameters could be the control parameters that determind the size of the decision tree, which in-turn determines the accuracy of the tree.
+One round of cross-validation involves partitioning data into complementary subsets, and then performing model training on one subset, and validating the results on the other subset. In most methods, multiple rounds of cross-validation are performed using different partitions in each round, and the validation results are combined (e.g. averaged) over the rounds to give an estimate of the model’s predictive performance.
 
-One round of cross-validation involves partitioning data into complementary subsets, and then performing model training on one subset, and validating the results on the other subset. In most methods, multiple rounds of cross-validation are performed using different partitions in each round, and the validation results are combined (e.g. averaged) over the rounds to give an estimate of the model's predictive performance.
-
-Another use of cross-validation is when you don't have the test data, and hence, you don't have a way to determine the true accuracy of the model. Because we cannot determine accuracy on test dataset, we partition our training dataset into train and validation (testing). We train our model (rpart or lm) on train partition and test on the validation partition. 
-The accuracy on the validation data is called *cross-validation accuracy*, while that on the train data is called *training accuracy*.
+Another use of cross-validation is when you don’t have the test data, and hence, you don’t have a way to determine the true accuracy of the model. Because we cannot determine accuracy on the test dataset, we partition our training dataset into training and validation (testing). We train our model (rpart or lm) on the train partition and test on the validation partition. The accuracy on the validation data is called cross-validation accuracy, while that on the train data is called training accuracy.
 
 Lets not dive too deep into the theory of this cross validation technique, but lets learn about the cross_validate() function, that helps us achieve this.
+
 
 - `cross_validate(*data*, *tree*, *n_iter*, *split_ratio*, *method*)`
   - *data*: The dataset on which cross validation is to be performed.
@@ -402,7 +337,7 @@ The way the function works is as follows:
 - It randomly partitions your data into training and validation. 
 - It then constructs the following two decision trees on training partition:
   -  The tree that you pass to the function.
-  -  The tree constructed on all attributes as predictors and with no control parameters.
+  -  The tree is constructed on all attributes as predictors and with no control parameters.
 -It then determines the accuracy of the two trees on validation partition and returns you the accuracy values for both the trees. 
 
 The first column corresponds to the cross-validation accuracy on the tree that you pass; the second is the cross-validation accuracy on the tree without any control and all attributes.
@@ -415,7 +350,7 @@ The second column(accuracy_all) tells you what happens if you construct a tree b
 
 Each iteration of cross-validation creates a different random partition of train and validation, and so you have possibly different accuracy values for every iteration.
 
-Lets look at the cross_validate() function in action in the example below.
+Let's look at the cross_validate() function in action in the example below.
 
 We will pass the tree with formula as `GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY`, and control parameter, with `minsplit=100`. 
 And for cross_validate() function, we will use` n_iter=5, and split_raitio=0.7` 
@@ -426,7 +361,6 @@ install.packages("devtools")
 devtools::install_github("devanshagr/CrossValidation")
 CrossValidation::cross_validate()
 ```
-
 
 ```{r,ex="crossvalidate",type="pre-exercise-code"}
 library("rpart")
