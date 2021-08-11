@@ -60,7 +60,7 @@ prediction-challenge-1.
 how-the-data-was-generated-for-challenge-1
 top-submissions-for-challenge-1.
 prediction-challenge-2.
-how-the-data-was-generated-to-challenge-2
+how-the-data-was-generated-for-challenge-2
 top-submissions-for-challenge-2
 prediction-challenge-3.
 how-the-data-was-generated-for-challenge-3

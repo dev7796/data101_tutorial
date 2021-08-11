@@ -266,7 +266,7 @@ To perform this challenge yourself please visit the kaggle site of this predicti
 
 ---
 
-### How the data was generated to Challenge 2
+### How the data was generated for Challenge 2
 
 As we saw that the prediction task and the datasets in challenge 2 are similar to that of challenge 1. Thus the data analysis of the challenge 1 would applicable in this case too.
 
