@@ -1,4 +1,4 @@
-# Simple Statistical Evaluation {#stateval}
+# p-value: Simple Statistical Evaluation {#stateval}
 
 <script src="files/js/dcl.js"></script>
 ```{r ,include=FALSE}
@@ -6,277 +6,62 @@ tutorial::go_interactive(greedy=TRUE,height=700)
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
-The biggest enemy of your findings is randomness. In order to convince your audience that you have found something you need to address the question “how do you know your result is simply sheer luck, it is random?”
+Randomness is the biggest enemy of your findings. In order to convince your audience that you have found something worthwhile in the data  you need to address the question “how do you know that your result is simply not sheer luck, that  it is not random?”
 
-This is where you need statistical tests for use in hypothesis testing. 
+This is where the concept of p-value enters the picture.
 
----
+What is the p-value?
 
-#### Two Important Formula's:
+First,  there must be a hypothesis.  In fact, at least a pair of them - one which is called the **NULL hypothesis** and another (the one which you hope you can defend), the **ALTERNATE hypothesis**. 
 
-- _Mean_
-\begin{equation}
-\bar{X}=\frac{\sum{X}}{N}
-\ \text{where, X is set of numbers and 
-N is size of set.}
-\end{equation}
+Informally, NULL hypothesis  is what a SKEPTIC would argue.  Skeptic, who says, “Data does not support your findings” in fact, your findings are random. Some call the NULL hypothesis - the boring one. Nothing really happens in your data. 
 
-- _Standard Deviation_
+You, the data scientist, hope you can reject the NULL hypothesis! Show that it is unlikely to see the observed data  by random chance  UNDER NULL HYPOTHESIS. 
+Here are some examples of NULL and ALTERNATIVE hypotheses: 
 
-\begin{equation}
+**Examples of NULL hypotheses**
 
-\sigma = \sqrt{\frac{\sum{(X - \mu)^2}}{N}}\\
-\text{where, X is set of numbers, $\mu$ is average of set of numbers, }\\ \text{ N is size of the set, $\sigma$ is standard deviation}
+Traffic in Holland Tunnel is same as in Lincoln Tunnel
 
+French Wines are equally priced as Californian Wines
 
-\end{equation}
+Crime has not changed as result of Gun laws
 
----
+Unemployment has not changed as result of tax reductions
 
-## Z-test {#ztest} 
+Democrat  candidate is tied with  GOP candidate
 
-A z-test is any statistical test used in hypothesis testing with an underlying normal distribution.
+**Examples of ALTERNATE hypotheses**
 
-In other words, when the distribution of the test statistic under the null hypothesis can be approximated by a normal distribution, z-test can be used.
+Traffic in Holland Tunnel is higher as in Lincoln Tunnel
 
-Outcome of the z-test is the z-score which is a numerical measure to test the mean of a distribution.
-z-score is measured in terms of standard deviation from mean.
+French Wines are less expensive than  Californian Wines
 
-### Steps for hypothesis testing using Z-test.
+Crime changed as result of Gun laws
 
-Running a Z-test requires 5 steps:
+Unemployment has decreased  as result of tax reductions
 
-1. State the null hypothesis and the alternate hypothesis
-    - Select a null hypothesis and an alternate hypothesis which will be tested using the z-test.
-2. Choose an Alpha $\alpha$ level.
-    - Usually this is selected to be small, such that the area under the normal distribution curve is accumulated most in the range between the alpha level.
-    - Thus mostly in statistical testing, $\alpha = 0.05$ is selected.
-3. Calculate the z-test statistic.
-    - The z-test statistic is calculated using the z-score formula.
-      \begin{equation} z = \frac{x-\mu}{\sigma}\text{ where, $z$ = z-score, $x$ = raw score, $\mu$ = mean and $\sigma$ = standard deviation } \end{equation}
-4. Calculate the p-value using the z-score
-    - Once we have the z-score we want to calculate the p-value from it.
-    - To do this, there are 2 ways,
-      - First use the z-table available online at [z-table.com](http://www.z-table.com/)
-      - Second, use the pnorm() function in R to find the p-value.
-5. Compare the p-value with $\alpha$
-    - After getting the p-value from step 4, compare it with the $\alpha$ level we selected in step 2.
-    - This decides if we can reject the null hypothesis or not.
-      - If the p-value obtained is lower than $\alpha$, then we can reject the null hypothesis.
-      - If the p-value is more than $\alpha$, we fail to reject the null hypothesis due to lack of significant evidence.
-      
-      
-Some important relation between one-sided and two sided test while using hypothesis testing is as follows:
+Democrat candidate is leading GOP candidate
 
-- First, estimate the expected value $\mu$ of T(statistic) under the null hypothesis, and obtain an estimate $\sigma$ of the standard deviation of T.
-- Second, determine the properties of T : one tailed or two tailed.
-  - For Null hypothesis H0: $\mu \geq \mu_0$ vs alternative hypothesis H1: $\mu < \mu_0$ , it is upper/right-tailed (one tailed).
-  - For Null hypothesis H0:$\mu \leq \mu_0$ vs alternative hypothesis H1: $\mu > \mu_0$ , it is lower/left-tailed (one tailed).
-  - For Null hypothesis H0: $\mu = \mu_0$ vs alternative hypothesis H1: $\mu \neq \mu_0$ , it is two-tailed.
-- Once you calculate the pnorm() in step 4, depending on the properties of two as described above, 
-  - use `pnorm(-Z)` for right tailed tests,
-  - use `2*pnorm(-Z)` for two tailed test, and 
-  - use `pnorm(Z)` for left tailed tests.
-  - *Note*: (Here Z = z-score). Also the method mentioned above works similar to that studied in class/recitations, but is simple to understand, and does not require subtracting the pnorm() output from 1.
+Notice that the alternate hypothesis is not simply the negation of the null hypothesis. It is mutually exclusive with the NULL hypothesis though.  Some of the alternate hypotheses above are two tied, others are one-tied. For example Crime changed as result of Gun laws is an example of two tied alternate hypotheses.  No statement is made about how the crime has moved, has it increased, or has it decreased?  The alternate hypothesis  simply states that Crime has changed.  Compare it with alternate hypothesis that Unemployment has decreased  as a result of tax reductions.  This is a one-tied alternate hypothesis, which is stronger than the Two-tied hypothesis, stating  that unemployment has decreased.  Thus, it states that unemployment was affected by tax reductions and that it has decreased.
 
----
+Let us now focus on one of these examples. 
 
-### Z-test Example 1 (Right Sided)
-Now lets look at an example to use this z-test for hypothesis testing.
+**NULL HYPOTHESIS  (“The Skeptic”)**
 
-We will study the example to statistically find the relation of the traffic volume per minute between two tunnels, namely Holland and Lincoln .
+There is no traffic difference  between Lincoln  and Holland tunnels
 
-```{r,echo=FALSE,error=FALSE,warning=FALSE}
-library(kableExtra)
-earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv") #web load
-temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Traffic Dataset',booktabs=TRUE) 
-kableExtra::scroll_box(temp,width = "100%")
-```
+**ALTERNATE  HYPOTHESIS   (Data Scientist)**
 
-Thus stating out Null Hypothesis and Alternate Hypothesis.
+Lincoln is busier than Holland
 
-- Null Hypothesis H0: Traffic in Lincoln is same as Traffic in Holland tunnel.
-- Alternate Hypothesis H1: Traffic in Lincoln is higher than traffic in Holland tunnel.
+The p-value is defined as the probability of obtaining a result equal to or "more extreme" than what was actually observed, when the null hypothesis is true. 
 
-Once we have stated our hypothesis, lets see the z-test in practice.
+Thus, p-value is the CONDITIONAL probability. Conditional upon null hypothesis being true
 
-```{r}
-# Load Dataset
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/TRAFFIC.csv')
-summary(TRAFFIC) #gives us the data statistics
+In other words: showing that obtained result could have been generated by RANDOM CHANCE under assumption of null hypothesis with probability exceeding the critical value alpha.  It was just a “fluke” - which can be attributed to randomness and cannot be used to support the alternate hypothesis.  In the case of our example, There is no traffic difference  between Lincoln  and Holland tunnels, even though the data seems to indicate that Lincoln is busier than Holland.  But evidence for the latter is not stored enough.  There is, say, p chance  (say 0.10) that observed data was obtained as a result of random fluke and tunnels are equally busy. Generally, if p is larger than 0.05, the observed data is not strong enough to reject the NULL.
 
-#data clean and subset
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-# traffic at lincoln
-# This variable is a column of 1401 rows.
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-# traffic at holland
-# This variable is a column of 1401 rows.
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-# The final value is the standard deviation, in Volume per minute.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-
-# means of two samples
-mean.lincoln <- mean(lincoln.traffic)
-mean.holland <- mean(holland.traffic)
-
-# length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
-
-# standard deviation of traffic
-sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
-
-# z score
-zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
-zeta
-
-# get p
-p = pnorm(-zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-
-We can see that form the P-Value obtained is near to 0, which is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that traffic in Lincoln is higher than traffic Holland. 
-
-
----
-
-### Z-test Example 2 (Left Sided)
-Now lets look at another example to use this z-test for hypothesis testing.
-
-We will study the example to statistically find the relation between capital gains of people with two Zodiac Signs , namely Aquarius and Libra.
-
-```{r,echo=FALSE,error=FALSE,warning=FALSE}
-library(kableExtra)
-earningdata<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv") #web load
-temp<-knitr::kable(earningdata[sample(nrow(earningdata),10),], caption = 'Snippet of Zodiac Dataset',booktabs=TRUE) 
-kableExtra::scroll_box(temp,width = "100%")
-```
-
-Now stating out Null Hypothesis and Alternate Hypothesis.
-
-- Null Hypothesis H0: Capital Gains of people with Aquarius is same as people with Libra zodiac sign.
-- Alternate Hypothesis H1: Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
-
-Once we have stated our hypothesis, lets see the z-test in practice.
-
-```{r}
-# Load Dataset
-ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
-summary(ZodiacData) #gives us the data statistics
-
-#data clean and subset
-Aquarius.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Aquarius")
-Libra.data <- subset(ZodiacData, ZodiacData$ZODIAK == "Libra")
-
-# Zodiac Aquarius
-Aquarius.Zodiac <- Aquarius.data$CAPITALGAINS
-
-# Zodiac  Libra
-Libra.Zodiac <- Libra.data$CAPITALGAINS
-
-# standard deviation of two samples.
-sd.Aquarius <- sd(Aquarius.Zodiac)
-sd.Libra <- sd(Libra.Zodiac)
-
-# means of two samples
-mean.Aquarius <- mean(Aquarius.Zodiac)
-mean.Libra <- mean(Libra.Zodiac)
-
-# length of Aquarius and Libra
-len_Aquarius <- length(Aquarius.Zodiac)
-len_Libra <- length(Libra.Zodiac)
-
-# standard deviation
-sd.aqu.lib <- sqrt(sd.Aquarius^2/len_Aquarius + sd.Libra^2/len_Libra)
-
-# z score
-zeta <- (mean.Aquarius - mean.Libra)/sd.aqu.lib
-zeta
-
-# get p
-p = pnorm(zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-We can see that form the P-Value obtained is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people with Aquarius is lower than as people with Libra zodiac sign.
-
----
-
-### Z-test Example 3 (Two Tailed)
-
-We will study the example to statistically find the relation between capital gains of people with two Countries, namely US and Columbia.
-
-Now stating out Null Hypothesis and Alternate Hypothesis.
-
-- Null Hypothesis H0: Capital Gains of people of United States is same as people of Colombia.
-- Alternate Hypothesis H1: Capital Gains of people of United States is not equal to that of the people of Colombia.
-
-Once we have stated our hypothesis, lets see the z-test in practice.
-
-```{r}
-# Load Dataset
-ZodiacData<-read.csv('https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/ZodiacChallenge.csv')
-summary(ZodiacData) #gives us the data statistics
-
-#data clean and subset
-US.data <- subset(ZodiacData, ZodiacData$NATIVE == "United-States")
-Columbia.data <- subset(ZodiacData, ZodiacData$NATIVE == "Columbia")
-
-# Country US
-US.country <- US.data$CAPITALGAINS
-
-# Country  Columbia
-Columbia.country <- Columbia.data$CAPITALGAINS
-
-# standard deviation of two samples.
-sd.US <- sd(US.country)
-sd.Columbia <- sd(Columbia.country)
-
-# means of two samples
-mean.US <- mean(US.country)
-mean.Columbia <- mean(Columbia.country)
-
-# length of US and Columbia
-len_US <- length(US.country)
-len_Columbia <- length(Columbia.country)
-
-# standard deviation
-sd.us.col <- sqrt(sd.US^2/len_US + sd.Columbia^2/len_Columbia)
-
-# z score
-zeta <- (mean.US - mean.Columbia)/sd.us.col
-zeta
-
-# get p
-p = 2*pnorm(-zeta)
-p
-
-# plot the zeta value on the normal distribution curve.
-plot(x=seq(from = -25, to= 25, by=0.1),y=dnorm(seq(from = -25, to= 25,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-```
-
-We can see that form the P-Value obtained is less than 0.05. 
-
-Hence, we reject the NULL Hypothesis and conclude with high degree of certainty that Capital Gains of people of United States is not equal to that of the people of Colombia.
+Now we discuss the permutation test which helps us to understand the role of randomness in producing seemingly meaningful evidence. 
 
 ---
 
@@ -285,6 +70,7 @@ Hence, we reject the NULL Hypothesis and conclude with high degree of certainty 
 ```
 
 ---
+
 
 ## Multiple Hypothesis - Bonferroni Correction. {#bonferroni}
 
@@ -295,32 +81,13 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 
 <script src="files/js/dcl.js"></script>
 
-While dealing with the dataset with several number of dimensions, it is possible to get a lot of amazing and interesting insights and conclusions from it.
+Multiple hypothesis testing refers to  simultaneously  testing  more than one alternate hypothesis against the same NULL hypothesis. This often occurs in the process of so-called p-value chasing. In p-value chasing, a number of alternative hypotheses  are tested until one with acceptable p-value is found. The process of p-value chasing is inherently flawed. Since it is prone to simply randomly finding an alternate hypothesis with p-value below the critical value alpha. Thus, we need to make our critical value requirements much stricker. Depending how many hypotheses are tested, we may require a much smaller p-value to reject the NULL.
 
-But, unfortunately, sometimes a lot of the data included in case of such large dataset, might be junk.
+Say, we have tested 100 alternate hypotheses. The probability of getting at least one significant result with $\alpha$ = 0.05 can be computed as follows:
 
-We can make multiple assumptions from such data. But, while doing so, we may consider some useless data/patterns that might hamper our results and lead to the pitfall of believing in hypotheses, that are not actually true.
-
-This is common when performing multiple hypothesis testing.
-
-Multiple hypothesis testing refers to any instance that involves the simultaneous testing of more than one hypothesis.
-
-Let’s consider the example of Traffic dataset.
-
-- We have given two tunnels ”Holland” and “Lincoln”, but what if we were given all the tunnels in the US? 
-- We can make a lot of hypotheses in that case. 
-- And for each set of hypothesis, would you still consider the value of α as 0.05 as the cut-off for P-value? 
-
-It may seem to be a good idea to just go and check the p-value for any set of hypotheses with the cut-off value of $\alpha$ as 0.05. 
-
-But this might not give you the correct answer always. 
-
-If you have 100 different hypotheses to consider in the data, then the probability of getting at least one significant result with $\alpha = 0.05$ will be,
 $$P(\text{at least one significant result}) = 1- (1-0.05)^{100} ≈ 0.99$$
 
-This means that if we consider 0.05 as our cut-off value, then the probability of getting at least one significant result will be about 99%, which leads to overfitting of data and it clearly doesn’t give us proper idea about our hypothesis. 
-
-Methods for dealing with multiple testing frequently call for adjusting $\alpha$ in some way, so that the probability of observing at least one significant result due to chance remains below your desired significance level.
+This means that if we continue to consider 0.05 as the critical value for p-value, then the probability of getting at least one significant result will be about 99%, which leads to  false rejection of the NULL. The more hypotheses we test, we randomly will find one which will reject the NULL. Does it mean that testing multiple alternate hypotheses is forbidden?  No, it cannot be. We do it all the time. We just have to change our p-value requirements. It has to be much harder to reject the NULL, when testing multiple alternate hypotheses.  
 
 One such method for adjusting $\alpha$ is *BONFERRONI CORRECTION!*
 
@@ -335,15 +102,17 @@ Again, let’s calculate the probability of observing at least one significant r
 $$P(\text{at least one significant result}) = 1 − P(\text{no significant results}) \\
 = 1 − (1 − 0.0005)^{100} ≈ 0.048$$
 
-This gives us 4.8% probability of getting at least one significant result. 
+This gives us a 4.8% probability of getting at least one significant result randomly under NULL hypothesis.  It is less than 5% and we can reject the NULL, after Bonferroni correction.
 
-As we can see this value of probability using Bonferroni correction is much better than the 99% which we saw before when  we did not use correction for performing multiple hypothesis testing.
+As we can see this value of probability using Bonferroni correction is much better than the 99% which we saw before when we did not use correction for performing multiple hypothesis testing.
 
-But there are some downfall of using Bonferroni correction too. (Although for the scope of this course Bonferroni Correction works fine.)
+The challenge in calculating the Bonferroni correction is correct estimation of the number of multiple hypotheses tested. How do we know what this number really is? For example, if we want to find two items in a supermarket which sell together more often than expected, we may find such a pair after testing all possible pairs of items. With a total number of items in thousands, this would lead to millions of possible pairs and millions of hypotheses tested. Bonferroni correction would then exceed million, and possibly even tens of millions. This would lead to miniscule critical value of 10^-7 or less for the p-value to meet.  
 
-  - The Bonferroni correction tends to be a bit too conservative. 
-  - Also, we benefit here from assuming that all tests are independent of each other. In practical applications, that is often not the case. 
-  - Depending on the correlation structure of the tests, the Bonferroni correction could beextremely conservative, leading to a high rate of false negatives.
+One may consider it too strict. In fact, the data scientist performing these tests may argue that s/he found the correlated pair of items after only 10 tests, not several millions of tests. Should one trust the data scientist? Or should the worst case number of necessary tests be considered?  Both solutions are problematic. The former one relies on trust, why should we trust the data scientist? The latter one seems to conservative and stringent, making it virtually impossible to reject the NULL. This applies in particular to multidimensional data with a large number of dimensions.  
+
+The larger number of dimensions, the larger (and exponentially so) the potential number of multiple hypotheses. Thus, even though there is more potential for exciting associations, the threshold for p-value is also more and more unlikely to be met. Thus rejection of NULL is exponentially harder. Dimensions (variables) may be correlated, and often are, but Bonferoni protects us assuming all hypotheses are independent. Too conservative and too pessimistic. These are concerns about the Bonferroni coefficient. 
+
+For sure, however, the Bonferoni coefficient protects us against false rejection of NULL. It may prevent us from correct rejection of NULL, though.
 
 ---
 

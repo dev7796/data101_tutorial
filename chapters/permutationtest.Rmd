@@ -3,12 +3,11 @@
 <script src="files/js/dcl.js"></script>
 
 
-Permutation test allows us to observe randomness directly, with naked eye, without the lenses of statistical tests such as z-tests etc. We shuffle data randomly like a deck of cards. There may be many such shuffles - 10,000, 100,000 etc. The goal is always to see how often we can obtained the observed difference of means (since we are testing either one sided or two sided hypothesis), by purely random shuffles of our data. These permutations (shuffles) destroy all relationships which may pre-exist in our data. We are hoping to show that our observed difference of means can be obtained very rarely in completely random fashion. Then we "experimentally" show that our result is unlikely to randomly occur under null hypothesis. Then we can reject the null hypothesis.
+Permutation test allows us to observe randomness directly, with naked eye, without the lenses of statistical tests such as z-tests etc. We shuffle data randomly like a deck of cards. There may be many such shuffles - 10,000, 100,000 etc. The goal is always to see how often we can obtain the observed difference of means (since we are testing either one sided or two sided hypothesis), by purely random shuffles of our data. These permutations (shuffles) destroy all relationships which may pre-exist in our data. We are hoping to show that our observed difference of means can be obtained very rarely in completely random fashion. Then we “experimentally” show that our result is unlikely to randomly occur under null hypothesis. Then we can reject the null hypothesis.
 
-The less often our result appear in the histogram of permutation test results, the better the news for our alternative hypothesis. 
+The less often our results appear in the histogram of permutation test results, the better the news for our alternative hypothesis.
 
-
-What is surprising to many newcomers, is that permutation test will give different p-values (not dramatically different, but still different) in each run of permutation test. This is the case because permutation test in random itself. It is not like z-test which will give the same result when run again for the same hypothesis and same data set. Also p-value computed by permutation test will be, in general, different than p-value computed by z-test. Not very different but different. Again, it is the case because permutation test provides only approximation of p-value. Great advantage of permutation test is that it is universal and robust. One can test different relationships between two variables than just difference of means. For example we can use permutation test to validate whether traffic in Lincoln tunnel is more than twice the traffic in Holland tunnel or even provide different weights for different days of the week.
+What is surprising to many newcomers, is that the permutation test will give different p-values (not dramatically different, but still different) in each run of the permutation test. This is the case because the permutation test is random itself. It is not like for example a z-test  which will give the same result when run again for the same hypothesis and same data set. Also the p-value computed by the permutation test will be, in general, different from the p-value computed by z-test. Not very different but different. Again, it is the case because the permutation test provides only an approximation of p-value. Great advantage of the permutation test is that it is universal and robust. One can test different relationships between two variables rather than just difference of means. For example we can use a permutation test to validate whether traffic in Lincoln tunnel is more than twice the traffic in Holland tunnel or even provide different weights for different days of the week.
 
 
 ```{r, include=FALSE}
@@ -19,13 +18,11 @@ tutorial::go_interactive(greedy = FALSE)
 
 ### Permutation Test One Step {#permonestep}
 
-- Permutation test in one step  is the most direct way to see randomness close by. One step permutation function shows one single data shuffle. By shuffling the data one destroys associations which exist between values of the data frame. This make data frame random. 
+- One step Permutation test  is the most direct way to see randomness close by. One step permutation function shows one single data shuffle. By shuffling the data one destroys associations which exist between values of the data frame. This makes the data frame random.
 
-- You can execute the one step permutation multiple times. This will show how data frame varies and how does it affect the observed difference of means.
+- You can execute the one step permutation multiple times. This will show how the data frame varies and how it affects the observed difference of means.
 
-- Apply one step permutation function first, multiple times before you move to the proper Permutation test function. One of the parameters of the Permutation test function
-specifies the number of "shuffles" which will be preformed. This could be a very large number, 10,000 or even 100,000. The purpose of making so many random permutations is to test how often observed difference of means can arise in just random data. The more often this takes place, the more likely you observation is just random. To reject the null hypothesis you need to show that the observed difference of means will come very infrequently in permutation test. Less than 5% of the time, to be exact.
-
+- Apply one step permutation function first, multiple times before you move to the proper Permutation test function. One of the parameters of the Permutation test function specifies the number of “shuffles”  that will be performed. This could be a very large number, 10,000 or even 100,000. The purpose of making so many random permutations is to test how often observed differences of means can arise in just random data. The more often this takes place, the more likely your observation is just random. To reject the null hypothesis you need to show that the observed difference of means will come very infrequently in the permutation test. Less than 5% of the time, to be exact.
 
 
 ```{r ,tut=TRUE,ex="permutationtestonestep",type="pre-exercise-code"}
@@ -53,11 +50,9 @@ cat("The mean difference of original data: ", D) # Difference of mean value of o
 
 ### Permutation Function {#permfunction}
 
-- The permutation function is used to run multiple iteration of the one-step permutation studied above, to get a complete relational understanding between the components involved in any hypothesis. 
+- The Multi- step permutation function is used to run multiple iterations of the one-step permutation studied above, to get a complete relational understanding between the components involved in any hypothesis.
 
-- Here you can run the example of running the permutation test on the Traffic.csv dataset, on volume of traffic in Holland and Lincoln Tunnel.
-
-
+- Run the example of  permutation test on the Traffic.csv dataset
 
 ```{r,tut=TRUE,ex="permutationtestfunction",type="pre-exercise-code"}
 traffic<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/TRAFFIC.csv')
@@ -100,7 +95,6 @@ Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
 
 ```
 
-
 - Note: You can find the permutation function code here: [Permutation()](https://raw.githubusercontent.com/devanshagr/PermutationTestSecond/master/R/hello.R)
 
 - **NOTE**: The red line in the output plots of the permutation test function is not the p-value, but it is just the difference of the value of means of the two categories under test. 
@@ -108,14 +102,15 @@ Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
 
 ### Exercise - How p-value is affected by difference of means and standard deviations {#aniceexample}
 
-- Here, you can generate your own data by changing parameters of the rnorm() function. 
+- Here, you can generate your own data by changing parameters of the rnorm() function. See how changing the mean and standard deviation (sd)  in rnorm distributions affects the p-value! 
 
-- See how changing the mean and sd in rnorm distributions affects the p-value! 
-Again you can do it *directly in the code* and observe the results immediately.
-It is very revealing.. Think of Val1, and Val2 as traffic volumes in Holland and Lincoln tunnels respectively.  The larger the difference between the means of rnorm() function the smaller the p-value - since it is less and less likely that observed difference of means would come frequently, due to random shuffles of permutation function.  
-- Now keep the same means and change the variances. See how changing the variances in rnorm() will affect the p-value and try to explain the effect that standard deviations have on the p-value. In general, the higher the standard deviation, the more widely data is centered around the mean. Thus even for the same two means, and two different value of deviations, we can see larger value of deviation to lead to higher p-value. Since we are less certain of the role of the "mean"  if standard deviation is higher. Therefore, the chance of randomly obtaining the observed result, is higher.
+- Again you can do it directly in the code and observe the results immediately. It is very revealing.
 
+- See how changing the mean and sd in rnorm distributions affects the p-value!
 
+- Think of Val1, and Val2 as traffic volumes in Holland and Lincoln tunnels respectively. The larger the difference between the means of rnorm() function the smaller the p-value - since it is less and less likely that observed difference of means would come frequently, due to random shuffles of permutation function. In other words, it is more likely that the observed difference is real and it reflects the real difference in traffic volume between the two tunnels. 
+
+- Now keep the same means and change the standard deviations (sd). See how changing the standard deviations  in rnorm() will affect the p-value and try to explain the effect that standard deviations have on the p-value. In general, the higher the standard deviation, the more widely the data is centered around the mean. Thus, for the same two means, we can see that  larger values of  standard deviations  lead to higher p-values. If standard deviation is higher, with the same mean, the chance of randomly obtaining the observed result is higher leading to higher p-value.
 
 ```{r,tut=TRUE,ex="permutationniceexample",type="pre-exercise-code"}
 
