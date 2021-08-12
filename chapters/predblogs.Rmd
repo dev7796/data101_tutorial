@@ -222,8 +222,6 @@ Another reason could be  getting away with overfitting - since even though we ha
 
 ### Top Submissions for Challenge 1.
 
-Students with accuracy over 60% were considered passed for this prediction challenge.
-
 1. *Jeremy Prasad*     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred11">Jeremy's PPT</button>
 <div id="pred11" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/jeremypred1.pdf&embedded=true" width="100%" height="500px"></embed>
@@ -304,8 +302,6 @@ As we saw that the prediction task and the datasets in challenge 2 are similar t
 ---
 
 ### Top Submissions for Challenge 2
-
-Since rpart() is a very powerful function to find patterns with higher accuracy, the passing criteria for this challenge was above 80% accuracy score.
 
 1. Kevin Larkin    <button class="btn btn-primary" data-toggle="collapse" data-target="#pred21">Kevin's PPT</button>
 <div id="pred21" class="collapse">    
@@ -471,8 +467,6 @@ Explanation of how the perfect model could be so soundly beaten is “getting aw
 
 
 ### Top Submissions for Challenge 3
-
-For this prediction challenge, the MSE score below 30000 was considered a Passing score.
 
 1. Seok Yim     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred31">Seok's PPT</button>
 <div id="pred31" class="collapse">    
@@ -662,8 +656,6 @@ We suspect that adding noise to the linear formulas defining OUTPUT for differen
 ---
 
 ### Top Submissions for Challenge 4
-
-Since this challenge involved stochastically generated data, the prediction accuracy required for passing this challenge was above 60%.
 
 1. Nicole Coria     <button class="btn btn-primary" data-toggle="collapse" data-target="#pred41">Nicole's PPT</button>
 <div id="pred41" class="collapse">    
