@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-08-11" />
+<meta name="date" content="2021-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <p>Each prediction challenge is based on the training data generated synthetically with some embedded patterns. Students can either build their own prediction models from scratch (coding their own prediction models without using R libraries, “free style”) or utilize R libraries for a multitude of machine learning methods. These methods range from decision trees (rpart, recursive partitioning) through linear regression (lm), svm and even neural networks. Students test their prediction models on the testing data. We use Kaggle to automatically calculate the prediction errors and rank student solutions by prediction accuracy. Depending on the type of independent, target variable we use either prediction accuracy or MSE.</p>
 <p>As data creators we know the method of data generation, therefore we can construct the <em>perfect</em> prediction model, Accuracy of the perfect prediction model provides a soft upper bound for prediction accuracy of all possible prediction models, created without knowing how data was generated. Thus, there is no general, absolute, notion of a “good” prediction model. It all depends on the data. Sometimes prediction accuracy of 60% is excellent. For other data sets, accuracy of 95% may not be good enough.</p>
-<p>If the accuracy of a prediction model is near the accuracy of a perfect prediction model, such a model is definitely good. Turns out that, to our initial surprise, for some data sets, students created prediction models with better accuracy than corresponding perfect prediction models. We will discuss it below.</p>
+<p>If the accuracy of a prediction model is near the accuracy of a perfect prediction model, such a model is definitely good.</p>
 <!--Until we have studied multiple methods of data analysis in sections \@ref(freestyle),\@ref(datatransformation), statistical testing in sections \@ref(stateval), &   building prediction models for both classification \@ref(classification) and regression \@ref(regression) along with advanced ML models \@ref(models).
 
 Now its time to utilize them in various ways for  analysis and prediction of data.
@@ -670,10 +670,9 @@ Lets look at the snippet of the moody dataset for testing. -->
 <div id="how-the-data-was-generated-for-challenge-1" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> How the data was generated for Challenge 1</h3>
 <p>Professor Moody’s data set has been synthetically generated using a random generator which follows probabilistic rules implementing “secret patterns” which we embedded in the data.</p>
-<p>These patterns are presented below in the form of a decision tree. For example, a rule that Statistics majors with scores over 60, pass the class - reflects the generated data in which a high percentage (but not 100%) of students majoring in Statistics indeed pass Moody’s class. There will always be random exceptions to these rules. But majority of Statistics students with score above 60 will pass the class</p>
-<p>The data is based on a tree given by the following conditions:</p>
-<pre class="text"><code>Tree which is embedded in the data (secret pattern for Moody -challenge1/2)
-
+<p>These patterns are presented below in the form of a decision tree. For example, a rule that Statistics majors with scores over 60, pass the class - reflects the generated data in which a high percentage (90% to be exact) of students majoring in Statistics indeed pass Moody’s class.. Stats students with scores below 60 fail the class in 80% of the cases. Similar rules were applied to all other majors.</p>
+<p>Based on the way data was generated, the prediction model can be built. We call it the perfect prediction model, since it is constructed with knowledge how data was generated. This model follows the following tree:</p>
+<pre class="text"><code>
 Major
    Stat
       Score &gt; 60 Pass
@@ -703,41 +702,34 @@ Major
                Score &lt;=50        Fail
          Seniority= Junior       Fail
          Seniority = Senior Fail </code></pre>
-<p>We can see this in pictorial representation below based on each subset of Majors. Clearly rules differ for different Majors. In other words each Major has a different grade prediction model.</p>
-<ul>
-<li>For Stats Major:
-<ul>
-<li>We can see that the rule was very simple, with the final grade decided.</li>
-<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1stat.svg" title="fig:" alt="The tree used for predicting Stats Major students grade" /></li>
-</ul></li>
-<li>For Communication Major Students:
-<ul>
-<li>The grade prediction model for Communication majors depended not only on the Score attribute but also on the Texting attribute of the students records.</li>
-<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1comm.svg" title="fig:" alt="The tree used for predicting Communications Major students grade" /></li>
-</ul></li>
-<li>For Political Science Major Students:
-<ul>
-<li>The grade prediction model for students majoring in Political Science Major is based not only on the Score attribute but also based on the Questions attribute of the students records.</li>
-<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1polsc.svg" title="fig:" alt="The tree used for predicting Political Science Major students grade" /></li>
-</ul></li>
-<li>For Computer Science Major Students:
-<ul>
-<li>The grade prediction model for students majoring in Computer Science was the most complex .</li>
-<li>Attributes like <em>Score, Seniority and Attendance</em> were involved in prediction model and the subsetting conditions were quite complex.</li>
-<li><img src="https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1cs.svg" title="fig:" alt="The tree used for predicting Communications Major students grade" /></li>
-</ul></li>
-<li><strong>How the data was generated using R</strong>
-<ul>
-<li>The code below implements perfect prediction model using the above data generation rules.</li>
-</ul></li>
-</ul>
+<p>The code below implements perfect prediction model using the above prediction model rules
+<!--We can see this in pictorial representation below based on each subset of Majors. Clearly rules differ for different Majors. In other words each Major has a different grade prediction model.
+
+- For Stats Major:
+  - We can see that the rule was very simple, with the final grade decided.
+  - ![The tree used for predicting Stats Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1stat.svg)
+
+- For Communication Major Students:
+  - The grade prediction model  for Communication majors depended not only on the Score attribute but also on the Texting attribute of the students records.
+  - ![The tree used for predicting Communications Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1comm.svg)
+
+- For Political Science Major Students:
+  - The grade prediction model  for students majoring in  Political Science Major is based not only on the Score attribute but also based on the Questions attribute of the students records.
+  - ![The tree used for predicting Political Science Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1polsc.svg)
+  
+- For Computer Science Major Students:
+  - The grade prediction model for students  majoring in  Computer Science  was the most complex .
+  - Attributes like *Score, Seniority and Attendance* were involved in prediction model and the subsetting conditions were quite complex. 
+  - ![The tree used for predicting Communications Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1cs.svg)
+  
+- **How the data was generated using R**
+  - The code below implements  perfect prediction model using the above data generation rules.--></p>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgRGF0YVxuZGF0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZWVwbG9raGFuZGUvZGF0YTEwMWRlbW9ib29rL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMXRlc3Qtc3R1ZGVudHMuY3N2XCIsc3RyaW5nc0FzRmFjdG9ycyA9IFQpXG5cbiMgQ3JlYXRlIGFuIGFsbCBGYWlsIENhdGVnb3J5L1ByZWRpY3RlZCBWYWx1ZSBWZWN0b3IgYW5kIGFwcGVuZCBpdCB0byB0aGUgdGVzdGluZyBkYXRhc2V0LlxuZGF0JEdyYWRlPC1yZXAoJ0ZhaWwnLCBucm93KGRhdCkpXG5cbiMgVGhlIHZhcmlvdXMgY29uZGl0aW9ucyB1c2VkIHRvIHByZWRpY3QgZ3JhZGUgYXR0cmlidXRlLlxuXG4jIEZvciBNYWpvciA9IFN0YXRcbmRhdFtkYXQkTWFqb3I9PSdTdGF0JyAmIGRhdCRTY29yZT42MCxdJEdyYWRlIDwtJ1Bhc3MnXG5cbiMgRm9yIE1ham9yID0gQ29tbVxuZGF0W2RhdCRNYWpvcj09J0NvbW11bmljYXRpb24nICYgZGF0JFNjb3JlPjQwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDb21tdW5pY2F0aW9uJyAmIGRhdCRTY29yZTw9NDAgJiBkYXQkVGV4dGluZz09J0Fsd2F5cycsXSRHcmFkZSA8LSdQYXNzJ1xuXG4jIEZvciBNYWpvciA9IFBvbHNjaVxuZGF0W2RhdCRNYWpvcj09J1BvbHNjaScgJiBkYXQkU2NvcmU+NTAsXSRHcmFkZSA8LSdQYXNzJ1xuZGF0W2RhdCRNYWpvcj09J1BvbHNjaScgJiBkYXQkU2NvcmU8PTUwICYgZGF0JFF1ZXN0aW9ucz09J0Fsd2F5cycsXSRHcmFkZSA8LSdQYXNzJ1xuXG4jIEZvciBNYWpvciA9IENzXG5kYXRbZGF0JE1ham9yPT0nQ3MnICYgZGF0JFNjb3JlPjcwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDcycgJiBkYXQkU2NvcmU8PTcwICYgZGF0JFNlbmlvcml0eT09J0ZyZXNobWFuJyAmIGRhdCRTY29yZT41MCxdJEdyYWRlIDwtJ1Bhc3MnXG5kYXRbZGF0JE1ham9yPT0nQ3MnICYgZGF0JFNjb3JlPD03MCAmIGRhdCRTZW5pb3JpdHk9PSdGcmVzaG1hbicgJiBkYXQkQXR0ZW5kYW5jZSA+PTYwICYgZGF0JFNjb3JlPjQwLF0kR3JhZGUgPC0nUGFzcydcbmRhdFtkYXQkTWFqb3I9PSdDcycgJiBkYXQkU2NvcmU8PTcwICYgZGF0JFNlbmlvcml0eT09J1NvcGhvbW9yZScgJiBkYXQkU2NvcmU+NTAsXSRHcmFkZSA8LSdQYXNzJ1xuXG5cbiMgQ29tcGFyZSBpdCB3aXRoIHRoZSBpZGVhbCBwcmVkaWN0aW9ucyBmb3IgY2hlY2tpbmcgYWNjdXJhY3kgb2Ygb3VyIHByZWRpY3Rpb25zLlxuYW5zd2VyczwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvTTIwMjF0ZXN0X2Fuc3dlci5jc3ZcIixzdHJpbmdzQXNGYWN0b3JzID0gVClcbm1lYW4oZGF0JEdyYWRlPT1hbnN3ZXJzJEdyYWRlKSAjIEFjY3VyYWN5In0=
 </div>
-<p>Accuracy of the perfect prediction model defined above was around 83% on the testing data set.
-In the next section we review some top student submissions. Surprisingly all top 10 student solutions achieve accuracy beating the ideal 83% accuracy by a solid few percentage points. In other words, these students do better than the prediction model which is fully aware of the rules used in data generation! How is this possible?</p>
-<p>There may be several reasons for this. First,the synthetically generated data satisfies some spurious, random patterns, in addition to the patterns built into the data generation process. The smaller the generated data set, the more likely these spurious patterns are. Perfect prediction model will not incorporate these spurious patterns. Prediction models built by students on the basis of the training data set may take advantage of these spurious patterns. Summarizing, the actual data set has some additional noise, and some random patterns which are generated as unintended side effects of our generation procedure.</p>
-<p>The larger our generated data sets are, the less prominent these spurious patterns are. Typically our data sets have a few thousand tuples. This is not large enough to combat the law of small numbers - some extreme patterns appearing randomly.</p>
+<p>Accuracy of the perfect prediction model defined above was around 83% on the testing data set.</p>
+<p>In the next section we review some top student submissions. Surprisingly all top 10 student solutions achieve accuracy beating the ideal 83% accuracy by a solid few percentage points. In other words, these students do better than the prediction model which is fully aware of the rules used in data generation! How is this possible?</p>
+<p>There may be several reasons for this. First,the synthetically generated data satisfies some spurious, random patterns, in addition to the patterns built into the data generation process. The smaller the generated data set, the more likely these spurious patterns are. Perfect prediction model will not incorporate these spurious patterns. Prediction models built by students on the basis of the training data set may take advantage of these spurious patterns. Summarizing, the actual data set has some additional noise, and some random patterns which are generated as unintended side effects of our generation procedure. The larger our generated data sets are, the less prominent these spurious patterns are. Typically our data sets have a few thousand tuples. This is not large enough to combat the law of small numbers - some extreme patterns appearing randomly.</p>
 <p>Another reason could be getting away with overfitting - since even though we have used testing data which is different from training data, we only tested the student prediction models once, against one specific test data set. The students’ models may have overfit the training data and testing data as well (since only one testing data set was used). If we tested against multiple testing data sets, this overfitting effect may have vanished.</p>
 <hr />
 </div>

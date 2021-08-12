@@ -13,8 +13,7 @@ Each prediction challenge is based on the training data generated synthetically 
 
 As data creators we know the method of data generation, therefore we can construct the *perfect* prediction model, Accuracy of the perfect prediction model provides a soft upper bound for prediction accuracy of all possible prediction models, created without knowing how data was generated. Thus, there is no general, absolute,  notion of a “good” prediction model. It all depends on the data. Sometimes prediction accuracy of 60% is excellent. For other data sets, accuracy of 95% may not be good enough.  
 
-If the accuracy of a prediction model is near the accuracy of a perfect prediction model, such a model is definitely good. Turns out that, to our initial surprise, for some data sets, students created prediction models with better accuracy than corresponding perfect prediction models. We will discuss it below.
-
+If the accuracy of a prediction model is near the accuracy of a perfect prediction model, such a model is definitely good.
 
 <!--Until we have studied multiple methods of data analysis in sections \@ref(freestyle),\@ref(datatransformation), statistical testing in sections \@ref(stateval), &   building prediction models for both classification \@ref(classification) and regression \@ref(regression) along with advanced ML models \@ref(models).
 
@@ -116,13 +115,12 @@ Lets look at the snippet of the moody dataset for testing. -->
 
 Professor Moody's data set has been synthetically generated using a random generator which follows probabilistic rules implementing “secret patterns” which we embedded in the data.
 
-These patterns are presented below in the form of a decision tree. For example, a rule that Statistics  majors with scores over 60, pass the class - reflects the generated data in which a high percentage (but not 100%) of  students majoring in Statistics indeed pass Moody’s class. There will always be random exceptions to these rules. But majority of Statistics students with score above 60 will pass the class
+These patterns are presented below in the form of a decision tree. For example, a rule that Statistics  majors with scores over 60, pass the class - reflects the generated data in which a high percentage (90% to be exact) of  students majoring in Statistics indeed pass Moody’s class.. Stats students  with scores below 60 fail the class in 80% of the cases.  Similar rules were applied to all other majors.
 
-The data is based on a tree given by the following conditions:
+Based on the way data was generated, the prediction model can be built. We call it the perfect prediction model, since it is constructed with knowledge how data was generated. This model follows the following tree:
 
 
 ``` text
-Tree which is embedded in the data (secret pattern for Moody -challenge1/2)
 
 Major
    Stat
@@ -155,7 +153,8 @@ Major
          Seniority = Senior Fail 
 ```
 
-We can see this in pictorial representation below based on each subset of Majors. Clearly rules differ for different Majors. In other words each Major has a different grade prediction model.
+The code below implements perfect prediction model using the above prediction model rules 
+<!--We can see this in pictorial representation below based on each subset of Majors. Clearly rules differ for different Majors. In other words each Major has a different grade prediction model.
 
 - For Stats Major:
   - We can see that the rule was very simple, with the final grade decided.
@@ -175,7 +174,7 @@ We can see this in pictorial representation below based on each subset of Majors
   - ![The tree used for predicting Communications Major students grade](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/predblog/pred1cs.svg)
   
 - **How the data was generated using R**
-  - The code below implements  perfect prediction model using the above data generation rules.
+  - The code below implements  perfect prediction model using the above data generation rules.-->
   
 ```{r,height=700}
 # Load Data
@@ -210,13 +209,13 @@ mean(dat$Grade==answers$Grade) # Accuracy
 ```
 
 Accuracy of the perfect prediction model defined above  was around 83% on the testing data set.
+
 In the next section we review some top student submissions. Surprisingly all top 10 student solutions achieve accuracy beating the ideal 83% accuracy by a solid  few percentage points. In other words, these students do better than the prediction model which is fully aware of the rules used in data generation!  How is this possible?
 
-There may be several reasons for this. First,the synthetically generated data satisfies some spurious, random patterns, in addition to the patterns built into the data generation process. The smaller the generated data set, the more likely these spurious patterns are. Perfect prediction model will not incorporate these spurious patterns. Prediction models built by students on the basis of the training data set may take advantage of these spurious patterns. Summarizing, the actual data set has some additional noise, and some random patterns which are generated as unintended side effects of our generation procedure. 
-
-The larger our generated data sets are, the less prominent these spurious patterns are. Typically our data sets have a few thousand tuples. This is not large enough to combat the law of small numbers - some extreme patterns appearing randomly. 
+There may be several reasons for this. First,the synthetically  generated data satisfies some spurious, random patterns, in addition to the patterns built into the data generation process. The smaller the generated data set, the more likely these spurious patterns are.  Perfect prediction model will not incorporate these spurious patterns. Prediction models built by students on the basis of the training data set may take advantage of these spurious patterns. Summarizing, the actual data set has some additional noise, and some random patterns which are generated as unintended side effects of our generation procedure. The larger our generated data sets are, the less prominent these spurious patterns are.  Typically our data sets have a few thousand tuples. This is not large enough to combat the law of small numbers - some extreme patterns appearing randomly. 
 
 Another reason could be  getting away with overfitting - since even though we have used testing data which is different from training data, we only tested the student prediction models once, against  one specific test data set. The students' models may have  overfit the training data and testing data as well (since only one testing data set was used).   If we tested against multiple testing data sets, this overfitting effect may have vanished. 
+
 
 
 ---
