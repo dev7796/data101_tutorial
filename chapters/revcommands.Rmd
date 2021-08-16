@@ -127,7 +127,7 @@ max(moody$score)
 - More use of table() is when you use multiple categorical columns. For example, we'll see the count of *grade* vs *asks_questions* in example 2.
 
 ```{r,height=700}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 
 tableex1<- table(moody$GRADE) #Use of table  function on the new column.
@@ -143,7 +143,7 @@ mosaicplot(tableex2,col =c("red","purple","cyan","yellow","green"),main = "table
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
 #What will R say?
@@ -155,7 +155,7 @@ table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
 #What will R say?
@@ -181,7 +181,7 @@ table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
 - The first part inside the square brackets corresponds to rows.  The second part corresponds to columns.
     
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 
 #Subset of rows
@@ -213,7 +213,7 @@ dim(moody_except8_never)# You can see only student never on smartphones without 
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 moody[moody$SCORE>=90,3]
 # What will R say?
@@ -229,7 +229,7 @@ moody[moody$SCORE>=90,3]
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
 # What will R say?
@@ -253,7 +253,7 @@ moody[moody$SCORE>=80.0 & moody$GRADE =='B',]
 -  We can also factor it on multiple attributes.
 
 ```{r,height=700}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 
 # To apply tapply() on SCORE factored on ON_SMARTPHONE
@@ -275,7 +275,7 @@ barplot(moody.scoreavg2d,col=c("red","cyan","orange","blue"),main = "tapply() ex
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 tapply(moody, GRADE, SCORE, min)
 # What will R say?
@@ -290,7 +290,7 @@ tapply(moody, GRADE, SCORE, min)
 ### Question What would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
 # What will R say?
@@ -308,7 +308,7 @@ tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
 - cut() function in R Language is used to divide a **numeric vector** into different ranges
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 
 # We access the Score column from moody dataset.
@@ -325,7 +325,7 @@ table(score1)
 ### QuestionWhat would R say?
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 cut(moody$SCORE, breaks=c(0,25,70,100),labels=c("low", "medium", "high"))
 #What would R say?
@@ -342,7 +342,7 @@ cut(moody$SCORE, breaks=c(0,25,70,100),labels=c("low", "medium", "high"))
 
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 output<-cut(moody$SCORE, 5)
 summary(output)
@@ -360,7 +360,7 @@ summary(output)
 
 
 ```{r}
-moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101_test/main/MOODY-2019.csv")
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
 
 output<-cut(moody$ASKS_QUESTIONS, 2)
 summary(output)
