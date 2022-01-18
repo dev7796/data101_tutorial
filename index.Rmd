@@ -15,7 +15,7 @@ documentclass: book
 # bibliography: [book.bib, packages.bib]
 # biblio-style: apalike
 # link-citations: yes
-description: "This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://dev7796.github.io/Data101_TextBook/) Published using Bookdown for R."
+description: "This is a example of a interactive book for DATA 101 Course thought by Prof. Tomasz Imielinski (http://data101.cs.rutgers.edu/) Find the demo site at (https://dev7796.github.io/data101_tutorial/) Published using Bookdown for R."
 ---
 
 

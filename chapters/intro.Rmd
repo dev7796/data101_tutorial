@@ -1,11 +1,7 @@
 # Introduction {#intro}
 
-<script src="files/js/dcl.js"></script>
 
-```{r ,include=FALSE}
-tutorial::go_interactive()
 
-```
 
 
 <!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
@@ -48,7 +44,7 @@ In the following sections we will address these questions and go through the pro
 - We will start with making plots, follow with free style data exploration – which allows us to form the leads, that is hypotheses. Then we will follow with simple statistical tests which will allow us to validate these hypothesis and defend our findings against randomness claims. - We will learn how to calculate p-values and how to use them to defend our findings. 
 - We will use as few R commands as possible and reach our goal in the shortest possible path. In fact we will demonstrate how using just 7 R commands we can perform quite sophisticated data exploration.  In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the  shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries.  In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge (we show them in appendix).  We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.
 
-## Setting Up R 
+# Setting Up R 
 
 - **Important Instructions**
   - Installation of R is required before installing RStudio
@@ -90,14 +86,33 @@ In the following sections we will address these questions and go through the pro
 
 ---
 
-- __How to upload a data set?__
+# How to upload a data set?
+<script src="files/js/dcl.js"></script>
+```{r ,include=FALSE}
+tutorial::go_interactive()
+
+```
 
  - To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.
  - Let us look at the example.
  
+ **Note: **
+The directory path given here is the current working directory hosted on *Github* where the dataset has been stored. 
+
+- There are two options while accessing the dataset from your local machine:
+  1. To avoid giving long directory paths for accessing the dataset, one should use the command **getwd()** to get the current working directory and store the dataset in the same directory. To access the dataset stored in the same directory one can use the following: **read.csv("moody2020.csv")**
+  2. One can also store the dataset at a different location and can access the following it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)
+    - For Windows Users.
+      - Example: **read.csv("C:/Users/Desktop/Data101_Tutorials/moody2020.csv")**
+
+    - For MAC Users.
+      - Example: **read.csv("/Users/Desktop/Data101_Tutorials/moody2020.csv")**
+          
+ 
 ```{r, tut=TRUE}
+
 # Read in the data
-df <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv")
+df <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
 # Print out `df`
 head(df)
