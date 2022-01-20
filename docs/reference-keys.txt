@@ -1,0 +1,6 @@
+tab:unnamed-chunk-4
+intro
+setting-up-r
+how-to-upload-a-data-set
+plots
+scatter-plot

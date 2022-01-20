@@ -5,15 +5,9 @@ tutorial::go_interactive( greedy = FALSE)
 
 ```
 
-*Lecture presentation:* <button class="btn btn-primary" data-toggle="collapse" data-target="#pred11">Plots PPT</button>
-<div id="plot1" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/pred/jeremypred1.pdf&embedded=true" width="100%" height="500px"></embed>
-</div>
-
-
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf") #web load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
 # head(moody)
 
 temp<-knitr::kable(
