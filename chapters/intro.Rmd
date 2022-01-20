@@ -101,7 +101,7 @@ The directory path given here is the current working directory hosted on *Github
 
 - There are two options while accessing the dataset from your local machine:
   1. To avoid giving long directory paths for accessing the dataset, one should use the command **getwd()** to get the current working directory and store the dataset in the same directory. To access the dataset stored in the same directory one can use the following: **read.csv("moody2020.csv")**
-  2. One can also store the dataset at a different location and can access the following it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)
+  2. One can also store the dataset at a different location and can access it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)
     - For Windows Users.
       - Example: **read.csv("C:/Users/Desktop/Data101_Tutorials/moody2020.csv")**
 
