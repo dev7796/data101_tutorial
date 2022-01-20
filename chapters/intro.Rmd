@@ -94,10 +94,6 @@ tutorial::go_interactive()
 ```
 
  - To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.
- - Let us look at the example.
- 
- **Note: **
-The directory path given here is the current working directory hosted on *Github* where the dataset has been stored. 
 
 - There are two options while accessing the dataset from your local machine:
   1. To avoid giving long directory paths for accessing the dataset, one should use the command **getwd()** to get the current working directory and store the dataset in the same directory. To access the dataset stored in the same directory one can use the following: **read.csv("moody2020.csv")**
@@ -108,7 +104,8 @@ The directory path given here is the current working directory hosted on *Github
     - For MAC Users.
       - Example: **read.csv("/Users/Desktop/Data101_Tutorials/moody2020.csv")**
           
- 
+**Note: **
+The directory path given here is the current working directory hosted on *Github* where the dataset has been stored.
 ```{r, tut=TRUE}
 
 # Read in the data
