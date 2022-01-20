@@ -13,7 +13,7 @@ tutorial::go_interactive( greedy = FALSE)
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/blob/main/files/pred/Plots-2022.pdf") #web load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf") #web load
 # head(moody)
 
 temp<-knitr::kable(
