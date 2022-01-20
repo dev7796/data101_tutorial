@@ -2,7 +2,8 @@ book_filename: "bookdemo"
 output_dir: "docs"
 delete_merged_file: true
 rmd_files: [
-  "./chapters/intro.Rmd",]
+  "./chapters/intro.Rmd",
+  "./chapters/plots.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:

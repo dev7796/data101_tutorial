@@ -1,13 +1,10 @@
-# Data Exploration {#dataexp}
-
+# Plots {#plots}
 <script src="files/js/dcl.js"></script>
 ```{r ,include=FALSE}
 tutorial::go_interactive( greedy = FALSE)
 
 ```
 
-
-## Plots {#plots}
 
 
 ```{r,echo=FALSE}
@@ -34,7 +31,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 ---
 
-### Scatter Plot
+## Scatter Plot
 
 - Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)
 - Hence it is used when both the labels are numerical values.
@@ -49,7 +46,7 @@ plot(moody$participation,moody$score,ylab="score",xlab="participation",main=" Pa
 
 
 ```
-
+<!--
 
 ---
 
@@ -125,6 +122,8 @@ boxplot(score~grade,data=moody,xlab="Grade",ylab="Score", main="Boxplot of grade
 
 <!-- For more detail,reference and example refer Slides -->
 
+
+<!--
 ---
 ###  Mosaic Plot
 
@@ -147,11 +146,9 @@ mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main
 ```
 
 
-```{r child="./chapters/freestyle.Rmd"}
-
 ```
-
-<!-- ```{r child="./chapters/datatransformation.Rmd"} -->
-
-<!-- ``` -->
+{r child="./chapters/datatransformation.Rmd"}
+```
+ 
+ -->
 

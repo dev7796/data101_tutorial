@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Plots | bookdemo.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Plots | bookdemo.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Plots | bookdemo.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="how-to-upload-a-data-set.html"/>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book</a>
+<a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="setting-up-r.html"><a href="setting-up-r.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a></li>
+<li class="chapter" data-level="3" data-path="how-to-upload-a-data-set.html"><a href="how-to-upload-a-data-set.html"><i class="fa fa-check"></i><b>3</b> How to upload a data set?</a></li>
+<li class="chapter" data-level="4" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>4</b> Plots</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="plots.html"><a href="plots.html#scatter-plot"><i class="fa fa-check"></i><b>4.1</b> Scatter Plot</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plots" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Plots</h1>
+<script src="files/js/dcl.js"></script>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 4.1: </span>Snippet of Moody Dataset</caption>
+<thead>
+<tr class="header">
+<th align="right">score</th>
+<th align="left">grade</th>
+<th align="left">texting</th>
+<th align="left">questions</th>
+<th align="right">participation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">26.89</td>
+<td align="left">F</td>
+<td align="left">never</td>
+<td align="left">never</td>
+<td align="right">0.41</td>
+</tr>
+<tr class="even">
+<td align="right">71.57</td>
+<td align="left">B</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td align="right">90.11</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">never</td>
+<td align="right">0.27</td>
+</tr>
+<tr class="even">
+<td align="right">31.52</td>
+<td align="left">D</td>
+<td align="left">sometimes</td>
+<td align="left">rarely</td>
+<td align="right">0.68</td>
+</tr>
+<tr class="odd">
+<td align="right">95.94</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.09</td>
+</tr>
+<tr class="even">
+<td align="right">45.72</td>
+<td align="left">D</td>
+<td align="left">always</td>
+<td align="left">rarely</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="odd">
+<td align="right">90.82</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="even">
+<td align="right">75.52</td>
+<td align="left">B</td>
+<td align="left">sometimes</td>
+<td align="left">never</td>
+<td align="right">0.28</td>
+</tr>
+<tr class="odd">
+<td align="right">52.31</td>
+<td align="left">C</td>
+<td align="left">never</td>
+<td align="left">never</td>
+<td align="right">0.67</td>
+</tr>
+<tr class="even">
+<td align="right">39.57</td>
+<td align="left">D</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.40</td>
+</tr>
+</tbody>
+</table>
+<!-- --- -->
+<!-- ### Topics visited in this sub-chapter -->
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+<hr />
+<div id="scatter-plot" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Scatter Plot</h2>
+<ul>
+<li>Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)</li>
+<li>Hence it is used when both the labels are numerical values.</li>
+</ul>
+Lets look at example of scatter plot using Moody.
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5wbG90KG1vb2R5JHBhcnRpY2lwYXRpb24sbW9vZHkkc2NvcmUseWxhYj1cInNjb3JlXCIseGxhYj1cInBhcnRpY2lwYXRpb25cIixtYWluPVwiIFBhcnRpY2lwYXRpb24gdnMgU2NvcmVcIixjb2w9XCJyZWRcIikifQ==
+</div>
+<!--
+
+---
+
+### Bar Plot
+
+- A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector. 
+- This rectangle height is proportional to the value of the variable in the vector.
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar.
+
+
+
+<div data-datacamp-exercise data-height="700" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNsZXRzIG1ha2UgYSB0YWJsZSBmb3IgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyBhbmQgY291bnRzIG9mIHN0dWRlbnRzIGZvciBlYWNoIEdyYWRlLiBcblxudDwtdGFibGUobW9vZHkkZ3JhZGUpXG5cbiNvbmNlIHdlIGhhdmUgdGhlIHRhYmxlIGxldHMgY3JlYXRlIGEgYmFycGxvdCBmb3IgaXQuXG5cbmJhcnBsb3QodCx4bGFiPVwiR3JhZGVcIix5bGFiPVwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsY29sPWNvbG9ycyxcbm1haW49XCJCYXJwbG90IGZvciBzdHVkZW50IGdyYWRlIGRpc3RyaWJ1dGlvblwiLGJvcmRlcj1cImJsYWNrXCIpIn0=</div>
+
+
+---
+
+###  Box Plot
+
+- A boxplot shows the distribution of data in a dataset. 
+- A boxplot shows the following things:
+  - Minimum
+  - Maximum
+  - Median
+  - First quartile
+  - Third quartile
+  - Outliers
+- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
+- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.
+
+
+
+<div data-datacamp-exercise data-height="700" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=</div>
+
+
+<!-- ## 4. Histogram -->
+<!-- Refer Slide 15. -->
+<!-- ```{r} -->
+<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
+<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
+<!-- # You can Change column range using breaks. -->
+<!-- ``` -->
+<!-- For more detail,reference and example refer Slides -->
+<!--
+---
+###  Mosaic Plot
+
+- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
+- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
+- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot.
+
+
+<div data-datacamp-exercise data-height="700" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNzdXBwb3NlIHlvdSB3YW50IHRvIGZpbmQgbnVtYmVycyBvZiBzdHVkZW50cyB3aXRoIGEgcGFydGljdWxhciBncmFkZSBiYXNlZCBvbiB0aGVpciB0ZXh0aW5nIGhhYml0cy4gVXNlIE1vc2lhYy1wbG90LlxuXG5tb3NhaWNwbG90KG1vb2R5JGdyYWRlfm1vb2R5JHRleHRpbmcseGxhYiA9ICdHcmFkZScseWxhYiA9ICdUZXh0aW5nIGhhYml0JywgbWFpbiA9IFwiTW9zaWFjIG9mIGdyYWRlIHZzIHRleGluZyBoYWJpdCBpbiBjbGFzc1wiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIikifQ==</div>
+
+
+```
+{r child="./chapters/datatransformation.Rmd"}
+```
+ 
+ -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-to-upload-a-data-set.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.html"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

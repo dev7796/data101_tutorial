@@ -6,9 +6,6 @@ date: "`r Sys.Date()`"
 author: 
     name: "Tomasz Imielinski"
     email: "timielinski@gmail.com"
-# subauthor: 
-#     name: "Deep Lokhande"
-#     email: "deep.lokhande@rutgers.edu"
 # date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
