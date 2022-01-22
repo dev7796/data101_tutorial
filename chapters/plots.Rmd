@@ -54,11 +54,10 @@ plot(moody$participation,moody$score,ylab="score",xlab="participation",main=" Pa
 
 
 ```
-<!--
 
 ---
 
-### Bar Plot
+## Bar Plot
 
 - A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector. 
 - This rectangle height is proportional to the value of the variable in the vector.
@@ -85,7 +84,7 @@ main="Barplot for student grade distribution",border="black")
 
 ---
 
-###  Box Plot
+##  Box Plot
 
 - A boxplot shows the distribution of data in a dataset. 
 - A boxplot shows the following things:
@@ -131,9 +130,9 @@ boxplot(score~grade,data=moody,xlab="Grade",ylab="Score", main="Boxplot of grade
 <!-- For more detail,reference and example refer Slides -->
 
 
-<!--
+
 ---
-###  Mosaic Plot
+##  Mosaic Plot
 
 - Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
 - The length of the rectangles in the mosaic plot represents the frequency of that particular value.
@@ -153,7 +152,7 @@ mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main
 
 ```
 
-
+<!--
 ```
 {r child="./chapters/datatransformation.Rmd"}
 ```

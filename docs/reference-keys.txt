@@ -4,3 +4,6 @@ setting-up-r
 how-to-upload-a-data-set
 plots
 scatter-plot
+bar-plot
+box-plot
+mosaic-plot
