@@ -108,11 +108,17 @@
             <section class="normal" id="section-">
 <div id="table" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Table</h1>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <ul>
-<li>table(i.e. frequency distribution table)</li>
+<li>Tables (i.e. frequency distribution table) can be created using table() along with some of its variations.</li>
+<li>To use table(), simply add in the variables you want to tabulate separated by a comma.</li>
+<li>You must reference the variable using dataset$variable.</li>
+<li>By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument useNA=“ifany” or useNA=“always”. The below examples show how to use this function.</li>
 </ul>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNsZXRzIG1ha2UgYSB0YWJsZSBmb3IgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyBhbmQgY291bnRzIG9mIHN0dWRlbnRzIGZvciBlYWNoIEdyYWRlLiBcblxudDwtdGFibGUobW9vZHkkZ3JhZGUpXG5cbiNvbmNlIHdlIGhhdmUgdGhlIHRhYmxlIGxldHMgY3JlYXRlIGEgYmFycGxvdCBmb3IgaXQuXG5cbmJhcnBsb3QodCx4bGFiPVwiR3JhZGVcIix5bGFiPVwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsY29sPWNvbG9ycyxcbm1haW49XCJCYXJwbG90IGZvciBzdHVkZW50IGdyYWRlIGRpc3RyaWJ1dGlvblwiLGJvcmRlcj1cImJsYWNrXCIpIn0=
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5cbiNsZXRzIG1ha2UgYSB0YWJsZSBmb3IgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyBhbmQgY291bnRzIG9mIHN0dWRlbnRzIGZvciBlYWNoIEdyYWRlLiBcbmdyYWRlX2ZyZXFfdGFibGUgPC0gdGFibGUobW9vZHkkZ3JhZGUpXG50ZXh0aW5nX2ZyZXFfdGFibGUgPC0gdGFibGUobW9vZHkkdGV4dGluZylcbnBhcnRpY2lwYXRpb25fZnJlcV90YWJsZSA8LSB0YWJsZShtb29keSRwYXJ0aWNpcGF0aW9uLCB1c2VOQSA9IFwiaWZhbnlcIilcblxuI2xldHMgc2VlIHRoZSBhYm92ZSBmcmVxdWVuY3kgZGlzdHJidXRlZCB0YWJsZXNcbmdyYWRlX2ZyZXFfdGFibGVcbnRleHRpbmdfZnJlcV90YWJsZVxucGFydGljaXBhdGlvbl9mcmVxX3RhYmxlIn0=
 </div>
 
 </div>

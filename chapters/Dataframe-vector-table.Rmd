@@ -183,25 +183,35 @@ nrow(df)
 <!-- * Boxplot -->
 <!-- * Mosaic Plot -->
 
----
 
 # Table
 
--  table(i.e. frequency distribution table)
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
 
-```{r, tut=TRUE,height=700}
+```
+
+- Tables (i.e. frequency distribution table) can be created using table() along with some of its variations. 
+- To use table(), simply add in the variables you want to tabulate separated by a comma. 
+- You must reference the variable using dataset$variable. 
+- By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument useNA=“ifany” or useNA=“always”. The below examples show how to use this function.
+
+```{r, tut=TRUE,height=300}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
-colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
 #lets make a table for the grades of students and counts of students for each Grade. 
+grade_freq_table <- table(moody$grade)
+texting_freq_table <- table(moody$texting)
+participation_freq_table <- table(moody$participation, useNA = "ifany")
 
-t<-table(moody$grade)
-
-#once we have the table lets create a barplot for it.
-
-barplot(t,xlab="Grade",ylab="Number of Students",col=colors,
-main="Barplot for student grade distribution",border="black")
+#lets see the above frequency distrbuted tables
+grade_freq_table
+texting_freq_table
+participation_freq_table
 ```
 
