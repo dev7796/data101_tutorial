@@ -201,7 +201,7 @@ tutorial::go_interactive( greedy = FALSE)
 - By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. 
 
 The below examples show how to use this function.
-```{r, tut=TRUE,height=300}
+```{r, tut=TRUE,height=500}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
 
