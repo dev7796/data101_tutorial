@@ -1,0 +1,99 @@
+# Data Frames
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+- Data Frames are data displayed in a format as a table.
+
+- Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
+
+- Following are the characteristics of a data frame.
+  - The column names should be non-empty.
+  - The row names should be unique.
+  - The data stored in a data frame can be of numeric, factor or character type.
+  - Each column should contain same number of data items.
+
+Use the **data.frame()** function to create a data frame:
+
+```{r,tut=TRUE,height=300}
+
+# Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+# Now lets create a dataframe using the above column vectors.
+df <- data.frame(title, author, year)
+df # Lets look at how the dataframe looks.
+
+# Use the summary() function to summarize the data from a Data Frame:
+summary(df)
+```
+
+<br />
+Use the **rbind()** and **cbind()** function to add new rows and columns in a Data Frame and use the c() function to remove rows and columns in a Data Frame:
+
+```{r,tut=TRUE,height=500}
+
+# Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+# Now lets create a dataframe using the above column vectors.
+df <- data.frame(title, author, year)
+
+# Add a new row
+updated_df <- rbind(df, c("Computer Science", "John, Doe", 2000))
+
+# Add a new column
+updated_df <- cbind(df, ISBN = c(1.1,2.2,3.3,4.4))
+
+# OR you can add a column as
+badcol <- c(1:4)
+updated_df$badcol <- badcol
+
+# Lets look at the dataframe
+updated_df
+
+# Remove the first row and column
+updated_df_final <- updated_df[-c(1), -c(1)]
+
+# Lets look at the dataframe
+updated_df_final
+```
+
+<br />
+Use the **dim()** function to find the amount of rows and columns in a Data Frame and you can also use the **ncol()** function to find the number of columns and **nrow()** to find the number of rows:
+
+```{r,tut=TRUE,height=400}
+
+# Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+# Now lets create a dataframe using the above column vectors.
+df <- data.frame(title, author, year)
+
+# Lets look at the dimension of the dataframe
+dim(df)
+
+# Lets look at the length of the dataframe which is similar to ncol
+length(df)
+ncol(df)
+nrow(df)
+```
+<!-- --- -->
+
+<!-- ### Topics visited in this sub-chapter -->
+
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
