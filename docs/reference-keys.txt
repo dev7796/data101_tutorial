@@ -10,3 +10,4 @@ scatter-plot
 bar-plot
 box-plot
 mosaic-plot
+tab:unnamed-chunk-2
