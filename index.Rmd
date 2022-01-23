@@ -34,11 +34,9 @@ tutorial::go_interactive( greedy = FALSE)
 <!-- <!-- **$\color{red}{\text{{NOTE: THE DATACAMP SERVER ARE CURRENTLY DOWN. PLEASE COPY PASTE THE CODE IN RSTUDIO TO RUN OFFLINE. WE'LL TRY TO GET THE SITE WORKING AGAIN SHORTLY.}}}$** -->
 
 
-This is a textbook based on the [DATA 101](http://data101.cs.rutgers.edu/) course thought by Prof. Tomasz Imielinski at Computer Science Department at Rutgers University, New Brunswick.
+This is a textbook based on the [DATA 101](http://data101.cs.rutgers.edu/) course taught by Prof. Tomasz Imielinski at Computer Science Department at Rutgers University, New Brunswick.
 
 Data 101 is an introductory course for beginners from any field of study, interested in the field of Data Science. 
-
-<!-- _Acknowledgment_: We thank the significant contributions of **[Deep Lokhande](deeplokhande.github.io)** towards building this book. -->
 
 This book's pages are created using [Rmarkdown](https://rmarkdown.rstudio.com/) from Rstudio (similar to jupyter notebook) and the book is compiled using ["bookdown"](https://cran.r-project.org/web/packages/bookdown/index.html) package.
 
