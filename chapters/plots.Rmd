@@ -9,17 +9,12 @@ tutorial::go_interactive( greedy = FALSE)
 
 ```
 
-1. **Lecture slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots1">Lecture ppt</button>
-<div id="plots1" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pptx&embedded=true" width="100%" height="500px"></embed>
-</div>
-
-2. **Lecture slides: Plotsss**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture ppt</button>
+1. **Lecture slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture ppt</button>
 <div id="plots11" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
 
-2. **google slides: Plotsss**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots111">Lecture ppt</button>
+2. **Google slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots111">Lecture ppt</button>
 <div id="plots111" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1-FMFCUH0IH0DpNI_Zy7LM530f7Q5hgre0D7CJ5OJuDM/edit?usp=sharing&embedded=true" width="100%" height="500px"></embed>
 </div>
