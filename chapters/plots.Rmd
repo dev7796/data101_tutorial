@@ -10,14 +10,15 @@ tutorial::go_interactive( greedy = FALSE)
 ```
 
 1. **Lecture slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Google Slides</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Google Slides</button>
 <div id="plots11" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
-
-<div id="plots11" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+<br>
+<div id="plots12" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1-FMFCUH0IH0DpNI_Zy7LM530f7Q5hgre0D7CJ5OJuDM/edit?usp=sharing&embedded=true" width="100%" height="500px"></embed>
 </div>
-</div>
+
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
