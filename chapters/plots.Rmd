@@ -9,7 +9,7 @@ tutorial::go_interactive( greedy = FALSE)
 
 ```
 
-1. **Lucture slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots1">Lectue ppt</button>
+1. **Lecture slides: Plots**     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots1">Lecture ppt</button>
 <div id="plots1" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>

@@ -1,7 +1,10 @@
-tab:unnamed-chunk-4
+tab:unnamed-chunk-12
 intro
 setting-up-r
 how-to-upload-a-data-set
+vector
+data-frames
+table
 plots
 scatter-plot
 bar-plot

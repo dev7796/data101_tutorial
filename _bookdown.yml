@@ -3,6 +3,7 @@ output_dir: "docs"
 delete_merged_file: true
 rmd_files: [
   "./chapters/intro.Rmd",
+  "./chapters/Dataframe-vector-table.Rmd"
   "./chapters/plots.Rmd",]
 # rmd_subdir: "./chapters"
 

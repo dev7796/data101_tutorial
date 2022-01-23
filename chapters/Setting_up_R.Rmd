@@ -1,0 +1,41 @@
+# Setting Up R 
+
+- **Important Instructions**
+  - Installation of R is required before installing RStudio
+    - "R” is a programming language, and,
+    - “RStudio” is an Integrated Development Environment (IDE) which provides you a platform to code in R.
+
+- __How to download and install R & RStudio?__
+
+  - _Downloading and installing R._
+
+    - For Windows Users.
+      - Click on the link provided below or copy paste it on your favourite browser and go to the website.
+          - [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
+      - Click on the link at top left where it says “Download R 4.0.3 for windows” or the latest at the time of your installation.
+      - Open the downloaded file and follow the instructions as it is.
+
+    - For MAC Users.
+      - Click on the link provided below or copy paste it on your favourite browser and go to the website.
+          - [https://cloud.r-project.org/bin/macosx/](https://cloud.r-project.org/bin/macosx/)
+      - Under “Latest release”, click on “R-4.0.3.pkg” or the latest at the time of your installation.
+      - Open the downloaded file and follow the instructions as it is.
+      
+ 
+  - _Downloading and installing RStudio._
+  
+    - For Windows Users.
+      - Click on the link below or copy paste it in your favourite browser.
+          - [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/)
+      - Scroll down almost till the end of the web page until you find a section named “All Installers”.
+      - Click on the download link beside “Windows 10/8/7” to download the windows version of RStudio.
+      - Install RStudio by clicking on the downloaded file and following the instructions as it is.
+
+    - For MAC Users.
+      - Click on the link below or copy paste it in your favourite browser.
+          - [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/)
+      - Scroll down almost till the end of the web page until you find a section named “All Installers”.
+      - Click on the link beside “macOS 10.13+” to start your download the MAC version of RStudio.
+      - Install RStudio by clicking on the downloaded file and following the instructions as it is.
+
+---

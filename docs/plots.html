@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Plots | bookdemo.knit</title>
+  <title>Chapter 7 Plots | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Plots | bookdemo.knit" />
+  <meta property="og:title" content="Chapter 7 Plots | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Plots | bookdemo.knit" />
+  <meta name="twitter:title" content="Chapter 7 Plots | bookdemo.knit" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="how-to-upload-a-data-set.html"/>
+<link rel="prev" href="table.html"/>
 
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -76,12 +76,15 @@
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="setting-up-r.html"><a href="setting-up-r.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a></li>
 <li class="chapter" data-level="3" data-path="how-to-upload-a-data-set.html"><a href="how-to-upload-a-data-set.html"><i class="fa fa-check"></i><b>3</b> How to upload a data set?</a></li>
-<li class="chapter" data-level="4" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>4</b> Plots</a>
+<li class="chapter" data-level="4" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>4</b> Vector</a></li>
+<li class="chapter" data-level="5" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>5</b> Data Frames</a></li>
+<li class="chapter" data-level="6" data-path="table.html"><a href="table.html"><i class="fa fa-check"></i><b>6</b> Table</a></li>
+<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Plots</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="plots.html"><a href="plots.html#scatter-plot"><i class="fa fa-check"></i><b>4.1</b> Scatter Plot</a></li>
-<li class="chapter" data-level="4.2" data-path="plots.html"><a href="plots.html#bar-plot"><i class="fa fa-check"></i><b>4.2</b> Bar Plot</a></li>
-<li class="chapter" data-level="4.3" data-path="plots.html"><a href="plots.html#box-plot"><i class="fa fa-check"></i><b>4.3</b> Box Plot</a></li>
-<li class="chapter" data-level="4.4" data-path="plots.html"><a href="plots.html#mosaic-plot"><i class="fa fa-check"></i><b>4.4</b> Mosaic Plot</a></li>
+<li class="chapter" data-level="7.1" data-path="plots.html"><a href="plots.html#scatter-plot"><i class="fa fa-check"></i><b>7.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="plots.html"><a href="plots.html#bar-plot"><i class="fa fa-check"></i><b>7.2</b> Bar Plot</a></li>
+<li class="chapter" data-level="7.3" data-path="plots.html"><a href="plots.html#box-plot"><i class="fa fa-check"></i><b>7.3</b> Box Plot</a></li>
+<li class="chapter" data-level="7.4" data-path="plots.html"><a href="plots.html#mosaic-plot"><i class="fa fa-check"></i><b>7.4</b> Mosaic Plot</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -103,20 +106,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="plots" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Plots</h1>
+<div id="plots" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Plots</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <ol style="list-style-type: decimal">
-<li><strong>Lucture slides: Plots</strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots1">Lectue ppt</button>
+<li><strong>Lecture slides: Plots</strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots1">Lecture ppt</button>
 <div id="plots1" class="collapse">
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&amp;embedded=true" width="100%" height="500px">
 </embed>
 </div></li>
 </ol>
 <table>
-<caption><span id="tab:unnamed-chunk-4">Table 4.1: </span>Snippet of Moody Dataset</caption>
+<caption><span id="tab:unnamed-chunk-12">Table 7.1: </span>Snippet of Moody Dataset</caption>
 <thead>
 <tr class="header">
 <th align="right">score</th>
@@ -206,8 +209,8 @@
 <!-- * Boxplot -->
 <!-- * Mosaic Plot -->
 <hr />
-<div id="scatter-plot" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Scatter Plot</h2>
+<div id="scatter-plot" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Scatter Plot</h2>
 <ul>
 <li>Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)</li>
 <li>Hence it is used when both the labels are numerical values.</li>
@@ -218,8 +221,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0
 </div>
 <hr />
 </div>
-<div id="bar-plot" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Bar Plot</h2>
+<div id="bar-plot" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Bar Plot</h2>
 <ul>
 <li>A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector.</li>
 <li>This rectangle height is proportional to the value of the variable in the vector.</li>
@@ -231,8 +234,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
 </div>
 <hr />
 </div>
-<div id="box-plot" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Box Plot</h2>
+<div id="box-plot" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Box Plot</h2>
 <ul>
 <li>A boxplot shows the distribution of data in a dataset.</li>
 <li>A boxplot shows the following things:
@@ -260,8 +263,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
 <!-- For more detail,reference and example refer Slides -->
 <hr />
 </div>
-<div id="mosaic-plot" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Mosaic Plot</h2>
+<div id="mosaic-plot" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Mosaic Plot</h2>
 <ul>
 <li>Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.</li>
 <li>The length of the rectangles in the mosaic plot represents the frequency of that particular value.</li>
@@ -285,7 +288,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
           </div>
         </div>
       </div>
-<a href="how-to-upload-a-data-set.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="table.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

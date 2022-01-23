@@ -1,0 +1,158 @@
+# Vector
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+- A vector is simply a list of items that are of the same type.
+- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
+- All of the items inside a vector to are of the same type like numerical or categorical. 
+
+
+Lets look at example of creating a vector:
+```{r,tut=TRUE,height=300}
+
+#Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+year <- c(2010,2011,2012,1998)
+
+#Lets look at how the created vectors look.
+title
+author
+year
+
+```
+
+<br />
+Create a vector with numerical values in a sequence, use the **:** operator:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with numerical sequence.
+year <- 1:20
+
+# Vector with numerical decimals in a sequence
+weight <- 100.5 : 210.6
+
+# To make bigger or smaller steps in a sequence, use the seq() function
+height <- seq(from = 0, to = 100, by = 20)
+
+#Lets look at how the created vectors look.
+year
+size
+height
+
+```
+
+<br />
+To find out how many items a vector has, use the **length()** function:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with categorical values
+author <- c('Foreman', 'John', 'Said')
+
+# You can access the vector items by referring to its index number inside brackets []. The first item has index 1, the second item has index 2, and so on:
+author[1]
+
+#Lets look at the size of a vectors.
+length(author)
+
+```
+
+<br />
+To sort items in a vector alphabetically or numerically, use the **sort()** function and to change the value of a specific item, refer to the **index number**:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with categorical values
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+
+#sorting titles
+sort(title)
+
+# change the title 'Data Smart' to 'Smart Data'
+title[1] <- "Smart Data"
+
+#Lets look at how the updated vectors look.
+title 
+```
+
+# Data Frames
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+- Data Frames are data displayed in a format as a table.
+
+- Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
+
+- Following are the characteristics of a data frame.
+  - The column names should be non-empty.
+  - The row names should be unique.
+  - The data stored in a data frame can be of numeric, factor or character type.
+  - Each column should contain same number of data items.
+
+Use the data.frame() function to create a data frame:
+
+```{r,tut=TRUE,height=700}
+
+#Lets create 3 vectors with title, author and year.
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
+
+# Now lets create a dataframe using the above column vectors.
+year <- c(2010,2011,2012,1998)
+df <- data.frame(title, author, year)
+df # Lets look at how the dataframe looks.
+
+```
+
+<!-- --- -->
+
+<!-- ### Topics visited in this sub-chapter -->
+
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+
+---
+
+
+---
+
+# Table
+
+- A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector. 
+- This rectangle height is proportional to the value of the variable in the vector.
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar.
+
+
+
+```{r, tut=TRUE,height=700}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/moody2020b.csv") #web load
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+#lets make a table for the grades of students and counts of students for each Grade. 
+
+t<-table(moody$grade)
+
+#once we have the table lets create a barplot for it.
+
+barplot(t,xlab="Grade",ylab="Number of Students",col=colors,
+main="Barplot for student grade distribution",border="black")
+```
+
