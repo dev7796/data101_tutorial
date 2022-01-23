@@ -185,9 +185,6 @@ nrow(df)
 
 ---
 
-
----
-
 # Table
 
 -  table(i.e. frequency distribution table)
