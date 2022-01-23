@@ -123,7 +123,7 @@ summary(df)
 <br />
 Use the **rbind()** and **cbind()** function to add new rows and columns in a Data Frame and use the c() function to remove rows and columns in a Data Frame:
 
-```{r,tut=TRUE,height=400}
+```{r,tut=TRUE,height=500}
 
 # Lets create 3 vectors with title, author and year.
 title <- c('Data Smart','Orientalism','False Impressions','Making Software')
@@ -138,6 +138,10 @@ updated_df <- rbind(df, c("Computer Science", "John, Doe", 2000))
 
 # Add a new column
 updated_df <- cbind(df, ISBN = c(1.1,2.2,3.3,4.4))
+
+# OR you can add a column as
+badcol <- c(1:4)
+updated_df$badcol <- badcol
 
 # Lets look at the dataframe
 updated_df
@@ -186,11 +190,7 @@ nrow(df)
 
 # Table
 
-- A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector. 
-- This rectangle height is proportional to the value of the variable in the vector.
-- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
-- In a bar plot, you can also give different colors to each bar.
-
+-  table(i.e. frequency distribution table)
 
 
 ```{r, tut=TRUE,height=700}
