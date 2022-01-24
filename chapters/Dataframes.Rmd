@@ -22,19 +22,44 @@ Use the **data.frame()** function to create a data frame:
 
 ```{r,tut=TRUE,height=300}
 
-# Lets create 3 vectors with title, author and year.
-title <- c('Data Smart','Orientalism','False Impressions','Making Software')
-author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
-year <- c(2010,2011,2012,1998)
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
-# Now lets create a dataframe using the above column vectors.
-df <- data.frame(title, author, year)
+# Now lets create a dataframe using the above data
+df <- data.frame(moody)
 df # Lets look at how the dataframe looks.
 
 # Use the summary() function to summarize the data from a Data Frame:
 summary(df)
 ```
+<br />
 
+- Just like vectors, you can access specific data **(Slicing)** in dataframes using brackets. 
+- But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. 
+- To do this, use the notation **data[rows, columns]**, where rows and columns are vectors of integers.
+
+```{r,tut=TRUE,height=500}
+
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+# Now lets create a dataframe using the above data
+df <- data.frame(moody)
+df # Lets look at how the dataframe looks.
+
+# Return row 1
+df[1, ]
+
+# Return column 5
+df[, 5]
+
+# Rows 1:5 and column 2
+df[1:5, 2]
+
+# Give me rows 1-3 and columns 2 and 4 of moody
+df[1:3, c(2:4)]
+```
+<!--
 <br />
 Use the **rbind()** and **cbind()** function to add new rows and columns in a Data Frame and use the c() function to remove rows and columns in a Data Frame:
 
@@ -67,9 +92,10 @@ updated_df_final <- updated_df[-c(1), -c(1)]
 # Lets look at the dataframe
 updated_df_final
 ```
-
+-->
 <br />
-Use the **dim()** function to find the amount of rows and columns in a Data Frame and you can also use the **ncol()** function to find the number of columns and **nrow()** to find the number of rows:
+
+- Use the **dim()** function to find the amount of rows and columns in a Data Frame and you can also use the **ncol()** function to find the number of columns and **nrow()** to find the number of rows:
 
 ```{r,tut=TRUE,height=400}
 
