@@ -37,15 +37,11 @@ year
 #Lets create a vectors with numerical sequence.
 year <- 1:20
 
-# Vector with numerical decimals in a sequence
-weight <- 100.5 : 210.6
-
 # To make bigger or smaller steps in a sequence, use the seq() function
 height <- seq(from = 0, to = 100, by = 20)
 
 #Lets look at how the created vectors look.
 year
-size
 height
 
 ```
