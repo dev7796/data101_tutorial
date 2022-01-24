@@ -99,13 +99,12 @@ updated_df_final
 
 ```{r,tut=TRUE,height=400}
 
-# Lets create 3 vectors with title, author and year.
-title <- c('Data Smart','Orientalism','False Impressions','Making Software')
-author <- c('Foreman, John','Said, Edward','Archer, Jeffery','Oram, Andy')
-year <- c(2010,2011,2012,1998)
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
-# Now lets create a dataframe using the above column vectors.
-df <- data.frame(title, author, year)
+# Now lets create a dataframe using the above data
+df <- data.frame(moody)
+df # Lets look at how the dataframe looks.
 
 # Lets look at the dimension of the dataframe
 dim(df)
