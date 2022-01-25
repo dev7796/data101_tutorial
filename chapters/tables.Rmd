@@ -10,6 +10,7 @@ tutorial::go_interactive( greedy = FALSE)
 ```
 
 - **table()** displays frequency distribution of its arguments. 
+
 <!--
 - Tables (i.e. frequency distribution table) can be created using **table()** along with some of its variations. 
 - To use **table()**, simply add in the variables you want to tabulate separated by a comma. 
