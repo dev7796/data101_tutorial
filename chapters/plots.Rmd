@@ -96,7 +96,9 @@ barplot(t,xlab="Grade",ylab="Number of Students",col=colors,
 - A boxplot is used to display a numerical variable.
 - A boxplot shows the distribution of data in a dataset. 
 
-![Boxplot](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/boxplot1.svg)
+![Boxplot](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/boxplot1.png)
+<br />
+
 - A boxplot shows the following things:
   - Minimum
   - Maximum
