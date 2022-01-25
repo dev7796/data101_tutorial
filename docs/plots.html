@@ -112,17 +112,16 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <ol style="list-style-type: decimal">
-<li><strong>Lecture slides: Plots</strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Google Slides</button>
-<div id="plots11" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
-<br>
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
 <div id="plots12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1-FMFCUH0IH0DpNI_Zy7LM530f7Q5hgre0D7CJ5OJuDM/edit?usp=sharing&amp;embedded=true" width="100%" height="500px">
 </embed>
-</div></li>
+</div>
+<!--
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
+<div id="plots11" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
+</div> --></li>
 </ol>
 <table>
 <caption><span id="tab:unnamed-chunk-17">Table 7.1: </span>Snippet of Moody Dataset</caption>
@@ -171,41 +170,6 @@
 <td align="left">rarely</td>
 <td align="right">0.09</td>
 </tr>
-<tr class="even">
-<td align="right">45.72</td>
-<td align="left">D</td>
-<td align="left">always</td>
-<td align="left">rarely</td>
-<td align="right">0.19</td>
-</tr>
-<tr class="odd">
-<td align="right">90.82</td>
-<td align="left">A</td>
-<td align="left">always</td>
-<td align="left">always</td>
-<td align="right">0.25</td>
-</tr>
-<tr class="even">
-<td align="right">75.52</td>
-<td align="left">B</td>
-<td align="left">sometimes</td>
-<td align="left">never</td>
-<td align="right">0.28</td>
-</tr>
-<tr class="odd">
-<td align="right">52.31</td>
-<td align="left">C</td>
-<td align="left">never</td>
-<td align="left">never</td>
-<td align="right">0.67</td>
-</tr>
-<tr class="even">
-<td align="right">39.57</td>
-<td align="left">D</td>
-<td align="left">always</td>
-<td align="left">always</td>
-<td align="right">0.40</td>
-</tr>
 </tbody>
 </table>
 <!-- --- -->
@@ -218,31 +182,33 @@
 <div id="scatter-plot" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Scatter Plot</h2>
 <ul>
-<li>Scatter Plot are used to plot points on the Cartesian plane (X-Y Plane)</li>
+<li>Scatter Plot are used to plot two numerical variables.</li>
 <li>Hence it is used when both the labels are numerical values.</li>
 </ul>
 Lets look at example of scatter plot using Moody.
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5wbG90KG1vb2R5JHBhcnRpY2lwYXRpb24sbW9vZHkkc2NvcmUseWxhYj1cInNjb3JlXCIseGxhYj1cInBhcnRpY2lwYXRpb25cIixtYWluPVwiIFBhcnRpY2lwYXRpb24gdnMgU2NvcmVcIixjb2w9XCJyZWRcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbnBsb3QobW9vZHkkcGFydGljaXBhdGlvbixtb29keSRzY29yZSx5bGFiPVwic2NvcmVcIix4bGFiPVwicGFydGljaXBhdGlvblwiLG1haW49XCIgUGFydGljaXBhdGlvbiB2cyBTY29yZVwiLGNvbD1cInJlZFwiKSJ9
 </div>
 <hr />
 </div>
 <div id="bar-plot" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Bar Plot</h2>
 <ul>
-<li>A bar plot is used to plot rectangular bars proportional to the values present in a numerical vector.</li>
-<li>This rectangle height is proportional to the value of the variable in the vector.</li>
-<li>Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)</li>
-<li>In a bar plot, you can also give different colors to each bar.</li>
+<li>A bar plot are used to plot a categorical variable.</li>
+<li>This rectangle height is proportional to the value of the variable in the vector.
+<!--
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar. --></li>
 </ul>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNsZXRzIG1ha2UgYSB0YWJsZSBmb3IgdGhlIGdyYWRlcyBvZiBzdHVkZW50cyBhbmQgY291bnRzIG9mIHN0dWRlbnRzIGZvciBlYWNoIEdyYWRlLiBcblxudDwtdGFibGUobW9vZHkkZ3JhZGUpXG5cbiNvbmNlIHdlIGhhdmUgdGhlIHRhYmxlIGxldHMgY3JlYXRlIGEgYmFycGxvdCBmb3IgaXQuXG5cbmJhcnBsb3QodCx4bGFiPVwiR3JhZGVcIix5bGFiPVwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsY29sPWNvbG9ycyxcbm1haW49XCJCYXJwbG90IGZvciBzdHVkZW50IGdyYWRlIGRpc3RyaWJ1dGlvblwiLGJvcmRlcj1cImJsYWNrXCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuXG50PC10YWJsZShtb29keSRncmFkZSlcblxuI29uY2Ugd2UgaGF2ZSB0aGUgdGFibGUgbGV0cyBjcmVhdGUgYSBiYXJwbG90IGZvciBpdC5cblxuYmFycGxvdCh0LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJOdW1iZXIgb2YgU3R1ZGVudHNcIixjb2w9Y29sb3JzLCBcbiAgICAgICAgbWFpbj1cIkJhcnBsb3QgZm9yIHN0dWRlbnQgZ3JhZGUgZGlzdHJpYnV0aW9uXCIsYm9yZGVyPVwiYmxhY2tcIikifQ==
 </div>
 <hr />
 </div>
 <div id="box-plot" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Box Plot</h2>
 <ul>
+<li>A boxplot is used to display a numerical variable.</li>
 <li>A boxplot shows the distribution of data in a dataset.</li>
 <li>A boxplot shows the following things:
 <ul>
@@ -253,11 +219,12 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
 <li>Third quartile</li>
 <li>Outliers</li>
 </ul></li>
-<li>You can create a single boxplot using just a vector or a multiple boxplot using a formula.</li>
-<li>When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.</li>
 </ul>
+<!--
+- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
+- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.-->
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
 </div>
 <!-- ## 4. Histogram -->
 <!-- Refer Slide 15. -->
@@ -272,13 +239,15 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
 <div id="mosaic-plot" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Mosaic Plot</h2>
 <ul>
-<li>Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.</li>
-<li>The length of the rectangles in the mosaic plot represents the frequency of that particular value.</li>
-<li>The width and length of the mosaic plot can be used to interpret the frequencies of the elements.</li>
-<li>For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot.</li>
+<li>Mosaic plot is used to visualize two categorical variables.</li>
 </ul>
+<!--
+- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
+- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
+- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot. -->
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGVlcGxva2hhbmRlL2RhdGExMDFkZW1vYm9vay9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3dlYiBsb2FkXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJykgIyBBc3NpZ25pbmcgZGlmZmVyZW50IGNvbG9ycyB0byBiYXJzXG5cbiNzdXBwb3NlIHlvdSB3YW50IHRvIGZpbmQgbnVtYmVycyBvZiBzdHVkZW50cyB3aXRoIGEgcGFydGljdWxhciBncmFkZSBiYXNlZCBvbiB0aGVpciB0ZXh0aW5nIGhhYml0cy4gVXNlIE1vc2lhYy1wbG90LlxuXG5tb3NhaWNwbG90KG1vb2R5JGdyYWRlfm1vb2R5JHRleHRpbmcseGxhYiA9ICdHcmFkZScseWxhYiA9ICdUZXh0aW5nIGhhYml0JywgbWFpbiA9IFwiTW9zaWFjIG9mIGdyYWRlIHZzIHRleGluZyBoYWJpdCBpbiBjbGFzc1wiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI3N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCBudW1iZXJzIG9mIHN0dWRlbnRzIHdpdGggYSBwYXJ0aWN1bGFyIGdyYWRlIGJhc2VkIG9uIHRoZWlyIHRleHRpbmcgaGFiaXRzLiBVc2UgTW9zaWFjLXBsb3QuXG5cbm1vc2FpY3Bsb3QobW9vZHkkZ3JhZGV+bW9vZHkkdGV4dGluZyx4bGFiID0gJ0dyYWRlJyx5bGFiID0gJ1RleHRpbmcgaGFiaXQnLCBtYWluID0gXCJNb3NpYWMgb2YgZ3JhZGUgdnMgdGV4aW5nIGhhYml0IGluIGNsYXNzXCIsY29sPWNvbG9ycyxib3JkZXI9XCJibGFja1wiKSJ9
 </div>
 <!--
 ```
