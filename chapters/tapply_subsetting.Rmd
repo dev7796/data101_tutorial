@@ -1,0 +1,163 @@
+# Subsetting
+
+<script src="files/js/dcl.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive()
+```
+
+## Subset {#subset}
+
+### Snippet 1
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+#Subset of rows
+moody_never_smartphone<-subset(moody,ON_SMARTPHONE=="never")
+nrow(moody)
+nrow(moody_never_smartphone)
+
+```
+
+### Snippet 2
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+#Subset of rows
+moody1<-subset(moody,ON_SMARTPHONE=="never")
+# You can see only student never on smartphone are in the subset.
+table(moody1$ON_SMARTPHONE) 
+
+```
+
+### Snippet 3
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+#Alternate way to subset.
+moody2<-moody[moody$ON_SMARTPHONE=="never", ]
+# You can see a similar table as above.
+table(moody2$ON_SMARTPHONE) 
+
+```
+
+### Snippet 4
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+#subset of columns
+moody3<-subset(moody, select = -c(8))
+ncol(moody3)
+# You can see the number of columns has been reduced by 1, due to subsetting without column 8
+ncol(moody3) 
+
+```
+
+### Snippet 5
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+#Subset of Rows and Columns
+moody4<-subset(moody, select = -c(8), ON_SMARTPHONE == "never")
+table(moody4$ON_SMARTPHONE)
+dim(moody4)
+# You can see only student never on smartphones without column 8 data are present in the subset.
+dim(moody4)
+
+```
+
+### Code Review
+#### What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody[moody$SCORE>=90,3]
+# What will R say?
+
+
+# A. Get subset of all columns which contains students who scored more than equal to 90
+# B. error
+# C. get all score values which are more than equal to 90
+# D. get subset of only the grades of students with score greater than equal to 90
+
+
+```
+
+#### What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
+# What will R say?
+
+# A. subset of moody data frame who got B grade.
+# B. error.
+# C. subset of moody data frame with score greater than 80.
+# D. subset of moody data frame with score more than 80 and got B grade.
+
+
+```
+
+---
+
+## tapply {#tapply}
+
+### Snippet 1
+
+```{r,height=700}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+
+# To apply tapply() on SCORE factored on ON_SMARTPHONE
+
+moody1<-tapply(moody$SCORE,moody$ON_SMARTPHONE,mean)
+moody1 # We can see it calculated mean value of the score by students with respect to their use of phone in class.
+
+barplot(moody1,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot
+
+```
+
+### Snippet 5
+
+```{r,height=700}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#Lets factor the grades on on_smartphone as well as grade category.
+moody2<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
+moody2[is.na(moody2)]<-0
+moody2# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
+barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody2))
+```
+
+### Code Review
+#### Question What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+tapply(moody, GRADE, SCORE, min)
+# What will R say?
+
+# A. minimum score for each grade
+# B. minimum grade for each score
+# C. minimum grade only 
+# D. Error.
+
+
+```
+
+#### Question What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
+# What will R say?
+
+# A. mean grade for each values of ask_question attribute
+# B. mean value of ask_questions attribute for each grade
+# C. mean category of ask_questions only 
+# D. error.
+```
+

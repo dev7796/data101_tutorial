@@ -1,4 +1,4 @@
-# Lecture: Setting Up R 
+# Setting Up R 
 
 - **Important Instructions**
   - Installation of R is required before installing RStudio

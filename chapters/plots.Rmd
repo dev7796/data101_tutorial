@@ -1,11 +1,11 @@
-# Lecture: Plots {#plots}
+# Plots {#plots}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 ```{r ,include=FALSE}
-tutorial::go_interactive( greedy = FALSE)
+tutorial::go_interactive(greedy = FALSE)
 
 ```
 
@@ -52,6 +52,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 
 Lets look at example of scatter plot using Moody.
+
 ```{r,tut=TRUE,height=700}
 # Let's look at a 2 attribute scatter plot.
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -191,7 +192,9 @@ tutorial::go_interactive( greedy = FALSE)
 - All of the items inside a vector to are of the same type like numerical or categorical. -->
 
 ### Snippet 1
+
 Lets look at example of creating a vector:
+
 ```{r,tut=TRUE,height=300}
 
 #Lets create 3 vectors with title, author and year.
@@ -202,6 +205,7 @@ color
 ```
 
 ### Snippet 2
+
 Create a vector with numerical values in a sequence, use the **:** operator:
 
 ```{r,tut=TRUE,height=300}
@@ -276,7 +280,9 @@ tutorial::go_interactive( greedy = FALSE)
 Use the **data.frame()** function to create a data frame:-->
 
 ### Snippet 1
+
 Populating the dataframe:
+
 ```{r,tut=TRUE,height=300}
 
 # Load the dataset into the moody variable
@@ -287,6 +293,7 @@ head(moody)
 ```
 
 ### Snippet 2 
+
 Get the summary of the dataframe:
 
 ```{r,tut=TRUE,height=300}
@@ -302,6 +309,7 @@ summary(moody)
 - But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. -->
 
 ### Snippet 3 
+
 Use the notation **data[rows, columns]**, which selects the subsets of rows and columns:
 
 ```{r,tut=TRUE,height=500}
@@ -342,8 +350,10 @@ tutorial::go_interactive( greedy = FALSE)
 - You must reference the variable using **dataset$variable**. 
 - By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. -->
 ### Snippet 1
+
 The below examples show how to use this function:
-```{r, tut=TRUE,height=500}
+
+```{r, tut=TRUE,height=400}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv") #web load
 
@@ -352,4 +362,31 @@ grades <- table(moody$grade)
 
 #lets see the above frequency distrbuted tables
 grades
+```
+
+### Code Review
+#### What would R say?
+
+```{r, tut=TRUE,height=400}
+moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
+#What will R say?
+
+# A. error
+# B. distribution of grades for students who always ask questions
+# C. distribution of grades for students who do not always ask questions 
+```
+
+#### What would R say?
+
+```{r, tut=TRUE,height=400}
+moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
+#What will R say?
+
+# A. error.
+# B. distribution of grades for students who always or never ask questions.  
+# C. distribution of grades for students who do not ask questions always or never. 
 ```
