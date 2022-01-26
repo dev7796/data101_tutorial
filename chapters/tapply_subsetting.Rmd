@@ -70,7 +70,7 @@ dim(moody4)
 #### What would R say?
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 moody[moody$SCORE>=90,3]
 # What will R say?
 
@@ -86,7 +86,7 @@ moody[moody$SCORE>=90,3]
 #### What would R say?
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 
 moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
 # What will R say?
@@ -109,7 +109,7 @@ moody[moody$SCORE>=80.0 & moody$GRADE =='B',]
 ### Snippet 1
 
 ```{r,height=700}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 
 
 # To apply tapply() on SCORE factored on ON_SMARTPHONE
@@ -124,12 +124,12 @@ barplot(moody1,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() 
 ### Snippet 2 (*)
 
 ```{r,height=700}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 
 #Lets factor the grades on on_smartphone as well as grade category.
 moody2<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
-moody2[is.na(moody2)]<-0
-moody2# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
+# We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
+moody2
 barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody2))
 ```
 
@@ -137,7 +137,7 @@ barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",b
 #### What would R say?
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 
 tapply(moody, GRADE, SCORE, min)
 # What will R say?
@@ -153,14 +153,14 @@ tapply(moody, GRADE, SCORE, min)
 #### What would R say?
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 
-tapply(moody$ASK_QUESTIONS, moody$GRADE, mean)
+tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
 # What will R say?
 
-# A. mean grade for each values of ask_question attribute
-# B. mean value of ask_questions attribute for each grade
-# C. mean category of ask_questions only 
+# A. Total no. of students grade for each values of on_smartphone attribute
+# B. mean value of on_smartphone attribute for each grade
+# C. mean category of on_smartphone only 
 # D. error.
 ```
 
