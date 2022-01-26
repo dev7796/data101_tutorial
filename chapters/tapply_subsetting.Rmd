@@ -134,7 +134,7 @@ barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",b
 ```
 
 ### Code Review
-#### Question What would R say?
+#### What would R say?
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
@@ -150,7 +150,7 @@ tapply(moody, GRADE, SCORE, min)
 
 ```
 
-#### Question What would R say?
+#### What would R say?
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
