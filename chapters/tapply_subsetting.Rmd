@@ -6,6 +6,67 @@
 tutorial::go_interactive()
 ```
 
+## Basic Functions
+
+### mean()
+
+- **mean()** function is used to find the average of the data.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#Lets look at the mean of score column.
+mean(moody$score)
+```
+
+
+### length()
+
+- **length()** function is used to get or set the length of data.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#Lets look at the length of the grade column 
+length(moody$grade)
+```
+
+### max()
+
+- **max()** function is used to get the maximum valued element in the data.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#lets look at the maximum value of the score in the score column
+max(moody$score)
+```
+
+### min()
+
+- **min()** function is used to get the minimum valued element in the data.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#Lets look at the minimum value of score in the score column.
+min(moody$score)
+
+```
+
+### sd()
+
+- **sd()** fucntion is used to find the standard deviation of the data.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+#Lets look at the standard deviation of score column
+sd(moody$score)
+```
+
+---
+
 ## Subset {#subset}
 
 ### Snippet 1
