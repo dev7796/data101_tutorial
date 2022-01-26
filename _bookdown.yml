@@ -4,13 +4,9 @@ delete_merged_file: true
 rmd_files: [
   "./chapters/intro.Rmd",
   "./chapters/Setting_up_R.Rmd",
-  "./chapters/Upload_in_R.Rmd",
-  "./chapters/Vector.Rmd",
-  "./chapters/Dataframes.Rmd",
-  "./chapters/tables.Rmd",
   "./chapters/plots.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
