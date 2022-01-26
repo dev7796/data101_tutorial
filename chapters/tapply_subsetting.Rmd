@@ -232,3 +232,102 @@ tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
 # D. error.
 ```
 
+---
+
+## Cut {#cut}
+
+- **cut()** function in R Language is used to divide a **numeric vector** into different ranges
+
+### Snippet 1
+
+- Derived categorical attribute from numerical:
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+# Cut Example using breaks - Cutting data using defined vector. 
+score1 <- cut(moody$SCORE,breaks=c(0,50,100),labels=c("F","P"))
+table(score1)
+
+```
+
+### Snippet 2
+
+- Derived categorical attribute from categorical:
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+# Cut Example using breaks - Cutting data using defined vector. 
+moody$PF<-'Pass'
+moody[moody$GRADE=='F',]$PF<-'Fail'
+
+# lets see our added column PF
+moody
+
+```
+
+### Code Review
+#### What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+cut(moody$SCORE, breaks=c(0,25,70,100),labels=c("low", "medium", "high"))
+#What would R say?
+
+# A. 5 intervals of attribute score
+# B. 3 intervals (0,25) (25,70) (75,100)
+# C. 3 categorical values "low", "medium" and "high" for different score intervals
+# D. 3 separate datasets with similar score values
+
+```
+
+#### What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+output<-cut(moody$SCORE, 5)
+summary(output)
+#What would R say?
+
+# A. 5 intervals of attribute score of unequal count of elements
+# B. 5 intervals of attribute score of equal count of elements
+# C. 5 categorical values for different score intervals
+# D. 5 separate dataset with similar score values
+
+```
+
+#### What would R say?
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+output<-cut(moody$ASKS_QUESTIONS, 2)
+summary(output)
+#What would R say?
+
+# A. 2 intervals of attribute ask_questions of unequal count of elements in each interval
+# B. 2 intervals of attribute ask_questions of equal count of elements in each interval
+# C. 2 categorical values for different ask_questions intervals
+# D. Error.
+
+```
+
+#### A complex example
+
+```{r,height=700}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+
+moody$conditional <-0
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*moody[moody$participation<0.50, ]$participation
+moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+
+summary(moody$conditional)
+
+boxplot(moody$conditional,col = c("red"),main="Complex Example")
+
+```
