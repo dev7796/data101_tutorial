@@ -63,7 +63,7 @@ min(moody$score)
 
 ### sd()
 
-- **sd()** fucntion is used to find the standard deviation of the data.
+- **sd()** function is used to find the standard deviation of the data.
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")

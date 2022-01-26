@@ -1,5 +1,13 @@
 # Setting Up R 
 
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive()
+```
+
 - **Important Instructions**
   - Installation of R is required before installing RStudio
     - "R” is a programming language, and,
