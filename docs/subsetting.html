@@ -115,7 +115,7 @@
 <li class="chapter" data-level="4.2" data-path="subsetting.html"><a href="subsetting.html#tapply"><i class="fa fa-check"></i><b>4.2</b> tapply</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="subsetting.html"><a href="subsetting.html#snippet-1-4"><i class="fa fa-check"></i><b>4.2.1</b> Snippet 1</a></li>
-<li class="chapter" data-level="4.2.2" data-path="subsetting.html"><a href="subsetting.html#snippet-5-1"><i class="fa fa-check"></i><b>4.2.2</b> Snippet 5</a></li>
+<li class="chapter" data-level="4.2.2" data-path="subsetting.html"><a href="subsetting.html#snippet-2-3"><i class="fa fa-check"></i><b>4.2.2</b> Snippet 2 (*)</a></li>
 <li class="chapter" data-level="4.2.3" data-path="subsetting.html"><a href="subsetting.html#code-review-2"><i class="fa fa-check"></i><b>4.2.3</b> Code Review</a></li>
 </ul></li>
 </ul></li>
@@ -193,14 +193,18 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 </div>
 <div id="tapply" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> tapply</h2>
+<ul>
+<li><strong>tapply()</strong> computes a measure (mean, median, min, max, etc..) or a function for each factor variable in a vector. It is a very useful function that lets you create a subset of a vector and then apply some functions to each of the subset.</li>
+<li>tapply(numerical, categorical, aggregagte function)</li>
+</ul>
 <div id="snippet-1-4" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Snippet 1</h3>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbiMgVG8gYXBwbHkgdGFwcGx5KCkgb24gU0NPUkUgZmFjdG9yZWQgb24gT05fU01BUlRQSE9ORVxuXG5tb29keTE8LXRhcHBseShtb29keSRTQ09SRSxtb29keSRPTl9TTUFSVFBIT05FLG1lYW4pXG5tb29keTEgIyBXZSBjYW4gc2VlIGl0IGNhbGN1bGF0ZWQgbWVhbiB2YWx1ZSBvZiB0aGUgc2NvcmUgYnkgc3R1ZGVudHMgd2l0aCByZXNwZWN0IHRvIHRoZWlyIHVzZSBvZiBwaG9uZSBpbiBjbGFzcy5cblxuYmFycGxvdChtb29keTEsY29sID0gXCJjeWFuXCIseGxhYiA9IFwiTGFiZWxzXCIsIHlsYWIgPSBcIm1lYW5fdmFsXCIsbWFpbiA9IFwidGFwcGx5KCkgZXhhbXBsZSAxXCIsbGFzID0gMiwgY2V4Lm5hbWVzID0gMC43NSkjcGxvdCJ9
 </div>
 </div>
-<div id="snippet-5-1" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Snippet 5</h3>
+<div id="snippet-2-3" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Snippet 2 (*)</h3>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG4jTGV0cyBmYWN0b3IgdGhlIGdyYWRlcyBvbiBvbl9zbWFydHBob25lIGFzIHdlbGwgYXMgZ3JhZGUgY2F0ZWdvcnkuXG5tb29keTI8LXRhcHBseShtb29keSRHUkFERSxsaXN0KG1vb2R5JE9OX1NNQVJUUEhPTkUsbW9vZHkkR1JBREUpLGxlbmd0aClcbm1vb2R5Mltpcy5uYShtb29keTIpXTwtMFxubW9vZHkyIyBXZSBjYW4gc2VlIGl0IGNhbGN1bGF0ZWQgY291bnQgb2YgdGhlIGdyYWRlIG9mIHN0dWRlbnQgd2l0aCByZXNwZWN0IHRvIHRoZWlyIGluLWNsYXNzIHNtYXJ0cGhvbmUgdXNhZ2UgIGFuZCBncmFkZSBjYXRlZ29yeS5cbmJhcnBsb3QobW9vZHkyLGNvbD1jKFwicmVkXCIsXCJjeWFuXCIsXCJvcmFuZ2VcIixcImJsdWVcIiksbWFpbiA9IFwidGFwcGx5KCkgZXhhbXBsZSAyXCIsYmVzaWRlID0gVFJVRSxsZWdlbmQ9cm93bmFtZXMobW9vZHkyKSkifQ==
 </div>

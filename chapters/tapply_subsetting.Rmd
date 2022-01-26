@@ -103,6 +103,9 @@ moody[moody$SCORE>=80.0 & moody$GRADE =='B',]
 
 ## tapply {#tapply}
 
+- **tapply()** computes a measure (mean, median, min, max, etc..) or a function for each factor variable in a vector. It is a very useful function that lets you create a subset of a vector and then apply some functions to each of the subset.
+- tapply(numerical, categorical, aggregagte function)
+
 ### Snippet 1
 
 ```{r,height=700}
@@ -118,7 +121,7 @@ barplot(moody1,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() 
 
 ```
 
-### Snippet 5
+### Snippet 2 (*)
 
 ```{r,height=700}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
