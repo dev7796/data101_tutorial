@@ -1,12 +1,8 @@
-tab:unnamed-chunk-4
+tab:unnamed-chunk-17
 intro
 setting-up-r
 how-to-upload-a-data-set
 plots
-scatter-plot
-bar-plot
-box-plot
-mosaic-plot
 vector
 snippet-1
 snippet-2
@@ -19,6 +15,10 @@ snippet-1-2
 code-review
 what-would-r-say
 what-would-r-say-1
+scatter-plot
+bar-plot
+box-plot
+mosaic-plot
 subsetting
 basic-functions
 mean
@@ -41,4 +41,3 @@ snippet-2-3
 code-review-2
 what-would-r-say-4
 what-would-r-say-5
-tab:unnamed-chunk-15

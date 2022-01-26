@@ -1,10 +1,17 @@
 # Subsetting
 
 <script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 ```{r ,include=FALSE}
 tutorial::go_interactive()
 ```
+
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Subsetting</button>
+<div id="subset12" class="collapse">    
+<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQ/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
 
 ## Basic Functions
 
