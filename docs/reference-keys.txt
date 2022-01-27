@@ -19,7 +19,7 @@ scatter-plot
 bar-plot
 box-plot
 mosaic-plot
-subsetting
+data-transformation
 basic-functions
 mean
 length
