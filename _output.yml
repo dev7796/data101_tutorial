@@ -5,6 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">DATA 101 Book</a>
         <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+        <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
         </li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
