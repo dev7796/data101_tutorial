@@ -188,7 +188,7 @@ moody1 # We can see it calculated mean value of the score by students with respe
 barplot(moody1,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot
 
 ```
-
+<!--
 ### Snippet 2 (*)
 
 ```{r,height=700}
@@ -200,7 +200,7 @@ moody2<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
 moody2
 barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody2))
 ```
-
+-->
 ### Code Review
 #### What would R say?
 
