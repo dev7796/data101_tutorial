@@ -8,7 +8,7 @@
 tutorial::go_interactive()
 ```
 
-- **Socrative Quiz: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Click here</button>
+- **Socrative Quiz: **     <button class="btn btn-primary" data-target="#subset12">Click here</button>
 <div id="subset12" class="collapse">    
 <embed src="https://b.socrative.com/teacher/#launch" width="100%" height="500px"></embed>
 </div>
