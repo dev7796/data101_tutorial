@@ -5,8 +5,7 @@ rmd_files: [
   "./chapters/intro.Rmd",
   "./chapters/Setting_up_R.Rmd",
   "./chapters/plots.Rmd",
-  "./chapters/tapply_subsetting.Rmd",
-  "./chapters/Socrative.Rmd"]
+  "./chapters/tapply_subsetting.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:

@@ -49,4 +49,3 @@ what-would-r-say-6
 what-would-r-say-7
 what-would-r-say-8
 a-complex-example
-socrative-quiz
