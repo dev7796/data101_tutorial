@@ -145,15 +145,21 @@ head(df)
 
 ---
 
+## Saving your work
+
+- To save your work go to **File -> Save**. It will ask you to give a name for your **.R file** and then click on Save.
+
+![Save](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/7_text.png)
+
+- After making modifications to your saved file, you will need to save the file again. 
+If the name of the file on the top is in <span style="color: red;"> Red Color </span> indicates that the file have **unsaved** changes.
+
+![Unsaved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/8_text.png)
 
 
+- Go to **File -> Save** to save your .R file again. After saving the file the color of the file name i.e. **HW1.R** will again change back to **black**.
 
-
-
-
-
-
-
+![Saved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/9_text.png)
 
 
 
