@@ -161,7 +161,7 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 
 ![Saved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/9_text.png)
 
-**Note: ** You can create multiple files inside the same project such as for your each homework assignments.
+**Note: ** You can create multiple files inside the same project such as for your each homework assignments
 
 
 
