@@ -77,7 +77,8 @@
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="setting-up-r.html"><a href="setting-up-r.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="setting-up-r.html"><a href="setting-up-r.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.1</b> How to upload a data set?</a></li>
+<li class="chapter" data-level="2.1" data-path="setting-up-r.html"><a href="setting-up-r.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
+<li class="chapter" data-level="2.2" data-path="setting-up-r.html"><a href="setting-up-r.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>3</b> Plots</a>
 <ul>
@@ -216,8 +217,65 @@
 </ul></li>
 </ul>
 <hr />
-<div id="how-to-upload-a-data-set" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> How to upload a data set?</h2>
+<div id="setting" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Create New Project</h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+<p>After installing R studio successfully the first step is to create a project R studio.</p>
+<ul>
+<li>Step 1: Go to <strong>File -&gt; New Project</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/1_text.png" alt="" />
+<p class="caption">New Project</p>
+</div>
+<ul>
+<li>Step 2: Select <strong>New Directory</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2_text.png" alt="" />
+<p class="caption">New Directory</p>
+</div>
+<ul>
+<li>Step 3: Select <strong>New Project</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/3_text.png" alt="" />
+<p class="caption">New Project</p>
+</div>
+<ul>
+<li>Step 4: Give your preferred directory name like <strong>“Data101_Assignmnets”</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4_text.png" alt="" />
+<p class="caption">Directory Name</p>
+</div>
+<ul>
+<li>Step 5: Click on Create Project and finally the R studio should look like</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png" alt="" />
+<p class="caption">Rstudio</p>
+</div>
+<hr />
+</div>
+<div id="how-to-upload-a-data-set" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> How to upload a data set?</h2>
 <script src="files/js/dcl.js"></script>
 <ul>
 <li><p>To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.</p></li>

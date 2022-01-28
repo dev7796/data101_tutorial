@@ -46,6 +46,63 @@ tutorial::go_interactive()
       - Click on the link beside “macOS 10.13+” to start your download the MAC version of RStudio.
       - Install RStudio by clicking on the downloaded file and following the instructions as it is.
 
+
+---
+
+## Create New Project {#setting}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive()
+```
+
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+
+
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+
+After installing R studio successfully the first step is to create a project R studio. 
+
+- Step 1: Go to **File -> New Project**
+
+![New Project](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/1_text.png)
+
+- Step 2: Select **New Directory**
+
+![New Directory](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2_text.png)
+
+- Step 3: Select **New Project**
+
+![New Project](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/3_text.png)
+
+- Step 4: Give your preferred directory name like **"Data101_Assignmnets"**
+
+![Directory Name](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4_text.png)
+
+- Step 5: Click on Create Project and finally the R studio should look like
+
+![Rstudio](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png)
+
+
 ---
 
 ## How to upload a data set?
@@ -77,4 +134,29 @@ df <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 head(df)
 ```
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

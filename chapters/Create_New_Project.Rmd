@@ -1,4 +1,4 @@
-# Create New Project {#intro}
+# Create New Project {#setting}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

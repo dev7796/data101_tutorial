@@ -1,6 +1,7 @@
-tab:unnamed-chunk-19
+tab:unnamed-chunk-20
 intro
 setting-up-r
+setting
 how-to-upload-a-data-set
 plots
 vector
