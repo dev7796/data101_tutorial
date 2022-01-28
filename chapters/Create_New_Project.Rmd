@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Create New Project {#intro}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -33,5 +33,43 @@ After installing R studio successfully the first step is to create a project R s
 
 - Step 1: Go to **File -> New Project**
 
-- Step 2: 
+![New Project](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/1_text.png)
+
+- Step 2: Select **New Directory**
+
+![New Directory](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2_text.png)
+
+-Step 3: Select **New Project**
+
+![New Project](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/3_text.png)
+
+- Step 4: Give your preferred directory name like **"Data101_Assignmnets"**
+
+![Directory Name](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4_text.png)
+
+- Step 5: Click on Create Project and finally the R studio should look like
+
+![Rstudio](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
