@@ -42,9 +42,12 @@ snippet-1-4
 code-review-2
 what-would-r-say-4
 cut
-cut-making-categorical-attribute-from-numerical
+cut-1
 code-review-3
 what-would-r-say-5
 what-would-r-say-6
 what-would-r-say-7
 a-complex-example
+snippet-1-5
+snippet-2-3
+snippet-3-2

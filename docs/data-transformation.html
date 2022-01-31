@@ -130,7 +130,7 @@
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#cut"><i class="fa fa-check"></i><b>4.4</b> Derived Attribute</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="data-transformation.html"><a href="data-transformation.html#cut-making-categorical-attribute-from-numerical"><i class="fa fa-check"></i><b>4.4.1</b> <strong>Cut:</strong> Making Categorical Attribute from Numerical</a></li>
+<li class="chapter" data-level="4.4.1" data-path="data-transformation.html"><a href="data-transformation.html#cut-1"><i class="fa fa-check"></i><b>4.4.1</b> Cut</a></li>
 <li class="chapter" data-level="4.4.2" data-path="data-transformation.html"><a href="data-transformation.html#code-review-3"><i class="fa fa-check"></i><b>4.4.2</b> Code Review</a></li>
 </ul></li>
 </ul></li>
@@ -305,10 +305,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIEN1dCBFeGFtcGxlIHVzaW5nIGJyZWFrcyAtIEN1dHRpbmcgZGF0YSB1c2luZyBkZWZpbmVkIHZlY3Rvci4gXG5tb29keSRQRjwtJ1Bhc3MnXG5tb29keVttb29keSRHUkFERT09J0YnLF0kUEY8LSdGYWlsJ1xuXG4jIGxldHMgc2VlIG91ciBhZGRlZCBjb2x1bW4gUEZcbm1vb2R5In0=
 </div>
-<div id="cut-making-categorical-attribute-from-numerical" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> <strong>Cut:</strong> Making Categorical Attribute from Numerical</h3>
+<div id="cut-1" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Cut</h3>
 <ul>
 <li><strong>cut()</strong> function in R Language is used to divide a <strong>numeric vector</strong> into different ranges.</li>
+<li>Making Categorical Attribute from Numerical</li>
 </ul>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG4jIEN1dCBFeGFtcGxlIHVzaW5nIGJyZWFrcyAtIEN1dHRpbmcgZGF0YSB1c2luZyBkZWZpbmVkIHZlY3Rvci4gXG5zY29yZTEgPC0gY3V0KG1vb2R5JFNDT1JFLGJyZWFrcz1jKDAsNTAsMTAwKSxsYWJlbHM9YyhcIkZcIixcIlBcIikpXG50YWJsZShzY29yZTEpIn0=
@@ -336,10 +337,25 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 </div>
 <div id="a-complex-example" class="section level4" number="4.4.2.4">
 <h4><span class="header-section-number">4.4.2.4</span> A complex example</h4>
+<div id="snippet-1-5" class="section level5" number="4.4.2.4.1">
+<h5><span class="header-section-number">4.4.2.4.1</span> Snippet 1</h5>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIGxldHMgbG9vayBhdCB0aGUgY29uZGl0aW9uYWwgYXR0cmlidXRlIFxuaGVhZChtb29keSkifQ==
+</div>
+</div>
+<div id="snippet-2-3" class="section level5" number="4.4.2.4.2">
+<h5><span class="header-section-number">4.4.2.4.2</span> Snippet 2</h5>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIHByaW50IHRoZSBjb2x1bW4gbmFtZXNcbmNvbG5hbWVzKG1vb2R5KVxuXG4jc3Vic2V0IHRoZSBtb29keSBkYXRhc2V0IHJvd3MgPSAxIHRvIDEwIGFuZCBjb2xzID0gMSw1LDZcbm1vb2R5WzE6MTAsIGMoMSw1LDYpXVxuXG4jIHByaW50IHN1bW1hcnkgb2YgaW5pZGl2aWR1YWwgY29sdW1uc1xuc3VtbWFyeShtb29keSRzY29yZSlcbnN1bW1hcnkobW9vZHkkY29uZGl0aW9uYWwpIn0=
+</div>
+</div>
+<div id="snippet-3-2" class="section level5" number="4.4.2.4.3">
+<h5><span class="header-section-number">4.4.2.4.3</span> Snippet 3</h5>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb25cbm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRzY29yZSArMTAqbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRwYXJ0aWNpcGF0aW9uXG5cbnN1bW1hcnkobW9vZHkkY29uZGl0aW9uYWwpXG5cbmJveHBsb3QobW9vZHkkY29uZGl0aW9uYWwsY29sID0gYyhcInJlZFwiKSxtYWluPVwiQ29tcGxleCBFeGFtcGxlXCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIFBsb3R0aW5nIHRoZSBjb25kaXRpb25hbCBhdHRyaWJ1dGUgdXNpbmcgYm94cGxvdFxuYm94cGxvdChtb29keSRjb25kaXRpb25hbCxjb2wgPSBjKFwicmVkXCIpLG1haW49XCJDb21wbGV4IEV4YW1wbGVcIilcblxuIyBQbG90dGluZyB0aGUgc2NvcmUgYXR0cmlidXRlIHVzaW5nIGJveHBsb3RcbmJveHBsb3QobW9vZHkkc2NvcmUsY29sID0gYyhcImJsdWVcIiksbWFpbj1cIkNvbXBsZXggRXhhbXBsZVwiKSJ9
 </div>
 
+</div>
 </div>
 </div>
 </div>

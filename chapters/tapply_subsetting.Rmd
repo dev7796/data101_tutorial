@@ -236,7 +236,7 @@ tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
 
 ## Derived Attribute {#cut}
 
-- Making Categorical Attribute from Categorical:
+- Making Categorical Attribute from Categorical
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -252,9 +252,10 @@ moody
 
 
 
-### **Cut:** Making Categorical Attribute from Numerical
+### Cut 
 
 - **cut()** function in R Language is used to divide a **numeric vector** into different ranges.
+- Making Categorical Attribute from Numerical
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -315,17 +316,60 @@ summary(output)
 
 #### A complex example
 
+##### Snippet 1
+
+```{r,height=400}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+
+moody$conditional <-0
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
+moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+
+# lets look at the conditional attribute 
+head(moody)
+
+```
+
+##### Snippet 2
+
+```{r,height=400}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+
+
+moody$conditional <-0
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
+moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+
+# print the column names
+colnames(moody)
+
+#subset the moody dataset rows = 1 to 10 and cols = 1,5,6
+moody[1:10, c(1,5,6)]
+
+# print summary of inidividual columns
+summary(moody$score)
+summary(moody$conditional)
+
+```
+
+##### Snippet 3
+
 ```{r,height=700}
 
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
 
 moody$conditional <-0
-moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*moody[moody$participation<0.50, ]$participation
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
 moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
 
-summary(moody$conditional)
-
+# Plotting the conditional attribute using boxplot
 boxplot(moody$conditional,col = c("red"),main="Complex Example")
+
+# Plotting the score attribute using boxplot
+boxplot(moody$score,col = c("blue"),main="Complex Example")
 
 ```
