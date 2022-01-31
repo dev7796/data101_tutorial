@@ -322,13 +322,9 @@ summary(output)
 
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
+#subset the moody dataset rows = 1 to 10 and cols = 1,5
+moody[1:10, c(1,5)]
 
-moody$conditional <-0
-moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
-moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
-
-# lets look at the conditional attribute 
-head(moody)
 
 ```
 
@@ -343,9 +339,8 @@ moody$conditional <-0
 moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
 moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
 
-#subset the moody dataset rows = 1 to 10 and cols = 1,5,6
-moody[1:10, c(1,5)]
-
+# lets look at the conditional attribute 
+head(moody)
 
 ```
 
