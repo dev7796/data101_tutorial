@@ -52,3 +52,4 @@ snippet-1-5
 snippet-2-3
 snippet-3-2
 snippet-4-1
+free-style
