@@ -1,0 +1,13 @@
+tab:unnamed-chunk-15
+intro
+setting-up-r
+how-to-upload-a-data-set
+vector
+data-frames
+table
+plots
+scatter-plot
+bar-plot
+box-plot
+mosaic-plot
+tab:unnamed-chunk-2

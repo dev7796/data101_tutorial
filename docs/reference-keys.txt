@@ -41,12 +41,10 @@ tapply
 snippet-1-4
 code-review-2
 what-would-r-say-4
-what-would-r-say-5
 cut
-snippet-1-5
-snippet-2-3
+cut-making-categorical-attribute-from-numerical
 code-review-3
+what-would-r-say-5
 what-would-r-say-6
 what-would-r-say-7
-what-would-r-say-8
 a-complex-example

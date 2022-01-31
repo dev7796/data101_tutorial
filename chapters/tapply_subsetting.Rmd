@@ -217,7 +217,7 @@ tapply(moody, GRADE, SCORE, min)
 
 
 ```
-
+<!--
 #### What would R say?
 
 ```{r}
@@ -231,29 +231,12 @@ tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
 # C. mean category of on_smartphone only 
 # D. error.
 ```
-
+-->
 ---
 
-## Cut {#cut}
+## Derived Attribute {#cut}
 
-- **cut()** function in R Language is used to divide a **numeric vector** into different ranges
-
-### Snippet 1
-
-- Derived categorical attribute from numerical:
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-# Cut Example using breaks - Cutting data using defined vector. 
-score1 <- cut(moody$SCORE,breaks=c(0,50,100),labels=c("F","P"))
-table(score1)
-
-```
-
-### Snippet 2
-
-- Derived categorical attribute from categorical:
+- Making Categorical Attribute from Categorical:
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -264,6 +247,21 @@ moody[moody$GRADE=='F',]$PF<-'Fail'
 
 # lets see our added column PF
 moody
+
+```
+
+
+
+### **Cut:** Making Categorical Attribute from Numerical
+
+- **cut()** function in R Language is used to divide a **numeric vector** into different ranges.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+
+# Cut Example using breaks - Cutting data using defined vector. 
+score1 <- cut(moody$SCORE,breaks=c(0,50,100),labels=c("F","P"))
+table(score1)
 
 ```
 
