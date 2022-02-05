@@ -215,7 +215,7 @@ grades
 ```{r, tut=TRUE,height=400}
 moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
-table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
+table(moody[moody$questions!='always',]$grade)
 #What will R say?
 
 # A. error
@@ -228,7 +228,7 @@ table(moody[moody$ASKS_QUESTIONS!='always',]$GRADE)
 ```{r, tut=TRUE,height=400}
 moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
-table(moody[moody$ASKS_QUESTIONS==list('always','never'),]$GRADE)
+table(moody[moody$questions==c('always','never'),]$grade)
 #What will R say?
 
 # A. error.
