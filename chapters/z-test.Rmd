@@ -25,7 +25,7 @@ Lets look at the summary of traffic dartaset:
 
 ```{r,tut=TRUE,height=300}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #gives us the statistics
 summary(TRAFFIC) 
@@ -38,7 +38,7 @@ summary(TRAFFIC)
 
 ```{r,tut=TRUE,height=400}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
@@ -62,7 +62,7 @@ head(holland.traffic)
 
 ```{r,tut=TRUE,height=500}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
@@ -91,7 +91,7 @@ sd.holland
 
 ```{r,tut=TRUE,height=500}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
@@ -125,7 +125,7 @@ len_holland
 
 ```{r,tut=TRUE,height=500}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
@@ -158,7 +158,7 @@ sd.lin.hol
 
 ```{r,tut=TRUE,height=700}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
@@ -198,7 +198,7 @@ zeta
 
 ```{r,tut=TRUE,height=800}
 
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
 #data clean and subset, either
 lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
