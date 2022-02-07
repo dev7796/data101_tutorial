@@ -228,7 +228,7 @@ table(moody[moody$questions!='always',]$grade)
 ```{r, tut=TRUE,height=400}
 moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
-table(moody[moody$questions==c('always','never'),]$grade)
+table(moody[moody$questions==('always','never'),]$grade)
 #What will R say?
 
 # A. error.

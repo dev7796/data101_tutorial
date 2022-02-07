@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 1 Introduction | bookdemo.knit</title>
+  <title>Lecture: 6 z-test | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 1 Introduction | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 6 z-test | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 1 Introduction | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 6 z-test | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="free-style.html"/>
 
-<link rel="next" href="setting-up-r.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -165,48 +165,74 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="intro" class="section level1" number="1">
-<h1><span class="header-section-number">Lecture: 1</span> Introduction</h1>
+<div id="ztest" class="section level1" number="6">
+<h1><span class="header-section-number">Lecture: 6</span> z-test</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<p>The objective of this textbook is to provide you with the shortest path to exploring your data, visualizing it, forming hypotheses and validating and defending them. Given a data set, you want to be able to make any plot you wish, find plots which show something actionable and interesting, explore data by slicing and dicing it and finally present your results in a statistically convincing manner, perhaps in a colorful and visually appealing way.</p>
-<p>Questions which you will have to anticipate and you will have to answer are
-- How do you know that your findings are not random?
-- And fundamental of all questions:
-- <strong>So what?</strong></p>
-<p>Even the most impressing looking results may come up randomly. And you will be asked this question along with the question <em>“what was your p-value and how did you compute it”</em></p>
-<p>And even if you convince your audience that your results are not random, you will have to be ready to explain why your audience should care about the results you reported. In other words, is there any actionable value in your results? Or they are just simply interesting, good to know, but no one really needs to care much about them otherwise? Hopefully it is the former not the latter.</p>
-<p>In the following sections we will address these questions and go through the process of data exploration, validation, and presentation.</p>
 <ul>
-<li>We will start with making plots, follow with free style data exploration – which allows us to form the leads, that is hypotheses. Then we will follow with simple statistical tests which will allow us to validate these hypothesis and defend our findings against randomness claims. - We will learn how to calculate p-values and how to use them to defend our findings.</li>
-<li>We will use as few R commands as possible and reach our goal in the shortest possible path. In fact we will demonstrate how using just 7 R commands we can perform quite sophisticated data exploration. In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries. In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge (we show them in appendix). We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.</li>
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div>
+<div id="CLT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div></li>
 </ul>
+<div id="snippet-1-6" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Snippet 1</h2>
+<p>Lets look at the summary of traffic dartaset:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZ2l2ZXMgdXMgdGhlIHN0YXRpc3RpY3NcbnN1bW1hcnkoVFJBRkZJQykgIn0=
+</div>
+</div>
+<div id="snippet-2-4" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Snippet 2</h2>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG4jVGhpcyB2YXJpYWJsZSBpcyBhIGNvbHVtbiBvZiAxNDAxIHJvd3MuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5oZWFkKGxpbmNvbG4udHJhZmZpYylcblxuI3RyYWZmaWMgYXQgaG9sbGFuZFxuI1RoaXMgdmFyaWFibGUgaXMgYSBjb2x1bW4gb2YgMTQwMSByb3dzLlxuaG9sbGFuZC50cmFmZmljIDwtIGhvbGxhbmQuZGF0YSRWT0xVTUVfUEVSX01JTlVURVxuaGVhZChob2xsYW5kLnRyYWZmaWMpIn0=
+</div>
+</div>
+<div id="snippet-3-3" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Snippet 3</h2>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiN0cmFmZmljIGF0IGhvbGxhbmRcbmhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcbiBcbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuI1RoZSBmaW5hbCB2YWx1ZSBpcyB0aGUgc3RhbmRhcmQgZGV2aWF0aW9uLCBpbiBWb2x1bWUgcGVyIG1pbnV0ZS5cbiBcbnNkLmxpbmNvbG4gPC0gc2QobGluY29sbi50cmFmZmljKVxuc2QuaG9sbGFuZCA8LSBzZChob2xsYW5kLnRyYWZmaWMpXG5cbnNkLmxpbmNvbG5cbnNkLmhvbGxhbmQifQ==
+</div>
+</div>
+<div id="snippet-4-2" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Snippet 4</h2>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiN0cmFmZmljIGF0IGhvbGxhbmRcbmhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5cbm1lYW4ubGluY29sblxubWVhbi5ob2xsYW5kXG5cbiNsZW5ndGggb2YgbGluY29sbiBhbmQgaG9sbGFuZFxubGVuX2xpbmNvbG4gPC0gbGVuZ3RoKGxpbmNvbG4udHJhZmZpYylcbmxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG5cbmxlbl9saW5jb2xuXG5sZW5faG9sbGFuZCJ9
+</div>
+</div>
+<div id="snippet-5-1" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Snippet 5</h2>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiN0cmFmZmljIGF0IGhvbGxhbmRcbmhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcblxuIyBzdGFuZGFyZCBkZXZpYXRpb24gb2YgdHdvIHNhbXBsZXMuXG5zZC5saW5jb2xuIDwtIHNkKGxpbmNvbG4udHJhZmZpYylcbnNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuXG4jbGVuZ3RoIG9mIGxpbmNvbG4gYW5kIGhvbGxhbmRcbmxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG5sZW5faG9sbGFuZCA8LSBsZW5ndGgoaG9sbGFuZC50cmFmZmljKVxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcblxuc2QubGluLmhvbCJ9
+</div>
+</div>
+<div id="snippet-6" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Snippet 6</h2>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiN0cmFmZmljIGF0IGhvbGxhbmRcbmhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcblxuIyBzdGFuZGFyZCBkZXZpYXRpb24gb2YgdHdvIHNhbXBsZXMuXG5zZC5saW5jb2xuIDwtIHNkKGxpbmNvbG4udHJhZmZpYylcbnNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuXG4jbGVuZ3RoIG9mIGxpbmNvbG4gYW5kIGhvbGxhbmRcbmxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG5sZW5faG9sbGFuZCA8LSBsZW5ndGgoaG9sbGFuZC50cmFmZmljKVxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5cbiN6IHNjb3JlXG56ZXRhIDwtIChtZWFuLmxpbmNvbG4gLSBtZWFuLmhvbGxhbmQpL3NkLmxpbi5ob2xcblxuemV0YSJ9
+</div>
+</div>
+<div id="snippet-7" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Snippet 7</h2>
+<div data-datacamp-exercise="" data-height="800" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVFJBRkZJQy5jc3YnKVxuXG4jZGF0YSBjbGVhbiBhbmQgc3Vic2V0LCBlaXRoZXJcbmxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoVFJBRkZJQywgVFJBRkZJQyRUVU5ORUwgPT0gXCJMaW5jb2xuXCIpXG5ob2xsYW5kLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiSG9sbGFuZFwiKVxuXG4jdHJhZmZpYyBhdCBsaW5jb2xuXG5saW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiN0cmFmZmljIGF0IGhvbGxhbmRcbmhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGEkVk9MVU1FX1BFUl9NSU5VVEVcblxuIyBzdGFuZGFyZCBkZXZpYXRpb24gb2YgdHdvIHNhbXBsZXMuXG5zZC5saW5jb2xuIDwtIHNkKGxpbmNvbG4udHJhZmZpYylcbnNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuXG4jbGVuZ3RoIG9mIGxpbmNvbG4gYW5kIGhvbGxhbmRcbmxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG5sZW5faG9sbGFuZCA8LSBsZW5ndGgoaG9sbGFuZC50cmFmZmljKVxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5cbiN6IHNjb3JlXG56ZXRhIDwtIChtZWFuLmxpbmNvbG4gLSBtZWFuLmhvbGxhbmQpL3NkLmxpbi5ob2xcblxuI3Bsb3QgcmVkIGxpbmVcbnBsb3QoeD1zZXEoZnJvbSA9IC01LCB0bz0gNSwgYnk9MC4xKSx5PWRub3JtKHNlcShmcm9tID0gLTUsIHRvPSA1LCAgYnk9MC4xKSxtZWFuPTApLHR5cGU9J2wnLHhsYWIgPSAnbWVhbiBkaWZmZXJlbmNlJywgIHlsYWI9J3Bvc3NpYmlsaXR5JylcbmFibGluZSh2PXpldGEsIGNvbD0ncmVkJylcblxuI2dldCBwXG5wID0gMS1wbm9ybSh6ZXRhKVxucCJ9
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="free-style.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="setting-up-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,238 @@
+# z-test {#ztest}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+<div id="CLT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+
+
+
+## Snippet 1
+
+Lets look at the summary of traffic dartaset:
+
+```{r,tut=TRUE,height=300}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#gives us the statistics
+summary(TRAFFIC) 
+
+```
+
+
+
+## Snippet 2
+
+```{r,tut=TRUE,height=400}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+#This variable is a column of 1401 rows.
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+head(lincoln.traffic)
+
+#traffic at holland
+#This variable is a column of 1401 rows.
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+head(holland.traffic)
+```
+
+
+
+## Snippet 3
+
+
+```{r,tut=TRUE,height=500}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+#traffic at holland
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+ 
+# standard deviation of two samples.
+#The final value is the standard deviation, in Volume per minute.
+ 
+sd.lincoln <- sd(lincoln.traffic)
+sd.holland <- sd(holland.traffic)
+
+sd.lincoln
+sd.holland
+```
+
+
+
+
+## Snippet 4
+
+```{r,tut=TRUE,height=500}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+#traffic at holland
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+
+#means of two samples
+mean.lincoln <- mean(lincoln.traffic)
+mean.holland <- mean(holland.traffic)
+
+mean.lincoln
+mean.holland
+
+#length of lincoln and holland
+len_lincoln <- length(lincoln.traffic)
+len_holland <- length(holland.traffic)
+
+len_lincoln
+len_holland
+```
+
+
+
+
+## Snippet 5
+
+```{r,tut=TRUE,height=500}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+#traffic at holland
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+
+# standard deviation of two samples.
+sd.lincoln <- sd(lincoln.traffic)
+sd.holland <- sd(holland.traffic)
+
+#length of lincoln and holland
+len_lincoln <- length(lincoln.traffic)
+len_holland <- length(holland.traffic)
+
+#standard deviation of difference traffic
+sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+
+sd.lin.hol
+```
+
+
+
+
+## Snippet 6
+
+```{r,tut=TRUE,height=700}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+#traffic at holland
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+
+# standard deviation of two samples.
+sd.lincoln <- sd(lincoln.traffic)
+sd.holland <- sd(holland.traffic)
+
+#length of lincoln and holland
+len_lincoln <- length(lincoln.traffic)
+len_holland <- length(holland.traffic)
+
+#standard deviation of difference traffic
+sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+
+#means of two samples
+mean.lincoln <- mean(lincoln.traffic)
+mean.holland <- mean(holland.traffic)
+
+#z score
+zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
+
+zeta
+```
+
+
+
+
+## Snippet 7
+
+```{r,tut=TRUE,height=800}
+
+TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/TRAFFIC.csv')
+
+#data clean and subset, either
+lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
+holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+
+#traffic at lincoln
+lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
+
+#traffic at holland
+holland.traffic <- holland.data$VOLUME_PER_MINUTE
+
+# standard deviation of two samples.
+sd.lincoln <- sd(lincoln.traffic)
+sd.holland <- sd(holland.traffic)
+
+#length of lincoln and holland
+len_lincoln <- length(lincoln.traffic)
+len_holland <- length(holland.traffic)
+
+#standard deviation of difference traffic
+sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+
+#means of two samples
+mean.lincoln <- mean(lincoln.traffic)
+mean.holland <- mean(holland.traffic)
+
+#z score
+zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
+
+#plot red line
+plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+abline(v=zeta, col='red')
+
+#get p
+p = 1-pnorm(zeta)
+p
+```

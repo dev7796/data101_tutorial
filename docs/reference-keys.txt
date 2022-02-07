@@ -53,3 +53,11 @@ snippet-2-3
 snippet-3-2
 snippet-4-1
 free-style
+ztest
+snippet-1-6
+snippet-2-4
+snippet-3-3
+snippet-4-2
+snippet-5-1
+snippet-6
+snippet-7
