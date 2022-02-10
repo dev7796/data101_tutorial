@@ -73,7 +73,7 @@ sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
 sdTunnel
 
 # plot histogram 
-hist(Traffic$VOLUME_PER_MINUTE)
+hist(Traffic$VOLUME_PER_MINUTE, breaks=100)
 
 # Get the z-value
 zeta <- (20 - meanTunnel)/sdTunnel
@@ -110,8 +110,6 @@ holland.traffic <- holland.data$VOLUME_PER_MINUTE
 head(holland.traffic)
 ```
 
-
-
 ## Snippet 5
 
 ```{r,tut=TRUE,height=500}
@@ -137,9 +135,6 @@ sd.holland <- sd(holland.traffic)
 sd.lincoln
 sd.holland
 ```
-
-
-
 
 ## Snippet 6
 
@@ -172,9 +167,6 @@ len_lincoln
 len_holland
 ```
 
-
-
-
 ## Snippet 7
 
 ```{r,tut=TRUE,height=500}
@@ -204,9 +196,6 @@ sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
 
 sd.lin.hol
 ```
-
-
-
 
 ## Snippet 8
 
@@ -244,9 +233,6 @@ zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
 
 zeta
 ```
-
-
-
 
 ## Snippet 9
 
