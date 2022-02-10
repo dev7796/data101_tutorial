@@ -54,7 +54,6 @@ snippet-3-2
 snippet-4-1
 free-style
 ztest
-practice-problems
 snippet-1-6
 snippet-2-4
 snippet-3-3
@@ -62,5 +61,5 @@ snippet-4-2
 snippet-5-1
 snippet-6
 snippet-7
-p-value-part-1
-p-value-part-2
+snippet-8
+snippet-9
