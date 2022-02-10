@@ -45,6 +45,9 @@ meanTunnel<-mean(Traffic$VOLUME_PER_MINUTE)
 sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
 sdTunnel
 
+# plot histogram 
+hist(Traffic$VOLUME_PER_MINUTE, breaks=100)
+
 # Get the z-value
 zeta <- (20 - meanTunnel)/sdTunnel
 zeta
@@ -71,9 +74,6 @@ meanTunnel
 # Get standard deviation
 sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
 sdTunnel
-
-# plot histogram 
-hist(Traffic$VOLUME_PER_MINUTE, breaks=100)
 
 # Get the z-value
 zeta <- (20 - meanTunnel)/sdTunnel
