@@ -17,9 +17,9 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+## Practice Problems
 
-
-## Snippet 1
+### Snippet 1
 
 Lets look at the summary of traffic dartaset:
 
@@ -34,7 +34,7 @@ summary(TRAFFIC)
 
 
 
-## Snippet 2
+### Snippet 2
 
 ```{r,tut=TRUE,height=400}
 
@@ -57,7 +57,7 @@ head(holland.traffic)
 
 
 
-## Snippet 3
+### Snippet 3
 
 
 ```{r,tut=TRUE,height=500}
@@ -87,7 +87,7 @@ sd.holland
 
 
 
-## Snippet 4
+### Snippet 4
 
 ```{r,tut=TRUE,height=500}
 
@@ -121,7 +121,7 @@ len_holland
 
 
 
-## Snippet 5
+### Snippet 5
 
 ```{r,tut=TRUE,height=500}
 
@@ -154,7 +154,7 @@ sd.lin.hol
 
 
 
-## Snippet 6
+### Snippet 6
 
 ```{r,tut=TRUE,height=700}
 
@@ -194,7 +194,7 @@ zeta
 
 
 
-## Snippet 7
+### Snippet 7
 
 ```{r,tut=TRUE,height=800}
 
@@ -234,5 +234,64 @@ abline(v=zeta, col='red')
 
 #get p
 p = 1-pnorm(zeta)
+p
+```
+
+## P-value (Part 1)
+
+
+```{r,tut=TRUE,height=800}
+Traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
+
+colnames(Traffic)
+
+# Get mean of volumes per minute
+meanTunnel<-mean(Traffic$VOLUME_PER_MINUTE)
+
+# Get standard deviation
+sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
+sdTunnel
+
+# Get the z-value
+zeta <- (20 - meanTunnel)/sdTunnel
+zeta
+
+plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean',  ylab='possibility')
+abline(v=zeta, col='red')
+
+# Compute P-value
+p<-pnorm(zeta)
+p
+```
+
+## P-value (Part 2)
+
+```{r,tut=TRUE,height=800}
+Traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
+
+colnames(Traffic)
+
+# Get mean of volumes per minute
+meanTunnel<-mean(Traffic$VOLUME_PER_MINUTE)
+meanTunnel
+
+# Get standard deviation
+sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
+sdTunnel
+
+# plot histogram 
+hist(Traffic$VOLUME_PER_MINUTE)
+
+# Get the z-value
+zeta <- (20 - meanTunnel)/sdTunnel
+zeta
+
+plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean',  ylab='possibility')
+abline(v=zeta, col='red')
+
+# Compute P-value
+#p<-1-pnorm(zeta)
+#p
+p<-pnorm(zeta)
 p
 ```
