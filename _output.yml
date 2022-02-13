@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="https://dev7796.github.io/data101_tutorial/intro.html">DATA 101 Book</a>
+        <li><a href="https://dev7796.github.io/data101_tutorial/index.html">DATA 101 Book</a>
         <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
         <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
         </li>
