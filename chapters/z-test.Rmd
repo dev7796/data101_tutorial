@@ -43,7 +43,7 @@ summary(TRAFFIC)
 How big is traffic of 80 vehicles per minute?  We calculate standard deviation and mean of VOLUME attribute of 
 the TRAFFIC table. Then we compute z-values of 20 and 80 (or any other value). This allows us to normalize all data sets  and talk about different data sets in the language of z-values. 
 
- The p-value p, returns the fraction of traffic values smaller than 20  (or larger than 80, respectively)
+ The p-value **p**, returns the fraction of traffic values smaller than 20  (or larger than 80, respectively)
 
 ## Snippet 2
 
