@@ -1,4 +1,5 @@
-tab:unnamed-chunk-20
+tab:unnamed-chunk-22
+index
 intro
 setting-up-r
 setting
