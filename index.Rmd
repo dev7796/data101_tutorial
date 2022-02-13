@@ -17,36 +17,6 @@ description: "This is a example of a interactive book for DATA 101 Course though
 
 
 
-# {-}
-
----
-
-<!-- <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script> -->
-<script src="files/js/dcl.js"></script>
-
-
-```{r ,include=FALSE}
-tutorial::go_interactive( greedy = FALSE)
-
-```
-
-<!-- <span style="color: red;background-color: lightgrey;font-size: 25px;">NOTE: THE DATACAMP SERVER ARE CURRENTLY DOWN. PLEASE COPY PASTE THE CODE IN RSTUDIO TO RUN OFFLINE. WE'LL TRY TO GET THE SITE WORKING AGAIN SHORTLY.</span> -->
-<!-- <!-- **$\color{red}{\text{{NOTE: THE DATACAMP SERVER ARE CURRENTLY DOWN. PLEASE COPY PASTE THE CODE IN RSTUDIO TO RUN OFFLINE. WE'LL TRY TO GET THE SITE WORKING AGAIN SHORTLY.}}}$** -->
-
-
-This is a textbook based on the [DATA 101](http://data101.cs.rutgers.edu/) course taught by Prof. Tomasz Imielinski at Computer Science Department at Rutgers University, New Brunswick.
-
-Data 101 is an introductory course for beginners from any field of study, interested in the field of Data Science. 
-
-This book's pages are created using [Rmarkdown](https://rmarkdown.rstudio.com/) from Rstudio (similar to jupyter notebook) and the book is compiled using ["bookdown"](https://cran.r-project.org/web/packages/bookdown/index.html) package.
-
-The most important aspect of this interactive book are the interactive code chunks for running code, which are powered by a minimal version of Datacamp's learning interface called "Datacamp Light". For more info visit [Datacamp Light](https://github.com/datacamp/datacamp-light)
-
-- **Note1**: This book is undergoing constant updates following along with the course thought in Spring 2021. Topics under progress are marked with a " * ".
-
-- **Note2**: This book uses Datacamp Light for supporting runnable code chunks. In case the code chunks do not connect to run-time session, please copy the code and run in RStudio. Also, please report if facing this issue to the instructor via [email](mailto:timielinski@gmail.com).
-
----
 
 
 
