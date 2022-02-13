@@ -35,6 +35,15 @@ summary(TRAFFIC)
 
 ```
 
+---
+
+Snippets 2 and 3 do not test any hypotheses - but rather illustrate the z-value (and related p-value) for different values of traffic volume attribute  for the TRAFFIC data set.
+
+How small is traffic of 20 vehicles/minute?  How big is traffic of 80 vehicles per minute?  We calculate standard deviation and mean of VOLUME attribute of 
+the TRAFFIC table. Then we compute z-values of 20 and 80 (or any other value). This allows us to normalize all data sets  and talk about different data sets in the language of z-values. 
+
+ The p-value p, returns the fraction of traffic values smaller than 20  (or larger than 80, respectively)
+
 ## Snippet 2
 
 
@@ -93,6 +102,19 @@ abline(v=zeta, col='red')
 p<-pnorm(zeta)
 p
 ```
+
+---
+
+Snippets 4-9 show (step by step) the code for hypothesis test of difference of means - is traffic in Holland tunnel bigger than traffic in Lincoln?
+It is a z-test. Hence we calculate difference of means and standard deviation of difference of means distribution (sd function). This is done in snippets 6 and 7. Snippet 8 calculates the z-value (zeta) and snippet 9, the p-value (we have to repeat the code from previous snippets, but every time there is online or very few extra lines of code)
+
+Null Hypothesis - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
+
+Alternative Hypothesis - Traffic in Holland Tunnel is larger than traffic in Holland tunnel.
+
+In snippet 9, we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for sceptic). Indeed, p-value is less than critical value of 5%.
+
+This means, that under null hypothesis it is extremely unlikely (less than 5% chance) that we would obtain the observed difference of means (around 0.6).
 
 ## Snippet 4
 

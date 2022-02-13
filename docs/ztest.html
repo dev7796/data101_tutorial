@@ -69,7 +69,7 @@
 
 <ul class="summary">
 <li><a href="./">DATA 101 Book</a>
-<a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+<a href="https://dev7796.github.io/data101_tutorial/intro.html" target="blank">Github Source</a>
 <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
 </li>
 
@@ -193,6 +193,11 @@
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuI2dpdmVzIHVzIHRoZSBzdGF0aXN0aWNzXG5zdW1tYXJ5KFRSQUZGSUMpICJ9
 </div>
+<hr />
+<p>Snippets 2 and 3 do not test any hypotheses - but rather illustrate the z-value (and related p-value) for different values of traffic volume attribute for the TRAFFIC data set.</p>
+<p>How small is traffic of 20 vehicles/minute? How big is traffic of 80 vehicles per minute? We calculate standard deviation and mean of VOLUME attribute of
+the TRAFFIC table. Then we compute z-values of 20 and 80 (or any other value). This allows us to normalize all data sets and talk about different data sets in the language of z-values.</p>
+<p>The p-value p, returns the fraction of traffic values smaller than 20 (or larger than 80, respectively)</p>
 </div>
 <div id="snippet-2-4" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Snippet 2</h2>
@@ -205,6 +210,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUcmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 <div data-datacamp-exercise="" data-height="800" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUcmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuY29sbmFtZXMoVHJhZmZpYylcblxuIyBHZXQgbWVhbiBvZiB2b2x1bWVzIHBlciBtaW51dGVcbm1lYW5UdW5uZWw8LW1lYW4oVHJhZmZpYyRWT0xVTUVfUEVSX01JTlVURSlcbm1lYW5UdW5uZWxcblxuIyBHZXQgc3RhbmRhcmQgZGV2aWF0aW9uXG5zZFR1bm5lbDwtc2QoVHJhZmZpYyRWT0xVTUVfUEVSX01JTlVURSlcbnNkVHVubmVsXG5cbiMgR2V0IHRoZSB6LXZhbHVlXG56ZXRhIDwtICgyMCAtIG1lYW5UdW5uZWwpL3NkVHVubmVsXG56ZXRhXG5cbnBsb3QoeD1zZXEoZnJvbSA9IC01LCB0bz0gNSwgYnk9MC4xKSx5PWRub3JtKHNlcShmcm9tID0gLTUsIHRvPSA1LCAgYnk9MC4xKSxtZWFuPTApLHR5cGU9J2wnLHhsYWIgPSAnbWVhbicsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG5cbiMgQ29tcHV0ZSBQLXZhbHVlXG4jcDwtMS1wbm9ybSh6ZXRhKVxuI3BcbnA8LXBub3JtKHpldGEpXG5wIn0=
 </div>
+<hr />
+<p>Snippets 4-9 show (step by step) the code for hypothesis test of difference of means - is traffic in Holland tunnel bigger than traffic in Lincoln?
+It is a z-test. Hence we calculate difference of means and standard deviation of difference of means distribution (sd function). This is done in snippets 6 and 7. Snippet 8 calculates the z-value (zeta) and snippet 9, the p-value (we have to repeat the code from previous snippets, but every time there is online or very few extra lines of code)</p>
+<p>Null Hypothesis - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.</p>
+<p>Alternative Hypothesis - Traffic in Holland Tunnel is larger than traffic in Holland tunnel.</p>
+<p>In snippet 9, we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for sceptic). Indeed, p-value is less than critical value of 5%.</p>
+<p>This means, that under null hypothesis it is extremely unlikely (less than 5% chance) that we would obtain the observed difference of means (around 0.6).</p>
 </div>
 <div id="snippet-4-2" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Snippet 4</h2>

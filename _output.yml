@@ -4,7 +4,7 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">DATA 101 Book</a>
-        <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+        <a href="https://dev7796.github.io/data101_tutorial/intro.html" target="blank">Github Source</a>
         <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
         </li>
       after: |
