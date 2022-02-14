@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 1 Introduction | bookdemo.knit</title>
+  <title>Lecture: 7 Permutaion Test | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 1 Introduction | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 7 Permutaion Test | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 1 Introduction | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 7 Permutaion Test | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="ztest.html"/>
 
-<link rel="next" href="setting-up-r.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -172,48 +172,43 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="intro" class="section level1" number="1">
-<h1><span class="header-section-number">Lecture: 1</span> Introduction</h1>
+<div id="ptest" class="section level1" number="7">
+<h1><span class="header-section-number">Lecture: 7</span> Permutaion Test</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<p>The objective of this textbook is to provide you with the shortest path to exploring your data, visualizing it, forming hypotheses and validating and defending them. Given a data set, you want to be able to make any plot you wish, find plots which show something actionable and interesting, explore data by slicing and dicing it and finally present your results in a statistically convincing manner, perhaps in a colorful and visually appealing way.</p>
-<p>Questions which you will have to anticipate and you will have to answer are
-- How do you know that your findings are not random?
-- And fundamental of all questions:
-- <strong>So what?</strong></p>
-<p>Even the most impressing looking results may come up randomly. And you will be asked this question along with the question <em>“what was your p-value and how did you compute it”</em></p>
-<p>And even if you convince your audience that your results are not random, you will have to be ready to explain why your audience should care about the results you reported. In other words, is there any actionable value in your results? Or they are just simply interesting, good to know, but no one really needs to care much about them otherwise? Hopefully it is the former not the latter.</p>
-<p>In the following sections we will address these questions and go through the process of data exploration, validation, and presentation.</p>
 <ul>
-<li>We will start with making plots, follow with free style data exploration – which allows us to form the leads, that is hypotheses. Then we will follow with simple statistical tests which will allow us to validate these hypothesis and defend our findings against randomness claims. - We will learn how to calculate p-values and how to use them to defend our findings.</li>
-<li>We will use as few R commands as possible and reach our goal in the shortest possible path. In fact we will demonstrate how using just 7 R commands we can perform quite sophisticated data exploration. In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries. In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge (we show them in appendix). We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.</li>
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button>
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div></li>
 </ul>
+<div id="snippet-1-7" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Snippet 1</h2>
+<p><strong>Exercise</strong> - How p-value is affected by difference of means and standard deviations</p>
+<p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
+<p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuIENhdDE8LXJlcChcIkdyb3VwQVwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cEEgY2FuIGJlIEhvbGxhbmQgVHVubmVsXG4gQ2F0MjwtcmVwKFwiR3JvdXBCXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwIEIgd2lsbCBiZSBMaW5jb2xuIFR1bm5lbFxuIFxuIENhdDFcbiBDYXQyXG4gXG4gI1RoZSByZXAgY29tbWFuZCB3aWxsIHJlcGVhdCwgdGhlIHZhcmlhYmxlcyB3aWxsIGJlIG9mIHR5cGUgY2hhcmFjdGVyIGFuZCB3aWxsIGNvbnRhaW4gMTAgdmFsdWVzIGVhY2guXG4gXG4gQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG4gQ2F0XG5cbiBkPC1kYXRhLmZyYW1lKENhdCxWYWwpXG4gXG4gT2JzZXJ2ZWRfRGlmZmVyZW5jZTwtbWVhbihkW2QkQ2F0PT0nR3JvdXBBJywyXSktbWVhbihkW2QkQ2F0PT0nR3JvdXBCJywyXSlcbiBcbiAjVGhpcyB3aWxsIGNhbGN1bGF0ZSB0aGUgbWVhbiBvZiB0aGUgc2Vjb25kIGNvbHVtbiAoaGF2aW5nIDEwIHJhbmRvbSB2YWx1ZXMgZm9yIGVhY2ggZ3JvdXApLCBhbmQgdGhlIG1lYW4gb2YgZ3JvdXBCIHZhbHVlcyBpcyBzdWJ0cmFjdGVkIGZyb20gdGhlIG1lYW4gb2YgZ3JvdXBBIHZhbHVlcywgd2hpY2ggd2lsbCBnaXZlIHlvdSB0aGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2Ugb2YgdGhlIG1lYW4uXG4gXG4gI1RyeSBjaGFuZ2luZyBtZWFuIGFuZCBzZCB2YWx1ZXMuIFdoZW4geW91IHJ1biB0aGlzIHlvdSB3aWxsIHNlZSB0aGF0IHRoZSBkaWZmZXJlbmNlIGlzIHNvbWV0aW1lcyBuZWdhdGl2ZSAjb3Igc29tZXRpbWVzIHBvc2l0aXZlLiJ9
+</div>
+</div>
+<div id="snippet-2-5" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Snippet 2</h2>
+<p>Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG5cbiAjZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcbiAjUGVybXV0YXRpb25UZXN0U2Vjb25kOjpQZXJtdXRhdGlvbihkLCBcIkNhdFwiLCBcIlZhbFwiLDEwMDAwLCBcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuIFxuICNUaGUgUGVybXV0YXRpb24gZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2UuIFNvIHRoZSByZWQgbGluZSBpcyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIFlvdSB3aWxsIHNlZSBhIGhpc3RvZ3JhbSBoYXZpbmcgYSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggYSByZWQgc2hvd2luZyB0aGUgb2JzZXJ2ZWQgZGlmZmVyZW5jZS4ifQ==
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="ztest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="setting-up-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

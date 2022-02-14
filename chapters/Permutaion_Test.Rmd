@@ -1,0 +1,60 @@
+# Permutaion Test {#ptest}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button> 
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+
+## Snippet 1
+
+**Exercise** - How p-value is affected by difference of means and standard deviations
+
+We will build our two distributions ourseleves - varying the means and standard deviations.  We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+
+Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()** function
+
+```{r,tut=TRUE,height=500}
+Val1<-rnorm(10,mean=25, sd=10)
+Val2<-rnorm(10,mean=30, sd=10)
+ 
+ Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
+ Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
+ 
+ Cat1
+ Cat2
+ 
+ #The rep command will repeat, the variables will be of type character and will contain 10 values each.
+ 
+ Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
+ Cat
+
+ d<-data.frame(Cat,Val)
+ 
+ Observed_Difference<-mean(d[d$Cat=='GroupA',2])-mean(d[d$Cat=='GroupB',2])
+ 
+ #This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
+ 
+ #Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
+```
+
+## Snippet 2
+
+Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
+
+```{r,tut=TRUE,height=300}
+#install.packages("devtools")
+
+ #devtools::install_github("devanshagr/PermutationTestSecond")
+ #PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB")
+ 
+ #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
+```
