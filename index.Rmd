@@ -16,9 +16,6 @@ description: "This is a example of a interactive book for DATA 101 Course though
 ---
 
 
-#{-}
-
-
 
 
 
