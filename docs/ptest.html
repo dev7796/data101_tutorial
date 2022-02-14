@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 7 Permutaion Test | bookdemo.knit</title>
+  <title>Lecture: 7 Permutation Test | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 7 Permutaion Test | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 7 Permutation Test | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 7 Permutaion Test | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 7 Permutation Test | bookdemo.knit" />
   
   
   
@@ -147,7 +147,7 @@
 <li class="chapter" data-level="6.8" data-path="ztest.html"><a href="ztest.html#snippet-8"><i class="fa fa-check"></i><b>6.8</b> Snippet 8</a></li>
 <li class="chapter" data-level="6.9" data-path="ztest.html"><a href="ztest.html#snippet-9"><i class="fa fa-check"></i><b>6.9</b> Snippet 9</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ptest.html"><a href="ptest.html"><i class="fa fa-check"></i><b>7</b> Permutaion Test</a>
+<li class="chapter" data-level="7" data-path="ptest.html"><a href="ptest.html"><i class="fa fa-check"></i><b>7</b> Permutation Test</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="ptest.html"><a href="ptest.html#snippet-1-7"><i class="fa fa-check"></i><b>7.1</b> Snippet 1</a></li>
 <li class="chapter" data-level="7.2" data-path="ptest.html"><a href="ptest.html#snippet-2-5"><i class="fa fa-check"></i><b>7.2</b> Snippet 2</a></li>
@@ -173,7 +173,7 @@
 
             <section class="normal" id="section-">
 <div id="ptest" class="section level1" number="7">
-<h1><span class="header-section-number">Lecture: 7</span> Permutaion Test</h1>
+<h1><span class="header-section-number">Lecture: 7</span> Permutation Test</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -190,7 +190,7 @@
 <p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
 <p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuZDwtZGF0YS5mcmFtZShDYXQsVmFsMSlcbmRcblxuT2JzZXJ2ZWRfRGlmZmVyZW5jZTwtbWVhbihkW2QkQ2F0PT0nR3JvdXBBJywyXSktbWVhbihkW2QkQ2F0PT0nR3JvdXBCJywyXSlcblxuI1RoaXMgd2lsbCBjYWxjdWxhdGUgdGhlIG1lYW4gb2YgdGhlIHNlY29uZCBjb2x1bW4gKGhhdmluZyAxMCByYW5kb20gdmFsdWVzIGZvciBlYWNoIGdyb3VwKSwgYW5kIHRoZSBtZWFuIG9mIGdyb3VwQiB2YWx1ZXMgaXMgc3VidHJhY3RlZCBmcm9tIHRoZSBtZWFuIG9mIGdyb3VwQSB2YWx1ZXMsIHdoaWNoIHdpbGwgZ2l2ZSB5b3UgdGhlIHZhbHVlIG9mIHRoZSBkaWZmZXJlbmNlIG9mIHRoZSBtZWFuLlxuIFxuICNUcnkgY2hhbmdpbmcgbWVhbiBhbmQgc2QgdmFsdWVzLiBXaGVuIHlvdSBydW4gdGhpcyB5b3Ugd2lsbCBzZWUgdGhhdCB0aGUgZGlmZmVyZW5jZSBpcyBzb21ldGltZXMgbmVnYXRpdmUgI29yIHNvbWV0aW1lcyBwb3NpdGl2ZS4ifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbiNUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtZWFuIG9mIHRoZSBzZWNvbmQgY29sdW1uIChoYXZpbmcgMTAgcmFuZG9tIHZhbHVlcyBmb3IgZWFjaCBncm91cCksIGFuZCB0aGUgbWVhbiBvZiBncm91cEIgdmFsdWVzIGlzIHN1YnRyYWN0ZWQgZnJvbSB0aGUgbWVhbiBvZiBncm91cEEgdmFsdWVzLCB3aGljaCB3aWxsIGdpdmUgeW91IHRoZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZSBvZiB0aGUgbWVhbi5cbiBcbiAjVHJ5IGNoYW5naW5nIG1lYW4gYW5kIHNkIHZhbHVlcy4gV2hlbiB5b3UgcnVuIHRoaXMgeW91IHdpbGwgc2VlIHRoYXQgdGhlIGRpZmZlcmVuY2UgaXMgc29tZXRpbWVzIG5lZ2F0aXZlICNvciBzb21ldGltZXMgcG9zaXRpdmUuIn0=
 </div>
 </div>
 <div id="snippet-2-5" class="section level2" number="7.2">

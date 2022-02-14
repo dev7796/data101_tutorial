@@ -1,4 +1,4 @@
-# Permutaion Test {#ptest}
+# Permutation Test {#ptest}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -37,10 +37,14 @@ Cat2
 Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
 Cat
 
-d<-data.frame(Cat,Val1)
+Val<-c(Val1,Val2)
+Val
+
+d<-data.frame(Cat,Val)
 d
 
 Observed_Difference<-mean(d[d$Cat=='GroupA',2])-mean(d[d$Cat=='GroupB',2])
+Observed_Difference
 
 #This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
  
