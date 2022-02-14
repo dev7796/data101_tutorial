@@ -26,22 +26,23 @@ Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()**
 Val1<-rnorm(10,mean=25, sd=10)
 Val2<-rnorm(10,mean=30, sd=10)
  
- Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
- Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
- 
- Cat1
- Cat2
- 
- #The rep command will repeat, the variables will be of type character and will contain 10 values each.
- 
- Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
- Cat
+Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
+Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
 
- d<-data.frame(Cat,Val)
- 
- Observed_Difference<-mean(d[d$Cat=='GroupA',2])-mean(d[d$Cat=='GroupB',2])
- 
- #This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
+Cat1
+Cat2
+
+#The rep command will repeat, the variables will be of type character and will contain 10 values each.
+
+Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
+Cat
+
+d<-data.frame(Cat,Val1)
+d
+
+Observed_Difference<-mean(d[d$Cat=='GroupA',2])-mean(d[d$Cat=='GroupB',2])
+
+#This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
  
  #Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
 ```
