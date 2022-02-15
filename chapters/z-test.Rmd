@@ -227,7 +227,7 @@ sd.lin.hol
 
 ## Snippet 8
 
-```{r,tut=TRUE,height=700}
+```{r,tut=TRUE,height=800}
 
 TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
@@ -251,10 +251,13 @@ len_holland <- length(holland.traffic)
 
 #standard deviation of difference traffic
 sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+sd.lin.hol
 
 #means of two samples
 mean.lincoln <- mean(lincoln.traffic)
 mean.holland <- mean(holland.traffic)
+mean.lincoln
+mean.holland
 
 #z score
 zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
@@ -288,10 +291,13 @@ len_holland <- length(holland.traffic)
 
 #standard deviation of difference traffic
 sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+sd.lin.hol
 
 #means of two samples
 mean.lincoln <- mean(lincoln.traffic)
 mean.holland <- mean(holland.traffic)
+mean.lincoln
+mean.holland
 
 #z score
 zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
