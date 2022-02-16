@@ -1,0 +1,51 @@
+# Shiny {#shiny}
+
+---
+title: "testing"
+output: html_document
+runtime: shiny
+---
+  
+```{r setup, include=FALSE}
+library(shiny)
+library(shinythemes)
+library(ggplot2)
+library(ggpubr)
+library(pheatmap)
+iris <- iris
+#Based on https://towardsdatascience.com/build-your-first-shiny-web-app-in-r-72f9538f9868
+```
+
+## Basic UI Example
+```{r, include=FALSE}
+ui <- fluidPage(titlePanel("Get Student Name object"),
+                  sidebarLayout(
+                    sidebarPanel(
+                      actionButton("btn","calculate")
+                    ),
+                    mainPanel(
+                      textOutput("total")
+                    )
+                  )
+            )
+    
+```
+
+
+
+
+```{r , include=FALSE, echo=TRUE}
+# Define server logic required to draw a histogram ----
+server <- function(input,output){
+  calculate <- eventReactive(input$btn,{sample((read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')$VOLUME_PER_MINUTE),1)  
+                                        })
+  output$total <- renderText({
+    calculate()
+  })
+}
+```
+
+
+```{r, echo=TRUE}
+shinyApp(ui = ui, server = server)
+```

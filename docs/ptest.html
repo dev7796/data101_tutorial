@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 7 Permutation Test | bookdemo.knit</title>
-  <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>Lecture: 7 Permutation Test | testing</title>
+  <meta name="description" content="Lecture: 7 Permutation Test | testing" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 7 Permutation Test | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 7 Permutation Test | testing" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 7 Permutation Test | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 7 Permutation Test | testing" />
   
   
   
@@ -30,9 +30,10 @@
   
   
 <link rel="prev" href="ztest.html"/>
-
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="shiny.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -152,6 +152,10 @@
 <li class="chapter" data-level="7.1" data-path="ptest.html"><a href="ptest.html#snippet-1-7"><i class="fa fa-check"></i><b>7.1</b> Snippet 1</a></li>
 <li class="chapter" data-level="7.2" data-path="ptest.html"><a href="ptest.html#snippet-2-5"><i class="fa fa-check"></i><b>7.2</b> Snippet 2</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>8</b> Shiny</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="shiny.html"><a href="shiny.html#basic-ui-example"><i class="fa fa-check"></i><b>8.1</b> Basic UI Example</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -164,7 +168,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">testing</a>
           </h1>
         </div>
 
@@ -207,12 +211,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG5c
           </div>
         </div>
       </div>
-<a href="ztest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ztest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="shiny.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -252,6 +255,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdemo.html"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -8,7 +8,8 @@ rmd_files: [
   "./chapters/tapply_subsetting.Rmd",
   "./chapters/FreeStyle.Rmd",
   "./chapters/z-test.Rmd",
-  "./chapters/Permutaion_Test.Rmd"]
+  "./chapters/Permutaion_Test.Rmd",
+  "./chapters/Testing_button.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:
