@@ -386,7 +386,7 @@ mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main
 
 ```
 
-## References
+## Additional References
 
 https://www.datamentor.io/r-programming/plot-function/
 

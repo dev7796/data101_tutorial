@@ -312,7 +312,7 @@ p = 1-pnorm(zeta)
 p
 ```
 
-## References
+## Additional References
 
 https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/ <br>
 http://www.z-table.com/ <br>
