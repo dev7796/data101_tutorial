@@ -4,6 +4,7 @@ setting-up-r
 setting
 how-to-upload-a-data-set
 saving-your-work
+general-r-references
 plots
 vector
 snippet-1
@@ -21,6 +22,7 @@ scatter-plot
 bar-plot
 box-plot
 mosaic-plot
+references
 data-transformation
 basic-functions
 mean
@@ -63,6 +65,7 @@ snippet-6
 snippet-7
 snippet-8
 snippet-9
+references-1
 ptest
 snippet-1-7
 snippet-2-5

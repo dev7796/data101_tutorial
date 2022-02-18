@@ -163,7 +163,9 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 
 **Note: ** You can create multiple files inside the same project such as for your each homework assignments
 
+## General R References
 
+https://www.w3schools.com/r/
 
 
 
