@@ -81,6 +81,7 @@
 <li class="chapter" data-level="2.1" data-path="setting-up-r.html"><a href="setting-up-r.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
 <li class="chapter" data-level="2.2" data-path="setting-up-r.html"><a href="setting-up-r.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a></li>
 <li class="chapter" data-level="2.3" data-path="setting-up-r.html"><a href="setting-up-r.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
+<li class="chapter" data-level="2.4" data-path="setting-up-r.html"><a href="setting-up-r.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>3</b> 🔖 Plots</a>
 <ul>
@@ -104,6 +105,7 @@
 <li class="chapter" data-level="3.5" data-path="plots.html"><a href="plots.html#bar-plot"><i class="fa fa-check"></i><b>3.5</b> Bar Plot</a></li>
 <li class="chapter" data-level="3.6" data-path="plots.html"><a href="plots.html#box-plot"><i class="fa fa-check"></i><b>3.6</b> Box Plot</a></li>
 <li class="chapter" data-level="3.7" data-path="plots.html"><a href="plots.html#mosaic-plot"><i class="fa fa-check"></i><b>3.7</b> Mosaic Plot</a></li>
+<li class="chapter" data-level="3.8" data-path="plots.html"><a href="plots.html#references"><i class="fa fa-check"></i><b>3.8</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> 🔖 Data Transformation</a>
 <ul>
@@ -147,6 +149,7 @@
 <li class="chapter" data-level="6.7" data-path="ztest.html"><a href="ztest.html#snippet-7"><i class="fa fa-check"></i><b>6.7</b> Snippet 7</a></li>
 <li class="chapter" data-level="6.8" data-path="ztest.html"><a href="ztest.html#snippet-8"><i class="fa fa-check"></i><b>6.8</b> Snippet 8</a></li>
 <li class="chapter" data-level="6.9" data-path="ztest.html"><a href="ztest.html#snippet-9"><i class="fa fa-check"></i><b>6.9</b> Snippet 9</a></li>
+<li class="chapter" data-level="6.10" data-path="ztest.html"><a href="ztest.html#references-1"><i class="fa fa-check"></i><b>6.10</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ptest.html"><a href="ptest.html"><i class="fa fa-check"></i><b>7</b> 🔖 Permutation Test</a>
 <ul>
@@ -262,6 +265,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 <div data-datacamp-exercise="" data-height="800" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG5saW5jb2xuLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiTGluY29sblwiKVxuaG9sbGFuZC5kYXRhIDwtIHN1YnNldChUUkFGRklDLCBUUkFGRklDJFRVTk5FTCA9PSBcIkhvbGxhbmRcIilcblxuI3RyYWZmaWMgYXQgbGluY29sblxubGluY29sbi50cmFmZmljIDwtIGxpbmNvbG4uZGF0YSRWT0xVTUVfUEVSX01JTlVURVxuXG4jdHJhZmZpYyBhdCBob2xsYW5kXG5ob2xsYW5kLnRyYWZmaWMgPC0gaG9sbGFuZC5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG5zZC5ob2xsYW5kIDwtIHNkKGhvbGxhbmQudHJhZmZpYylcblxuI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG5sZW5fbGluY29sbiA8LSBsZW5ndGgobGluY29sbi50cmFmZmljKVxubGVuX2hvbGxhbmQgPC0gbGVuZ3RoKGhvbGxhbmQudHJhZmZpYylcblxuI3N0YW5kYXJkIGRldmlhdGlvbiBvZiBkaWZmZXJlbmNlIHRyYWZmaWNcbnNkLmxpbi5ob2wgPC0gc3FydChzZC5saW5jb2xuXjIvbGVuX2xpbmNvbG4gKyBzZC5ob2xsYW5kXjIvbGVuX2hvbGxhbmQpXG5zZC5saW4uaG9sXG5cbiNtZWFucyBvZiB0d28gc2FtcGxlc1xubWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxubWVhbi5ob2xsYW5kIDwtIG1lYW4oaG9sbGFuZC50cmFmZmljKVxubWVhbi5saW5jb2xuXG5tZWFuLmhvbGxhbmRcblxuI3ogc2NvcmVcbnpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuXG4jcGxvdCByZWQgbGluZVxucGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuYWJsaW5lKHY9emV0YSwgY29sPSdyZWQnKVxuXG4jZ2V0IHBcbnAgPSAxLXBub3JtKHpldGEpXG5wIn0=
 </div>
+</div>
+<div id="references-1" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> References</h2>
+<p><a href="https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/" class="uri">https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/</a> <br>
+<a href="http://www.z-table.com/" class="uri">http://www.z-table.com/</a> <br>
+<a href="https://www.statisticshowto.com/probability-and-statistics/z-score/" class="uri">https://www.statisticshowto.com/probability-and-statistics/z-score/</a> <br>
+<a href="https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/" class="uri">https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/</a></p>
 
 </div>
 </div>
