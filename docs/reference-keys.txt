@@ -70,3 +70,7 @@ ptest
 snippet-1-7
 snippet-2-5
 snippet-3-4
+chitest
+snippet-1-8
+snippet-2-6
+snippet-3-5

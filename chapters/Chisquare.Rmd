@@ -1,0 +1,45 @@
+# 🔖 Chi Square Analysis {#chitest}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#CS12">Chi Square</button> 
+<div id="CS12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1h-h2S5lW6ReFwdeJKNflPpE0iCjoS08T0mpgSLiFv88/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+
+## Snippet 1
+
+```{r,tut=TRUE,height=300}
+Expected <-matrix(c(200,420,180, 40,120,40))
+Observed<-matrix(c(200,420,180,35,120,45), nrow=3, ncol=2)
+Expected
+Observed
+chisq.test(Observed)
+```
+
+## Snippet 2
+
+```{r,tut=TRUE,height=300}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody$IN<-'Out_Slice'
+moody[moody$DOZES_OFF=='never' & moody$TEXTING_IN_CLASS=='always', ]$IN<-'In_Slice'
+d<-table(moody$GRADE, moody$IN)
+d
+chisq.test(d)
+```
+
+## Snippet 3
+
+
+```{r,tut=TRUE,height=300}
+data<-table(movies$content, movies$genre)
+chisq.test(data)
+```
+
