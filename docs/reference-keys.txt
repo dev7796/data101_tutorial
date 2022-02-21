@@ -55,7 +55,7 @@ snippet-2-3
 snippet-3-2
 snippet-4-1
 free-style
-moody-data-puzzle
+moody-data-puzzle---pattern-i-injected
 ztest
 snippet-1-6
 snippet-2-4
