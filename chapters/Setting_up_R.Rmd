@@ -165,7 +165,9 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 
 ## General R References
 
-https://www.w3schools.com/r/
+https://www.w3schools.com/r/ <br>
+https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+
 
 
 
