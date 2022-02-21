@@ -12,3 +12,11 @@ tutorial::go_interactive()
 <div id="freestyle12" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1wvWxu_DEEoYNq0qKEkepbqu2-x0SGsXGQiE2iWbv2Iw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+
+
+## Moody Data Puzzle
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">Moody Data Puzzle - a solution</button>
+<div id="MDP12" class="collapse">    
+<embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
