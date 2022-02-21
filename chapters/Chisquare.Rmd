@@ -31,7 +31,7 @@ chisq.test(Observed)
 ## Snippet 2
 
 ```{r,tut=TRUE,height=300}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 moody$IN<-'Out_Slice'
 moody[moody$DOZES_OFF=='never' & moody$TEXTING_IN_CLASS=='always', ]$IN<-'In_Slice'
 d<-table(moody$GRADE, moody$IN)
@@ -43,6 +43,7 @@ chisq.test(d)
 
 
 ```{r,tut=TRUE,height=300}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 data<-table(movies$content, movies$genre)
 chisq.test(data)
 ```
