@@ -93,3 +93,25 @@ Do this in your R studio, since we cannot install our package in data camp servi
  
  #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
 ```
+
+
+## Snippet 4
+
+One permutation at a time
+
+```{r,tut=TRUE,height=400}
+traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
+
+ranNum <- sample(1:nrow(traffic),nrow(traffic))
+ranNum[1:5]
+
+VOLUME_PER_MINUTE<-traffic$VOLUME_PER_MINUTE[ranNum]
+TUNNEL<-traffic$TUNNEL
+
+Permuted_traffic<-data.frame(TUNNEL, VOLUME_PER_MINUTE)
+
+mean(traffic[traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE) -mean(traffic[traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
+
+mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
+```
+
