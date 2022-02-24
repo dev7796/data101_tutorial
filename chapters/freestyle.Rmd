@@ -1,4 +1,4 @@
-# 🔖 Free Style 
+# 🔖 Free Style: Data Exploration 
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -16,26 +16,26 @@ tutorial::go_interactive()
 
 ## Moody Data Puzzle - Pattern I Injected
 
-- **A solution: ** <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">Moody Data Puzzle</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">Moody Data Puzzle</button>
 <div id="MDP12" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
-## Previous Works : The Key to Getting a Good Grade in Professor Moody’s Class
+## Best Student's Submissions 2022
 
-- **2021: ** <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
 <div id="PPT2021" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/LM-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
-<br>
+<br> 
 
-- **2020: ** <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
 <div id="PPT2020" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
 <br>
 
-- **2019: ** <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
 <div id="PPT2019" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>

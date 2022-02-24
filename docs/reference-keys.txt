@@ -54,9 +54,9 @@ snippet-1-5
 snippet-2-3
 snippet-3-2
 snippet-4-1
-free-style
+free-style-data-exploration
 moody-data-puzzle---pattern-i-injected
-previous-works-the-key-to-getting-a-good-grade-in-professor-moodys-class
+best-students-submissions-2022
 ztest
 snippet-1-6
 snippet-2-4
