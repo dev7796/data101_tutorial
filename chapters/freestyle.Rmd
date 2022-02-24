@@ -21,6 +21,10 @@ tutorial::go_interactive()
 <embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+### Additional reference: Correlation and Causation
+
+https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
+
 ## Best Student's Submissions 2022
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
