@@ -27,19 +27,236 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 
 ## Best Student's Submissions 2022
 
+### Presentation I
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
 <div id="PPT2021" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/LM-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
-<br> 
 
+#### Snippet 1
+
+```{r,tut=TRUE,height=300}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+
+```
+
+#### Snippet 2
+
+```{r,tut=TRUE,height=300}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+```
+
+#### Snippet 3
+
+```{r,tut=TRUE,height=300}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+```
+
+#### Snippet 4
+
+```{r,tut=TRUE,height=300}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+```
+
+#### Snippet 5
+
+```{r,tut=TRUE,height=300}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+```
+
+<br>
+
+### Presentation II
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
 <div id="PPT2020" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
+
+#### Snippet 1
+
+Lets look at the general distribution of Grades and scores
+
+```{r,tut=TRUE,height=400}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+#Barplot General Grade distribution
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(moody2022$GRADE), col = colors, main = 'General Grade Distribution',
+        ylab = 'Number of students', xlab = 'Letter Grade')
+
+#Boxplot grade distribution by score
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+boxplot(SCORE~GRADE, data=moody2022, xlab = "Letter Grade", ylab="Score", 
+        main="Distribution of Scores by Grade", col = colors, border = "black")
+
+```
+
+#### Snippet 2
+
+Does Texting affect grades?
+
+```{r,tut=TRUE,height=600}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+#barplot using varibale always TEXTING_IN_CLASS
+alwaysTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'always'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(alwaysTexting$GRADE), col = colors, 
+        main = 'Grade Distribution for student always texting', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale sometimes TEXTING_IN_CLASS
+sometimesTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'sometimes'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(sometimesTexting$GRADE), col = colors, 
+        main = 'Grade Distribution for student sometimes texting', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale rarely TEXTING_IN_CLASS
+rarelyTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'rarely'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(rarelyTexting$GRADE), col = colors, 
+        main = 'Grade Distribution for student rarely texting', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale never TEXTING_IN_CLASS
+neverTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'never'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(neverTexting$GRADE), col = colors, 
+        main = 'Grade Distribution for student never texting', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+```
+
+#### Snippet 3
+
+Does Dozing off affect grades?
+
+```{r,tut=TRUE,height=600}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+#barplot using varibale always Dozing_off
+alwaysDozes <- moody2022[which(moody2022$DOZES_OFF == 'always'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(alwaysDozes$GRADE), col = colors, 
+        main = 'Grade Distribution for student always Dozing', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale rarely Dozing_off
+rarelyDozes <- moody2022[which(moody2022$DOZES_OFF == 'rarely'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(rarelyDozes$GRADE), col = colors, 
+        main = 'Grade Distribution for student rarely Dozing', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale sometimes Dozing_off
+sometimesDozes <- moody2022[which(moody2022$DOZES_OFF == 'sometimes'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(sometimesDozes$GRADE), col = colors, 
+        main = 'Grade Distribution for student sometimes Dozing', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale nevers Dozing_off
+neverDozes <- moody2022[which(moody2022$DOZES_OFF == 'never'), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(neverDozes$GRADE), col = colors, 
+        main = 'Grade Distribution for student never Dozing', xlab = 'letter Grade',
+        ylab = 'Number of Students')
+
+
+```
+
+#### Snippet 4
+
+Does Particiaption affect grades?
+
+```{r,tut=TRUE,height=500}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+#barplot using varibale 0-0.5 Participation
+lessParticipation <- moody2022[which(moody2022$PARTICIPATION >= 0 & moody2022$PARTICIPATION < 0.5), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(lessParticipation$GRADE), col = colors, 
+        main = 'Grade Distribution for student with low Participation', xlab = 'Letter Grade',
+        ylab = 'Number of Students')
+
+#barplot using varibale 0.5-1 Participation
+highParticipation <- moody2022[which(moody2022$PARTICIPATION >= 0.5 & moody2022$PARTICIPATION <= 1), ]
+colors<- c('red','blue','cyan','yellow','green', 'orange')
+barplot(table(highParticipation$GRADE), col = colors, 
+        main = 'Grade Distribution for student with high Participation', xlab = 'Letter Grade',
+        ylab = 'Number of Students')
+```
+
 <br>
 
+### Presentation III
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
 <div id="PPT2019" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
+
+#### Snippet 1
+
+Does participation affect grade or score?
+
+```{r,tut=TRUE,height=400}
+moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+barplot(table(moody$GRADE), col=rainbow(5), main="Bar Plot of Grades", xlab = "Grades", ylab = "Number of Students", 
+        border=NA, ylim=c(0, 200))
+
+
+boxplot(moody$PARTICIPATION~moody$GRADE, main = "Participation vs. Grade", xlab = "Participation", ylab = "Grade", 
+        col = rainbow(5))
+
+
+boxplot(moody$SCORE~moody$GRADE, main = "Scores vs. Grades", col = rainbow(5), xlab = "Grades", 
+        ylab = "Number of Students", ylim=c(0, 120))
+
+
+plot(moody$PARTICIPATION, moody$SCORE, main = "Participation vs. Score", xlab = "Participation", ylab = "Score", 
+     col = "blue")
+
+```
+
+#### Snippet 2
+
+Does Dozing off affect grades?
+
+```{r,tut=TRUE,height=400}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+barplot(table(moody$GRADE[moody$DOZES_OFF == "never"]), col=rainbow(5), main="Grades vs. Never Sleeping in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+barplot(table(moody$GRADE[moody$DOZES_OFF == "sometimes"]), col=rainbow(5), main="Grades vs. Sometimes Sleeping in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+barplot(table(moody$GRADE[moody$DOZES_OFF == "always"]), col=rainbow(5), main="Grades vs. Always Sleeping in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+```
+
+#### Snippet 3
+
+Does Texting in class affect grades?
+
+```{r,tut=TRUE,height=400}
+moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "never"]), col=rainbow(5), main="Grades vs. Never Texting in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "rarely"]), col=rainbow(5), main="Grades vs. Rarely Texting in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "always"]), col=rainbow(5), main="Grades vs. Always Texting in Class", 
+        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
+
+```
