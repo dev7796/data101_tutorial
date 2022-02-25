@@ -230,7 +230,7 @@ plot(moody$PARTICIPATION, moody$SCORE, main = "Participation vs. Score", xlab = 
 Does Dozing off affect grades?
 
 ```{r,tut=TRUE,height=400}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 barplot(table(moody$GRADE[moody$DOZES_OFF == "never"]), col=rainbow(5), main="Grades vs. Never Sleeping in Class", 
         xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
@@ -248,7 +248,7 @@ barplot(table(moody$GRADE[moody$DOZES_OFF == "always"]), col=rainbow(5), main="G
 Does Texting in class affect grades?
 
 ```{r,tut=TRUE,height=400}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "never"]), col=rainbow(5), main="Grades vs. Never Texting in Class", 
         xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
