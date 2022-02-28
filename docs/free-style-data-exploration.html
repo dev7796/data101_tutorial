@@ -51,6 +51,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -140,15 +142,16 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html"><i class="fa fa-check"></i><b>5</b> 🔖 Free Style: Data Exploration</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#moody-data-puzzle---pattern-i-injected"><i class="fa fa-check"></i><b>5.1</b> Moody Data Puzzle - Pattern I Injected</a>
+<li class="chapter" data-level="5.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#moody-data-puzzle"><i class="fa fa-check"></i><b>5.1</b> Moody Data Puzzle</a></li>
+<li class="chapter" data-level="5.2" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#moody-data-puzzle---pattern-i-injected"><i class="fa fa-check"></i><b>5.2</b> Moody Data Puzzle - Pattern I Injected</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#additional-reference-correlation-and-causation"><i class="fa fa-check"></i><b>5.1.1</b> Additional reference: Correlation and Causation</a></li>
+<li class="chapter" data-level="5.2.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#additional-reference-correlation-and-causation"><i class="fa fa-check"></i><b>5.2.1</b> Additional reference: Correlation and Causation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#best-students-submissions-2022"><i class="fa fa-check"></i><b>5.2</b> Best Student’s Submissions 2022</a>
+<li class="chapter" data-level="5.3" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#best-students-submissions-2022"><i class="fa fa-check"></i><b>5.3</b> Best Student’s Submissions 2022</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-i"><i class="fa fa-check"></i><b>5.2.1</b> Presentation I</a></li>
-<li class="chapter" data-level="5.2.2" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-ii"><i class="fa fa-check"></i><b>5.2.2</b> Presentation II</a></li>
-<li class="chapter" data-level="5.2.3" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-iii"><i class="fa fa-check"></i><b>5.2.3</b> Presentation III</a></li>
+<li class="chapter" data-level="5.3.1" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-i"><i class="fa fa-check"></i><b>5.3.1</b> Presentation I</a></li>
+<li class="chapter" data-level="5.3.2" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-ii"><i class="fa fa-check"></i><b>5.3.2</b> Presentation II</a></li>
+<li class="chapter" data-level="5.3.3" data-path="free-style-data-exploration.html"><a href="free-style-data-exploration.html#presentation-iii"><i class="fa fa-check"></i><b>5.3.3</b> Presentation III</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ztest.html"><a href="ztest.html"><i class="fa fa-check"></i><b>6</b> 🔖 Hypothesis Testing: z-test</a>
@@ -209,8 +212,131 @@
 </embed>
 </div></li>
 </ul>
-<div id="moody-data-puzzle---pattern-i-injected" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Moody Data Puzzle - Pattern I Injected</h2>
+<div id="moody-data-puzzle" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Moody Data Puzzle</h2>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-49">Table 5.1: </span>Snippet of Moody Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+SCORE
+</th>
+<th style="text-align:left;">
+GRADE
+</th>
+<th style="text-align:left;">
+DOZES_OFF
+</th>
+<th style="text-align:left;">
+TEXTING_IN_CLASS
+</th>
+<th style="text-align:right;">
+PARTICIPATION
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+21.33
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.29
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+71.57
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90.11
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+31.52
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+95.94
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.</p>
+<p>TEXT OF THE PUZZLE (I think i sent you, but can resend)</p>
+<p>What are examples of patterns we are looking for here? Here are some:</p>
+<p>“Students who text a lot” have lower chance to get an A in the class”
+“Students whose participation is lower than 0.25 fail the class more often”
+“Dozing off does not matter if your score is more than 90, you still get an A”
+“If you score is less than 30, you fail the class regardless of what your other attributes are”</p>
+</div>
+<div id="moody-data-puzzle---pattern-i-injected" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Moody Data Puzzle - Pattern I Injected</h2>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">
 Moody Data Puzzle
 </button>
@@ -218,15 +344,15 @@ Moody Data Puzzle
 <embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
-<div id="additional-reference-correlation-and-causation" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Additional reference: Correlation and Causation</h3>
+<div id="additional-reference-correlation-and-causation" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Additional reference: Correlation and Causation</h3>
 <p><a href="https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html" class="uri">https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html</a></p>
 </div>
 </div>
-<div id="best-students-submissions-2022" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Best Student’s Submissions 2022</h2>
-<div id="presentation-i" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Presentation I</h3>
+<div id="best-students-submissions-2022" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Best Student’s Submissions 2022</h2>
+<div id="presentation-i" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Presentation I</h3>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">
 Lauretta Martin
 </button>
@@ -256,8 +382,8 @@ Lauretta Martin
 <div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
 -->
 </div>
-<div id="presentation-ii" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Presentation II</h3>
+<div id="presentation-ii" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Presentation II</h3>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">
 Sanjaya Budhathoki
 </button>
@@ -291,8 +417,8 @@ Does Particiaption affect grades?
 <div data-datacamp-exercise data-height="500" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSAwLTAuNSBQYXJ0aWNpcGF0aW9uXG5sZXNzUGFydGljaXBhdGlvbiA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJFBBUlRJQ0lQQVRJT04gPj0gMCAmIG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OIDwgMC41KSwgXVxuY29sb3JzPC0gYygncmVkJywnYmx1ZScsJ2N5YW4nLCd5ZWxsb3cnLCdncmVlbicsICdvcmFuZ2UnKVxuYmFycGxvdCh0YWJsZShsZXNzUGFydGljaXBhdGlvbiRHUkFERSksIGNvbCA9IGNvbG9ycywgXG4gICAgICAgIG1haW4gPSAnR3JhZGUgRGlzdHJpYnV0aW9uIGZvciBzdHVkZW50IHdpdGggbG93IFBhcnRpY2lwYXRpb24nLCB4bGFiID0gJ0xldHRlciBHcmFkZScsXG4gICAgICAgIHlsYWIgPSAnTnVtYmVyIG9mIFN0dWRlbnRzJylcblxuI2JhcnBsb3QgdXNpbmcgdmFyaWJhbGUgMC41LTEgUGFydGljaXBhdGlvblxuaGlnaFBhcnRpY2lwYXRpb24gPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OID49IDAuNSAmIG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OIDw9IDEpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKGhpZ2hQYXJ0aWNpcGF0aW9uJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgd2l0aCBoaWdoIFBhcnRpY2lwYXRpb24nLCB4bGFiID0gJ0xldHRlciBHcmFkZScsXG4gICAgICAgIHlsYWIgPSAnTnVtYmVyIG9mIFN0dWRlbnRzJykifQ==</div>
 -->
 </div>
-<div id="presentation-iii" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Presentation III</h3>
+<div id="presentation-iii" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Presentation III</h3>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">
 Sandhya Senthilkumar
 </button>

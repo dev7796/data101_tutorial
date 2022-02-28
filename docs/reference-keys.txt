@@ -1,4 +1,5 @@
 tab:unnamed-chunk-20
+tab:unnamed-chunk-49
 intro
 setting-up-r
 setting
@@ -53,6 +54,7 @@ what-would-r-say-7
 more-complex-example-of-defining-derived-attributes
 snippet-1-3
 free-style-data-exploration
+moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
 additional-reference-correlation-and-causation
 best-students-submissions-2022

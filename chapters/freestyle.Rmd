@@ -13,6 +13,30 @@ tutorial::go_interactive()
 <embed src="https://docs.google.com/presentation/d/1wvWxu_DEEoYNq0qKEkepbqu2-x0SGsXGQiE2iWbv2Iw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+## Moody Data Puzzle
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  head(moody, 5), caption = 'Snippet of Moody Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar  (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
+
+TEXT OF THE PUZZLE (I think i sent you, but can resend) 
+
+What are examples of patterns we are looking for here?   Here are some:
+
+“Students who text a lot” have lower chance to get an A in the class”
+“Students whose participation is lower than 0.25 fail the class more often”
+“Dozing off does not matter if your score is more than 90, you still get an A”
+“If you score is less than 30, you fail the class regardless of what your other attributes are”
 
 ## Moody Data Puzzle - Pattern I Injected
 
