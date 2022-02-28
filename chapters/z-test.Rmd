@@ -22,8 +22,34 @@ tutorial::go_interactive(greedy = FALSE)
 
 - **Great Resource: **     <a href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"> <button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy</button> </a>
 
+## Introduction
 
-## Snippet 1
+The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME_PER_MINUTE.  Below we show a small sample of the TRAFFIC data frame
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+traffic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  traffic[sample(1:nrow(traffic), 5), ], caption = 'Snippet of Moody Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+<br>
+The following snippet 6.1.1 shows the code  for hypothesis test of difference of means.
+
+Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
+
+### Snippet 1: shows the code for z-test to test the following hypotheses
+
+**Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
+
+**Alternative Hypothesis** - Traffic in the Holland Tunnel is larger than traffic in the Lincoln  tunnel.
+
+In the snippet 6.1.1  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
+This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
 Lets look at the summary of traffic dartaset:
 
@@ -46,7 +72,7 @@ the TRAFFIC table. Then we compute z-values of 20 and 80 (or any other value). T
 
  The p-value **p**, returns the fraction of traffic values smaller than 20  (or larger than 80, respectively)
 
-## Snippet 2
+### Snippet 2
 
 
 ```{r,tut=TRUE,height=800}
@@ -76,7 +102,7 @@ p<-pnorm(zeta)
 p
 ```
 
-## Snippet 3 
+### Snippet 3 
 
 ```{r,tut=TRUE,height=800}
 Traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
@@ -118,7 +144,7 @@ In snippet 9, we end up calculating the p-value which leads to rejection of Null
 
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) that we would obtain the observed difference of means (around 0.6).
 
-## Snippet 4
+### Snippet 4
 
 ```{r,tut=TRUE,height=400}
 
@@ -139,7 +165,7 @@ holland.traffic <- holland.data$VOLUME_PER_MINUTE
 head(holland.traffic)
 ```
 
-## Snippet 5
+### Snippet 5
 
 ```{r,tut=TRUE,height=500}
 
@@ -165,7 +191,7 @@ sd.lincoln
 sd.holland
 ```
 
-## Snippet 6
+### Snippet 6
 
 ```{r,tut=TRUE,height=500}
 
@@ -196,7 +222,7 @@ len_lincoln
 len_holland
 ```
 
-## Snippet 7
+### Snippet 7
 
 ```{r,tut=TRUE,height=500}
 
@@ -226,7 +252,7 @@ sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
 sd.lin.hol
 ```
 
-## Snippet 8
+### Snippet 8
 
 ```{r,tut=TRUE,height=800}
 
@@ -266,7 +292,7 @@ zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
 zeta
 ```
 
-## Snippet 9
+### Snippet 9
 
 ```{r,tut=TRUE,height=800}
 

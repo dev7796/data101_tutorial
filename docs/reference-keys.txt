@@ -1,5 +1,6 @@
 tab:unnamed-chunk-20
 tab:unnamed-chunk-49
+tab:unnamed-chunk-63
 intro
 setting-up-r
 setting
@@ -56,13 +57,13 @@ snippet-1-3
 free-style-data-exploration
 moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
-additional-reference-correlation-and-causation
 best-students-submissions-2022
 presentation-i
 presentation-ii
 presentation-iii
 ztest
-snippet-1-4
+introduction
+snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses
 snippet-2-2
 snippet-3-1
 snippet-4
@@ -73,11 +74,11 @@ snippet-8
 snippet-9
 additional-references-1
 ptest
-snippet-1-5
+snippet-1-4
 snippet-2-3
 snippet-3-2
 snippet-4-1
 chitest
-snippet-1-6
+snippet-1-5
 snippet-2-4
 snippet-3-3

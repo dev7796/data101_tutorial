@@ -29,9 +29,19 @@ kableExtra::scroll_box(temp,width = "100%")
 <br>
 Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar  (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
 
--- (LEFT)
+**Puzzle description:**
 
-What are examples of patterns we are looking for here?   Here are some:
+Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint:  he DOES NOT seem to assign grades fairly.   Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.
+
+A new brave TA,  managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by ….messing a bit with Moody's computer….well,  let's not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.  
+
+Looks like Professor Moody is in fact very alert in class. He is aware of  what students do,  detecting texting during class and remembering exactly who was dozed off in  class.  He also keeps the mysterious "participation index" which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class.  Remarkable but a little creepy, isn't it?
+
+ What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class?  What factors influence the grade besides the score?   Back your recommendation up with plots and evidence from the attached data.
+
+**What are examples of patterns we are looking for here?**   
+
+Here are some:
 
 “Students who text a lot” have lower chance to get an A in the class”
 “Students whose participation is lower than 0.25 fail the class more often”
@@ -40,14 +50,24 @@ What are examples of patterns we are looking for here?   Here are some:
 
 ## Moody Data Puzzle - Pattern I Injected
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">Moody Data Puzzle</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">My Patterns</button>
 <div id="MDP12" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+<br>
+Many student solutions falsely attribute higher grades to higher values of participation attribute..  
 
-### Additional reference: Correlation and Causation
+This is a classic example of a hidden variable described in the reference attached below. 
+
+The truth is that participation attribute value impacts the  score  attribute value. Generally, the higher the participation in Moody’s class, the higher the score.  But it is the  score attribute which has a direct impact on the grade. Thus, it is the score which is  the real "hidden variable" impacting  the final grade. 
+
+Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above  with the explanation) 
+
+
+Compare with examples of hidden variables in the following reference about correlation and causation.
 
 https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
+
 
 ## Best Student's Submissions 2022
 
