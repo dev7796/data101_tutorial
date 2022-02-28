@@ -26,10 +26,10 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
-
+<br>
 Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar  (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
 
-TEXT OF THE PUZZLE (I think i sent you, but can resend) 
+-- (LEFT)
 
 What are examples of patterns we are looking for here?   Here are some:
 
