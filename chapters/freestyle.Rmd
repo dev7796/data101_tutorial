@@ -32,7 +32,7 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 <div id="PPT2021" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/LM-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
-
+<!--
 #### Snippet 1
 
 ```{r,tut=TRUE,height=300}
@@ -68,15 +68,14 @@ moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutoria
 moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 ```
-
-<br>
+-->
 
 ### Presentation II
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
 <div id="PPT2020" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
-
+<!--
 #### Snippet 1
 
 Lets look at the general distribution of Grades and scores
@@ -192,15 +191,14 @@ barplot(table(highParticipation$GRADE), col = colors,
         main = 'Grade Distribution for student with high Participation', xlab = 'Letter Grade',
         ylab = 'Number of Students')
 ```
-
-<br>
+-->
 
 ### Presentation III
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
 <div id="PPT2019" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
-
+<!--
 #### Snippet 1
 
 Does participation affect grade or score?
@@ -260,3 +258,4 @@ barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "always"]), col=rainbow(5), 
         xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
 
 ```
+-->

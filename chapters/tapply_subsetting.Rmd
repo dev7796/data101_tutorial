@@ -17,7 +17,7 @@ tutorial::go_interactive()
 
 ### mean()
 
-- **mean()** function is used to find the average of the data.
+- **mean()** function is used to find the average of values in a numerical vector.
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
@@ -29,7 +29,7 @@ mean(moody$score)
 
 ### length()
 
-- **length()** function is used to get or set the length of data.
+- **length()** function is used to get the number of elements in any vector
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
@@ -40,7 +40,7 @@ length(moody$grade)
 
 ### max()
 
-- **max()** function is used to get the maximum valued element in the data.
+- **max()** function is used to get the maximum value in a numerical vector.
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
@@ -51,7 +51,7 @@ max(moody$score)
 
 ### min()
 
-- **min()** function is used to get the minimum valued element in the data.
+- **min()** function is used to get the minimum value in a numerical vector
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
@@ -63,7 +63,7 @@ min(moody$score)
 
 ### sd()
 
-- **sd()** function is used to find the standard deviation of the data.
+- **sd()** function is used to find the standard deviation of numerical vector
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
