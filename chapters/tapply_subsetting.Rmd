@@ -76,7 +76,7 @@ sd(moody$score)
 
 ## Subset {#subset}
 
-### Snippet 1
+### Snippet 1- example of subset function
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -87,7 +87,7 @@ nrow(moody_never_smartphone)
 
 ```
 
-### Snippet 2
+### Snippet 2- example of  subset  function
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -98,7 +98,7 @@ table(moody1$ON_SMARTPHONE)
 
 ```
 
-### Snippet 3
+### Snippet 3- subset as subframe 
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -109,28 +109,28 @@ table(moody2$ON_SMARTPHONE)
 
 ```
 
-### Snippet 4
+### Snippet 4- subsetting columns
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+colnames(moody)
 #subset of columns
-moody3<-subset(moody, select = -c(8))
+moody3<-subset(moody, select = -c(1))
 ncol(moody3)
-# You can see the number of columns has been reduced by 1, due to subsetting without column 8
-ncol(moody3) 
+# You can see the number of columns has been reduced by 1, due to sub-setting without column 1
+ncol(moody3)
 
 ```
 
-### Snippet 5
+### Snippet 5- sub-setting rows and columns
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 #Subset of Rows and Columns
-moody4<-subset(moody, select = -c(8), ON_SMARTPHONE == "never")
-table(moody4$ON_SMARTPHONE)
-dim(moody4)
-# You can see only student never on smartphones without column 8 data are present in the subset.
-dim(moody4)
+moody1<-subset(moody, select = c(2:4), ON_SMARTPHONE == "never")
+colnames(moody1)
+#Notice that only 3 columns are remaining
+dim(moody1)
 
 ```
 
@@ -174,7 +174,7 @@ moody[moody$SCORE>=80.0 & moody$GRADE =='B',]
 - **tapply()** computes a measure (mean, median, min, max, etc..) or a function for each factor variable in a vector. It is a very useful function that lets you create a subset of a vector and then apply some functions to each of the subset.
 - tapply(numerical, categorical, aggregagte function)
 
-### Snippet 1
+### Snippet 1-  Example of tapply followed by barplot
 
 ```{r,height=700}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -234,9 +234,18 @@ tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
 -->
 ---
 
-## Derived Attribute {#cut}
+## Derived Attribute
 
-- Making Categorical Attribute from Categorical
+R allows creating new data frame attributes (columns) “on the fly”.  These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived  attributes. 
+
+Derived attributes will play an important role  in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.
+
+The term feature engineering is often used in machine learning to describe creation of derived attributes.
+
+### Snippet 1  - Making  new categorical attribute. 
+ 
+The  line 4 initializes the new attribute PF (Pass/Fail) to "Pass".  The line 5 replaces "Pass" by “Fail”  for students who received F. This new attribute, PF, will allow exploratory analysis to find “How to pass Professor Moody’s class”. The answer to this question may be different than then answer to “How to get a good grade in Professor Moody’s class”.
+
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -254,8 +263,7 @@ moody
 
 ### Cut 
 
-- **cut()** function in R Language is used to divide a **numeric vector** into different ranges.
-- Making Categorical Attribute from Numerical
+- **cut()** function  divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
@@ -314,39 +322,21 @@ summary(output)
 
 ```
 
-#### A complex example
+#### More complex  example of defining derived attributes
+
+The next snippet  illustrates defining a new numerical attribute, $adjustedScore of a student in the Moody data frame.  
+
+Score is adjusted by the value of participation attribute in the following way:   
+
+- If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.  
+
+- If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score. 
+
+In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely,  someone with perfect participation (1.0) will receive a 10 point bonus. 
 
 ##### Snippet 1
 
-```{r,height=400}
-
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
-
-#subset the moody dataset rows = 1 to 10 and cols = 1,5
-moody[1:10, c(1,5)]
-
-
-```
-
-##### Snippet 2
-
-```{r,height=400}
-
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
-
-
-moody$conditional <-0
-moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
-moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
-
-# lets look at the conditional attribute 
-head(moody)
-
-```
-
-##### Snippet 3
-
-```{r,height=400}
+```{r,height=700}
 
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
 
@@ -358,25 +348,18 @@ moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.5
 # print the column names
 colnames(moody)
 
+# lets look at the conditional attribute 
+head(moody)
+
+#subset the moody dataset rows = 1 to 10 and cols = 1,5
+moody[1:10, c(1,5)]
+
 #subset the moody dataset rows = 1 to 10 and cols = 1,5,6
 moody[1:10, c(1,5,6)]
 
 # print summary of inidividual columns
 summary(moody$score)
 summary(moody$conditional)
-
-```
-
-##### Snippet 4
-
-```{r,height=700}
-
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
-
-
-moody$conditional <-0
-moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
-moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
 
 # Plotting the conditional attribute using boxplot
 boxplot(moody$conditional,col = c("red"),main="Complex Example")
