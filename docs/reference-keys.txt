@@ -59,7 +59,7 @@ free-style-data-exploration
 moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
 best-students-submissions-2022
-moody-data-hunt
+movies-data-hunt
 movies-data-puzzle---pattern-i-injected
 best-students-submissions-2022-1
 ztest

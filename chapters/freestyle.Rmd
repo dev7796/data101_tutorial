@@ -306,7 +306,7 @@ barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "always"]), col=rainbow(5), 
 ```
 -->
 
-## Moody Data Hunt
+## Movies Data Hunt
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
