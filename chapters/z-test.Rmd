@@ -31,7 +31,7 @@ The following synthetic data describes daily traffic on weekday and weekend days
 traffic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv") #web load
 # head(moody)
 temp<-knitr::kable(
-  traffic[sample(1:nrow(traffic),10), ], caption = 'Snippet of Moody Dataset',
+  traffic[sample(1:nrow(traffic),10), ], caption = 'Snippet of Traffic Dataset',
   booktabs = TRUE
 )
 library(kableExtra)
@@ -102,6 +102,14 @@ p
 ```
 
 ## Snippet 2: Make your own data and see how p-value changes
+
+How p-value is affected by difference of means and standard deviations.
+
+We will build two distributions ourselves - varying the means and standard deviations. We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the **rnorm()** function.
+
+Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value?  See for yourself.
+
+Build the data frame with two attributes: Cat and Val, using **rnorm()** function
 
 ```{r,tut=TRUE,height=700}
 Val1<-rnorm(10,mean=25, sd=10)

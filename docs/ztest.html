@@ -73,7 +73,7 @@
 <li><a href="./">DATA 101 Book</a>
 <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
 <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
-<a href="https://dev7796.shinyapps.io/testing_button/" target="black">Get Student Name</a>
+<a href="https://dev7796.shinyapps.io/testing_button/" target="black">Question Roulette</a>
 </li>
 
 <li class="divider"></li>
@@ -217,7 +217,7 @@
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-63">Table 6.1: </span>Snippet of Moody Dataset
+<span id="tab:unnamed-chunk-63">Table 6.1: </span>Snippet of Traffic Dataset
 </caption>
 <thead>
 <tr>
@@ -394,6 +394,10 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 </div>
 <div id="snippet-2-make-your-own-data-and-see-how-p-value-changes" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Snippet 2: Make your own data and see how p-value changes</h2>
+<p>How p-value is affected by difference of means and standard deviations.</p>
+<p>We will build two distributions ourselves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the <strong>rnorm()</strong> function.</p>
+<p>Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value? See for yourself.</p>
+<p>Build the data frame with two attributes: Cat and Val, using <strong>rnorm()</strong> function</p>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzUsIHNkPTEwKVxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICBcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgXG5DYXQ8LWMoQ2F0MSxDYXQyKSBcblZhbDwtYyhWYWwxLFZhbDIpXG5cbmQ8LWRhdGEuZnJhbWUoQ2F0LFZhbClcbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbmRBPC1kW2QkQ2F0PT0nR3JvdXBBJyxdXG5kQVxuZEI8LWRbZCRDYXQ9PSdHcm91cEInLF1cbmRCXG5cbm1lYW5BPC1tZWFuKGRBJFZhbClcbm1lYW5CPC1tZWFuKGRCJFZhbClcblxuc2RBPC1zZChkQSRWYWwpXG5zZEI8LXNkKGRCJFZhbClcblxubGVuQTwtbnJvdyhkQSlcbmxlbkFcbmxlbkI8LW5yb3coZEIpXG5sZW5CXG5cbnNkLkEuQiA8LSBzcXJ0KHNkQV4yL2xlbkEgK3NkQl4yL2xlbkIpXG5zZC5BLkJcblxuemV0YSA8LSAobWVhbkIgLSBtZWFuQSkvc2QuQS5CXG56ZXRhXG5wPC0xLXBub3JtKHpldGEpXG5wIn0=
 </div>
