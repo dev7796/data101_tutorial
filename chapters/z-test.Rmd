@@ -31,143 +31,28 @@ The following synthetic data describes daily traffic on weekday and weekend days
 traffic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv") #web load
 # head(moody)
 temp<-knitr::kable(
-  traffic[sample(1:nrow(traffic), 5), ], caption = 'Snippet of Moody Dataset',
+  traffic[sample(1:nrow(traffic),5), ], caption = 'Snippet of Moody Dataset',
   booktabs = TRUE
 )
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
-The following snippet 6.1.1 shows the code  for hypothesis test of difference of means.
+
+The following snippet **6.2** shows the code for hypothesis test of difference of means.
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-### Snippet 1: shows the code for z-test to test the following hypotheses
+## Snippet 1: shows the code for z-test to test the following hypotheses
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
 **Alternative Hypothesis** - Traffic in the Holland Tunnel is larger than traffic in the Lincoln  tunnel.
 
-In the snippet 6.1.1  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
+In the snippet **6.2**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
-Lets look at the summary of traffic dartaset:
-
-```{r,tut=TRUE,height=300}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#gives us the statistics
-summary(TRAFFIC) 
-
-```
-
----
-
-**Snippets 2 and 3** do not test any hypotheses - but rather illustrate the z-value (and related p-value) for different values of traffic volume attribute  for the TRAFFIC data set.
-
-**How small is traffic of 20 vehicles/minute?**  
-How big is traffic of 80 vehicles per minute?  We calculate standard deviation and mean of VOLUME attribute of 
-the TRAFFIC table. Then we compute z-values of 20 and 80 (or any other value). This allows us to normalize all data sets  and talk about different data sets in the language of z-values. 
-
- The p-value **p**, returns the fraction of traffic values smaller than 20  (or larger than 80, respectively)
-
-### Snippet 2
-
-
-```{r,tut=TRUE,height=800}
-Traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-colnames(Traffic)
-
-# Get mean of volumes per minute
-meanTunnel<-mean(Traffic$VOLUME_PER_MINUTE)
-
-# Get standard deviation
-sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
-sdTunnel
-
-# plot histogram 
-hist(Traffic$VOLUME_PER_MINUTE, breaks=100)
-
-# Get the z-value
-zeta <- (20 - meanTunnel)/sdTunnel
-zeta
-
-plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean',  ylab='possibility')
-abline(v=zeta, col='red')
-
-# Compute P-value
-p<-pnorm(zeta)
-p
-```
-
-### Snippet 3 
-
-```{r,tut=TRUE,height=800}
-Traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-colnames(Traffic)
-
-# Get mean of volumes per minute
-meanTunnel<-mean(Traffic$VOLUME_PER_MINUTE)
-meanTunnel
-
-# Get standard deviation
-sdTunnel<-sd(Traffic$VOLUME_PER_MINUTE)
-sdTunnel
-
-# Get the z-value
-zeta <- (20 - meanTunnel)/sdTunnel
-zeta
-
-plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean',  ylab='possibility')
-abline(v=zeta, col='red')
-
-# Compute P-value
-#p<-1-pnorm(zeta)
-#p
-p<-pnorm(zeta)
-p
-```
-
----
-
-**Snippets 4-9** show (step by step) the code for hypothesis test of difference of means - is traffic in Holland tunnel bigger than traffic in Lincoln?
-It is a z-test. Hence we calculate difference of means and standard deviation of difference of means distribution (sd function). This is done in snippets 6 and 7. Snippet 8 calculates the z-value (zeta) and snippet 9, the p-value (we have to repeat the code from previous snippets, but every time there is online or very few extra lines of code)
-
-**Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
-
-**Alternative Hypothesis** - Traffic in Holland Tunnel is larger than traffic in Holland tunnel.
-
-In snippet 9, we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for sceptic). Indeed, p-value is less than critical value of 5%.
-
-This means, that under null hypothesis it is extremely unlikely (less than 5% chance) that we would obtain the observed difference of means (around 0.6).
-
-### Snippet 4
-
-```{r,tut=TRUE,height=400}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-#traffic at lincoln
-#This variable is a column of 1401 rows.
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-head(lincoln.traffic)
-
-#traffic at holland
-#This variable is a column of 1401 rows.
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-head(holland.traffic)
-```
-
-### Snippet 5
-
-```{r,tut=TRUE,height=500}
+```{r,tut=TRUE,height=850}
 
 TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
@@ -180,101 +65,18 @@ lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
 
 #traffic at holland
 holland.traffic <- holland.data$VOLUME_PER_MINUTE
- 
+
 # standard deviation of two samples.
-#The final value is the standard deviation, in Volume per minute.
- 
 sd.lincoln <- sd(lincoln.traffic)
 sd.holland <- sd(holland.traffic)
-
 sd.lincoln
 sd.holland
-```
-
-### Snippet 6
-
-```{r,tut=TRUE,height=500}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-#traffic at lincoln
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-#traffic at holland
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-#means of two samples
-mean.lincoln <- mean(lincoln.traffic)
-mean.holland <- mean(holland.traffic)
-
-mean.lincoln
-mean.holland
 
 #length of lincoln and holland
 len_lincoln <- length(lincoln.traffic)
 len_holland <- length(holland.traffic)
-
 len_lincoln
 len_holland
-```
-
-### Snippet 7
-
-```{r,tut=TRUE,height=500}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-#traffic at lincoln
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-#traffic at holland
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-
-#length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
-
-#standard deviation of difference traffic
-sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
-
-sd.lin.hol
-```
-
-### Snippet 8
-
-```{r,tut=TRUE,height=800}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-#traffic at lincoln
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-#traffic at holland
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-
-#length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
 
 #standard deviation of difference traffic
 sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
@@ -288,46 +90,7 @@ mean.holland
 
 #z score
 zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
-
 zeta
-```
-
-### Snippet 9
-
-```{r,tut=TRUE,height=800}
-
-TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
-
-#traffic at lincoln
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-#traffic at holland
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-
-#length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
-
-#standard deviation of difference traffic
-sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
-sd.lin.hol
-
-#means of two samples
-mean.lincoln <- mean(lincoln.traffic)
-mean.holland <- mean(holland.traffic)
-mean.lincoln
-mean.holland
-
-#z score
-zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
 
 #plot red line
 plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
