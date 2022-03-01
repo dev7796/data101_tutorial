@@ -335,15 +335,15 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 
 ### Best Student's Submissions 2022
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#hw41">Sanjaya Budhathoki</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#hw42">Sandhya Senthilkumar</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#hw41">Joshua Sze</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#hw42">Andrew Fasano</button>
 
 <div id="hw41" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/student1hw4.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 
 <div id="hw42" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/student2hw4.pptx&embedded=true" width="100%" height="500px"></embed>
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/studen2hw4.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 
 
