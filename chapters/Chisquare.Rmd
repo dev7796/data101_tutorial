@@ -21,7 +21,7 @@ tutorial::go_interactive(greedy = FALSE)
 ## Snippet 1
 
 ```{r,tut=TRUE,height=300}
-Expected <-matrix(c(200,420,180, 40,120,40))
+Expected <-matrix(c(200,420,180, 40,120,40), nrow=3, ncol=2)
 Observed<-matrix(c(200,420,180,35,120,45), nrow=3, ncol=2)
 Expected
 Observed

@@ -43,10 +43,10 @@ Looks like Professor Moody is in fact very alert in class. He is aware of  what 
 
 Here are some:
 
-“Students who text a lot” have lower chance to get an A in the class”
-“Students whose participation is lower than 0.25 fail the class more often”
-“Dozing off does not matter if your score is more than 90, you still get an A”
-“If you score is less than 30, you fail the class regardless of what your other attributes are”
+- “Students who text a lot” have lower chance to get an A in the class”
+- “Students whose participation is lower than 0.25 fail the class more often”
+- “Dozing off does not matter if your score is more than 90, you still get an A”
+- “If you score is less than 30, you fail the class regardless of what your other attributes are”
 
 ## Moody Data Puzzle - Pattern I Injected
 
@@ -71,10 +71,20 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 
 ## Best Student's Submissions 2022
 
-### Presentation I
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
+
 <div id="PPT2021" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/LM-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="PPT2020" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="PPT2019" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 <!--
 #### Snippet 1
@@ -114,11 +124,7 @@ moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutoria
 ```
 -->
 
-### Presentation II
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
-<div id="PPT2020" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&embedded=true" width="100%" height="500px"></embed>
-</div>
+
 <!--
 #### Snippet 1
 
@@ -237,11 +243,7 @@ barplot(table(highParticipation$GRADE), col = colors,
 ```
 -->
 
-### Presentation III
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">Sandhya Senthilkumar</button>
-<div id="PPT2019" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
-</div>
+
 <!--
 #### Snippet 1
 

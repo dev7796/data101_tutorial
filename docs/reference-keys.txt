@@ -58,9 +58,6 @@ free-style-data-exploration
 moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
 best-students-submissions-2022
-presentation-i
-presentation-ii
-presentation-iii
 ztest
 introduction
 snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses
