@@ -37,7 +37,7 @@ A new brave TA,  managed to get hold of the carefully maintained grading table (
 
 Looks like Professor Moody is in fact very alert in class. He is aware of  what students do,  detecting texting during class and remembering exactly who was dozed off in  class.  He also keeps the mysterious "participation index" which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class.  Remarkable but a little creepy, isn't it?
 
- What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class?  What factors influence the grade besides the score?   Back your recommendation up with plots and evidence from the attached data.
+What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.
 
 **What are examples of patterns we are looking for here?**   
 
@@ -48,7 +48,7 @@ Here are some:
 - “Dozing off does not matter if your score is more than 90, you still get an A”
 - “If you score is less than 30, you fail the class regardless of what your other attributes are”
 
-## Moody Data Puzzle - Pattern I Injected
+### Moody Data Puzzle - Pattern I Injected
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">My Patterns</button>
 <div id="MDP12" class="collapse">    
@@ -69,7 +69,7 @@ Compare with examples of hidden variables in the following reference about corre
 https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 
 
-## Best Student's Submissions 2022
+### Best Student's Submissions 2022
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">Sanjaya Budhathoki</button>
@@ -305,3 +305,46 @@ barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "always"]), col=rainbow(5), 
 
 ```
 -->
+
+## Moody Data Hunt
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+<br>
+**Puzzle description:**
+
+contains  imdb scores of 12,800+ movies  along with several attributes including budget, gross  genre, content rating etc.
+
+What are the most promising  alternative hypotheses  about imdb scores to test?  Name your three top candidates along with the evidence which backs them up:  either in the form of R instruction(s)  or plot.
+
+### Movies Data Puzzle - Pattern I Injected
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">My Patterns</button>
+<div id="MV12" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/profhw4.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+### Best Student's Submissions 2022
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#hw41">Sanjaya Budhathoki</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#hw42">Sandhya Senthilkumar</button>
+
+<div id="hw41" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/student1hw4.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="hw42" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/student2hw4.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+
+

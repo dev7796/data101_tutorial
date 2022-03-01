@@ -1,6 +1,7 @@
 tab:unnamed-chunk-20
 tab:unnamed-chunk-49
-tab:unnamed-chunk-63
+tab:unnamed-chunk-62
+tab:unnamed-chunk-64
 intro
 setting-up-r
 setting
@@ -58,6 +59,9 @@ free-style-data-exploration
 moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
 best-students-submissions-2022
+moody-data-hunt
+movies-data-puzzle---pattern-i-injected
+best-students-submissions-2022-1
 ztest
 introduction
 snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses
