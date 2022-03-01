@@ -31,7 +31,7 @@ The following synthetic data describes daily traffic on weekday and weekend days
 traffic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv") #web load
 # head(moody)
 temp<-knitr::kable(
-  traffic[sample(1:nrow(traffic),5), ], caption = 'Snippet of Moody Dataset',
+  traffic[sample(1:nrow(traffic),10), ], caption = 'Snippet of Moody Dataset',
   booktabs = TRUE
 )
 library(kableExtra)
