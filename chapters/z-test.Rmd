@@ -43,7 +43,7 @@ The following snippet **6.2** shows the code for hypothesis test of difference o
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-## Snippet 1: shows the code for z-test to test the following hypotheses
+## Snippet 1: Shows the code for z-test to test the following hypotheses
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
@@ -98,6 +98,45 @@ abline(v=zeta, col='red')
 
 #get p
 p = 1-pnorm(zeta)
+p
+```
+
+## Snippet 2: Make your own data and see how p-value changes
+
+```{r,tut=TRUE,height=700}
+Val1<-rnorm(10,mean=25, sd=10)
+Val2<-rnorm(10,mean=35, sd=10)
+Cat1<-rep("GroupA",10)  
+Cat2<-rep("GroupB",10)  
+Cat<-c(Cat1,Cat2) 
+Val<-c(Val1,Val2)
+
+d<-data.frame(Cat,Val)
+Observed_Difference<-mean(d[d$Cat=='GroupB',2])-mean(d[d$Cat=='GroupA',2])
+Observed_Difference
+
+dA<-d[d$Cat=='GroupA',]
+dA
+dB<-d[d$Cat=='GroupB',]
+dB
+
+meanA<-mean(dA$Val)
+meanB<-mean(dB$Val)
+
+sdA<-sd(dA$Val)
+sdB<-sd(dB$Val)
+
+lenA<-nrow(dA)
+lenA
+lenB<-nrow(dB)
+lenB
+
+sd.A.B <- sqrt(sdA^2/lenA +sdB^2/lenB)
+sd.A.B
+
+zeta <- (meanB - meanA)/sd.A.B
+zeta
+p<-1-pnorm(zeta)
 p
 ```
 

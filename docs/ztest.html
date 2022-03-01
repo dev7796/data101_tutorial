@@ -154,15 +154,15 @@
 <li class="chapter" data-level="6" data-path="ztest.html"><a href="ztest.html"><i class="fa fa-check"></i><b>6</b> 🔖 Hypothesis Testing: z-test</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ztest.html"><a href="ztest.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="ztest.html"><a href="ztest.html#snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses"><i class="fa fa-check"></i><b>6.2</b> Snippet 1: shows the code for z-test to test the following hypotheses</a></li>
-<li class="chapter" data-level="6.3" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>6.3</b> Additional References</a></li>
+<li class="chapter" data-level="6.2" data-path="ztest.html"><a href="ztest.html#snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses"><i class="fa fa-check"></i><b>6.2</b> Snippet 1: Shows the code for z-test to test the following hypotheses</a></li>
+<li class="chapter" data-level="6.3" data-path="ztest.html"><a href="ztest.html#snippet-2-make-your-own-data-and-see-how-p-value-changes"><i class="fa fa-check"></i><b>6.3</b> Snippet 2: Make your own data and see how p-value changes</a></li>
+<li class="chapter" data-level="6.4" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>6.4</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ptest.html"><a href="ptest.html"><i class="fa fa-check"></i><b>7</b> 🔖 Hypothesis Testing: Permutation Test</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="ptest.html"><a href="ptest.html#snippet-1-4"><i class="fa fa-check"></i><b>7.1</b> Snippet 1</a></li>
 <li class="chapter" data-level="7.2" data-path="ptest.html"><a href="ptest.html#snippet-2-2"><i class="fa fa-check"></i><b>7.2</b> Snippet 2</a></li>
 <li class="chapter" data-level="7.3" data-path="ptest.html"><a href="ptest.html#snippet-3-1"><i class="fa fa-check"></i><b>7.3</b> Snippet 3</a></li>
-<li class="chapter" data-level="7.4" data-path="ptest.html"><a href="ptest.html#snippet-4"><i class="fa fa-check"></i><b>7.4</b> Snippet 4</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chitest.html"><a href="chitest.html"><i class="fa fa-check"></i><b>8</b> 🔖 Chi Square Analysis</a>
 <ul>
@@ -313,7 +313,7 @@ weekday
 <p>Is the mean traffic (VOLUME_PER_MINUTE) in the Holland tunnel bigger than mean traffic (VOLUME_PER_MINUTE) in the Lincoln?</p>
 </div>
 <div id="snippet-1-shows-the-code-for-z-test-to-test-the-following-hypotheses" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Snippet 1: shows the code for z-test to test the following hypotheses</h2>
+<h2><span class="header-section-number">6.2</span> Snippet 1: Shows the code for z-test to test the following hypotheses</h2>
 <p><strong>Null Hypothesis</strong> - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.</p>
 <p><strong>Alternative Hypothesis</strong> - Traffic in the Holland Tunnel is larger than traffic in the Lincoln tunnel.</p>
 <p>In the snippet <strong>6.2</strong> we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5%.
@@ -322,8 +322,14 @@ This means, that under null hypothesis it is extremely unlikely (less than 5% ch
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG5saW5jb2xuLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiTGluY29sblwiKVxuaG9sbGFuZC5kYXRhIDwtIHN1YnNldChUUkFGRklDLCBUUkFGRklDJFRVTk5FTCA9PSBcIkhvbGxhbmRcIilcblxuI3RyYWZmaWMgYXQgbGluY29sblxubGluY29sbi50cmFmZmljIDwtIGxpbmNvbG4uZGF0YSRWT0xVTUVfUEVSX01JTlVURVxuXG4jdHJhZmZpYyBhdCBob2xsYW5kXG5ob2xsYW5kLnRyYWZmaWMgPC0gaG9sbGFuZC5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG5zZC5ob2xsYW5kIDwtIHNkKGhvbGxhbmQudHJhZmZpYylcbnNkLmxpbmNvbG5cbnNkLmhvbGxhbmRcblxuI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG5sZW5fbGluY29sbiA8LSBsZW5ndGgobGluY29sbi50cmFmZmljKVxubGVuX2hvbGxhbmQgPC0gbGVuZ3RoKGhvbGxhbmQudHJhZmZpYylcbmxlbl9saW5jb2xuXG5sZW5faG9sbGFuZFxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcbnNkLmxpbi5ob2xcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5tZWFuLmxpbmNvbG5cbm1lYW4uaG9sbGFuZFxuXG4jeiBzY29yZVxuemV0YSA8LSAobWVhbi5saW5jb2xuIC0gbWVhbi5ob2xsYW5kKS9zZC5saW4uaG9sXG56ZXRhXG5cbiNwbG90IHJlZCBsaW5lXG5wbG90KHg9c2VxKGZyb20gPSAtNSwgdG89IDUsIGJ5PTAuMSkseT1kbm9ybShzZXEoZnJvbSA9IC01LCB0bz0gNSwgIGJ5PTAuMSksbWVhbj0wKSx0eXBlPSdsJyx4bGFiID0gJ21lYW4gZGlmZmVyZW5jZScsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG5cbiNnZXQgcFxucCA9IDEtcG5vcm0oemV0YSlcbnAifQ==
 </div>
 </div>
-<div id="additional-references-1" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Additional References</h2>
+<div id="snippet-2-make-your-own-data-and-see-how-p-value-changes" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Snippet 2: Make your own data and see how p-value changes</h2>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzUsIHNkPTEwKVxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICBcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgXG5DYXQ8LWMoQ2F0MSxDYXQyKSBcblZhbDwtYyhWYWwxLFZhbDIpXG5cbmQ8LWRhdGEuZnJhbWUoQ2F0LFZhbClcbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbmRBPC1kW2QkQ2F0PT0nR3JvdXBBJyxdXG5kQVxuZEI8LWRbZCRDYXQ9PSdHcm91cEInLF1cbmRCXG5cbm1lYW5BPC1tZWFuKGRBJFZhbClcbm1lYW5CPC1tZWFuKGRCJFZhbClcblxuc2RBPC1zZChkQSRWYWwpXG5zZEI8LXNkKGRCJFZhbClcblxubGVuQTwtbnJvdyhkQSlcbmxlbkFcbmxlbkI8LW5yb3coZEIpXG5sZW5CXG5cbnNkLkEuQiA8LSBzcXJ0KHNkQV4yL2xlbkEgK3NkQl4yL2xlbkIpXG5zZC5BLkJcblxuemV0YSA8LSAobWVhbkIgLSBtZWFuQSkvc2QuQS5CXG56ZXRhXG5wPC0xLXBub3JtKHpldGEpXG5wIn0=
+</div>
+</div>
+<div id="additional-references-1" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Additional References</h2>
 <p><a href="https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/" class="uri">https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/</a> <br>
 <a href="http://www.z-table.com/" class="uri">http://www.z-table.com/</a> <br>
 <a href="https://www.statisticshowto.com/probability-and-statistics/z-score/" class="uri">https://www.statisticshowto.com/probability-and-statistics/z-score/</a> <br>
