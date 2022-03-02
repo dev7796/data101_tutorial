@@ -15,6 +15,18 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/presentation/d/1dCbhnuGMsXYJEltQXUfPhl8dCTAqJWCZ0xI-0IhnxAc/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+hindex<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  hindex[sample(1:nrow(hindex),10), ], caption = 'Snippet of Hindex Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
 ## Snippet 1
 
 Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
