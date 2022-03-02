@@ -9,7 +9,8 @@ rmd_files: [
   "./chapters/FreeStyle.Rmd",
   "./chapters/z-test.Rmd",
   "./chapters/Permutaion_Test.Rmd",
-  "./chapters/Chisquare.Rmd"]
+  "./chapters/Chisquare.Rmd",
+  "./chapters/Multiple_Hypothesis.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:
