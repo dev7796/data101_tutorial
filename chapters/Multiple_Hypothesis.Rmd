@@ -19,11 +19,11 @@ tutorial::go_interactive(greedy = FALSE)
 
 Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
 
-How to order by aggregate?
+- How to order by aggregate?
 
-First make data frame out of tapply? Use  aggregate  and list functions.
+- First make data frame out of tapply? Use  aggregate  and list functions.
 
-```{r,echo=FALSE}
+```{r,tut=TRUE,height=450}
 Hindex <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv") #web load
 
 Hindex<-aggregate(Hindex$HAPPINESS, list(Hindex$COUNTRY), mean)
