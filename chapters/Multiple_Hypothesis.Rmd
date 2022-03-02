@@ -15,7 +15,7 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/presentation/d/1dCbhnuGMsXYJEltQXUfPhl8dCTAqJWCZ0xI-0IhnxAc/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
-## Snippet 9.1
+## Snippet 1
 
 Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
 
