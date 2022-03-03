@@ -15,7 +15,7 @@ tutorial::go_interactive()
 
 ## Basic Functions
 
-### mean()
+### mean() {#mean}
 
 - **mean()** function is used to find the average of values in a numerical vector.
 
@@ -61,7 +61,7 @@ min(moody$score)
 
 ```
 
-### sd()
+### sd() {#sd}
 
 - **sd()** function is used to find the standard deviation of numerical vector
 
@@ -76,7 +76,7 @@ sd(moody$score)
 
 ## Subset {#subset}
 
-### Snippet 1- example of subset function
+### Snippet 1- example of subset function {#nrow}
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")

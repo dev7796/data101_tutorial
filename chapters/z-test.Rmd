@@ -43,7 +43,7 @@ The following snippet **6.2** shows the code for hypothesis test of difference o
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-## Snippet 1: Shows the code for z-test to test the following hypotheses
+## Snippet 1: Shows the code for z-test to test the following hypotheses{#pnorm}
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 

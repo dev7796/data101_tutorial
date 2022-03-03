@@ -19,7 +19,7 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
 </div> -->
 
-## Vector
+## Vector {#vector}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -176,7 +176,7 @@ moody[1:3, c(2:4)]
 
 ---
 
-## Table
+## Table {#table}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -262,7 +262,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 ---
 
-## Scatter Plot
+## Scatter Plot {#scartterplot}
 
 - Scatter Plot are used to plot two numerical variables.
 - Hence it is used when both the labels are numerical values.
@@ -281,7 +281,7 @@ plot(moody$participation,moody$score,ylab="score",xlab="participation",main=" Pa
 
 ---
 
-## Bar Plot
+## Bar Plot {#barplot}
 
 - A bar plot are used to plot a categorical variable. 
 - This rectangle height is proportional to the value of the variable in the vector.
@@ -309,7 +309,7 @@ barplot(t,xlab="Grade",ylab="Number of Students",col=colors,
 
 ---
 
-##  Box Plot
+##  Box Plot {#boxplot}
 
 - A boxplot is used to display a numerical variable.
 - A boxplot shows the distribution of data in a dataset. 
@@ -363,7 +363,7 @@ boxplot(score~grade,data=moody,xlab="Grade",ylab="Score", main="Boxplot of grade
 
 
 ---
-##  Mosaic Plot
+##  Mosaic Plot {#mosaicplot}
 
 - Mosaic plot is used to visualize two categorical variables.
 
