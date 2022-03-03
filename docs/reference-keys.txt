@@ -1,8 +1,8 @@
-tab:unnamed-chunk-20
-tab:unnamed-chunk-49
-tab:unnamed-chunk-62
-tab:unnamed-chunk-64
-tab:unnamed-chunk-76
+tab:unnamed-chunk-21
+tab:unnamed-chunk-50
+tab:unnamed-chunk-63
+tab:unnamed-chunk-65
+tab:unnamed-chunk-77
 intro
 setting-up-r
 setting
