@@ -9,7 +9,7 @@ setting
 how-to-upload-a-data-set
 saving-your-work
 general-r-references
-r-functions-needed
+r-functions-used-in-this-class
 plots
 vector
 snippet-1
