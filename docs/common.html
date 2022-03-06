@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 9 🔖 Multiple Hypothesis Testing | bookdemo.knit</title>
+  <title>Lecture: 10 🔖 Common Sense Judgement and Probability | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 9 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 10 🔖 Common Sense Judgement and Probability | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 9 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 10 🔖 Common Sense Judgement and Probability | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chitest.html"/>
-<link rel="next" href="common.html"/>
+<link rel="prev" href="Mtest.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -199,207 +199,27 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Mtest" class="section level1" number="9">
-<h1><span class="header-section-number">Lecture: 9</span> 🔖 Multiple Hypothesis Testing</h1>
+<div id="common" class="section level1" number="10">
+<h1><span class="header-section-number">Lecture: 10</span> 🔖 Common Sense Judgement and Probability</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
 <ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#MPT12"> Multiple Hypothesis Testing</button>
-<div id="MPT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1dCbhnuGMsXYJEltQXUfPhl8dCTAqJWCZ0xI-0IhnxAc/edit?usp=sharing" width="100%" height="500px">
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#common12">Common Sense Judgement and Probability</button>
+<div id="common12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1IuqMFWih6WuUAH2gCztfUjDl2SL7OUV5y7VyDs6_EGo/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div></li>
 </ul>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-<table>
-<caption>
-<span id="tab:unnamed-chunk-77">Table 9.1: </span>Snippet of Hindex Dataset
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-IDN
-</th>
-<th style="text-align:left;">
-COUNTRY
-</th>
-<th style="text-align:right;">
-HAPPINESS
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-43
-</td>
-<td style="text-align:right;">
-52224
-</td>
-<td style="text-align:left;">
-Poland
-</td>
-<td style="text-align:right;">
-5.54
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1755
-</td>
-<td style="text-align:right;">
-82266
-</td>
-<td style="text-align:left;">
-Austria
-</td>
-<td style="text-align:right;">
-8.57
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-6428
-</td>
-<td style="text-align:right;">
-73390
-</td>
-<td style="text-align:left;">
-Cyprus
-</td>
-<td style="text-align:right;">
-7.38
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3438
-</td>
-<td style="text-align:right;">
-67105
-</td>
-<td style="text-align:left;">
-Malaysia
-</td>
-<td style="text-align:right;">
-6.33
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2643
-</td>
-<td style="text-align:right;">
-29309
-</td>
-<td style="text-align:left;">
-Ireland
-</td>
-<td style="text-align:right;">
-3.35
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1418
-</td>
-<td style="text-align:right;">
-44263
-</td>
-<td style="text-align:left;">
-Sri Lanka
-</td>
-<td style="text-align:right;">
-4.28
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-5403
-</td>
-<td style="text-align:right;">
-10481
-</td>
-<td style="text-align:left;">
-Ethiopia
-</td>
-<td style="text-align:right;">
-2.31
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1758
-</td>
-<td style="text-align:right;">
-77151
-</td>
-<td style="text-align:left;">
-Somaliland region
-</td>
-<td style="text-align:right;">
-7.59
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-5126
-</td>
-<td style="text-align:right;">
-12962
-</td>
-<td style="text-align:left;">
-Ecuador
-</td>
-<td style="text-align:right;">
-2.53
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4656
-</td>
-<td style="text-align:right;">
-63154
-</td>
-<td style="text-align:left;">
-Kuwait
-</td>
-<td style="text-align:right;">
-6.50
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="snippet-1-6" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Snippet 1</h2>
-<p>Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing</p>
-<ul>
-<li><p>How to order by aggregate?</p></li>
-<li><p>First make data frame out of tapply? Use aggregate and list functions.</p></li>
-</ul>
-<div data-datacamp-exercise="" data-height="450" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9
-</div>
-</div>
-<div id="additional-references-2" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Additional References</h2>
-<p><a href="https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/" class="uri">https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/</a></p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chitest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="common.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Mtest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -178,37 +178,13 @@ https://cran.r-project.org/doc/contrib/Short-refcard.pdf
 tutorial::go_interactive()
 ```
 
-- c() \@ref(vector)
+- **Elementary instructions:** c() \@ref(vector),  mean() \@ref(mean),   nrow() \@ref(nrow), rep(), sd() \@ref(sd), cut() \@ref(cut)
 
-- table() \@ref(table)
+- **Plots:**  plot() \@ref(scartterplot), barplot() \@ref(barplot), boxplot() \@ref(boxplot)  mosaicplot() \@ref(mosaicplot)
 
-- plot() \@ref(scartterplot)
+- **Data Transformations:** subset() \@ref(subset), tapply() \@ref(tapply),  table() \@ref(table), aggregate() 
 
-- barplot() \@ref(barplot)
-
-- boxplot() \@ref(boxplot)
-
-- mosaicplot() \@ref(mosaicplot)
-
-- mean() \@ref(mean)    
-
-- subset() \@ref(subset)
-
-- tapply() \@ref(tapply)
-
-- nrow() \@ref(nrow)
-
-- rep() 
-
-- sd() \@ref(sd)
-
-- cut() \@ref(cut)
-
-- pnorm() \@ref(pnorm)
-
-- chisq.test() \@ref(chitest)
-
-- aggregate()
+- **Library functions:** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest)
 
 
 

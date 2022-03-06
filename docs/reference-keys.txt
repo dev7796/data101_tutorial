@@ -80,3 +80,4 @@ snippet-3-2
 Mtest
 snippet-1-6
 additional-references-2
+common
