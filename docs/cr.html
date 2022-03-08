@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 11 Code Review | bookdemo.knit</title>
+  <title>Lecture: 10 Code Review: Exploratory Queries in R | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 11 Code Review | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 10 Code Review: Exploratory Queries in R | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 11 Code Review | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 10 Code Review: Exploratory Queries in R | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="common.html"/>
-<link rel="next" href="quiz.html"/>
+<link rel="prev" href="Mtest.html"/>
+<link rel="next" href="common.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -85,6 +85,13 @@
 <li class="chapter" data-level="2.3" data-path="setting-up-r.html"><a href="setting-up-r.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
 <li class="chapter" data-level="2.4" data-path="setting-up-r.html"><a href="setting-up-r.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
 <li class="chapter" data-level="2.5" data-path="setting-up-r.html"><a href="setting-up-r.html#r-functions-used-in-this-class"><i class="fa fa-check"></i><b>2.5</b> R functions used in this class</a></li>
+<li class="chapter" data-level="2.6" data-path="setting-up-r.html"><a href="setting-up-r.html#data-sets"><i class="fa fa-check"></i><b>2.6</b> Data sets</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="setting-up-r.html"><a href="setting-up-r.html#moody"><i class="fa fa-check"></i><b>2.6.1</b> Moody</a></li>
+<li class="chapter" data-level="2.6.2" data-path="setting-up-r.html"><a href="setting-up-r.html#movies"><i class="fa fa-check"></i><b>2.6.2</b> Movies</a></li>
+<li class="chapter" data-level="2.6.3" data-path="setting-up-r.html"><a href="setting-up-r.html#traffic"><i class="fa fa-check"></i><b>2.6.3</b> Traffic</a></li>
+<li class="chapter" data-level="2.6.4" data-path="setting-up-r.html"><a href="setting-up-r.html#hindex"><i class="fa fa-check"></i><b>2.6.4</b> Hindex</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>3</b> 🔖 Plots</a>
 <ul>
@@ -178,27 +185,20 @@
 <li class="chapter" data-level="9.1" data-path="Mtest.html"><a href="Mtest.html#snippet-1-6"><i class="fa fa-check"></i><b>9.1</b> Snippet 1</a></li>
 <li class="chapter" data-level="9.2" data-path="Mtest.html"><a href="Mtest.html#additional-references-2"><i class="fa fa-check"></i><b>9.2</b> Additional References</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="common.html"><a href="common.html"><i class="fa fa-check"></i><b>10</b> 🔖 Common Sense Judgement and Probability</a></li>
-<li class="chapter" data-level="11" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>11</b> Code Review</a>
+<li class="chapter" data-level="10" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>10</b> Code Review: Exploratory Queries in R</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="cr.html"><a href="cr.html#snippet-1-what-is-the-mean-imdb-of-low-budget-comedies"><i class="fa fa-check"></i><b>11.1</b> Snippet 1: What is the mean imdb of low budget comedies?</a></li>
-<li class="chapter" data-level="11.2" data-path="cr.html"><a href="cr.html#snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies"><i class="fa fa-check"></i><b>11.2</b> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</a></li>
-<li class="chapter" data-level="11.3" data-path="cr.html"><a href="cr.html#snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies"><i class="fa fa-check"></i><b>11.3</b> Snippet 3: What is the lowest imdb score among high budget movies?</a></li>
-<li class="chapter" data-level="11.4" data-path="cr.html"><a href="cr.html#snippet-4-how-many-low-budget-movies-generated-high-gross-income"><i class="fa fa-check"></i><b>11.4</b> Snippet 4: How many low budget movies generated high gross income?</a></li>
-<li class="chapter" data-level="11.5" data-path="cr.html"><a href="cr.html#snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame"><i class="fa fa-check"></i><b>11.5</b> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</a></li>
-<li class="chapter" data-level="11.6" data-path="cr.html"><a href="cr.html#snippet-6-what-is-the-least-frequent-genre-among-uk-movies"><i class="fa fa-check"></i><b>11.6</b> Snippet 6: What is the least frequent genre among UK movies?</a></li>
-<li class="chapter" data-level="11.7" data-path="cr.html"><a href="cr.html#snippet-7-which-content-rating-has-the-lowest-average-imdb-score"><i class="fa fa-check"></i><b>11.7</b> Snippet 7: Which content rating has the lowest average imdb score?</a></li>
-<li class="chapter" data-level="11.8" data-path="cr.html"><a href="cr.html#snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score"><i class="fa fa-check"></i><b>11.8</b> Snippet 8: Movies from which country have the smallest average imdb score?</a></li>
-<li class="chapter" data-level="11.9" data-path="cr.html"><a href="cr.html#snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame"><i class="fa fa-check"></i><b>11.9</b> Snippet 9: What is the least frequent genre in movies data frame?</a></li>
-<li class="chapter" data-level="11.10" data-path="cr.html"><a href="cr.html#snippet-10-z-value-2.4-whats-the-p-value"><i class="fa fa-check"></i><b>11.10</b> Snippet 10: z value = 2.4, whats the p-value?</a></li>
+<li class="chapter" data-level="10.1" data-path="cr.html"><a href="cr.html#snippet-1-what-is-the-mean-imdb-of-low-budget-comedies"><i class="fa fa-check"></i><b>10.1</b> Snippet 1: What is the mean imdb of low budget comedies?</a></li>
+<li class="chapter" data-level="10.2" data-path="cr.html"><a href="cr.html#snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies"><i class="fa fa-check"></i><b>10.2</b> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</a></li>
+<li class="chapter" data-level="10.3" data-path="cr.html"><a href="cr.html#snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies"><i class="fa fa-check"></i><b>10.3</b> Snippet 3: What is the lowest imdb score among high budget movies?</a></li>
+<li class="chapter" data-level="10.4" data-path="cr.html"><a href="cr.html#snippet-4-how-many-low-budget-movies-generated-high-gross-income"><i class="fa fa-check"></i><b>10.4</b> Snippet 4: How many low budget movies generated high gross income?</a></li>
+<li class="chapter" data-level="10.5" data-path="cr.html"><a href="cr.html#snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame"><i class="fa fa-check"></i><b>10.5</b> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</a></li>
+<li class="chapter" data-level="10.6" data-path="cr.html"><a href="cr.html#snippet-6-what-is-the-least-frequent-genre-among-uk-movies"><i class="fa fa-check"></i><b>10.6</b> Snippet 6: What is the least frequent genre among UK movies?</a></li>
+<li class="chapter" data-level="10.7" data-path="cr.html"><a href="cr.html#snippet-7-which-content-rating-has-the-lowest-average-imdb-score"><i class="fa fa-check"></i><b>10.7</b> Snippet 7: Which content rating has the lowest average imdb score?</a></li>
+<li class="chapter" data-level="10.8" data-path="cr.html"><a href="cr.html#snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score"><i class="fa fa-check"></i><b>10.8</b> Snippet 8: Movies from which country have the smallest average imdb score?</a></li>
+<li class="chapter" data-level="10.9" data-path="cr.html"><a href="cr.html#snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame"><i class="fa fa-check"></i><b>10.9</b> Snippet 9: What is the least frequent genre in movies data frame?</a></li>
+<li class="chapter" data-level="10.10" data-path="cr.html"><a href="cr.html#snippet-10-z-value-2.4-whats-the-p-value"><i class="fa fa-check"></i><b>10.10</b> Snippet 10: z value = 2.4, whats the p-value?</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>12</b> Quizzes</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="quiz.html"><a href="quiz.html#moody"><i class="fa fa-check"></i><b>12.1</b> Moody</a></li>
-<li class="chapter" data-level="12.2" data-path="quiz.html"><a href="quiz.html#movies"><i class="fa fa-check"></i><b>12.2</b> Movies</a></li>
-<li class="chapter" data-level="12.3" data-path="quiz.html"><a href="quiz.html#traffic"><i class="fa fa-check"></i><b>12.3</b> Traffic</a></li>
-<li class="chapter" data-level="12.4" data-path="quiz.html"><a href="quiz.html#hindex"><i class="fa fa-check"></i><b>12.4</b> Hindex</a></li>
-</ul></li>
+<li class="chapter" data-level="11" data-path="common.html"><a href="common.html"><i class="fa fa-check"></i><b>11</b> 🔖 Common Sense Judgement and Probability</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -219,67 +219,67 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cr" class="section level1" number="11">
-<h1><span class="header-section-number">Lecture: 11</span> Code Review</h1>
+<div id="cr" class="section level1" number="10">
+<h1><span class="header-section-number">Lecture: 10</span> Code Review: Exploratory Queries in R</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<div id="snippet-1-what-is-the-mean-imdb-of-low-budget-comedies" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Snippet 1: What is the mean imdb of low budget comedies?</h2>
+<div id="snippet-1-what-is-the-mean-imdb-of-low-budget-comedies" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Snippet 1: What is the mean imdb of low budget comedies?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxubWVhbihtb3ZpZXNbbW92aWVzJEJ1ZGdldD09J0xvdycgJiBtb3ZpZXMkZ2VucmU9PSdDb21lZHknLCBdJGltZGJfc2NvcmUpIn0=
 </div>
 </div>
-<div id="snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</h2>
+<div id="snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuc2QobW92aWVzW21vdmllcyRHcm9zcz09J0hpZ2gnICYgbW92aWVzJGdlbnJlID09J0ZhbWlseScsXSRpbWRiKSJ9
 </div>
 </div>
-<div id="snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Snippet 3: What is the lowest imdb score among high budget movies?</h2>
+<div id="snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Snippet 3: What is the lowest imdb score among high budget movies?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxubWluKG1vdmllc1ttb3ZpZXMkQnVkZ2V0PT0nSGlnaCcsXSRpbWRiKSJ9
 </div>
 </div>
-<div id="snippet-4-how-many-low-budget-movies-generated-high-gross-income" class="section level2" number="11.4">
-<h2><span class="header-section-number">11.4</span> Snippet 4: How many low budget movies generated high gross income?</h2>
+<div id="snippet-4-how-many-low-budget-movies-generated-high-gross-income" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Snippet 4: How many low budget movies generated high gross income?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxubnJvdyhtb3ZpZXNbbW92aWVzJEJ1ZGdldD09J0xvdycgJiBtb3ZpZXMkR3Jvc3MgPT0nSGlnaCcsXSkifQ==
 </div>
 </div>
-<div id="snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame" class="section level2" number="11.5">
-<h2><span class="header-section-number">11.5</span> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</h2>
+<div id="snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuI1lvdSBjYW4gdXNlIHRoaXMgc2ltcGxlIGNvbW1hbmQgdG8gcXVpY2tseSBmaW5kIG91dFxuaGVhZChtb3ZpZXNbbW92aWVzJGNvdW50cnkhPSdVU0EnLCBdJGltZGJfc2NvcmUpIn0=
 </div>
 </div>
-<div id="snippet-6-what-is-the-least-frequent-genre-among-uk-movies" class="section level2" number="11.6">
-<h2><span class="header-section-number">11.6</span> Snippet 6: What is the least frequent genre among UK movies?</h2>
+<div id="snippet-6-what-is-the-least-frequent-genre-among-uk-movies" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Snippet 6: What is the least frequent genre among UK movies?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuI1lvdSBjYW4gdXNlIHRoaXMgY29kZSB0byBmaW5kIG91dFxudGFibGUobW92aWVzW21vdmllcyRjb3VudHJ5PT0nVUsnLF0kZ2VucmUsIG1vdmllc1ttb3ZpZXMkY291bnRyeT09J1VLJyxdJGNvdW50cnkpIn0=
 </div>
 </div>
-<div id="snippet-7-which-content-rating-has-the-lowest-average-imdb-score" class="section level2" number="11.7">
-<h2><span class="header-section-number">11.7</span> Snippet 7: Which content rating has the lowest average imdb score?</h2>
+<div id="snippet-7-which-content-rating-has-the-lowest-average-imdb-score" class="section level2" number="10.7">
+<h2><span class="header-section-number">10.7</span> Snippet 7: Which content rating has the lowest average imdb score?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuI1lvdSBjYW4gdXNlIHRoaXMgY29kZSB0byBmaW5kIG91dFxudGFwcGx5KG1vdmllcyRpbWRiLCBtb3ZpZXMkY29udGVudCwgbWVhbikifQ==
 </div>
 </div>
-<div id="snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score" class="section level2" number="11.8">
-<h2><span class="header-section-number">11.8</span> Snippet 8: Movies from which country have the smallest average imdb score?</h2>
+<div id="snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score" class="section level2" number="10.8">
+<h2><span class="header-section-number">10.8</span> Snippet 8: Movies from which country have the smallest average imdb score?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuI0JldHRlciBjb21wdXRlIGl0LCBzaW5jZSB0aGVyZSBhcmUgdG9vIG1hbnkgY291bnRyaWVzIGZvciB2aXN1YWwgaW5zcGVjdGlvblxuTUE8LWFnZ3JlZ2F0ZShtb3ZpZXMkaW1kYl9zY29yZSwgbGlzdChtb3ZpZXMkY291bnRyeSksIG1lYW4pXG5jb2xuYW1lcyhNQSk8LWMoXCJDb3VudHJ5XCIsIFwiTWltZGJcIilcbk1BPC1NQVtvcmRlcigtTUEkTWltZGIpLCBdXG5NQVsxLF0ifQ==
 </div>
 </div>
-<div id="snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame" class="section level2" number="11.9">
-<h2><span class="header-section-number">11.9</span> Snippet 9: What is the least frequent genre in movies data frame?</h2>
+<div id="snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame" class="section level2" number="10.9">
+<h2><span class="header-section-number">10.9</span> Snippet 9: What is the least frequent genre in movies data frame?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuejwtdGFibGUobW92aWVzJGdlbnJlKVxuc29ydCh6LGRlY3JlYXNpbmc9RkFMU0UpWzFdIn0=
 </div>
 </div>
-<div id="snippet-10-z-value-2.4-whats-the-p-value" class="section level2" number="11.10">
-<h2><span class="header-section-number">11.10</span> Snippet 10: z value = 2.4, whats the p-value?</h2>
+<div id="snippet-10-z-value-2.4-whats-the-p-value" class="section level2" number="10.10">
+<h2><span class="header-section-number">10.10</span> Snippet 10: z value = 2.4, whats the p-value?</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLXBub3JtKDIuNCkifQ==
 </div>
@@ -291,8 +291,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLXBub3JtKDIuNCkifQ==
           </div>
         </div>
       </div>
-<a href="common.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quiz.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Mtest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="common.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
