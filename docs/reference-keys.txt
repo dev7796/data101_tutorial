@@ -3,6 +3,10 @@ tab:unnamed-chunk-50
 tab:unnamed-chunk-63
 tab:unnamed-chunk-65
 tab:unnamed-chunk-77
+tab:unnamed-chunk-92
+tab:unnamed-chunk-94
+tab:unnamed-chunk-96
+tab:unnamed-chunk-98
 intro
 setting-up-r
 setting
@@ -92,3 +96,8 @@ snippet-7-which-content-rating-has-the-lowest-average-imdb-score
 snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score
 snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame
 snippet-10-z-value-2.4-whats-the-p-value
+quiz
+moody
+movies
+traffic
+hindex

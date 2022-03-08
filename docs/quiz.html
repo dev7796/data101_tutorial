@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 2 Setting Up R | bookdemo.knit</title>
+  <title>Lecture: 12 Quizzes | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 2 Setting Up R | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 12 Quizzes | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 2 Setting Up R | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 12 Quizzes | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="plots.html"/>
+<link rel="prev" href="cr.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -219,205 +219,504 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="setting-up-r" class="section level1" number="2">
-<h1><span class="header-section-number">Lecture: 2</span> Setting Up R</h1>
+<div id="quiz" class="section level1" number="12">
+<h1><span class="header-section-number">Lecture: 12</span> Quizzes</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><p><strong>Important Instructions</strong></p>
-<ul>
-<li>Installation of R is required before installing RStudio
-<ul>
-<li>“R” is a programming language, and,</li>
-<li>“RStudio” is an Integrated Development Environment (IDE) which provides you a platform to code in R.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>How to download and install R &amp; RStudio?</strong></p>
-<ul>
-<li><p><em>Downloading and installing R.</em></p>
-<ul>
-<li>For Windows Users.
-<ul>
-<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
-<ul>
-<li><a href="https://cran.r-project.org/bin/windows/base/">https://cran.r-project.org/bin/windows/base/</a></li>
-</ul></li>
-<li>Click on the link at top left where it says “Download R 4.0.3 for windows” or the latest at the time of your installation.</li>
-<li>Open the downloaded file and follow the instructions as it is.</li>
-</ul></li>
-<li>For MAC Users.
-<ul>
-<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
-<ul>
-<li><a href="https://cloud.r-project.org/bin/macosx/">https://cloud.r-project.org/bin/macosx/</a></li>
-</ul></li>
-<li>Under “Latest release”, click on “R-4.0.3.pkg” or the latest at the time of your installation.</li>
-<li>Open the downloaded file and follow the instructions as it is.</li>
-</ul></li>
-</ul></li>
-<li><p><em>Downloading and installing RStudio.</em></p>
-<ul>
-<li>For Windows Users.
-<ul>
-<li>Click on the link below or copy paste it in your favourite browser.
-<ul>
-<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
-</ul></li>
-<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
-<li>Click on the download link beside “Windows 10/8/7” to download the windows version of RStudio.</li>
-<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
-</ul></li>
-<li>For MAC Users.
-<ul>
-<li>Click on the link below or copy paste it in your favourite browser.
-<ul>
-<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
-</ul></li>
-<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
-<li>Click on the link beside “macOS 10.13+” to start your download the MAC version of RStudio.</li>
-<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<hr />
-<div id="setting" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Create New Project</h2>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<p>After installing R studio successfully the first step is to create a project R studio.</p>
-<ul>
-<li>Step 1: Go to <strong>File -&gt; New Project</strong></li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/1_text.png" alt="" />
-<p class="caption">New Project</p>
+<div id="moody" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Moody</h2>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-92">Table 12.1: </span>Snippet of Moody Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+SCORE
+</th>
+<th style="text-align:left;">
+GRADE
+</th>
+<th style="text-align:left;">
+DOZES_OFF
+</th>
+<th style="text-align:left;">
+TEXTING_IN_CLASS
+</th>
+<th style="text-align:right;">
+PARTICIPATION
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+385
+</td>
+<td style="text-align:right;">
+42.24
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+28
+</td>
+<td style="text-align:right;">
+52.87
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+151
+</td>
+<td style="text-align:right;">
+22.17
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+69
+</td>
+<td style="text-align:right;">
+35.96
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+567
+</td>
+<td style="text-align:right;">
+67.38
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<ul>
-<li>Step 2: Select <strong>New Directory</strong></li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2_text.png" alt="" />
-<p class="caption">New Directory</p>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5zdW1tYXJ5KG1vb2R5KSJ9
 </div>
-<ul>
-<li>Step 3: Select <strong>New Project</strong></li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/3_text.png" alt="" />
-<p class="caption">New Project</p>
 </div>
-<ul>
-<li>Step 4: Give your preferred directory name like <strong>“Data101_Assignmnets”</strong></li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4_text.png" alt="" />
-<p class="caption">Directory Name</p>
+<div id="movies" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Movies</h2>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-94">Table 12.2: </span>Snippet of Movies Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+content
+</th>
+<th style="text-align:right;">
+imdb_score
+</th>
+<th style="text-align:left;">
+Gross
+</th>
+<th style="text-align:left;">
+Budget
+</th>
+<th style="text-align:left;">
+genre
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+12689
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+7.25
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Action
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1293
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+4.86
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Family
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10718
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+5.17
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Comedy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1590
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG
+</td>
+<td style="text-align:right;">
+6.62
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Family
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6421
+</td>
+<td style="text-align:left;">
+France
+</td>
+<td style="text-align:left;">
+PG
+</td>
+<td style="text-align:right;">
+7.13
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+History
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<ul>
-<li>Step 5: Click on Create Project and finally the R studio should look like</li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png" alt="" />
-<p class="caption">Rstudio</p>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuc3VtbWFyeShtb3ZpZXMpIn0=
 </div>
-<hr />
 </div>
-<div id="how-to-upload-a-data-set" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> How to upload a data set?</h2>
-<script src="files/js/dcl.js"></script>
-<ul>
-<li><p>To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.</p></li>
-<li><p>There are two options while accessing the dataset from your local machine:</p>
-<ol style="list-style-type: decimal">
-<li>To avoid giving long directory paths for accessing the dataset, one should use the command <strong>getwd()</strong> to get the current working directory and store the dataset in the same directory.</li>
-</ol></li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/5_text.png" alt="" />
-<p class="caption">Getwd</p>
+<div id="traffic" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Traffic</h2>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-96">Table 12.3: </span>Snippet of Traffic Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+TUNNEL
+</th>
+<th style="text-align:left;">
+DAY
+</th>
+<th style="text-align:right;">
+VOLUME_PER_MINUTE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+44
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+51.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+59.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1767
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+56.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1585
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+81.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+712
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+78.5
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<ul>
-<li>To access the dataset stored in the same directory one can use the following: <strong>read.csv(“MOODY_DATA.csv”)</strong>.</li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/6_text.png" alt="" />
-<p class="caption">Store the moody dataset in the same directory</p>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2Jylcblxuc3VtbWFyeSh0cmFmZmljKSJ9
 </div>
-<ol start="2" style="list-style-type: decimal">
-<li>One can also store the dataset at a different location and can access it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)</li>
-</ol>
-<pre><code>- For Windows Users.
-  - Example: read.csv(&quot;C:/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv&quot;)
-
-- For MAC Users.
-  - Example: read.csv(&quot;/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv&quot;)
-  </code></pre>
-<strong>Note: </strong>
-The directory path given here is the current working directory hosted on <em>Github</em> where the dataset has been stored.
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIilcblxuIyBQcmludCBvdXQgYGRmYFxuaGVhZChkZikifQ==
 </div>
-<hr />
+<div id="hindex" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Hindex</h2>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-98">Table 12.4: </span>Snippet of Hindex Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+IDN
+</th>
+<th style="text-align:left;">
+COUNTRY
+</th>
+<th style="text-align:right;">
+HAPPINESS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+4960
+</td>
+<td style="text-align:right;">
+91614
+</td>
+<td style="text-align:left;">
+Singapore
+</td>
+<td style="text-align:right;">
+9.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2578
+</td>
+<td style="text-align:right;">
+10831
+</td>
+<td style="text-align:left;">
+Chad
+</td>
+<td style="text-align:right;">
+2.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+651
+</td>
+<td style="text-align:right;">
+98012
+</td>
+<td style="text-align:left;">
+Ireland
+</td>
+<td style="text-align:right;">
+9.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+759
+</td>
+<td style="text-align:right;">
+87781
+</td>
+<td style="text-align:left;">
+Djibouti
+</td>
+<td style="text-align:right;">
+8.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+732
+</td>
+<td style="text-align:right;">
+62039
+</td>
+<td style="text-align:left;">
+Burundi
+</td>
+<td style="text-align:right;">
+6.48
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="saving-your-work" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Saving your work</h2>
-<ul>
-<li>To save your work go to <strong>File -&gt; Save</strong>. It will ask you to give a name for your <strong>.R file</strong> and then click on Save.</li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/7_text.png" alt="" />
-<p class="caption">Save</p>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIilcblxuc3VtbWFyeShoaW5kZXgpIn0=
 </div>
-<ul>
-<li>After making modifications to your saved file, you will need to save the file again.
-If the name of the file on the top is in <span style="color: red;"> Red Color </span> indicates that the file have <strong>unsaved</strong> changes.</li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/8_text.png" alt="" />
-<p class="caption">Unsaved File</p>
-</div>
-<ul>
-<li>Go to <strong>File -&gt; Save</strong> to save your .R file again. After saving the file the color of the file name i.e. <strong>HW1.R</strong> will again change back to <strong>black</strong>.</li>
-</ul>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/9_text.png" alt="" />
-<p class="caption">Saved File</p>
-</div>
-<p><strong>Note: </strong> You can create multiple files inside the same project such as for your each homework assignments</p>
-</div>
-<div id="general-r-references" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> General R References</h2>
-<p><a href="https://www.w3schools.com/r/" class="uri">https://www.w3schools.com/r/</a> <br>
-<a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf" class="uri">https://cran.r-project.org/doc/contrib/Short-refcard.pdf</a></p>
-</div>
-<div id="r-functions-used-in-this-class" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> R functions used in this class</h2>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><p><strong>Elementary instructions:</strong> c() <a href="plots.html#vector">3.1</a>, mean() <a href="data-transformation.html#mean">4.1.1</a>, nrow() <a href="data-transformation.html#nrow">4.2.1</a>, rep(), sd() <a href="data-transformation.html#sd">4.1.5</a>, cut() <a href="data-transformation.html#cut">4.4.2</a></p></li>
-<li><p><strong>Plots:</strong> plot() <a href="plots.html#scartterplot">3.4</a>, barplot() <a href="plots.html#barplot">3.5</a>, boxplot() <a href="plots.html#boxplot">3.6</a> mosaicplot() <a href="plots.html#mosaicplot">3.7</a></p></li>
-<li><p><strong>Data Transformations:</strong> subset() <a href="data-transformation.html#subset">4.2</a>, tapply() <a href="data-transformation.html#tapply">4.3</a>, table() <a href="plots.html#table">3.3</a>, aggregate()</p></li>
-<li><p><strong>Library functions:</strong> chisq.test() <a href="chitest.html#chitest">8</a>, pnorm() <a href="ztest.html#pnorm">6.2</a>, Permutation() <a href="ptest.html#ptest">7</a></p></li>
-</ul>
 
 </div>
 </div>
@@ -426,8 +725,8 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

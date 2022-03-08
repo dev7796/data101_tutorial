@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 11 🔖 Code Review | bookdemo.knit</title>
+  <title>Lecture: 11 Code Review | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 11 🔖 Code Review | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 11 Code Review | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 11 🔖 Code Review | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 11 Code Review | bookdemo.knit" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="common.html"/>
-
+<link rel="next" href="quiz.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -179,7 +179,7 @@
 <li class="chapter" data-level="9.2" data-path="Mtest.html"><a href="Mtest.html#additional-references-2"><i class="fa fa-check"></i><b>9.2</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="common.html"><a href="common.html"><i class="fa fa-check"></i><b>10</b> 🔖 Common Sense Judgement and Probability</a></li>
-<li class="chapter" data-level="11" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>11</b> 🔖 Code Review</a>
+<li class="chapter" data-level="11" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>11</b> Code Review</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="cr.html"><a href="cr.html#snippet-1-what-is-the-mean-imdb-of-low-budget-comedies"><i class="fa fa-check"></i><b>11.1</b> Snippet 1: What is the mean imdb of low budget comedies?</a></li>
 <li class="chapter" data-level="11.2" data-path="cr.html"><a href="cr.html#snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies"><i class="fa fa-check"></i><b>11.2</b> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</a></li>
@@ -191,6 +191,13 @@
 <li class="chapter" data-level="11.8" data-path="cr.html"><a href="cr.html#snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score"><i class="fa fa-check"></i><b>11.8</b> Snippet 8: Movies from which country have the smallest average imdb score?</a></li>
 <li class="chapter" data-level="11.9" data-path="cr.html"><a href="cr.html#snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame"><i class="fa fa-check"></i><b>11.9</b> Snippet 9: What is the least frequent genre in movies data frame?</a></li>
 <li class="chapter" data-level="11.10" data-path="cr.html"><a href="cr.html#snippet-10-z-value-2.4-whats-the-p-value"><i class="fa fa-check"></i><b>11.10</b> Snippet 10: z value = 2.4, whats the p-value?</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>12</b> Quizzes</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="quiz.html"><a href="quiz.html#moody"><i class="fa fa-check"></i><b>12.1</b> Moody</a></li>
+<li class="chapter" data-level="12.2" data-path="quiz.html"><a href="quiz.html#movies"><i class="fa fa-check"></i><b>12.2</b> Movies</a></li>
+<li class="chapter" data-level="12.3" data-path="quiz.html"><a href="quiz.html#traffic"><i class="fa fa-check"></i><b>12.3</b> Traffic</a></li>
+<li class="chapter" data-level="12.4" data-path="quiz.html"><a href="quiz.html#hindex"><i class="fa fa-check"></i><b>12.4</b> Hindex</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -213,7 +220,7 @@
 
             <section class="normal" id="section-">
 <div id="cr" class="section level1" number="11">
-<h1><span class="header-section-number">Lecture: 11</span> 🔖 Code Review</h1>
+<h1><span class="header-section-number">Lecture: 11</span> Code Review</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -237,7 +244,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 </div>
 <div id="snippet-4-how-many-low-budget-movies-generated-high-gross-income" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> Snippet 4: How many low budget movies generated high gross income?</h2>
-<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxubnJvdyhtb3ZpZXNbbW92aWVzJEJ1ZGdldD09J0xvdycgJiBtb3ZpZXMkR3Jvc3MgPT0nSGlnaCcsXSkifQ==
 </div>
 </div>
@@ -284,8 +291,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLXBub3JtKDIuNCkifQ==
           </div>
         </div>
       </div>
-<a href="common.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="common.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

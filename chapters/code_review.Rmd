@@ -1,4 +1,4 @@
-# 🔖 Code Review {#cr}
+# Code Review {#cr}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -39,7 +39,7 @@ min(movies[movies$Budget=='High',]$imdb)
 
 ## Snippet 4: How many low budget movies generated high gross income?
 
-```{r,tut=TRUE,height=600}
+```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
