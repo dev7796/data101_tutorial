@@ -11,7 +11,8 @@ rmd_files: [
   "./chapters/Permutaion_Test.Rmd",
   "./chapters/Chisquare.Rmd",
   "./chapters/Multiple_Hypothesis.Rmd",
-  "./chapters/common_sense.Rmd"]
+  "./chapters/common_sense.Rmd",
+  "./chapters/code_review.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:

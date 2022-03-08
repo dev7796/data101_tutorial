@@ -81,3 +81,14 @@ Mtest
 snippet-1-6
 additional-references-2
 common
+cr
+snippet-1-what-is-the-mean-imdb-of-low-budget-comedies
+snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies
+snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies
+snippet-4-how-many-low-budget-movies-generated-high-gross-income
+snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame
+snippet-6-what-is-the-least-frequent-genre-among-uk-movies
+snippet-7-which-content-rating-has-the-lowest-average-imdb-score
+snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score
+snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame
+snippet-10-z-value-2.4-whats-the-p-value
