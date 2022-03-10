@@ -7,6 +7,7 @@ bookdown::gitbook:
         <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
         <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
         <a href="https://dev7796.shinyapps.io/testing_button/" target="black">Question Roulette</a>
+        <a href="https://dev7796.shinyapps.io/box_shiny/" target="black">Quiz Code</a>
         </li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
