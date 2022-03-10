@@ -168,6 +168,37 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 https://www.w3schools.com/r/ <br>
 https://cran.r-project.org/doc/contrib/Short-refcard.pdf
 
+## Textbook Concepts
+
+- Hypothesis testing: \@ref(ztest), \@ref(ptest) 
+
+- Difference of means hypothesis testing: \@ref(ptest)
+
+- Null Hypothesis: \@ref(ztest)
+
+- Alternative Hypothesis: \@ref(ztest)
+
+- z-value: \@ref(ztest)
+
+- critical value: \@ref(ztest)
+
+- significance level: \@ref(ztest)
+
+- p-value: \@ref(ztest)
+
+- Bonferroni correction: \@ref(Mtest)
+
+- Chi square test: \@ref(chitest)
+
+- Independence: \@ref(chitest)
+
+- Multiple Hypothesis testing: \@ref(Mtest)
+
+- False Discovery Proportion: \@ref(Mtest)
+
+- Contingency Matrix: \@ref(chitest)
+
+
 ## R functions used in this class
 
 <script src="files/js/dcl.js"></script>
@@ -178,13 +209,13 @@ https://cran.r-project.org/doc/contrib/Short-refcard.pdf
 tutorial::go_interactive()
 ```
 
-- **Elementary instructions:** c() \@ref(vector),  mean() \@ref(mean),   nrow() \@ref(nrow), rep(), sd() \@ref(sd), cut() \@ref(cut)
+- **Elementary instructions: ** c() \@ref(vector),  mean() \@ref(mean),   nrow() \@ref(nrow), rep(), sd() \@ref(sd), cut() \@ref(cut)
 
-- **Plots:**  plot() \@ref(scartterplot), barplot() \@ref(barplot), boxplot() \@ref(boxplot)  mosaicplot() \@ref(mosaicplot)
+- **Plots: **  plot() \@ref(scartterplot), barplot() \@ref(barplot), boxplot() \@ref(boxplot)  mosaicplot() \@ref(mosaicplot)
 
-- **Data Transformations:** subset() \@ref(subset), tapply() \@ref(tapply),  table() \@ref(table), aggregate() 
+- **Data Transformations: ** subset() \@ref(subset), tapply() \@ref(tapply),  table() \@ref(table), aggregate() 
 
-- **Library functions:** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest)
+- **Library functions: ** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest)
 
 
 
