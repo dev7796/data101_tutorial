@@ -9,7 +9,8 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-## Snippet 1: What is the mean imdb of low budget comedies?
+## Movies Dataset Example 
+### Snippet 1: What is the mean imdb of low budget comedies?
 
 
 ```{r,tut=TRUE,height=300}
@@ -19,7 +20,7 @@ mean(movies[movies$Budget=='Low' & movies$genre=='Comedy', ]$imdb_score)
 
 ```
 
-## Snippet 2: What is standard deviation of imdb score of  high gross Family movies?
+### Snippet 2: What is standard deviation of imdb score of  high gross Family movies?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -28,7 +29,7 @@ sd(movies[movies$Gross=='High' & movies$genre =='Family',]$imdb)
 
 ```
 
-## Snippet 3: What is the lowest imdb score among high budget movies?
+### Snippet 3: What is the lowest imdb score among high budget movies?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -37,7 +38,7 @@ min(movies[movies$Budget=='High',]$imdb)
 
 ```
 
-## Snippet 4: How many low budget movies generated high gross income?
+### Snippet 4: How many low budget movies generated high gross income?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -46,7 +47,7 @@ nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
 
 ```
 
-## Snippet 5: What is imdb score of the first non-US movie in the movies data frame?
+### Snippet 5: What is imdb score of the first non-US movie in the movies data frame?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -56,7 +57,7 @@ head(movies[movies$country!='USA', ]$imdb_score)
 
 ```
 
-## Snippet 6: What is the least frequent genre among UK movies?
+### Snippet 6: What is the least frequent genre among UK movies?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -66,7 +67,7 @@ table(movies[movies$country=='UK',]$genre, movies[movies$country=='UK',]$country
 
 ```
 
-## Snippet 7: Which content rating has the lowest average imdb score?
+### Snippet 7: Which content rating has the lowest average imdb score?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -76,7 +77,7 @@ tapply(movies$imdb, movies$content, mean)
 
 ```
 
-## Snippet 8: Movies from which country have the smallest average imdb score?
+### Snippet 8: Movies from which country have the smallest average imdb score?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -88,7 +89,7 @@ MA<-MA[order(-MA$Mimdb), ]
 MA[1,]
 ```
 
-## Snippet 9: What is the least frequent genre in movies data frame?
+### Snippet 9: What is the least frequent genre in movies data frame?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -97,7 +98,7 @@ z<-table(movies$genre)
 sort(z,decreasing=FALSE)[1]
 ```
 
-## Snippet 10: z value = 2.4, whats the p-value?
+### Snippet 10: z value = 2.4, whats the p-value?
 
 ```{r,tut=TRUE,height=300}
 
@@ -105,5 +106,58 @@ sort(z,decreasing=FALSE)[1]
 
 ```
 
+## Census Dataset Example
 
+### Snippet 11: Which “years of education” has the highest average capital loss with years should be less than 17?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example11_data = subset(census_data, (YEARS <= 16))
+example11_data = tapply(example10_data$CAPITALLOSS, example10_dataata$YEARS, mean)
+
+```
+
+### Snippet 12: Who has higher average capital gains; Handlers-cleaners or Tech-support?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
+```
+
+### Snippet 13: What is most frequent profession for people under 10 years of education?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example13_data = table(subset(census_data, YEARS <= 10)$PROFESSION)
+
+```
+
+### Snippet 14: What is minimum years of education for Prof-specialty?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example14_data = table(subset(census_data, PROFESSION == "Prof-specialty")$EDUCATION)
+
+```
+
+### Snippet 15: What is the most frequent degree for US?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example15_data = table(subset(census_data, NATIVE == "United-States")$EDUCATION)
+
+```
+
+### Snippet 16: what is the least frequent degree for people with at least 12 years of education?
+
+```{r,tut=TRUE,height=300}
+census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
+
+example16_data = table(subset(census_data, YEARS >= 12)$EDUCATION)
+```
 

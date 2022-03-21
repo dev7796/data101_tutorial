@@ -92,6 +92,7 @@ snippet-1---benjamini-hochberg-algorithm
 snippet-2-4
 additional-references-2
 cr
+movies-dataset-example
 snippet-1-what-is-the-mean-imdb-of-low-budget-comedies
 snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies
 snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies
@@ -102,4 +103,11 @@ snippet-7-which-content-rating-has-the-lowest-average-imdb-score
 snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score
 snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame
 snippet-10-z-value-2.4-whats-the-p-value
+census-dataset-example
+snippet-11-which-years-of-education-has-the-highest-average-capital-loss-with-years-should-be-less-than-17
+snippet-12-who-has-higher-average-capital-gains-handlers-cleaners-or-tech-support
+snippet-13-what-is-most-frequent-profession-for-people-under-10-years-of-education
+snippet-14-what-is-minimum-years-of-education-for-prof-specialty
+snippet-15-what-is-the-most-frequent-degree-for-us
+snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-of-education
 common
