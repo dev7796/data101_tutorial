@@ -27,7 +27,25 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-## Snippet 1
+## Snippet 1 - Benjamini-Hochberg Algorithm
+
+```{r,tut=TRUE,height=450}
+p<-sort(round(runif(100, min=0, max=0.05), 4))
+p
+p<-p+0.0003
+p
+#implement Benjamini-Hochberg formula
+q<-rep(0.05,100)
+q
+r=c(1:100)
+q<-round(q*r/100,4)
+temp<-p<q
+#Select p-values which correspond to discoveries (reject NULL)
+maxindex<-max(which(temp=='TRUE'))
+p[1:maxindex]
+```
+
+## Snippet 2
 
 Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
 
@@ -48,4 +66,5 @@ Hindex[order(Hindex$AverageH),]
 
 ## Additional References 
 
+https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/
 https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/
