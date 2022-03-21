@@ -115,7 +115,7 @@ census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutoria
 
 example11_data = subset(census_data, (YEARS <= 16))
 example11_data = tapply(example10_data$CAPITALLOSS, example10_dataata$YEARS, mean)
-
+example11_data
 ```
 
 ### Snippet 12: Who has higher average capital gains; Handlers-cleaners or Tech-support?
@@ -124,6 +124,7 @@ example11_data = tapply(example10_data$CAPITALLOSS, example10_dataata$YEARS, mea
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
+example12_data
 ```
 
 ### Snippet 13: What is most frequent profession for people under 10 years of education?
@@ -132,7 +133,7 @@ example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example13_data = table(subset(census_data, YEARS <= 10)$PROFESSION)
-
+example13_data
 ```
 
 ### Snippet 14: What is minimum years of education for Prof-specialty?
@@ -141,7 +142,7 @@ example13_data = table(subset(census_data, YEARS <= 10)$PROFESSION)
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example14_data = table(subset(census_data, PROFESSION == "Prof-specialty")$EDUCATION)
-
+example14_data
 ```
 
 ### Snippet 15: What is the most frequent degree for US?
@@ -150,7 +151,7 @@ example14_data = table(subset(census_data, PROFESSION == "Prof-specialty")$EDUCA
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example15_data = table(subset(census_data, NATIVE == "United-States")$EDUCATION)
-
+example15_data
 ```
 
 ### Snippet 16: what is the least frequent degree for people with at least 12 years of education?
@@ -159,5 +160,6 @@ example15_data = table(subset(census_data, NATIVE == "United-States")$EDUCATION)
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example16_data = table(subset(census_data, YEARS >= 12)$EDUCATION)
+example16_data
 ```
 
