@@ -114,7 +114,7 @@ sort(z,decreasing=FALSE)[1]
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
 example11_data = subset(census_data, (YEARS <= 16))
-example11_data = tapply(example10_data$CAPITALLOSS, example10_dataata$YEARS, mean)
+example11_data = tapply(example11_data$CAPITALLOSS, example11_dataata$YEARS, mean)
 example11_data
 ```
 
