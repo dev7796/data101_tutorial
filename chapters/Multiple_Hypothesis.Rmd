@@ -67,4 +67,3 @@ Hindex[order(Hindex$AverageH),]
 ## Additional References 
 
 https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/
-https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/
