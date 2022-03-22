@@ -141,7 +141,7 @@ example13_data
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
-example14_data = table(subset(census_data, PROFESSION == "Prof-specialty")$EDUCATION)
+example14_data = table(subset(census_data, PROFESSION == "Exec-managerial")$EDUCATION)
 example14_data
 ```
 
