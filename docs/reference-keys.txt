@@ -2,11 +2,12 @@ tab:unnamed-chunk-7
 tab:unnamed-chunk-9
 tab:unnamed-chunk-11
 tab:unnamed-chunk-13
-tab:unnamed-chunk-29
-tab:unnamed-chunk-58
-tab:unnamed-chunk-71
+tab:unnamed-chunk-15
+tab:unnamed-chunk-31
+tab:unnamed-chunk-60
 tab:unnamed-chunk-73
-tab:unnamed-chunk-85
+tab:unnamed-chunk-75
+tab:unnamed-chunk-87
 intro
 setting-up-r
 setting
@@ -20,6 +21,7 @@ moody
 movies
 traffic
 hindex
+moody-march2022
 plots
 vector
 snippet-1

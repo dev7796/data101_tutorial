@@ -303,8 +303,25 @@ summary(hindex)
 ```
 
 
+### Moody March'2022
 
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+# head(moody)
+temp<-knitr::kable(
+  moody[sample(1:nrow(moody),5), ], caption = 'Snippet of Moody March`2022 Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+<br>
+```{r,tut=TRUE,height=600}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 
+summary(moody)
+```
 
 
 
