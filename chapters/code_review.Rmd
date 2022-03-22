@@ -108,17 +108,17 @@ sort(z,decreasing=FALSE)[1]
 
 ## Census Dataset Example
 
-### Snippet 11: Which “years of education” has the highest average capital loss with years should be less than 17?
-
+### Snippet 11: For the individual over 50, which profession has the highest average capital gain?
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
 
-example11_data = subset(census_data, (YEARS <= 16))
-example11_data = tapply(example11_data$CAPITALLOSS, example11_data$YEARS, mean)
-example11_data
+age_greater_than_49 = subset(census_data, census_data$AGE >= 50)
+aged_capitalgains = tapply(age_greater_than_49$CAPITALGAINS, age_greater_than_49$PROFESSION, mean)
+aged_capitalgains
+
 ```
 
-### Snippet 12: Who has higher average capital gains; Handlers-cleaners or Tech-support?
+### Snippet 12: Which profession has the highest average capital gains; Sales or Tech-support?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
@@ -127,7 +127,7 @@ example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
 example12_data
 ```
 
-### Snippet 13: What is most frequent profession for people under 10 years of education?
+### Snippet 13: What is most frequent profession of people with people with less than 10 years od of education?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
@@ -136,7 +136,7 @@ example13_data = table(subset(census_data, YEARS <= 10)$PROFESSION)
 example13_data
 ```
 
-### Snippet 14: What is minimum years of education for Prof-specialty?
+### Snippet 14: What is minimum number of years of education for people with Exec-managerial specialty?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
@@ -145,7 +145,7 @@ example14_data = table(subset(census_data, PROFESSION == "Prof-specialty")$EDUCA
 example14_data
 ```
 
-### Snippet 15: What is the most frequent degree for US?
+### Snippet 15: What is the most frequent degree for natives of the United States?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
@@ -154,7 +154,7 @@ example15_data = table(subset(census_data, NATIVE == "United-States")$EDUCATION)
 example15_data
 ```
 
-### Snippet 16: what is the least frequent degree for people with at least 12 years of education?
+### Snippet 16: What is the least frequent degree for people with at least 12 years of education?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")

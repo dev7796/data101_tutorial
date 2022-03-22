@@ -104,11 +104,11 @@ snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score
 snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame
 snippet-10-z-value-2.4-whats-the-p-value
 census-dataset-example
-snippet-11-which-years-of-education-has-the-highest-average-capital-loss-with-years-should-be-less-than-17
-snippet-12-who-has-higher-average-capital-gains-handlers-cleaners-or-tech-support
-snippet-13-what-is-most-frequent-profession-for-people-under-10-years-of-education
-snippet-14-what-is-minimum-years-of-education-for-prof-specialty
-snippet-15-what-is-the-most-frequent-degree-for-us
+snippet-11-for-the-individual-over-50-which-profession-has-the-highest-average-capital-gain
+snippet-12-which-profession-has-the-highest-average-capital-gains-sales-or-tech-support
+snippet-13-what-is-most-frequent-profession-of-people-with-people-with-less-than-10-years-od-of-education
+snippet-14-what-is-minimum-number-of-years-of-education-for-people-with-exec-managerial-specialty
+snippet-15-what-is-the-most-frequent-degree-for-natives-of-the-united-states
 snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-of-education
 common
 br
