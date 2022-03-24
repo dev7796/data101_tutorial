@@ -127,7 +127,7 @@ example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
 example12_data
 ```
 
-### Snippet 13: What is most frequent profession of people with people with less than 10 years od of education?
+### Snippet 13: What is most frequent profession of people with less than 10 years od of education?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
