@@ -17,7 +17,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Snippet 1 - Covid Odds after positive Home Test. 
 
-```{r,tut=TRUE,height=300}
+```{r,tut=TRUE,height=600}
 #Belief = "Have Covid"#Observation = Covid Test#How much the probability of having covid increases upon positive COVID-test?
 #We use the odds formulation of Bayesian Theorem
 # we begin with prior odds of having Covid:  P(Covid)/(1-P(Covid)
