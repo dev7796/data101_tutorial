@@ -1,0 +1,16 @@
+# 🔖 Linear Regression {#lr}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button> 
+<div id="lr12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>

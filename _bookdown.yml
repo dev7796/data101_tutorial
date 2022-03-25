@@ -13,7 +13,11 @@ rmd_files: [
   "./chapters/Multiple_Hypothesis.Rmd",
   "./chapters/code_review.Rmd",
   "./chapters/common_sense.Rmd",
-  "./chapters/bayesian_reasoning.Rmd"]
+  "./chapters/bayesian_reasoning.Rmd",
+  "./chapters/Free_style.Rmd",
+  "./chapters/Decision_trees.Rmd",
+  "./chapters/Linear_regression.Rmd",
+  "./chapters/Prediction_loop.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:

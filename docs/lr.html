@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 3 🔖 Plots | bookdemo.knit</title>
+  <title>Lecture: 15 🔖 Linear Regression | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 3 🔖 Plots | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 15 🔖 Linear Regression | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 3 🔖 Plots | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 15 🔖 Linear Regression | bookdemo.knit" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="setting-up-r.html"/>
-<link rel="next" href="data-transformation.html"/>
+<link rel="prev" href="dt.html"/>
+<link rel="next" href="MLP.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -243,358 +243,28 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="plots" class="section level1" number="3">
-<h1><span class="header-section-number">Lecture: 3</span> 🔖 Plots</h1>
+<div id="lr" class="section level1" number="15">
+<h1><span class="header-section-number">Lecture: 15</span> 🔖 Linear Regression</h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
 <ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
-<div id="plots12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px">
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button>
+<div id="lr12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px">
 </embed>
-</div>
-<!--
-<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
-<div id="plots11" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
-</div> --></li>
+</div></li>
 </ul>
-<div id="vector" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Vector</h2>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li>A vector is simply a list of items that are of the same type.</li>
-</ul>
-<!-- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
-- All of the items inside a vector to are of the same type like numerical or categorical. -->
-<div id="snippet-1" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Snippet 1</h3>
-<p>Lets look at example of creating a vector:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgMyB2ZWN0b3JzIHdpdGggdGl0bGUsIGF1dGhvciBhbmQgeWVhci5cbmNvbG9yIDwtIGMoJ1JlZCcsJ0JsdWUnLCdZZWxsb3cnLCdHcmVlbicpXG5cbiNMZXRzIGxvb2sgYXQgaG93IHRoZSBjcmVhdGVkIHZlY3RvcnMgbG9vay5cbmNvbG9yIn0=
-</div>
-</div>
-<div id="snippet-2" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Snippet 2</h3>
-<p>Create a vector with numerical values in a sequence, use the <strong>:</strong> operator:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggbnVtZXJpY2FsIHNlcXVlbmNlLlxueWVhciA8LSAyMDE4OjIwMjJcblxuI0xldHMgbG9vayBhdCBob3cgdGhlIGNyZWF0ZWQgdmVjdG9ycyBsb29rLlxueWVhciJ9
-</div>
-<!--
-<br />
 
-- To find out how many items a vector has, use the **length()** function:
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggY2F0ZWdvcmljYWwgdmFsdWVzXG5hdXRob3IgPC0gYygnRm9yZW1hbicsICdKb2huJywgJ1NhaWQnKVxuXG4jIFlvdSBjYW4gYWNjZXNzIHRoZSB2ZWN0b3IgaXRlbXMgYnkgcmVmZXJyaW5nIHRvIGl0cyBpbmRleCBudW1iZXIgaW5zaWRlIGJyYWNrZXRzIFtdLiBUaGUgZmlyc3QgaXRlbSBoYXMgaW5kZXggMSwgdGhlIHNlY29uZCBpdGVtIGhhcyBpbmRleCAyLCBhbmQgc28gb246XG5hdXRob3JbMV1cblxuI0xldHMgbG9vayBhdCB0aGUgc2l6ZSBvZiBhIHZlY3RvcnMuXG5sZW5ndGgoYXV0aG9yKSJ9</div>
-
-<br />
-
-- To sort items in a vector alphabetically or numerically, use the **sort()** function and to change the value of a specific item, refer to the **index number**:
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggY2F0ZWdvcmljYWwgdmFsdWVzXG50aXRsZSA8LSBjKCdEYXRhIFNtYXJ0JywnT3JpZW50YWxpc20nLCdGYWxzZSBJbXByZXNzaW9ucycsJ01ha2luZyBTb2Z0d2FyZScpXG5cbiNzb3J0aW5nIHRpdGxlc1xuc29ydCh0aXRsZSlcblxuIyBjaGFuZ2UgdGhlIHRpdGxlICdEYXRhIFNtYXJ0JyB0byAnU21hcnQgRGF0YSdcbnRpdGxlWzFdIDwtIFwiU21hcnQgRGF0YVwiXG5cbiNMZXRzIGxvb2sgYXQgaG93IHRoZSB1cGRhdGVkIHZlY3RvcnMgbG9vay5cbnRpdGxlICJ9</div>
-
--->
-<hr />
-</div>
-</div>
-<div id="data-frames" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Data Frames</h2>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li>Data Frames are data displayed in a format as a table.
-<!--
-- Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
-
-- Following are the characteristics of a data frame.
-  - The column names should be non-empty.
-  - The row names should be unique.
-  - The data stored in a data frame can be of numeric, factor or character type.
-  - Each column should contain same number of data items.
-
-Use the **data.frame()** function to create a data frame:--></li>
-</ul>
-<div id="snippet-1-1" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Snippet 1</h3>
-<p>Populating the dataframe:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgTm93IGxldHMgdmlldyB0aGUgZGF0YWZyYW1lIG1vb2R5IHdpdGgganVzdCA1LTYgdHVwbGVzXG5oZWFkKG1vb2R5KSJ9
-</div>
-</div>
-<div id="snippet-2-1" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Snippet 2</h3>
-<p>Get the summary of the dataframe:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgVXNlIHRoZSBzdW1tYXJ5KCkgZnVuY3Rpb24gdG8gc3VtbWFyaXplIHRoZSBkYXRhIGZyb20gYSBEYXRhIEZyYW1lOlxuc3VtbWFyeShtb29keSkifQ==
-</div>
-<!--
-- Just like vectors, you can access specific data **(Slicing)** in dataframes using brackets. 
-- But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. -->
-</div>
-<div id="snippet-3" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Snippet 3</h3>
-<p>Use the notation <strong>data[rows, columns]</strong>, which selects the subsets of rows and columns:</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgUmV0dXJuIHJvdyAxXG5tb29keVsxLCBdXG5cbiMgUmV0dXJuIGNvbHVtbiA1XG5tb29keVssIDVdXG5cbiMgUm93cyAxOjUgYW5kIGNvbHVtbiAyXG5tb29keVsxOjUsIDJdXG5cbiMgR2l2ZSBtZSByb3dzIDEtMyBhbmQgY29sdW1ucyAyIGFuZCA0IG9mIG1vb2R5XG5tb29keVsxOjMsIGMoMjo0KV0ifQ==
-</div>
-<hr />
-</div>
-</div>
-<div id="table" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Table</h2>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><strong>table()</strong> displays frequency distribution of its arguments.</li>
-</ul>
-<!--
-- Tables (i.e. frequency distribution table) can be created using **table()** along with some of its variations. 
-- To use **table()**, simply add in the variables you want to tabulate separated by a comma. 
-- You must reference the variable using **dataset$variable**. 
-- By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. -->
-<div id="snippet-1-2" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Snippet 1</h3>
-<p>The below examples show how to use this function:</p>
-<div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuZ3JhZGVzIDwtIHRhYmxlKG1vb2R5JGdyYWRlKVxuXG4jbGV0cyBzZWUgdGhlIGFib3ZlIGZyZXF1ZW5jeSBkaXN0cmJ1dGVkIHRhYmxlc1xuZ3JhZGVzIn0=
-</div>
-</div>
-<div id="code-review" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Code Review</h3>
-<div id="what-would-r-say" class="section level4" number="3.3.2.1">
-<h4><span class="header-section-number">3.3.2.1</span> What would R say?</h4>
-<div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbnRhYmxlKG1vb2R5W21vb2R5JHF1ZXN0aW9ucyE9J2Fsd2F5cycsXSRncmFkZSlcbiNXaGF0IHdpbGwgUiBzYXk/XG5cbiMgQS4gZXJyb3JcbiMgQi4gZGlzdHJpYnV0aW9uIG9mIGdyYWRlcyBmb3Igc3R1ZGVudHMgd2hvIGFsd2F5cyBhc2sgcXVlc3Rpb25zXG4jIEMuIGRpc3RyaWJ1dGlvbiBvZiBncmFkZXMgZm9yIHN0dWRlbnRzIHdobyBkbyBub3QgYWx3YXlzIGFzayBxdWVzdGlvbnMgIn0=
-</div>
-</div>
-<div id="what-would-r-say-1" class="section level4" number="3.3.2.2">
-<h4><span class="header-section-number">3.3.2.2</span> What would R say?</h4>
-<div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbnRhYmxlKG1vb2R5W21vb2R5JHF1ZXN0aW9ucz09KCdhbHdheXMnLCduZXZlcicpLF0kZ3JhZGUpXG4jV2hhdCB3aWxsIFIgc2F5P1xuXG4jIEEuIGVycm9yLlxuIyBCLiBkaXN0cmlidXRpb24gb2YgZ3JhZGVzIGZvciBzdHVkZW50cyB3aG8gYWx3YXlzIG9yIG5ldmVyIGFzayBxdWVzdGlvbnMuICBcbiMgQy4gZGlzdHJpYnV0aW9uIG9mIGdyYWRlcyBmb3Igc3R1ZGVudHMgd2hvIGRvIG5vdCBhc2sgcXVlc3Rpb25zIGFsd2F5cyBvciBuZXZlci4gIn0=
-</div>
-<p><br /></p>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-<table>
-<caption>
-<span id="tab:unnamed-chunk-31">Table 3.1: </span>Snippet of Moody Dataset
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-score
-</th>
-<th style="text-align:left;">
-grade
-</th>
-<th style="text-align:left;">
-texting
-</th>
-<th style="text-align:left;">
-questions
-</th>
-<th style="text-align:right;">
-participation
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-26.89
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-never
-</td>
-<td style="text-align:left;">
-never
-</td>
-<td style="text-align:right;">
-0.41
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-71.57
-</td>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-rarely
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-90.11
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-never
-</td>
-<td style="text-align:right;">
-0.27
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-31.52
-</td>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:left;">
-sometimes
-</td>
-<td style="text-align:left;">
-rarely
-</td>
-<td style="text-align:right;">
-0.68
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-95.94
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-rarely
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- --- -->
-<!-- ### Topics visited in this sub-chapter -->
-<!-- * Scatter Plot -->
-<!-- * Barplot -->
-<!-- * Boxplot -->
-<!-- * Mosaic Plot -->
-<hr />
-</div>
-</div>
-</div>
-<div id="scartterplot" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Scatter Plot</h2>
-<ul>
-<li>Scatter Plot are used to plot two numerical variables.</li>
-<li>Hence it is used when both the labels are numerical values.</li>
-</ul>
-<p>Lets look at example of scatter plot using Moody.</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbnBsb3QobW9vZHkkcGFydGljaXBhdGlvbixtb29keSRzY29yZSx5bGFiPVwic2NvcmVcIix4bGFiPVwicGFydGljaXBhdGlvblwiLG1haW49XCIgUGFydGljaXBhdGlvbiB2cyBTY29yZVwiLGNvbD1cInJlZFwiKSJ9
-</div>
-<hr />
-</div>
-<div id="barplot" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Bar Plot</h2>
-<ul>
-<li>A bar plot are used to plot a categorical variable.</li>
-<li>This rectangle height is proportional to the value of the variable in the vector.
-<!--
-- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
-- In a bar plot, you can also give different colors to each bar. --></li>
-</ul>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuXG50PC10YWJsZShtb29keSRncmFkZSlcblxuI29uY2Ugd2UgaGF2ZSB0aGUgdGFibGUgbGV0cyBjcmVhdGUgYSBiYXJwbG90IGZvciBpdC5cblxuYmFycGxvdCh0LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJOdW1iZXIgb2YgU3R1ZGVudHNcIixjb2w9Y29sb3JzLCBcbiAgICAgICAgbWFpbj1cIkJhcnBsb3QgZm9yIHN0dWRlbnQgZ3JhZGUgZGlzdHJpYnV0aW9uXCIsYm9yZGVyPVwiYmxhY2tcIikifQ==
-</div>
-<hr />
-</div>
-<div id="boxplot" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Box Plot</h2>
-<ul>
-<li>A boxplot is used to display a numerical variable.</li>
-<li>A boxplot shows the distribution of data in a dataset.</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/boxplot1.png" alt="Boxplot" />
-<br /></p>
-<ul>
-<li>A boxplot shows the following things:
-<ul>
-<li>Minimum</li>
-<li>Maximum</li>
-<li>Median</li>
-<li>First quartile</li>
-<li>Third quartile</li>
-<li>Outliers</li>
-</ul></li>
-</ul>
-<!--
-- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
-- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.-->
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
-</div>
-<!-- ## 4. Histogram -->
-<!-- Refer Slide 15. -->
-<!-- ```{r} -->
-<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
-<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
-<!-- # You can Change column range using breaks. -->
-<!-- ``` -->
-<!-- For more detail,reference and example refer Slides -->
-<hr />
-</div>
-<div id="mosaicplot" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Mosaic Plot</h2>
-<ul>
-<li>Mosaic plot is used to visualize two categorical variables.</li>
-</ul>
-<!--
-- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
-- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
-- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
-- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot. -->
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI3N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCBudW1iZXJzIG9mIHN0dWRlbnRzIHdpdGggYSBwYXJ0aWN1bGFyIGdyYWRlIGJhc2VkIG9uIHRoZWlyIHRleHRpbmcgaGFiaXRzLiBVc2UgTW9zaWFjLXBsb3QuXG5cbm1vc2FpY3Bsb3QobW9vZHkkZ3JhZGV+bW9vZHkkdGV4dGluZyx4bGFiID0gJ0dyYWRlJyx5bGFiID0gJ1RleHRpbmcgaGFiaXQnLCBtYWluID0gXCJNb3NpYWMgb2YgZ3JhZGUgdnMgdGV4aW5nIGhhYml0IGluIGNsYXNzXCIsY29sPWNvbG9ycyxib3JkZXI9XCJibGFja1wiKSJ9
-</div>
-</div>
-<div id="additional-references" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Additional References</h2>
-<p><a href="https://www.datamentor.io/r-programming/plot-function/" class="uri">https://www.datamentor.io/r-programming/plot-function/</a></p>
-<!--
-```
-{r child="./chapters/datatransformation.Rmd"}
-```
- 
- -->
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="setting-up-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-transformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dt.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="MLP.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
