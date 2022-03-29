@@ -14,3 +14,21 @@ tutorial::go_interactive(greedy = FALSE)
 <div id="p12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+
+```{r,tut=TRUE,height=600}
+
+test<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+
+summary(test)
+
+myprediction<-test
+decision <- rep('F',nrow(myprediction))
+decision[myprediction$SCORE>40] <- 'D'
+decision[myprediction$SCORE>60] <- 'C'
+decision[myprediction$SCORE>70] <- 'B'
+decision[myprediction$SCORE>80] <- 'A'
+myprediction$GRADE <-decision
+error <- mean(test$GRADE!= myprediction$GRADE)
+error
+
+```
