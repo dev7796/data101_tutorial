@@ -15,6 +15,11 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+Each prediction challenge is based on the training data generated synthetically with some embedded patterns. Students can either build their own prediction models from scratch (coding their own prediction models without using R libraries, “free style”) or utilize R libraries for a multitude of machine learning methods. These methods range from decision trees (rpart, recursive partitioning) through linear regression (lm), svm and even neural networks. Students test their prediction models on the testing data. We use Kaggle to automatically calculate the prediction errors and rank student solutions by prediction accuracy. Depending on the type of independent, target variable we use either prediction accuracy or MSE.
+
+As data creators we know the method of data generation, therefore we can construct the perfect prediction model, Accuracy of the perfect prediction model provides a soft upper bound for prediction accuracy of all possible prediction models, created without knowing how data was generated. Thus, there is no general, absolute, notion of a “good” prediction model. It all depends on the data. Sometimes prediction accuracy of 60% is excellent. For other data sets, accuracy of 95% may not be good enough.
+
+If the accuracy of a prediction model is near the accuracy of a perfect prediction model, such a model is definitely good.
 
 ```{r,tut=TRUE,height=400}
 
