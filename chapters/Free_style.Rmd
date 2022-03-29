@@ -33,8 +33,8 @@ decision[myprediction$SCORE>40] <- 'D'
 decision[myprediction$SCORE>60] <- 'C'
 decision[myprediction$SCORE>70] <- 'B'
 decision[myprediction$SCORE>80] <- 'A'
-myprediction$GRADE <-decision
-error <- mean(test$GRADE!= myprediction$GRADE)
+myprediction$Grade <-decision
+error <- mean(test$Grade!= myprediction$Grade)
 error
 
 ```
