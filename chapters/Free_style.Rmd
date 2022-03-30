@@ -24,10 +24,10 @@ summary(test)
 
 myprediction<-test
 decision <- rep('F',nrow(myprediction))
-decision[myprediction$SCORE>40] <- 'D'
-decision[myprediction$SCORE>60] <- 'C'
-decision[myprediction$SCORE>70] <- 'B'
-decision[myprediction$SCORE>80] <- 'A'
+decision[myprediction$Score>40] <- 'D'
+decision[myprediction$Score>60] <- 'C'
+decision[myprediction$Score>70] <- 'B'
+decision[myprediction$Score>80] <- 'A'
 myprediction$Grade <-decision
 error <- mean(test$Grade!= myprediction$Grade)
 error
