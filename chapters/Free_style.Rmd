@@ -17,10 +17,13 @@ tutorial::go_interactive(greedy = FALSE)
 
 
 ```{r,tut=TRUE,height=400}
-
+library(CrossValidation)
+library(rpart)
 test<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
-tree<-rpart(Grade~Score+GPA, data=test) 
-tree
+
+tree <- rpart(Grade~Score+GPA, data=test, control = rpart.control(minsplit=30))
+CrossValidation::cross_validate(test, tree, 2, 0.8)
+
 summary(test)
 
 myprediction<-test
