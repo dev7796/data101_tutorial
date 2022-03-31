@@ -34,3 +34,28 @@ error <- mean(test$Grade!= myprediction$Grade)
 error
 ```
 
+## Snippet 2: One-step crossvalidation
+
+```{r,tut=TRUE,height=400}
+test<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+
+summary(test)
+#scramble the test frame
+v<-sample(1:nrow(test))
+v[1:5]
+test1<-test[v, ]
+#one step crossvalidation
+testSample<-test1[990:1000, ]
+myprediction<-testSample
+#prediction model - free style
+decision <- rep('F',nrow(myprediction))
+decision[myprediction$Score>80] <- 'D'
+decision[myprediction$Score>60] <- 'C'
+decision[myprediction$Score>70] <- 'B'
+decision[myprediction$Score>80] <- 'A'
+myprediction$Grade <-decision
+myprediction$Grade
+testSample$Grade
+error <- mean(testSample$Grade!= myprediction$Grade)
+error
+```
