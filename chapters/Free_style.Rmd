@@ -65,7 +65,7 @@ error
 ```{r,tut=TRUE,height=400}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 
-summary(test)
+summary(moody)
 table(moody$Grade)
 table(moody[moody$Score>80,]$Grade)
 table(moody[moody$Score>80 & moody$Major=='Psychology',]$Grade)
