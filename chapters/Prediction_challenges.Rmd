@@ -35,7 +35,7 @@ We will check the top solutions  for the consistency of code - i.e. did you real
 
 **Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
 **KAGGLE submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
-**Canvas HW9-Prediction challenge 1:** https://rutgers.instructure.com/courses/159918/assignments/1953810
+**Canvas HW9:** https://rutgers.instructure.com/courses/159918/assignments/1953810
 
 ## This is how an 'A' in this course looks like
 
