@@ -34,7 +34,7 @@ Submit to Kaggle the submission file with grades filled in according to your pre
 
 KAGGLE submission instructions and instructions how to create Kaggle account  will be posted in recitation materials next  week - but first build your predictor using R studio
 
-## This is how A in this course looks like
+## This is how an 'A' in this course looks like
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#pc12"> Seok Yim' 2021 </button> 
 <div id="pc12" class="collapse">
