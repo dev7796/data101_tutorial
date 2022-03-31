@@ -52,6 +52,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.15.3/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.15.3/css/v4-shims.min.css" rel="stylesheet" />
 
 
 
@@ -218,10 +220,17 @@
 <ul>
 <li class="chapter" data-level="12.1" data-path="br.html"><a href="br.html#snippet-1---covid-odds-after-positive-home-test."><i class="fa fa-check"></i><b>12.1</b> Snippet 1 - Covid Odds after positive Home Test.<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>13</b> 🔖 Prediction - I<span></span></a></li>
-<li class="chapter" data-level="14" data-path="dt.html"><a href="dt.html"><i class="fa fa-check"></i><b>14</b> 🔖 Decision Trees<span></span></a></li>
-<li class="chapter" data-level="15" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>15</b> 🔖 Linear Regression<span></span></a></li>
-<li class="chapter" data-level="16" data-path="MLP.html"><a href="MLP.html"><i class="fa fa-check"></i><b>16</b> 🔖 Machine Learning-Prediction Loop<span></span></a></li>
+<li class="chapter" data-level="13" data-path="Pc1.html"><a href="Pc1.html"><i class="fa fa-check"></i><b>13</b> 🔖 Prediction Challenges<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="Pc1.html"><a href="Pc1.html#this-is-how-a-in-this-course-looks-like"><i class="fa fa-check"></i><b>13.1</b> This is how A in this course looks like<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>14</b> 🔖 Free Style: Prediction<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P1.html"><a href="P1.html#snippet-1-6"><i class="fa fa-check"></i><b>14.1</b> Snippet 1<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="dt.html"><a href="dt.html"><i class="fa fa-check"></i><b>15</b> 🔖 Decision Trees<span></span></a></li>
+<li class="chapter" data-level="16" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>16</b> 🔖 Linear Regression<span></span></a></li>
+<li class="chapter" data-level="17" data-path="MLP.html"><a href="MLP.html"><i class="fa fa-check"></i><b>17</b> 🔖 Machine Learning-Prediction Loop<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -480,44 +489,44 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">177</td>
-<td align="right">30.03</td>
+<td align="left">271</td>
+<td align="right">36.59</td>
 <td align="left">D</td>
-<td align="left">never</td>
-<td align="left">rarely</td>
-<td align="right">0.61</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.02</td>
 </tr>
 <tr class="even">
-<td align="left">720</td>
-<td align="right">53.52</td>
-<td align="left">C</td>
-<td align="left">sometimes</td>
-<td align="left">never</td>
-<td align="right">0.59</td>
-</tr>
-<tr class="odd">
-<td align="left">288</td>
-<td align="right">16.43</td>
-<td align="left">F</td>
-<td align="left">sometimes</td>
-<td align="left">never</td>
-<td align="right">0.67</td>
-</tr>
-<tr class="even">
-<td align="left">814</td>
-<td align="right">92.66</td>
-<td align="left">A</td>
-<td align="left">never</td>
-<td align="left">never</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="left">639</td>
-<td align="right">61.21</td>
+<td align="left">774</td>
+<td align="right">61.78</td>
 <td align="left">B</td>
 <td align="left">sometimes</td>
 <td align="left">rarely</td>
-<td align="right">0.89</td>
+<td align="right">0.13</td>
+</tr>
+<tr class="odd">
+<td align="left">815</td>
+<td align="right">90.84</td>
+<td align="left">A</td>
+<td align="left">always</td>
+<td align="left">always</td>
+<td align="right">0.20</td>
+</tr>
+<tr class="even">
+<td align="left">635</td>
+<td align="right">73.30</td>
+<td align="left">B</td>
+<td align="left">sometimes</td>
+<td align="left">rarely</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="odd">
+<td align="left">626</td>
+<td align="right">85.44</td>
+<td align="left">B</td>
+<td align="left">always</td>
+<td align="left">never</td>
+<td align="right">0.11</td>
 </tr>
 </tbody>
 </table>
@@ -560,62 +569,16 @@ genre
 <tbody>
 <tr>
 <td style="text-align:left;">
-3872
-</td>
-<td style="text-align:left;">
-USA
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-7.51
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Comedy
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4771
-</td>
-<td style="text-align:left;">
-Japan
-</td>
-<td style="text-align:left;">
-PG-13
-</td>
-<td style="text-align:right;">
-3.96
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Comedy
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-9571
+7847
 </td>
 <td style="text-align:left;">
 Germany
 </td>
 <td style="text-align:left;">
-PG-13
+R
 </td>
 <td style="text-align:right;">
-7.36
+7.59
 </td>
 <td style="text-align:left;">
 Low
@@ -629,30 +592,7 @@ Comedy
 </tr>
 <tr>
 <td style="text-align:left;">
-2829
-</td>
-<td style="text-align:left;">
-UK
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-4.91
-</td>
-<td style="text-align:left;">
-Low
-</td>
-<td style="text-align:left;">
-High
-</td>
-<td style="text-align:left;">
-Family
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-9253
+12001
 </td>
 <td style="text-align:left;">
 USA
@@ -661,7 +601,30 @@ USA
 R
 </td>
 <td style="text-align:right;">
-5.89
+6.82
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+History
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9410
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+6.06
 </td>
 <td style="text-align:left;">
 Medium
@@ -670,7 +633,53 @@ Medium
 Medium
 </td>
 <td style="text-align:left;">
-Drama
+Action
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11172
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG
+</td>
+<td style="text-align:right;">
+7.65
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Comedy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12108
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+6.98
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+History
 </td>
 </tr>
 </tbody>
@@ -706,7 +715,7 @@ VOLUME_PER_MINUTE
 <tbody>
 <tr>
 <td style="text-align:left;">
-424
+380
 </td>
 <td style="text-align:left;">
 Holland
@@ -715,54 +724,40 @@ Holland
 weekday
 </td>
 <td style="text-align:right;">
-88.5
+53.5
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-932
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-69.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-17
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-84.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2469
+1498
 </td>
 <td style="text-align:left;">
 Lincoln
 </td>
 <td style="text-align:left;">
-weekend
+weekday
 </td>
 <td style="text-align:right;">
-60.0
+77.0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-895
+2289
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+65.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+521
 </td>
 <td style="text-align:left;">
 Holland
@@ -771,7 +766,21 @@ Holland
 weekday
 </td>
 <td style="text-align:right;">
-60.5
+72.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1823
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+66.0
 </td>
 </tr>
 </tbody>
@@ -807,72 +816,72 @@ HAPPINESS
 <tbody>
 <tr>
 <td style="text-align:left;">
-2427
+4540
 </td>
 <td style="text-align:right;">
-45645
+49219
 </td>
 <td style="text-align:left;">
-Montenegro
+Mozambique
 </td>
 <td style="text-align:right;">
-5.55
+5.37
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-43
+2488
 </td>
 <td style="text-align:right;">
-52224
+90394
 </td>
 <td style="text-align:left;">
-Poland
+Armenia
 </td>
 <td style="text-align:right;">
-5.54
+8.36
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1755
+102
 </td>
 <td style="text-align:right;">
-82266
+50939
 </td>
 <td style="text-align:left;">
-Austria
+Paraguay
 </td>
 <td style="text-align:right;">
-8.57
+5.62
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-3438
+5215
 </td>
 <td style="text-align:right;">
-67105
+37998
 </td>
 <td style="text-align:left;">
-Malaysia
+Bolivia
 </td>
 <td style="text-align:right;">
-6.33
+4.31
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2643
+2483
 </td>
 <td style="text-align:right;">
-29309
+74388
 </td>
 <td style="text-align:left;">
-Ireland
+Malta
 </td>
 <td style="text-align:right;">
-3.35
+7.34
 </td>
 </tr>
 </tbody>
@@ -914,70 +923,30 @@ Grade
 <tbody>
 <tr>
 <td style="text-align:left;">
-605
+137
 </td>
 <td style="text-align:left;">
 CS
 </td>
 <td style="text-align:right;">
-87
+70
 </td>
 <td style="text-align:left;">
-Sophomore
+Junior
 </td>
 <td style="text-align:right;">
-4
+4.0
 </td>
 <td style="text-align:left;">
-A
+D
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-394
+210
 </td>
 <td style="text-align:left;">
-CS
-</td>
-<td style="text-align:right;">
-88
-</td>
-<td style="text-align:left;">
-Senior
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-A
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-283
-</td>
-<td style="text-align:left;">
-CS
-</td>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:left;">
-Senior
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-F
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-734
-</td>
-<td style="text-align:left;">
-Economics
+Statistics
 </td>
 <td style="text-align:right;">
 97
@@ -986,7 +955,7 @@ Economics
 Freshman
 </td>
 <td style="text-align:right;">
-4
+3.0
 </td>
 <td style="text-align:left;">
 A
@@ -994,22 +963,62 @@ A
 </tr>
 <tr>
 <td style="text-align:left;">
-6
+812
 </td>
 <td style="text-align:left;">
-Economics
+CS
 </td>
 <td style="text-align:right;">
-31
+97
 </td>
 <td style="text-align:left;">
-Sophomore
+Freshman
 </td>
 <td style="text-align:right;">
-4
+2.8
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+699
+</td>
+<td style="text-align:left;">
+CS
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+Freshman
+</td>
+<td style="text-align:right;">
+1.0
 </td>
 <td style="text-align:left;">
 F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+419
+</td>
+<td style="text-align:left;">
+Psychology
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+Junior
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:left;">
+C
 </td>
 </tr>
 </tbody>

@@ -1,0 +1,42 @@
+# 🔖 Prediction Challenges {#Pc1}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+Attached  are three files : One <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a> with  original Professor Moody grading data and another, the <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testS.csv" download="M2022testS.csv">M2022testS.csv</a> data with missing GRADE column.  Finally <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submissionS.csv" download="M2022submissionS.csv">M2022submissionS.csv</a> is the file you will submit to Kaggle of course after filling up the GRADE column.  
+
+ Your job is to predict the grades in the testing file, adding to it GRADE attribute  with predicted grades. 
+
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+FOR THIS PREDICTION CHALLENGE:  Free style prediction only,  Do not use any R library ML (machine learning)  functions.  Just follow example from  the snippet 13.1. Build your own decision vector – based on analysis similar to the HW3 such as plots and data frame sub setting.
+
+WHAT TO SUBMIT:  Kaggle submission is a MUST, cannot be late - per instruction soon to follow.  Kaggle submission can only take place on the last day of this competition – IT IS ON NEXT THURSDAY only this time.  You can only submit it ONCE.    But you can refine your predictor on R studio as many times as you want before submitting the final csv file with predicted grades to Kaggle. ALSO - Kaggle will only be open on the last day of submision – next THURSDAY.
+
+However work on your prediction model all week using r studio. Kaggle is involved only in the final submission.
+
+In addition to KAGGLE  submission you should follow regular canvas submission
+
+Submit to canvas: power points explaining what you did.  Critical - EXPLAIN HOW YOU ARRIVED AT YOUR PREDICTION MODEL
+
+Plus  your R code.  
+
+Submit to Kaggle the submission file with grades filled in according to your prediction model
+
+ We will check the top solutions  for the consistency of code - i.e. did you really get such a small error using this code?
+
+KAGGLE submission instructions and instructions how to create Kaggle account  will be posted in recitation materials next  week - but first build your predictor using R studio
+
+## This is how A in this course looks like
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#pc12"> Seok Yim' 2021 </button> 
+<div id="pc12" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/seok.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>

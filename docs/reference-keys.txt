@@ -115,7 +115,10 @@ snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-o
 common
 br
 snippet-1---covid-odds-after-positive-home-test.
+Pc1
+this-is-how-a-in-this-course-looks-like
 P1
+snippet-1-6
 dt
 lr
 MLP

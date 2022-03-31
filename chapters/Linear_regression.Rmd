@@ -5,12 +5,166 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
 
+<script src="files/js/dcl.js"></script>
 ```{r ,include=FALSE}
-tutorial::go_interactive(greedy = FALSE)
-
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
 - **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button> 
 <div id="lr12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+
+<!--
+---
+title: "Download .csv"
+runtime: shiny
+output: csv_document
+---
+```{r setup, include=FALSE}
+library(shinythemes)
+library(shinyjs)
+library(shiny)
+library(shinymanager)
+iris <- iris
+#Based on https://towardsdatascience.com/build-your-first-shiny-web-app-in-r-72f9538f9868
+```
+
+
+```{r, echo=FALSE}
+
+## data (possibly a reactive expression)
+myData <- mtcars
+
+## create downloadButton in Rmd document
+downloadHandler(
+  filename = function() { 
+    paste("data-", Sys.Date(), ".csv", sep = "")
+  }, 
+  content = function(file) {
+    write.csv(myData, file)
+  },
+  outputArgs = list(label = "Download .csv")
+)
+```
+
+```{r,ex="crossvalidate",type="pre-exercise-code"}
+library("rpart")
+
+cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
+{
+  # training data frame df
+  df <- as.data.frame(df)
+
+  # mean_subset is a vector of accuracy values generated from the specified features in the tree object
+  mean_subset <- c()
+
+  # mean_all is a vector of accuracy values generated from all the available features in the data frame
+  mean_all <- c()
+
+  # control parameters for the decision tree
+  contro = tree$control
+
+  # the following snippet will create relations to generate decision trees
+  # relation_all will create a decision tree with all the features
+  # relation_subset will create a decision tree with only user-specified features in tree
+  dep <- all.vars(terms(tree))[1]
+  indep <- list()
+  relation_all = as.formula(paste(dep, '.', sep = "~"))
+  i <- 1
+  while (i < length(all.vars(terms(tree)))) {
+    indep[[i]] <- all.vars(terms(tree))[i + 1]
+    i <- i + 1
+  }
+  b <- paste(indep, collapse = "+")
+  relation_subset <- as.formula(paste(dep, b, sep = "~"))
+
+  # creating train and test samples with the given split ratio
+  # performing cross-validation n_iter times
+  for (i in 1:n_iter) {
+    sample <-
+      sample.int(n = nrow(df),
+                 size = floor(split_ratio * nrow(df)),
+                 replace = F)
+    train <- df[sample,]
+    testing  <- df[-sample,]
+    type = typeof(unlist(testing[dep]))
+
+    # decision tree for regression if the method specified is "anova"
+    if (method == 'anova') {
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'anova'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'anova')
+      pred1.tree <- predict(first.tree, newdata = testing)
+      pred2.tree <- predict(second.tree, newdata = testing)
+      mean1 <- mean((as.numeric(pred1.tree) - testing[, dep]) ^ 2)
+      mean2 <- mean((as.numeric(pred2.tree) - testing[, dep]) ^ 2)
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+
+    # decision tree for classification
+    # if the method specified is not "anova", then this block is executed
+    # if the method is not specified by the user, the default option is to perform classification
+    else{
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'class'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'class')
+      pred1.tree <- predict(first.tree, newdata = testing, type = 'class')
+      pred2.tree <-
+        predict(second.tree, newdata = testing, type = 'class')
+      mean1 <-
+        mean(as.character(pred1.tree) == as.character(testing[, dep]))
+      mean2 <-
+        mean(as.character(pred2.tree) == as.character(testing[, dep]))
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+  }
+
+  # average_accuracy_subset is the average accuracy of n_iter iterations of cross-validation with user-specified features
+  # average_acuracy_all is the average accuracy of n_iter iterations of cross-validation with all the available features
+  # variance_accuracy_subset is the variance of accuracy of n_iter iterations of cross-validation with user-specified features
+  # variance_accuracy_all is the variance of accuracy of n_iter iterations of cross-validation with all the available features
+  cross_validation_stats <-
+    list(
+      "average_accuracy_subset" = mean(mean_subset, na.rm = T),
+      "average_accuracy_all" = mean(mean_all, na.rm = T),
+      "variance_accuracy_subset" = var(mean_subset, na.rm = T),
+      "variance_accuracy_all" = var(mean_all, na.rm = T)
+    )
+
+  # creating a data frame of accuracy_subset and accuracy_all
+  # accuracy_subset contains n_iter accuracy values on cross-validation with user-specified features
+  # accuracy_all contains n_iter accuracy values on cross-validation with all the available features
+  cross_validation_df <-
+    data.frame(accuracy_subset = mean_subset, accuracy_all = mean_all)
+  return(list(cross_validation_df, cross_validation_stats))
+}
+```
+
+```{r,ex="crossvalidate",type="sample-code",height=700}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+test<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+
+# Use of the rpart() function.
+tree <- rpart(Grade ~ Score+Seniority+Major, data = test,method = "class",control = rpart.control(minsplit = 100))
+# Lets us the cross_validate() function.
+cross_validate(test,tree,5,0.7)
+
+```
+-->
