@@ -115,14 +115,7 @@ snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-o
 common
 br
 snippet-1---covid-odds-after-positive-home-test.
-Pc1
-general-structure-of-the-prediction-challenges
-challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
-this-is-how-an-a-in-this-course-looks-like
 P1
-snippet-1-6
-snippet-2-one-step-crossvalidation
-snippet-3-3
 dt
 lr
 MLP
