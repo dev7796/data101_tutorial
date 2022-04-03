@@ -120,9 +120,10 @@ general-structure-of-the-prediction-challenges
 challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
 this-is-how-an-a-in-this-course-looks-like
 P1
-snippet-1-6
+snippet-1-example-of-a-simple-freestyle-prediction-model
 snippet-2-one-step-crossvalidation
-snippet-3-3
+snippet-3-how-to-build-a-freestyle-your-own-code-prediction-model
+snippet-4-preparing-submission.csv-for-kaggle
 dt
 lr
 MLP
