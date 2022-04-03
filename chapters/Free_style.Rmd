@@ -50,8 +50,7 @@ myprediction<-trainSample
 #How to test how good your model is?
 #Crossvalidation:  Divide train data set into two disjoint subsets T (train) and train MINUS T, the complement of T. 
 #You use T to derive your prediction model and the complement of T (train MINUS T) to validate (test it).
-# We assume that you created prediction model  looking just at the subset of training data
-T=trainScrambled[1:990,  ]. 
+# We assume that you created prediction model looking just at the subset of training data T=trainScrambled[1:990,  ]. 
 
 #Since for crossvalidation we train on a subset T of the training data set and validate (test) on the complement of T. 
 #In this case T= trainScrambled[1:990,  ] and complement of T (to validate/test) is stored as trainSample.
