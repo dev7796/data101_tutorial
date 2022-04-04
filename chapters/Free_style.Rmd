@@ -46,17 +46,16 @@ trainScrambled<-train[v, ]
 #one step crossvalidation
 trainSample<-trainScrambled[990:1000, ]
 myprediction<-trainSample
+
 #prediction model - free style
 #How to test how good your model is?
 #Crossvalidation:  Divide train data set into two disjoint subsets T (train) and train MINUS T, the complement of T. 
 #You use T to derive your prediction model and the complement of T (train MINUS T) to validate (test it).
 # We assume that you created prediction model looking just at the subset of training data T=trainScrambled[1:990,  ]. 
-
 #Since for crossvalidation we train on a subset T of the training data set and validate (test) on the complement of T. 
 #In this case T= trainScrambled[1:990,  ] and complement of T (to validate/test) is stored as trainSample.
 #You can do it multiple times. And observe the error and its stability.
 #You build your model using the decision vector.  Here is very SIMPLISTIC MODEL which is just illustration. Your model should have much better error and be more sophisticated. 
-
 
 decision <- rep('F',nrow(myprediction))
 decision[myprediction$Score>40] <- 'D'
@@ -79,7 +78,7 @@ moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 
 # How do we build a freestyle prediction model?  Definitely start with plots like the boxplot from the section 5 (data exploration).  But then follow up with exploratory queries as in the recent quizzes. Examples here use table()  functon and look for situations when one grade is absoutely dominant. This would be your prediction. Thus, the goal is to slice the data using subsetting in such a way that for each slice you get a clear "winner grade". Then combine these subset rules into decision vector - just as we did in snippet 14.1.
 
-# Below some examples of such exploratory queries with clear grade winners.   (then we follow what we have now)
+# Below some examples of such exploratory queries with clear grade winners.
 
 summary(moody)
 table(moody$Grade)
