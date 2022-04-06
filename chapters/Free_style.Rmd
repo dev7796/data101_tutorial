@@ -34,7 +34,24 @@ error <- mean(test$Grade!= myprediction$Grade)
 error
 ```
 
-## Snippet 2: One-step crossvalidation
+## Snippet 2: How to build a freestyle (your own code) prediction model?
+
+```{r,tut=TRUE,height=500}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+
+# How do we build a freestyle prediction model?  Definitely start with plots like the boxplot from the section 5 (data exploration).  But then follow up with exploratory queries as in the recent quizzes. Examples here use table()  functon and look for situations when one grade is absoutely dominant. This would be your prediction. Thus, the goal is to slice the data using subsetting in such a way that for each slice you get a clear "winner grade". Then combine these subset rules into decision vector - just as we did in snippet 14.1.
+
+# Below some examples of such exploratory queries with clear grade winners.
+
+summary(moody)
+table(moody$Grade)
+table(moody[moody$Score>80,]$Grade)
+table(moody[moody$Score>80 & moody$Major=='Psychology',]$Grade)
+table(moody[moody$Score<40 & moody$Major=='Economics',]$Grade)
+table(moody[moody$Score<40 & moody$Seniority=='Freshman',]$Grade)
+```
+
+## Snippet 3: One-step crossvalidation
 
 ```{r,tut=TRUE,height=900}
 train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
@@ -44,7 +61,7 @@ v<-sample(1:nrow(train))
 v[1:5]
 trainScrambled<-train[v, ]
 #one step crossvalidation
-trainSample<-trainScrambled[990:1000, ]
+trainSample<-trainScrambled[nrow(trainScrambled)-10:nrow(trainScrambled), ]
 myprediction<-trainSample
 
 #prediction model - free style
@@ -71,22 +88,7 @@ error <- mean(trainSample$Grade!= myprediction$Grade)
 error   
 ```
 
-## Snippet 3: How to build a freestyle (your own code) prediction model?
 
-```{r,tut=TRUE,height=500}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
-
-# How do we build a freestyle prediction model?  Definitely start with plots like the boxplot from the section 5 (data exploration).  But then follow up with exploratory queries as in the recent quizzes. Examples here use table()  functon and look for situations when one grade is absoutely dominant. This would be your prediction. Thus, the goal is to slice the data using subsetting in such a way that for each slice you get a clear "winner grade". Then combine these subset rules into decision vector - just as we did in snippet 14.1.
-
-# Below some examples of such exploratory queries with clear grade winners.
-
-summary(moody)
-table(moody$Grade)
-table(moody[moody$Score>80,]$Grade)
-table(moody[moody$Score>80 & moody$Major=='Psychology',]$Grade)
-table(moody[moody$Score<40 & moody$Major=='Economics',]$Grade)
-table(moody[moody$Score<40 & moody$Seniority=='Freshman',]$Grade)
-```
 
 ## Snippet 4: Preparing submission.csv for Kaggle
 

@@ -121,8 +121,8 @@ challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
 this-is-how-an-a-in-this-course-looks-like
 P1
 snippet-1-example-of-a-simple-freestyle-prediction-model
-snippet-2-one-step-crossvalidation
-snippet-3-how-to-build-a-freestyle-your-own-code-prediction-model
+snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model
+snippet-3-one-step-crossvalidation
 snippet-4-preparing-submission.csv-for-kaggle
 dt
 lr
