@@ -108,7 +108,7 @@ decision[myprediction$Score>80] <- 'A'
 #Now make your submission file - it will have the IDs and now the predicted grades
 submission$Grade<-decision
 submission
-# use write.csv(submission, 'submission.csv', row.name=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
+# use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
 
 ```
 
