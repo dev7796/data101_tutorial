@@ -15,7 +15,7 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/presentation/d/1gwI6y7yyqi8GWdPuS9dZlXsZs-1r1TsumQb-PL4Hu5s/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
-## Snippet 1 - Covid Odds after positive Home Test. 
+## Snippet 1: Covid Odds after positive Home Test. 
 
 ```{r,tut=TRUE,height=600}
 #Belief = "Have Covid"
@@ -34,4 +34,52 @@ LikelihoodRatio<-TruePositive/FalsePositive
 PosteriorCovidOdds<-LikelihoodRatio*PriorCovidOdds
 PosteriorHaveCovid<- PosteriorCovidOdds/(1+PosteriorCovidOdds)
 PosteriorHaveCovid
+```
+
+## Snippet 2: What are the odds that an 'F' student is a freshman?
+
+```{r,tut=TRUE,height=600}
+moody<-read.csv('MoodyMarch2022bc.csv')
+#Belief - Student is a freshman
+#Observation - Failed the class
+Prior<-nrow(moody[moody$Seniority =='Freshman',])/nrow(moody)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(moody[moody$Grade=='F' & moody$Seniority=='Freshman',])/nrow(
+  moody[moody$Seniority =='Freshman',]),2)
+TruePositive
+FalsePositive<-round(nrow(moody[moody$Grade=='F'& moody$Seniority !='Freshman',])/nrow(moody[moody$Seniority !='Freshman',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+round(Posterior,2)
+```
+
+
+## Snippet 3: What are the odds that a 'A' student with the score less than 80 is a psychology major?
+
+```{r,tut=TRUE,height=600}
+#Belief - what we do not know. #Is a student a psychology #major?
+#Observation = what we do #know. They got an A and less #than 80 in score
+
+moody<-read.csv('MoodyMarch2022bc.csv')
+Prior<-nrow(moody[moody$Major =='Psychology',])/nrow(moody)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive
+TruePositive<-round(nrow(moody[moody$Score <80 & moody$Grade=='A'& moody$Major=='Psychology',])/nrow(moody[moody$Major=='Psychology',]),2)
+TruePositive
+FalsePositive<-round(nrow(moody[moody$Score <80 & moody$Grade=='A'& moody$Major!='Psychology',])/nrow(moody[moody$Major!='Psychology',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
 ```

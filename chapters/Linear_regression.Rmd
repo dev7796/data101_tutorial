@@ -16,6 +16,22 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 <embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
+## Snippet 1: How much do Midterm, Project and Final Exam count?
+
+```{r,tut=TRUE,height=500}
+moodyNUM<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv')
+split<-0.7*nrow(moodyNUM)
+split
+moodyNUMTr<-moodyNUM[1:split,]
+moodyNUMTr
+moodyNUMTs<-moodyNUM[split:nrow(moodyNUM),]
+#We use linear regression to #find out the weights of #Midterm, Project and Final #Exam in calculation of the #final class score. Each of #them are scored out of 100 and #the final class score is also #scored out of 100 as weighted #sum of Midterm, Project and #Final Exam scores.
+train <- lm(ClassScore~.,  data=moodyNUMTr)
+train
+pred <- predict(train,newdata=moodyNUMTs)
+mean((pred - moodyNUMTs$ClassScore)^2)
+```
+
 <!--
 ---
 title: "Download .csv"

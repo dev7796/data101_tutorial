@@ -116,7 +116,9 @@ snippet-15-what-is-the-most-frequent-degree-for-natives-of-the-united-states
 snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-of-education
 common
 br
-snippet-1---covid-odds-after-positive-home-test.
+snippet-1-covid-odds-after-positive-home-test.
+snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman
+snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major
 Pc1
 general-structure-of-the-prediction-challenges
 challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
@@ -128,4 +130,5 @@ snippet-3-one-step-crossvalidation
 snippet-4-preparing-submission.csv-for-kaggle
 dt
 lr
+snippet-1-how-much-do-midterm-project-and-final-exam-count
 MLP
