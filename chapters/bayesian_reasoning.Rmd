@@ -71,7 +71,6 @@ Prior<-nrow(moody[moody$Major =='Psychology',])/nrow(moody)
 Prior
 PriorOdds<-round(Prior/(1-Prior),2)
 PriorOdds
-TruePositive
 TruePositive<-round(nrow(moody[moody$Score <80 & moody$Grade=='A'& moody$Major=='Psychology',])/nrow(moody[moody$Major=='Psychology',]),2)
 TruePositive
 FalsePositive<-round(nrow(moody[moody$Score <80 & moody$Grade=='A'& moody$Major!='Psychology',])/nrow(moody[moody$Major!='Psychology',]),2)
