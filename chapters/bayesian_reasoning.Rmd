@@ -39,7 +39,7 @@ PosteriorHaveCovid
 ## Snippet 2: What are the odds that an 'F' student is a freshman?
 
 ```{r,tut=TRUE,height=600}
-moody<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/MoodyMarch2022bc.csv')
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv')
 #Belief - Student is a freshman
 #Observation - Failed the class
 Prior<-nrow(moody[moody$Seniority =='Freshman',])/nrow(moody)
@@ -66,7 +66,7 @@ round(Posterior,2)
 #Belief - what we do not know. #Is a student a psychology #major?
 #Observation = what we do #know. They got an A and less #than 80 in score
 
-moody<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/MoodyMarch2022bc.csv')
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv')
 Prior<-nrow(moody[moody$Major =='Psychology',])/nrow(moody)
 Prior
 PriorOdds<-round(Prior/(1-Prior),2)
