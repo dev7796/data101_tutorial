@@ -89,7 +89,7 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 ```
 
 
-```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=500}
+```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=700}
 #install.packages("devtools")
 #devtools::install_github("devanshagr/PermutationTestSecond")
 
