@@ -130,6 +130,12 @@ snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model
 snippet-3-one-step-crossvalidation
 snippet-4-preparing-submission.csv-for-kaggle
 prpart
+rpart
+rpartplot
+rpartcontrol
+rpartpredict
+splitdata
+crossvalidation
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 MLP

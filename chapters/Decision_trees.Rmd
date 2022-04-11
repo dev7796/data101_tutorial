@@ -14,3 +14,498 @@ tutorial::go_interactive(greedy = FALSE)
 <div id="dt12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+
+Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can  generate rules which are  easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
+
+
+## Use of Rpart {#rpart}
+
+Recursive Partitioning and Regression Tree `RPART` library is a collection of routines which implement Classification and Regression Tree (CART) which is a type of Decision Tree.The resulting model can be represented as a binary tree.
+
+The library associated with this `RPART` is called `rpart`. Install this library using `install.packages("rpart")`.
+
+Syntax for building the decision tree using rpart():
+
+- `rpart( formula , method, data, control,...)`
+  - *formula*: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on. 
+    - `prediction ~ predictor1 + predictor2 + predictor3 + ...`
+  - *method*: here we describe the type of decision tree we want. If nothing is provided, the function makes an intelligent guess. We can use "anova" for regression, "class" for classification, etc.
+  - *data*: here we provide the dataset on which we want to fit the decision tree on.
+  - *control*: here we provide the control parameters for the decision tree. Explained more in detail in the section further in this chapter.
+  
+  
+For more info on the rpart function visit [rpart documentation](https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart)
+
+Lets look at an example on the Moody 2022 dataset.
+
+- We will use the rpart() function with the following inputs:
+  - prediction -> GRADE
+  - predictors -> SCORE, DOZES_OFF, TEXTING_IN_CLASS, PARTICIPATION
+  - data -> moody dataset
+  - method -> "class" for classification.
+
+```{r,height=300}
+library(rpart)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+# Use of the rpart() function.
+rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody,method = "class")
+
+```
+We can see that the output of the rpart() function is the decision tree with details of, 
+
+- node -> node number
+- split -> split conditions/tests
+- n -> number of records in either branch i.e. subset
+- yval -> output value i.e. the target predicted value.
+- yprob -> probability of obtaining a particular category as the predicted output.
+
+Using the output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section \@ref(rpartpredict)
+
+But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.
+
+---
+
+## Visualize the Decision tree {#rpartplot}
+
+To visualize and understand the rpart() tree output in the easiest way possible, we use a library called `rpart.plot`. The function `rpart.plot()` of the rpart.plot library is the function used to visualize decision trees.
+
+The `rpart.plot` library is a front-end wrapper to the library `prp` which is the most basic library for plotting decision trees. `prp` allows various aesthetic modifications for visualizing the decision tree. We will look at a few examples of using `prp` below.
+
+But, first lets look at a example to visualize the output decision tree in the previous example on Moody dataset using `rpart.plot()`
+
+*NOTE*: The online runnable code block does not support `rpart.plot and prp` library and functions, thus the output of the following code examples are provided directly.
+
+```{r,height=500}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+# Use of the rpart() function.
+rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody,method = "class")
+
+# Now lets import the rpart.plot library to use the rpart.plot() function.
+library(rpart.plot)
+
+# Use of the rpart.plot() function  to visualize the decision tree.
+rpart.plot(tree)
+```
+![Output Plot of *rpart.plot()* function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt.png)
+
+We can see that after plotting the tree using rpart.plot() function, the tree is more readable and provides better information about the splitting conditions, and the probability of outcomes. Each leaf node has information about 
+
+- the grade category.
+- the outcome probability of each grade category.
+- the records percentage  out of total records.
+
+To study more in detail the arguments that can be passed to the rpart.plot() function, please look at these guides [rpart.plot](https://www.rdocumentation.org/packages/rpart.plot/versions/3.0.9/topics/rpart.plot) and [Plotting with rpart.plot (PDF)](http://www.milbo.org/doc/prp.pdf)
+
+Note that for any beginner using rpart.plot() function is the easiest way. But if you want to learn another way of plotting rpart trees then the following function can be used.
+
+So,another form of plotting rpart trees in a very minimalistic way is using the `plot rpart i.e. prp()` function, which is actually the working function behind rpart.plot().
+
+Lets look at a same example like above but using prp().
+
+```{r, tut=FALSE,eval=FALSE}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+ASKS_QUESTIONS+LEAVES_EARLY+LATE_IN_CLASS, data = moody[,-c(1)],method = "class")
+
+# Now lets import the rpart.plot library to use the rpart.plot() function.
+library(rpart.plot)
+
+# Use of the prp function  to visualize the decision tree.
+prp(tree)
+```
+
+![Output Plot of *prp()* function](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/prp1.svg)
+
+We can see that the output of the prp() function is a very minimalist tree, without any colors with minimum required information. There are other arguments that can be passed to the prp() function to increase the aesthetic look and the information provided. To learn those extra arguments visit this guide [prp()](https://www.rdocumentation.org/packages/rpart.plot/versions/3.0.9/topics/prp)
+
+---
+**NOTE**: In this chapter, from this point forward, the rpart.plots() generated in any example below will be shown as images, and also the code to generate those rpart.plots will be commented in the interactive code blocks. If you want to generate these plots yourself, please use a local Rstudio or R environment.
+---
+
+## Rpart Control {#rpartcontrol}
+
+Now let's look at the rpart.control() function used to pass the control parameters to the control argument of the rpart() function.
+
+- `rpart.control( *minsplit*, *minbucket*, *cp*,...)`
+ - *minsplit*: the minimum number of observations that must exist in a node in order for a split to be attempted. For example, minsplit=500 -> the minimum number of observations in a node must be 500 or up, in order to perform the split at the testing condition.
+ - *minbucket*: minimum number of observations in any terminal(leaf) node. For example, minbucket=500 -> the minimum number of observation in the terminal/leaf node of the trees must be 500 or above.  
+ - *cp*: complexity parameter. Using this informs the program that any split which does not increase the accuracy of the fit by *cp*, will not be made in the tree.
+ 
+
+For more information of the other arguments of the `rpart.control()` function visit [rpart.control](https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart.control)
+
+Note: The ratio of minsplt to minbucket is 3:1. Thus if only one of the minsplit/minbucket is provided the other value is set using the above ratio. Also if both values are provided, unless the values are not in the above ratio, the rpart.control() the resorts to the default value. Also note, the default value of cp is `0.01`.
+
+Let look at few examples.
+
+Suppose you want to set the control parameter minsplit=200. 
+
+```{r}
+# library(rpart)
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function with the control parameter minsplit=200
+tree <- rpart(GRADE ~ ., data = moody[,-c(1)],method = "class",control=rpart.control(minsplit = 200))
+
+# Check the count of observation at each split test. To do this we find the count at each non-leaf/non-terminal node.
+tree$frame[tree$frame$var!="<leaf>",c("var","n")]
+
+# library(rpart.plot)
+# rpart.plot(tree,extra = 2)
+```
+![Output tree plot of after setting minsplit=200 in rpart.control() function](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolsplit.svg)
+
+We can see from the output of `tree$splits` and the tree plot, that at each split the total amount of observations are above 200. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.
+
+Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.
+
+
+```{r}
+library(rpart)
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function with the control parameter minsplit=200
+tree <- rpart(GRADE ~ ., data = moody[,-c(1)],method = "class",control=rpart.control(minbucket = 100))
+
+# Check the count of observation in each leaf node.
+tree$frame[tree$frame$var=="<leaf>",c("var","n")]
+
+# library(rpart.plot)
+# rpart.plot(tree,extra = 2)
+
+```
+![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolbucket.svg)
+
+We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.
+
+Lets now use the `cp` parameter and see its effect on the tree.
+
+```{r}
+
+library(rpart)
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function with the control parameter cp=0.005
+tree <- rpart(GRADE ~ ., data = moody[,-c(1)],method = "class",control=rpart.control(cp = 0.005))
+
+# Check the accuracy increase factor at each split.
+tree$cptable
+
+# library(rpart.plot))
+# rpart.plot(tree)
+
+
+```
+![Output tree plot of after setting cp=0.005 in rpart.control() function](https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/img/modeling/rcontrolcp.svg)
+
+We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.
+
+---
+
+## Prediction using rpart. {#rpartpredict}
+
+Now that we have seen the process to create a decision tree and also plot it, we will like to use the output tree to predict the required attribute.
+
+From the moody example, we are trying to predict the grade of students. Lets look at the `predict()` function to predict the outcomes.
+
+- `predict(*object*,*data*,*type*,...)`
+  - *object*: the generated tree from the rpart function.
+  - *data*: the data on which the prediction is to be performed.
+  - *type*: the type of prediction required. One of "vector", "prob", "class" or "matrix".
+
+Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.
+
+```{r}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+ASKS_QUESTIONS+LEAVES_EARLY+LATE_IN_CLASS, data = moody[,-c(1)],method = "class")
+
+# Now lets predict the Grades of the Moody Dataset.
+pred <- predict(tree, moody, type="class")
+head(pred)
+```
+
+Our prediction accuracy  on the training data set is 93.73% and the error rate is 6.27%.This prediction accuracy calculated on the training dataset is called training accuracy.  However, what we are really interested in is testing data accuracy. How can we make sure that our prediction model will achieve good testing data accuracy? It is not enough to see good training data accuracy.  We need to do more work. It is called cross validation.Use only part of the training data for training the prediction model and the remaining part for testing. For that we would need to split the training  data at least into two parts, Training and Testing and then repeat the training process on the training dataset and the prediction on testing dataset.
+
+One way of doing this is to randomly assign data to either training or testing subset. We will look at a small example of splitting the complete dataset into training and testing dataset with a 70-30 ratio.
+
+```{r}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+ASKS_QUESTIONS+LEAVES_EARLY+LATE_IN_CLASS, data = moody[,-c(1)],method = "class")
+
+# Now lets predict the Grades of the Moody Dataset.
+pred <- predict(tree, moody, type="class")
+head(pred)
+
+# Lets check the correctness of each prediction for each record
+mean(moody$GRADE==pred)*100
+```
+
+---
+
+## Split the data yourself. {#splitdata}
+
+
+```{r}
+# Import dataset
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Split randomly into 2 sets with certain ratio/probability.
+idx <- sample( 1:2, size = nrow(moody), replace = TRUE, prob = c(.7, .3))
+moody.train <- moody[idx == 1,]
+moody.test <- moody[idx == 2,]
+
+nrow(moody)
+nrow(moody.train)
+nrow(moody.train)/nrow(moody)
+nrow(moody.test)
+nrow(moody.test)/nrow(moody)
+```
+As we can see we split the original data with 1580 rows into two dataset, training data with almost 70% of rows of the original, and testing data with almost 30% of the original. Notice that we used a random sampling of the data, and not just sequential, to avoid any unbalanced distribution of attributes.
+
+
+Now, we looked at a method to split the dataset into training and testing data. But there is another type of splitting of the dataset which involves splitting the data into 3 parts namely, training, cross-validation and testing. We will look at the use of cross-validation and the process, in the next section \@ref(crossvalidation).
+
+Typically, the ratio of train-validation-test is 60-20-20 or 50-25-25.
+
+Before that lets look at a simple method to perform a 3 way split with ratio 60-20-20.
+
+```{r}
+# Import dataset
+moody <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv")
+
+# Split randomly into 3 sets with certain ratio/probability.
+idx <- sample( 1:3, size = nrow(moody), replace = TRUE, prob = c(0.6, 0.2, 0.2))
+moody.train <- moody[idx == 1,]
+moody.validation <- moody[idx == 2,]
+moody.test <- moody[idx == 3,]
+
+nrow(moody)
+nrow(moody.train)
+nrow(moody.train)/nrow(moody)
+nrow(moody.validation)
+nrow(moody.validation)/nrow(moody)
+nrow(moody.test)
+nrow(moody.test)/nrow(moody)
+```
+
+We can see that the dataset is split into 3 parts, with 60% in training data, 20% in validation data, and 20% in testing data.
+
+In general, this process of repetitively using subsets of training data  for training and testing is called cross validation. 
+
+
+---
+
+## Cross Validation {#crossvalidation}
+
+The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating/training it, in order to avoid problems like overfitting and selection bias, and to give an insight on how the model will generalize to an independent dataset(i.e., an unknown dataset).
+
+Cross-validation also helps in selecting and fine-tuning the hyper-parameters of the models. In our case of the decision tree, the hyper parameters could be the control parameters that determine the size of the decision tree, which in-turn determines the accuracy of the tree.
+
+One round of cross-validation involves partitioning data into complementary subsets, and then performing model training on one subset, and validating the results on the other subset. In most methods, multiple rounds of cross-validation are performed using different partitions in each round, and the validation results are combined (e.g. averaged) over the rounds to give an estimate of the model’s predictive performance.
+
+Another use of cross-validation is when you don’t have the test data, and hence, you don’t have a way to determine the true accuracy of the model. Because we cannot determine accuracy on the test dataset, we partition our training dataset into training and validation (testing). We train our model (rpart or lm) on the train partition and test on the validation partition. The accuracy on the validation data is called cross-validation accuracy, while that on the train data is called training accuracy.
+
+Lets not dive too deep into the theory of this cross validation technique, but lets learn about the cross_validate() function, that helps us achieve this.
+
+
+- `cross_validate(*data*, *tree*, *n_iter*, *split_ratio*, *method*)`
+  - *data*: The dataset on which cross validation is to be performed.
+  - *tree*: The decision tree generated using rpart.
+  - *n_iter*: Number of iterations.
+  - *split_ratio*: The splitting ratio of the data into train data and validation data.
+  - *method*: Method of the prediction. "class" for classification.
+
+The way the function works is as follows:
+
+- It randomly partitions your data into training and validation. 
+- It then constructs the following two decision trees on training partition:
+  -  The tree that you pass to the function.
+  -  The tree is constructed on all attributes as predictors and with no control parameters.
+-It then determines the accuracy of the two trees on validation partition and returns you the accuracy values for both the trees. 
+
+The first column corresponds to the cross-validation accuracy on the tree that you pass; the second is the cross-validation accuracy on the tree without any control and all attributes.
+
+The values in the first column(accuracy_subset) returned by cross-validation function are more important when it comes to detecting overfitting. If these values are much lower than the training accuracy you get, that means you are overfitting.
+
+We would also want the values in accuracy_subset to be close to each other (in other words, have low variance). If the values are quite different from each other, that means your model (or tree) has a high variance which is not desired.
+
+The second column(accuracy_all) tells you what happens if you construct a tree based on all attributes. If these values are larger than accuracy_subset, that means you are probably leaving out attributes from your tree that are relevant.
+
+Each iteration of cross-validation creates a different random partition of train and validation, and so you have possibly different accuracy values for every iteration.
+
+Let's look at the cross_validate() function in action in the example below.
+
+We will pass the tree with formula as `GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY`, and control parameter, with `minsplit=100`. 
+And for cross_validate() function, we will use` n_iter=5, and split_raitio=0.7` 
+
+*NOTE*: Cross-Validation repository is already preloaded for the following interactive code block. Thus you can directly use the cross_validate() function in the following interactive code block. But if you wish to use the code_validate() function locally, please use 
+```
+install.packages("devtools") 
+devtools::install_github("devanshagr/CrossValidation")
+CrossValidation::cross_validate()
+```
+
+```{r,ex="crossvalidate",type="pre-exercise-code"}
+library("rpart")
+
+cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
+{
+  # training data frame df
+  df <- as.data.frame(df)
+
+  # mean_subset is a vector of accuracy values generated from the specified features in the tree object
+  mean_subset <- c()
+
+  # mean_all is a vector of accuracy values generated from all the available features in the data frame
+  mean_all <- c()
+
+  # control parameters for the decision tree
+  contro = tree$control
+
+  # the following snippet will create relations to generate decision trees
+  # relation_all will create a decision tree with all the features
+  # relation_subset will create a decision tree with only user-specified features in tree
+  dep <- all.vars(terms(tree))[1]
+  indep <- list()
+  relation_all = as.formula(paste(dep, '.', sep = "~"))
+  i <- 1
+  while (i < length(all.vars(terms(tree)))) {
+    indep[[i]] <- all.vars(terms(tree))[i + 1]
+    i <- i + 1
+  }
+  b <- paste(indep, collapse = "+")
+  relation_subset <- as.formula(paste(dep, b, sep = "~"))
+
+  # creating train and test samples with the given split ratio
+  # performing cross-validation n_iter times
+  for (i in 1:n_iter) {
+    sample <-
+      sample.int(n = nrow(df),
+                 size = floor(split_ratio * nrow(df)),
+                 replace = F)
+    train <- df[sample,]
+    testing  <- df[-sample,]
+    type = typeof(unlist(testing[dep]))
+
+    # decision tree for regression if the method specified is "anova"
+    if (method == 'anova') {
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'anova'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'anova')
+      pred1.tree <- predict(first.tree, newdata = testing)
+      pred2.tree <- predict(second.tree, newdata = testing)
+      mean1 <- mean((as.numeric(pred1.tree) - testing[, dep]) ^ 2)
+      mean2 <- mean((as.numeric(pred2.tree) - testing[, dep]) ^ 2)
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+
+    # decision tree for classification
+    # if the method specified is not "anova", then this block is executed
+    # if the method is not specified by the user, the default option is to perform classification
+    else{
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'class'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'class')
+      pred1.tree <- predict(first.tree, newdata = testing, type = 'class')
+      pred2.tree <-
+        predict(second.tree, newdata = testing, type = 'class')
+      mean1 <-
+        mean(as.character(pred1.tree) == as.character(testing[, dep]))
+      mean2 <-
+        mean(as.character(pred2.tree) == as.character(testing[, dep]))
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+  }
+
+  # average_accuracy_subset is the average accuracy of n_iter iterations of cross-validation with user-specified features
+  # average_acuracy_all is the average accuracy of n_iter iterations of cross-validation with all the available features
+  # variance_accuracy_subset is the variance of accuracy of n_iter iterations of cross-validation with user-specified features
+  # variance_accuracy_all is the variance of accuracy of n_iter iterations of cross-validation with all the available features
+  cross_validation_stats <-
+    list(
+      "average_accuracy_subset" = mean(mean_subset, na.rm = T),
+      "average_accuracy_all" = mean(mean_all, na.rm = T),
+      "variance_accuracy_subset" = var(mean_subset, na.rm = T),
+      "variance_accuracy_all" = var(mean_all, na.rm = T)
+    )
+
+  # creating a data frame of accuracy_subset and accuracy_all
+  # accuracy_subset contains n_iter accuracy values on cross-validation with user-specified features
+  # accuracy_all contains n_iter accuracy values on cross-validation with all the available features
+  cross_validation_df <-
+    data.frame(accuracy_subset = mean_subset, accuracy_all = mean_all)
+  return(list(cross_validation_df, cross_validation_stats))
+}
+```
+
+```{r,ex="crossvalidate",type="sample-code",height=700}
+# First lets import the rpart library
+library(rpart)
+
+# Import dataset
+moody.train <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv",stringsAsFactors = T)
+
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY, data = moody.train[,-c(1)],method = "class",control = rpart.control(minsplit = 100))
+
+# Now lets predict the Grades of the Moody Dataset.
+pred <- predict(tree, moody.train, type="class")
+head(pred)
+
+# Lets check the Training Accuracy
+mean(moody.train$GRADE==pred)
+
+# Lets us the cross_validate() function.
+cross_validate(moody.train,tree,5,0.7)
+
+```
+
+*NOTE*: If you encounter error while running the cross-validation function that said "new levels encountered" in test, make sure the dataset is imported again with read.csv() attribute `stringsAsFactors` as `TRUE or T`. For more information about the inner-working of the cross_validate() function visit [cross_validate()](https://github.com/devanshagr/CrossValidation/blob/master/R/cross_validation.R)
+
+We can see in the output the Training accuracy, the table of cross-validation accuracy at each iteration for both the passed tree and the tree on all attribute and also their averages and variances.
+
+Few Observation from the selected example above are:
+
+- For the tree passed with selected attributes and some control parameters, the cross-validation accuracy's (i.e. accuracy values in the `accuracy_subset` column) are fairly high for all iterations and have very low variance.
+- They are close to the training accuracy which indicates we are not overfitting.
+- Observe that the accuracy at each iteration of the accuracy_subset and accuracy_all column are relatively, close but not exact, suggesting that there are more attributes or other control parameters that can be included to the passed tree, to further increase the accuracy, thus closing the gap.
+
+Thus using cross-validation we were able to figure out with certainty, that the passed tree, is not the best tree that can be created using the training data. Also, we saw whether the generated tree overfits the training data or not.
+
+---
+EOC
