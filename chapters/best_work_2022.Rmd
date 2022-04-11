@@ -1,0 +1,16 @@
+# 🔖 Best Works of 2022 {#b2022}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#bt12"> Ella Walmsley </button> 
+<div id="bt12" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best1.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>

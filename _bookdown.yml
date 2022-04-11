@@ -3,6 +3,7 @@ output_dir: "docs"
 delete_merged_file: true
 rmd_files: [
   "./chapters/intro.Rmd",
+  "./chapters/best_work_2022.Rmd",
   "./chapters/Setting_up_R.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/tapply_subsetting.Rmd",
