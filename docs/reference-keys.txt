@@ -134,7 +134,6 @@ rpart
 rpartplot
 rpartcontrol
 rpartpredict
-splitdata
 crossvalidation
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count
