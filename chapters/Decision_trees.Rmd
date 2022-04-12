@@ -319,6 +319,7 @@ install.packages("devtools")
 devtools::install_github("devanshagr/CrossValidation")
 CrossValidation::cross_validate()
 ```
+### Snippet 10
 
 ```{r,ex="crossvalidate",type="pre-exercise-code"}
 library("rpart")
@@ -424,8 +425,6 @@ cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
   return(list(cross_validation_df, cross_validation_stats))
 }
 ```
-
-### Snippet 10
 
 ```{r,ex="crossvalidate",type="sample-code",height=700}
 # First lets import the rpart library
