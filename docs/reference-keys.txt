@@ -139,6 +139,7 @@ snippet-3-3
 snippet-4
 rpartpredict
 snippet-5
+crossvalidation
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 MLP

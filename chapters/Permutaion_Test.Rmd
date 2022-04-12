@@ -118,4 +118,3 @@ mean(traffic[traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE) -mean(traffic[traff
 
 mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
 ```
-

@@ -3,11 +3,10 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
 
 ```{r ,include=FALSE}
-tutorial::go_interactive(greedy = FALSE)
-
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
 - **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#dt12"> Prediction with rpart </button> 
@@ -189,3 +188,172 @@ head(pred)
 ```
 
 
+## Cross Validation {#crossvalidation}
+
+Overfitting takes place when you have a high accuracy on training dataset, but a low accuracy on the test dataset. But how do you know whether you are overfitting or not? Especially since you cannot determine accuracy on the test dataset? That is where cross-validation comes into play.
+
+Because we cannot determine accuracy on test dataset, we partition our training dataset into train and validation (testing). We train our model (rpart or lm) on train partition and test on the validation partition. The partition is defined by split ratio. If split ratio =0.7, 70% of the training dataset will be used for the actual training of your model (rpart or lm), and 30 % will be used for validation (or testing). The accuracy of this validation data is called cross-validation accuracy.
+
+To know if you are overfitting or not, compare the training accuracy with the cross-validation accuracy. If your training accuracy is high, and cross-validation accuracy is low, that means you are overfitting.
+
+- `cross_validate(*data*, *tree*, *n_iter*, *split_ratio*, *method*)`
+  - *data*: The dataset on which cross validation is to be performed.
+  - *tree*: The decision tree generated using rpart.
+  - *n_iter*: Number of iterations.
+  - *split_ratio*: The splitting ratio of the data into train data and validation data.
+  - *method*: Method of the prediction. "class" for classification.
+
+The way the function works is as follows:
+
+- It randomly partitions your data into training and validation. 
+- It then constructs the following two decision trees on training partition:
+  -  The tree that you pass to the function.
+  -  The tree is constructed on all attributes as predictors and with no control parameters.
+-It then determines the accuracy of the two trees on validation partition and returns you the accuracy values for both the trees.
+
+The values in the first column(accuracy_subset) returned by cross-validation function are more important when it comes to detecting overfitting. If these values are much lower than the training accuracy you get, that means you are overfitting.
+
+We would also want the values in accuracy_subset to be close to each other (in other words, have low variance). If the values are quite different from each other, that means your model (or tree) has a high variance which is not desired.
+
+The second column(accuracy_all) tells you what happens if you construct a tree based on all attributes. If these values are larger than accuracy_subset, that means you are probably leaving out attributes from your tree that are relevant.
+
+Each iteration of cross-validation creates a different random partition of train and validation, and so you have possibly different accuracy values for every iteration.
+
+
+Let's look at the cross_validate() function in action in the example below.
+
+We will pass the tree with formula as `GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION`, and control parameter, with `minsplit=100`. 
+And for cross_validate() function, we will use` n_iter=5, and split_raitio=0.7` 
+
+---
+**NOTE:** Cross-Validation repository is already preloaded for the following interactive code block. Thus you can directly use the cross_validate() function in the following interactive code block. But if you wish to use the code_validate() function locally, please use 
+---
+
+```
+install.packages("devtools") 
+devtools::install_github("devanshagr/CrossValidation")
+CrossValidation::cross_validate()
+```
+
+```{r,ex="crossvalidate",type="pre-exercise-code"}
+library("rpart")
+
+cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
+{
+  # training data frame df
+  df <- as.data.frame(df)
+
+  # mean_subset is a vector of accuracy values generated from the specified features in the tree object
+  mean_subset <- c()
+
+  # mean_all is a vector of accuracy values generated from all the available features in the data frame
+  mean_all <- c()
+
+  # control parameters for the decision tree
+  contro = tree$control
+
+  # the following snippet will create relations to generate decision trees
+  # relation_all will create a decision tree with all the features
+  # relation_subset will create a decision tree with only user-specified features in tree
+  dep <- all.vars(terms(tree))[1]
+  indep <- list()
+  relation_all = as.formula(paste(dep, '.', sep = "~"))
+  i <- 1
+  while (i < length(all.vars(terms(tree)))) {
+    indep[[i]] <- all.vars(terms(tree))[i + 1]
+    i <- i + 1
+  }
+  b <- paste(indep, collapse = "+")
+  relation_subset <- as.formula(paste(dep, b, sep = "~"))
+
+  # creating train and test samples with the given split ratio
+  # performing cross-validation n_iter times
+  for (i in 1:n_iter) {
+    sample <-
+      sample.int(n = nrow(df),
+                 size = floor(split_ratio * nrow(df)),
+                 replace = F)
+    train <- df[sample,]
+    testing  <- df[-sample,]
+    type = typeof(unlist(testing[dep]))
+
+    # decision tree for regression if the method specified is "anova"
+    if (method == 'anova') {
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'anova'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'anova')
+      pred1.tree <- predict(first.tree, newdata = testing)
+      pred2.tree <- predict(second.tree, newdata = testing)
+      mean1 <- mean((as.numeric(pred1.tree) - testing[, dep]) ^ 2)
+      mean2 <- mean((as.numeric(pred2.tree) - testing[, dep]) ^ 2)
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+
+    # decision tree for classification
+    # if the method specified is not "anova", then this block is executed
+    # if the method is not specified by the user, the default option is to perform classification
+    else{
+      first.tree <-
+        rpart(
+          relation_subset,
+          data = train,
+          control = contro,
+          method = 'class'
+        )
+      second.tree <- rpart(relation_all, data = train, method = 'class')
+      pred1.tree <- predict(first.tree, newdata = testing, type = 'class')
+      pred2.tree <-
+        predict(second.tree, newdata = testing, type = 'class')
+      mean1 <-
+        mean(as.character(pred1.tree) == as.character(testing[, dep]))
+      mean2 <-
+        mean(as.character(pred2.tree) == as.character(testing[, dep]))
+      mean_subset <- c(mean_subset, mean1)
+      mean_all <- c(mean_all, mean2)
+    }
+  }
+
+  # average_accuracy_subset is the average accuracy of n_iter iterations of cross-validation with user-specified features
+  # average_acuracy_all is the average accuracy of n_iter iterations of cross-validation with all the available features
+  # variance_accuracy_subset is the variance of accuracy of n_iter iterations of cross-validation with user-specified features
+  # variance_accuracy_all is the variance of accuracy of n_iter iterations of cross-validation with all the available features
+  cross_validation_stats <-
+    list(
+      "average_accuracy_subset" = mean(mean_subset, na.rm = T),
+      "average_accuracy_all" = mean(mean_all, na.rm = T),
+      "variance_accuracy_subset" = var(mean_subset, na.rm = T),
+      "variance_accuracy_all" = var(mean_all, na.rm = T)
+    )
+
+  # creating a data frame of accuracy_subset and accuracy_all
+  # accuracy_subset contains n_iter accuracy values on cross-validation with user-specified features
+  # accuracy_all contains n_iter accuracy values on cross-validation with all the available features
+  cross_validation_df <-
+    data.frame(accuracy_subset = mean_subset, accuracy_all = mean_all)
+  return(list(cross_validation_df, cross_validation_stats))
+}
+```
+
+```{r,ex="crossvalidate",type="sample-code",height=700}
+# First lets import the rpart library
+library(rpart)
+# Import dataset
+moody.train <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv",stringsAsFactors = T)
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY, data = moody.train[,-c(1)],method = "class",control = rpart.control(minsplit = 100))
+# Now lets predict the Grades of the Moody Dataset.
+pred <- predict(tree, moody.train, type="class")
+head(pred)
+# Lets check the Training Accuracy
+mean(moody.train$GRADE==pred)
+# Lets us the cross_validate() function.
+cross_validate(moody.train,tree,5,0.7)
+```
+
+You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 85.5%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn't make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.
