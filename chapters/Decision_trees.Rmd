@@ -319,8 +319,7 @@ CrossValidation::cross_validate()
 
 ### Snippet 10
 
-```{r,ex="crossvalidate",type="pre-exercise-code"}
-library("rpart")
+```{r,tut=TRUE,ex="crossvalidate",type="pre-exercise-code"}
 
 cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
 {
@@ -424,24 +423,25 @@ cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
 }
 ```
 
-```{r,ex="crossvalidate",type="sample-code",height=500}
+
+```{r,tut=TRUE, ex="crossvalidate",type="sample-code",height=500}
 # First lets import the rpart library
 library(rpart)
 # Import dataset
-moody.train <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv",stringsAsFactors = T)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv',stringsAsFactors = T)
 # Use of the rpart() function.
-tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY, data = moody.train[,-c(1)],method = "class",control = rpart.control(minsplit = 100))
+tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS, data = moody,method = "class",control = rpart.control(minsplit = 100))
 tree
 # Now lets predict the Grades of the Moody Dataset.
-pred <- predict(tree, moody.train, type="class")
+pred <- predict(tree, moody, type="class")
 head(pred)
 # Lets check the Training Accuracy
-mean(moody.train$GRADE==pred)
+mean(moody$GRADE==pred)
 # Lets us the cross_validate() function.
-cross_validate(moody.train,tree,5,0.7)
+cross_validate(moody,tree,5,0.7)
 ```
 
-You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 85.5%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn't make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.
+You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 84%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn't make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.
 
 ## Snippet 11: Freestyle +  rpart: Combining rpart prediction models
 
