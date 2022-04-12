@@ -127,11 +127,10 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter minsplit=200
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minsplit = 200))
 
-# Check the count of observation at each split test. To do this we find the count at each non-leaf/non-terminal node.
-tree$frame[tree$frame$var!="<leaf>",c("var","n")]
+tree
 
-library(rpart.plot)
-rpart.plot(tree,extra = 2)
+#library(rpart.plot)
+#rpart.plot(tree,extra = 2)
 ```
 ![Output tree plot of after setting minsplit=200 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt2.png)
 
@@ -144,11 +143,10 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter minsplit=100
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minsplit = 100))
 
-# Check the count of observation at each split test. To do this we find the count at each non-leaf/non-terminal node.
-tree$frame[tree$frame$var!="<leaf>",c("var","n")]
+tree
 
-library(rpart.plot)
-rpart.plot(tree,extra = 2)
+#library(rpart.plot)
+#rpart.plot(tree,extra = 2)
 ```
 ![Output tree plot of after setting minsplit=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt8.png)
 
@@ -166,8 +164,7 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter Minbucket=100
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minbucket = 100))
 
-# Check the count of observation in each leaf node.
-tree$frame[tree$frame$var=="<leaf>",c("var","n")]
+tree
 
 #library(rpart.plot)
 #rpart.plot(tree,extra = 2)
@@ -187,8 +184,7 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter Minbucket=200
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minbucket = 200))
 
-# Check the count of observation in each leaf node.
-tree$frame[tree$frame$var=="<leaf>",c("var","n")]
+tree
 
 #library(rpart.plot)
 #rpart.plot(tree,extra = 2)
@@ -210,11 +206,10 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter cp=0.2
 tree <- rpart(GRADE ~ ., data = moody,method = "class",control=rpart.control(cp = 0.05))
 
-# Check the accuracy increase factor at each split.
-tree$cptable
+tree
 
-library(rpart.plot)
-rpart.plot(tree)
+#library(rpart.plot)
+#rpart.plot(tree)
 
 
 ```
@@ -231,11 +226,10 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 # Use of the rpart() function with the control parameter cp=0.005
 tree <- rpart(GRADE ~ ., data = moody,method = "class",control=rpart.control(cp = 0.005))
 
-# Check the accuracy increase factor at each split.
-tree$cptable
+tree
 
-library(rpart.plot)
-rpart.plot(tree)
+#library(rpart.plot)
+#rpart.plot(tree)
 
 
 ```
@@ -268,6 +262,7 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 
 # Use of the rpart() function.
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody ,method = "class")
+tree
 
 # Now lets predict the Grades of the Moody Dataset.
 pred <- predict(tree, moody, type="class")
@@ -436,6 +431,7 @@ library(rpart)
 moody.train <- read.csv("https://raw.githubusercontent.com/deeplokhande/data101demobook/main/files/dataset/MOODY-2019.csv",stringsAsFactors = T)
 # Use of the rpart() function.
 tree <- rpart(GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY, data = moody.train[,-c(1)],method = "class",control = rpart.control(minsplit = 100))
+tree
 # Now lets predict the Grades of the Moody Dataset.
 pred <- predict(tree, moody.train, type="class")
 head(pred)
@@ -460,14 +456,10 @@ model1
 model2
 pred1 <- predict(model1, newdata=moody[moody$SCORE>50,], type="class")
 pred2 <- predict(model2, newdata=moody[moody$SCORE<=50,], type="class")
-pred1
 myprediction<-moody
 decision <- rep('F',nrow(myprediction))
-decision
 decision[myprediction$SCORE>50] <- as.character(pred1)
-decision
 decision[myprediction$SCORE<=50] <-as.character(pred2)
-decision
 myprediction$GRADE <-decision
 error <- mean(moody$GRADE!= myprediction$GRADE)
 error
