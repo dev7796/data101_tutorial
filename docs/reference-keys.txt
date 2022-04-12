@@ -131,10 +131,14 @@ snippet-3-one-step-crossvalidation
 snippet-4-preparing-submission.csv-for-kaggle
 prpart
 rpart
+snippet-1-6
 rpartplot
+snippet-2-5
 rpartcontrol
+snippet-3-3
+snippet-4
 rpartpredict
-crossvalidation
+snippet-5
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 MLP

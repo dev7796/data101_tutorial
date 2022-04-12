@@ -239,11 +239,23 @@
 </ul></li>
 <li class="chapter" data-level="16" data-path="prpart.html"><a href="prpart.html"><i class="fa fa-check"></i><b>16</b> 🔖 Predictions with rpart<span></span></a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="prpart.html"><a href="prpart.html#rpart"><i class="fa fa-check"></i><b>16.1</b> Use of Rpart<span></span></a></li>
-<li class="chapter" data-level="16.2" data-path="prpart.html"><a href="prpart.html#rpartplot"><i class="fa fa-check"></i><b>16.2</b> Visualize the Decision tree<span></span></a></li>
-<li class="chapter" data-level="16.3" data-path="prpart.html"><a href="prpart.html#rpartcontrol"><i class="fa fa-check"></i><b>16.3</b> Rpart Control<span></span></a></li>
-<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.4</b> Prediction using rpart.<span></span></a></li>
-<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.5</b> Cross Validation<span></span></a></li>
+<li class="chapter" data-level="16.1" data-path="prpart.html"><a href="prpart.html#rpart"><i class="fa fa-check"></i><b>16.1</b> Use of Rpart<span></span></a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="prpart.html"><a href="prpart.html#snippet-1-6"><i class="fa fa-check"></i><b>16.1.1</b> Snippet 1<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="prpart.html"><a href="prpart.html#rpartplot"><i class="fa fa-check"></i><b>16.2</b> Visualize the Decision tree<span></span></a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="prpart.html"><a href="prpart.html#snippet-2-5"><i class="fa fa-check"></i><b>16.2.1</b> Snippet 2<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="prpart.html"><a href="prpart.html#rpartcontrol"><i class="fa fa-check"></i><b>16.3</b> Rpart Control<span></span></a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="prpart.html"><a href="prpart.html#snippet-3-3"><i class="fa fa-check"></i><b>16.3.1</b> Snippet 3<span></span></a></li>
+<li class="chapter" data-level="16.3.2" data-path="prpart.html"><a href="prpart.html#snippet-4"><i class="fa fa-check"></i><b>16.3.2</b> Snippet 4<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.4</b> Prediction using rpart.<span></span></a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-5"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 5<span></span></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression<span></span></a>
 <ul>
@@ -286,7 +298,7 @@
 <p>Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can generate rules which are easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.</p>
 <div id="rpart" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Use of Rpart<a href="prpart.html#rpart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Recursive Partitioning and Regression Tree <code>RPART</code> library is a collection of routines which implement Classification and Regression Tree (CART) which is a type of Decision Tree.The resulting model can be represented as a binary tree.</p>
+<p>Recursive Partitioning and Regression Tree <code>RPART</code> library is a collection of routines which implements a Decision Tree.The resulting model can be represented as a binary tree.</p>
 <p>The library associated with this <code>RPART</code> is called <code>rpart</code>. Install this library using <code>install.packages("rpart")</code>.</p>
 <p>Syntax for building the decision tree using rpart():</p>
 <ul>
@@ -312,6 +324,8 @@
 <li>method -&gt; “class” for classification.</li>
 </ul></li>
 </ul>
+<div id="snippet-1-6" class="section level3 hasAnchor" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Snippet 1<a href="prpart.html#snippet-1-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uLlxucnBhcnQoR1JBREUgfiBTQ09SRStET1pFU19PRkYrVEVYVElOR19JTl9DTEFTUytQQVJUSUNJUEFUSU9OLCBkYXRhID0gbW9vZHksbWV0aG9kID0gXCJjbGFzc1wiKSJ9
 </div>
@@ -326,14 +340,15 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 <p>Using the output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section <a href="prpart.html#rpartpredict">16.4</a></p>
 <p>But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.</p>
 </div>
+</div>
 <div id="rpartplot" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">16.2</span> Visualize the Decision tree<a href="prpart.html#rpartplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To visualize and understand the rpart() tree output in the easiest way possible, we use a library called <code>rpart.plot</code>. The function <code>rpart.plot()</code> of the rpart.plot library is the function used to visualize decision trees.</p>
-<p>The <code>rpart.plot</code> library is a front-end wrapper to the library <code>prp</code> which is the most basic library for plotting decision trees. <code>prp</code> allows various aesthetic modifications for visualizing the decision tree. We will look at a few examples of using <code>prp</code> below.</p>
-<p>But, first lets look at a example to visualize the output decision tree in the previous example on Moody dataset using <code>rpart.plot()</code></p>
-<p><em>NOTE</em>: The online runnable code block does not support <code>rpart.plot and prp</code> library and functions, thus the output of the following code examples are provided directly.</p>
+<p><em>NOTE</em>: The online runnable code block does not support <code>rpart.plot</code> library and functions, thus the output of the following code examples are provided directly.</p>
+<div id="snippet-2-5" class="section level3 hasAnchor" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> Snippet 2<a href="prpart.html#snippet-2-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG5ycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgaW1wb3J0IHRoZSBycGFydC5wbG90IGxpYnJhcnkgdG8gdXNlIHRoZSBycGFydC5wbG90KCkgZnVuY3Rpb24uXG5saWJyYXJ5KHJwYXJ0LnBsb3QpXG5cbiMgVXNlIG9mIHRoZSBycGFydC5wbG90KCkgZnVuY3Rpb24gIHRvIHZpc3VhbGl6ZSB0aGUgZGVjaXNpb24gdHJlZS5cbnJwYXJ0LnBsb3QodHJlZSkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG5ycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgaW1wb3J0IHRoZSBycGFydC5wbG90IGxpYnJhcnkgdG8gdXNlIHRoZSBycGFydC5wbG90KCkgZnVuY3Rpb24uXG4jbGlicmFyeShycGFydC5wbG90KVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQucGxvdCgpIGZ1bmN0aW9uICB0byB2aXN1YWxpemUgdGhlIGRlY2lzaW9uIHRyZWUuXG4jcnBhcnQucGxvdCh0cmVlKSJ9
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt.png" alt="" />
@@ -346,7 +361,6 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJy
 <li>the records percentage out of total records.</li>
 </ul>
 <p>To study more in detail the arguments that can be passed to the rpart.plot() function, please look at these guides <a href="https://www.rdocumentation.org/packages/rpart.plot/versions/3.0.9/topics/rpart.plot">rpart.plot</a> and <a href="http://www.milbo.org/doc/prp.pdf">Plotting with rpart.plot (PDF)</a></p>
-<p>Note that for any beginner using rpart.plot() function is the easiest way. But if you want to learn another way of plotting rpart trees then the following function can be used.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -354,6 +368,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJy
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div id="rpartcontrol" class="section level2 hasAnchor" number="16.3">
 <h2><span class="header-section-number">16.3</span> Rpart Control<a href="prpart.html#rpartcontrol" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -366,9 +381,10 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJy
 <li><em>cp</em>: complexity parameter. Using this informs the program that any split which does not increase the accuracy of the fit by <em>cp</em>, will not be made in the tree.</li>
 </ul>
 <p>For more information of the other arguments of the <code>rpart.control()</code> function visit <a href="https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart.control">rpart.control</a></p>
-<p>Note: The ratio of minsplt to minbucket is 3:1. Thus if only one of the minsplit/minbucket is provided the other value is set using the above ratio. Also if both values are provided, unless the values are not in the above ratio, the rpart.control() the resorts to the default value. Also note, the default value of cp is <code>0.01</code>.</p>
 <p>Let look at few examples.</p>
 <p>Suppose you want to set the control parameter minsplit=200.</p>
+<div id="snippet-3-3" class="section level3 hasAnchor" number="16.3.1">
+<h3><span class="header-section-number">16.3.1</span> Snippet 3<a href="prpart.html#snippet-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIGxpYnJhcnkocnBhcnQpXG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24gd2l0aCB0aGUgY29udHJvbCBwYXJhbWV0ZXIgbWluc3BsaXQ9MjAwXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5LCBtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbD1ycGFydC5jb250cm9sKG1pbnNwbGl0ID0gMjAwKSlcblxuIyBDaGVjayB0aGUgY291bnQgb2Ygb2JzZXJ2YXRpb24gYXQgZWFjaCBzcGxpdCB0ZXN0LiBUbyBkbyB0aGlzIHdlIGZpbmQgdGhlIGNvdW50IGF0IGVhY2ggbm9uLWxlYWYvbm9uLXRlcm1pbmFsIG5vZGUuXG50cmVlJGZyYW1lW3RyZWUkZnJhbWUkdmFyIT1cIjxsZWFmPlwiLGMoXCJ2YXJcIixcIm5cIildXG5cbiMgbGlicmFyeShycGFydC5wbG90KVxuI3JwYXJ0LnBsb3QodHJlZSxleHRyYSA9IDIpIn0=
 </div>
@@ -378,6 +394,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIGxpYnJhcnkocnBhcnQpXG5tb29keTwtcmVhZC5jc3Yo
 </div>
 <p>We can see from the output of <code>tree$splits</code> and the tree plot, that at each split the total amount of observations are above 200. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.</p>
 <p>Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.</p>
+</div>
+<div id="snippet-4" class="section level3 hasAnchor" number="16.3.2">
+<h3><span class="header-section-number">16.3.2</span> Snippet 4<a href="prpart.html#snippet-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIG1pbnNwbGl0PTIwMFxudHJlZSA8LSBycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSwgbWV0aG9kID0gXCJjbGFzc1wiLGNvbnRyb2w9cnBhcnQuY29udHJvbChtaW5idWNrZXQgPSAxMDApKVxuXG4jIENoZWNrIHRoZSBjb3VudCBvZiBvYnNlcnZhdGlvbiBpbiBlYWNoIGxlYWYgbm9kZS5cbnRyZWUkZnJhbWVbdHJlZSRmcmFtZSR2YXI9PVwiPGxlYWY+XCIsYyhcInZhclwiLFwiblwiKV1cblxuIyBsaWJyYXJ5KHJwYXJ0LnBsb3QpXG4jcnBhcnQucGxvdCh0cmVlLGV4dHJhID0gMikifQ==
 </div>
@@ -386,6 +405,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 <p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
 </div>
 <p>We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.</p>
+</div>
 </div>
 <div id="rpartpredict" class="section level2 hasAnchor" number="16.4">
 <h2><span class="header-section-number">16.4</span> Prediction using rpart.<a href="prpart.html#rpartpredict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -400,87 +420,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 </ul></li>
 </ul>
 <p>Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.</p>
+<div id="snippet-5" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Snippet 5<a href="prpart.html#snippet-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5ICxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZCkifQ==
 </div>
-</div>
-<div id="crossvalidation" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> Cross Validation<a href="prpart.html#crossvalidation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating/training it, in order to avoid problems like overfitting and selection bias, and to give an insight on how the model will generalize to an independent dataset(i.e., an unknown dataset).</p>
-<p>Cross-validation also helps in selecting and fine-tuning the hyper-parameters of the models. In our case of the decision tree, the hyper parameters could be the control parameters that determine the size of the decision tree, which in-turn determines the accuracy of the tree.</p>
-<p>One round of cross-validation involves partitioning data into complementary subsets, and then performing model training on one subset, and validating the results on the other subset. In most methods, multiple rounds of cross-validation are performed using different partitions in each round, and the validation results are combined (e.g. averaged) over the rounds to give an estimate of the model’s predictive performance.</p>
-<p>Another use of cross-validation is when you don’t have the test data, and hence, you don’t have a way to determine the true accuracy of the model. Because we cannot determine accuracy on the test dataset, we partition our training dataset into training and validation (testing). We train our model (rpart or lm) on the train partition and test on the validation partition. The accuracy on the validation data is called cross-validation accuracy, while that on the train data is called training accuracy.</p>
-<p>Lets not dive too deep into the theory of this cross validation technique, but lets learn about the cross_validate() function, that helps us achieve this.</p>
-<ul>
-<li><code>cross_validate(*data*, *tree*, *n_iter*, *split_ratio*, *method*)</code>
-<ul>
-<li><em>data</em>: The dataset on which cross validation is to be performed.</li>
-<li><em>tree</em>: The decision tree generated using rpart.</li>
-<li><em>n_iter</em>: Number of iterations.</li>
-<li><em>split_ratio</em>: The splitting ratio of the data into train data and validation data.</li>
-<li><em>method</em>: Method of the prediction. “class” for classification.</li>
-</ul></li>
-</ul>
-<p>The way the function works is as follows:</p>
-<ul>
-<li>It randomly partitions your data into training and validation.</li>
-<li>It then constructs the following two decision trees on training partition:
-<ul>
-<li>The tree that you pass to the function.</li>
-<li>The tree is constructed on all attributes as predictors and with no control parameters.
--It then determines the accuracy of the two trees on validation partition and returns you the accuracy values for both the trees.</li>
-</ul></li>
-</ul>
-<p>The first column corresponds to the cross-validation accuracy on the tree that you pass; the second is the cross-validation accuracy on the tree without any control and all attributes.</p>
-<p>The values in the first column(accuracy_subset) returned by cross-validation function are more important when it comes to detecting overfitting. If these values are much lower than the training accuracy you get, that means you are overfitting.</p>
-<p>We would also want the values in accuracy_subset to be close to each other (in other words, have low variance). If the values are quite different from each other, that means your model (or tree) has a high variance which is not desired.</p>
-<p>The second column(accuracy_all) tells you what happens if you construct a tree based on all attributes. If these values are larger than accuracy_subset, that means you are probably leaving out attributes from your tree that are relevant.</p>
-<p>Each iteration of cross-validation creates a different random partition of train and validation, and so you have possibly different accuracy values for every iteration.</p>
-<p>Let’s look at the cross_validate() function in action in the example below.</p>
-<p>We will pass the tree with formula as <code>GRADE ~ SCORE+ON_SMARTPHONE+LEAVES_EARLY</code>, and control parameter, with <code>minsplit=100</code>.
-And for cross_validate() function, we will use<code>n_iter=5, and split_raitio=0.7</code></p>
-<p><em>NOTE</em>: Cross-Validation repository is already preloaded for the following interactive code block. Thus you can directly use the cross_validate() function in the following interactive code block. But if you wish to use the code_validate() function locally, please use</p>
-<pre><code>install.packages(&quot;devtools&quot;) 
-devtools::install_github(&quot;devanshagr/CrossValidation&quot;)
-CrossValidation::cross_validate()</code></pre>
-<p>dc_light_exercise_crossvalidate</p>
-<pre><code>## Warning: package &#39;rpart&#39; was built under R version 4.1.2</code></pre>
-<pre><code>## 1 2 3 4 5 6 
-## D F B A B A 
-## Levels: A B C D F</code></pre>
-<pre><code>## [1] 0.9063291</code></pre>
-<pre><code>## [[1]]
-##   accuracy_subset accuracy_all
-## 1       0.8797468    0.9156118
-## 2       0.9029536    0.9282700
-## 3       0.8755274    0.8966245
-## 4       0.8945148    0.9345992
-## 5       0.8945148    0.9261603
-## 
-## [[2]]
-## [[2]]$average_accuracy_subset
-## [1] 0.8894515
-## 
-## [[2]]$average_accuracy_all
-## [1] 0.9202532
-## 
-## [[2]]$variance_accuracy_subset
-## [1] 0.00013041
-## 
-## [[2]]$variance_accuracy_all
-## [1] 0.0002212074</code></pre>
-<p><em>NOTE</em>: If you encounter error while running the cross-validation function that said “new levels encountered” in test, make sure the dataset is imported again with read.csv() attribute <code>stringsAsFactors</code> as <code>TRUE or T</code>. For more information about the inner-working of the cross_validate() function visit <a href="https://github.com/devanshagr/CrossValidation/blob/master/R/cross_validation.R">cross_validate()</a></p>
-<p>We can see in the output the Training accuracy, the table of cross-validation accuracy at each iteration for both the passed tree and the tree on all attribute and also their averages and variances.</p>
-<p>Few Observation from the selected example above are:</p>
-<ul>
-<li>For the tree passed with selected attributes and some control parameters, the cross-validation accuracy’s (i.e. accuracy values in the <code>accuracy_subset</code> column) are fairly high for all iterations and have very low variance.</li>
-<li>They are close to the training accuracy which indicates we are not overfitting.</li>
-<li>Observe that the accuracy at each iteration of the accuracy_subset and accuracy_all column are relatively, close but not exact, suggesting that there are more attributes or other control parameters that can be included to the passed tree, to further increase the accuracy, thus closing the gap.</li>
-</ul>
-<p>Thus using cross-validation we were able to figure out with certainty, that the passed tree, is not the best tree that can be created using the training data. Also, we saw whether the generated tree overfits the training data or not.</p>
-<hr />
-<p>EOC</p>
 
+</div>
 </div>
 </div>
             </section>
