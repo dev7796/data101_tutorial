@@ -135,10 +135,13 @@ snippet-1-6
 rpartplot
 snippet-2-5
 rpartcontrol
-snippet-3-3
-snippet-4
+snippet-3-minsplit-200
+snippet-4-minbucket-100
+snippet-5-minbucket-200
+snippet-6-cp-0.05
+snippet-7-cp-0.005
 rpartpredict
-snippet-5
+snippet-8
 crossvalidation
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count

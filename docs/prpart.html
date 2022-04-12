@@ -249,12 +249,15 @@
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="prpart.html"><a href="prpart.html#rpartcontrol"><i class="fa fa-check"></i><b>16.3</b> Rpart Control<span></span></a>
 <ul>
-<li class="chapter" data-level="16.3.1" data-path="prpart.html"><a href="prpart.html#snippet-3-3"><i class="fa fa-check"></i><b>16.3.1</b> Snippet 3<span></span></a></li>
-<li class="chapter" data-level="16.3.2" data-path="prpart.html"><a href="prpart.html#snippet-4"><i class="fa fa-check"></i><b>16.3.2</b> Snippet 4<span></span></a></li>
+<li class="chapter" data-level="16.3.1" data-path="prpart.html"><a href="prpart.html#snippet-3-minsplit-200"><i class="fa fa-check"></i><b>16.3.1</b> Snippet 3: Minsplit = 200<span></span></a></li>
+<li class="chapter" data-level="16.3.2" data-path="prpart.html"><a href="prpart.html#snippet-4-minbucket-100"><i class="fa fa-check"></i><b>16.3.2</b> Snippet 4: Minbucket = 100<span></span></a></li>
+<li class="chapter" data-level="16.3.3" data-path="prpart.html"><a href="prpart.html#snippet-5-minbucket-200"><i class="fa fa-check"></i><b>16.3.3</b> Snippet 5: Minbucket = 200<span></span></a></li>
+<li class="chapter" data-level="16.3.4" data-path="prpart.html"><a href="prpart.html#snippet-6-cp-0.05"><i class="fa fa-check"></i><b>16.3.4</b> Snippet 6: cp = 0.05<span></span></a></li>
+<li class="chapter" data-level="16.3.5" data-path="prpart.html"><a href="prpart.html#snippet-7-cp-0.005"><i class="fa fa-check"></i><b>16.3.5</b> Snippet 7: cp = 0.005<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.4</b> Prediction using rpart.<span></span></a>
 <ul>
-<li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-5"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 5<span></span></a></li>
+<li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-8"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 8<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.5</b> Cross Validation<span></span></a></li>
 </ul></li>
@@ -383,10 +386,10 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJy
 <p>For more information of the other arguments of the <code>rpart.control()</code> function visit <a href="https://www.rdocumentation.org/packages/rpart/versions/4.1-15/topics/rpart.control">rpart.control</a></p>
 <p>Let look at few examples.</p>
 <p>Suppose you want to set the control parameter minsplit=200.</p>
-<div id="snippet-3-3" class="section level3 hasAnchor" number="16.3.1">
-<h3><span class="header-section-number">16.3.1</span> Snippet 3<a href="prpart.html#snippet-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="snippet-3-minsplit-200" class="section level3 hasAnchor" number="16.3.1">
+<h3><span class="header-section-number">16.3.1</span> Snippet 3: Minsplit = 200<a href="prpart.html#snippet-3-minsplit-200" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIGxpYnJhcnkocnBhcnQpXG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24gd2l0aCB0aGUgY29udHJvbCBwYXJhbWV0ZXIgbWluc3BsaXQ9MjAwXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5LCBtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbD1ycGFydC5jb250cm9sKG1pbnNwbGl0ID0gMjAwKSlcblxuIyBDaGVjayB0aGUgY291bnQgb2Ygb2JzZXJ2YXRpb24gYXQgZWFjaCBzcGxpdCB0ZXN0LiBUbyBkbyB0aGlzIHdlIGZpbmQgdGhlIGNvdW50IGF0IGVhY2ggbm9uLWxlYWYvbm9uLXRlcm1pbmFsIG5vZGUuXG50cmVlJGZyYW1lW3RyZWUkZnJhbWUkdmFyIT1cIjxsZWFmPlwiLGMoXCJ2YXJcIixcIm5cIildXG5cbiMgbGlicmFyeShycGFydC5wbG90KVxuI3JwYXJ0LnBsb3QodHJlZSxleHRyYSA9IDIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIG1pbnNwbGl0PTIwMFxudHJlZSA8LSBycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSwgbWV0aG9kID0gXCJjbGFzc1wiLGNvbnRyb2w9cnBhcnQuY29udHJvbChtaW5zcGxpdCA9IDIwMCkpXG5cbiMgQ2hlY2sgdGhlIGNvdW50IG9mIG9ic2VydmF0aW9uIGF0IGVhY2ggc3BsaXQgdGVzdC4gVG8gZG8gdGhpcyB3ZSBmaW5kIHRoZSBjb3VudCBhdCBlYWNoIG5vbi1sZWFmL25vbi10ZXJtaW5hbCBub2RlLlxudHJlZSRmcmFtZVt0cmVlJGZyYW1lJHZhciE9XCI8bGVhZj5cIixjKFwidmFyXCIsXCJuXCIpXVxuXG4jIGxpYnJhcnkocnBhcnQucGxvdClcbiNycGFydC5wbG90KHRyZWUsZXh0cmEgPSAyKSJ9
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt2.png" alt="" />
@@ -395,16 +398,46 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIGxpYnJhcnkocnBhcnQpXG5tb29keTwtcmVhZC5jc3Yo
 <p>We can see from the output of <code>tree$splits</code> and the tree plot, that at each split the total amount of observations are above 200. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.</p>
 <p>Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.</p>
 </div>
-<div id="snippet-4" class="section level3 hasAnchor" number="16.3.2">
-<h3><span class="header-section-number">16.3.2</span> Snippet 4<a href="prpart.html#snippet-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="snippet-4-minbucket-100" class="section level3 hasAnchor" number="16.3.2">
+<h3><span class="header-section-number">16.3.2</span> Snippet 4: Minbucket = 100<a href="prpart.html#snippet-4-minbucket-100" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIG1pbnNwbGl0PTIwMFxudHJlZSA8LSBycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSwgbWV0aG9kID0gXCJjbGFzc1wiLGNvbnRyb2w9cnBhcnQuY29udHJvbChtaW5idWNrZXQgPSAxMDApKVxuXG4jIENoZWNrIHRoZSBjb3VudCBvZiBvYnNlcnZhdGlvbiBpbiBlYWNoIGxlYWYgbm9kZS5cbnRyZWUkZnJhbWVbdHJlZSRmcmFtZSR2YXI9PVwiPGxlYWY+XCIsYyhcInZhclwiLFwiblwiKV1cblxuIyBsaWJyYXJ5KHJwYXJ0LnBsb3QpXG4jcnBhcnQucGxvdCh0cmVlLGV4dHJhID0gMikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIE1pbmJ1Y2tldD0xMDBcbnRyZWUgPC0gcnBhcnQoR1JBREUgfiBTQ09SRStET1pFU19PRkYrVEVYVElOR19JTl9DTEFTUytQQVJUSUNJUEFUSU9OLCBkYXRhID0gbW9vZHksIG1ldGhvZCA9IFwiY2xhc3NcIixjb250cm9sPXJwYXJ0LmNvbnRyb2wobWluYnVja2V0ID0gMTAwKSlcblxuIyBDaGVjayB0aGUgY291bnQgb2Ygb2JzZXJ2YXRpb24gaW4gZWFjaCBsZWFmIG5vZGUuXG50cmVlJGZyYW1lW3RyZWUkZnJhbWUkdmFyPT1cIjxsZWFmPlwiLGMoXCJ2YXJcIixcIm5cIildXG5cbiNsaWJyYXJ5KHJwYXJ0LnBsb3QpXG4jcnBhcnQucGxvdCh0cmVlLGV4dHJhID0gMikifQ==
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt3.png" alt="" />
 <p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
 </div>
 <p>We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.</p>
+</div>
+<div id="snippet-5-minbucket-200" class="section level3 hasAnchor" number="16.3.3">
+<h3><span class="header-section-number">16.3.3</span> Snippet 5: Minbucket = 200<a href="prpart.html#snippet-5-minbucket-200" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIE1pbmJ1Y2tldD0yMDBcbnRyZWUgPC0gcnBhcnQoR1JBREUgfiBTQ09SRStET1pFU19PRkYrVEVYVElOR19JTl9DTEFTUytQQVJUSUNJUEFUSU9OLCBkYXRhID0gbW9vZHksIG1ldGhvZCA9IFwiY2xhc3NcIixjb250cm9sPXJwYXJ0LmNvbnRyb2wobWluYnVja2V0ID0gMjAwKSlcblxuIyBDaGVjayB0aGUgY291bnQgb2Ygb2JzZXJ2YXRpb24gaW4gZWFjaCBsZWFmIG5vZGUuXG50cmVlJGZyYW1lW3RyZWUkZnJhbWUkdmFyPT1cIjxsZWFmPlwiLGMoXCJ2YXJcIixcIm5cIildXG5cbiNsaWJyYXJ5KHJwYXJ0LnBsb3QpXG4jcnBhcnQucGxvdCh0cmVlLGV4dHJhID0gMikifQ==
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt4.png" alt="" />
+<p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
+</div>
+<p>We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 200. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.</p>
+<p>Lets now use the <code>cp</code> parameter and see its effect on the tree.</p>
+</div>
+<div id="snippet-6-cp-0.05" class="section level3 hasAnchor" number="16.3.4">
+<h3><span class="header-section-number">16.3.4</span> Snippet 6: cp = 0.05<a href="prpart.html#snippet-6-cp-0.05" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIGNwPTAuMlxudHJlZSA8LSBycGFydChHUkFERSB+IC4sIGRhdGEgPSBtb29keSxtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbD1ycGFydC5jb250cm9sKGNwID0gMC4wNSkpXG5cbiMgQ2hlY2sgdGhlIGFjY3VyYWN5IGluY3JlYXNlIGZhY3RvciBhdCBlYWNoIHNwbGl0LlxudHJlZSRjcHRhYmxlXG5cbmxpYnJhcnkocnBhcnQucGxvdClcbnJwYXJ0LnBsb3QodHJlZSkifQ==
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png" alt="" />
+<p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
+</div>
+</div>
+<div id="snippet-7-cp-0.005" class="section level3 hasAnchor" number="16.3.5">
+<h3><span class="header-section-number">16.3.5</span> Snippet 7: cp = 0.005<a href="prpart.html#snippet-7-cp-0.005" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIGNwPTAuMDA1XG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gLiwgZGF0YSA9IG1vb2R5LG1ldGhvZCA9IFwiY2xhc3NcIixjb250cm9sPXJwYXJ0LmNvbnRyb2woY3AgPSAwLjAwNSkpXG5cbiMgQ2hlY2sgdGhlIGFjY3VyYWN5IGluY3JlYXNlIGZhY3RvciBhdCBlYWNoIHNwbGl0LlxudHJlZSRjcHRhYmxlXG5cbmxpYnJhcnkocnBhcnQucGxvdClcbnJwYXJ0LnBsb3QodHJlZSkifQ==
+</div>
+<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png" alt="Output tree plot of after setting minbucket=100 in rpart.control() function" />
+We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.</p>
 </div>
 </div>
 <div id="rpartpredict" class="section level2 hasAnchor" number="16.4">
@@ -420,8 +453,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 </ul></li>
 </ul>
 <p>Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.</p>
-<div id="snippet-5" class="section level3 hasAnchor" number="16.4.1">
-<h3><span class="header-section-number">16.4.1</span> Snippet 5<a href="prpart.html#snippet-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="snippet-8" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Snippet 8<a href="prpart.html#snippet-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5ICxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZCkifQ==
 </div>

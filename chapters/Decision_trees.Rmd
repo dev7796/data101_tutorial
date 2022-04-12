@@ -118,9 +118,10 @@ Let look at few examples.
 
 Suppose you want to set the control parameter minsplit=200. 
 
-### Snippet 3
+### Snippet 3: Minsplit = 200
+
 ```{r,tut=TRUE,height=500}
-# library(rpart)
+library(rpart)
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
 
 # Use of the rpart() function with the control parameter minsplit=200
@@ -138,24 +139,91 @@ We can see from the output of `tree$splits` and the tree plot, that at each spli
 
 Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.
 
-### Snippet 4
+### Snippet 4: Minbucket = 100
+
 ```{r,tut=TRUE,height=500}
 library(rpart)
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
 
-# Use of the rpart() function with the control parameter minsplit=200
+# Use of the rpart() function with the control parameter Minbucket=100
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minbucket = 100))
 
 # Check the count of observation in each leaf node.
 tree$frame[tree$frame$var=="<leaf>",c("var","n")]
 
-# library(rpart.plot)
+#library(rpart.plot)
 #rpart.plot(tree,extra = 2)
 
 ```
 ![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt3.png)
 
 We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.
+
+### Snippet 5: Minbucket = 200
+
+```{r,tut=TRUE,height=500}
+library(rpart)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+# Use of the rpart() function with the control parameter Minbucket=200
+tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody, method = "class",control=rpart.control(minbucket = 200))
+
+# Check the count of observation in each leaf node.
+tree$frame[tree$frame$var=="<leaf>",c("var","n")]
+
+#library(rpart.plot)
+#rpart.plot(tree,extra = 2)
+
+```
+![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt4.png)
+
+We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 200. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.
+
+Lets now use the `cp` parameter and see its effect on the tree.
+
+### Snippet 6: cp = 0.05
+
+```{r}
+
+library(rpart)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+# Use of the rpart() function with the control parameter cp=0.2
+tree <- rpart(GRADE ~ ., data = moody,method = "class",control=rpart.control(cp = 0.05))
+
+# Check the accuracy increase factor at each split.
+tree$cptable
+
+library(rpart.plot)
+rpart.plot(tree)
+
+
+```
+![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png)
+
+
+### Snippet 7: cp = 0.005
+
+```{r}
+
+library(rpart)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+# Use of the rpart() function with the control parameter cp=0.005
+tree <- rpart(GRADE ~ ., data = moody,method = "class",control=rpart.control(cp = 0.005))
+
+# Check the accuracy increase factor at each split.
+tree$cptable
+
+library(rpart.plot)
+rpart.plot(tree)
+
+
+```
+![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png)
+We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.
+
+
 
 ## Prediction using rpart. {#rpartpredict}
 
@@ -170,7 +238,7 @@ From the moody example, we are trying to predict the grade of students. Lets loo
 
 Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.
 
-### Snippet 5
+### Snippet 8
 
 ```{r,tut=TRUE,height=500}
 # First lets import the rpart library
