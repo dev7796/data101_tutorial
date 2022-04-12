@@ -10,7 +10,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#dt12">Decision Trees </button> 
+- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#dt12"> Prediction with rpart </button> 
 <div id="dt12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
