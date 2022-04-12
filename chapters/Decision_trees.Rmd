@@ -159,6 +159,7 @@ Now, lets set the minbucket parameter to 100, and see how that affects the tree 
 ### Snippet 5: Minbucket = 100
 
 ```{r,tut=TRUE,height=500}
+
 library(rpart)
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
 
@@ -179,6 +180,7 @@ We can see for the output and the tree plot, that the count of observations in e
 ### Snippet 6: Minbucket = 200
 
 ```{r,tut=TRUE,height=500}
+
 library(rpart)
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
 
@@ -319,6 +321,7 @@ install.packages("devtools")
 devtools::install_github("devanshagr/CrossValidation")
 CrossValidation::cross_validate()
 ```
+
 ### Snippet 10
 
 ```{r,ex="crossvalidate",type="pre-exercise-code"}
@@ -426,7 +429,7 @@ cross_validate <- function(df, tree, n_iter, split_ratio, method = 'class')
 }
 ```
 
-```{r,ex="crossvalidate",type="sample-code",height=700}
+```{r,ex="crossvalidate",type="sample-code",height=500}
 # First lets import the rpart library
 library(rpart)
 # Import dataset
@@ -443,3 +446,30 @@ cross_validate(moody.train,tree,5,0.7)
 ```
 
 You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 85.5%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn't make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.
+
+## Snippet 11: Freestyle +  rpart: Combining rpart prediction models
+
+```{r,tut=TRUE,height=600}
+
+library(rpart)
+# Import dataset
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+model1<-rpart(GRADE~., data=moody[moody$SCORE>50,]);
+model2<-rpart(GRADE~., data=moody[moody$SCORE<=50,]);
+model1
+model2
+pred1 <- predict(model1, newdata=moody[moody$SCORE>50,], type="class")
+pred2 <- predict(model2, newdata=moody[moody$SCORE<=50,], type="class")
+pred1
+myprediction<-moody
+decision <- rep('F',nrow(myprediction))
+decision
+decision[myprediction$SCORE>50] <- as.character(pred1)
+decision
+decision[myprediction$SCORE<=50] <-as.character(pred2)
+decision
+myprediction$GRADE <-decision
+error <- mean(moody$GRADE!= myprediction$GRADE)
+error
+
+```
