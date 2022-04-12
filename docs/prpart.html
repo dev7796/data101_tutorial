@@ -407,7 +407,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt8.png" alt="" />
-<p class="caption">Output tree plot of after setting minsplit=200 in rpart.control() function</p>
+<p class="caption">Output tree plot of after setting minsplit=100 in rpart.control() function</p>
 </div>
 <p>We can see from the output of <code>tree$splits</code> and the tree plot, that at each split the total amount of observations are above 200 and 100. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.</p>
 <p>Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.</p>
@@ -430,7 +430,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt4.png" alt="" />
-<p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
+<p class="caption">Output tree plot of after setting minbucket=200 in rpart.control() function</p>
 </div>
 <p>We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 200. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.</p>
 <p>Lets now use the <code>cp</code> parameter and see its effect on the tree.</p>
@@ -442,7 +442,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 </div>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png" alt="" />
-<p class="caption">Output tree plot of after setting minbucket=100 in rpart.control() function</p>
+<p class="caption">Output tree plot of after setting cp=0.05 in rpart.control() function</p>
 </div>
 </div>
 <div id="snippet-8-cp-0.005" class="section level3 hasAnchor" number="16.3.6">
@@ -450,7 +450,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uIHdpdGggdGhlIGNvbnRyb2wgcGFyYW1ldGVyIGNwPTAuMDA1XG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gLiwgZGF0YSA9IG1vb2R5LG1ldGhvZCA9IFwiY2xhc3NcIixjb250cm9sPXJwYXJ0LmNvbnRyb2woY3AgPSAwLjAwNSkpXG5cbiMgQ2hlY2sgdGhlIGFjY3VyYWN5IGluY3JlYXNlIGZhY3RvciBhdCBlYWNoIHNwbGl0LlxudHJlZSRjcHRhYmxlXG5cbmxpYnJhcnkocnBhcnQucGxvdClcbnJwYXJ0LnBsb3QodHJlZSkifQ==
 </div>
-<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png" alt="Output tree plot of after setting minbucket=100 in rpart.control() function" />
+<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png" alt="Output tree plot of after setting cp=0.005 in rpart.control() function" />
 We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.</p>
 </div>
 </div>

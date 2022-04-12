@@ -150,7 +150,7 @@ tree$frame[tree$frame$var!="<leaf>",c("var","n")]
 library(rpart.plot)
 rpart.plot(tree,extra = 2)
 ```
-![Output tree plot of after setting minsplit=200 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt8.png)
+![Output tree plot of after setting minsplit=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt8.png)
 
 We can see from the output of `tree$splits` and the tree plot, that at each split the total amount of observations are above 200 and 100. Also, in comparison to the tree without control, the tree with control has lower height, and lesser count of splits.
 
@@ -192,7 +192,7 @@ tree$frame[tree$frame$var=="<leaf>",c("var","n")]
 #rpart.plot(tree,extra = 2)
 
 ```
-![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt4.png)
+![Output tree plot of after setting minbucket=200 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt4.png)
 
 We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 200. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.
 
@@ -216,7 +216,7 @@ rpart.plot(tree)
 
 
 ```
-![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png)
+![Output tree plot of after setting cp=0.05 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png)
 
 
 ### Snippet 8: cp = 0.005
@@ -237,7 +237,7 @@ rpart.plot(tree)
 
 
 ```
-![Output tree plot of after setting minbucket=100 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png)
+![Output tree plot of after setting cp=0.005 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt7.png)
 We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.
 
 
