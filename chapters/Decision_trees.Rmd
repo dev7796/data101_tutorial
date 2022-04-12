@@ -64,8 +64,6 @@ Using the output tree, we can use the predict function to predict the grades of 
 
 But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.
 
----
-
 ## Visualize the Decision tree {#rpartplot}
 
 To visualize and understand the rpart() tree output in the easiest way possible, we use a library called `rpart.plot`. The function `rpart.plot()` of the rpart.plot library is the function used to visualize decision trees.
