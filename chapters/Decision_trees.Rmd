@@ -465,3 +465,31 @@ error <- mean(moody$GRADE!= myprediction$GRADE)
 error
 
 ```
+
+## Snippet 12: Your Model with rpart
+
+```{r,tut=TRUE,height=600}
+#How to combine your freestyle prediction model with the rpart? 
+
+#One way of doing it is to divide the data sets into two mutually exclusive subsets (which cover all data also).  How do you make these subsets?  Unfortunately there is no algorithm for this and it is more relying on how well is your model doing for different slices of the data.  
+
+#In this example (similarly to snippet 16.6 where we combine two rpart models, we assume that initial split we decided on is based on SCORE. But instead of having two rpart models  (16.6), we will use our prediction  model from prediction challenge 1  for SCORE >50 and rpart for SCORE <=50.
+
+#Lets assume that yourPrediction is our model from Prediction Challenge 1 (your entire code has to be applied here to the data set (moody, below)
+
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+#rpartModel<-rpart(GRADE~., data=moody[moody$SCORE<=50,]);
+#pred_rpartModel <- predict(rpartModel, newdata=moody[moody$SCORE<=50,], type="class")
+#pred_yourModel <- yourPrediction[moody$SCORE<=50]
+#myprediction<-moody
+
+## Here we combine two models - our model from prediction 1 challenge and rpart.
+
+#decision <- rep('F',nrow(myprediction))
+#decision[myprediction$SCORE>50] <- pred_yourModel
+#decision[myprediction$SCORE<=50] <-as.character(pred_rpartModel )
+#myprediction$GRADE <-decision
+#error <- mean(moody$GRADE!= myprediction$GRADE
+#error
+```
