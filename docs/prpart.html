@@ -254,15 +254,15 @@
 <li class="chapter" data-level="16.3.5" data-path="prpart.html"><a href="prpart.html#snippet-7-cp-0.05"><i class="fa fa-check"></i><b>16.3.5</b> Snippet 7: cp = 0.05<span></span></a></li>
 <li class="chapter" data-level="16.3.6" data-path="prpart.html"><a href="prpart.html#snippet-8-cp-0.005"><i class="fa fa-check"></i><b>16.3.6</b> Snippet 8: cp = 0.005<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.4</b> Prediction using rpart.<span></span></a>
+<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.4</b> Cross Validation<span></span></a>
 <ul>
 <li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-9"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 9<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.5</b> Cross Validation<span></span></a>
+<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#snippet-10-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.5</b> Snippet 10: Freestyle + rpart: Combining rpart prediction models<span></span></a></li>
+<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.6</b> Prediction using rpart.<span></span></a>
 <ul>
-<li class="chapter" data-level="16.5.1" data-path="prpart.html"><a href="prpart.html#snippet-10"><i class="fa fa-check"></i><b>16.5.1</b> Snippet 10<span></span></a></li>
+<li class="chapter" data-level="16.6.1" data-path="prpart.html"><a href="prpart.html#snippet-11"><i class="fa fa-check"></i><b>16.6.1</b> Snippet 11<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#snippet-11-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.6</b> Snippet 11: Freestyle + rpart: Combining rpart prediction models<span></span></a></li>
 <li class="chapter" data-level="16.7" data-path="prpart.html"><a href="prpart.html#snippet-12-your-model-with-rpart"><i class="fa fa-check"></i><b>16.7</b> Snippet 12: Your Model with rpart<span></span></a></li>
 <li class="chapter" data-level="16.8" data-path="prpart.html"><a href="prpart.html#snippet-13-submission-with-rpart"><i class="fa fa-check"></i><b>16.8</b> Snippet 13: Submission with rpart<span></span></a></li>
 </ul></li>
@@ -345,7 +345,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 <li>yval -&gt; output value i.e. the target predicted value.</li>
 <li>yprob -&gt; probability of obtaining a particular category as the predicted output.</li>
 </ul>
-<p>Using the output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section <a href="prpart.html#rpartpredict">16.4</a></p>
+<p>Using the output tree, we can use the predict function to predict the grades of the test data. We will look at this process later in section <a href="prpart.html#rpartpredict">16.6</a></p>
 <p>But coming back to the output of the rpart() function, the text type output is useful but difficult to read and understand, right! We will look at visualizing the decision tree in the next section.</p>
 </div>
 </div>
@@ -455,28 +455,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdo
 We can see for the output and the tree plot, that the tree size has increased, with increase in number of splits, and leaf nodes. Also we can see that the minimum CP value in the output is 0.005.</p>
 </div>
 </div>
-<div id="rpartpredict" class="section level2 hasAnchor" number="16.4">
-<h2><span class="header-section-number">16.4</span> Prediction using rpart.<a href="prpart.html#rpartpredict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now that we have seen the process to create a decision tree and also plot it, we will like to use the output tree to predict the required attribute.</p>
-<p>From the moody example, we are trying to predict the grade of students. Lets look at the <code>predict()</code> function to predict the outcomes.</p>
-<ul>
-<li><code>predict(*object*,*data*,*type*,...)</code>
-<ul>
-<li><em>object</em>: the generated tree from the rpart function.</li>
-<li><em>data</em>: the data on which the prediction is to be performed.</li>
-<li><em>type</em>: the type of prediction required. One of “vector”, “prob”, “class” or “matrix”.</li>
-</ul></li>
-</ul>
-<p>Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.</p>
-<div id="snippet-9" class="section level3 hasAnchor" number="16.4.1">
-<h3><span class="header-section-number">16.4.1</span> Snippet 9<a href="prpart.html#snippet-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5ICxtZXRob2QgPSBcImNsYXNzXCIpXG50cmVlXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZCkifQ==
-</div>
-</div>
-</div>
-<div id="crossvalidation" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> Cross Validation<a href="prpart.html#crossvalidation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="crossvalidation" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> Cross Validation<a href="prpart.html#crossvalidation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Overfitting takes place when you have a high accuracy on training dataset, but a low accuracy on the test dataset. But how do you know whether you are overfitting or not? Especially since you cannot determine accuracy on the test dataset? That is where cross-validation comes into play.</p>
 <p>Because we cannot determine accuracy on test dataset, we partition our training dataset into train and validation (testing). We train our model (rpart or lm) on train partition and test on the validation partition. The partition is defined by split ratio. If split ratio =0.7, 70% of the training dataset will be used for the actual training of your model (rpart or lm), and 30 % will be used for validation (or testing). The accuracy of this validation data is called cross-validation accuracy.</p>
 <p>To know if you are overfitting or not, compare the training accuracy with the cross-validation accuracy. If your training accuracy is high, and cross-validation accuracy is low, that means you are overfitting.</p>
@@ -517,18 +497,38 @@ And for cross_validate() function, we will use<code>n_iter=5, and split_raitio=0
 <pre><code>install.packages(&quot;devtools&quot;) 
 devtools::install_github(&quot;devanshagr/CrossValidation&quot;)
 CrossValidation::cross_validate()</code></pre>
-<div id="snippet-10" class="section level3 hasAnchor" number="16.5.1">
-<h3><span class="header-section-number">16.5.1</span> Snippet 10<a href="prpart.html#snippet-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="snippet-9" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Snippet 9<a href="prpart.html#snippet-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImNyb3NzX3ZhbGlkYXRlIDwtIGZ1bmN0aW9uKGRmLCB0cmVlLCBuX2l0ZXIsIHNwbGl0X3JhdGlvLCBtZXRob2QgPSAnY2xhc3MnKVxue1xuICAjIHRyYWluaW5nIGRhdGEgZnJhbWUgZGZcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZilcblxuICAjIG1lYW5fc3Vic2V0IGlzIGEgdmVjdG9yIG9mIGFjY3VyYWN5IHZhbHVlcyBnZW5lcmF0ZWQgZnJvbSB0aGUgc3BlY2lmaWVkIGZlYXR1cmVzIGluIHRoZSB0cmVlIG9iamVjdFxuICBtZWFuX3N1YnNldCA8LSBjKClcblxuICAjIG1lYW5fYWxsIGlzIGEgdmVjdG9yIG9mIGFjY3VyYWN5IHZhbHVlcyBnZW5lcmF0ZWQgZnJvbSBhbGwgdGhlIGF2YWlsYWJsZSBmZWF0dXJlcyBpbiB0aGUgZGF0YSBmcmFtZVxuICBtZWFuX2FsbCA8LSBjKClcblxuICAjIGNvbnRyb2wgcGFyYW1ldGVycyBmb3IgdGhlIGRlY2lzaW9uIHRyZWVcbiAgY29udHJvID0gdHJlZSRjb250cm9sXG5cbiAgIyB0aGUgZm9sbG93aW5nIHNuaXBwZXQgd2lsbCBjcmVhdGUgcmVsYXRpb25zIHRvIGdlbmVyYXRlIGRlY2lzaW9uIHRyZWVzXG4gICMgcmVsYXRpb25fYWxsIHdpbGwgY3JlYXRlIGEgZGVjaXNpb24gdHJlZSB3aXRoIGFsbCB0aGUgZmVhdHVyZXNcbiAgIyByZWxhdGlvbl9zdWJzZXQgd2lsbCBjcmVhdGUgYSBkZWNpc2lvbiB0cmVlIHdpdGggb25seSB1c2VyLXNwZWNpZmllZCBmZWF0dXJlcyBpbiB0cmVlXG4gIGRlcCA8LSBhbGwudmFycyh0ZXJtcyh0cmVlKSlbMV1cbiAgaW5kZXAgPC0gbGlzdCgpXG4gIHJlbGF0aW9uX2FsbCA9IGFzLmZvcm11bGEocGFzdGUoZGVwLCAnLicsIHNlcCA9IFwiflwiKSlcbiAgaSA8LSAxXG4gIHdoaWxlIChpIDwgbGVuZ3RoKGFsbC52YXJzKHRlcm1zKHRyZWUpKSkpIHtcbiAgICBpbmRlcFtbaV1dIDwtIGFsbC52YXJzKHRlcm1zKHRyZWUpKVtpICsgMV1cbiAgICBpIDwtIGkgKyAxXG4gIH1cbiAgYiA8LSBwYXN0ZShpbmRlcCwgY29sbGFwc2UgPSBcIitcIilcbiAgcmVsYXRpb25fc3Vic2V0IDwtIGFzLmZvcm11bGEocGFzdGUoZGVwLCBiLCBzZXAgPSBcIn5cIikpXG5cbiAgIyBjcmVhdGluZyB0cmFpbiBhbmQgdGVzdCBzYW1wbGVzIHdpdGggdGhlIGdpdmVuIHNwbGl0IHJhdGlvXG4gICMgcGVyZm9ybWluZyBjcm9zcy12YWxpZGF0aW9uIG5faXRlciB0aW1lc1xuICBmb3IgKGkgaW4gMTpuX2l0ZXIpIHtcbiAgICBzYW1wbGUgPC1cbiAgICAgIHNhbXBsZS5pbnQobiA9IG5yb3coZGYpLFxuICAgICAgICAgICAgICAgICBzaXplID0gZmxvb3Ioc3BsaXRfcmF0aW8gKiBucm93KGRmKSksXG4gICAgICAgICAgICAgICAgIHJlcGxhY2UgPSBGKVxuICAgIHRyYWluIDwtIGRmW3NhbXBsZSxdXG4gICAgdGVzdGluZyAgPC0gZGZbLXNhbXBsZSxdXG4gICAgdHlwZSA9IHR5cGVvZih1bmxpc3QodGVzdGluZ1tkZXBdKSlcblxuICAgICMgZGVjaXNpb24gdHJlZSBmb3IgcmVncmVzc2lvbiBpZiB0aGUgbWV0aG9kIHNwZWNpZmllZCBpcyBcImFub3ZhXCJcbiAgICBpZiAobWV0aG9kID09ICdhbm92YScpIHtcbiAgICAgIGZpcnN0LnRyZWUgPC1cbiAgICAgICAgcnBhcnQoXG4gICAgICAgICAgcmVsYXRpb25fc3Vic2V0LFxuICAgICAgICAgIGRhdGEgPSB0cmFpbixcbiAgICAgICAgICBjb250cm9sID0gY29udHJvLFxuICAgICAgICAgIG1ldGhvZCA9ICdhbm92YSdcbiAgICAgICAgKVxuICAgICAgc2Vjb25kLnRyZWUgPC0gcnBhcnQocmVsYXRpb25fYWxsLCBkYXRhID0gdHJhaW4sIG1ldGhvZCA9ICdhbm92YScpXG4gICAgICBwcmVkMS50cmVlIDwtIHByZWRpY3QoZmlyc3QudHJlZSwgbmV3ZGF0YSA9IHRlc3RpbmcpXG4gICAgICBwcmVkMi50cmVlIDwtIHByZWRpY3Qoc2Vjb25kLnRyZWUsIG5ld2RhdGEgPSB0ZXN0aW5nKVxuICAgICAgbWVhbjEgPC0gbWVhbigoYXMubnVtZXJpYyhwcmVkMS50cmVlKSAtIHRlc3RpbmdbLCBkZXBdKSBeIDIpXG4gICAgICBtZWFuMiA8LSBtZWFuKChhcy5udW1lcmljKHByZWQyLnRyZWUpIC0gdGVzdGluZ1ssIGRlcF0pIF4gMilcbiAgICAgIG1lYW5fc3Vic2V0IDwtIGMobWVhbl9zdWJzZXQsIG1lYW4xKVxuICAgICAgbWVhbl9hbGwgPC0gYyhtZWFuX2FsbCwgbWVhbjIpXG4gICAgfVxuXG4gICAgIyBkZWNpc2lvbiB0cmVlIGZvciBjbGFzc2lmaWNhdGlvblxuICAgICMgaWYgdGhlIG1ldGhvZCBzcGVjaWZpZWQgaXMgbm90IFwiYW5vdmFcIiwgdGhlbiB0aGlzIGJsb2NrIGlzIGV4ZWN1dGVkXG4gICAgIyBpZiB0aGUgbWV0aG9kIGlzIG5vdCBzcGVjaWZpZWQgYnkgdGhlIHVzZXIsIHRoZSBkZWZhdWx0IG9wdGlvbiBpcyB0byBwZXJmb3JtIGNsYXNzaWZpY2F0aW9uXG4gICAgZWxzZXtcbiAgICAgIGZpcnN0LnRyZWUgPC1cbiAgICAgICAgcnBhcnQoXG4gICAgICAgICAgcmVsYXRpb25fc3Vic2V0LFxuICAgICAgICAgIGRhdGEgPSB0cmFpbixcbiAgICAgICAgICBjb250cm9sID0gY29udHJvLFxuICAgICAgICAgIG1ldGhvZCA9ICdjbGFzcydcbiAgICAgICAgKVxuICAgICAgc2Vjb25kLnRyZWUgPC0gcnBhcnQocmVsYXRpb25fYWxsLCBkYXRhID0gdHJhaW4sIG1ldGhvZCA9ICdjbGFzcycpXG4gICAgICBwcmVkMS50cmVlIDwtIHByZWRpY3QoZmlyc3QudHJlZSwgbmV3ZGF0YSA9IHRlc3RpbmcsIHR5cGUgPSAnY2xhc3MnKVxuICAgICAgcHJlZDIudHJlZSA8LVxuICAgICAgICBwcmVkaWN0KHNlY29uZC50cmVlLCBuZXdkYXRhID0gdGVzdGluZywgdHlwZSA9ICdjbGFzcycpXG4gICAgICBtZWFuMSA8LVxuICAgICAgICBtZWFuKGFzLmNoYXJhY3RlcihwcmVkMS50cmVlKSA9PSBhcy5jaGFyYWN0ZXIodGVzdGluZ1ssIGRlcF0pKVxuICAgICAgbWVhbjIgPC1cbiAgICAgICAgbWVhbihhcy5jaGFyYWN0ZXIocHJlZDIudHJlZSkgPT0gYXMuY2hhcmFjdGVyKHRlc3RpbmdbLCBkZXBdKSlcbiAgICAgIG1lYW5fc3Vic2V0IDwtIGMobWVhbl9zdWJzZXQsIG1lYW4xKVxuICAgICAgbWVhbl9hbGwgPC0gYyhtZWFuX2FsbCwgbWVhbjIpXG4gICAgfVxuICB9XG5cbiAgIyBhdmVyYWdlX2FjY3VyYWN5X3N1YnNldCBpcyB0aGUgYXZlcmFnZSBhY2N1cmFjeSBvZiBuX2l0ZXIgaXRlcmF0aW9ucyBvZiBjcm9zcy12YWxpZGF0aW9uIHdpdGggdXNlci1zcGVjaWZpZWQgZmVhdHVyZXNcbiAgIyBhdmVyYWdlX2FjdXJhY3lfYWxsIGlzIHRoZSBhdmVyYWdlIGFjY3VyYWN5IG9mIG5faXRlciBpdGVyYXRpb25zIG9mIGNyb3NzLXZhbGlkYXRpb24gd2l0aCBhbGwgdGhlIGF2YWlsYWJsZSBmZWF0dXJlc1xuICAjIHZhcmlhbmNlX2FjY3VyYWN5X3N1YnNldCBpcyB0aGUgdmFyaWFuY2Ugb2YgYWNjdXJhY3kgb2Ygbl9pdGVyIGl0ZXJhdGlvbnMgb2YgY3Jvc3MtdmFsaWRhdGlvbiB3aXRoIHVzZXItc3BlY2lmaWVkIGZlYXR1cmVzXG4gICMgdmFyaWFuY2VfYWNjdXJhY3lfYWxsIGlzIHRoZSB2YXJpYW5jZSBvZiBhY2N1cmFjeSBvZiBuX2l0ZXIgaXRlcmF0aW9ucyBvZiBjcm9zcy12YWxpZGF0aW9uIHdpdGggYWxsIHRoZSBhdmFpbGFibGUgZmVhdHVyZXNcbiAgY3Jvc3NfdmFsaWRhdGlvbl9zdGF0cyA8LVxuICAgIGxpc3QoXG4gICAgICBcImF2ZXJhZ2VfYWNjdXJhY3lfc3Vic2V0XCIgPSBtZWFuKG1lYW5fc3Vic2V0LCBuYS5ybSA9IFQpLFxuICAgICAgXCJhdmVyYWdlX2FjY3VyYWN5X2FsbFwiID0gbWVhbihtZWFuX2FsbCwgbmEucm0gPSBUKSxcbiAgICAgIFwidmFyaWFuY2VfYWNjdXJhY3lfc3Vic2V0XCIgPSB2YXIobWVhbl9zdWJzZXQsIG5hLnJtID0gVCksXG4gICAgICBcInZhcmlhbmNlX2FjY3VyYWN5X2FsbFwiID0gdmFyKG1lYW5fYWxsLCBuYS5ybSA9IFQpXG4gICAgKVxuXG4gICMgY3JlYXRpbmcgYSBkYXRhIGZyYW1lIG9mIGFjY3VyYWN5X3N1YnNldCBhbmQgYWNjdXJhY3lfYWxsXG4gICMgYWNjdXJhY3lfc3Vic2V0IGNvbnRhaW5zIG5faXRlciBhY2N1cmFjeSB2YWx1ZXMgb24gY3Jvc3MtdmFsaWRhdGlvbiB3aXRoIHVzZXItc3BlY2lmaWVkIGZlYXR1cmVzXG4gICMgYWNjdXJhY3lfYWxsIGNvbnRhaW5zIG5faXRlciBhY2N1cmFjeSB2YWx1ZXMgb24gY3Jvc3MtdmFsaWRhdGlvbiB3aXRoIGFsbCB0aGUgYXZhaWxhYmxlIGZlYXR1cmVzXG4gIGNyb3NzX3ZhbGlkYXRpb25fZGYgPC1cbiAgICBkYXRhLmZyYW1lKGFjY3VyYWN5X3N1YnNldCA9IG1lYW5fc3Vic2V0LCBhY2N1cmFjeV9hbGwgPSBtZWFuX2FsbClcbiAgcmV0dXJuKGxpc3QoY3Jvc3NfdmFsaWRhdGlvbl9kZiwgY3Jvc3NfdmFsaWRhdGlvbl9zdGF0cykpXG59Iiwic2FtcGxlIjoiIyBGaXJzdCBsZXRzIGltcG9ydCB0aGUgcnBhcnQgbGlicmFyeVxubGlicmFyeShycGFydClcbiMgSW1wb3J0IGRhdGFzZXRcbm1vb2R5PC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIyX25ldy5jc3YnLHN0cmluZ3NBc0ZhY3RvcnMgPSBUKVxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MsIGRhdGEgPSBtb29keSxtZXRob2QgPSBcImNsYXNzXCIsY29udHJvbCA9IHJwYXJ0LmNvbnRyb2wobWluc3BsaXQgPSAxMDApKVxudHJlZVxuIyBOb3cgbGV0cyBwcmVkaWN0IHRoZSBHcmFkZXMgb2YgdGhlIE1vb2R5IERhdGFzZXQuXG5wcmVkIDwtIHByZWRpY3QodHJlZSwgbW9vZHksIHR5cGU9XCJjbGFzc1wiKVxuaGVhZChwcmVkKVxuIyBMZXRzIGNoZWNrIHRoZSBUcmFpbmluZyBBY2N1cmFjeVxubWVhbihtb29keSRHUkFERT09cHJlZClcbiMgTGV0cyB1cyB0aGUgY3Jvc3NfdmFsaWRhdGUoKSBmdW5jdGlvbi5cbmNyb3NzX3ZhbGlkYXRlKG1vb2R5LHRyZWUsNSwwLjcpIn0=
 </div>
 <p>You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 84%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn’t make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.</p>
 </div>
 </div>
-<div id="snippet-11-freestyle-rpart-combining-rpart-prediction-models" class="section level2 hasAnchor" number="16.6">
-<h2><span class="header-section-number">16.6</span> Snippet 11: Freestyle + rpart: Combining rpart prediction models<a href="prpart.html#snippet-11-freestyle-rpart-combining-rpart-prediction-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-10-freestyle-rpart-combining-rpart-prediction-models" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Snippet 10: Freestyle + rpart: Combining rpart prediction models<a href="prpart.html#snippet-10-freestyle-rpart-combining-rpart-prediction-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxuIyBJbXBvcnQgZGF0YXNldFxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5tb2RlbDE8LXJwYXJ0KEdSQURFfi4sIGRhdGE9bW9vZHlbbW9vZHkkU0NPUkU+NTAsXSk7XG5tb2RlbDI8LXJwYXJ0KEdSQURFfi4sIGRhdGE9bW9vZHlbbW9vZHkkU0NPUkU8PTUwLF0pO1xubW9kZWwxXG5tb2RlbDJcbnByZWQxIDwtIHByZWRpY3QobW9kZWwxLCBuZXdkYXRhPW1vb2R5W21vb2R5JFNDT1JFPjUwLF0sIHR5cGU9XCJjbGFzc1wiKVxucHJlZDIgPC0gcHJlZGljdChtb2RlbDIsIG5ld2RhdGE9bW9vZHlbbW9vZHkkU0NPUkU8PTUwLF0sIHR5cGU9XCJjbGFzc1wiKVxubXlwcmVkaWN0aW9uPC1tb29keVxuZGVjaXNpb24gPC0gcmVwKCdGJyxucm93KG15cHJlZGljdGlvbikpXG5kZWNpc2lvbltteXByZWRpY3Rpb24kU0NPUkU+NTBdIDwtIGFzLmNoYXJhY3RlcihwcmVkMSlcbmRlY2lzaW9uW215cHJlZGljdGlvbiRTQ09SRTw9NTBdIDwtYXMuY2hhcmFjdGVyKHByZWQyKVxubXlwcmVkaWN0aW9uJEdSQURFIDwtZGVjaXNpb25cbmVycm9yIDwtIG1lYW4obW9vZHkkR1JBREUhPSBteXByZWRpY3Rpb24kR1JBREUpXG5lcnJvciJ9
+</div>
+</div>
+<div id="rpartpredict" class="section level2 hasAnchor" number="16.6">
+<h2><span class="header-section-number">16.6</span> Prediction using rpart.<a href="prpart.html#rpartpredict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have seen the process to create a decision tree and also plot it, we will like to use the output tree to predict the required attribute.</p>
+<p>From the moody example, we are trying to predict the grade of students. Lets look at the <code>predict()</code> function to predict the outcomes.</p>
+<ul>
+<li><code>predict(*object*,*data*,*type*,...)</code>
+<ul>
+<li><em>object</em>: the generated tree from the rpart function.</li>
+<li><em>data</em>: the data on which the prediction is to be performed.</li>
+<li><em>type</em>: the type of prediction required. One of “vector”, “prob”, “class” or “matrix”.</li>
+</ul></li>
+</ul>
+<p>Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.</p>
+<div id="snippet-11" class="section level3 hasAnchor" number="16.6.1">
+<h3><span class="header-section-number">16.6.1</span> Snippet 11<a href="prpart.html#snippet-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG50cmVlIDwtIHJwYXJ0KEdSQURFIH4gU0NPUkUrRE9aRVNfT0ZGK1RFWFRJTkdfSU5fQ0xBU1MrUEFSVElDSVBBVElPTiwgZGF0YSA9IG1vb2R5ICxtZXRob2QgPSBcImNsYXNzXCIpXG50cmVlXG5cbiMgTm93IGxldHMgcHJlZGljdCB0aGUgR3JhZGVzIG9mIHRoZSBNb29keSBEYXRhc2V0LlxucHJlZCA8LSBwcmVkaWN0KHRyZWUsIG1vb2R5LCB0eXBlPVwiY2xhc3NcIilcbmhlYWQocHJlZCkifQ==
+</div>
 </div>
 </div>
 <div id="snippet-12-your-model-with-rpart" class="section level2 hasAnchor" number="16.7">

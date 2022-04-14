@@ -141,11 +141,11 @@ snippet-5-minbucket-100
 snippet-6-minbucket-200
 snippet-7-cp-0.05
 snippet-8-cp-0.005
-rpartpredict
-snippet-9
 crossvalidation
-snippet-10
-snippet-11-freestyle-rpart-combining-rpart-prediction-models
+snippet-9
+snippet-10-freestyle-rpart-combining-rpart-prediction-models
+rpartpredict
+snippet-11
 snippet-12-your-model-with-rpart
 snippet-13-submission-with-rpart
 lr
