@@ -507,6 +507,6 @@ prediction <- predict(tree, test, type="class")
 
 #Now make your submission file - it will have the IDs and now the predicted grades
 submission$Grade<-prediction 
-submission
+
 # use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
 ```
