@@ -493,3 +493,22 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 #error <- mean(moody$GRADE!= myprediction$GRADE
 #error
 ```
+
+## Snippet 13: Submission with rpart
+
+```{r,tut=TRUE,height=600}
+library(rpart)
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testSNoGrade.csv')
+submission<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submission.csv')
+train <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv")
+
+tree <- rpart(Grade ~ Major+Score+Seniority, data = train, method = "class",control=rpart.control(minbucket = 200))
+tree
+
+prediction <- predict(tree, test, type="class")
+
+#Now make your submission file - it will have the IDs and now the predicted grades
+submission$Grade<-prediction 
+submission
+# use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
+```
