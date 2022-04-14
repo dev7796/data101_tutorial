@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 6 🔖 Free Style: Data Exploration | bookdemo.knit</title>
+  <title>Lecture: 4 🔖 Plots | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 6 🔖 Free Style: Data Exploration | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 4 🔖 Plots | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 6 🔖 Free Style: Data Exploration | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 4 🔖 Plots | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-transformation.html"/>
-<link rel="next" href="ztest.html"/>
+<link rel="prev" href="setting-up-r.html"/>
+<link rel="next" href="data-transformation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.15.3/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.15.3/css/v4-shims.min.css" rel="stylesheet" />
 
 
 
@@ -254,17 +256,15 @@
 <li class="chapter" data-level="16.3.5" data-path="prpart.html"><a href="prpart.html#snippet-7-cp-0.05"><i class="fa fa-check"></i><b>16.3.5</b> Snippet 7: cp = 0.05<span></span></a></li>
 <li class="chapter" data-level="16.3.6" data-path="prpart.html"><a href="prpart.html#snippet-8-cp-0.005"><i class="fa fa-check"></i><b>16.3.6</b> Snippet 8: cp = 0.005<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.4</b> Cross Validation<span></span></a>
+<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.4</b> Prediction using rpart.<span></span></a>
 <ul>
 <li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-9"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 9<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.5</b> Prediction using rpart.<span></span></a>
+<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.5</b> Cross Validation<span></span></a>
 <ul>
 <li class="chapter" data-level="16.5.1" data-path="prpart.html"><a href="prpart.html#snippet-10"><i class="fa fa-check"></i><b>16.5.1</b> Snippet 10<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#snippet-11-your-model-with-rpart"><i class="fa fa-check"></i><b>16.6</b> Snippet 11: Your Model with rpart<span></span></a></li>
-<li class="chapter" data-level="16.7" data-path="prpart.html"><a href="prpart.html#snippet-12-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.7</b> Snippet 12: Freestyle + rpart: Combining rpart prediction models<span></span></a></li>
-<li class="chapter" data-level="16.8" data-path="prpart.html"><a href="prpart.html#snippet-13-submission-with-rpart"><i class="fa fa-check"></i><b>16.8</b> Snippet 13: Submission with rpart<span></span></a></li>
+<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#snippet-11-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.6</b> Snippet 11: Freestyle + rpart: Combining rpart prediction models<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression<span></span></a>
 <ul>
@@ -291,48 +291,169 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="free-style-data-exploration" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture: 6</span> 🔖 Free Style: Data Exploration<a href="free-style-data-exploration.html#free-style-data-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="plots" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Lecture: 4</span> 🔖 Plots<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#freestyle12">Data Exploration</button>
-<div id="freestyle12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1wvWxu_DEEoYNq0qKEkepbqu2-x0SGsXGQiE2iWbv2Iw/edit?usp=sharing" width="100%" height="500px">
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
+<div id="plots12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px">
 </embed>
-</div></li>
+</div>
+<!--
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
+<div id="plots11" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
+</div> --></li>
 </ul>
-<div id="moody-data-puzzle" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Moody Data Puzzle<a href="free-style-data-exploration.html#moody-data-puzzle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vector" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Vector<a href="plots.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<ul>
+<li>A vector is simply a list of items that are of the same type.</li>
+</ul>
+<!-- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
+- All of the items inside a vector to are of the same type like numerical or categorical. -->
+<div id="snippet-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Snippet 1<a href="plots.html#snippet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lets look at example of creating a vector:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgMyB2ZWN0b3JzIHdpdGggdGl0bGUsIGF1dGhvciBhbmQgeWVhci5cbmNvbG9yIDwtIGMoJ1JlZCcsJ0JsdWUnLCdZZWxsb3cnLCdHcmVlbicpXG5cbiNMZXRzIGxvb2sgYXQgaG93IHRoZSBjcmVhdGVkIHZlY3RvcnMgbG9vay5cbmNvbG9yIn0=
+</div>
+</div>
+<div id="snippet-2" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Snippet 2<a href="plots.html#snippet-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a vector with numerical values in a sequence, use the <strong>:</strong> operator:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggbnVtZXJpY2FsIHNlcXVlbmNlLlxueWVhciA8LSAyMDE4OjIwMjJcblxuI0xldHMgbG9vayBhdCBob3cgdGhlIGNyZWF0ZWQgdmVjdG9ycyBsb29rLlxueWVhciJ9
+</div>
+<!--
+<br />
+
+- To find out how many items a vector has, use the **length()** function:
+
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggY2F0ZWdvcmljYWwgdmFsdWVzXG5hdXRob3IgPC0gYygnRm9yZW1hbicsICdKb2huJywgJ1NhaWQnKVxuXG4jIFlvdSBjYW4gYWNjZXNzIHRoZSB2ZWN0b3IgaXRlbXMgYnkgcmVmZXJyaW5nIHRvIGl0cyBpbmRleCBudW1iZXIgaW5zaWRlIGJyYWNrZXRzIFtdLiBUaGUgZmlyc3QgaXRlbSBoYXMgaW5kZXggMSwgdGhlIHNlY29uZCBpdGVtIGhhcyBpbmRleCAyLCBhbmQgc28gb246XG5hdXRob3JbMV1cblxuI0xldHMgbG9vayBhdCB0aGUgc2l6ZSBvZiBhIHZlY3RvcnMuXG5sZW5ndGgoYXV0aG9yKSJ9</div>
+
+<br />
+
+- To sort items in a vector alphabetically or numerically, use the **sort()** function and to change the value of a specific item, refer to the **index number**:
+
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjTGV0cyBjcmVhdGUgYSB2ZWN0b3JzIHdpdGggY2F0ZWdvcmljYWwgdmFsdWVzXG50aXRsZSA8LSBjKCdEYXRhIFNtYXJ0JywnT3JpZW50YWxpc20nLCdGYWxzZSBJbXByZXNzaW9ucycsJ01ha2luZyBTb2Z0d2FyZScpXG5cbiNzb3J0aW5nIHRpdGxlc1xuc29ydCh0aXRsZSlcblxuIyBjaGFuZ2UgdGhlIHRpdGxlICdEYXRhIFNtYXJ0JyB0byAnU21hcnQgRGF0YSdcbnRpdGxlWzFdIDwtIFwiU21hcnQgRGF0YVwiXG5cbiNMZXRzIGxvb2sgYXQgaG93IHRoZSB1cGRhdGVkIHZlY3RvcnMgbG9vay5cbnRpdGxlICJ9</div>
+
+-->
+<hr />
+</div>
+</div>
+<div id="data-frames" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Data Frames<a href="plots.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<ul>
+<li>Data Frames are data displayed in a format as a table.
+<!--
+- Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
+
+- Following are the characteristics of a data frame.
+  - The column names should be non-empty.
+  - The row names should be unique.
+  - The data stored in a data frame can be of numeric, factor or character type.
+  - Each column should contain same number of data items.
+
+Use the **data.frame()** function to create a data frame:--></li>
+</ul>
+<div id="snippet-1-1" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Snippet 1<a href="plots.html#snippet-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Populating the dataframe:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgTm93IGxldHMgdmlldyB0aGUgZGF0YWZyYW1lIG1vb2R5IHdpdGgganVzdCA1LTYgdHVwbGVzXG5oZWFkKG1vb2R5KSJ9
+</div>
+</div>
+<div id="snippet-2-1" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Snippet 2<a href="plots.html#snippet-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Get the summary of the dataframe:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgVXNlIHRoZSBzdW1tYXJ5KCkgZnVuY3Rpb24gdG8gc3VtbWFyaXplIHRoZSBkYXRhIGZyb20gYSBEYXRhIEZyYW1lOlxuc3VtbWFyeShtb29keSkifQ==
+</div>
+<!--
+- Just like vectors, you can access specific data **(Slicing)** in dataframes using brackets. 
+- But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. -->
+</div>
+<div id="snippet-3" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Snippet 3<a href="plots.html#snippet-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use the notation <strong>data[rows, columns]</strong>, which selects the subsets of rows and columns:</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRhdGFzZXQgaW50byB0aGUgbW9vZHkgdmFyaWFibGVcbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbiMgUmV0dXJuIHJvdyAxXG5tb29keVsxLCBdXG5cbiMgUmV0dXJuIGNvbHVtbiA1XG5tb29keVssIDVdXG5cbiMgUm93cyAxOjUgYW5kIGNvbHVtbiAyXG5tb29keVsxOjUsIDJdXG5cbiMgR2l2ZSBtZSByb3dzIDEtMyBhbmQgY29sdW1ucyAyIGFuZCA0IG9mIG1vb2R5XG5tb29keVsxOjMsIGMoMjo0KV0ifQ==
+</div>
+<hr />
+</div>
+</div>
+<div id="table" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Table<a href="plots.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<ul>
+<li><strong>table()</strong> displays frequency distribution of its arguments.</li>
+</ul>
+<!--
+- Tables (i.e. frequency distribution table) can be created using **table()** along with some of its variations. 
+- To use **table()**, simply add in the variables you want to tabulate separated by a comma. 
+- You must reference the variable using **dataset$variable**. 
+- By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. -->
+<div id="snippet-1-2" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Snippet 1<a href="plots.html#snippet-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The below examples show how to use this function:</p>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuZ3JhZGVzIDwtIHRhYmxlKG1vb2R5JGdyYWRlKVxuXG4jbGV0cyBzZWUgdGhlIGFib3ZlIGZyZXF1ZW5jeSBkaXN0cmJ1dGVkIHRhYmxlc1xuZ3JhZGVzIn0=
+</div>
+</div>
+<div id="code-review" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Code Review<a href="plots.html#code-review" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-would-r-say" class="section level4 hasAnchor" number="4.3.2.1">
+<h4><span class="header-section-number">4.3.2.1</span> What would R say?<a href="plots.html#what-would-r-say" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbnRhYmxlKG1vb2R5W21vb2R5JHF1ZXN0aW9ucyE9J2Fsd2F5cycsXSRncmFkZSlcbiNXaGF0IHdpbGwgUiBzYXk/XG5cbiMgQS4gZXJyb3JcbiMgQi4gZGlzdHJpYnV0aW9uIG9mIGdyYWRlcyBmb3Igc3R1ZGVudHMgd2hvIGFsd2F5cyBhc2sgcXVlc3Rpb25zXG4jIEMuIGRpc3RyaWJ1dGlvbiBvZiBncmFkZXMgZm9yIHN0dWRlbnRzIHdobyBkbyBub3QgYWx3YXlzIGFzayBxdWVzdGlvbnMgIn0=
+</div>
+</div>
+<div id="what-would-r-say-1" class="section level4 hasAnchor" number="4.3.2.2">
+<h4><span class="header-section-number">4.3.2.2</span> What would R say?<a href="plots.html#what-would-r-say-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMGIuY3N2XCIpXG5cbnRhYmxlKG1vb2R5W21vb2R5JHF1ZXN0aW9ucz09KCdhbHdheXMnLCduZXZlcicpLF0kZ3JhZGUpXG4jV2hhdCB3aWxsIFIgc2F5P1xuXG4jIEEuIGVycm9yLlxuIyBCLiBkaXN0cmlidXRpb24gb2YgZ3JhZGVzIGZvciBzdHVkZW50cyB3aG8gYWx3YXlzIG9yIG5ldmVyIGFzayBxdWVzdGlvbnMuICBcbiMgQy4gZGlzdHJpYnV0aW9uIG9mIGdyYWRlcyBmb3Igc3R1ZGVudHMgd2hvIGRvIG5vdCBhc2sgcXVlc3Rpb25zIGFsd2F5cyBvciBuZXZlci4gIn0=
+</div>
+<p><br /></p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-63">Table 6.1: </span>Snippet of Moody Dataset
+<span id="tab:unnamed-chunk-34">Table 4.1: </span>Snippet of Moody Dataset
 </caption>
 <thead>
 <tr>
 <th style="text-align:right;">
-SCORE
+score
 </th>
 <th style="text-align:left;">
-GRADE
+grade
 </th>
 <th style="text-align:left;">
-DOZES_OFF
+texting
 </th>
 <th style="text-align:left;">
-TEXTING_IN_CLASS
+questions
 </th>
 <th style="text-align:right;">
-PARTICIPATION
+participation
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;">
-21.33
+26.89
 </td>
 <td style="text-align:left;">
 F
@@ -344,7 +465,7 @@ never
 never
 </td>
 <td style="text-align:right;">
-0.29
+0.41
 </td>
 </tr>
 <tr>
@@ -352,7 +473,7 @@ never
 71.57
 </td>
 <td style="text-align:left;">
-C
+B
 </td>
 <td style="text-align:left;">
 always
@@ -361,7 +482,7 @@ always
 rarely
 </td>
 <td style="text-align:right;">
-0.11
+0.00
 </td>
 </tr>
 <tr>
@@ -378,7 +499,7 @@ always
 never
 </td>
 <td style="text-align:right;">
-0.26
+0.27
 </td>
 </tr>
 <tr>
@@ -395,7 +516,7 @@ sometimes
 rarely
 </td>
 <td style="text-align:right;">
-0.03
+0.68
 </td>
 </tr>
 <tr>
@@ -412,316 +533,107 @@ always
 rarely
 </td>
 <td style="text-align:right;">
-0.21
+0.09
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><br>
-Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.</p>
-<p><strong>Puzzle description:</strong></p>
-<p>Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint: he DOES NOT seem to assign grades fairly. Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.</p>
-<p>A new brave TA, managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by ….messing a bit with Moody’s computer….well, let’s not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.</p>
-<p>Looks like Professor Moody is in fact very alert in class. He is aware of what students do, detecting texting during class and remembering exactly who was dozed off in class. He also keeps the mysterious “participation index” which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class. Remarkable but a little creepy, isn’t it?</p>
-<p>What is the best advice the new TA, can give future students how to get a good grade in Professor Moody’s class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.</p>
-<p><strong>What are examples of patterns we are looking for here?</strong></p>
-<p>Here are some:</p>
+<!-- --- -->
+<!-- ### Topics visited in this sub-chapter -->
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+<hr />
+</div>
+</div>
+</div>
+<div id="scartterplot" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Scatter Plot<a href="plots.html#scartterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>“Students who text a lot” have lower chance to get an A in the class”</li>
-<li>“Students whose participation is lower than 0.25 fail the class more often”</li>
-<li>“Dozing off does not matter if your score is more than 90, you still get an A”</li>
-<li>“If you score is less than 30, you fail the class regardless of what your other attributes are”</li>
+<li>Scatter Plot are used to plot two numerical variables.</li>
+<li>Hence it is used when both the labels are numerical values.</li>
 </ul>
-<div id="moody-data-puzzle---pattern-i-injected" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Moody Data Puzzle - Pattern I Injected<a href="free-style-data-exploration.html#moody-data-puzzle---pattern-i-injected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">
-My Patterns
-</button>
-<div id="MDP12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px">
-</embed>
+<p>Lets look at example of scatter plot using Moody.</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbnBsb3QobW9vZHkkcGFydGljaXBhdGlvbixtb29keSRzY29yZSx5bGFiPVwic2NvcmVcIix4bGFiPVwicGFydGljaXBhdGlvblwiLG1haW49XCIgUGFydGljaXBhdGlvbiB2cyBTY29yZVwiLGNvbD1cInJlZFwiKSJ9
 </div>
-<p><br>
-Many student solutions falsely attribute higher grades to higher values of participation attribute..</p>
-<p>This is a classic example of a hidden variable described in the reference attached below.</p>
-<p>The truth is that participation attribute value impacts the score attribute value. Generally, the higher the participation in Moody’s class, the higher the score. But it is the score attribute which has a direct impact on the grade. Thus, it is the score which is the real “hidden variable” impacting the final grade.</p>
-<p>Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above with the explanation)</p>
-<p>Compare with examples of hidden variables in the following reference about correlation and causation.</p>
-<p><a href="https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html" class="uri">https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html</a></p>
+<hr />
 </div>
-<div id="best-students-submissions-2022" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Best Student’s Submissions 2022<a href="free-style-data-exploration.html#best-students-submissions-2022" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">
-Lauretta Martin
-</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2020">
-Sanjaya Budhathoki
-</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2019">
-Sandhya Senthilkumar
-</button>
-<div id="PPT2021" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/LM-HW3.pdf&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
-<div id="PPT2020" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/SB-HW3.pdf&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
-<div id="PPT2019" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
+<div id="barplot" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Bar Plot<a href="plots.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A bar plot are used to plot a categorical variable.</li>
+<li>This rectangle height is proportional to the value of the variable in the vector.
 <!--
-#### Snippet 1
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
-
-#### Snippet 2
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
-
-#### Snippet 3
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
-
-#### Snippet 4
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
-
-#### Snippet 5
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSJ9</div>
--->
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar. --></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuXG50PC10YWJsZShtb29keSRncmFkZSlcblxuI29uY2Ugd2UgaGF2ZSB0aGUgdGFibGUgbGV0cyBjcmVhdGUgYSBiYXJwbG90IGZvciBpdC5cblxuYmFycGxvdCh0LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJOdW1iZXIgb2YgU3R1ZGVudHNcIixjb2w9Y29sb3JzLCBcbiAgICAgICAgbWFpbj1cIkJhcnBsb3QgZm9yIHN0dWRlbnQgZ3JhZGUgZGlzdHJpYnV0aW9uXCIsYm9yZGVyPVwiYmxhY2tcIikifQ==
+</div>
+<hr />
+</div>
+<div id="boxplot" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Box Plot<a href="plots.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A boxplot is used to display a numerical variable.</li>
+<li>A boxplot shows the distribution of data in a dataset.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/boxplot1.png" alt="Boxplot" />
+<br /></p>
+<ul>
+<li>A boxplot shows the following things:
+<ul>
+<li>Minimum</li>
+<li>Maximum</li>
+<li>Median</li>
+<li>First quartile</li>
+<li>Third quartile</li>
+<li>Outliers</li>
+</ul></li>
+</ul>
 <!--
-#### Snippet 1
-
-Lets look at the general distribution of Grades and scores
-
-<div data-datacamp-exercise data-height="400" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jQmFycGxvdCBHZW5lcmFsIEdyYWRlIGRpc3RyaWJ1dGlvblxuY29sb3JzPC0gYygncmVkJywnYmx1ZScsJ2N5YW4nLCd5ZWxsb3cnLCdncmVlbicsICdvcmFuZ2UnKVxuYmFycGxvdCh0YWJsZShtb29keTIwMjIkR1JBREUpLCBjb2wgPSBjb2xvcnMsIG1haW4gPSAnR2VuZXJhbCBHcmFkZSBEaXN0cmlidXRpb24nLFxuICAgICAgICB5bGFiID0gJ051bWJlciBvZiBzdHVkZW50cycsIHhsYWIgPSAnTGV0dGVyIEdyYWRlJylcblxuI0JveHBsb3QgZ3JhZGUgZGlzdHJpYnV0aW9uIGJ5IHNjb3JlXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5ib3hwbG90KFNDT1JFfkdSQURFLCBkYXRhPW1vb2R5MjAyMiwgeGxhYiA9IFwiTGV0dGVyIEdyYWRlXCIsIHlsYWI9XCJTY29yZVwiLCBcbiAgICAgICAgbWFpbj1cIkRpc3RyaWJ1dGlvbiBvZiBTY29yZXMgYnkgR3JhZGVcIiwgY29sID0gY29sb3JzLCBib3JkZXIgPSBcImJsYWNrXCIpIn0=</div>
-
-#### Snippet 2
-
-Does Texting affect grades?
-
-<div data-datacamp-exercise data-height="600" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBhbHdheXMgVEVYVElOR19JTl9DTEFTU1xuYWx3YXlzVGV4dGluZyA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJFRFWFRJTkdfSU5fQ0xBU1MgPT0gJ2Fsd2F5cycpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKGFsd2F5c1RleHRpbmckR1JBREUpLCBjb2wgPSBjb2xvcnMsIFxuICAgICAgICBtYWluID0gJ0dyYWRlIERpc3RyaWJ1dGlvbiBmb3Igc3R1ZGVudCBhbHdheXMgdGV4dGluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBzb21ldGltZXMgVEVYVElOR19JTl9DTEFTU1xuc29tZXRpbWVzVGV4dGluZyA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJFRFWFRJTkdfSU5fQ0xBU1MgPT0gJ3NvbWV0aW1lcycpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKHNvbWV0aW1lc1RleHRpbmckR1JBREUpLCBjb2wgPSBjb2xvcnMsIFxuICAgICAgICBtYWluID0gJ0dyYWRlIERpc3RyaWJ1dGlvbiBmb3Igc3R1ZGVudCBzb21ldGltZXMgdGV4dGluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSByYXJlbHkgVEVYVElOR19JTl9DTEFTU1xucmFyZWx5VGV4dGluZyA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJFRFWFRJTkdfSU5fQ0xBU1MgPT0gJ3JhcmVseScpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKHJhcmVseVRleHRpbmckR1JBREUpLCBjb2wgPSBjb2xvcnMsIFxuICAgICAgICBtYWluID0gJ0dyYWRlIERpc3RyaWJ1dGlvbiBmb3Igc3R1ZGVudCByYXJlbHkgdGV4dGluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBuZXZlciBURVhUSU5HX0lOX0NMQVNTXG5uZXZlclRleHRpbmcgPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRURVhUSU5HX0lOX0NMQVNTID09ICduZXZlcicpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKG5ldmVyVGV4dGluZyRHUkFERSksIGNvbCA9IGNvbG9ycywgXG4gICAgICAgIG1haW4gPSAnR3JhZGUgRGlzdHJpYnV0aW9uIGZvciBzdHVkZW50IG5ldmVyIHRleHRpbmcnLCB4bGFiID0gJ2xldHRlciBHcmFkZScsXG4gICAgICAgIHlsYWIgPSAnTnVtYmVyIG9mIFN0dWRlbnRzJykifQ==</div>
-
-#### Snippet 3
-
-Does Dozing off affect grades?
-
-<div data-datacamp-exercise data-height="600" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBhbHdheXMgRG96aW5nX29mZlxuYWx3YXlzRG96ZXMgPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRET1pFU19PRkYgPT0gJ2Fsd2F5cycpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKGFsd2F5c0RvemVzJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgYWx3YXlzIERvemluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSByYXJlbHkgRG96aW5nX29mZlxucmFyZWx5RG96ZXMgPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRET1pFU19PRkYgPT0gJ3JhcmVseScpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKHJhcmVseURvemVzJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgcmFyZWx5IERvemluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBzb21ldGltZXMgRG96aW5nX29mZlxuc29tZXRpbWVzRG96ZXMgPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRET1pFU19PRkYgPT0gJ3NvbWV0aW1lcycpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKHNvbWV0aW1lc0RvemVzJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgc29tZXRpbWVzIERvemluZycsIHhsYWIgPSAnbGV0dGVyIEdyYWRlJyxcbiAgICAgICAgeWxhYiA9ICdOdW1iZXIgb2YgU3R1ZGVudHMnKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSBuZXZlcnMgRG96aW5nX29mZlxubmV2ZXJEb3plcyA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJERPWkVTX09GRiA9PSAnbmV2ZXInKSwgXVxuY29sb3JzPC0gYygncmVkJywnYmx1ZScsJ2N5YW4nLCd5ZWxsb3cnLCdncmVlbicsICdvcmFuZ2UnKVxuYmFycGxvdCh0YWJsZShuZXZlckRvemVzJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgbmV2ZXIgRG96aW5nJywgeGxhYiA9ICdsZXR0ZXIgR3JhZGUnLFxuICAgICAgICB5bGFiID0gJ051bWJlciBvZiBTdHVkZW50cycpIn0=</div>
-
-#### Snippet 4
-
-Does Particiaption affect grades?
-
-<div data-datacamp-exercise data-height="500" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTIwMjIgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jYmFycGxvdCB1c2luZyB2YXJpYmFsZSAwLTAuNSBQYXJ0aWNpcGF0aW9uXG5sZXNzUGFydGljaXBhdGlvbiA8LSBtb29keTIwMjJbd2hpY2gobW9vZHkyMDIyJFBBUlRJQ0lQQVRJT04gPj0gMCAmIG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OIDwgMC41KSwgXVxuY29sb3JzPC0gYygncmVkJywnYmx1ZScsJ2N5YW4nLCd5ZWxsb3cnLCdncmVlbicsICdvcmFuZ2UnKVxuYmFycGxvdCh0YWJsZShsZXNzUGFydGljaXBhdGlvbiRHUkFERSksIGNvbCA9IGNvbG9ycywgXG4gICAgICAgIG1haW4gPSAnR3JhZGUgRGlzdHJpYnV0aW9uIGZvciBzdHVkZW50IHdpdGggbG93IFBhcnRpY2lwYXRpb24nLCB4bGFiID0gJ0xldHRlciBHcmFkZScsXG4gICAgICAgIHlsYWIgPSAnTnVtYmVyIG9mIFN0dWRlbnRzJylcblxuI2JhcnBsb3QgdXNpbmcgdmFyaWJhbGUgMC41LTEgUGFydGljaXBhdGlvblxuaGlnaFBhcnRpY2lwYXRpb24gPC0gbW9vZHkyMDIyW3doaWNoKG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OID49IDAuNSAmIG1vb2R5MjAyMiRQQVJUSUNJUEFUSU9OIDw9IDEpLCBdXG5jb2xvcnM8LSBjKCdyZWQnLCdibHVlJywnY3lhbicsJ3llbGxvdycsJ2dyZWVuJywgJ29yYW5nZScpXG5iYXJwbG90KHRhYmxlKGhpZ2hQYXJ0aWNpcGF0aW9uJEdSQURFKSwgY29sID0gY29sb3JzLCBcbiAgICAgICAgbWFpbiA9ICdHcmFkZSBEaXN0cmlidXRpb24gZm9yIHN0dWRlbnQgd2l0aCBoaWdoIFBhcnRpY2lwYXRpb24nLCB4bGFiID0gJ0xldHRlciBHcmFkZScsXG4gICAgICAgIHlsYWIgPSAnTnVtYmVyIG9mIFN0dWRlbnRzJykifQ==</div>
--->
+- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
+- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.-->
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
+</div>
+<!-- ## 4. Histogram -->
+<!-- Refer Slide 15. -->
+<!-- ```{r} -->
+<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
+<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
+<!-- # You can Change column range using breaks. -->
+<!-- ``` -->
+<!-- For more detail,reference and example refer Slides -->
+<hr />
+</div>
+<div id="mosaicplot" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Mosaic Plot<a href="plots.html#mosaicplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Mosaic plot is used to visualize two categorical variables.</li>
+</ul>
 <!--
-#### Snippet 1
-
-Does participation affect grade or score?
-
-<div data-datacamp-exercise data-height="400" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2XCIpXG5cbmJhcnBsb3QodGFibGUobW9vZHkkR1JBREUpLCBjb2w9cmFpbmJvdyg1KSwgbWFpbj1cIkJhciBQbG90IG9mIEdyYWRlc1wiLCB4bGFiID0gXCJHcmFkZXNcIiwgeWxhYiA9IFwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsIFxuICAgICAgICBib3JkZXI9TkEsIHlsaW09YygwLCAyMDApKVxuXG5cbmJveHBsb3QobW9vZHkkUEFSVElDSVBBVElPTn5tb29keSRHUkFERSwgbWFpbiA9IFwiUGFydGljaXBhdGlvbiB2cy4gR3JhZGVcIiwgeGxhYiA9IFwiUGFydGljaXBhdGlvblwiLCB5bGFiID0gXCJHcmFkZVwiLCBcbiAgICAgICAgY29sID0gcmFpbmJvdyg1KSlcblxuXG5ib3hwbG90KG1vb2R5JFNDT1JFfm1vb2R5JEdSQURFLCBtYWluID0gXCJTY29yZXMgdnMuIEdyYWRlc1wiLCBjb2wgPSByYWluYm93KDUpLCB4bGFiID0gXCJHcmFkZXNcIiwgXG4gICAgICAgIHlsYWIgPSBcIk51bWJlciBvZiBTdHVkZW50c1wiLCB5bGltPWMoMCwgMTIwKSlcblxuXG5wbG90KG1vb2R5JFBBUlRJQ0lQQVRJT04sIG1vb2R5JFNDT1JFLCBtYWluID0gXCJQYXJ0aWNpcGF0aW9uIHZzLiBTY29yZVwiLCB4bGFiID0gXCJQYXJ0aWNpcGF0aW9uXCIsIHlsYWIgPSBcIlNjb3JlXCIsIFxuICAgICBjb2wgPSBcImJsdWVcIikifQ==</div>
-
-#### Snippet 2
-
-Does Dozing off affect grades?
-
-<div data-datacamp-exercise data-height="400" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2XCIpXG5cbmJhcnBsb3QodGFibGUobW9vZHkkR1JBREVbbW9vZHkkRE9aRVNfT0ZGID09IFwibmV2ZXJcIl0pLCBjb2w9cmFpbmJvdyg1KSwgbWFpbj1cIkdyYWRlcyB2cy4gTmV2ZXIgU2xlZXBpbmcgaW4gQ2xhc3NcIiwgXG4gICAgICAgIHhsYWIgPSBcIkdyYWRlc1wiLCB5bGFiID0gXCJOdW1iZXIgb2YgU3R1ZGVudHNcIiwgYm9yZGVyPU5BLCB5bGltPWMoMCwgMjAwKSlcblxuYmFycGxvdCh0YWJsZShtb29keSRHUkFERVttb29keSRET1pFU19PRkYgPT0gXCJzb21ldGltZXNcIl0pLCBjb2w9cmFpbmJvdyg1KSwgbWFpbj1cIkdyYWRlcyB2cy4gU29tZXRpbWVzIFNsZWVwaW5nIGluIENsYXNzXCIsIFxuICAgICAgICB4bGFiID0gXCJHcmFkZXNcIiwgeWxhYiA9IFwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsIGJvcmRlcj1OQSwgeWxpbT1jKDAsIDIwMCkpXG5cbmJhcnBsb3QodGFibGUobW9vZHkkR1JBREVbbW9vZHkkRE9aRVNfT0ZGID09IFwiYWx3YXlzXCJdKSwgY29sPXJhaW5ib3coNSksIG1haW49XCJHcmFkZXMgdnMuIEFsd2F5cyBTbGVlcGluZyBpbiBDbGFzc1wiLCBcbiAgICAgICAgeGxhYiA9IFwiR3JhZGVzXCIsIHlsYWIgPSBcIk51bWJlciBvZiBTdHVkZW50c1wiLCBib3JkZXI9TkEsIHlsaW09YygwLCAyMDApKSJ9</div>
-
-#### Snippet 3
-
-Does Texting in class affect grades?
-
-<div data-datacamp-exercise data-height="400" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2XCIpXG5cbmJhcnBsb3QodGFibGUobW9vZHkkR1JBREVbbW9vZHkkVEVYVElOR19JTl9DTEFTUyA9PSBcIm5ldmVyXCJdKSwgY29sPXJhaW5ib3coNSksIG1haW49XCJHcmFkZXMgdnMuIE5ldmVyIFRleHRpbmcgaW4gQ2xhc3NcIiwgXG4gICAgICAgIHhsYWIgPSBcIkdyYWRlc1wiLCB5bGFiID0gXCJOdW1iZXIgb2YgU3R1ZGVudHNcIiwgYm9yZGVyPU5BLCB5bGltPWMoMCwgMjAwKSlcblxuYmFycGxvdCh0YWJsZShtb29keSRHUkFERVttb29keSRURVhUSU5HX0lOX0NMQVNTID09IFwicmFyZWx5XCJdKSwgY29sPXJhaW5ib3coNSksIG1haW49XCJHcmFkZXMgdnMuIFJhcmVseSBUZXh0aW5nIGluIENsYXNzXCIsIFxuICAgICAgICB4bGFiID0gXCJHcmFkZXNcIiwgeWxhYiA9IFwiTnVtYmVyIG9mIFN0dWRlbnRzXCIsIGJvcmRlcj1OQSwgeWxpbT1jKDAsIDIwMCkpXG5cbmJhcnBsb3QodGFibGUobW9vZHkkR1JBREVbbW9vZHkkVEVYVElOR19JTl9DTEFTUyA9PSBcImFsd2F5c1wiXSksIGNvbD1yYWluYm93KDUpLCBtYWluPVwiR3JhZGVzIHZzLiBBbHdheXMgVGV4dGluZyBpbiBDbGFzc1wiLCBcbiAgICAgICAgeGxhYiA9IFwiR3JhZGVzXCIsIHlsYWIgPSBcIk51bWJlciBvZiBTdHVkZW50c1wiLCBib3JkZXI9TkEsIHlsaW09YygwLCAyMDApKSJ9</div>
--->
+- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
+- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
+- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot. -->
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI3N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCBudW1iZXJzIG9mIHN0dWRlbnRzIHdpdGggYSBwYXJ0aWN1bGFyIGdyYWRlIGJhc2VkIG9uIHRoZWlyIHRleHRpbmcgaGFiaXRzLiBVc2UgTW9zaWFjLXBsb3QuXG5cbm1vc2FpY3Bsb3QobW9vZHkkZ3JhZGV+bW9vZHkkdGV4dGluZyx4bGFiID0gJ0dyYWRlJyx5bGFiID0gJ1RleHRpbmcgaGFiaXQnLCBtYWluID0gXCJNb3NpYWMgb2YgZ3JhZGUgdnMgdGV4aW5nIGhhYml0IGluIGNsYXNzXCIsY29sPWNvbG9ycyxib3JkZXI9XCJibGFja1wiKSJ9
 </div>
 </div>
-<div id="movies-data-hunt" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Movies Data Hunt<a href="free-style-data-exploration.html#movies-data-hunt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-<table>
-<caption>
-<span id="tab:unnamed-chunk-76">Table 6.2: </span>Snippet of Movies Dataset
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-content
-</th>
-<th style="text-align:right;">
-imdb_score
-</th>
-<th style="text-align:left;">
-Gross
-</th>
-<th style="text-align:left;">
-Budget
-</th>
-<th style="text-align:left;">
-genre
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-9643
-</td>
-<td style="text-align:left;">
-Mexico
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-6.32
-</td>
-<td style="text-align:left;">
-Low
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-History
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-7871
-</td>
-<td style="text-align:left;">
-France
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-6.62
-</td>
-<td style="text-align:left;">
-Low
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Action
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-8353
-</td>
-<td style="text-align:left;">
-UK
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-8.01
-</td>
-<td style="text-align:left;">
-Low
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Comedy
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3513
-</td>
-<td style="text-align:left;">
-UK
-</td>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:right;">
-6.58
-</td>
-<td style="text-align:left;">
-Low
-</td>
-<td style="text-align:left;">
-High
-</td>
-<td style="text-align:left;">
-Action
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1178
-</td>
-<td style="text-align:left;">
-USA
-</td>
-<td style="text-align:left;">
-PG-13
-</td>
-<td style="text-align:right;">
-4.51
-</td>
-<td style="text-align:left;">
-High
-</td>
-<td style="text-align:left;">
-High
-</td>
-<td style="text-align:left;">
-Family
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br>
-<strong>Puzzle description:</strong></p>
-<p>contains imdb scores of 12,800+ movies along with several attributes including budget, gross genre, content rating etc.</p>
-<p>What are the most promising alternative hypotheses about imdb scores to test? Name your three top candidates along with the evidence which backs them up: either in the form of R instruction(s) or plot.</p>
-<div id="movies-data-puzzle---pattern-i-injected" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Movies Data Puzzle - Pattern I Injected<a href="free-style-data-exploration.html#movies-data-puzzle---pattern-i-injected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">
-My Patterns
-</button>
-<div id="MV12" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/profhw4.pdf&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
-</div>
-<div id="best-students-submissions-2022-1" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Best Student’s Submissions 2022<a href="free-style-data-exploration.html#best-students-submissions-2022-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#hw41">
-Joshua Sze
-</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#hw42">
-Andrew Fasano
-</button>
-<div id="hw41" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/student1hw4.pptx&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
-<div id="hw42" class="collapse">
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/studen2hw4.pptx&amp;embedded=true" width="100%" height="500px">
-</embed>
-</div>
+<div id="additional-references" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Additional References<a href="plots.html#additional-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.datamentor.io/r-programming/plot-function/" class="uri">https://www.datamentor.io/r-programming/plot-function/</a></p>
+<!--
+```
+{r child="./chapters/datatransformation.Rmd"}
+```
+ 
+ -->
 
-</div>
 </div>
 </div>
             </section>
@@ -729,8 +641,8 @@ Andrew Fasano
           </div>
         </div>
       </div>
-<a href="data-transformation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ztest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="setting-up-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

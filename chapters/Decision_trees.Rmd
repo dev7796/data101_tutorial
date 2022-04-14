@@ -449,7 +449,7 @@ head(pred)
 
 #One way of doing it is to divide the data sets into two mutually exclusive subsets (which cover all data also).  How do you make these subsets?  Unfortunately there is no algorithm for this and it is more relying on how well is your model doing for different slices of the data.  
 
-#In this example (similarly to snippet 16.6 where we combine two rpart models, we assume that initial split we decided on is based on SCORE. But instead of having two rpart models  (16.6), we will use our prediction  model from prediction challenge 1  for SCORE >50 and rpart for SCORE <=50.
+#In this example (similarly to snippet 16.7 where we combine two rpart models, we assume that initial split we decided on is based on SCORE. But instead of having two rpart models  (16.7), we will use our prediction  model from prediction challenge 1  for SCORE >50 and rpart for SCORE <=50.
 
 #Lets assume that yourPrediction is our model from Prediction Challenge 1 (your entire code has to be applied here to the data set (moody, below)
 
