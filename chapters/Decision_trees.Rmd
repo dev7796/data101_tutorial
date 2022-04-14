@@ -410,28 +410,6 @@ cross_validate(moody,tree,5,0.7)
 
 You can see that the cross-validation accuracies for the tree that was passed (accuracy_subset) are fairly high and close to our training accuracy of 84%. This means we are not overfitting. Also observe that accuracy_subset and accuracy_all have the same values, which means that the only relevant attributes are score and participation, and adding more attributes doesn't make any difference to the tree. Finally, the values in accuracy_subset are reasonably close to each other, which mean low variance.
 
-## Snippet 10: Freestyle +  rpart: Combining rpart prediction models
-
-```{r,tut=TRUE,height=600}
-
-library(rpart)
-# Import dataset
-moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
-model1<-rpart(GRADE~., data=moody[moody$SCORE>50,]);
-model2<-rpart(GRADE~., data=moody[moody$SCORE<=50,]);
-model1
-model2
-pred1 <- predict(model1, newdata=moody[moody$SCORE>50,], type="class")
-pred2 <- predict(model2, newdata=moody[moody$SCORE<=50,], type="class")
-myprediction<-moody
-decision <- rep('F',nrow(myprediction))
-decision[myprediction$SCORE>50] <- as.character(pred1)
-decision[myprediction$SCORE<=50] <-as.character(pred2)
-myprediction$GRADE <-decision
-error <- mean(moody$GRADE!= myprediction$GRADE)
-error
-
-```
 
 ## Prediction using rpart. {#rpartpredict}
 
@@ -446,7 +424,7 @@ From the moody example, we are trying to predict the grade of students. Lets loo
 
 Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.
 
-### Snippet 11
+### Snippet 10
 
 ```{r,tut=TRUE,height=500}
 # First lets import the rpart library
@@ -464,7 +442,7 @@ pred <- predict(tree, moody, type="class")
 head(pred)
 ```
 
-## Snippet 12: Your Model with rpart
+## Snippet 11: Your Model with rpart
 
 ```{r,tut=TRUE,height=600}
 #How to combine your freestyle prediction model with the rpart? 
@@ -490,6 +468,29 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 #myprediction$GRADE <-decision
 #error <- mean(moody$GRADE!= myprediction$GRADE
 #error
+```
+
+## Snippet 12: Freestyle +  rpart: Combining rpart prediction models
+
+```{r,tut=TRUE,height=600}
+
+library(rpart)
+# Import dataset
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+model1<-rpart(GRADE~., data=moody[moody$SCORE>50,]);
+model2<-rpart(GRADE~., data=moody[moody$SCORE<=50,]);
+model1
+model2
+pred1 <- predict(model1, newdata=moody[moody$SCORE>50,], type="class")
+pred2 <- predict(model2, newdata=moody[moody$SCORE<=50,], type="class")
+myprediction<-moody
+decision <- rep('F',nrow(myprediction))
+decision[myprediction$SCORE>50] <- as.character(pred1)
+decision[myprediction$SCORE<=50] <-as.character(pred2)
+myprediction$GRADE <-decision
+error <- mean(moody$GRADE!= myprediction$GRADE)
+error
+
 ```
 
 ## Snippet 13: Submission with rpart
