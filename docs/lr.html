@@ -269,6 +269,8 @@
 <li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression<span></span></a>
 <ul>
 <li class="chapter" data-level="17.1" data-path="lr.html"><a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>17.1</b> Snippet 1: How much do Midterm, Project and Final Exam count?<span></span></a></li>
+<li class="chapter" data-level="17.2" data-path="lr.html"><a href="lr.html#snippet-2-cross-validate-your-prediction"><i class="fa fa-check"></i><b>17.2</b> Snippet 2: Cross Validate your prediction<span></span></a></li>
+<li class="chapter" data-level="17.3" data-path="lr.html"><a href="lr.html#snippet-3-submission-with-lm"><i class="fa fa-check"></i><b>17.3</b> Snippet 3: Submission with lm<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="MLP.html"><a href="MLP.html"><i class="fa fa-check"></i><b>18</b> 🔖 Machine Learning-Prediction Loop<span></span></a></li>
 <li class="divider"></li>
@@ -309,6 +311,18 @@
 <h2><span class="header-section-number">17.1</span> Snippet 1: How much do Midterm, Project and Final Exam count?<a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdicpXG5zcGxpdDwtMC43Km5yb3cobW9vZHlOVU0pXG5zcGxpdFxubW9vZHlOVU1UcjwtbW9vZHlOVU1bMTpzcGxpdCxdXG5tb29keU5VTVRyXG5tb29keU5VTVRzPC1tb29keU5VTVtzcGxpdDpucm93KG1vb2R5TlVNKSxdXG4jV2UgdXNlIGxpbmVhciByZWdyZXNzaW9uIHRvICNmaW5kIG91dCB0aGUgd2VpZ2h0cyBvZiAjTWlkdGVybSwgUHJvamVjdCBhbmQgRmluYWwgI0V4YW0gaW4gY2FsY3VsYXRpb24gb2YgdGhlICNmaW5hbCBjbGFzcyBzY29yZS4gRWFjaCBvZiAjdGhlbSBhcmUgc2NvcmVkIG91dCBvZiAxMDAgYW5kICN0aGUgZmluYWwgY2xhc3Mgc2NvcmUgaXMgYWxzbyAjc2NvcmVkIG91dCBvZiAxMDAgYXMgd2VpZ2h0ZWQgI3N1bSBvZiBNaWR0ZXJtLCBQcm9qZWN0IGFuZCAjRmluYWwgRXhhbSBzY29yZXMuXG50cmFpbiA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPW1vb2R5TlVNVHIpXG50cmFpblxucHJlZCA8LSBwcmVkaWN0KHRyYWluLG5ld2RhdGE9bW9vZHlOVU1Ucylcbm1lYW4oKHByZWQgLSBtb29keU5VTVRzJENsYXNzU2NvcmUpXjIpIn0=
+</div>
+</div>
+<div id="snippet-2-cross-validate-your-prediction" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Snippet 2: Cross Validate your prediction<a href="lr.html#snippet-2-cross-validate-your-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFpbiA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdlwiKVxuI3NjcmFtYmxlIHRoZSB0cmFpbiBmcmFtZVxudjwtc2FtcGxlKDE6bnJvdyh0cmFpbikpXG52WzE6NV1cbnRyYWluU2NyYW1ibGVkPC10cmFpblt2LCBdXG5cbiNvbmUgc3RlcCBjcm9zc3ZhbGlkYXRpb25cbm4gPC0gMTAwXG50cmFpblNhbXBsZTwtdHJhaW5TY3JhbWJsZWRbbnJvdyh0cmFpblNjcmFtYmxlZCktbjpucm93KHRyYWluU2NyYW1ibGVkKSwgXVxudGVzdFNhbXBsZSA8LSB0cmFpblNjcmFtYmxlZFsxOm4sXVxuXG5sbS50cmVlIDwtIGxtKENsYXNzU2NvcmV+LiwgIGRhdGE9dHJhaW5TYW1wbGUpXG5sbS50cmVlXG5cbnByZWQgPC0gcHJlZGljdChsbS50cmVlLG5ld2RhdGE9dGVzdFNhbXBsZSlcbnByZWRcblxubXNlIDwtIG1lYW4oKHByZWQgLSB0ZXN0U2FtcGxlJENsYXNzU2NvcmUpXjIpXG5tc2UifQ==
+</div>
+</div>
+<div id="snippet-3-submission-with-lm" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Snippet 3: Submission with lm<a href="lr.html#snippet-3-submission-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNX3Rlc3QuY3N2JylcbnN1Ym1pc3Npb248LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMnN1Ym1pc3Npb24uY3N2JylcbnRyYWluIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW9vZHlOVU0uY3N2XCIpXG5cbnRyZWUgPC0gbG0oQ2xhc3NTY29yZX4uLCAgZGF0YT10cmFpbilcbnRyZWVcblxucHJlZGljdGlvbiA8LSBwcmVkaWN0KHRyZWUsIG5ld2RhdGE9dGVzdClcblxuI05vdyBtYWtlIHlvdXIgc3VibWlzc2lvbiBmaWxlIC0gaXQgd2lsbCBoYXZlIHRoZSBJRHMgYW5kIG5vdyB0aGUgcHJlZGljdGVkIGdyYWRlc1xuc3VibWlzc2lvbiRHcmFkZTwtcHJlZGljdGlvbiBcblxuIyB1c2Ugd3JpdGUuY3N2KHN1Ym1pc3Npb24sICdzdWJtaXNzaW9uLmNzdicsIHJvdy5uYW1lcz1GQUxTRSkgdG8gc3RvcmUgc3VibWlzc2lvbiBhcyBjc3YgZmlsZSBvbiB5b3VyIG1hY2hpbmUgYW5kIHN1YnNlcXVlbnRseSBzdWJtaXQgaXQgb24gS2FnZ2xlIn0=
 </div>
 
 </div>

@@ -32,3 +32,47 @@ pred <- predict(train,newdata=moodyNUMTs)
 mean((pred - moodyNUMTs$ClassScore)^2)
 ```
 
+## Snippet 2: Cross Validate your prediction
+
+```{r,tut=TRUE,height=600}
+train <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv")
+#scramble the train frame
+v<-sample(1:nrow(train))
+v[1:5]
+trainScrambled<-train[v, ]
+
+#one step crossvalidation
+n <- 100
+trainSample<-trainScrambled[nrow(trainScrambled)-n:nrow(trainScrambled), ]
+testSample <- trainScrambled[1:n,]
+
+lm.tree <- lm(ClassScore~.,  data=trainSample)
+lm.tree
+
+pred <- predict(lm.tree,newdata=testSample)
+pred
+
+mse <- mean((pred - testSample$ClassScore)^2)
+mse
+
+  
+```
+
+## Snippet 3: Submission with lm
+
+```{r,tut=TRUE,height=600}
+library(rpart)
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM_test.csv')
+submission<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submission.csv')
+train <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv")
+
+tree <- lm(ClassScore~.,  data=train)
+tree
+
+prediction <- predict(tree, newdata=test)
+
+#Now make your submission file - it will have the IDs and now the predicted grades
+submission$Grade<-prediction 
+
+# use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
+```

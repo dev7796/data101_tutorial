@@ -150,4 +150,6 @@ snippet-12-freestyle-rpart-combining-rpart-prediction-models
 snippet-13-submission-with-rpart
 lr
 snippet-1-how-much-do-midterm-project-and-final-exam-count
+snippet-2-cross-validate-your-prediction
+snippet-3-submission-with-lm
 MLP
