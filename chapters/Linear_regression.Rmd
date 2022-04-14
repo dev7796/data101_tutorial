@@ -35,6 +35,8 @@ mean((pred - moodyNUMTs$ClassScore)^2)
 ## Snippet 2: Cross Validate your prediction
 
 ```{r,tut=TRUE,height=600}
+library(ModelMetrics)
+
 train <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv")
 #scramble the train frame
 v<-sample(1:nrow(train))
@@ -52,8 +54,7 @@ lm.tree
 pred <- predict(lm.tree,newdata=testSample)
 pred
 
-mse <- mean((pred - testSample$ClassScore)^2)
-mse
+mse(testSample$ClassScore,pred)
 
   
 ```
