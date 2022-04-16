@@ -268,7 +268,10 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="lr.html"><a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>17.1</b> Snippet 1: How much do Midterm, Project and Final Exam count?</a></li>
+<li class="chapter" data-level="17.1" data-path="lr.html"><a href="lr.html#lm"><i class="fa fa-check"></i><b>17.1</b> Linear regression using lm() function</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="lr.html"><a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>17.1.1</b> Snippet 1: How much do Midterm, Project and Final Exam count?</a></li>
+</ul></li>
 <li class="chapter" data-level="17.2" data-path="lr.html"><a href="lr.html#snippet-2-cross-validate-your-prediction"><i class="fa fa-check"></i><b>17.2</b> Snippet 2: Cross Validate your prediction</a></li>
 <li class="chapter" data-level="17.3" data-path="lr.html"><a href="lr.html#snippet-3-submission-with-lm"><i class="fa fa-check"></i><b>17.3</b> Snippet 3: Submission with lm</a></li>
 </ul></li>
@@ -307,10 +310,203 @@
 </embed>
 </div></li>
 </ul>
-<div id="snippet-1-how-much-do-midterm-project-and-final-exam-count" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Snippet 1: How much do Midterm, Project and Final Exam count?<a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Linear regression is a linear approach to modeling the relationship between a numerical response (<span class="math inline">\(Y\)</span>) and one or more independent variables (<span class="math inline">\(X_i\)</span>).</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg" alt="" />
+<p class="caption">Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.</p>
+</div>
+<div id="lm" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Linear regression using lm() function<a href="lr.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Syntax for building the regression model using the <em>lm()</em> function is as follows:</p>
+<ul>
+<li><code>lm(formula, data, ...)</code>
+<ul>
+<li><em>formula</em>: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+<ul>
+<li><code>prediction ~ predictor1 + predictor2 + predictor3 + ...</code></li>
+</ul></li>
+<li><em>data</em>: here we provide the dataset on which the linear regression model is to be trained.</li>
+</ul></li>
+</ul>
+<p>For more info on the <em>lm()</em> function visit <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm()</a></p>
+<p>Lets look at the example on the Moody dataset.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-138">Table 17.1: </span>Snippet of Moody Num Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Midterm
+</th>
+<th style="text-align:right;">
+Project
+</th>
+<th style="text-align:right;">
+FinalExam
+</th>
+<th style="text-align:right;">
+ClassScore
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+39.60000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+68.20000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+67.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+52.47565
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+68.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+49.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+41.30000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+50.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+46.70000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+34.80494
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now we can build a simple linear regression model to predict the ClassScore attribute based on the various other attributes present in the dataset, as shown above.</p>
+<p>Since we will be predicting only one attribute values, this model will be called simple linear regression model.</p>
+<div id="snippet-1-how-much-do-midterm-project-and-final-exam-count" class="section level3 hasAnchor" number="17.1.1">
+<h3><span class="header-section-number">17.1.1</span> Snippet 1: How much do Midterm, Project and Final Exam count?<a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdicpXG5zcGxpdDwtMC43Km5yb3cobW9vZHlOVU0pXG5zcGxpdFxubW9vZHlOVU1UcjwtbW9vZHlOVU1bMTpzcGxpdCxdXG5tb29keU5VTVRyXG5tb29keU5VTVRzPC1tb29keU5VTVtzcGxpdDpucm93KG1vb2R5TlVNKSxdXG4jV2UgdXNlIGxpbmVhciByZWdyZXNzaW9uIHRvICNmaW5kIG91dCB0aGUgd2VpZ2h0cyBvZiAjTWlkdGVybSwgUHJvamVjdCBhbmQgRmluYWwgI0V4YW0gaW4gY2FsY3VsYXRpb24gb2YgdGhlICNmaW5hbCBjbGFzcyBzY29yZS4gRWFjaCBvZiAjdGhlbSBhcmUgc2NvcmVkIG91dCBvZiAxMDAgYW5kICN0aGUgZmluYWwgY2xhc3Mgc2NvcmUgaXMgYWxzbyAjc2NvcmVkIG91dCBvZiAxMDAgYXMgd2VpZ2h0ZWQgI3N1bSBvZiBNaWR0ZXJtLCBQcm9qZWN0IGFuZCAjRmluYWwgRXhhbSBzY29yZXMuXG50cmFpbiA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPW1vb2R5TlVNVHIpXG50cmFpblxucHJlZCA8LSBwcmVkaWN0KHRyYWluLG5ld2RhdGE9bW9vZHlOVU1Ucylcbm1lYW4oKHByZWQgLSBtb29keU5VTVRzJENsYXNzU2NvcmUpXjIpIn0=
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained from the predict function using the trained model and the test data.</li>
+</ul>
 </div>
 </div>
 <div id="snippet-2-cross-validate-your-prediction" class="section level2 hasAnchor" number="17.2">
@@ -318,6 +514,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3Lmdp
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxudHJhaW4gPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcbiNzY3JhbWJsZSB0aGUgdHJhaW4gZnJhbWVcbnY8LXNhbXBsZSgxOm5yb3codHJhaW4pKVxudlsxOjVdXG50cmFpblNjcmFtYmxlZDwtdHJhaW5bdiwgXVxuXG4jb25lIHN0ZXAgY3Jvc3N2YWxpZGF0aW9uXG5uIDwtIDEwMFxudHJhaW5TYW1wbGU8LXRyYWluU2NyYW1ibGVkW25yb3codHJhaW5TY3JhbWJsZWQpLW46bnJvdyh0cmFpblNjcmFtYmxlZCksIF1cbnRlc3RTYW1wbGUgPC0gdHJhaW5TY3JhbWJsZWRbMTpuLF1cblxubG0udHJlZSA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPXRyYWluU2FtcGxlKVxubG0udHJlZVxuXG5wcmVkIDwtIHByZWRpY3QobG0udHJlZSxuZXdkYXRhPXRlc3RTYW1wbGUpXG5wcmVkXG5cbm1zZSh0ZXN0U2FtcGxlJENsYXNzU2NvcmUscHJlZCkifQ==
 </div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check that if we have more accurate predictions, thus increasing the overall accuracy of the model.</li>
+</ul>
 </div>
 <div id="snippet-3-submission-with-lm" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Snippet 3: Submission with lm<a href="lr.html#snippet-3-submission-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -387,6 +588,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

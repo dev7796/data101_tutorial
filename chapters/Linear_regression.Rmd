@@ -16,7 +16,38 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 <embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
-## Snippet 1: How much do Midterm, Project and Final Exam count?
+Linear regression is a linear approach to modeling the relationship between a numerical response ($Y$) and one or more independent variables ($X_i$).
+
+![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg)
+
+## Linear regression using lm() function {#lm}
+
+Syntax for building the regression model using the *lm()* function is as follows:
+
+- `lm(formula, data, ...)`
+  - *formula*: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on. 
+    - `prediction ~ predictor1 + predictor2 + predictor3 + ...`
+  - *data*: here we provide the dataset on which the linear regression model is to be trained.
+  
+For more info on the *lm()* function visit [lm()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm)
+
+Lets look at the example on the Moody dataset.
+
+```{r,echo=FALSE}
+moodyNUM<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv')
+temp<-knitr::kable(
+  head(moodyNUM, 10), caption = 'Snippet of Moody Num Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+Now we can build a simple linear regression model to predict the ClassScore attribute based on the various other attributes present in the dataset, as shown above.
+
+Since we will be predicting only one attribute values, this model will be called simple linear regression model.
+
+### Snippet 1: How much do Midterm, Project and Final Exam count?
 
 ```{r,tut=TRUE,height=500}
 moodyNUM<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv')
@@ -31,6 +62,11 @@ train
 pred <- predict(train,newdata=moodyNUMTs)
 mean((pred - moodyNUMTs$ClassScore)^2)
 ```
+
+We can see that, 
+
+- The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+- The predicted values are obtained from the predict function using the trained model and the test data.
 
 ## Snippet 2: Cross Validate your prediction
 
@@ -58,6 +94,11 @@ mse(testSample$ClassScore,pred)
 
   
 ```
+
+We can see that,
+
+- The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check that if we have more accurate predictions, thus increasing the overall accuracy of the model.
 
 ## Snippet 3: Submission with lm
 

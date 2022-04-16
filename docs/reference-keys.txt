@@ -9,6 +9,7 @@ tab:unnamed-chunk-63
 tab:unnamed-chunk-76
 tab:unnamed-chunk-78
 tab:unnamed-chunk-91
+tab:unnamed-chunk-138
 intro
 b2022
 setting-up-r
@@ -149,6 +150,7 @@ snippet-11-your-model-with-rpart
 snippet-12-freestyle-rpart-combining-rpart-prediction-models
 snippet-13-submission-with-rpart
 lr
+lm
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 snippet-2-cross-validate-your-prediction
 snippet-3-submission-with-lm
