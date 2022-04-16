@@ -199,6 +199,34 @@ https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376
 
 - Contingency Matrix: \@ref(chitest)
 
+- Bayesian Reasoning: \@ref(br)
+
+- Prior odds: \@ref(br)
+
+- Posterior odds: \@ref(br)
+
+- Likelihood ratio: \@ref(br)
+
+- False positive: \@ref(br)
+
+- True positive: \@ref(br)
+
+- Crossvalidation: \@ref(crossvalidation)
+
+- Decision trees: \@ref(prpart)
+
+- Linear regression: \@ref(lr)
+
+- Recursive partitioning: \@ref(lr)
+
+- MSE: \@ref(lr)
+
+- Prediction accuracy: \@ref(lr)
+
+- Training: \@ref(lr)
+
+- Testing: \@ref(lr)
+
 
 ## R functions used in this class
 
@@ -216,7 +244,9 @@ tutorial::go_interactive()
 
 - **Data Transformations: ** subset() \@ref(subset), tapply() \@ref(tapply),  table() \@ref(table), aggregate() 
 
-- **Library functions: ** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest)
+- **Library functions: ** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest), rpart() \@ref(prpart), predict() \@ref(rpartpredict), lm() \@ref(lm), crossvalidation() \@ref(crossvalidation)
+
+- **Parameters of rpart: ** minsplit \@ref(rpartcontrol), minbucket \@ref(rpartcontrol), cp \@ref(rpartcontrol)
 
 
 
