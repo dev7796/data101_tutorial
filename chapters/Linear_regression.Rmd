@@ -18,6 +18,10 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 
 Linear regression is a linear approach to modeling the relationship between a numerical response ($Y$) and one or more independent variables ($X_i$).
 
+Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+- First when there is only one explanatory variable and one output variable. This type of linear regression model known as simple linear regression.
+- Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as multiple linear regression.
+
 ![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg)
 
 ## Linear regression using lm() function {#lm}
@@ -67,6 +71,34 @@ We can see that,
 
 - The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
 - The predicted values are obtained from the predict function using the trained model and the test data.
+
+## Calculating the Error using mse() {#mse}
+
+As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won't prove useful now in our numerical predictions scenario.
+
+We don't want to eyeball every time we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.
+
+To do this we will use the Mean Squared Error(MSE).
+
+- The MSE is a measure of the quality of an predictor/estimator
+- It is always non-negative
+- Values closer to zero are better.
+
+The equation to calculate the MSE is as follows:
+
+\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}
+
+To implement this, we will use the *mse()* function present in the Metrics Package, so remember to install the Metrics package and use `library(Metrics)` in the code for local use.
+
+The syntax for *mse()* function is very simple:
+
+- `mse(actual,predicted)`
+  - *actual*: vector of the actual values of the attribute we want to predict.
+  - *predicted*: vector of the predicted values obtained using our model.
+
 
 ## Snippet 2: Cross Validate your prediction
 
