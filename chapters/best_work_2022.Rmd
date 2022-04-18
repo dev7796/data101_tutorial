@@ -14,3 +14,24 @@ tutorial::go_interactive(greedy = FALSE)
 <div id="bt12" class="collapse">
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best1.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
+
+<br>
+
+## Prediction challenge 1
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#bt15"> Upsham Naik </button> 
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#bt13"> Jeevanandan Ramasamy </button> 
+<div id="bt15" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best2.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+<div id="bt13" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best3.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+## Prediction challenge 2
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#bt14"> Jeevanandan Ramasamy </button> 
+<div id="bt14" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best4.pdf&embedded=true" width="100%" height="500px"></embed>
+</div>
