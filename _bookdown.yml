@@ -4,10 +4,10 @@ delete_merged_file: true
 rmd_files: [
   "./chapters/intro.Rmd",
   "./chapters/best_work_2022.Rmd",
+  "./chapters/FreeStyle.Rmd",
   "./chapters/Setting_up_R.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/tapply_subsetting.Rmd",
-  "./chapters/FreeStyle.Rmd",
   "./chapters/z-test.Rmd",
   "./chapters/Permutaion_Test.Rmd",
   "./chapters/Chisquare.Rmd",
