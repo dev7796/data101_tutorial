@@ -12,6 +12,7 @@ tab:unnamed-chunk-91
 tab:unnamed-chunk-138
 intro
 b2022
+homework-assignments
 prediction-challenge-1
 prediction-challenge-2
 setting-up-r
