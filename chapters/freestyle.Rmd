@@ -326,7 +326,7 @@ contains  imdb scores of 12,800+ movies  along with several attributes including
 
 What are the most promising  alternative hypotheses  about imdb scores to test?  Name your three top candidates along with the evidence which backs them up:  either in the form of R instruction(s)  or plot.
 
-### What were the secret associations  between  items in the minimarket?
+### Secrets Revealed- Patterns in Movies data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
 <div id="MV12" class="collapse">    
@@ -346,7 +346,14 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/studen2hw4.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 
+## Minimarket Data Hunt 
 
+### What were the secret associations  between  items in the minimarket?
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
+<div id="MV12" class="collapse">    
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ecrets-revealed-prediction-minimarket.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
 
 ## Predicting grades in Professor Moody's class
 

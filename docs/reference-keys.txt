@@ -17,8 +17,10 @@ moody-data-puzzle
 secrets-revealed--patterns-in-professor-moodys-data
 best-students-submissions-2022
 movies-data-hunt
-what-were-the-secret-associations-between-items-in-the-minimarket
+secrets-revealed--patterns-in-movies-data
 best-students-submissions-2022-1
+minimarket-data-hunt
+what-were-the-secret-associations-between-items-in-the-minimarket
 predicting-grades-in-professor-moodys-class
 how-did-i-cook-the-professor-moody-prediction-challenge-data
 setting-up-r
