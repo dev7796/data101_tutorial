@@ -48,7 +48,7 @@ Here are some:
 - “Dozing off does not matter if your score is more than 90, you still get an A”
 - “If you score is less than 30, you fail the class regardless of what your other attributes are”
 
-### Secrets Revealed - Moody Data Puzzle
+### Secrets Revealed- Patterns in Professor Moody's data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">My Patterns</button>
 <div id="MDP12" class="collapse">    
@@ -326,7 +326,7 @@ contains  imdb scores of 12,800+ movies  along with several attributes including
 
 What are the most promising  alternative hypotheses  about imdb scores to test?  Name your three top candidates along with the evidence which backs them up:  either in the form of R instruction(s)  or plot.
 
-### Secrets Revealed - Movies Data Hunt 
+### What were the secret associations  between  items in the minimarket?
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
 <div id="MV12" class="collapse">    
@@ -348,9 +348,9 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 
 
 
-## Prediction challenge
+## Predicting grades in Professor Moody's class
 
-### Secrets Revealed - Prediction Challenge
+### How did I cook the Professor Moody Prediction challenge data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV13">Secrets Revealed</button>
 <div id="MV13" class="collapse">    

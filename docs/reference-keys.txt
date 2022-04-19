@@ -14,13 +14,13 @@ intro
 b2022
 data-puzzles-secrets
 moody-data-puzzle
-secrets-revealed---moody-data-puzzle
+secrets-revealed--patterns-in-professor-moodys-data
 best-students-submissions-2022
 movies-data-hunt
-secrets-revealed---movies-data-hunt
+what-were-the-secret-associations-between-items-in-the-minimarket
 best-students-submissions-2022-1
-prediction-challenge
-secrets-revealed---prediction-challenge
+predicting-grades-in-professor-moodys-class
+how-did-i-cook-the-professor-moody-prediction-challenge-data
 setting-up-r
 setting
 how-to-upload-a-data-set
