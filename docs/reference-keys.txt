@@ -14,13 +14,13 @@ intro
 b2022
 data-puzzles-secrets
 moody-data-puzzle
-moody-data-puzzle---pattern-i-injected
+secrets-revealed---moody-data-puzzle
 best-students-submissions-2022
 movies-data-hunt
-movies-data-puzzle---pattern-i-injected
+secrets-revealed---movies-data-hunt
 best-students-submissions-2022-1
-hw---solutions8910
-hw8910---pattern-i-injected
+prediction-challenge
+secrets-revealed---prediction-challenge
 setting-up-r
 setting
 how-to-upload-a-data-set

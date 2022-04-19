@@ -48,11 +48,11 @@ Here are some:
 - “Dozing off does not matter if your score is more than 90, you still get an A”
 - “If you score is less than 30, you fail the class regardless of what your other attributes are”
 
-### Moody Data Puzzle - Pattern I Injected
+### Secrets Revealed - Moody Data Puzzle
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">My Patterns</button>
 <div id="MDP12" class="collapse">    
-<embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-Moody-My-patterns.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 <br>
 Many student solutions falsely attribute higher grades to higher values of participation attribute..  
@@ -326,9 +326,9 @@ contains  imdb scores of 12,800+ movies  along with several attributes including
 
 What are the most promising  alternative hypotheses  about imdb scores to test?  Name your three top candidates along with the evidence which backs them up:  either in the form of R instruction(s)  or plot.
 
-### Movies Data Puzzle - Pattern I Injected
+### Secrets Revealed - Movies Data Hunt 
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">My Patterns</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
 <div id="MV12" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/profhw4.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
@@ -348,11 +348,11 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 
 
 
-## HW - Solutions(8,9,10)
+## Prediction challenge
 
-### HW(8,9,10) - Pattern I Injected
+### Secrets Revealed - Prediction Challenge
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MV13">My Patterns</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MV13">Secrets Revealed</button>
 <div id="MV13" class="collapse">    
-<embed src="https://docs.google.com/presentation/d/1TFNngoXesu1dY5YZpGgUPOQwLWSS7IQmdZ5fejDgSxQ/edit?usp=sharing" width="100%" height="500px"></embed>
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Secrets-revealed-prediction-challenge.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
