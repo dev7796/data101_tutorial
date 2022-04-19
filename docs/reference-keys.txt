@@ -12,9 +12,6 @@ tab:unnamed-chunk-91
 tab:unnamed-chunk-138
 intro
 b2022
-homework-assignments
-prediction-challenge-1
-prediction-challenge-2
 data-puzzles-secrets
 moody-data-puzzle
 moody-data-puzzle---pattern-i-injected
@@ -130,6 +127,9 @@ Pc1
 general-structure-of-the-prediction-challenges
 challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
 this-is-how-an-a-in-this-course-looks-like
+best-students-submissions-2022-2
+challenge-2---same-data-but-using-rpart---decision-tree
+best-students-submissions-2022-3
 P1
 snippet-1-example-of-a-simple-freestyle-prediction-model
 snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model
