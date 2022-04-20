@@ -366,10 +366,10 @@ Each row of Minimarket.csv contains one customer transaction which is represente
 
 **Summary**
 
-Here's what you'd do:
-1. Come up with a null hypothesis: "Bread does not impact the sales of butter"
-2. Come up with an alternative hypothesis: "Bread impacts the sale of butter"
-3. Compute the mean value of the Butter column for all the rows where Bread value = 0. Let's say this is mean1.
+Here's what you'd do: <br>
+1. Come up with a null hypothesis: "Bread does not impact the sales of butter" <br>
+2. Come up with an alternative hypothesis: "Bread impacts the sale of butter" <br>
+3. Compute the mean value of the Butter column for all the rows where Bread value = 0. Let's say this is mean1.<br>
 4. Compute the mean value of the Butter column for all the rows where Bread value = 1. Let's say this is mean2.
 
 
