@@ -103,6 +103,20 @@ This test submission will be handled through Kaggle (just the error computation 
 
 ## Challenge 2 - Same data but using rpart - decision tree
 
+It is the same DATA as prediction challenge 1.  Just use **rpart()** this time.  Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9.  We will talk about rpart in detail in recitations and lectures next week.
+
+**FOR THIS PREDICTION CHALLENGE:**  Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.
+
+Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what "controls" have you tried and eventually used.
+ 
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** <br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+**Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
+
 ### Best Student's Submissions 2022
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#bt14"> Jeevanandan Ramasamy </button> 
