@@ -348,6 +348,31 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 
 ## Minimarket Data Hunt 
 
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Minimarket.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Minimarket Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+<br>
+**Puzzle description:**
+
+Each row of Minimarket.csv contains one customer transaction which is represented as binary vector (treat this as NUM values). 1 means that customer bought an item, 0 - means that customer did not but that item. For example if customer bought Bread but did not buy Butter you will see 1 in the Bread column and 0 in the Butter column.
+
+**Summary**
+
+Here's what you'd do:
+1. Come up with a null hypothesis: "Bread does not impact the sales of butter"
+2. Come up with an alternative hypothesis: "Bread impacts the sale of butter"
+3. Compute the mean value of the Butter column for all the rows where Bread value = 0. Let's say this is mean1.
+4. Compute the mean value of the Butter column for all the rows where Bread value = 1. Let's say this is mean2.
+
+
 ### What were the secret associations  between  items in the minimarket?
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
@@ -356,6 +381,8 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 </div>
 
 ## Predicting grades in Professor Moody's class
+
+
 
 ### How did I cook the Professor Moody Prediction challenge data? 
 
