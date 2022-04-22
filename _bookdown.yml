@@ -19,7 +19,8 @@ rmd_files: [
   "./chapters/Free_style.Rmd",
   "./chapters/Decision_trees.Rmd",
   "./chapters/Linear_regression.Rmd",
-  "./chapters/Prediction_loop.Rmd"]
+  "./chapters/Prediction_loop.Rmd",
+  "./chapters/BoundlessAnalytics.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:
