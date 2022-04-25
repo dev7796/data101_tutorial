@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture: 9 🔖 Hypothesis Testing: Permutation Test | bookdemo.knit</title>
+  <title>Lecture: 3 Data League Leaderboard | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture: 9 🔖 Hypothesis Testing: Permutation Test | bookdemo.knit" />
+  <meta property="og:title" content="Lecture: 3 Data League Leaderboard | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture: 9 🔖 Hypothesis Testing: Permutation Test | bookdemo.knit" />
+  <meta name="twitter:title" content="Lecture: 3 Data League Leaderboard | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ztest.html"/>
-<link rel="next" href="chitest.html"/>
+<link rel="prev" href="b2022.html"/>
+<link rel="next" href="data-puzzles-secrets.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -318,50 +318,74 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ptest" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Lecture: 9</span> 🔖 Hypothesis Testing: Permutation Test<a href="ptest.html#ptest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="DLL" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Lecture: 3</span> Data League Leaderboard<a href="DLL.html#DLL" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button>
-<div id="PT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div></li>
-</ul>
-<div id="snippet-1-4" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Snippet 1<a href="ptest.html#snippet-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Exercise</strong> - How p-value is affected by difference of means and standard deviations</p>
-<p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
-<p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
-<div data-datacamp-exercise="" data-height="600" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbiNUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtZWFuIG9mIHRoZSBzZWNvbmQgY29sdW1uIChoYXZpbmcgMTAgcmFuZG9tIHZhbHVlcyBmb3IgZWFjaCBncm91cCksIGFuZCB0aGUgbWVhbiBvZiBncm91cEIgdmFsdWVzIGlzIHN1YnRyYWN0ZWQgZnJvbSB0aGUgbWVhbiBvZiBncm91cEEgdmFsdWVzLCB3aGljaCB3aWxsIGdpdmUgeW91IHRoZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZSBvZiB0aGUgbWVhbi5cbiBcbiAjVHJ5IGNoYW5naW5nIG1lYW4gYW5kIHNkIHZhbHVlcy4gV2hlbiB5b3UgcnVuIHRoaXMgeW91IHdpbGwgc2VlIHRoYXQgdGhlIGRpZmZlcmVuY2UgaXMgc29tZXRpbWVzIG5lZ2F0aXZlICNvciBzb21ldGltZXMgcG9zaXRpdmUuIn0=
-</div>
-</div>
-<div id="snippet-2-2" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Snippet 2<a href="ptest.html#snippet-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20va3VuYWwwODk1L1JEYXRhc2V0cy9tYXN0ZXIvVFJBRkZJQy5jc3YnKVxuUGVybXV0YXRpb24gPC0gZnVuY3Rpb24oZGYxLGMxLGMyLG4sdzEsdzIpe1xuICBkZiA8LSBhcy5kYXRhLmZyYW1lKGRmMSlcbiAgRF9udWxsPC1jKClcbiAgVjE8LWRmWyxjMV1cbiAgVjI8LWRmWyxjMl1cbiAgc3ViLnZhbHVlMSA8LSBkZltkZlssIGMxXSA9PSB3MSwgYzJdXG4gIHN1Yi52YWx1ZTIgPC0gZGZbZGZbLCBjMV0gPT0gdzIsIGMyXVxuICBEIDwtICBhYnMobWVhbihzdWIudmFsdWUyLCBuYS5ybT1UUlVFKSAtIG1lYW4oc3ViLnZhbHVlMSwgbmEucm09VFJVRSkpXG4gIG09bGVuZ3RoKFYxKVxuICBsPWxlbmd0aChWMVtWMT09dzJdKVxuICBmb3IoamogaW4gMTpuKXtcbiAgICBudWxsIDwtIHJlcCh3MSxsZW5ndGgoVjEpKVxuICAgIG51bGxbc2FtcGxlKG0sbCldIDwtIHcyXG4gICAgbmYgPC0gZGF0YS5mcmFtZShLZXk9bnVsbCwgVmFsdWU9VjIpXG4gICAgbmFtZXMobmYpIDwtIGMoXCJLZXlcIixcIlZhbHVlXCIpXG4gICAgdzFfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzEsMl1cbiAgICB3Ml9udWxsIDwtIG5mW25mJEtleSA9PSB3MiwyXVxuICAgIERfbnVsbCA8LSBjKERfbnVsbCxtZWFuKHcyX251bGwsIG5hLnJtPVRSVUUpIC0gbWVhbih3MV9udWxsLCBuYS5ybT1UUlVFKSlcbiAgfVxuICBteWhpc3Q8LWhpc3QoRF9udWxsLCBwcm9iPVRSVUUpXG4gIG11bHRpcGxpZXIgPC0gbXloaXN0JGNvdW50cyAvIG15aGlzdCRkZW5zaXR5XG4gIG15ZGVuc2l0eSA8LSBkZW5zaXR5KERfbnVsbCwgYWRqdXN0PTIpXG4gIG15ZGVuc2l0eSR5IDwtIG15ZGVuc2l0eSR5ICogbXVsdGlwbGllclsxXVxuICBwbG90KG15aGlzdClcbiAgbGluZXMobXlkZW5zaXR5LCBjb2w9J2JsdWUnKVxuICBhYmxpbmUodj1ELCBjb2w9J3JlZCcpXG4gIE08LW1lYW4oRF9udWxsPkQpXG4gIHJldHVybihNKVxufSIsInNhbXBsZSI6IiNpbnN0YWxsLnBhY2thZ2VzKFwiZGV2dG9vbHNcIilcbiNkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJkZXZhbnNoYWdyL1Blcm11dGF0aW9uVGVzdFNlY29uZFwiKVxuXG4jUGVybXV0YXRpb25UZXN0U2Vjb25kOjpQZXJtdXRhdGlvbihkLCBcIkNhdFwiLCBcIlZhbFwiLDEwMDAwLCBcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuUGVybXV0YXRpb24odHJhZmZpYywgXCJUVU5ORUxcIiwgXCJWT0xVTUVfUEVSX01JTlVURVwiLDEwMDAsXCJIb2xsYW5kXCIsIFwiTGluY29sblwiKVxuIFxuICNUaGUgUGVybXV0YXRpb24gZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2UuIFNvIHRoZSByZWQgbGluZSBpcyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIFlvdSB3aWxsIHNlZSBhIGhpc3RvZ3JhbSBoYXZpbmcgYSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggYSByZWQgc2hvd2luZyB0aGUgb2JzZXJ2ZWQgZGlmZmVyZW5jZS4ifQ==
-</div>
-</div>
-<div id="snippet-3-1" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Snippet 3<a href="ptest.html#snippet-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One permutation at a time</p>
-<div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
-</div>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 3.1: </span>Leaderboard 2022</caption>
+<thead>
+<tr class="header">
+<th align="right">Rank</th>
+<th align="left">Participant.Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Jeevanandan Ramasamy</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">George Basta</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Joyce Huang</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Jiaxu Hu</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Dhiren Patel</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Chicheng Shao</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Cheyenne Pourkay</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Christopher Nguyen</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Aaron Mok</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Ethan Matta</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<strong>Honourable Mentions: </strong><br>
+Upsham Naik, Joshua B. Sze, Kirtan Patel, Maria Xu, Devam Patel, Eva Zhang, Toshanraju Vysyaraju, Maanas Pimplikar, Jared Chiou, Nitya Narayanan, Shrish Vellore, Yousra Belgaid, Mitali Shroff, Micheal Jucan, Jackie Hong, Arvin Sung, Eric Xuan, Eva Allred, Leah Ranavat, Nami Jain, Gautam Agarwal, Aditya Patil</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ztest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chitest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="b2022.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-puzzles-secrets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
