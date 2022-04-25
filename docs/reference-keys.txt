@@ -170,3 +170,4 @@ snippet-3-submission-with-lm
 MLP
 BA
 snippet-1-chi-square-hunt
+MAD

@@ -21,7 +21,8 @@ rmd_files: [
   "./chapters/Decision_trees.Rmd",
   "./chapters/Linear_regression.Rmd",
   "./chapters/Prediction_loop.Rmd",
-  "./chapters/BoundlessAnalytics.Rmd"]
+  "./chapters/BoundlessAnalytics.Rmd",
+  "./chapters/Mysteries_of_Aggregated_data.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:
