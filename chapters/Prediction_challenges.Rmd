@@ -72,7 +72,7 @@ Attached  are three files : One <a href="https://raw.githubusercontent.com/dev77
 This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
 
 **Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
-**Kaggle competition:** <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview<br>
 **Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
 **Canvas HW9:** https://rutgers.instructure.com/courses/159918/assignments/1953810
 
@@ -89,6 +89,6 @@ This test submission will be handled through Kaggle (just the error computation 
 
 
 **Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
-**Kaggle competition:** <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
 **Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
 **Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
