@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lecture: 7 🔖 Hypothesis Testing: z-test | bookdemo.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lecture: 7 🔖 Hypothesis Testing: z-test | bookdemo.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lecture: 7 🔖 Hypothesis Testing: z-test | bookdemo.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-transformation.html"/>
+<link rel="next" href="ptest.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">DATA 101 Book</a>
+<a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+<a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
+<a href="https://dev7796.shinyapps.io/testing_button/" target="black">Question Roulette</a>
+<a href="https://dev7796.shinyapps.io/box_shiny/" target="black">Quiz Code</a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="b2022.html"><a href="b2022.html"><i class="fa fa-check"></i><b>2</b> 🔖 Best DataBlog of 2022</a></li>
+<li class="chapter" data-level="3" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html"><i class="fa fa-check"></i><b>3</b> 🔖 Data puzzles secrets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#moody-data-puzzle"><i class="fa fa-check"></i><b>3.1</b> Moody Data Puzzle</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#secrets-revealed--patterns-in-professor-moodys-data"><i class="fa fa-check"></i><b>3.1.1</b> Secrets Revealed- Patterns in Professor Moody’s data?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#best-students-submissions-2022"><i class="fa fa-check"></i><b>3.1.2</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#movies-data-hunt"><i class="fa fa-check"></i><b>3.2</b> Movies Data Hunt</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#secrets-revealed--patterns-in-movies-data"><i class="fa fa-check"></i><b>3.2.1</b> Secrets Revealed- Patterns in Movies data?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#best-students-submissions-2022-1"><i class="fa fa-check"></i><b>3.2.2</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#minimarket-data-hunt"><i class="fa fa-check"></i><b>3.3</b> Minimarket Data Hunt</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#what-were-the-secret-associations-between-items-in-the-minimarket"><i class="fa fa-check"></i><b>3.3.1</b> What were the secret associations between items in the minimarket?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#predicting-grades-in-professor-moodys-class"><i class="fa fa-check"></i><b>3.4</b> Predicting grades in Professor Moody’s class</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#how-did-i-cook-the-professor-moody-prediction-challenge-data"><i class="fa fa-check"></i><b>3.4.1</b> How did I cook the Professor Moody Prediction challenge data?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="setting-up-r.html"><a href="setting-up-r.html"><i class="fa fa-check"></i><b>4</b> Setting Up R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="setting-up-r.html"><a href="setting-up-r.html#setting"><i class="fa fa-check"></i><b>4.1</b> Create New Project</a></li>
+<li class="chapter" data-level="4.2" data-path="setting-up-r.html"><a href="setting-up-r.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>4.2</b> How to upload a data set?</a></li>
+<li class="chapter" data-level="4.3" data-path="setting-up-r.html"><a href="setting-up-r.html#saving-your-work"><i class="fa fa-check"></i><b>4.3</b> Saving your work</a></li>
+<li class="chapter" data-level="4.4" data-path="setting-up-r.html"><a href="setting-up-r.html#general-r-references"><i class="fa fa-check"></i><b>4.4</b> General R References</a></li>
+<li class="chapter" data-level="4.5" data-path="setting-up-r.html"><a href="setting-up-r.html#textbook-concepts"><i class="fa fa-check"></i><b>4.5</b> Textbook Concepts</a></li>
+<li class="chapter" data-level="4.6" data-path="setting-up-r.html"><a href="setting-up-r.html#r-functions-used-in-this-class"><i class="fa fa-check"></i><b>4.6</b> R functions used in this class</a></li>
+<li class="chapter" data-level="4.7" data-path="setting-up-r.html"><a href="setting-up-r.html#data-sets"><i class="fa fa-check"></i><b>4.7</b> Data sets</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="setting-up-r.html"><a href="setting-up-r.html#moody"><i class="fa fa-check"></i><b>4.7.1</b> Moody</a></li>
+<li class="chapter" data-level="4.7.2" data-path="setting-up-r.html"><a href="setting-up-r.html#movies"><i class="fa fa-check"></i><b>4.7.2</b> Movies</a></li>
+<li class="chapter" data-level="4.7.3" data-path="setting-up-r.html"><a href="setting-up-r.html#traffic"><i class="fa fa-check"></i><b>4.7.3</b> Traffic</a></li>
+<li class="chapter" data-level="4.7.4" data-path="setting-up-r.html"><a href="setting-up-r.html#hindex"><i class="fa fa-check"></i><b>4.7.4</b> Hindex</a></li>
+<li class="chapter" data-level="4.7.5" data-path="setting-up-r.html"><a href="setting-up-r.html#prediction-1-dataset"><i class="fa fa-check"></i><b>4.7.5</b> Prediction 1 Dataset</a></li>
+<li class="chapter" data-level="4.7.6" data-path="setting-up-r.html"><a href="setting-up-r.html#midterm-project-and-final-exam-distribution-in-prof.-moody-class"><i class="fa fa-check"></i><b>4.7.6</b> Midterm, Project and Final Exam distribution in Prof. Moody class</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>5</b> 🔖 Plots</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="plots.html"><a href="plots.html#vector"><i class="fa fa-check"></i><b>5.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="plots.html"><a href="plots.html#snippet-1"><i class="fa fa-check"></i><b>5.1.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="5.1.2" data-path="plots.html"><a href="plots.html#snippet-2"><i class="fa fa-check"></i><b>5.1.2</b> Snippet 2</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="plots.html"><a href="plots.html#data-frames"><i class="fa fa-check"></i><b>5.2</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="plots.html"><a href="plots.html#snippet-1-1"><i class="fa fa-check"></i><b>5.2.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="5.2.2" data-path="plots.html"><a href="plots.html#snippet-2-1"><i class="fa fa-check"></i><b>5.2.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="5.2.3" data-path="plots.html"><a href="plots.html#snippet-3"><i class="fa fa-check"></i><b>5.2.3</b> Snippet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="plots.html"><a href="plots.html#table"><i class="fa fa-check"></i><b>5.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="plots.html"><a href="plots.html#snippet-1-2"><i class="fa fa-check"></i><b>5.3.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="5.3.2" data-path="plots.html"><a href="plots.html#code-review"><i class="fa fa-check"></i><b>5.3.2</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="plots.html"><a href="plots.html#scartterplot"><i class="fa fa-check"></i><b>5.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="plots.html"><a href="plots.html#barplot"><i class="fa fa-check"></i><b>5.5</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.6" data-path="plots.html"><a href="plots.html#boxplot"><i class="fa fa-check"></i><b>5.6</b> Box Plot</a></li>
+<li class="chapter" data-level="5.7" data-path="plots.html"><a href="plots.html#mosaicplot"><i class="fa fa-check"></i><b>5.7</b> Mosaic Plot</a></li>
+<li class="chapter" data-level="5.8" data-path="plots.html"><a href="plots.html#additional-references"><i class="fa fa-check"></i><b>5.8</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>6</b> 🔖 Data Transformation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-transformation.html"><a href="data-transformation.html#basic-functions"><i class="fa fa-check"></i><b>6.1</b> Basic Functions</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-transformation.html"><a href="data-transformation.html#mean"><i class="fa fa-check"></i><b>6.1.1</b> mean()</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-transformation.html"><a href="data-transformation.html#length"><i class="fa fa-check"></i><b>6.1.2</b> length()</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-transformation.html"><a href="data-transformation.html#max"><i class="fa fa-check"></i><b>6.1.3</b> max()</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-transformation.html"><a href="data-transformation.html#min"><i class="fa fa-check"></i><b>6.1.4</b> min()</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-transformation.html"><a href="data-transformation.html#sd"><i class="fa fa-check"></i><b>6.1.5</b> sd()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation.html"><a href="data-transformation.html#subset"><i class="fa fa-check"></i><b>6.2</b> Subset</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-transformation.html"><a href="data-transformation.html#nrow"><i class="fa fa-check"></i><b>6.2.1</b> Snippet 1- example of subset function</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-transformation.html"><a href="data-transformation.html#snippet-2--example-of-subset-function"><i class="fa fa-check"></i><b>6.2.2</b> Snippet 2- example of subset function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-transformation.html"><a href="data-transformation.html#snippet-3--subset-as-subframe"><i class="fa fa-check"></i><b>6.2.3</b> Snippet 3- subset as subframe</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-transformation.html"><a href="data-transformation.html#snippet-4--subsetting-columns"><i class="fa fa-check"></i><b>6.2.4</b> Snippet 4- subsetting columns</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-transformation.html"><a href="data-transformation.html#snippet-5--sub-setting-rows-and-columns"><i class="fa fa-check"></i><b>6.2.5</b> Snippet 5- sub-setting rows and columns</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-transformation.html"><a href="data-transformation.html#code-review-1"><i class="fa fa-check"></i><b>6.2.6</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation.html"><a href="data-transformation.html#tapply"><i class="fa fa-check"></i><b>6.3</b> tapply</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation.html"><a href="data-transformation.html#snippet-1--example-of-tapply-followed-by-barplot"><i class="fa fa-check"></i><b>6.3.1</b> Snippet 1- Example of tapply followed by barplot</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation.html"><a href="data-transformation.html#code-review-2"><i class="fa fa-check"></i><b>6.3.2</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation.html"><a href="data-transformation.html#derived-attribute"><i class="fa fa-check"></i><b>6.4</b> Derived Attribute</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-transformation.html"><a href="data-transformation.html#snippet-1---making-new-categorical-attribute."><i class="fa fa-check"></i><b>6.4.1</b> Snippet 1 - Making new categorical attribute.</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-transformation.html"><a href="data-transformation.html#cut"><i class="fa fa-check"></i><b>6.4.2</b> Cut</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-transformation.html"><a href="data-transformation.html#code-review-3"><i class="fa fa-check"></i><b>6.4.3</b> Code Review</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ztest.html"><a href="ztest.html"><i class="fa fa-check"></i><b>7</b> 🔖 Hypothesis Testing: z-test</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ztest.html"><a href="ztest.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="ztest.html"><a href="ztest.html#pnorm"><i class="fa fa-check"></i><b>7.2</b> Snippet 1: Shows the code for z-test to test the following hypotheses</a></li>
+<li class="chapter" data-level="7.3" data-path="ztest.html"><a href="ztest.html#snippet-2-make-your-own-data-and-see-how-p-value-changes"><i class="fa fa-check"></i><b>7.3</b> Snippet 2: Make your own data and see how p-value changes</a></li>
+<li class="chapter" data-level="7.4" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>7.4</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ptest.html"><a href="ptest.html"><i class="fa fa-check"></i><b>8</b> 🔖 Hypothesis Testing: Permutation Test</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ptest.html"><a href="ptest.html#snippet-1-4"><i class="fa fa-check"></i><b>8.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="8.2" data-path="ptest.html"><a href="ptest.html#snippet-2-2"><i class="fa fa-check"></i><b>8.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="8.3" data-path="ptest.html"><a href="ptest.html#snippet-3-1"><i class="fa fa-check"></i><b>8.3</b> Snippet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chitest.html"><a href="chitest.html"><i class="fa fa-check"></i><b>9</b> 🔖 Chi Square Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chitest.html"><a href="chitest.html#snippet-1-5"><i class="fa fa-check"></i><b>9.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="9.2" data-path="chitest.html"><a href="chitest.html#snippet-2-3"><i class="fa fa-check"></i><b>9.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="9.3" data-path="chitest.html"><a href="chitest.html#snippet-3-2"><i class="fa fa-check"></i><b>9.3</b> Snippet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Mtest.html"><a href="Mtest.html"><i class="fa fa-check"></i><b>10</b> 🔖 Multiple Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Mtest.html"><a href="Mtest.html#snippet-1---benjamini-hochberg-algorithm"><i class="fa fa-check"></i><b>10.1</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
+<li class="chapter" data-level="10.2" data-path="Mtest.html"><a href="Mtest.html#snippet-2-4"><i class="fa fa-check"></i><b>10.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="10.3" data-path="Mtest.html"><a href="Mtest.html#additional-references-2"><i class="fa fa-check"></i><b>10.3</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>11</b> Code Review: Exploratory Queries in R</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="cr.html"><a href="cr.html#movies-dataset-example"><i class="fa fa-check"></i><b>11.1</b> Movies Dataset Example</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="cr.html"><a href="cr.html#snippet-1-what-is-the-mean-imdb-of-low-budget-comedies"><i class="fa fa-check"></i><b>11.1.1</b> Snippet 1: What is the mean imdb of low budget comedies?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="cr.html"><a href="cr.html#snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies"><i class="fa fa-check"></i><b>11.1.2</b> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="cr.html"><a href="cr.html#snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies"><i class="fa fa-check"></i><b>11.1.3</b> Snippet 3: What is the lowest imdb score among high budget movies?</a></li>
+<li class="chapter" data-level="11.1.4" data-path="cr.html"><a href="cr.html#snippet-4-how-many-low-budget-movies-generated-high-gross-income"><i class="fa fa-check"></i><b>11.1.4</b> Snippet 4: How many low budget movies generated high gross income?</a></li>
+<li class="chapter" data-level="11.1.5" data-path="cr.html"><a href="cr.html#snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame"><i class="fa fa-check"></i><b>11.1.5</b> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</a></li>
+<li class="chapter" data-level="11.1.6" data-path="cr.html"><a href="cr.html#snippet-6-what-is-the-least-frequent-genre-among-uk-movies"><i class="fa fa-check"></i><b>11.1.6</b> Snippet 6: What is the least frequent genre among UK movies?</a></li>
+<li class="chapter" data-level="11.1.7" data-path="cr.html"><a href="cr.html#snippet-7-which-content-rating-has-the-lowest-average-imdb-score"><i class="fa fa-check"></i><b>11.1.7</b> Snippet 7: Which content rating has the lowest average imdb score?</a></li>
+<li class="chapter" data-level="11.1.8" data-path="cr.html"><a href="cr.html#snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score"><i class="fa fa-check"></i><b>11.1.8</b> Snippet 8: Movies from which country have the smallest average imdb score?</a></li>
+<li class="chapter" data-level="11.1.9" data-path="cr.html"><a href="cr.html#snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame"><i class="fa fa-check"></i><b>11.1.9</b> Snippet 9: What is the least frequent genre in movies data frame?</a></li>
+<li class="chapter" data-level="11.1.10" data-path="cr.html"><a href="cr.html#snippet-10-z-value-2.4-whats-the-p-value"><i class="fa fa-check"></i><b>11.1.10</b> Snippet 10: z value = 2.4, whats the p-value?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="cr.html"><a href="cr.html#census-dataset-example"><i class="fa fa-check"></i><b>11.2</b> Census Dataset Example</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="cr.html"><a href="cr.html#snippet-11-for-the-individual-over-50-which-profession-has-the-highest-average-capital-gain"><i class="fa fa-check"></i><b>11.2.1</b> Snippet 11: For the individual over 50, which profession has the highest average capital gain?</a></li>
+<li class="chapter" data-level="11.2.2" data-path="cr.html"><a href="cr.html#snippet-12-which-profession-has-the-highest-average-capital-gains-sales-or-tech-support"><i class="fa fa-check"></i><b>11.2.2</b> Snippet 12: Which profession has the highest average capital gains; Sales or Tech-support?</a></li>
+<li class="chapter" data-level="11.2.3" data-path="cr.html"><a href="cr.html#snippet-13-what-is-most-frequent-profession-of-people-with-less-than-10-years-od-of-education"><i class="fa fa-check"></i><b>11.2.3</b> Snippet 13: What is most frequent profession of people with less than 10 years od of education?</a></li>
+<li class="chapter" data-level="11.2.4" data-path="cr.html"><a href="cr.html#snippet-14-what-is-minimum-number-of-years-of-education-for-people-with-exec-managerial-specialty"><i class="fa fa-check"></i><b>11.2.4</b> Snippet 14: What is minimum number of years of education for people with Exec-managerial specialty?</a></li>
+<li class="chapter" data-level="11.2.5" data-path="cr.html"><a href="cr.html#snippet-15-what-is-the-most-frequent-degree-for-natives-of-the-united-states"><i class="fa fa-check"></i><b>11.2.5</b> Snippet 15: What is the most frequent degree for natives of the United States?</a></li>
+<li class="chapter" data-level="11.2.6" data-path="cr.html"><a href="cr.html#snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-of-education"><i class="fa fa-check"></i><b>11.2.6</b> Snippet 16: What is the least frequent degree for people with at least 12 years of education?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="common.html"><a href="common.html"><i class="fa fa-check"></i><b>12</b> 🔖 Common Sense Judgement and Probability</a></li>
+<li class="chapter" data-level="13" data-path="br.html"><a href="br.html"><i class="fa fa-check"></i><b>13</b> 🔖 Bayesian Reasoning</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="br.html"><a href="br.html#snippet-1-covid-odds-after-positive-home-test."><i class="fa fa-check"></i><b>13.1</b> Snippet 1: Covid Odds after positive Home Test.</a></li>
+<li class="chapter" data-level="13.2" data-path="br.html"><a href="br.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman"><i class="fa fa-check"></i><b>13.2</b> Snippet 2: What are the odds that an ‘F’ student is a freshman?</a></li>
+<li class="chapter" data-level="13.3" data-path="br.html"><a href="br.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major"><i class="fa fa-check"></i><b>13.3</b> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Pc1.html"><a href="Pc1.html"><i class="fa fa-check"></i><b>14</b> 🔖 Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="Pc1.html"><a href="Pc1.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>14.1</b> General Structure of the Prediction Challenges</a></li>
+<li class="chapter" data-level="14.2" data-path="Pc1.html"><a href="Pc1.html#challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set"><i class="fa fa-check"></i><b>14.2</b> Challenge 1 - Freestyle prediction of grades in yet another MOODY data set</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="Pc1.html"><a href="Pc1.html#this-is-how-an-a-in-this-course-looks-like"><i class="fa fa-check"></i><b>14.2.1</b> This is how an ‘A’ in this course looks like</a></li>
+<li class="chapter" data-level="14.2.2" data-path="Pc1.html"><a href="Pc1.html#best-students-submissions-2022-2"><i class="fa fa-check"></i><b>14.2.2</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="Pc1.html"><a href="Pc1.html#challenge-2---same-data-but-using-rpart---decision-tree"><i class="fa fa-check"></i><b>14.3</b> Challenge 2 - Same data but using rpart - decision tree</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="Pc1.html"><a href="Pc1.html#best-students-submissions-2022-3"><i class="fa fa-check"></i><b>14.3.1</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>15</b> 🔖 Free Style: Prediction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P1.html"><a href="P1.html#snippet-1-example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>15.1</b> Snippet 1: Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="15.2" data-path="P1.html"><a href="P1.html#snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>15.2</b> Snippet 2: How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="15.3" data-path="P1.html"><a href="P1.html#snippet-3-one-step-crossvalidation"><i class="fa fa-check"></i><b>15.3</b> Snippet 3: One-step crossvalidation</a></li>
+<li class="chapter" data-level="15.4" data-path="P1.html"><a href="P1.html#snippet-4-preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>15.4</b> Snippet 4: Preparing submission.csv for Kaggle</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="prpart.html"><a href="prpart.html"><i class="fa fa-check"></i><b>16</b> 🔖 Predictions with rpart</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="prpart.html"><a href="prpart.html#rpart"><i class="fa fa-check"></i><b>16.1</b> Use of Rpart</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="prpart.html"><a href="prpart.html#snippet-1-6"><i class="fa fa-check"></i><b>16.1.1</b> Snippet 1</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="prpart.html"><a href="prpart.html#rpartplot"><i class="fa fa-check"></i><b>16.2</b> Visualize the Decision tree</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="prpart.html"><a href="prpart.html#snippet-2-5"><i class="fa fa-check"></i><b>16.2.1</b> Snippet 2</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="prpart.html"><a href="prpart.html#rpartcontrol"><i class="fa fa-check"></i><b>16.3</b> Rpart Control</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="prpart.html"><a href="prpart.html#snippet-3-minsplit-200"><i class="fa fa-check"></i><b>16.3.1</b> Snippet 3: Minsplit = 200</a></li>
+<li class="chapter" data-level="16.3.2" data-path="prpart.html"><a href="prpart.html#snippet-4-minsplit-100"><i class="fa fa-check"></i><b>16.3.2</b> Snippet 4: Minsplit = 100</a></li>
+<li class="chapter" data-level="16.3.3" data-path="prpart.html"><a href="prpart.html#snippet-5-minbucket-100"><i class="fa fa-check"></i><b>16.3.3</b> Snippet 5: Minbucket = 100</a></li>
+<li class="chapter" data-level="16.3.4" data-path="prpart.html"><a href="prpart.html#snippet-6-minbucket-200"><i class="fa fa-check"></i><b>16.3.4</b> Snippet 6: Minbucket = 200</a></li>
+<li class="chapter" data-level="16.3.5" data-path="prpart.html"><a href="prpart.html#snippet-7-cp-0.05"><i class="fa fa-check"></i><b>16.3.5</b> Snippet 7: cp = 0.05</a></li>
+<li class="chapter" data-level="16.3.6" data-path="prpart.html"><a href="prpart.html#snippet-8-cp-0.005"><i class="fa fa-check"></i><b>16.3.6</b> Snippet 8: cp = 0.005</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.4</b> Cross Validation</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-9"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 9</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.5</b> Prediction using rpart.</a>
+<ul>
+<li class="chapter" data-level="16.5.1" data-path="prpart.html"><a href="prpart.html#snippet-10"><i class="fa fa-check"></i><b>16.5.1</b> Snippet 10</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#snippet-11-your-model-with-rpart"><i class="fa fa-check"></i><b>16.6</b> Snippet 11: Your Model with rpart</a></li>
+<li class="chapter" data-level="16.7" data-path="prpart.html"><a href="prpart.html#snippet-12-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.7</b> Snippet 12: Freestyle + rpart: Combining rpart prediction models</a></li>
+<li class="chapter" data-level="16.8" data-path="prpart.html"><a href="prpart.html#snippet-13-submission-with-rpart"><i class="fa fa-check"></i><b>16.8</b> Snippet 13: Submission with rpart</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="lr.html"><a href="lr.html#lm"><i class="fa fa-check"></i><b>17.1</b> Linear regression using lm() function</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="lr.html"><a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>17.1.1</b> Snippet 1: How much do Midterm, Project and Final Exam count?</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="lr.html"><a href="lr.html#mse"><i class="fa fa-check"></i><b>17.2</b> Calculating the Error using mse()</a></li>
+<li class="chapter" data-level="17.3" data-path="lr.html"><a href="lr.html#snippet-2-cross-validate-your-prediction"><i class="fa fa-check"></i><b>17.3</b> Snippet 2: Cross Validate your prediction</a></li>
+<li class="chapter" data-level="17.4" data-path="lr.html"><a href="lr.html#snippet-3-submission-with-lm"><i class="fa fa-check"></i><b>17.4</b> Snippet 3: Submission with lm</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MLP.html"><a href="MLP.html"><i class="fa fa-check"></i><b>18</b> 🔖 Machine Learning-Prediction Loop</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ztest" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Lecture: 7</span> 🔖 Hypothesis Testing: z-test<a href="ztest.html#ztest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<ul>
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div>
+<div id="CLT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>Great Resource: </strong> <a href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"> <button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy</button> </a></li>
+</ul>
+<div id="introduction" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction<a href="ztest.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME_PER_MINUTE. Below we show a small sample of the TRAFFIC data frame</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-79">Table 7.1: </span>Snippet of Traffic Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+TUNNEL
+</th>
+<th style="text-align:left;">
+DAY
+</th>
+<th style="text-align:right;">
+VOLUME_PER_MINUTE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2638
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+68.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2741
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+72.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1312
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+52.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1146
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+49.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+941
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+57.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+526
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+61.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+544
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+98.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1380
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+44.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1050
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+57.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1800
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+72.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>The following snippet <strong>6.2</strong> shows the code for hypothesis test of difference of means.</p>
+<p>Is the mean traffic (VOLUME_PER_MINUTE) in the Holland tunnel bigger than mean traffic (VOLUME_PER_MINUTE) in the Lincoln?</p>
+</div>
+<div id="pnorm" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Snippet 1: Shows the code for z-test to test the following hypotheses<a href="ztest.html#pnorm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Null Hypothesis</strong> - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.</p>
+<p><strong>Alternative Hypothesis</strong> - Traffic in the Holland Tunnel is larger than traffic in the Lincoln tunnel.</p>
+<p>In the snippet <strong>6.2</strong> we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5%.
+This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the observed difference of means.</p>
+<div data-datacamp-exercise="" data-height="850" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG5saW5jb2xuLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiTGluY29sblwiKVxuaG9sbGFuZC5kYXRhIDwtIHN1YnNldChUUkFGRklDLCBUUkFGRklDJFRVTk5FTCA9PSBcIkhvbGxhbmRcIilcblxuI3RyYWZmaWMgYXQgbGluY29sblxubGluY29sbi50cmFmZmljIDwtIGxpbmNvbG4uZGF0YSRWT0xVTUVfUEVSX01JTlVURVxuXG4jdHJhZmZpYyBhdCBob2xsYW5kXG5ob2xsYW5kLnRyYWZmaWMgPC0gaG9sbGFuZC5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG5zZC5ob2xsYW5kIDwtIHNkKGhvbGxhbmQudHJhZmZpYylcbnNkLmxpbmNvbG5cbnNkLmhvbGxhbmRcblxuI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG5sZW5fbGluY29sbiA8LSBsZW5ndGgobGluY29sbi50cmFmZmljKVxubGVuX2hvbGxhbmQgPC0gbGVuZ3RoKGhvbGxhbmQudHJhZmZpYylcbmxlbl9saW5jb2xuXG5sZW5faG9sbGFuZFxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcbnNkLmxpbi5ob2xcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5tZWFuLmxpbmNvbG5cbm1lYW4uaG9sbGFuZFxuXG4jeiBzY29yZVxuemV0YSA8LSAobWVhbi5saW5jb2xuIC0gbWVhbi5ob2xsYW5kKS9zZC5saW4uaG9sXG56ZXRhXG5cbiNwbG90IHJlZCBsaW5lXG5wbG90KHg9c2VxKGZyb20gPSAtNSwgdG89IDUsIGJ5PTAuMSkseT1kbm9ybShzZXEoZnJvbSA9IC01LCB0bz0gNSwgIGJ5PTAuMSksbWVhbj0wKSx0eXBlPSdsJyx4bGFiID0gJ21lYW4gZGlmZmVyZW5jZScsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG5cbiNnZXQgcFxucCA9IDEtcG5vcm0oemV0YSlcbnAifQ==
+</div>
+</div>
+<div id="snippet-2-make-your-own-data-and-see-how-p-value-changes" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Snippet 2: Make your own data and see how p-value changes<a href="ztest.html#snippet-2-make-your-own-data-and-see-how-p-value-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How p-value is affected by difference of means and standard deviations.</p>
+<p>We will build two distributions ourselves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the <strong>rnorm()</strong> function.</p>
+<p>Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value? See for yourself.</p>
+<p>Build the data frame with two attributes: Cat and Val, using <strong>rnorm()</strong> function</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzUsIHNkPTEwKVxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICBcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgXG5DYXQ8LWMoQ2F0MSxDYXQyKSBcblZhbDwtYyhWYWwxLFZhbDIpXG5cbmQ8LWRhdGEuZnJhbWUoQ2F0LFZhbClcbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbmRBPC1kW2QkQ2F0PT0nR3JvdXBBJyxdXG5kQVxuZEI8LWRbZCRDYXQ9PSdHcm91cEInLF1cbmRCXG5cbm1lYW5BPC1tZWFuKGRBJFZhbClcbm1lYW5CPC1tZWFuKGRCJFZhbClcblxuc2RBPC1zZChkQSRWYWwpXG5zZEI8LXNkKGRCJFZhbClcblxubGVuQTwtbnJvdyhkQSlcbmxlbkFcbmxlbkI8LW5yb3coZEIpXG5sZW5CXG5cbnNkLkEuQiA8LSBzcXJ0KHNkQV4yL2xlbkEgK3NkQl4yL2xlbkIpXG5zZC5BLkJcblxuemV0YSA8LSAobWVhbkIgLSBtZWFuQSkvc2QuQS5CXG56ZXRhXG5wPC0xLXBub3JtKHpldGEpXG5wIn0=
+</div>
+</div>
+<div id="additional-references-1" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Additional References<a href="ztest.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/" class="uri">https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/</a> <br>
+<a href="http://www.z-table.com/" class="uri">http://www.z-table.com/</a> <br>
+<a href="https://www.statisticshowto.com/probability-and-statistics/z-score/" class="uri">https://www.statisticshowto.com/probability-and-statistics/z-score/</a> <br>
+<a href="https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/" class="uri">https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-transformation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ptest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.HTML", "bookdemo.pdf_book", "bookdemo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
