@@ -27,4 +27,4 @@ rmd_files: [
 
 language:
   ui:
-    chapter_name: "Lecture: "
+    chapter_name: "Section: "
