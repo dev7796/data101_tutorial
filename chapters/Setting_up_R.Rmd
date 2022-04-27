@@ -254,6 +254,8 @@ tutorial::go_interactive()
 
 ### Moody
 
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2022_new.csv">moody2022_new.csv</a>
+
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
@@ -273,6 +275,8 @@ summary(moody)
 ```
 
 ### Movies
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -294,6 +298,8 @@ summary(movies)
 
 ### Traffic
 
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv" download="Traffic2022.csv">Traffic2022.csv</a>
+
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
@@ -313,6 +319,8 @@ summary(traffic)
 ```
 
 ### Hindex
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv" download="Hindex.csv">Hindex.csv</a>
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -335,6 +343,8 @@ summary(hindex)
 
 ### Prediction 1 Dataset
 
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a>
+
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv")
@@ -354,6 +364,8 @@ summary(moody)
 ```
 
 ### Midterm, Project and Final Exam distribution in Prof. Moody class 
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv" download="MoodyNUM.csv">MoodyNUM.csv</a>
 
 **Assumptions:** Midterm, Project and Final Exam are all out of 100
 
@@ -377,6 +389,8 @@ summary(moody)
 
 
 ### Minimarket
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv" download="HomeworkMarket2022.csv">HomeworkMarket2022.csv</a>
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
