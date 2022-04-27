@@ -32,9 +32,9 @@ chisq.test(Observed)
 
 ```{r,tut=TRUE,ex="chisquarefunction",type="pre-exercise-code"}
 library(dplyr)
-d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 head(d)
-
+options(warn=-1)
 chi_test <- function(data,col1,col2,iter) {
   
   df <- data.frame(data)
@@ -64,7 +64,10 @@ chi_test <- function(data,col1,col2,iter) {
 
 ```{r,tut=TRUE,ex="chisquarefunction",type="sample-code",height=500}
 
-chi_test(d,"TEXTING_IN_CLASS","GRADE",1000)
+#d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
+#head(d)
+
+chi_test(d,"Major","Grade",1000)
 
 ```
 
