@@ -30,6 +30,46 @@ chisq.test(Observed)
 
 ## Snippet 2
 
+```{r,tut=TRUE,ex="chisquarefunction",type="pre-exercise-code"}
+library(dplyr)
+d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+head(d)
+
+chi_test <- function(data,col1,col2,iter) {
+  
+  df <- data.frame(data)
+  vals<- unique(df[[col2]])
+  no_rows <- nrow(df)
+  dt <- table(df[[col1]], df[[col2]])
+  res <- chisq.test(dt)
+  real_ans <- res$statistic
+  ans_vec <- vector()
+  for (x in 1:iter){
+
+    new_data <- sample(x=vals,size=no_rows,replace = TRUE)
+
+    dt_new <- table(df[[col1]], new_data)
+
+    res_new <- chisq.test(dt_new)
+
+    ans_vec <- append(ans_vec,res_new$statistic)
+  }
+  hist(ans_vec,main="Permutation Test for Chi-Square",xlab="Chi-Square Values")
+  print(real_ans)
+  abline(v=real_ans,col="blue",lwd=2)
+}
+
+```
+
+
+```{r,tut=TRUE,ex="chisquarefunction",type="sample-code",height=700}
+
+chi_test(d,"Major","Grade",1000)
+
+```
+
+## Snippet 3
+
 ```{r,tut=TRUE,height=300}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 moody$IN<-'Out_Slice'
@@ -39,7 +79,7 @@ d
 chisq.test(d)
 ```
 
-## Snippet 3
+## Snippet 4
 
 
 ```{r,tut=TRUE,height=300}

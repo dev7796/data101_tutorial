@@ -124,9 +124,245 @@ In the following sections we will address these questions and go through the pro
 \hypertarget{b2022}{%
 \section{🔖 Best Works of 2022}\label{b2022}}
 
+\hypertarget{datablog}{%
+\subsection{DataBlog}\label{datablog}}
+
 Ella Walmsley
 
 \hypertarget{bt12}{}
+
+\hypertarget{prediction-challenge-1}{%
+\subsection{Prediction Challenge 1}\label{prediction-challenge-1}}
+
+Upsham Naik
+
+Jeevanandan Ramasamy
+
+\hypertarget{bt15}{}
+
+\hypertarget{bt13}{}
+
+\hypertarget{prediction-challenge-2}{%
+\subsection{Prediction Challenge 2}\label{prediction-challenge-2}}
+
+Jeevanandan Ramasamy
+
+\hypertarget{bt14}{}
+
+\hypertarget{DLL}{%
+\section{Data League Leaderboard}\label{DLL}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Leaderboard 2022}
+\centering
+\begin{tabular}[t]{rl}
+\toprule
+Rank & Participant.Name\\
+\midrule
+1 & Jeevanandan Ramasamy\\
+2 & George Basta\\
+3 & Joyce Huang\\
+4 & Jiaxu Hu\\
+5 & Dhiren Patel\\
+\addlinespace
+6 & Chicheng Shao\\
+7 & Cheyenne Pourkay\\
+8 & Christopher Nguyen\\
+9 & Aaron Mok\\
+10 & Ethan Matta\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Honourable Mentions: }
+Upsham Naik, Joshua B. Sze, Kirtan Patel, Maria Xu, Devam Patel, Eva Zhang, Toshanraju Vysyaraju, Maanas Pimplikar, Jared Chiou, Nitya Narayanan, Shrish Vellore, Yousra Belgaid, Mitali Shroff, Michael Jucan, Jackie Hong, Arvin Sung, Eric Xuan, Eva Allred, Leah Ranavat, Nami Jain, Gautam Agarwal, Aditya Patil
+
+\hypertarget{data-puzzles-secrets}{%
+\section{🔖 Data puzzles secrets}\label{data-puzzles-secrets}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture slides: } Data Exploration
+
+  \hypertarget{freestyle12}{}
+\end{itemize}
+
+\hypertarget{moody-data-puzzle}{%
+\subsection{Moody Data Puzzle}\label{moody-data-puzzle}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Snippet of Moody Dataset}
+\centering
+\begin{tabular}[t]{rlllr}
+\toprule
+SCORE & GRADE & DOZES\_OFF & TEXTING\_IN\_CLASS & PARTICIPATION\\
+\midrule
+21.33 & F & never & never & 0.29\\
+71.57 & C & always & rarely & 0.11\\
+90.11 & A & always & never & 0.26\\
+31.52 & D & sometimes & rarely & 0.03\\
+95.94 & A & always & rarely & 0.21\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
+
+\textbf{Puzzle description:}
+
+Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint: he DOES NOT seem to assign grades fairly. Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.
+
+A new brave TA, managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by \ldots.messing a bit with Moody's computer\ldots.well, let's not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.
+
+Looks like Professor Moody is in fact very alert in class. He is aware of what students do, detecting texting during class and remembering exactly who was dozed off in class. He also keeps the mysterious ``participation index'' which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class. Remarkable but a little creepy, isn't it?
+
+What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.
+
+\textbf{What are examples of patterns we are looking for here?}
+
+Here are some:
+
+\begin{itemize}
+\tightlist
+\item
+  ``Students who text a lot'' have lower chance to get an A in the class''
+\item
+  ``Students whose participation is lower than 0.25 fail the class more often''
+\item
+  ``Dozing off does not matter if your score is more than 90, you still get an A''
+\item
+  ``If you score is less than 30, you fail the class regardless of what your other attributes are''
+\end{itemize}
+
+\hypertarget{secrets-revealed--patterns-in-professor-moodys-data}{%
+\subsubsection{Secrets Revealed- Patterns in Professor Moody's data?}\label{secrets-revealed--patterns-in-professor-moodys-data}}
+
+My Patterns
+
+\hypertarget{MDP12}{}
+
+Many student solutions falsely attribute higher grades to higher values of participation attribute..
+
+This is a classic example of a hidden variable described in the reference attached below.
+
+The truth is that participation attribute value impacts the score attribute value. Generally, the higher the participation in Moody's class, the higher the score. But it is the score attribute which has a direct impact on the grade. Thus, it is the score which is the real ``hidden variable'' impacting the final grade.
+
+Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above with the explanation)
+
+Compare with examples of hidden variables in the following reference about correlation and causation.
+
+\url{https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html}
+
+\hypertarget{best-students-submissions-2022}{%
+\subsubsection{Best Student's Submissions 2022}\label{best-students-submissions-2022}}
+
+Lauretta Martin
+
+Sanjaya Budhathoki
+
+Sandhya Senthilkumar
+
+\hypertarget{PPT2021}{}
+
+\hypertarget{PPT2020}{}
+
+\hypertarget{PPT2019}{}
+
+\hypertarget{movies-data-hunt}{%
+\subsection{Movies Data Hunt}\label{movies-data-hunt}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-19}Snippet of Movies Dataset}
+\centering
+\begin{tabular}[t]{lllrlll}
+\toprule
+  & country & content & imdb\_score & Gross & Budget & genre\\
+\midrule
+9543 & USA & PG-13 & 7.32 & Low & Medium & History\\
+7319 & USA & PG-13 & 6.91 & Low & Medium & Drama\\
+583 & USA & PG-13 & 7.48 & High & High & Drama\\
+11604 & USA & PG-13 & 6.62 & Low & Low & History\\
+544 & USA & PG-13 & 6.08 & High & High & Family\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Puzzle description:}
+
+contains imdb scores of 12,800+ movies along with several attributes including budget, gross genre, content rating etc.
+
+What are the most promising alternative hypotheses about imdb scores to test? Name your three top candidates along with the evidence which backs them up: either in the form of R instruction(s) or plot.
+
+\hypertarget{secrets-revealed--patterns-in-movies-data}{%
+\subsubsection{Secrets Revealed- Patterns in Movies data?}\label{secrets-revealed--patterns-in-movies-data}}
+
+Secrets Revealed
+
+\hypertarget{MV12}{}
+
+\hypertarget{best-students-submissions-2022-1}{%
+\subsubsection{Best Student's Submissions 2022}\label{best-students-submissions-2022-1}}
+
+Joshua Sze
+
+Andrew Fasano
+
+\hypertarget{hw41}{}
+
+\hypertarget{hw42}{}
+
+\hypertarget{minimarket-data-hunt}{%
+\subsection{Minimarket Data Hunt}\label{minimarket-data-hunt}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-20}Snippet of Minimarket Dataset}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+  & BREAD & BUTTER & COOKIES & COFFEE & TEA\\
+\midrule
+8348 & 1 & 1 & 1 & 1 & 1\\
+8599 & 0 & 1 & 0 & 0 & 0\\
+8537 & 1 & 0 & 0 & 1 & 0\\
+4826 & 0 & 1 & 0 & 0 & 1\\
+7153 & 0 & 1 & 1 & 1 & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Puzzle description:}
+
+Each row of Minimarket.csv contains one customer transaction which is represented as binary vector (treat this as NUM values). 1 means that customer bought an item, 0 - means that customer did not but that item. For example if customer bought Bread but did not buy Butter you will see 1 in the Bread column and 0 in the Butter column.
+
+\textbf{Summary}
+
+Here's what you'd do:
+1. Come up with a null hypothesis: ``Bread does not impact the sales of butter''
+2. Come up with an alternative hypothesis: ``Bread impacts the sale of butter''
+3. Compute the mean value of the Butter column for all the rows where Bread value = 0. Let's say this is mean1.
+4. Compute the mean value of the Butter column for all the rows where Bread value = 1. Let's say this is mean2.
+
+\hypertarget{what-were-the-secret-associations-between-items-in-the-minimarket}{%
+\subsubsection{What were the secret associations between items in the minimarket?}\label{what-were-the-secret-associations-between-items-in-the-minimarket}}
+
+Secrets Revealed
+
+\hypertarget{MV12}{}
+
+\hypertarget{predicting-grades-in-professor-moodys-class}{%
+\subsection{Predicting grades in Professor Moody's class}\label{predicting-grades-in-professor-moodys-class}}
+
+\hypertarget{how-did-i-cook-the-professor-moody-prediction-challenge-data}{%
+\subsubsection{How did I cook the Professor Moody Prediction challenge data?}\label{how-did-i-cook-the-professor-moody-prediction-challenge-data}}
+
+Secrets Revealed
+
+\hypertarget{MV13}{}
 
 \hypertarget{setting-up-r}{%
 \section{Setting Up R}\label{setting-up-r}}
@@ -452,6 +688,34 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
   False Discovery Proportion: \ref{Mtest}
 \item
   Contingency Matrix: \ref{chitest}
+\item
+  Bayesian Reasoning: \ref{br}
+\item
+  Prior odds: \ref{br}
+\item
+  Posterior odds: \ref{br}
+\item
+  Likelihood ratio: \ref{br}
+\item
+  False positive: \ref{br}
+\item
+  True positive: \ref{br}
+\item
+  Crossvalidation: \ref{crossvalidation}
+\item
+  Decision trees: \ref{prpart}
+\item
+  Linear regression: \ref{lr}
+\item
+  Recursive partitioning: \ref{lr}
+\item
+  MSE: \ref{lr}
+\item
+  Prediction accuracy: \ref{lr}
+\item
+  Training: \ref{lr}
+\item
+  Testing: \ref{lr}
 \end{itemize}
 
 \hypertarget{r-functions-used-in-this-class}{%
@@ -465,7 +729,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 \item
   \textbf{Data Transformations: } subset() \ref{subset}, tapply() \ref{tapply}, table() \ref{table}, aggregate()
 \item
-  \textbf{Library functions: } chisq.test() \ref{chitest}, pnorm() \ref{pnorm}, Permutation() \ref{ptest}
+  \textbf{Library functions: } chisq.test() \ref{chitest}, pnorm() \ref{pnorm}, Permutation() \ref{ptest}, rpart() \ref{prpart}, predict() \ref{rpartpredict}, lm() \ref{lm}, crossvalidation() \ref{crossvalidation}
+\item
+  \textbf{Parameters of rpart: } minsplit \ref{rpartcontrol}, minbucket \ref{rpartcontrol}, cp \ref{rpartcontrol}
 \end{itemize}
 
 \hypertarget{data-sets}{%
@@ -476,17 +742,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-8}Snippet of Moody Dataset}
+\caption{\label{tab:unnamed-chunk-26}Snippet of Moody Dataset}
 \centering
 \begin{tabular}[t]{lrlllr}
 \toprule
   & SCORE & GRADE & DOZES\_OFF & TEXTING\_IN\_CLASS & PARTICIPATION\\
 \midrule
-371 & 17.85 & F & sometimes & rarely & 0.24\\
-738 & 41.43 & D & never & rarely & 0.38\\
-172 & 11.17 & F & always & rarely & 0.04\\
-191 & 50.76 & D & never & rarely & 0.35\\
-259 & 91.90 & A & sometimes & rarely & 0.30\\
+393 & 67.93 & C & always & never & 0.09\\
+127 & 57.10 & C & sometimes & never & 0.48\\
+717 & 25.02 & D & always & never & 0.02\\
+573 & 61.82 & B & sometimes & rarely & 0.00\\
+318 & 98.28 & A & always & never & 0.99\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -498,17 +764,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-10}Snippet of Movies Dataset}
+\caption{\label{tab:unnamed-chunk-28}Snippet of Movies Dataset}
 \centering
 \begin{tabular}[t]{lllrlll}
 \toprule
   & country & content & imdb\_score & Gross & Budget & genre\\
 \midrule
-7222 & USA & PG-13 & 6.09 & Medium & Medium & Action\\
-1563 & USA & R & 7.79 & Medium & High & Action\\
-3575 & USA & PG-13 & 6.40 & Medium & Medium & Sci-Fi\\
-11618 & USA & R & 7.83 & Low & Low & History\\
-3647 & USA & PG-13 & 6.88 & High & Medium & Sci-Fi\\
+11322 & USA & PG-13 & 8.11 & Low & Low & History\\
+11045 & USA & PG & 8.20 & Medium & Low & Drama\\
+8995 & USA & PG & 6.86 & Medium & Low & History\\
+2657 & USA & R & 5.63 & Medium & High & Family\\
+9762 & USA & R & 7.79 & Medium & Low & History\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -520,17 +786,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-12}Snippet of Traffic Dataset}
+\caption{\label{tab:unnamed-chunk-30}Snippet of Traffic Dataset}
 \centering
 \begin{tabular}[t]{lllr}
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-849 & Holland & weekday & 74.5\\
-620 & Holland & weekday & 65.5\\
-1450 & Lincoln & weekday & 57.0\\
-618 & Holland & weekday & 79.5\\
-2139 & Lincoln & weekday & 67.0\\
+1854 & Lincoln & weekday & 100.0\\
+1793 & Lincoln & weekday & 83.0\\
+270 & Holland & weekday & 58.5\\
+1928 & Lincoln & weekday & 68.0\\
+95 & Holland & weekday & 36.5\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -542,17 +808,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-14}Snippet of Hindex Dataset}
+\caption{\label{tab:unnamed-chunk-32}Snippet of Hindex Dataset}
 \centering
 \begin{tabular}[t]{lrlr}
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-902 & 72495 & Cyprus & 7.26\\
-5019 & 69999 & Mexico & 7.34\\
-3807 & 85051 & Sudan & 8.39\\
-2756 & 55143 & Cameroon & 5.68\\
-3367 & 75597 & Latvia & 7.26\\
+5746 & 76397 & Georgia & 7.72\\
+2837 & 19119 & Sierra Leone & 2.21\\
+4640 & 97602 & Jordan & 9.41\\
+3523 & 65736 & Kenya & 6.70\\
+4853 & 94589 & Azerbaijan & 9.40\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -564,17 +830,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3Lmdp
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-16}Snippet of Moody Predicition 1 dataset}
+\caption{\label{tab:unnamed-chunk-34}Snippet of Moody Predicition 1 dataset}
 \centering
 \begin{tabular}[t]{llrll}
 \toprule
   & Major & Score & Seniority & Grade\\
 \midrule
-3 & Economics & 20 & Sophomore & F\\
-565 & Economics & 73 & Sophomore & B\\
-14 & CS & 36 & Freshman & D\\
-683 & Statistics & 97 & Senior & A\\
-274 & Statistics & 24 & Junior & F\\
+209 & CS & 83 & Freshman & A\\
+674 & CS & 44 & Senior & F\\
+203 & Economics & 35 & Junior & F\\
+69 & Statistics & 93 & Senior & A\\
+339 & Statistics & 81 & Sophomore & B\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -584,27 +850,48 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \hypertarget{midterm-project-and-final-exam-distribution-in-prof.-moody-class}{%
 \subsubsection{Midterm, Project and Final Exam distribution in Prof.~Moody class}\label{midterm-project-and-final-exam-distribution-in-prof.-moody-class}}
 
-Assumptions:
-- Midterm, Project and Final Exam are all out of 100
+\textbf{Assumptions:} Midterm, Project and Final Exam are all out of 100
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-18}Midterm, Project and Final Exam distribution in Prof. Moody class}
+\caption{\label{tab:unnamed-chunk-36}Midterm, Project and Final Exam distribution in Prof. Moody class}
 \centering
 \begin{tabular}[t]{lrrrr}
 \toprule
   & Midterm & Project & FinalExam & ClassScore\\
 \midrule
-882 & 38 & 39 & 81 & 51.40000\\
-556 & 50 & 26 & 24 & 27.24296\\
-188 & 94 & 65 & 3 & 52.20000\\
-288 & 98 & 1 & 44 & 33.30000\\
-992 & 42 & 33 & 4 & 26.10000\\
+845 & 10 & 99 & 9 & 54.20000\\
+809 & 26 & 16 & 76 & 36.20084\\
+431 & 33 & 24 & 50 & 33.60000\\
+5 & 85 & 52 & 85 & 68.50000\\
+849 & 22 & 32 & 2 & 21.00000\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcblxuc3VtbWFyeShtb29keSkifQ==
+
+\hypertarget{minimarket}{%
+\subsubsection{Minimarket}\label{minimarket}}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-38}Minimarket dataset}
+\centering
+\begin{tabular}[t]{llllllll}
+\toprule
+  & Beer & Day & Location & SoftDrinks & Sweets & Wine & Snacks\\
+\midrule
+7908 & Ale & Weekend & Edison & Orange  Juice & Milky Way & Red & None\\
+3699 & Lager & Weekday & New Brunswick & Sprite & Snickers & None & Pretzels\\
+11944 & Ale & Weekday & Edison & Orange  Juice & Snickers & None & None\\
+10944 & Lager & Weekday & Princeton & Orange  Juice & Snickers & None & Popcorn\\
+15790 & Lager & Weekday & Edison & Sprite & Milky Way & White & Popcorn\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtaW5pbWFya2V0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hvbWV3b3JrTWFya2V0MjAyMi5jc3ZcIilcblxuc3VtbWFyeShtaW5pbWFya2V0KSJ9
 
 \hypertarget{plots}{%
 \section{🔖 Plots}\label{plots}}
@@ -705,7 +992,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3Lmdp
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-34}Snippet of Moody Dataset}
+\caption{\label{tab:unnamed-chunk-54}Snippet of Moody Dataset}
 \centering
 \begin{tabular}[t]{rlllr}
 \toprule
@@ -1015,143 +1302,6 @@ In this way, for someone with very small participation, the 10 point penalty wil
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIHByaW50IHRoZSBjb2x1bW4gbmFtZXNcbmNvbG5hbWVzKG1vb2R5KVxuXG4jIGxldHMgbG9vayBhdCB0aGUgY29uZGl0aW9uYWwgYXR0cmlidXRlIFxuaGVhZChtb29keSlcblxuI3N1YnNldCB0aGUgbW9vZHkgZGF0YXNldCByb3dzID0gMSB0byAxMCBhbmQgY29scyA9IDEsNVxubW9vZHlbMToxMCwgYygxLDUpXVxuXG4jc3Vic2V0IHRoZSBtb29keSBkYXRhc2V0IHJvd3MgPSAxIHRvIDEwIGFuZCBjb2xzID0gMSw1LDZcbm1vb2R5WzE6MTAsIGMoMSw1LDYpXVxuXG4jIHByaW50IHN1bW1hcnkgb2YgaW5pZGl2aWR1YWwgY29sdW1uc1xuc3VtbWFyeShtb29keSRzY29yZSlcbnN1bW1hcnkobW9vZHkkY29uZGl0aW9uYWwpXG5cbiMgUGxvdHRpbmcgdGhlIGNvbmRpdGlvbmFsIGF0dHJpYnV0ZSB1c2luZyBib3hwbG90XG5ib3hwbG90KG1vb2R5JGNvbmRpdGlvbmFsLGNvbCA9IGMoXCJyZWRcIiksbWFpbj1cIkNvbXBsZXggRXhhbXBsZVwiKVxuXG4jIFBsb3R0aW5nIHRoZSBzY29yZSBhdHRyaWJ1dGUgdXNpbmcgYm94cGxvdFxuYm94cGxvdChtb29keSRzY29yZSxjb2wgPSBjKFwiYmx1ZVwiKSxtYWluPVwiQ29tcGxleCBFeGFtcGxlXCIpIn0=
 
-\hypertarget{free-style-data-exploration}{%
-\section{🔖 Free Style: Data Exploration}\label{free-style-data-exploration}}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Lecture slides: } Data Exploration
-
-  \hypertarget{freestyle12}{}
-\end{itemize}
-
-\hypertarget{moody-data-puzzle}{%
-\subsection{Moody Data Puzzle}\label{moody-data-puzzle}}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-63}Snippet of Moody Dataset}
-\centering
-\begin{tabular}[t]{rlllr}
-\toprule
-SCORE & GRADE & DOZES\_OFF & TEXTING\_IN\_CLASS & PARTICIPATION\\
-\midrule
-21.33 & F & never & never & 0.29\\
-71.57 & C & always & rarely & 0.11\\
-90.11 & A & always & never & 0.26\\
-31.52 & D & sometimes & rarely & 0.03\\
-95.94 & A & always & rarely & 0.21\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
-
-\textbf{Puzzle description:}
-
-Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint: he DOES NOT seem to assign grades fairly. Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.
-
-A new brave TA, managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by \ldots.messing a bit with Moody's computer\ldots.well, let's not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.
-
-Looks like Professor Moody is in fact very alert in class. He is aware of what students do, detecting texting during class and remembering exactly who was dozed off in class. He also keeps the mysterious ``participation index'' which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class. Remarkable but a little creepy, isn't it?
-
-What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.
-
-\textbf{What are examples of patterns we are looking for here?}
-
-Here are some:
-
-\begin{itemize}
-\tightlist
-\item
-  ``Students who text a lot'' have lower chance to get an A in the class''
-\item
-  ``Students whose participation is lower than 0.25 fail the class more often''
-\item
-  ``Dozing off does not matter if your score is more than 90, you still get an A''
-\item
-  ``If you score is less than 30, you fail the class regardless of what your other attributes are''
-\end{itemize}
-
-\hypertarget{moody-data-puzzle---pattern-i-injected}{%
-\subsubsection{Moody Data Puzzle - Pattern I Injected}\label{moody-data-puzzle---pattern-i-injected}}
-
-My Patterns
-
-\hypertarget{MDP12}{}
-
-Many student solutions falsely attribute higher grades to higher values of participation attribute..
-
-This is a classic example of a hidden variable described in the reference attached below.
-
-The truth is that participation attribute value impacts the score attribute value. Generally, the higher the participation in Moody's class, the higher the score. But it is the score attribute which has a direct impact on the grade. Thus, it is the score which is the real ``hidden variable'' impacting the final grade.
-
-Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above with the explanation)
-
-Compare with examples of hidden variables in the following reference about correlation and causation.
-
-\url{https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html}
-
-\hypertarget{best-students-submissions-2022}{%
-\subsubsection{Best Student's Submissions 2022}\label{best-students-submissions-2022}}
-
-Lauretta Martin
-
-Sanjaya Budhathoki
-
-Sandhya Senthilkumar
-
-\hypertarget{PPT2021}{}
-
-\hypertarget{PPT2020}{}
-
-\hypertarget{PPT2019}{}
-
-\hypertarget{movies-data-hunt}{%
-\subsection{Movies Data Hunt}\label{movies-data-hunt}}
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-76}Snippet of Movies Dataset}
-\centering
-\begin{tabular}[t]{lllrlll}
-\toprule
-  & country & content & imdb\_score & Gross & Budget & genre\\
-\midrule
-8063 & USA & PG & 7.09 & High & Medium & Comedy\\
-6916 & UK & PG-13 & 7.63 & Medium & Medium & Comedy\\
-5628 & USA & R & 7.68 & Low & Medium & Comedy\\
-12615 & USA & R & 6.49 & Low & Low & Action\\
-9219 & USA & PG-13 & 7.85 & Low & Medium & Drama\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Puzzle description:}
-
-contains imdb scores of 12,800+ movies along with several attributes including budget, gross genre, content rating etc.
-
-What are the most promising alternative hypotheses about imdb scores to test? Name your three top candidates along with the evidence which backs them up: either in the form of R instruction(s) or plot.
-
-\hypertarget{movies-data-puzzle---pattern-i-injected}{%
-\subsubsection{Movies Data Puzzle - Pattern I Injected}\label{movies-data-puzzle---pattern-i-injected}}
-
-My Patterns
-
-\hypertarget{MV12}{}
-
-\hypertarget{best-students-submissions-2022-1}{%
-\subsubsection{Best Student's Submissions 2022}\label{best-students-submissions-2022-1}}
-
-Joshua Sze
-
-Andrew Fasano
-
-\hypertarget{hw41}{}
-
-\hypertarget{hw42}{}
-
 \hypertarget{ztest}{%
 \section{🔖 Hypothesis Testing: z-test}\label{ztest}}
 
@@ -1178,23 +1328,23 @@ The following synthetic data describes daily traffic on weekday and weekend days
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-78}Snippet of Traffic Dataset}
+\caption{\label{tab:unnamed-chunk-83}Snippet of Traffic Dataset}
 \centering
 \begin{tabular}[t]{lllr}
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-490 & Holland & weekday & 77.5\\
-608 & Holland & weekday & 65.5\\
-1374 & Holland & weekend & 71.5\\
-2380 & Lincoln & weekday & 83.0\\
-2748 & Lincoln & weekend & 71.0\\
+408 & Holland & weekday & 70.5\\
+1995 & Lincoln & weekday & 69.0\\
+2095 & Lincoln & weekday & 77.0\\
+828 & Holland & weekday & 70.5\\
+2353 & Lincoln & weekday & 74.0\\
 \addlinespace
-921 & Holland & weekday & 96.5\\
-601 & Holland & weekday & 70.5\\
-1369 & Holland & weekend & 66.5\\
-1172 & Holland & weekend & 45.5\\
-1039 & Holland & weekend & 65.5\\
+1529 & Lincoln & weekday & 73.0\\
+392 & Holland & weekday & 46.5\\
+1915 & Lincoln & weekday & 66.0\\
+2562 & Lincoln & weekend & 80.0\\
+740 & Holland & weekday & 95.5\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1317,23 +1467,23 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-91}Snippet of Hindex Dataset}
+\caption{\label{tab:unnamed-chunk-96}Snippet of Hindex Dataset}
 \centering
 \begin{tabular}[t]{lrlr}
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-2635 & 42389 & Benin & 4.65\\
-1565 & 62814 & Tunisia & 6.52\\
-1824 & 47451 & Tanzania & 5.35\\
-5093 & 73583 & Estonia & 7.51\\
-2166 & 93427 & Botswana & 8.27\\
+833 & 47112 & Croatia & 5.66\\
+4499 & 89983 & Italy & 8.25\\
+6284 & 62587 & Slovakia & 6.31\\
+2662 & 28794 & Moldova & 3.23\\
+4615 & 60772 & Uzbekistan & 6.29\\
 \addlinespace
-1552 & 67499 & Luxembourg & 6.38\\
-3009 & 48893 & Oman & 5.58\\
-2231 & 50565 & Panama & 5.51\\
-6170 & 22079 & Belgium & 3.44\\
-2883 & 25326 & Nepal & 3.31\\
+2380 & 87383 & Ireland & 8.55\\
+4487 & 41946 & France & 4.73\\
+235 & 30205 & Romania & 3.34\\
+5092 & 35213 & Angola & 4.40\\
+3918 & 23558 & Jordan & 3.50\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1577,20 +1727,25 @@ Your job is to predict the grades in the testing file, adding to it GRADE attrib
 This test submission will be handled through Kaggle (just the error computation part) and Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error. In this case, of Professor Moody data, it will be a fraction of grades which your prediction model have predicted incorrectly.
 
 \textbf{Data League:} \url{https://data101.cs.rutgers.edu/?q=node/155}
-\textbf{Kaggle competition:}
+\textbf{Kaggle competition:} \url{https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview}
 \textbf{Kaggle submission instructions:} \url{https://data101.cs.rutgers.edu/?q=node/150}
 \textbf{Canvas HW9:} \url{https://rutgers.instructure.com/courses/159918/assignments/1953810}
 
-\hypertarget{this-is-how-an-a-in-this-course-looks-like}{%
-\subsection{This is how an `A' in this course looks like}\label{this-is-how-an-a-in-this-course-looks-like}}
+\hypertarget{challenge-2---same-data-but-using-rpart---decision-tree}{%
+\subsection{Challenge 2 - Same data but using rpart - decision tree}\label{challenge-2---same-data-but-using-rpart---decision-tree}}
 
-Seok Yim' 2021
+It is the same DATA as prediction challenge 1. Just use \textbf{rpart()} this time. Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9. We will talk about rpart in detail in recitations and lectures next week.
 
-Muskan Burman' 2021
+\textbf{FOR THIS PREDICTION CHALLENGE:} Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.
 
-\hypertarget{pc12}{}
+Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what ``controls'' have you tried and eventually used.
 
-\hypertarget{pc13}{}
+This test submission will be handled through Kaggle (just the error computation part) and Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error. In this case, of Professor Moody data, it will be a fraction of grades which your prediction model have predicted incorrectly.
+
+\textbf{Data League:} \url{https://data101.cs.rutgers.edu/?q=node/155}
+\textbf{Kaggle competition:} \url{https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview}
+\textbf{Kaggle submission instructions:} \url{https://data101.cs.rutgers.edu/?q=node/150}
+\textbf{Canvas HW10:} \url{https://rutgers.instructure.com/courses/159918/assignments/1961012}
 
 \hypertarget{P1}{%
 \section{🔖 Free Style: Prediction}\label{P1}}
@@ -1988,15 +2143,147 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0
   \hypertarget{lr12}{}
 \end{itemize}
 
+Linear regression is a linear approach to modeling the relationship between a numerical response (\(Y\)) and one or more independent variables (\(X_i\)).
+
+Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+- First when there is only one explanatory variable and one output variable. This type of linear regression model known as simple linear regression.
+- Second, when there are multiple predictors, i.e.~explanatory/dependent variables for the output variable. This type of linear regression model known as multiple linear regression.
+
+\begin{figure}
+\centering
+\includegraphics{https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg}
+\caption{Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.}
+\end{figure}
+
+\hypertarget{lm}{%
+\subsection{Linear regression using lm() function}\label{lm}}
+
+Syntax for building the regression model using the \emph{lm()} function is as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{lm(formula,\ data,\ ...)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{formula}: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{prediction\ \textasciitilde{}\ predictor1\ +\ predictor2\ +\ predictor3\ +\ ...}
+    \end{itemize}
+  \item
+    \emph{data}: here we provide the dataset on which the linear regression model is to be trained.
+  \end{itemize}
+\end{itemize}
+
+For more info on the \emph{lm()} function visit \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm}{lm()}
+
+Lets look at the example on the Moody dataset.
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-143}Snippet of Moody Num Dataset}
+\centering
+\begin{tabular}[t]{rrrr}
+\toprule
+Midterm & Project & FinalExam & ClassScore\\
+\midrule
+73 & 8 & 70 & 39.60000\\
+61 & 100 & 20 & 68.20000\\
+58 & 88 & 38 & 67.00000\\
+93 & 41 & 46 & 52.47565\\
+85 & 52 & 85 & 68.50000\\
+\addlinespace
+97 & 48 & 19 & 49.10000\\
+26 & 59 & 22 & 41.30000\\
+58 & 62 & 25 & 50.10000\\
+53 & 56 & 27 & 46.70000\\
+66 & 27 & 17 & 34.80494\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Now we can build a simple linear regression model to predict the ClassScore attribute based on the various other attributes present in the dataset, as shown above.
+
+Since we will be predicting only one attribute values, this model will be called simple linear regression model.
+
 \hypertarget{snippet-1-how-much-do-midterm-project-and-final-exam-count}{%
-\subsection{Snippet 1: How much do Midterm, Project and Final Exam count?}\label{snippet-1-how-much-do-midterm-project-and-final-exam-count}}
+\subsubsection{Snippet 1: How much do Midterm, Project and Final Exam count?}\label{snippet-1-how-much-do-midterm-project-and-final-exam-count}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdicpXG5zcGxpdDwtMC43Km5yb3cobW9vZHlOVU0pXG5zcGxpdFxubW9vZHlOVU1UcjwtbW9vZHlOVU1bMTpzcGxpdCxdXG5tb29keU5VTVRyXG5tb29keU5VTVRzPC1tb29keU5VTVtzcGxpdDpucm93KG1vb2R5TlVNKSxdXG4jV2UgdXNlIGxpbmVhciByZWdyZXNzaW9uIHRvICNmaW5kIG91dCB0aGUgd2VpZ2h0cyBvZiAjTWlkdGVybSwgUHJvamVjdCBhbmQgRmluYWwgI0V4YW0gaW4gY2FsY3VsYXRpb24gb2YgdGhlICNmaW5hbCBjbGFzcyBzY29yZS4gRWFjaCBvZiAjdGhlbSBhcmUgc2NvcmVkIG91dCBvZiAxMDAgYW5kICN0aGUgZmluYWwgY2xhc3Mgc2NvcmUgaXMgYWxzbyAjc2NvcmVkIG91dCBvZiAxMDAgYXMgd2VpZ2h0ZWQgI3N1bSBvZiBNaWR0ZXJtLCBQcm9qZWN0IGFuZCAjRmluYWwgRXhhbSBzY29yZXMuXG50cmFpbiA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPW1vb2R5TlVNVHIpXG50cmFpblxucHJlZCA8LSBwcmVkaWN0KHRyYWluLG5ld2RhdGE9bW9vZHlOVU1Ucylcbm1lYW4oKHByZWQgLSBtb29keU5VTVRzJENsYXNzU2NvcmUpXjIpIn0=
+
+We can see that,
+
+\begin{itemize}
+\tightlist
+\item
+  The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+\item
+  The predicted values are obtained from the predict function using the trained model and the test data.
+\end{itemize}
+
+\hypertarget{mse}{%
+\subsection{Calculating the Error using mse()}\label{mse}}
+
+As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won't prove useful now in our numerical predictions scenario.
+
+We don't want to eyeball every time we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.
+
+To do this we will use the Mean Squared Error(MSE).
+
+\begin{itemize}
+\tightlist
+\item
+  The MSE is a measure of the quality of an predictor/estimator
+\item
+  It is always non-negative
+\item
+  Values closer to zero are better.
+\end{itemize}
+
+The equation to calculate the MSE is as follows:
+
+\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}
+
+To implement this, we will use the \emph{mse()} function present in the Metrics Package, so remember to install the Metrics package and use \texttt{library(Metrics)} in the code for local use.
+
+The syntax for \emph{mse()} function is very simple:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{mse(actual,predicted)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{actual}: vector of the actual values of the attribute we want to predict.
+  \item
+    \emph{predicted}: vector of the predicted values obtained using our model.
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{snippet-2-cross-validate-your-prediction}{%
 \subsection{Snippet 2: Cross Validate your prediction}\label{snippet-2-cross-validate-your-prediction}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxudHJhaW4gPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcbiNzY3JhbWJsZSB0aGUgdHJhaW4gZnJhbWVcbnY8LXNhbXBsZSgxOm5yb3codHJhaW4pKVxudlsxOjVdXG50cmFpblNjcmFtYmxlZDwtdHJhaW5bdiwgXVxuXG4jb25lIHN0ZXAgY3Jvc3N2YWxpZGF0aW9uXG5uIDwtIDEwMFxudHJhaW5TYW1wbGU8LXRyYWluU2NyYW1ibGVkW25yb3codHJhaW5TY3JhbWJsZWQpLW46bnJvdyh0cmFpblNjcmFtYmxlZCksIF1cbnRlc3RTYW1wbGUgPC0gdHJhaW5TY3JhbWJsZWRbMTpuLF1cblxubG0udHJlZSA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPXRyYWluU2FtcGxlKVxubG0udHJlZVxuXG5wcmVkIDwtIHByZWRpY3QobG0udHJlZSxuZXdkYXRhPXRlc3RTYW1wbGUpXG5wcmVkXG5cbm1zZSh0ZXN0U2FtcGxlJENsYXNzU2NvcmUscHJlZCkifQ==
+
+We can see that,
+
+\begin{itemize}
+\tightlist
+\item
+  The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
+\item
+  The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check that if we have more accurate predictions, thus increasing the overall accuracy of the model.
+\end{itemize}
 
 \hypertarget{snippet-3-submission-with-lm}{%
 \subsection{Snippet 3: Submission with lm}\label{snippet-3-submission-with-lm}}
@@ -2012,6 +2299,25 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0
   \textbf{Lecture slides: } Prediction Loop
 
   \hypertarget{ML12}{}
+\end{itemize}
+
+\hypertarget{BA}{%
+\section{🔖 Boundless Analytics}\label{BA}}
+
+\hypertarget{snippet-1-chi-square-hunt}{%
+\subsection{Snippet 1: Chi square hunt}\label{snippet-1-chi-square-hunt}}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNheSwgdGhlIEJvdW5kbGVzcyBhbmFseXRpY3MgcHJvdmlkZXMgdXMgd2l0aCB0aGUgc2xpY2U6ICBCZWVyID09J0xhZ2VyJyAmICBEYXkgPT0nV2Vla2VuZCcgYW5kIFNuYWNrcyA9J0NyYWNrZXJzJyBhbmQgYW5jaG9yIGF0dHJpYnV0ZSBpcyBMb2NhdGlvbi4gIFlvdSBjYW4gY2FsY3VsYXRlIENoaXNxIGZvciB0aGlzIHNsaWNlIGFuZCB0aGUgTG9jYXRpb24gYXR0cmlidXRlIHRvIHRlc3QgaWYgZGlzdHJpYnV0aW9uIG9mIGxvY2F0aW9ucyBpcyBhZmZlY3RlZCBpZiB3ZSBsaW1pdCBvdXJzZWx2ZXMgb25seSB0byB0cmFuc2FjdGlvbnMgc2VsbGluZyBMYWdlciBhbmQgQ3JhY2tlcnMgb24gV2Vla2VuZHM/ICBcblxuIyBUaGUgbW9zdCBpbnRlcmVzdGluZyBzbGljZS1hbmNob3IgYXR0cmlidXRlIGNvbWJpbmF0aW9ucyBhcmUgdGhlIG9uZXMgd2l0aCB0aGUgbGFyZ2VzdCBjaGlzcSB0ZXN0IGFuZCBsb3dlc3QgcC12YWx1ZS4gTmV2ZXJ0aGVsZXNzIGRvIG5vdCBmb3JnZXQgYWJvdXQgbXVsdGlwbGUgaHlwb3RoZXNpcyBjb3JyZWN0aW9uIC0gc2luY2Ugd2UgY2FuIG9uIGNoaS1zcXVhcmUgaHVudCBoZXJlIVxuXG5NaW5pbWFya2V0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hvbWV3b3JrTWFya2V0MjAyMi5jc3ZcIilcblxuTWluaW1hcmtldCRJTjwtJ091dF9TbGljZSdcbk1pbmltYXJrZXRbTWluaW1hcmtldCRCZWVyPT0nTGFnZXInICYgTWluaW1hcmtldCREYXk9PSdXZWVrZW5kJyAmICBNaW5pbWFya2V0JFNuYWNrcyA9PSdDcmFja2VycycsIF0kSU48LSdJbl9TbGljZSdcbmQ8LXRhYmxlKE1pbmltYXJrZXQkTG9jYXRpb24sIE1pbmltYXJrZXQkSU4pXG5jaGlzcS50ZXN0KGQpIn0=
+
+\hypertarget{MAD}{%
+\section{🔖 How can data fool us?}\label{MAD}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lecture Slides: } Unlock Mysteries
+
+  \hypertarget{Mt12}{}
 \end{itemize}
 
 \end{document}
