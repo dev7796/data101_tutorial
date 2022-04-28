@@ -39,7 +39,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Prediction Challenge 3
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#bt15"> Eva Zhang </button> 
-<div id="bt15" class="collapse">
+<button class="btn btn-primary" data-toggle="collapse" data-target="#bt19"> Eva Zhang </button> 
+<div id="bt19" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1ZKQa5-JGiQydxjOvLrE_SaX9eOnjP6jHdqJ4Dpyc-bw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
