@@ -167,7 +167,8 @@ If the name of the file on the top is in <span style="color: red;"> Red Color </
 
 https://www.w3schools.com/r/ <br>
 https://cran.r-project.org/doc/contrib/Short-refcard.pdf <br>
-https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337&psc=1
+https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337&psc=1 <br>
+https://data101.cs.rutgers.edu/laboratory/
 
 ## Textbook Concepts
 
