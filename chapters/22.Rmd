@@ -1,0 +1,52 @@
+# Boundless Analytics - Pre-discovery Tool {#22}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+In this section we demonstrate application of Boundless Analytics - the tool developed by Tomasz Imielinski and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bargraphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs otherwise very tedious task of looking at all combinations of attribute value pairs to identify the "significant ones" - saving enormous amount of work in preliminary exploration of data. 
+
+We have provided synthetic data set - describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set
+
+## Minimarket Data Set description
+
+<a href="https://rutgers.zoom.us/rec/share/JIx-ZC0P5oXk5rnyOk_kZ8pF1XAC5rJnLGaIJGxxgLNmSzg6F-IRfUyNiQoKR9v0.MratfWX1STX2sYho">Zoom recording</a>
+
+## Demo of Boundless Analytics 
+
+<a href="https://rutgers.zoom.us/rec/share/bAr3uyPJA1vlGxbb6jVpvOHNFOuRgmj9TE4iSCcBn3_hS549xnqY9IePPsMgGE1i.F6P4omjuUebsQFl6">Zoom Recording</a>
+
+## The Boundless Analytics web application 
+
+**Boundless Analytics Interface:** http://209.97.156.178:8082/
+
+(it is a soft login abc/abc will do)
+
+**Objective: Nominate  the most interesting subset of  the Minimarket2022 data set**
+
+Seems open ended, no? what is the "most interesting"?
+
+- Chi-square value is a good measure. The higher it is, the more interesting the data set.
+
+- By swiping through possible plots  (using Next), one can identify good candidates for the "interesting data subsets")
+
+- These are plots where red and blue bars differ the most. 
+
+- Then run chi-square test over the candidates and nominate the plot with the highest chi-square value.
+
+- Therefore this task can be seen as chi-square hunt for the highest chi-square value  (use the  snippet 20.1 code after plugging in definition of a slice and the anchor attribute)
+
+ATTACHED - the data set (same as on the Boundless Analytics interface)
+HomeworkMarket2022-2.csv   Download HomeworkMarket2022-2.csv  
+
+**RESULTS: **
+
+![Here are two  out of 250+ submissions showing that sales of crackers on weekends are disproportionately frequent in New Brunswick minimarket. The chi-square value is above 70 with df=3. This plot was found by John Celona](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png)
+
+![Here is another find by Eva Zhang showing disproportionately frequent sales of Coca Cola on Weekdays in Princeton for transactions which purchased Popcorn. The chi-square  value of this find is 205.31, with  df=3.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png)

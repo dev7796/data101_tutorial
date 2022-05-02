@@ -22,7 +22,8 @@ rmd_files: [
   "./chapters/Linear_regression.Rmd",
   "./chapters/Prediction_loop.Rmd",
   "./chapters/BoundlessAnalytics.Rmd",
-  "./chapters/Mysteries_of_Aggregated_data.Rmd"]
+  "./chapters/Mysteries_of_Aggregated_data.Rmd",
+  "./chapters/22.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:
