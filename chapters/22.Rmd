@@ -1,4 +1,4 @@
-# Boundless Analytics - Pre-discovery Tool {#22}
+# Boundless Analytics - Pre-discovery Tool {#dsaf}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -43,10 +43,16 @@ Seems open ended, no? what is the "most interesting"?
 - Therefore this task can be seen as chi-square hunt for the highest chi-square value  (use the  snippet 20.1 code after plugging in definition of a slice and the anchor attribute)
 
 ATTACHED - the data set (same as on the Boundless Analytics interface)
-HomeworkMarket2022-2.csv   Download HomeworkMarket2022-2.csv  
+<a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022-2.csv" download="HomeworkMarket2022-2.csv">HomeworkMarket2022-2.csv</a> 
 
 **RESULTS: **
 
-![Here are two  out of 250+ submissions showing that sales of crackers on weekends are disproportionately frequent in New Brunswick minimarket. The chi-square value is above 70 with df=3. This plot was found by John Celona](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png)
+Here are two  out of 250+ submissions showing that **sales of crackers** on weekends are disproportionately frequent in **New Brunswick** minimarket. The chi-square value is above 70 with df=3. This plot was found by John Celona
 
-![Here is another find by Eva Zhang showing disproportionately frequent sales of Coca Cola on Weekdays in Princeton for transactions which purchased Popcorn. The chi-square  value of this find is 205.31, with  df=3.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png)
+![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png)
+
+<br> 
+
+Here is another find by Eva Zhang showing disproportionately frequent **sales of Coca Cola** on Weekdays in **Princeton** for transactions which purchased Popcorn. The chi-square  value of this find is 205.31, with  df=3.
+
+![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png)

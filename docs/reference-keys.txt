@@ -173,7 +173,7 @@ MLP
 BA
 snippet-1-chi-square-hunt
 MAD
-boundless-analytics---pre-discovery-tool-22
+dsaf
 minimarket-data-set-description
 demo-of-boundless-analytics
 the-boundless-analytics-web-application
