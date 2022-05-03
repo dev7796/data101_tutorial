@@ -1,4 +1,4 @@
-# 🔖 Hypothesis Testing: z-test {#ztest}
+# 🔖 Hypothesis Testing {#ztest}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,11 +11,16 @@ tutorial::go_interactive(greedy = FALSE)
 ```
 
 - **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button> 
+
 <div id="HPT12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 <div id="CLT12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
 <br>
@@ -39,69 +44,126 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
-The following snippet **6.2** shows the code for hypothesis test of difference of means.
+The following snippet **8.2** shows the code for hypothesis test of difference of means.
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-## Snippet 1: Shows the code for z-test to test the following hypotheses{#pnorm}
+## Snippet 1: z-test
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
 **Alternative Hypothesis** - Traffic in the Holland Tunnel is larger than traffic in the Lincoln  tunnel.
 
-In the snippet **6.2**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
+In the snippet **8.2**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
-```{r,tut=TRUE,height=850}
+```{r,tut=TRUE,ex="ztestfunction",type="pre-exercise-code"}
+
+z_test <- function(data,col1,col2,sub1,sub2) {
+  data <- as.data.frame(data)
+  V1<-data[,col1]
+  V2<-data[,col2]
+  #data clean and subset, either
+  lincoln.data <- subset(data, V1 == sub1)
+  holland.data <- subset(data, V1 == sub2)
+  
+  #traffic at lincoln
+  lincoln.traffic <- lincoln.data[,col2]
+  #traffic at holland
+  holland.traffic <- holland.data[,col2]
+  
+  # standard deviation of two samples.
+  sd.lincoln <- sd(lincoln.traffic)
+  sd.holland <- sd(holland.traffic)
+  
+  #length of lincoln and holland
+  len_lincoln <- length(lincoln.traffic)
+  len_holland <- length(holland.traffic)
+  len_lincoln
+  len_holland
+  
+  #standard deviation of difference traffic
+  sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+  sd.lin.hol
+  
+  #means of two samples
+  mean.lincoln <- mean(lincoln.traffic)
+  mean.holland <- mean(holland.traffic)
+  mean.lincoln
+  mean.holland
+  
+  #z score
+  zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
+  print(paste(zeta," is the z-value"))
+  
+  #plot red line
+  plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+  abline(v=zeta, col='red')
+  
+  #get p
+  p = 1-pnorm(zeta)
+  print(paste(p, " is the p-value"))
+}
+```
+
+```{r,tut=TRUE,ex="ztestfunction",type="sample-code",height=500}
 
 TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
-#data clean and subset, either
-lincoln.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Lincoln")
-holland.data <- subset(TRAFFIC, TRAFFIC$TUNNEL == "Holland")
+z_test(TRAFFIC,"TUNNEL", "VOLUME_PER_MINUTE","Lincoln", "Holland")
 
-#traffic at lincoln
-lincoln.traffic <- lincoln.data$VOLUME_PER_MINUTE
-
-#traffic at holland
-holland.traffic <- holland.data$VOLUME_PER_MINUTE
-
-# standard deviation of two samples.
-sd.lincoln <- sd(lincoln.traffic)
-sd.holland <- sd(holland.traffic)
-sd.lincoln
-sd.holland
-
-#length of lincoln and holland
-len_lincoln <- length(lincoln.traffic)
-len_holland <- length(holland.traffic)
-len_lincoln
-len_holland
-
-#standard deviation of difference traffic
-sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
-sd.lin.hol
-
-#means of two samples
-mean.lincoln <- mean(lincoln.traffic)
-mean.holland <- mean(holland.traffic)
-mean.lincoln
-mean.holland
-
-#z score
-zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
-zeta
-
-#plot red line
-plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
-abline(v=zeta, col='red')
-
-#get p
-p = 1-pnorm(zeta)
-p
 ```
 
-## Snippet 2: Make your own data and see how p-value changes
+## Snippet 2: Permutation test
+
+Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="pre-exercise-code"}
+traffic<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/TRAFFIC.csv')
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=500}
+#install.packages("devtools")
+#devtools::install_github("devanshagr/PermutationTestSecond")
+
+#PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB")
+Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
+ 
+ #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
+```
+
+## Snippet 3: Make your own data and see how p-value changes
+
+### z-test
 
 How p-value is affected by difference of means and standard deviations.
 
@@ -146,6 +208,61 @@ zeta <- (meanB - meanA)/sd.A.B
 zeta
 p<-1-pnorm(zeta)
 p
+```
+
+### Permuation test
+
+**Exercise** - How p-value is affected by difference of means and standard deviations
+
+We will build our two distributions ourseleves - varying the means and standard deviations.  We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+
+Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()** function
+
+```{r,tut=TRUE,height=600}
+Val1<-rnorm(10,mean=25, sd=10)
+Val2<-rnorm(10,mean=30, sd=10)
+ 
+Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
+Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
+
+Cat1
+Cat2
+
+#The rep command will repeat, the variables will be of type character and will contain 10 values each.
+
+Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
+Cat
+
+Val<-c(Val1,Val2)
+Val
+
+d<-data.frame(Cat,Val)
+d
+
+Observed_Difference<-mean(d[d$Cat=='GroupB',2])-mean(d[d$Cat=='GroupA',2])
+Observed_Difference
+
+#This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
+ 
+ #Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
+```
+
+## Snippet 4: One permutation at a time
+
+```{r,tut=TRUE,height=400}
+traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
+
+ranNum <- sample(1:nrow(traffic),nrow(traffic))
+ranNum[1:5]
+
+VOLUME_PER_MINUTE<-traffic$VOLUME_PER_MINUTE[ranNum]
+TUNNEL<-traffic$TUNNEL
+
+Permuted_traffic<-data.frame(TUNNEL, VOLUME_PER_MINUTE)
+
+mean(traffic[traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE) -mean(traffic[traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
+
+mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
 ```
 
 ## Additional References

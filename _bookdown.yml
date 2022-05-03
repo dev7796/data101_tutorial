@@ -10,7 +10,6 @@ rmd_files: [
   "./chapters/plots.Rmd",
   "./chapters/tapply_subsetting.Rmd",
   "./chapters/z-test.Rmd",
-  "./chapters/Permutaion_Test.Rmd",
   "./chapters/Chisquare.Rmd",
   "./chapters/Multiple_Hypothesis.Rmd",
   "./chapters/code_review.Rmd",
