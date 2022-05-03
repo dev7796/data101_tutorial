@@ -66,7 +66,7 @@ ATTACHED - the data set (same as on the Boundless Analytics interface)
 
 **RESULTS: **
 
-Here are two  out of 250+ submissions showing that **sales of crackers** on weekends are disproportionately frequent in **New Brunswick** minimarket. The chi-square value is above 70 with df=3. This plot was found by John Celona
+Here are two out of 250+ submissions.  The one with the highest chi-square of **600.15** is the slice  showing weekend buyers of **lager** in **New brunswick** but disproportionately more snacks (in particular Crackers). This was identified by nearly 20 students.
 
 ![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png)
 
