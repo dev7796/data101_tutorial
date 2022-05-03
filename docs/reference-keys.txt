@@ -170,10 +170,9 @@ mse
 snippet-2-cross-validate-your-prediction
 snippet-3-submission-with-lm
 MLP
-BA
-snippet-1-chi-square-hunt
 MAD
 dsaf
 minimarket-data-set-description
 demo-of-boundless-analytics
 the-boundless-analytics-web-application
+snippet-1-chi-square-hunt
