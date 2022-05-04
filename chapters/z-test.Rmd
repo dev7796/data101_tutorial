@@ -173,7 +173,7 @@ Clearly the further apart the mean values are - the lower the p-value. But how d
 
 Build the data frame with two attributes: Cat and Val, using **rnorm()** function
 
-```{r,tut=TRUE,height=700}
+```{r,tut=TRUE,ex="ztestfunction",height=700}
 Val1<-rnorm(10,mean=25, sd=10)
 Val2<-rnorm(10,mean=35, sd=10)
 Cat1<-rep("GroupA",10)  
@@ -185,29 +185,7 @@ d<-data.frame(Cat,Val)
 Observed_Difference<-mean(d[d$Cat=='GroupB',2])-mean(d[d$Cat=='GroupA',2])
 Observed_Difference
 
-dA<-d[d$Cat=='GroupA',]
-dA
-dB<-d[d$Cat=='GroupB',]
-dB
-
-meanA<-mean(dA$Val)
-meanB<-mean(dB$Val)
-
-sdA<-sd(dA$Val)
-sdB<-sd(dB$Val)
-
-lenA<-nrow(dA)
-lenA
-lenB<-nrow(dB)
-lenB
-
-sd.A.B <- sqrt(sdA^2/lenA +sdB^2/lenB)
-sd.A.B
-
-zeta <- (meanB - meanA)/sd.A.B
-zeta
-p<-1-pnorm(zeta)
-p
+z_test(d,"Cat", "Val","GroupB", "GroupA")
 ```
 
 ### Permuation test
