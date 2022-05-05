@@ -57,7 +57,7 @@ Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean
 In the snippet **8.2**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
-```{r,tut=TRUE,ex="ztestfunction",type="pre-exercise-code"}
+```{r,tut=TRUE,ex="ztestfunction1",type="pre-exercise-code"}
 
 z_test <- function(data,col1,col2,sub1,sub2) {
   data <- as.data.frame(data)
@@ -106,7 +106,7 @@ z_test <- function(data,col1,col2,sub1,sub2) {
 }
 ```
 
-```{r,tut=TRUE,ex="ztestfunction",type="sample-code",height=500}
+```{r,tut=TRUE,ex="ztestfunction1",type="sample-code",height=500}
 
 TRAFFIC<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
 
@@ -172,6 +172,56 @@ We will build two distributions ourselves - varying the means and standard devia
 Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value?  See for yourself.
 
 Build the data frame with two attributes: Cat and Val, using **rnorm()** function
+
+```{r,tut=TRUE,ex="ztestfunction",type="pre-exercise-code"}
+
+z_test <- function(data,col1,col2,sub1,sub2) {
+  data <- as.data.frame(data)
+  V1<-data[,col1]
+  V2<-data[,col2]
+  #data clean and subset, either
+  lincoln.data <- subset(data, V1 == sub1)
+  holland.data <- subset(data, V1 == sub2)
+  
+  #traffic at lincoln
+  lincoln.traffic <- lincoln.data[,col2]
+  #traffic at holland
+  holland.traffic <- holland.data[,col2]
+  
+  # standard deviation of two samples.
+  sd.lincoln <- sd(lincoln.traffic)
+  sd.holland <- sd(holland.traffic)
+  
+  #length of lincoln and holland
+  len_lincoln <- length(lincoln.traffic)
+  len_holland <- length(holland.traffic)
+  len_lincoln
+  len_holland
+  
+  #standard deviation of difference traffic
+  sd.lin.hol <- sqrt(sd.lincoln^2/len_lincoln + sd.holland^2/len_holland)
+  sd.lin.hol
+  
+  #means of two samples
+  mean.lincoln <- mean(lincoln.traffic)
+  mean.holland <- mean(holland.traffic)
+  mean.lincoln
+  mean.holland
+  
+  #z score
+  zeta <- (mean.lincoln - mean.holland)/sd.lin.hol
+  print(paste(zeta," is the z-value"))
+  
+  #plot red line
+  plot(x=seq(from = -5, to= 5, by=0.1),y=dnorm(seq(from = -5, to= 5,  by=0.1),mean=0),type='l',xlab = 'mean difference',  ylab='possibility')
+  abline(v=zeta, col='red')
+  
+  #get p
+  p = 1-pnorm(zeta)
+  print(paste(p, " is the p-value"))
+}
+```
+
 
 ```{r,tut=TRUE,ex="ztestfunction",height=700}
 Val1<-rnorm(10,mean=25, sd=10)
