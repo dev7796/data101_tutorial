@@ -11,7 +11,7 @@ tutorial::go_interactive(greedy = FALSE)
 ```
 
 
-- **Lecture Slides: **<button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">  Unlock Mysteries</button> 
+- **Lecture Slides: **<button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">  How can data fool us? </button> 
 <div id="Mt12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1vDCRffHzeSxka1sxQSUCnZvzaKIMmwPE7UO-5IefrM4/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
