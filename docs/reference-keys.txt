@@ -19,6 +19,7 @@ datablog
 prediction-challenge-1
 prediction-challenge-2
 prediction-challenge-3
+boundless-analytics
 DLL
 data-puzzles-secrets
 moody-data-puzzle

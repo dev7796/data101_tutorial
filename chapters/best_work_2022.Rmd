@@ -43,3 +43,35 @@ tutorial::go_interactive(greedy = FALSE)
 <div id="bt19" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1ZKQa5-JGiQydxjOvLrE_SaX9eOnjP6jHdqJ4Dpyc-bw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+
+## Boundless Analytics
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba1"> Yogi Gohel </button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba2"> Shreya Tiwari </button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba3"> George Basta </button> 
+
+<div id="ba1" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ba1.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="ba2" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ba2.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="ba3" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ba3.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<br>
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba5"> Paul Kotys </button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba6"> Selin Altimparmak </button> 
+
+<div id="ba5" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ba5.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+<div id="ba6" class="collapse">
+<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ba6.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
