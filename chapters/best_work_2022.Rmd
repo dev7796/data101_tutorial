@@ -46,7 +46,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Boundless Analytics
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#ba1"> Yogi Gohel </button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ba1"> Anastasiya Chuchkova </button> 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#ba2"> Shreya Tiwari </button> 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#ba3"> George Basta </button> 
 
