@@ -10,24 +10,35 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button> 
-
-<div id="HPT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
-<div id="CLT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
-<div id="PT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
-
-<br>
-
-- **Great Resource: **     <a href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"> <button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy</button> </a>
-
 ## Introduction
+
+Randomness is the biggest enemy of data scientists. How not to fall into its trap? How to distinguish what's real from what's random? This is the goal of hypothesis testing. One does not need statistics to understand the key idea. Of course statistics, probability distributions, means, standard deviations will come in due time. But we do not have to start with these sometimes intimidating concepts!
+
+Permutation test is a shortest path to comprehend randomness and how not to fall for the randomness trap. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels. 
+
+`INSERT (table of the dataset correct it to 2022)`
+
+We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute in each of the tunnels using the following data. 
+
+We conclude with `68.54` for Lincoln and `67.71` for Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic. But is it?  Or it is just random deviation and maybe if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us  talk about the null hypothesis and the alternative hypothesis. 
+
+**Null hypothesis** for the Lincoln-Holland tunnel observation  is that,  not surprisingly,  there is no difference in traffic  between the two tunnels.   
+
+The **alternative hypothesis** states that Lincoln tunnel is more busy than Holland tunnel.
+Does observed data (observed traffic difference) provide us with enough evidence to *reject null hypothesis* and in fact support the alternative  hypothesis?  To answer this question we need to decide whether the observed result is reasonably likely to come randomly under the condition that NULL hypothesis holds. 
+
+How likely it is  that observed difference `(D=0.83)` comes *randomly*?
+Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.We can measure and observe it by running a permutation test, by randomly scrambling the traffic table.  
+
+Permutation test is run may times, typically `10,000`, even `100,000` times and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland vs Lincoln remain the same. Just values differ, existing values are scrambled just breaking any relationship between volume numbers and tunnel names. Just think about each permutation as rolling a dice. How often will this  random process produce the result which is at least as extreme as `D=0.83` we observed? The less often it happens the more likely it is that what we observe is NOT random. Thus if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7% our observed result cannot be random.
+
+Permutation test provides an almost palpable experience with randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get `D>0.83` relatively often (above what is called significance level usually it is at least 5% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.
+No need to calculate standard deviations, means, no need to know anything about z-test, t-test. These tests are the next step after you get a taste of randomness and understand how powerful randomness is. You would never guess!
+
+The next step, which we illustrate here only through the z-test function, is to calculate p-value using descriptive statistics and the so-called Central limit theorem. This is much cheaper computationally. And the result is always the same, as opposed to the p-value computed by the permutation test. The latter changes slightly every time we run a permutation test. But it still changes because one cannot permute data in all possible ways. The descriptive statistics tests like z-test are asymptotic. There are strings attached to them (like data has to be large enough).  And they hide randomness behind the armor of mathematics.
+
+You can understand the data analyst struggle with randomness purely by a permutation test. Here in this active textbook we discuss hypothesis testing only through the permutation test. We show you z-test and later chi square tests primarily as black box functions, but we delay the know-how behind these tests to the statistics class. 
+
 
 The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME_PER_MINUTE.  Below we show a small sample of the TRAFFIC data frame
 
@@ -48,7 +59,54 @@ The following snippet **8.2** shows the code for hypothesis test of difference o
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-## Snippet 1: z-test
+## Snippet 1: Permutation test
+
+Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=500}
+#install.packages("devtools")
+#devtools::install_github("devanshagr/PermutationTestSecond")
+
+#PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB")
+traffic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv")
+Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
+ 
+#The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
+```
+
+## Snippet 2: z-test
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
@@ -114,54 +172,72 @@ z_test(TRAFFIC,"TUNNEL", "VOLUME_PER_MINUTE","Lincoln", "Holland")
 
 ```
 
-## Snippet 2: Permutation test
-
-Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
-
-```{r,tut=TRUE,ex="permutationtestfunction",type="pre-exercise-code"}
-traffic<-read.csv('https://raw.githubusercontent.com/kunal0895/RDatasets/master/TRAFFIC.csv')
-Permutation <- function(df1,c1,c2,n,w1,w2){
-  df <- as.data.frame(df1)
-  D_null<-c()
-  V1<-df[,c1]
-  V2<-df[,c2]
-  sub.value1 <- df[df[, c1] == w1, c2]
-  sub.value2 <- df[df[, c1] == w2, c2]
-  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
-  m=length(V1)
-  l=length(V1[V1==w2])
-  for(jj in 1:n){
-    null <- rep(w1,length(V1))
-    null[sample(m,l)] <- w2
-    nf <- data.frame(Key=null, Value=V2)
-    names(nf) <- c("Key","Value")
-    w1_null <- nf[nf$Key == w1,2]
-    w2_null <- nf[nf$Key == w2,2]
-    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
-  }
-  myhist<-hist(D_null, prob=TRUE)
-  multiplier <- myhist$counts / myhist$density
-  mydensity <- density(D_null, adjust=2)
-  mydensity$y <- mydensity$y * multiplier[1]
-  plot(myhist)
-  lines(mydensity, col='blue')
-  abline(v=D, col='red')
-  M<-mean(D_null>D)
-  return(M)
-}
-```
-
-```{r,tut=TRUE,ex="permutationtestfunction",type="sample-code",height=500}
-#install.packages("devtools")
-#devtools::install_github("devanshagr/PermutationTestSecond")
-
-#PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB")
-Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
- 
- #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
-```
 
 ## Snippet 3: Make your own data and see how p-value changes
+
+For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. 
+
+Build the data frame with two attributes: `Cat and Val, using rnorm() function`. 
+Our null hypothesis is that Group A and Group B  have identical **mean(Val)**.
+
+The alternative hypothesis is that the mean(Val) for Group B is higher than **mean(Val)** for Group A.
+We will change the mean and standard deviation of the data distributions for Group A and Group B and see how these changes affect the p-value. We will first use a permutation test and a single-step permutation test (just to illustrate what happens each single step when we run a permutation test). Then we finish off with the z-test. 
+
+### Permuation test
+
+**Exercise** - How p-value is affected by difference of means and standard deviations
+
+We will build our two distributions ourseleves - varying the means and standard deviations.  We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+
+Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()** function
+
+```{r,tut=TRUE,height=600}
+Val1<-rnorm(10,mean=25, sd=10)
+Val2<-rnorm(10,mean=30, sd=10)
+ 
+Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
+Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
+
+Cat1
+Cat2
+
+#The rep command will repeat, the variables will be of type character and will contain 10 values each.
+
+Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
+Cat
+
+Val<-c(Val1,Val2)
+Val
+
+d<-data.frame(Cat,Val)
+d
+
+Observed_Difference<-mean(d[d$Cat=='GroupB',2])-mean(d[d$Cat=='GroupA',2])
+Observed_Difference
+
+#This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
+ 
+ #Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
+```
+
+### One permutation at a time
+
+```{r,tut=TRUE,height=400}
+traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
+
+ranNum <- sample(1:nrow(traffic),nrow(traffic))
+ranNum[1:5]
+
+VOLUME_PER_MINUTE<-traffic$VOLUME_PER_MINUTE[ranNum]
+TUNNEL<-traffic$TUNNEL
+
+Permuted_traffic<-data.frame(TUNNEL, VOLUME_PER_MINUTE)
+
+mean(traffic[traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE) -mean(traffic[traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
+
+mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
+```
+
 
 ### z-test
 
@@ -238,62 +314,26 @@ Observed_Difference
 z_test(d,"Cat", "Val","GroupB", "GroupA")
 ```
 
-### Permuation test
 
-**Exercise** - How p-value is affected by difference of means and standard deviations
 
-We will build our two distributions ourseleves - varying the means and standard deviations.  We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
-
-Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()** function
-
-```{r,tut=TRUE,height=600}
-Val1<-rnorm(10,mean=25, sd=10)
-Val2<-rnorm(10,mean=30, sd=10)
- 
-Cat1<-rep("GroupA",10)  # for example GroupA can be Holland Tunnel
-Cat2<-rep("GroupB",10)  # for example Group B will be Lincoln Tunnel
-
-Cat1
-Cat2
-
-#The rep command will repeat, the variables will be of type character and will contain 10 values each.
-
-Cat<-c(Cat1,Cat2) # A variable with first 10 values GroupA and next 10 values GroupB
-Cat
-
-Val<-c(Val1,Val2)
-Val
-
-d<-data.frame(Cat,Val)
-d
-
-Observed_Difference<-mean(d[d$Cat=='GroupB',2])-mean(d[d$Cat=='GroupA',2])
-Observed_Difference
-
-#This will calculate the mean of the second column (having 10 random values for each group), and the mean of groupB values is subtracted from the mean of groupA values, which will give you the value of the difference of the mean.
- 
- #Try changing mean and sd values. When you run this you will see that the difference is sometimes negative #or sometimes positive.
-```
-
-## Snippet 4: One permutation at a time
-
-```{r,tut=TRUE,height=400}
-traffic<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv')
-
-ranNum <- sample(1:nrow(traffic),nrow(traffic))
-ranNum[1:5]
-
-VOLUME_PER_MINUTE<-traffic$VOLUME_PER_MINUTE[ranNum]
-TUNNEL<-traffic$TUNNEL
-
-Permuted_traffic<-data.frame(TUNNEL, VOLUME_PER_MINUTE)
-
-mean(traffic[traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE) -mean(traffic[traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
-
-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Holland', ]$VOLUME_PER_MINUTE)
-```
 
 ## Additional References
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button> 
+
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy Video</button> 
+ 
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
+
+<a id="KH12" href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"></a>
+
 
 https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/ <br>
 http://www.z-table.com/ <br>

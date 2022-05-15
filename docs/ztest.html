@@ -185,15 +185,15 @@
 <li class="chapter" data-level="8" data-path="ztest.html"><a href="ztest.html"><i class="fa fa-check"></i><b>8</b> 🔖 Hypothesis Testing</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="ztest.html"><a href="ztest.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="ztest.html"><a href="ztest.html#snippet-1-z-test"><i class="fa fa-check"></i><b>8.2</b> Snippet 1: z-test</a></li>
-<li class="chapter" data-level="8.3" data-path="ztest.html"><a href="ztest.html#snippet-2-permutation-test"><i class="fa fa-check"></i><b>8.3</b> Snippet 2: Permutation test</a></li>
+<li class="chapter" data-level="8.2" data-path="ztest.html"><a href="ztest.html#snippet-1-permutation-test"><i class="fa fa-check"></i><b>8.2</b> Snippet 1: Permutation test</a></li>
+<li class="chapter" data-level="8.3" data-path="ztest.html"><a href="ztest.html#snippet-2-z-test"><i class="fa fa-check"></i><b>8.3</b> Snippet 2: z-test</a></li>
 <li class="chapter" data-level="8.4" data-path="ztest.html"><a href="ztest.html#snippet-3-make-your-own-data-and-see-how-p-value-changes"><i class="fa fa-check"></i><b>8.4</b> Snippet 3: Make your own data and see how p-value changes</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="ztest.html"><a href="ztest.html#z-test"><i class="fa fa-check"></i><b>8.4.1</b> z-test</a></li>
-<li class="chapter" data-level="8.4.2" data-path="ztest.html"><a href="ztest.html#permuation-test"><i class="fa fa-check"></i><b>8.4.2</b> Permuation test</a></li>
+<li class="chapter" data-level="8.4.1" data-path="ztest.html"><a href="ztest.html#permuation-test"><i class="fa fa-check"></i><b>8.4.1</b> Permuation test</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ztest.html"><a href="ztest.html#one-permutation-at-a-time"><i class="fa fa-check"></i><b>8.4.2</b> One permutation at a time</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ztest.html"><a href="ztest.html#z-test"><i class="fa fa-check"></i><b>8.4.3</b> z-test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="ztest.html"><a href="ztest.html#snippet-4-one-permutation-at-a-time"><i class="fa fa-check"></i><b>8.5</b> Snippet 4: One permutation at a time</a></li>
-<li class="chapter" data-level="8.6" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>8.6</b> Additional References</a></li>
+<li class="chapter" data-level="8.5" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>8.5</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chitest.html"><a href="chitest.html"><i class="fa fa-check"></i><b>9</b> 🔖 Chi Square Analysis</a>
 <ul>
@@ -329,28 +329,23 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> <button class="btn btn-primary" data-toggle="collapse" data-target="#CLT12">Central Limit Theorem</button>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button></li>
-</ul>
-<div id="HPT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
-<div id="CLT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/15VRfffVukRxQ8V9Oh_KRG8T7dIuPjlXaYySdcqvXryQ/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
-<div id="PT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
-<p><br></p>
-<ul>
-<li><strong>Great Resource: </strong> <a href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"> <button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy</button> </a></li>
-</ul>
 <div id="introduction" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Introduction<a href="ztest.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Randomness is the biggest enemy of data scientists. How not to fall into its trap? How to distinguish what’s real from what’s random? This is the goal of hypothesis testing. One does not need statistics to understand the key idea. Of course statistics, probability distributions, means, standard deviations will come in due time. But we do not have to start with these sometimes intimidating concepts!</p>
+<p>Permutation test is a shortest path to comprehend randomness and how not to fall for the randomness trap. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels.</p>
+<p><code>INSERT (table of the dataset correct it to 2022)</code></p>
+<p>We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute in each of the tunnels using the following data.</p>
+<p>We conclude with <code>68.54</code> for Lincoln and <code>67.71</code> for Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic. But is it? Or it is just random deviation and maybe if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us talk about the null hypothesis and the alternative hypothesis.</p>
+<p><strong>Null hypothesis</strong> for the Lincoln-Holland tunnel observation is that, not surprisingly, there is no difference in traffic between the two tunnels.</p>
+<p>The <strong>alternative hypothesis</strong> states that Lincoln tunnel is more busy than Holland tunnel.
+Does observed data (observed traffic difference) provide us with enough evidence to <em>reject null hypothesis</em> and in fact support the alternative hypothesis? To answer this question we need to decide whether the observed result is reasonably likely to come randomly under the condition that NULL hypothesis holds.</p>
+<p>How likely it is that observed difference <code>(D=0.83)</code> comes <em>randomly</em>?
+Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.We can measure and observe it by running a permutation test, by randomly scrambling the traffic table.</p>
+<p>Permutation test is run may times, typically <code>10,000</code>, even <code>100,000</code> times and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland vs Lincoln remain the same. Just values differ, existing values are scrambled just breaking any relationship between volume numbers and tunnel names. Just think about each permutation as rolling a dice. How often will this random process produce the result which is at least as extreme as <code>D=0.83</code> we observed? The less often it happens the more likely it is that what we observe is NOT random. Thus if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7% our observed result cannot be random.</p>
+<p>Permutation test provides an almost palpable experience with randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get <code>D&gt;0.83</code> relatively often (above what is called significance level usually it is at least 5% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.
+No need to calculate standard deviations, means, no need to know anything about z-test, t-test. These tests are the next step after you get a taste of randomness and understand how powerful randomness is. You would never guess!</p>
+<p>The next step, which we illustrate here only through the z-test function, is to calculate p-value using descriptive statistics and the so-called Central limit theorem. This is much cheaper computationally. And the result is always the same, as opposed to the p-value computed by the permutation test. The latter changes slightly every time we run a permutation test. But it still changes because one cannot permute data in all possible ways. The descriptive statistics tests like z-test are asymptotic. There are strings attached to them (like data has to be large enough). And they hide randomness behind the armor of mathematics.</p>
+<p>You can understand the data analyst struggle with randomness purely by a permutation test. Here in this active textbook we discuss hypothesis testing only through the permutation test. We show you z-test and later chi square tests primarily as black box functions, but we delay the know-how behind these tests to the statistics class.</p>
 <p>The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME_PER_MINUTE. Below we show a small sample of the TRAFFIC data frame</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
@@ -375,77 +370,7 @@ VOLUME_PER_MINUTE
 <tbody>
 <tr>
 <td style="text-align:left;">
-941
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-57.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-526
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-61.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-544
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-98.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1380
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekend
-</td>
-<td style="text-align:right;">
-44.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1050
-</td>
-<td style="text-align:left;">
-Holland
-</td>
-<td style="text-align:left;">
-weekend
-</td>
-<td style="text-align:right;">
-57.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1800
+1592
 </td>
 <td style="text-align:left;">
 Lincoln
@@ -454,12 +379,68 @@ Lincoln
 weekday
 </td>
 <td style="text-align:right;">
-72.0
+74.0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-337
+1879
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+77.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2088
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+59.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1711
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+81.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+418
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+46.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+122
 </td>
 <td style="text-align:left;">
 Holland
@@ -473,7 +454,49 @@ weekday
 </tr>
 <tr>
 <td style="text-align:left;">
-1158
+2483
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+50.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2445
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+71.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2308
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+73.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1053
 </td>
 <td style="text-align:left;">
 Holland
@@ -482,35 +505,7 @@ Holland
 weekend
 </td>
 <td style="text-align:right;">
-41.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2296
-</td>
-<td style="text-align:left;">
-Lincoln
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-68.0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2001
-</td>
-<td style="text-align:left;">
-Lincoln
-</td>
-<td style="text-align:left;">
-weekday
-</td>
-<td style="text-align:right;">
-77.0
+53.5
 </td>
 </tr>
 </tbody>
@@ -520,8 +515,15 @@ weekday
 <p>The following snippet <strong>8.2</strong> shows the code for hypothesis test of difference of means.</p>
 <p>Is the mean traffic (VOLUME_PER_MINUTE) in the Holland tunnel bigger than mean traffic (VOLUME_PER_MINUTE) in the Lincoln?</p>
 </div>
-<div id="snippet-1-z-test" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Snippet 1: z-test<a href="ztest.html#snippet-1-z-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-1-permutation-test" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Snippet 1: Permutation test<a href="ztest.html#snippet-1-permutation-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG4jZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcblxuI1Blcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIilcbnRyYWZmaWM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2XCIpXG5QZXJtdXRhdGlvbih0cmFmZmljLCBcIlRVTk5FTFwiLCBcIlZPTFVNRV9QRVJfTUlOVVRFXCIsMTAwMCxcIkhvbGxhbmRcIiwgXCJMaW5jb2xuXCIpXG4gXG4jVGhlIFBlcm11dGF0aW9uIGZ1bmN0aW9uIHJldHVybnMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBkaWZmZXJlbmNlLiBTbyB0aGUgcmVkIGxpbmUgaXMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBvYnNlcnZlZCBkaWZmZXJlbmNlLiBZb3Ugd2lsbCBzZWUgYSBoaXN0b2dyYW0gaGF2aW5nIGEgbm9ybWFsIGRpc3RyaWJ1dGlvbiB3aXRoIGEgcmVkIHNob3dpbmcgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIn0=
+</div>
+</div>
+<div id="snippet-2-z-test" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Snippet 2: z-test<a href="ztest.html#snippet-2-z-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Null Hypothesis</strong> - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.</p>
 <p><strong>Alternative Hypothesis</strong> - Traffic in the Holland Tunnel is larger than traffic in the Lincoln tunnel.</p>
 <p>In the snippet <strong>8.2</strong> we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5%.
@@ -530,17 +532,30 @@ This means, that under null hypothesis it is extremely unlikely (less than 5% ch
 eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVFJBRkZJQzwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L1RyYWZmaWMyMDIyLmNzdicpXG5cbnpfdGVzdChUUkFGRklDLFwiVFVOTkVMXCIsIFwiVk9MVU1FX1BFUl9NSU5VVEVcIixcIkxpbmNvbG5cIiwgXCJIb2xsYW5kXCIpIn0=
 </div>
 </div>
-<div id="snippet-2-permutation-test" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Snippet 2: Permutation test<a href="ztest.html#snippet-2-permutation-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20va3VuYWwwODk1L1JEYXRhc2V0cy9tYXN0ZXIvVFJBRkZJQy5jc3YnKVxuUGVybXV0YXRpb24gPC0gZnVuY3Rpb24oZGYxLGMxLGMyLG4sdzEsdzIpe1xuICBkZiA8LSBhcy5kYXRhLmZyYW1lKGRmMSlcbiAgRF9udWxsPC1jKClcbiAgVjE8LWRmWyxjMV1cbiAgVjI8LWRmWyxjMl1cbiAgc3ViLnZhbHVlMSA8LSBkZltkZlssIGMxXSA9PSB3MSwgYzJdXG4gIHN1Yi52YWx1ZTIgPC0gZGZbZGZbLCBjMV0gPT0gdzIsIGMyXVxuICBEIDwtICBhYnMobWVhbihzdWIudmFsdWUyLCBuYS5ybT1UUlVFKSAtIG1lYW4oc3ViLnZhbHVlMSwgbmEucm09VFJVRSkpXG4gIG09bGVuZ3RoKFYxKVxuICBsPWxlbmd0aChWMVtWMT09dzJdKVxuICBmb3IoamogaW4gMTpuKXtcbiAgICBudWxsIDwtIHJlcCh3MSxsZW5ndGgoVjEpKVxuICAgIG51bGxbc2FtcGxlKG0sbCldIDwtIHcyXG4gICAgbmYgPC0gZGF0YS5mcmFtZShLZXk9bnVsbCwgVmFsdWU9VjIpXG4gICAgbmFtZXMobmYpIDwtIGMoXCJLZXlcIixcIlZhbHVlXCIpXG4gICAgdzFfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzEsMl1cbiAgICB3Ml9udWxsIDwtIG5mW25mJEtleSA9PSB3MiwyXVxuICAgIERfbnVsbCA8LSBjKERfbnVsbCxtZWFuKHcyX251bGwsIG5hLnJtPVRSVUUpIC0gbWVhbih3MV9udWxsLCBuYS5ybT1UUlVFKSlcbiAgfVxuICBteWhpc3Q8LWhpc3QoRF9udWxsLCBwcm9iPVRSVUUpXG4gIG11bHRpcGxpZXIgPC0gbXloaXN0JGNvdW50cyAvIG15aGlzdCRkZW5zaXR5XG4gIG15ZGVuc2l0eSA8LSBkZW5zaXR5KERfbnVsbCwgYWRqdXN0PTIpXG4gIG15ZGVuc2l0eSR5IDwtIG15ZGVuc2l0eSR5ICogbXVsdGlwbGllclsxXVxuICBwbG90KG15aGlzdClcbiAgbGluZXMobXlkZW5zaXR5LCBjb2w9J2JsdWUnKVxuICBhYmxpbmUodj1ELCBjb2w9J3JlZCcpXG4gIE08LW1lYW4oRF9udWxsPkQpXG4gIHJldHVybihNKVxufSIsInNhbXBsZSI6IiNpbnN0YWxsLnBhY2thZ2VzKFwiZGV2dG9vbHNcIilcbiNkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJkZXZhbnNoYWdyL1Blcm11dGF0aW9uVGVzdFNlY29uZFwiKVxuXG4jUGVybXV0YXRpb25UZXN0U2Vjb25kOjpQZXJtdXRhdGlvbihkLCBcIkNhdFwiLCBcIlZhbFwiLDEwMDAwLCBcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuUGVybXV0YXRpb24odHJhZmZpYywgXCJUVU5ORUxcIiwgXCJWT0xVTUVfUEVSX01JTlVURVwiLDEwMDAsXCJIb2xsYW5kXCIsIFwiTGluY29sblwiKVxuIFxuICNUaGUgUGVybXV0YXRpb24gZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2UuIFNvIHRoZSByZWQgbGluZSBpcyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIFlvdSB3aWxsIHNlZSBhIGhpc3RvZ3JhbSBoYXZpbmcgYSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggYSByZWQgc2hvd2luZyB0aGUgb2JzZXJ2ZWQgZGlmZmVyZW5jZS4ifQ==
-</div>
-</div>
 <div id="snippet-3-make-your-own-data-and-see-how-p-value-changes" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Snippet 3: Make your own data and see how p-value changes<a href="ztest.html#snippet-3-make-your-own-data-and-see-how-p-value-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="z-test" class="section level3 hasAnchor" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> z-test<a href="ztest.html#z-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
+<p>Build the data frame with two attributes: <code>Cat and Val, using rnorm() function</code>.
+Our null hypothesis is that Group A and Group B have identical <strong>mean(Val)</strong>.</p>
+<p>The alternative hypothesis is that the mean(Val) for Group B is higher than <strong>mean(Val)</strong> for Group A.
+We will change the mean and standard deviation of the data distributions for Group A and Group B and see how these changes affect the p-value. We will first use a permutation test and a single-step permutation test (just to illustrate what happens each single step when we run a permutation test). Then we finish off with the z-test.</p>
+<div id="permuation-test" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Permuation test<a href="ztest.html#permuation-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Exercise</strong> - How p-value is affected by difference of means and standard deviations</p>
+<p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
+<p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbiNUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtZWFuIG9mIHRoZSBzZWNvbmQgY29sdW1uIChoYXZpbmcgMTAgcmFuZG9tIHZhbHVlcyBmb3IgZWFjaCBncm91cCksIGFuZCB0aGUgbWVhbiBvZiBncm91cEIgdmFsdWVzIGlzIHN1YnRyYWN0ZWQgZnJvbSB0aGUgbWVhbiBvZiBncm91cEEgdmFsdWVzLCB3aGljaCB3aWxsIGdpdmUgeW91IHRoZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZSBvZiB0aGUgbWVhbi5cbiBcbiAjVHJ5IGNoYW5naW5nIG1lYW4gYW5kIHNkIHZhbHVlcy4gV2hlbiB5b3UgcnVuIHRoaXMgeW91IHdpbGwgc2VlIHRoYXQgdGhlIGRpZmZlcmVuY2UgaXMgc29tZXRpbWVzIG5lZ2F0aXZlICNvciBzb21ldGltZXMgcG9zaXRpdmUuIn0=
+</div>
+</div>
+<div id="one-permutation-at-a-time" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> One permutation at a time<a href="ztest.html#one-permutation-at-a-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
+</div>
+</div>
+<div id="z-test" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> z-test<a href="ztest.html#z-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How p-value is affected by difference of means and standard deviations.</p>
 <p>We will build two distributions ourselves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the <strong>rnorm()</strong> function.</p>
 <p>Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value? See for yourself.</p>
@@ -549,24 +564,27 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRw
 eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVmFsMTwtcm5vcm0oMTAsbWVhbj0yNSwgc2Q9MTApXG5WYWwyPC1ybm9ybSgxMCxtZWFuPTM1LCBzZD0xMClcbkNhdDE8LXJlcChcIkdyb3VwQVwiLDEwKSAgXG5DYXQyPC1yZXAoXCJHcm91cEJcIiwxMCkgIFxuQ2F0PC1jKENhdDEsQ2F0MikgXG5WYWw8LWMoVmFsMSxWYWwyKVxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKVxuT2JzZXJ2ZWRfRGlmZmVyZW5jZVxuXG56X3Rlc3QoZCxcIkNhdFwiLCBcIlZhbFwiLFwiR3JvdXBCXCIsIFwiR3JvdXBBXCIpIn0=
 </div>
 </div>
-<div id="permuation-test" class="section level3 hasAnchor" number="8.4.2">
-<h3><span class="header-section-number">8.4.2</span> Permuation test<a href="ztest.html#permuation-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Exercise</strong> - How p-value is affected by difference of means and standard deviations</p>
-<p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
-<p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
-<div data-datacamp-exercise="" data-height="600" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbiNUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtZWFuIG9mIHRoZSBzZWNvbmQgY29sdW1uIChoYXZpbmcgMTAgcmFuZG9tIHZhbHVlcyBmb3IgZWFjaCBncm91cCksIGFuZCB0aGUgbWVhbiBvZiBncm91cEIgdmFsdWVzIGlzIHN1YnRyYWN0ZWQgZnJvbSB0aGUgbWVhbiBvZiBncm91cEEgdmFsdWVzLCB3aGljaCB3aWxsIGdpdmUgeW91IHRoZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZSBvZiB0aGUgbWVhbi5cbiBcbiAjVHJ5IGNoYW5naW5nIG1lYW4gYW5kIHNkIHZhbHVlcy4gV2hlbiB5b3UgcnVuIHRoaXMgeW91IHdpbGwgc2VlIHRoYXQgdGhlIGRpZmZlcmVuY2UgaXMgc29tZXRpbWVzIG5lZ2F0aXZlICNvciBzb21ldGltZXMgcG9zaXRpdmUuIn0=
 </div>
+<div id="additional-references-1" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Additional References<a href="ztest.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">
+Hypothesis Testing
+</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">
+Permutation Test
+</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">
+Khan Academy Video
+</button>
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px">
+</embed>
 </div>
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px">
+</embed>
 </div>
-<div id="snippet-4-one-permutation-at-a-time" class="section level2 hasAnchor" number="8.5">
-<h2><span class="header-section-number">8.5</span> Snippet 4: One permutation at a time<a href="ztest.html#snippet-4-one-permutation-at-a-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
-</div>
-</div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="8.6">
-<h2><span class="header-section-number">8.6</span> Additional References<a href="ztest.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a id="KH12" href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"></a></p>
 <p><a href="https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/" class="uri">https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/</a> <br>
 <a href="http://www.z-table.com/" class="uri">http://www.z-table.com/</a> <br>
 <a href="https://www.statisticshowto.com/probability-and-statistics/z-score/" class="uri">https://www.statisticshowto.com/probability-and-statistics/z-score/</a> <br>
