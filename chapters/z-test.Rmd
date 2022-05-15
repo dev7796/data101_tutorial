@@ -112,7 +112,7 @@ Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
 
 **Alternative Hypothesis** - Traffic in the Holland Tunnel is larger than traffic in the Lincoln  tunnel.
 
-In the snippet **8.2**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
+In the snippet **8.3**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
 ```{r,tut=TRUE,ex="ztestfunction1",type="pre-exercise-code"}
