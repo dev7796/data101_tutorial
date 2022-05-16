@@ -96,7 +96,7 @@ more-complex-example-of-defining-derived-attributes
 snippet-1-3
 ztest
 introduction
-snippet-1-permutation-test
+permutaion
 snippet-2-z-test
 snippet-3-make-your-own-data-and-see-how-p-value-changes
 permuation-test

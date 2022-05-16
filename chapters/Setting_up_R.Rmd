@@ -172,9 +172,9 @@ https://data101.cs.rutgers.edu/laboratory/
 
 ## Textbook Concepts
 
-- Hypothesis testing: \@ref(ztest), \@ref(ptest) 
+- Hypothesis testing: \@ref(ztest)
 
-- Difference of means hypothesis testing: \@ref(ptest)
+- Difference of means hypothesis testing: \@ref(ztest)
 
 - Null Hypothesis: \@ref(ztest)
 
@@ -245,7 +245,7 @@ tutorial::go_interactive()
 
 - **Data Transformations: ** subset() \@ref(subset), tapply() \@ref(tapply),  table() \@ref(table), aggregate() 
 
-- **Library functions: ** chisq.test() \@ref(chitest), pnorm() \@ref(pnorm), Permutation() \@ref(ptest), rpart() \@ref(prpart), predict() \@ref(rpartpredict), lm() \@ref(lm), crossvalidation() \@ref(crossvalidation)
+- **Library functions: ** chisq.test() \@ref(chitest), pnorm() \@ref(permutaion), Permutation() \@ref(permutaion), rpart() \@ref(prpart), predict() \@ref(rpartpredict), lm() \@ref(lm), crossvalidation() \@ref(crossvalidation)
 
 - **Parameters of rpart: ** minsplit \@ref(rpartcontrol), minbucket \@ref(rpartcontrol), cp \@ref(rpartcontrol)
 

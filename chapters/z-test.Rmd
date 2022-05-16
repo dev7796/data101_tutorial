@@ -59,7 +59,7 @@ The following snippet **8.2** shows the code for hypothesis test of difference o
 
 Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
-## Snippet 1: Permutation test
+## Snippet 1: Permutation test {#permutaion}
 
 Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
 
