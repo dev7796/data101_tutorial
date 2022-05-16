@@ -322,9 +322,8 @@ z_test(d,"Cat", "Val","GroupB", "GroupA")
 <button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">Hypothesis Testing</button> 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">Permutation Test</button> 
 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy Video</button>
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">Khan Academy Video</button> 
- 
 <div id="HPT12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
@@ -332,7 +331,8 @@ z_test(d,"Cat", "Val","GroupB", "GroupA")
 <embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
-<a id="KH12" href = "https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" target="_blank"></a>
+<div id="KH12" class="collapse">https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means
+</div>
 
 
 https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/ <br>
