@@ -11,8 +11,8 @@ tab:unnamed-chunk-36
 tab:unnamed-chunk-38
 tab:unnamed-chunk-54
 tab:unnamed-chunk-83
-tab:unnamed-chunk-99
-tab:unnamed-chunk-146
+tab:unnamed-chunk-100
+tab:unnamed-chunk-147
 intro
 b2022
 datablog
