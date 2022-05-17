@@ -121,6 +121,9 @@ In the following sections we will address these questions and go through the pro
   We will use as few R commands as possible and reach our goal in the shortest possible path. In fact we will demonstrate how using just 7 R commands we can perform quite sophisticated data exploration. In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries. In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge (we show them in appendix). We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.
 \end{itemize}
 
+\textbf{Aknowledgement: }
+This textbook would not have been created without extensive help from Devarsh Shah
+
 \hypertarget{b2022}{%
 \section{🔖 Best Works of 2022}\label{b2022}}
 
@@ -148,6 +151,36 @@ Jeevanandan Ramasamy
 Jeevanandan Ramasamy
 
 \hypertarget{bt14}{}
+
+\hypertarget{prediction-challenge-3}{%
+\subsection{Prediction Challenge 3}\label{prediction-challenge-3}}
+
+Eva Zhang
+
+\hypertarget{bt19}{}
+
+\hypertarget{boundless-analytics}{%
+\subsection{Boundless Analytics}\label{boundless-analytics}}
+
+Anastasiya Chuchkova
+
+Shreya Tiwari
+
+George Basta
+
+\hypertarget{ba1}{}
+
+\hypertarget{ba2}{}
+
+\hypertarget{ba3}{}
+
+Paul Kotys
+
+Selin Altimparmak
+
+\hypertarget{ba5}{}
+
+\hypertarget{ba6}{}
 
 \hypertarget{DLL}{%
 \section{Data League Leaderboard}\label{DLL}}
@@ -282,11 +315,11 @@ Sandhya Senthilkumar
 \toprule
   & country & content & imdb\_score & Gross & Budget & genre\\
 \midrule
-9543 & USA & PG-13 & 7.32 & Low & Medium & History\\
-7319 & USA & PG-13 & 6.91 & Low & Medium & Drama\\
-583 & USA & PG-13 & 7.48 & High & High & Drama\\
-11604 & USA & PG-13 & 6.62 & Low & Low & History\\
-544 & USA & PG-13 & 6.08 & High & High & Family\\
+12257 & USA & R & 5.40 & Low & Low & Drama\\
+5054 & USA & R & 6.50 & Medium & Low & History\\
+4680 & USA & R & 7.49 & High & Medium & Drama\\
+11958 & USA & PG-13 & 7.00 & Medium & Low & Drama\\
+4504 & USA & PG & 5.60 & Medium & Medium & Comedy\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -326,11 +359,11 @@ Andrew Fasano
 \toprule
   & BREAD & BUTTER & COOKIES & COFFEE & TEA\\
 \midrule
-8348 & 1 & 1 & 1 & 1 & 1\\
-8599 & 0 & 1 & 0 & 0 & 0\\
-8537 & 1 & 0 & 0 & 1 & 0\\
-4826 & 0 & 1 & 0 & 0 & 1\\
-7153 & 0 & 1 & 1 & 1 & 1\\
+5477 & 0 & 1 & 0 & 1 & 0\\
+4085 & 1 & 1 & 1 & 0 & 0\\
+5059 & 0 & 0 & 1 & 1 & 0\\
+5053 & 1 & 1 & 0 & 0 & 1\\
+3734 & 1 & 0 & 1 & 0 & 0\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -655,15 +688,16 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 \url{https://www.w3schools.com/r/}
 \url{https://cran.r-project.org/doc/contrib/Short-refcard.pdf}
 \url{https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337\&psc=1}
+\url{https://data101.cs.rutgers.edu/laboratory/}
 
 \hypertarget{textbook-concepts}{%
 \subsection{Textbook Concepts}\label{textbook-concepts}}
 
 \begin{itemize}
 \item
-  Hypothesis testing: \ref{ztest}, \ref{ptest}
+  Hypothesis testing: \ref{ztest}
 \item
-  Difference of means hypothesis testing: \ref{ptest}
+  Difference of means hypothesis testing: \ref{ztest}
 \item
   Null Hypothesis: \ref{ztest}
 \item
@@ -729,7 +763,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 \item
   \textbf{Data Transformations: } subset() \ref{subset}, tapply() \ref{tapply}, table() \ref{table}, aggregate()
 \item
-  \textbf{Library functions: } chisq.test() \ref{chitest}, pnorm() \ref{pnorm}, Permutation() \ref{ptest}, rpart() \ref{prpart}, predict() \ref{rpartpredict}, lm() \ref{lm}, crossvalidation() \ref{crossvalidation}
+  \textbf{Library functions: } chisq.test() \ref{chitest}, pnorm() \ref{permutaion}, Permutation() \ref{permutaion}, rpart() \ref{prpart}, predict() \ref{rpartpredict}, lm() \ref{lm}, crossvalidation() \ref{crossvalidation}
 \item
   \textbf{Parameters of rpart: } minsplit \ref{rpartcontrol}, minbucket \ref{rpartcontrol}, cp \ref{rpartcontrol}
 \end{itemize}
@@ -740,6 +774,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 \hypertarget{moody}{%
 \subsubsection{Moody}\label{moody}}
 
+Download: moody2022\_new.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-26}Snippet of Moody Dataset}
@@ -748,11 +784,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2
 \toprule
   & SCORE & GRADE & DOZES\_OFF & TEXTING\_IN\_CLASS & PARTICIPATION\\
 \midrule
-393 & 67.93 & C & always & never & 0.09\\
-127 & 57.10 & C & sometimes & never & 0.48\\
-717 & 25.02 & D & always & never & 0.02\\
-573 & 61.82 & B & sometimes & rarely & 0.00\\
-318 & 98.28 & A & always & never & 0.99\\
+316 & 10.09 & F & never & never & 0.40\\
+396 & 52.56 & C & never & rarely & 0.20\\
+343 & 95.72 & A & never & never & 0.31\\
+239 & 51.09 & D & sometimes & always & 0.26\\
+11 & 40.67 & D & sometimes & always & 0.01\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -762,6 +798,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \hypertarget{movies}{%
 \subsubsection{Movies}\label{movies}}
 
+Download: Movies2022F-4.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-28}Snippet of Movies Dataset}
@@ -770,11 +808,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \toprule
   & country & content & imdb\_score & Gross & Budget & genre\\
 \midrule
-11322 & USA & PG-13 & 8.11 & Low & Low & History\\
-11045 & USA & PG & 8.20 & Medium & Low & Drama\\
-8995 & USA & PG & 6.86 & Medium & Low & History\\
-2657 & USA & R & 5.63 & Medium & High & Family\\
-9762 & USA & R & 7.79 & Medium & Low & History\\
+12663 & USA & R & 4.65 & Low & Low & Action\\
+11911 & UK & R & 7.06 & Low & Low & Drama\\
+9058 & Czech Republic & R & 7.15 & Low & Medium & Sci-Fi\\
+6896 & USA & PG-13 & 4.44 & High & Medium & Drama\\
+10151 & USA & PG-13 & 5.76 & Low & Medium & Sci-Fi\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -784,6 +822,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 \hypertarget{traffic}{%
 \subsubsection{Traffic}\label{traffic}}
 
+Download: Traffic2022.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-30}Snippet of Traffic Dataset}
@@ -792,11 +832,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-1854 & Lincoln & weekday & 100.0\\
-1793 & Lincoln & weekday & 83.0\\
-270 & Holland & weekday & 58.5\\
-1928 & Lincoln & weekday & 68.0\\
-95 & Holland & weekday & 36.5\\
+2256 & Lincoln & weekday & 74.0\\
+1072 & Holland & weekend & 53.5\\
+1858 & Lincoln & weekday & 74.0\\
+1189 & Holland & weekend & 51.5\\
+1102 & Holland & weekend & 51.5\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -806,6 +846,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 \hypertarget{hindex}{%
 \subsubsection{Hindex}\label{hindex}}
 
+Download: Hindex.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-32}Snippet of Hindex Dataset}
@@ -814,11 +856,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-5746 & 76397 & Georgia & 7.72\\
-2837 & 19119 & Sierra Leone & 2.21\\
-4640 & 97602 & Jordan & 9.41\\
-3523 & 65736 & Kenya & 6.70\\
-4853 & 94589 & Azerbaijan & 9.40\\
+312 & 28184 & Liberia & 3.66\\
+4030 & 71372 & Malaysia & 7.24\\
+1249 & 49430 & Armenia & 5.60\\
+5892 & 38595 & Ukraine & 4.61\\
+4533 & 56836 & Ecuador & 6.63\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -828,6 +870,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3Lmdp
 \hypertarget{prediction-1-dataset}{%
 \subsubsection{Prediction 1 Dataset}\label{prediction-1-dataset}}
 
+Download: M2022train.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-34}Snippet of Moody Predicition 1 dataset}
@@ -836,11 +880,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3Lmdp
 \toprule
   & Major & Score & Seniority & Grade\\
 \midrule
-209 & CS & 83 & Freshman & A\\
-674 & CS & 44 & Senior & F\\
-203 & Economics & 35 & Junior & F\\
-69 & Statistics & 93 & Senior & A\\
-339 & Statistics & 81 & Sophomore & B\\
+414 & CS & 28 & Freshman & D\\
+436 & Statistics & 87 & Freshman & A\\
+35 & Statistics & 56 & Senior & C\\
+512 & Statistics & 52 & Junior & D\\
+316 & Statistics & 37 & Junior & F\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -849,6 +893,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 
 \hypertarget{midterm-project-and-final-exam-distribution-in-prof.-moody-class}{%
 \subsubsection{Midterm, Project and Final Exam distribution in Prof.~Moody class}\label{midterm-project-and-final-exam-distribution-in-prof.-moody-class}}
+
+Download: MoodyNUM.csv
 
 \textbf{Assumptions:} Midterm, Project and Final Exam are all out of 100
 
@@ -860,11 +906,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \toprule
   & Midterm & Project & FinalExam & ClassScore\\
 \midrule
-845 & 10 & 99 & 9 & 54.20000\\
-809 & 26 & 16 & 76 & 36.20084\\
-431 & 33 & 24 & 50 & 33.60000\\
-5 & 85 & 52 & 85 & 68.50000\\
-849 & 22 & 32 & 2 & 21.00000\\
+926 & 66 & 38 & 24 & 37.56863\\
+10 & 66 & 27 & 17 & 34.80494\\
+682 & 54 & 53 & 42 & 53.59012\\
+718 & 87 & 53 & 18 & 49.30000\\
+607 & 27 & 2 & 45 & 19.90000\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -874,6 +920,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \hypertarget{minimarket}{%
 \subsubsection{Minimarket}\label{minimarket}}
 
+Download: HomeworkMarket2022.csv
+
 \begin{table}
 
 \caption{\label{tab:unnamed-chunk-38}Minimarket dataset}
@@ -882,11 +930,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 \toprule
   & Beer & Day & Location & SoftDrinks & Sweets & Wine & Snacks\\
 \midrule
-7908 & Ale & Weekend & Edison & Orange  Juice & Milky Way & Red & None\\
-3699 & Lager & Weekday & New Brunswick & Sprite & Snickers & None & Pretzels\\
-11944 & Ale & Weekday & Edison & Orange  Juice & Snickers & None & None\\
-10944 & Lager & Weekday & Princeton & Orange  Juice & Snickers & None & Popcorn\\
-15790 & Lager & Weekday & Edison & Sprite & Milky Way & White & Popcorn\\
+12585 & None & Weekday & New Brunswick & Orange  Juice & Milky Way & None & None\\
+7089 & Lager & Weekday & Edison & None & Snickers & White & Potato Chips\\
+19490 & Lager & Weekend & New Brunswick & Orange  Juice & Milky Way & Red & Crackers\\
+9587 & None & Weekday & Metuchen & Sprite & Twix & None & None\\
+10012 & Ale & Weekend & Princeton & Sprite & Snickers & Red & None\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1303,26 +1351,37 @@ In this way, for someone with very small participation, the 10 point penalty wil
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIHByaW50IHRoZSBjb2x1bW4gbmFtZXNcbmNvbG5hbWVzKG1vb2R5KVxuXG4jIGxldHMgbG9vayBhdCB0aGUgY29uZGl0aW9uYWwgYXR0cmlidXRlIFxuaGVhZChtb29keSlcblxuI3N1YnNldCB0aGUgbW9vZHkgZGF0YXNldCByb3dzID0gMSB0byAxMCBhbmQgY29scyA9IDEsNVxubW9vZHlbMToxMCwgYygxLDUpXVxuXG4jc3Vic2V0IHRoZSBtb29keSBkYXRhc2V0IHJvd3MgPSAxIHRvIDEwIGFuZCBjb2xzID0gMSw1LDZcbm1vb2R5WzE6MTAsIGMoMSw1LDYpXVxuXG4jIHByaW50IHN1bW1hcnkgb2YgaW5pZGl2aWR1YWwgY29sdW1uc1xuc3VtbWFyeShtb29keSRzY29yZSlcbnN1bW1hcnkobW9vZHkkY29uZGl0aW9uYWwpXG5cbiMgUGxvdHRpbmcgdGhlIGNvbmRpdGlvbmFsIGF0dHJpYnV0ZSB1c2luZyBib3hwbG90XG5ib3hwbG90KG1vb2R5JGNvbmRpdGlvbmFsLGNvbCA9IGMoXCJyZWRcIiksbWFpbj1cIkNvbXBsZXggRXhhbXBsZVwiKVxuXG4jIFBsb3R0aW5nIHRoZSBzY29yZSBhdHRyaWJ1dGUgdXNpbmcgYm94cGxvdFxuYm94cGxvdChtb29keSRzY29yZSxjb2wgPSBjKFwiYmx1ZVwiKSxtYWluPVwiQ29tcGxleCBFeGFtcGxlXCIpIn0=
 
 \hypertarget{ztest}{%
-\section{🔖 Hypothesis Testing: z-test}\label{ztest}}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Lecture slides: } Hypothesis Testing Central Limit Theorem
-
-  \hypertarget{HPT12}{}
-
-  \hypertarget{CLT12}{}
-\end{itemize}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Great Resource: } Khan Academy
-\end{itemize}
+\section{🔖 Hypothesis Testing}\label{ztest}}
 
 \hypertarget{introduction}{%
 \subsection{Introduction}\label{introduction}}
+
+Randomness is the biggest enemy of data scientists. How not to fall into its trap? How to distinguish what's real from what's random? This is the goal of hypothesis testing. One does not need statistics to understand the key idea. Of course statistics, probability distributions, means, standard deviations will come in due time. But we do not have to start with these sometimes intimidating concepts!
+
+Permutation test is a shortest path to comprehend randomness and how not to fall for the randomness trap. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels.
+
+\texttt{INSERT\ (table\ of\ the\ dataset\ correct\ it\ to\ 2022)}
+
+We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute in each of the tunnels using the following data.
+
+We conclude with \texttt{68.54} for Lincoln and \texttt{67.71} for Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic. But is it? Or it is just random deviation and maybe if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us talk about the null hypothesis and the alternative hypothesis.
+
+\textbf{Null hypothesis} for the Lincoln-Holland tunnel observation is that, not surprisingly, there is no difference in traffic between the two tunnels.
+
+The \textbf{alternative hypothesis} states that Lincoln tunnel is more busy than Holland tunnel.
+Does observed data (observed traffic difference) provide us with enough evidence to \emph{reject null hypothesis} and in fact support the alternative hypothesis? To answer this question we need to decide whether the observed result is reasonably likely to come randomly under the condition that NULL hypothesis holds.
+
+How likely it is that observed difference \texttt{(D=0.83)} comes \emph{randomly}?
+Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.We can measure and observe it by running a permutation test, by randomly scrambling the traffic table.
+
+Permutation test is run may times, typically \texttt{10,000}, even \texttt{100,000} times and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland vs Lincoln remain the same. Just values differ, existing values are scrambled just breaking any relationship between volume numbers and tunnel names. Just think about each permutation as rolling a dice. How often will this random process produce the result which is at least as extreme as \texttt{D=0.83} we observed? The less often it happens the more likely it is that what we observe is NOT random. Thus if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7\% our observed result cannot be random.
+
+Permutation test provides an almost palpable experience with randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get \texttt{D\textgreater{}0.83} relatively often (above what is called significance level usually it is at least 5\% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.
+No need to calculate standard deviations, means, no need to know anything about z-test, t-test. These tests are the next step after you get a taste of randomness and understand how powerful randomness is. You would never guess!
+
+The next step, which we illustrate here only through the z-test function, is to calculate p-value using descriptive statistics and the so-called Central limit theorem. This is much cheaper computationally. And the result is always the same, as opposed to the p-value computed by the permutation test. The latter changes slightly every time we run a permutation test. But it still changes because one cannot permute data in all possible ways. The descriptive statistics tests like z-test are asymptotic. There are strings attached to them (like data has to be large enough). And they hide randomness behind the armor of mathematics.
+
+You can understand the data analyst struggle with randomness purely by a permutation test. Here in this active textbook we discuss hypothesis testing only through the permutation test. We show you z-test and later chi square tests primarily as black box functions, but we delay the know-how behind these tests to the statistics class.
 
 The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME\_PER\_MINUTE. Below we show a small sample of the TRAFFIC data frame
 
@@ -1334,39 +1393,73 @@ The following synthetic data describes daily traffic on weekday and weekend days
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-408 & Holland & weekday & 70.5\\
-1995 & Lincoln & weekday & 69.0\\
-2095 & Lincoln & weekday & 77.0\\
-828 & Holland & weekday & 70.5\\
-2353 & Lincoln & weekday & 74.0\\
+1592 & Lincoln & weekday & 74.0\\
+1879 & Lincoln & weekday & 77.0\\
+2088 & Lincoln & weekday & 59.0\\
+1711 & Lincoln & weekday & 81.0\\
+418 & Holland & weekday & 46.5\\
 \addlinespace
-1529 & Lincoln & weekday & 73.0\\
-392 & Holland & weekday & 46.5\\
-1915 & Lincoln & weekday & 66.0\\
-2562 & Lincoln & weekend & 80.0\\
-740 & Holland & weekday & 95.5\\
+122 & Holland & weekday & 69.5\\
+2483 & Lincoln & weekend & 50.0\\
+2445 & Lincoln & weekend & 71.0\\
+2308 & Lincoln & weekday & 73.0\\
+1053 & Holland & weekend & 53.5\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The following snippet \textbf{6.2} shows the code for hypothesis test of difference of means.
+The following snippet \textbf{8.2} shows the code for hypothesis test of difference of means.
 
 Is the mean traffic (VOLUME\_PER\_MINUTE) in the Holland tunnel bigger than mean traffic (VOLUME\_PER\_MINUTE) in the Lincoln?
 
-\hypertarget{pnorm}{%
-\subsection{Snippet 1: Shows the code for z-test to test the following hypotheses}\label{pnorm}}
+\hypertarget{permutaion}{%
+\subsection{Snippet 1: Permutation test}\label{permutaion}}
+
+Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
+
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG4jZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcblxuI1Blcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIilcbnRyYWZmaWM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2XCIpXG5QZXJtdXRhdGlvbih0cmFmZmljLCBcIlRVTk5FTFwiLCBcIlZPTFVNRV9QRVJfTUlOVVRFXCIsMTAwMCxcIkhvbGxhbmRcIiwgXCJMaW5jb2xuXCIpXG4gXG4jVGhlIFBlcm11dGF0aW9uIGZ1bmN0aW9uIHJldHVybnMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBkaWZmZXJlbmNlLiBTbyB0aGUgcmVkIGxpbmUgaXMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBvYnNlcnZlZCBkaWZmZXJlbmNlLiBZb3Ugd2lsbCBzZWUgYSBoaXN0b2dyYW0gaGF2aW5nIGEgbm9ybWFsIGRpc3RyaWJ1dGlvbiB3aXRoIGEgcmVkIHNob3dpbmcgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIn0=
+
+\hypertarget{snippet-2-z-test}{%
+\subsection{Snippet 2: z-test}\label{snippet-2-z-test}}
 
 \textbf{Null Hypothesis} - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
 \textbf{Alternative Hypothesis} - Traffic in the Holland Tunnel is larger than traffic in the Lincoln tunnel.
 
-In the snippet \textbf{6.2} we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5\%.
+In the snippet \textbf{8.3} we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5\%.
 This means, that under null hypothesis it is extremely unlikely (less than 5\% chance) to see the result which is at least as big as the observed difference of means.
 
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJUUkFGRklDPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxuI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG5saW5jb2xuLmRhdGEgPC0gc3Vic2V0KFRSQUZGSUMsIFRSQUZGSUMkVFVOTkVMID09IFwiTGluY29sblwiKVxuaG9sbGFuZC5kYXRhIDwtIHN1YnNldChUUkFGRklDLCBUUkFGRklDJFRVTk5FTCA9PSBcIkhvbGxhbmRcIilcblxuI3RyYWZmaWMgYXQgbGluY29sblxubGluY29sbi50cmFmZmljIDwtIGxpbmNvbG4uZGF0YSRWT0xVTUVfUEVSX01JTlVURVxuXG4jdHJhZmZpYyBhdCBob2xsYW5kXG5ob2xsYW5kLnRyYWZmaWMgPC0gaG9sbGFuZC5kYXRhJFZPTFVNRV9QRVJfTUlOVVRFXG5cbiMgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIHR3byBzYW1wbGVzLlxuc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG5zZC5ob2xsYW5kIDwtIHNkKGhvbGxhbmQudHJhZmZpYylcbnNkLmxpbmNvbG5cbnNkLmhvbGxhbmRcblxuI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG5sZW5fbGluY29sbiA8LSBsZW5ndGgobGluY29sbi50cmFmZmljKVxubGVuX2hvbGxhbmQgPC0gbGVuZ3RoKGhvbGxhbmQudHJhZmZpYylcbmxlbl9saW5jb2xuXG5sZW5faG9sbGFuZFxuXG4jc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuc2QubGluLmhvbCA8LSBzcXJ0KHNkLmxpbmNvbG5eMi9sZW5fbGluY29sbiArIHNkLmhvbGxhbmReMi9sZW5faG9sbGFuZClcbnNkLmxpbi5ob2xcblxuI21lYW5zIG9mIHR3byBzYW1wbGVzXG5tZWFuLmxpbmNvbG4gPC0gbWVhbihsaW5jb2xuLnRyYWZmaWMpXG5tZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG5tZWFuLmxpbmNvbG5cbm1lYW4uaG9sbGFuZFxuXG4jeiBzY29yZVxuemV0YSA8LSAobWVhbi5saW5jb2xuIC0gbWVhbi5ob2xsYW5kKS9zZC5saW4uaG9sXG56ZXRhXG5cbiNwbG90IHJlZCBsaW5lXG5wbG90KHg9c2VxKGZyb20gPSAtNSwgdG89IDUsIGJ5PTAuMSkseT1kbm9ybShzZXEoZnJvbSA9IC01LCB0bz0gNSwgIGJ5PTAuMSksbWVhbj0wKSx0eXBlPSdsJyx4bGFiID0gJ21lYW4gZGlmZmVyZW5jZScsICB5bGFiPSdwb3NzaWJpbGl0eScpXG5hYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG5cbiNnZXQgcFxucCA9IDEtcG5vcm0oemV0YSlcbnAifQ==
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVFJBRkZJQzwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L1RyYWZmaWMyMDIyLmNzdicpXG5cbnpfdGVzdChUUkFGRklDLFwiVFVOTkVMXCIsIFwiVk9MVU1FX1BFUl9NSU5VVEVcIixcIkxpbmNvbG5cIiwgXCJIb2xsYW5kXCIpIn0=
 
-\hypertarget{snippet-2-make-your-own-data-and-see-how-p-value-changes}{%
-\subsection{Snippet 2: Make your own data and see how p-value changes}\label{snippet-2-make-your-own-data-and-see-how-p-value-changes}}
+\hypertarget{snippet-3-make-your-own-data-and-see-how-p-value-changes}{%
+\subsection{Snippet 3: Make your own data and see how p-value changes}\label{snippet-3-make-your-own-data-and-see-how-p-value-changes}}
+
+For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use \textbf{rnorm()} to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+
+Build the data frame with two attributes: \texttt{Cat\ and\ Val,\ using\ rnorm()\ function}.
+Our null hypothesis is that Group A and Group B have identical \textbf{mean(Val)}.
+
+The alternative hypothesis is that the mean(Val) for Group B is higher than \textbf{mean(Val)} for Group A.
+We will change the mean and standard deviation of the data distributions for Group A and Group B and see how these changes affect the p-value. We will first use a permutation test and a single-step permutation test (just to illustrate what happens each single step when we run a permutation test). Then we finish off with the z-test.
+
+\hypertarget{permuation-test}{%
+\subsubsection{Permuation test}\label{permuation-test}}
+
+\textbf{Exercise} - How p-value is affected by difference of means and standard deviations
+
+We will build our two distributions ourseleves - varying the means and standard deviations. We will use \textbf{rnorm()} to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+
+Build the data frame with two attributes: \textbf{Cat} and \textbf{Val}, using \textbf{rnorm()} function
+
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cblBlcm11dGF0aW9uKGQsIFwiQ2F0XCIsIFwiVmFsXCIsMTAwMCxcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKVxuT2JzZXJ2ZWRfRGlmZmVyZW5jZVxuXG4jVGhpcyB3aWxsIGNhbGN1bGF0ZSB0aGUgbWVhbiBvZiB0aGUgc2Vjb25kIGNvbHVtbiAoaGF2aW5nIDEwIHJhbmRvbSB2YWx1ZXMgZm9yIGVhY2ggZ3JvdXApLCBhbmQgdGhlIG1lYW4gb2YgZ3JvdXBCIHZhbHVlcyBpcyBzdWJ0cmFjdGVkIGZyb20gdGhlIG1lYW4gb2YgZ3JvdXBBIHZhbHVlcywgd2hpY2ggd2lsbCBnaXZlIHlvdSB0aGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2Ugb2YgdGhlIG1lYW4uXG4gXG4gI1RyeSBjaGFuZ2luZyBtZWFuIGFuZCBzZCB2YWx1ZXMuIFdoZW4geW91IHJ1biB0aGlzIHlvdSB3aWxsIHNlZSB0aGF0IHRoZSBkaWZmZXJlbmNlIGlzIHNvbWV0aW1lcyBuZWdhdGl2ZSAjb3Igc29tZXRpbWVzIHBvc2l0aXZlLiJ9
+
+\hypertarget{one-permutation-at-a-time}{%
+\subsubsection{One permutation at a time}\label{one-permutation-at-a-time}}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
+
+\hypertarget{z-test}{%
+\subsubsection{z-test}\label{z-test}}
 
 How p-value is affected by difference of means and standard deviations.
 
@@ -1376,51 +1469,28 @@ Clearly the further apart the mean values are - the lower the p-value. But how d
 
 Build the data frame with two attributes: Cat and Val, using \textbf{rnorm()} function
 
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzUsIHNkPTEwKVxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICBcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgXG5DYXQ8LWMoQ2F0MSxDYXQyKSBcblZhbDwtYyhWYWwxLFZhbDIpXG5cbmQ8LWRhdGEuZnJhbWUoQ2F0LFZhbClcbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbmRBPC1kW2QkQ2F0PT0nR3JvdXBBJyxdXG5kQVxuZEI8LWRbZCRDYXQ9PSdHcm91cEInLF1cbmRCXG5cbm1lYW5BPC1tZWFuKGRBJFZhbClcbm1lYW5CPC1tZWFuKGRCJFZhbClcblxuc2RBPC1zZChkQSRWYWwpXG5zZEI8LXNkKGRCJFZhbClcblxubGVuQTwtbnJvdyhkQSlcbmxlbkFcbmxlbkI8LW5yb3coZEIpXG5sZW5CXG5cbnNkLkEuQiA8LSBzcXJ0KHNkQV4yL2xlbkEgK3NkQl4yL2xlbkIpXG5zZC5BLkJcblxuemV0YSA8LSAobWVhbkIgLSBtZWFuQSkvc2QuQS5CXG56ZXRhXG5wPC0xLXBub3JtKHpldGEpXG5wIn0=
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVmFsMTwtcm5vcm0oMTAsbWVhbj0yNSwgc2Q9MTApXG5WYWwyPC1ybm9ybSgxMCxtZWFuPTM1LCBzZD0xMClcbkNhdDE8LXJlcChcIkdyb3VwQVwiLDEwKSAgXG5DYXQyPC1yZXAoXCJHcm91cEJcIiwxMCkgIFxuQ2F0PC1jKENhdDEsQ2F0MikgXG5WYWw8LWMoVmFsMSxWYWwyKVxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKVxuT2JzZXJ2ZWRfRGlmZmVyZW5jZVxuXG56X3Rlc3QoZCxcIkNhdFwiLCBcIlZhbFwiLFwiR3JvdXBCXCIsIFwiR3JvdXBBXCIpIn0=
 
 \hypertarget{additional-references-1}{%
 \subsection{Additional References}\label{additional-references-1}}
+
+Hypothesis Testing
+
+Permutation Test
+
+Khan Academy Video
+
+\hypertarget{HPT12}{}
+
+\hypertarget{PT12}{}
+
+\leavevmode\hypertarget{KH12}{}%
+\url{https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means}
 
 \url{https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/}
 \url{http://www.z-table.com/}
 \url{https://www.statisticshowto.com/probability-and-statistics/z-score/}
 \url{https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/}
-
-\hypertarget{ptest}{%
-\section{🔖 Hypothesis Testing: Permutation Test}\label{ptest}}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Lecture slides: } Permutation Test
-
-  \hypertarget{PT12}{}
-\end{itemize}
-
-\hypertarget{snippet-1-4}{%
-\subsection{Snippet 1}\label{snippet-1-4}}
-
-\textbf{Exercise} - How p-value is affected by difference of means and standard deviations
-
-We will build our two distributions ourseleves - varying the means and standard deviations. We will use \textbf{rnorm()} to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
-
-Build the data frame with two attributes: \textbf{Cat} and \textbf{Val}, using \textbf{rnorm()} function
-
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cbk9ic2VydmVkX0RpZmZlcmVuY2U8LW1lYW4oZFtkJENhdD09J0dyb3VwQicsMl0pLW1lYW4oZFtkJENhdD09J0dyb3VwQScsMl0pXG5PYnNlcnZlZF9EaWZmZXJlbmNlXG5cbiNUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtZWFuIG9mIHRoZSBzZWNvbmQgY29sdW1uIChoYXZpbmcgMTAgcmFuZG9tIHZhbHVlcyBmb3IgZWFjaCBncm91cCksIGFuZCB0aGUgbWVhbiBvZiBncm91cEIgdmFsdWVzIGlzIHN1YnRyYWN0ZWQgZnJvbSB0aGUgbWVhbiBvZiBncm91cEEgdmFsdWVzLCB3aGljaCB3aWxsIGdpdmUgeW91IHRoZSB2YWx1ZSBvZiB0aGUgZGlmZmVyZW5jZSBvZiB0aGUgbWVhbi5cbiBcbiAjVHJ5IGNoYW5naW5nIG1lYW4gYW5kIHNkIHZhbHVlcy4gV2hlbiB5b3UgcnVuIHRoaXMgeW91IHdpbGwgc2VlIHRoYXQgdGhlIGRpZmZlcmVuY2UgaXMgc29tZXRpbWVzIG5lZ2F0aXZlICNvciBzb21ldGltZXMgcG9zaXRpdmUuIn0=
-
-\hypertarget{snippet-2-2}{%
-\subsection{Snippet 2}\label{snippet-2-2}}
-
-Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
-
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InRyYWZmaWM8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20va3VuYWwwODk1L1JEYXRhc2V0cy9tYXN0ZXIvVFJBRkZJQy5jc3YnKVxuUGVybXV0YXRpb24gPC0gZnVuY3Rpb24oZGYxLGMxLGMyLG4sdzEsdzIpe1xuICBkZiA8LSBhcy5kYXRhLmZyYW1lKGRmMSlcbiAgRF9udWxsPC1jKClcbiAgVjE8LWRmWyxjMV1cbiAgVjI8LWRmWyxjMl1cbiAgc3ViLnZhbHVlMSA8LSBkZltkZlssIGMxXSA9PSB3MSwgYzJdXG4gIHN1Yi52YWx1ZTIgPC0gZGZbZGZbLCBjMV0gPT0gdzIsIGMyXVxuICBEIDwtICBhYnMobWVhbihzdWIudmFsdWUyLCBuYS5ybT1UUlVFKSAtIG1lYW4oc3ViLnZhbHVlMSwgbmEucm09VFJVRSkpXG4gIG09bGVuZ3RoKFYxKVxuICBsPWxlbmd0aChWMVtWMT09dzJdKVxuICBmb3IoamogaW4gMTpuKXtcbiAgICBudWxsIDwtIHJlcCh3MSxsZW5ndGgoVjEpKVxuICAgIG51bGxbc2FtcGxlKG0sbCldIDwtIHcyXG4gICAgbmYgPC0gZGF0YS5mcmFtZShLZXk9bnVsbCwgVmFsdWU9VjIpXG4gICAgbmFtZXMobmYpIDwtIGMoXCJLZXlcIixcIlZhbHVlXCIpXG4gICAgdzFfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzEsMl1cbiAgICB3Ml9udWxsIDwtIG5mW25mJEtleSA9PSB3MiwyXVxuICAgIERfbnVsbCA8LSBjKERfbnVsbCxtZWFuKHcyX251bGwsIG5hLnJtPVRSVUUpIC0gbWVhbih3MV9udWxsLCBuYS5ybT1UUlVFKSlcbiAgfVxuICBteWhpc3Q8LWhpc3QoRF9udWxsLCBwcm9iPVRSVUUpXG4gIG11bHRpcGxpZXIgPC0gbXloaXN0JGNvdW50cyAvIG15aGlzdCRkZW5zaXR5XG4gIG15ZGVuc2l0eSA8LSBkZW5zaXR5KERfbnVsbCwgYWRqdXN0PTIpXG4gIG15ZGVuc2l0eSR5IDwtIG15ZGVuc2l0eSR5ICogbXVsdGlwbGllclsxXVxuICBwbG90KG15aGlzdClcbiAgbGluZXMobXlkZW5zaXR5LCBjb2w9J2JsdWUnKVxuICBhYmxpbmUodj1ELCBjb2w9J3JlZCcpXG4gIE08LW1lYW4oRF9udWxsPkQpXG4gIHJldHVybihNKVxufSIsInNhbXBsZSI6IiNpbnN0YWxsLnBhY2thZ2VzKFwiZGV2dG9vbHNcIilcbiNkZXZ0b29sczo6aW5zdGFsbF9naXRodWIoXCJkZXZhbnNoYWdyL1Blcm11dGF0aW9uVGVzdFNlY29uZFwiKVxuXG4jUGVybXV0YXRpb25UZXN0U2Vjb25kOjpQZXJtdXRhdGlvbihkLCBcIkNhdFwiLCBcIlZhbFwiLDEwMDAwLCBcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuUGVybXV0YXRpb24odHJhZmZpYywgXCJUVU5ORUxcIiwgXCJWT0xVTUVfUEVSX01JTlVURVwiLDEwMDAsXCJIb2xsYW5kXCIsIFwiTGluY29sblwiKVxuIFxuICNUaGUgUGVybXV0YXRpb24gZnVuY3Rpb24gcmV0dXJucyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2UuIFNvIHRoZSByZWQgbGluZSBpcyB0aGUgYWJzb2x1dGUgdmFsdWUgb2YgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIFlvdSB3aWxsIHNlZSBhIGhpc3RvZ3JhbSBoYXZpbmcgYSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggYSByZWQgc2hvd2luZyB0aGUgb2JzZXJ2ZWQgZGlmZmVyZW5jZS4ifQ==
-
-\hypertarget{snippet-3-1}{%
-\subsection{Snippet 3}\label{snippet-3-1}}
-
-One permutation at a time
-
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
 
 \hypertarget{chitest}{%
 \section{🔖 Chi Square Analysis}\label{chitest}}
@@ -1439,18 +1509,23 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0
   \textbf{Great Resource: } Khan Academy
 \end{itemize}
 
-\hypertarget{snippet-1-5}{%
-\subsection{Snippet 1}\label{snippet-1-5}}
+\hypertarget{snippet-1-4}{%
+\subsection{Snippet 1}\label{snippet-1-4}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJFeHBlY3RlZCA8LW1hdHJpeChjKDIwMCw0MjAsMTgwLCA0MCwxMjAsNDApLCBucm93PTMsIG5jb2w9Milcbk9ic2VydmVkPC1tYXRyaXgoYygyMDAsNDIwLDE4MCwzNSwxMjAsNDUpLCBucm93PTMsIG5jb2w9MilcbkV4cGVjdGVkXG5PYnNlcnZlZFxuY2hpc3EudGVzdChPYnNlcnZlZCkifQ==
 
-\hypertarget{snippet-2-3}{%
-\subsection{Snippet 2}\label{snippet-2-3}}
+\hypertarget{snippet-2-2}{%
+\subsection{Snippet 2}\label{snippet-2-2}}
+
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZHBseXIpXG5vcHRpb25zKHdhcm49LTEpXG5jaGlfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixpdGVyKSB7XG4gIFxuICBkZiA8LSBkYXRhLmZyYW1lKGRhdGEpXG4gIHZhbHM8LSB1bmlxdWUoZGZbW2NvbDJdXSlcbiAgbm9fcm93cyA8LSBucm93KGRmKVxuICBkdCA8LSB0YWJsZShkZltbY29sMV1dLCBkZltbY29sMl1dKVxuICByZXMgPC0gY2hpc3EudGVzdChkdClcbiAgcmVhbF9hbnMgPC0gcmVzJHN0YXRpc3RpY1xuICBwX3ZhbHVlIDwtIHJlcyRwLnZhbHVlXG4gIGFuc192ZWMgPC0gdmVjdG9yKClcbiAgZm9yICh4IGluIDE6aXRlcil7XG5cbiAgICBuZXdfZGF0YSA8LSBzYW1wbGUoeD12YWxzLHNpemU9bm9fcm93cyxyZXBsYWNlID0gVFJVRSlcblxuICAgIGR0X25ldyA8LSB0YWJsZShkZltbY29sMV1dLCBuZXdfZGF0YSlcblxuICAgIHJlc19uZXcgPC0gY2hpc3EudGVzdChkdF9uZXcpXG5cbiAgICBhbnNfdmVjIDwtIGFwcGVuZChhbnNfdmVjLHJlc19uZXckc3RhdGlzdGljKVxuICB9XG4gIGhpc3QoYW5zX3ZlYyxtYWluPVwiUGVybXV0YXRpb24gVGVzdCBmb3IgQ2hpLVNxdWFyZVwiLHhsYWI9XCJDaGktU3F1YXJlIFZhbHVlc1wiLGJyZWFrcyA9IDEwMClcbiAgcHJpbnQocmVhbF9hbnMpXG4gIGFibGluZSh2PXJlYWxfYW5zLGNvbD1cImJsdWVcIixsd2Q9MilcbiAgcmV0dXJuIChwX3ZhbHVlKVxufSIsInNhbXBsZSI6ImQ8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW9vZHlNYXJjaDIwMjJiLmNzdlwiKVxuaGVhZChkKVxuXG5jaGlfdGVzdChkLFwiTWFqb3JcIixcIkdyYWRlXCIsMTAwMCkifQ==
+
+\hypertarget{snippet-3-1}{%
+\subsection{Snippet 3}\label{snippet-3-1}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxubW9vZHkkSU48LSdPdXRfU2xpY2UnXG5tb29keVttb29keSRET1pFU19PRkY9PSduZXZlcicgJiBtb29keSRURVhUSU5HX0lOX0NMQVNTPT0nYWx3YXlzJywgXSRJTjwtJ0luX1NsaWNlJ1xuZDwtdGFibGUobW9vZHkkR1JBREUsIG1vb2R5JElOKVxuZFxuY2hpc3EudGVzdChkKSJ9
 
-\hypertarget{snippet-3-2}{%
-\subsection{Snippet 3}\label{snippet-3-2}}
+\hypertarget{snippet-4}{%
+\subsection{Snippet 4}\label{snippet-4}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcbmRhdGE8LXRhYmxlKG1vdmllcyRjb250ZW50LCBtb3ZpZXMkZ2VucmUpXG5jaGlzcS50ZXN0KGRhdGEpIn0=
 
@@ -1467,23 +1542,23 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-96}Snippet of Hindex Dataset}
+\caption{\label{tab:unnamed-chunk-100}Snippet of Hindex Dataset}
 \centering
 \begin{tabular}[t]{lrlr}
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-833 & 47112 & Croatia & 5.66\\
-4499 & 89983 & Italy & 8.25\\
-6284 & 62587 & Slovakia & 6.31\\
-2662 & 28794 & Moldova & 3.23\\
-4615 & 60772 & Uzbekistan & 6.29\\
+1938 & 90078 & Mauritania & 8.45\\
+3689 & 31843 & Moldova & 3.24\\
+2684 & 30721 & Zimbabwe & 3.59\\
+2831 & 12634 & Mauritius & 2.33\\
+6282 & 26478 & Trinidad and Tobago & 3.51\\
 \addlinespace
-2380 & 87383 & Ireland & 8.55\\
-4487 & 41946 & France & 4.73\\
-235 & 30205 & Romania & 3.34\\
-5092 & 35213 & Angola & 4.40\\
-3918 & 23558 & Jordan & 3.50\\
+2719 & 95588 & Ghana & 9.53\\
+3867 & 77439 & Saudi Arabia & 7.26\\
+1277 & 28123 & Czech Republic & 3.53\\
+1103 & 18217 & Serbia & 2.29\\
+134 & 33162 & Panama & 4.44\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1493,8 +1568,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9
 
-\hypertarget{snippet-2-4}{%
-\subsection{Snippet 2}\label{snippet-2-4}}
+\hypertarget{snippet-2-3}{%
+\subsection{Snippet 2}\label{snippet-2-3}}
 
 Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
 
@@ -1846,8 +1921,8 @@ Lets look at an example on the Moody 2022 dataset.
   \end{itemize}
 \end{itemize}
 
-\hypertarget{snippet-1-6}{%
-\subsubsection{Snippet 1}\label{snippet-1-6}}
+\hypertarget{snippet-1-5}{%
+\subsubsection{Snippet 1}\label{snippet-1-5}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxubW9vZHk8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdicpXG5cbiMgVXNlIG9mIHRoZSBycGFydCgpIGZ1bmN0aW9uLlxucnBhcnQoR1JBREUgfiBTQ09SRStET1pFU19PRkYrVEVYVElOR19JTl9DTEFTUytQQVJUSUNJUEFUSU9OLCBkYXRhID0gbW9vZHksbWV0aG9kID0gXCJjbGFzc1wiKSJ9
 
@@ -1878,8 +1953,8 @@ To visualize and understand the rpart() tree output in the easiest way possible,
 
 \emph{NOTE}: The online runnable code block does not support \texttt{rpart.plot} library and functions, thus the output of the following code examples are provided directly.
 
-\hypertarget{snippet-2-5}{%
-\subsubsection{Snippet 2}\label{snippet-2-5}}
+\hypertarget{snippet-2-4}{%
+\subsubsection{Snippet 2}\label{snippet-2-4}}
 
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpcnN0IGxldHMgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0XG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2JylcblxuIyBVc2Ugb2YgdGhlIHJwYXJ0KCkgZnVuY3Rpb24uXG5ycGFydChHUkFERSB+IFNDT1JFK0RPWkVTX09GRitURVhUSU5HX0lOX0NMQVNTK1BBUlRJQ0lQQVRJT04sIGRhdGEgPSBtb29keSxtZXRob2QgPSBcImNsYXNzXCIpXG5cbiMgTm93IGxldHMgaW1wb3J0IHRoZSBycGFydC5wbG90IGxpYnJhcnkgdG8gdXNlIHRoZSBycGFydC5wbG90KCkgZnVuY3Rpb24uXG4jbGlicmFyeShycGFydC5wbG90KVxuXG4jIFVzZSBvZiB0aGUgcnBhcnQucGxvdCgpIGZ1bmN0aW9uICB0byB2aXN1YWxpemUgdGhlIGRlY2lzaW9uIHRyZWUuXG4jcnBhcnQucGxvdCh0cmVlKSJ9
 
@@ -2186,7 +2261,7 @@ Lets look at the example on the Moody dataset.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-143}Snippet of Moody Num Dataset}
+\caption{\label{tab:unnamed-chunk-147}Snippet of Moody Num Dataset}
 \centering
 \begin{tabular}[t]{rrrr}
 \toprule
@@ -2301,23 +2376,74 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0
   \hypertarget{ML12}{}
 \end{itemize}
 
-\hypertarget{BA}{%
-\section{🔖 Boundless Analytics}\label{BA}}
-
-\hypertarget{snippet-1-chi-square-hunt}{%
-\subsection{Snippet 1: Chi square hunt}\label{snippet-1-chi-square-hunt}}
-
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNheSwgdGhlIEJvdW5kbGVzcyBhbmFseXRpY3MgcHJvdmlkZXMgdXMgd2l0aCB0aGUgc2xpY2U6ICBCZWVyID09J0xhZ2VyJyAmICBEYXkgPT0nV2Vla2VuZCcgYW5kIFNuYWNrcyA9J0NyYWNrZXJzJyBhbmQgYW5jaG9yIGF0dHJpYnV0ZSBpcyBMb2NhdGlvbi4gIFlvdSBjYW4gY2FsY3VsYXRlIENoaXNxIGZvciB0aGlzIHNsaWNlIGFuZCB0aGUgTG9jYXRpb24gYXR0cmlidXRlIHRvIHRlc3QgaWYgZGlzdHJpYnV0aW9uIG9mIGxvY2F0aW9ucyBpcyBhZmZlY3RlZCBpZiB3ZSBsaW1pdCBvdXJzZWx2ZXMgb25seSB0byB0cmFuc2FjdGlvbnMgc2VsbGluZyBMYWdlciBhbmQgQ3JhY2tlcnMgb24gV2Vla2VuZHM/ICBcblxuIyBUaGUgbW9zdCBpbnRlcmVzdGluZyBzbGljZS1hbmNob3IgYXR0cmlidXRlIGNvbWJpbmF0aW9ucyBhcmUgdGhlIG9uZXMgd2l0aCB0aGUgbGFyZ2VzdCBjaGlzcSB0ZXN0IGFuZCBsb3dlc3QgcC12YWx1ZS4gTmV2ZXJ0aGVsZXNzIGRvIG5vdCBmb3JnZXQgYWJvdXQgbXVsdGlwbGUgaHlwb3RoZXNpcyBjb3JyZWN0aW9uIC0gc2luY2Ugd2UgY2FuIG9uIGNoaS1zcXVhcmUgaHVudCBoZXJlIVxuXG5NaW5pbWFya2V0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hvbWV3b3JrTWFya2V0MjAyMi5jc3ZcIilcblxuTWluaW1hcmtldCRJTjwtJ091dF9TbGljZSdcbk1pbmltYXJrZXRbTWluaW1hcmtldCRCZWVyPT0nTGFnZXInICYgTWluaW1hcmtldCREYXk9PSdXZWVrZW5kJyAmICBNaW5pbWFya2V0JFNuYWNrcyA9PSdDcmFja2VycycsIF0kSU48LSdJbl9TbGljZSdcbmQ8LXRhYmxlKE1pbmltYXJrZXQkTG9jYXRpb24sIE1pbmltYXJrZXQkSU4pXG5jaGlzcS50ZXN0KGQpIn0=
-
 \hypertarget{MAD}{%
 \section{🔖 How can data fool us?}\label{MAD}}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Lecture Slides: } Unlock Mysteries
+  \textbf{Lecture Slides: } How can data fool us?
 
   \hypertarget{Mt12}{}
 \end{itemize}
+
+\hypertarget{dsaf}{%
+\section{Boundless Analytics - Pre-discovery Tool}\label{dsaf}}
+
+In this section we demonstrate application of Boundless Analytics - the tool developed by Tomasz Imielinski and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bargraphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs otherwise very tedious task of looking at all combinations of attribute value pairs to identify the ``significant ones'' - saving enormous amount of work in preliminary exploration of data.
+
+We have provided synthetic data set - describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set
+
+\hypertarget{minimarket-data-set-description}{%
+\subsection{Minimarket Data Set description}\label{minimarket-data-set-description}}
+
+Zoom recording
+
+\hypertarget{demo-of-boundless-analytics}{%
+\subsection{Demo of Boundless Analytics}\label{demo-of-boundless-analytics}}
+
+Zoom Recording
+
+\hypertarget{the-boundless-analytics-web-application}{%
+\subsection{The Boundless Analytics web application}\label{the-boundless-analytics-web-application}}
+
+\textbf{Boundless Analytics Interface:} \url{http://209.97.156.178:8082/}
+
+(it is a soft login abc/abc will do)
+
+\textbf{Objective: Nominate the most interesting subset of the Minimarket2022 data set}
+
+Seems open ended, no? what is the ``most interesting''?
+
+\begin{itemize}
+\item
+  Chi-square value is a good measure. The higher it is, the more interesting the data set.
+\item
+  By swiping through possible plots (using Next), one can identify good candidates for the ``interesting data subsets'')
+\item
+  These are plots where red and blue bars differ the most.
+\item
+  Then run chi-square test over the candidates and nominate the plot with the highest chi-square value.
+\item
+  Therefore this task can be seen as chi-square hunt for the highest chi-square value (use the snippet 20.1 code after plugging in definition of a slice and the anchor attribute)
+\end{itemize}
+
+\hypertarget{snippet-1-chi-square-hunt}{%
+\subsection{Snippet 1: Chi square hunt}\label{snippet-1-chi-square-hunt}}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNheSwgdGhlIEJvdW5kbGVzcyBhbmFseXRpY3MgcHJvdmlkZXMgdXMgd2l0aCB0aGUgc2xpY2U6ICBCZWVyID09J0xhZ2VyJyAmICBEYXkgPT0nV2Vla2VuZCcgYW5kIFNuYWNrcyA9J0NyYWNrZXJzJyBhbmQgYW5jaG9yIGF0dHJpYnV0ZSBpcyBMb2NhdGlvbi4gIFlvdSBjYW4gY2FsY3VsYXRlIENoaXNxIGZvciB0aGlzIHNsaWNlIGFuZCB0aGUgTG9jYXRpb24gYXR0cmlidXRlIHRvIHRlc3QgaWYgZGlzdHJpYnV0aW9uIG9mIGxvY2F0aW9ucyBpcyBhZmZlY3RlZCBpZiB3ZSBsaW1pdCBvdXJzZWx2ZXMgb25seSB0byB0cmFuc2FjdGlvbnMgc2VsbGluZyBMYWdlciBhbmQgQ3JhY2tlcnMgb24gV2Vla2VuZHM/ICBcblxuIyBUaGUgbW9zdCBpbnRlcmVzdGluZyBzbGljZS1hbmNob3IgYXR0cmlidXRlIGNvbWJpbmF0aW9ucyBhcmUgdGhlIG9uZXMgd2l0aCB0aGUgbGFyZ2VzdCBjaGlzcSB0ZXN0IGFuZCBsb3dlc3QgcC12YWx1ZS4gTmV2ZXJ0aGVsZXNzIGRvIG5vdCBmb3JnZXQgYWJvdXQgbXVsdGlwbGUgaHlwb3RoZXNpcyBjb3JyZWN0aW9uIC0gc2luY2Ugd2UgY2FuIG9uIGNoaS1zcXVhcmUgaHVudCBoZXJlIVxuXG5NaW5pbWFya2V0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hvbWV3b3JrTWFya2V0MjAyMi5jc3ZcIilcblxuTWluaW1hcmtldCRJTjwtJ091dF9TbGljZSdcbk1pbmltYXJrZXRbTWluaW1hcmtldCRCZWVyPT0nTGFnZXInICYgTWluaW1hcmtldCREYXk9PSdXZWVrZW5kJyAmICBNaW5pbWFya2V0JFNuYWNrcyA9PSdDcmFja2VycycsIF0kSU48LSdJbl9TbGljZSdcbmQ8LXRhYmxlKE1pbmltYXJrZXQkTG9jYXRpb24sIE1pbmltYXJrZXQkSU4pXG5jaGlzcS50ZXN0KGQpIn0=
+
+ATTACHED - the data set (same as on the Boundless Analytics interface)
+HomeworkMarket2022-2.csv
+
+\textbf{RESULTS: }
+
+Here are two out of 250+ submissions. The one with the highest chi-square of \textbf{600.15} is the slice showing weekend buyers of \textbf{lager} in \textbf{New brunswick} but disproportionately more snacks (in particular Crackers). This was identified by nearly 20 students.
+
+\includegraphics{https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png}
+
+Here is another find by Eva Zhang showing disproportionately frequent \textbf{sales of Coca Cola} on Weekdays in \textbf{Princeton} for transactions which purchased Popcorn. The chi-square value of this find is 205.31, with df=3.
+
+\includegraphics{https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png}
 
 \end{document}
