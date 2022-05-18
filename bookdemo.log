@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.17)  18 MAY 2022 09:21
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.17)  18 MAY 2022 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -189,7 +189,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-05-16 v7.00p Hypertext links for LaTeX
+Package: hyperref 2022-05-17 v7.00q Hypertext links for LaTeX
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -216,7 +216,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2022-05-16 v2.49 Cross-referencing by name of section
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -230,7 +230,7 @@ Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 \Hy@linkcounter=\count287
 \Hy@pagecounter=\count288
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-05-16 v7.00p Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-05-17 v7.00q Hyperref: PDFDocEncoding definition (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
@@ -238,7 +238,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count289
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-05-16 v7.00p Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-05-17 v7.00q Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4020.
 Package hyperref Info: Hyper figures OFF on input line 4139.
@@ -282,7 +282,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2022-05-16 v7.00p Hyperref driver for XeTeX
+File: hxetex.def 2022-05-17 v7.00q Hyperref driver for XeTeX
 (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
@@ -380,444 +380,563 @@ Package graphics Info: Driver file: xetex.def on input line 107.
 )
 \Gin@req@height=\dimen174
 \Gin@req@width=\dimen175
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip62
-\multirow@cntb=\count312
-\multirow@dima=\skip63
-\bigstrutjot=\dimen176
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen177
-\WF@size=\dimen178
-\c@WF@wrappedlines=\count313
-\WF@box=\box62
-\WF@everypar=\toks24
-Package: wrapfig 2003/01/31  v 3.6
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count314
-\float@exts=\toks25
-\float@box=\box63
-\@float@everytoks=\toks26
-\@floatcapt=\box64
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
-\everycr=\toks27
-\minrowclearance=\skip64
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
-Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen176
+\captionmargin=\dimen177
+\caption@leftmargin=\dimen178
+\caption@rightmargin=\dimen179
+\caption@width=\dimen180
+\caption@indent=\dimen181
+\caption@parindent=\dimen182
+\caption@hangindent=\dimen183
+Package caption Info: Standard document class detected.
 )
-Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
-Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box65
-\sift@deathcycles=\count315
-\@vwid@loff=\dimen179
-\@vwid@roff=\dimen180
+\c@caption@flags=\count312
+\c@continuedfloat=\count313
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip62
+\fb@frw=\dimen184
+\fb@frh=\dimen185
+\FrameRule=\dimen186
+\FrameSep=\dimen187
+) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/alegreya/Alegreya.sty
+Package: Alegreya 2019/10/12 (Bob Tennent) Supports Alegreya and AlegreyaSC fonts for all LaTeX engines. 
+(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+(/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks24
+\XKV@tempa@toks=\toks25
 )
-\c@taburow=\count316
-\tabu@nbcols=\count317
-\tabu@cnt=\count318
-\tabu@Xcol=\count319
-\tabu@alloc=\count320
-\tabu@nested=\count321
-\tabu@target=\dimen181
-\tabu@spreadtarget=\dimen182
-\tabu@naturalX=\dimen183
-\tabucolX=\dimen184
-\tabu@Xsum=\dimen185
-\extrarowdepth=\dimen186
-\abovetabulinesep=\dimen187
-\belowtabulinesep=\dimen188
-\tabustrutrule=\dimen189
-\tabu@thebody=\toks28
-\tabu@footnotes=\toks29
-\tabu@box=\box66
-\tabu@arstrutbox=\box67
-\tabu@hleads=\box68
-\tabu@vleads=\box69
-\tabu@cellskip=\skip65
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
-Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box70
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
-Package: threeparttablex 2013/07/23 v0.3 by daleif
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+\XKV@depth=\count314
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\TPTL@width=\skip66
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box71
-\UL@hyphenbox=\box72
-\UL@skip=\skip67
-\UL@hook=\toks30
-\UL@height=\dimen190
-\UL@pe=\count322
-\UL@pixel=\dimen191
-\ULC@box=\box73
-Package: ulem 2019/11/18
-\ULdepth=\dimen192
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
-Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen193
-\c@nlinenum=\count323
-\TeXr@lab=\toks31
-) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip68
-\bibsep=\skip69
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count324
-)
-No file bookdemo.aux.
-\openout1 = `bookdemo.aux'.
+Requested font "[Alegreya-Regular.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Regular.otf
+Requested font "[Alegreya-Regular.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Regular.otf
+Requested font "[Alegreya-Regular.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Regular.otf
+Requested font "[Alegreya-Bold.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Bold.otf
+Requested font "[Alegreya-Italic.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Italic.otf
+Requested font "[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-BoldItalic.otf
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+Package fontspec Info: Font family 'Alegreya(0)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Ligatures=TeX,Scale=1,Numbers =
+(fontspec)             {Proportional,Lining},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+
+
+Package fontspec Info: Font family 'Alegreya(1)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional,Lining},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 93.
+(Font)                  OT1/lmr/m/n --> TU/Alegreya(1)/m/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 93.
+(Font)                  OT1/lmr/m/it --> TU/Alegreya(1)/m/it on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 93.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 93.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 93.
+(Font)                  OT1/lmr/bx/n --> TU/Alegreya(1)/b/n on input line 169.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 169.
+Requested font "[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;" at 10.0pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Regular.otf
+
+Package fontspec Info: Font family 'Alegreya(2)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional,OldStyle},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+
+
+Package fontspec Info: Font family 'Alegreya(3)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Monospaced,OldStyle},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+
+
+Package fontspec Info: Font family 'Alegreya(4)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional, OldStyle},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+onum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+onum;+smcp;mapping=tex-text;"
+
+
+Package fontspec Info: Font family 'Alegreya(5)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Monospaced,Lining},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Regular.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Bold.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Italic.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BoldItalic.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+
+Requested font "[Alegreya-ExtraBold.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-ExtraBold.otf
+Requested font "[Alegreya-ExtraBold.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-ExtraBold.otf
+Requested font "[Alegreya-ExtraBold.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-ExtraBold.otf
+Requested font "[Alegreya-ExtraBoldItalic.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-ExtraBoldItalic.otf
+
+Package fontspec Info: Font family 'Alegreya(6)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional,Lining},UprightFont =
+(fontspec)             *-ExtraBold,ItalicFont = *-ExtraBoldItalic,BoldFont =
+(fontspec)             *-ExtraBold,BoldItalicFont = *-ExtraBoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBold.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-ExtraBoldItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+
+Requested font "[Alegreya-Black.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Black.otf
+Requested font "[Alegreya-Black.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Black.otf
+Requested font "[Alegreya-Black.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Black.otf
+Requested font "[Alegreya-BlackItalic.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-BlackItalic.otf
+
+Package fontspec Info: Font family 'Alegreya(7)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional,Lining},UprightFont =
+(fontspec)             *-Black,ItalicFont = *-BlackItalic,BoldFont =
+(fontspec)             *-Black,BoldItalicFont = *-BlackItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Black.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Black.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Black.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Black.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BlackItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BlackItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BlackItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-BlackItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+
+Requested font "[Alegreya-Medium.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Medium.otf
+Requested font "[Alegreya-Medium.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Medium.otf
+Requested font "[Alegreya-Medium.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-Medium.otf
+Requested font "[Alegreya-MediumItalic.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/huerta/alegreya/Alegreya-MediumItalic.otf
+
+Package fontspec Info: Font family 'Alegreya(8)' created for font 'Alegreya'
+(fontspec)             with options [Ligatures = TeX,Extension = .otf,Scale =
+(fontspec)             1,Numbers = {Proportional,Lining},UprightFont =
+(fontspec)             *-Medium,ItalicFont = *-MediumItalic,BoldFont =
+(fontspec)             *-Medium,BoldItalicFont = *-MediumItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Medium.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Medium.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Medium.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-Medium.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-MediumItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-MediumItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-MediumItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"[Alegreya-MediumItalic.otf]/OT:script=latn;language=dflt;+pnum;+lnum;+smcp;mapping=tex-text;"
+
+LaTeX Info: Redefining \textin on input line 294.
+) (/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/sourcecodepro/sourcecodepro.sty
+Package: sourcecodepro 2018/01/13 v2.7 Adobe's Source Code Pro typeface
+Requested font "[SourceCodePro-Regular.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Regular.otf
+Requested font "[SourceCodePro-Regular.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Regular.otf
+Requested font "[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Regular.otf
+Requested font "[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Bold.otf
+Requested font "[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-RegularIt.otf
+Requested font "[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-BoldIt.otf
+
+Package fontspec Info: Font family 'SourceCodePro(0)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension =
+(fontspec)             .otf,WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace,UprightFont
+(fontspec)             = *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(1)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension = .otf,UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 93.
+(Font)                  OT1/lmtt/m/n --> TU/SourceCodePro(1)/m/n on input line 121.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 93.
+(Font)                  OT1/lmtt/m/n --> TU/SourceCodePro(1)/b/n on input line 121.
+Requested font "[SourceCodePro-Medium.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Medium.otf
+Requested font "[SourceCodePro-Medium.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Medium.otf
+Requested font "[SourceCodePro-Medium.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Medium.otf
+Requested font "[SourceCodePro-MediumIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-MediumIt.otf
 
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+Package fontspec Info: Font family 'SourceCodePro(2)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension = .otf,UprightFont =
+(fontspec)             *-Medium,ItalicFont = *-MediumIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Medium.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-MediumIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 93.
+Requested font "[SourceCodePro-Light.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Light.otf
+Requested font "[SourceCodePro-Light.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Light.otf
+Requested font "[SourceCodePro-Light.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Light.otf
+Requested font "[SourceCodePro-Semibold.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Semibold.otf
+Requested font "[SourceCodePro-LightIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-LightIt.otf
+Requested font "[SourceCodePro-SemiboldIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-SemiboldIt.otf
 
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+Package fontspec Info: Font family 'SourceCodePro(3)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension = .otf,UprightFont =
+(fontspec)             *-Light,ItalicFont = *-LightIt,BoldFont =
+(fontspec)             *-Semibold,BoldItalicFont = *-SemiboldIt].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Light.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Semibold.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-LightIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-SemiboldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 93.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 93.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 93.
+Requested font "[SourceCodePro-ExtraLight.otf]/OT" at 9.99997pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-ExtraLight.otf
+Requested font "[SourceCodePro-ExtraLight.otf]/OT" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-ExtraLight.otf
+Requested font "[SourceCodePro-ExtraLight.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-ExtraLight.otf
+Requested font "[SourceCodePro-Black.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-Black.otf
+Requested font "[SourceCodePro-ExtraLightIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-ExtraLightIt.otf
+Requested font "[SourceCodePro-BlackIt.otf]/OT:script=latn;language=dflt;" at 10.00003pt
+ -> /Users/devshah/Library/TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/SourceCodePro-BlackIt.otf
 
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 1.000096459334209.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 1.000096459334209.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 1.000096459334209.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 1.000096459334209.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 1.000096459334209.
-
-
-Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
-(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
-(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
-(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
-(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
-(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
-(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
-(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
-(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
-(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
-(fontspec)             21\font =0pt\relax }].
+Package fontspec Info: Font family 'SourceCodePro(4)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension = .otf,UprightFont =
+(fontspec)             *-ExtraLight,ItalicFont = *-ExtraLightIt,BoldFont =
+(fontspec)             *-Black,BoldItalicFont = *-BlackIt].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <->s*[.8]"[SourceCodePro-ExtraLight.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
-(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
-(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
-(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
-(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
-(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
-(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
-(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
-(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
-(fontspec)             \fontdimen 21\font =0pt\relax 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Black.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
-(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
-(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
-(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
-(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
-(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
-(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
-(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
-(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
-(fontspec)             \fontdimen 21\font =0pt\relax 
-
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 93.
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 93.
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-ExtraLightIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-BlackIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
 
-Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
-
-
-Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
-
-
-Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
-(fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
-(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
-(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
-(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
-(fontspec)             \fontdimen 13\font =0pt\relax }].
+Package fontspec Info: Font family 'SourceCodePro(5)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = .8,Extension = .otf,Numbers =,UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
-(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
-(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
-(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[.8]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
-(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
-(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
-(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[.8]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 93.
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 93.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 93.
-Package hyperref Info: Link coloring OFF on input line 93.
-\@outlinefile=\write3
-\openout3 = `bookdemo.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
-No file bookdemo.toc.
-\tf@toc=\write4
-\openout4 = `bookdemo.toc'.
-
-[1
-
-
-] [2
-
-]
-Chapter 1.
-[3] [4]
-Chapter 2.
-Missing character: There is no 🔖 (U+1F516) in font [lmroman12-bold]:mapping=tex-text;!
-[5
-
-]
-Missing character: There is no 🔖 (U+1F516) in font [lmromanslant10-regular]:mapping=tex-text;!
-[6]
-Chapter 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 183.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 183.
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 183.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 183.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 183.
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 183.
-(/Users/devshah/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [7
 
-] [8]
-Chapter 4.
-Missing character: There is no 🔖 (U+1F516) in font [lmroman12-bold]:mapping=tex-text;!
-
-Overfull \hbox (35.47002pt too wide) in paragraph at lines 222--233
- [][] 
- []
-
-[9
-
-]
-Missing character: There is no 🔖 (U+1F516) in font [lmromanslant10-regular]:mapping=tex-text;!
-[10] [11]
-Missing character: There is no 🔖 (U+1F516) in font [lmromanslant10-regular]:mapping=tex-text;!
-[12]
-Chapter 5.
-
-! LaTeX Error: Too deeply nested.
+! LaTeX Error: Environment Shaded undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.423         \begin{itemize}
-                              
+l.122 \renewenvironment{Shaded}
+                               {\begin{kframe}}{\end{kframe}} 
 Here is how much of TeX's memory you used:
- 18351 strings out of 478132
- 335678 string characters out of 5852532
- 785999 words of memory out of 5000000
- 38757 multiletter control sequences out of 15000+600000
- 472918 words of font info for 63 fonts, out of 8000000 for 9000
+ 18297 strings out of 478132
+ 348644 string characters out of 5852532
+ 702390 words of memory out of 5000000
+ 38714 multiletter control sequences out of 15000+600000
+ 469963 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,9n,121p,983b,359s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,0n,113p,371b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on bookdemo.pdf (12 pages).
+No pages of output.

@@ -67,6 +67,74 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\usepackage{Alegreya}
+\usepackage[scale=.8]{sourcecodepro}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+
+\usepackage{makeidx}
+\makeindex
+
+\urlstyle{tt}
+
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\frontmatter
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -91,6 +159,20 @@
 \date{\vspace{-2.5em}}
 
 \begin{document}
+
+\cleardoublepage\newpage\thispagestyle{empty}\null
+\cleardoublepage\newpage\thispagestyle{empty}\null
+%\cleardoublepage\newpage
+\thispagestyle{empty}
+\begin{center}
+\Large{To Jung Jae-sung (1982 -- 2018),}
+
+\large{a remarkably hard-working badminton player with a remarkably simple playing style}
+%\includegraphics{images/dedication.pdf}
+\end{center}
+
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\abovedisplayshortskip}{-5pt}
 
 {
 \setcounter{tocdepth}{2}
@@ -305,11 +387,11 @@ Sandhya Senthilkumar
 \toprule
   & country & content & imdb\_score & Gross & Budget & genre\\
 \midrule
-2012 & USA & R & 5.90 & Medium & High & Drama\\
-4180 & USA & R & 7.07 & Medium & Medium & Comedy\\
-21 & USA & PG & 7.22 & High & High & Family\\
-11915 & USA & R & 5.22 & Low & Low & History\\
-4430 & France & PG & 6.86 & Low & Medium & Comedy\\
+10217 & UK & PG & 6.97 & Medium & Medium & Action\\
+10070 & UK & PG-13 & 7.06 & Low & Low & Action\\
+3556 & USA & R & 6.77 & High & Medium & Action\\
+480 & USA & PG-13 & 6.00 & High & High & Sci-Fi\\
+1823 & USA & PG & 5.19 & High & High & Family\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -349,11 +431,11 @@ Andrew Fasano
 \toprule
   & BREAD & BUTTER & COOKIES & COFFEE & TEA\\
 \midrule
-6585 & 0 & 0 & 0 & 0 & 0\\
-1998 & 0 & 0 & 1 & 1 & 0\\
-5835 & 1 & 1 & 0 & 0 & 0\\
-7207 & 0 & 0 & 0 & 1 & 1\\
-7192 & 1 & 0 & 0 & 0 & 1\\
+4501 & 0 & 0 & 0 & 1 & 0\\
+6018 & 1 & 0 & 1 & 0 & 0\\
+2092 & 0 & 0 & 0 & 1 & 1\\
+3235 & 1 & 0 & 0 & 0 & 0\\
+5724 & 1 & 0 & 0 & 1 & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -765,11 +847,11 @@ Download: moody2022\_new.csv
 \toprule
   & SCORE & GRADE & DOZES\_OFF & TEXTING\_IN\_CLASS & PARTICIPATION\\
 \midrule
-534 & 30.98 & F & sometimes & rarely & 0.26\\
-130 & 85.55 & A & never & rarely & 0.95\\
-709 & 24.99 & F & sometimes & never & 0.10\\
-137 & 62.50 & C & sometimes & never & 0.18\\
-120 & 8.83 & F & always & always & 0.18\\
+475 & 74.43 & B & sometimes & rarely & 0.58\\
+442 & 34.69 & D & always & rarely & 0.05\\
+337 & 49.55 & C & sometimes & never & 0.84\\
+749 & 57.15 & C & never & never & 0.32\\
+197 & 22.66 & F & never & always & 0.29\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -789,11 +871,11 @@ Download: Movies2022F-4.csv
 \toprule
   & country & content & imdb\_score & Gross & Budget & genre\\
 \midrule
-9304 & USA & R & 5.95 & High & Medium & Drama\\
-5783 & USA & R & 6.26 & Low & Medium & Comedy\\
-4091 & France & R & 8.11 & High & Medium & Comedy\\
-5972 & USA & PG & 5.23 & Medium & Medium & Comedy\\
-12063 & USA & R & 7.81 & Medium & Low & Drama\\
+930 & USA & PG-13 & 5.21 & High & High & Family\\
+9144 & USA & PG-13 & 8.01 & High & Medium & History\\
+3050 & UK & PG-13 & 6.85 & Medium & High & Family\\
+3868 & USA & PG-13 & 7.98 & High & Medium & Drama\\
+6199 & UK & PG & 6.47 & Medium & Medium & Comedy\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -813,11 +895,11 @@ Download: Traffic2022.csv
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-703 & Holland & weekday & 75.5\\
-1569 & Lincoln & weekday & 61.0\\
-2590 & Lincoln & weekend & 87.0\\
-2060 & Lincoln & weekday & 57.0\\
-2082 & Lincoln & weekday & 78.0\\
+101 & Holland & weekday & 77.5\\
+2324 & Lincoln & weekday & 62.0\\
+2147 & Lincoln & weekday & 58.0\\
+996 & Holland & weekday & 85.5\\
+1143 & Holland & weekend & 60.5\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -837,11 +919,11 @@ Download: Hindex.csv
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-4710 & 90593 & Guatemala & 8.54\\
-487 & 85979 & North Cyprus & 8.70\\
-5007 & 93265 & Hungary & 8.26\\
-6196 & 82603 & Belarus & 8.46\\
-1972 & 81906 & Egypt & 8.36\\
+3181 & 88558 & Costa Rica & 8.93\\
+5866 & 34731 & Ghana & 5.38\\
+4254 & 20306 & Tunisia & 2.66\\
+3075 & 84745 & Sweden & 8.47\\
+2204 & 56582 & South Korea & 6.69\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -861,11 +943,11 @@ Download: M2022train.csv
 \toprule
   & Major & Score & Seniority & Grade\\
 \midrule
-459 & CS & 50 & Sophomore & F\\
-414 & CS & 28 & Freshman & D\\
-684 & Economics & 43 & Freshman & C\\
-8 & CS & 18 & Junior & F\\
-56 & CS & 66 & Sophomore & C\\
+603 & Economics & 40 & Junior & F\\
+467 & Economics & 10 & Freshman & D\\
+338 & CS & 18 & Senior & F\\
+576 & Statistics & 37 & Junior & F\\
+584 & Economics & 19 & Sophomore & F\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -887,11 +969,11 @@ Download: MoodyNUM.csv
 \toprule
   & Midterm & Project & FinalExam & ClassScore\\
 \midrule
-237 & 17 & 40 & 17 & 28.5\\
-548 & 20 & 27 & 8 & 19.9\\
-997 & 23 & 31 & 44 & 33.3\\
-172 & 42 & 54 & 39 & 47.1\\
-627 & 75 & 9 & 32 & 29.1\\
+937 & 63 & 94 & 46 & 73.40000\\
+777 & 92 & 54 & 94 & 72.57346\\
+328 & 97 & 37 & 46 & 51.70000\\
+24 & 56 & 18 & 63 & 39.97072\\
+138 & 27 & 5 & 56 & 24.70000\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -911,11 +993,11 @@ Download: HomeworkMarket2022.csv
 \toprule
   & Beer & Day & Location & SoftDrinks & Sweets & Wine & Snacks\\
 \midrule
-11972 & Lager & Weekday & Edison & Cola & Snickers & None & Crackers\\
-19408 & Ale & Weekday & Princeton & Orange  Juice & Milky Way & None & None\\
-16510 & Lager & Weekday & New Brunswick & Orange  Juice & Snickers & None & None\\
-4339 & Ale & Weekend & Edison & Orange  Juice & Twix & None & Pretzels\\
-18728 & None & Weekend & Edison & None & Milky Way & None & None\\
+3545 & Ale & Weekend & Edison & Orange  Juice & Twix & None & Potato Chips\\
+8635 & None & Weekend & Princeton & Cola & Twix & None & Pretzels\\
+16084 & None & Weekday & Edison & None & Twix & White & None\\
+18533 & Ale & Weekend & Metuchen & Orange  Juice & Milky Way & Red & None\\
+7878 & None & Weekday & Edison & Cola & Twix & Red & None\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1371,17 +1453,17 @@ The following synthetic data describes daily traffic on weekday and weekend days
 \toprule
   & TUNNEL & DAY & VOLUME\_PER\_MINUTE\\
 \midrule
-257 & Holland & weekday & 77.5\\
-2295 & Lincoln & weekday & 81.0\\
-1126 & Holland & weekend & 69.5\\
-2190 & Lincoln & weekday & 68.0\\
-1958 & Lincoln & weekday & 65.0\\
+298 & Holland & weekday & 74.5\\
+464 & Holland & weekday & 88.5\\
+37 & Holland & weekday & 116.5\\
+2483 & Lincoln & weekend & 50.0\\
+1335 & Holland & weekend & 51.5\\
 \addlinespace
-2749 & Lincoln & weekend & 67.0\\
-2017 & Lincoln & weekday & 77.0\\
-2543 & Lincoln & weekend & 57.0\\
-940 & Holland & weekday & 77.5\\
-1643 & Lincoln & weekday & 68.0\\
+1784 & Lincoln & weekday & 60.0\\
+2329 & Lincoln & weekday & 71.0\\
+1204 & Holland & weekend & 59.5\\
+1476 & Lincoln & weekday & 70.0\\
+1214 & Holland & weekend & 72.5\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1520,17 +1602,17 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 \toprule
   & IDN & COUNTRY & HAPPINESS\\
 \midrule
-5098 & 62207 & Turkmenistan & 6.42\\
-1387 & 28596 & Serbia & 3.57\\
-5552 & 35179 & Nicaragua & 4.43\\
-200 & 36120 & Swaziland & 4.26\\
-867 & 46776 & Denmark & 5.58\\
+3684 & 76126 & Spain & 7.33\\
+2119 & 11166 & Laos & 2.51\\
+1313 & 76155 & Sweden & 7.35\\
+2806 & 34430 & Senegal & 4.63\\
+2639 & 58455 & Trinidad and Tobago & 6.47\\
 \addlinespace
-5997 & 95209 & Japan & 9.51\\
-3243 & 44423 & Chile & 5.68\\
-3065 & 11773 & China & 2.50\\
-5166 & 16369 & Somaliland region & 2.69\\
-2826 & 65884 & Romania & 6.53\\
+1293 & 46842 & Bosnia and Herzegovina & 7.17\\
+325 & 90028 & Vietnam & 8.27\\
+1007 & 94534 & Netherlands & 9.77\\
+4755 & 45586 & Yemen & 4.30\\
+5968 & 48498 & Cameroon & 5.56\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2405,5 +2487,7 @@ Here are two out of 250+ submissions. The one with the highest chi-square of \te
 Here is another find by Eva Zhang showing disproportionately frequent \textbf{sales of Coca Cola} on Weekdays in \textbf{Princeton} for transactions which purchased Popcorn. The chi-square value of this find is 205.31, with df=3.
 
 \includegraphics{https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png}
+
+\printindex
 
 \end{document}

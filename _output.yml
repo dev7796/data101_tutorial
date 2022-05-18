@@ -15,7 +15,7 @@ bookdown::gitbook:
     download: ["epub","pdf"]
    
 
-  
+
 #bookdown::pdf_book:
 #  header-includes:
 #    - \usepackage{enumitem}
