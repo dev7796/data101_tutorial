@@ -1,9 +1,9 @@
 bookdown::gitbook:
   css: style.css
+  split_by: rmd
   config:
     toc:
       collapse: none
-      split_by: rmd
       before: |
         <li><a href="https://dev7796.github.io/data101_tutorial/intro.html">DATA 101 Book</a>
         <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>

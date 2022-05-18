@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 1 Introduction | bookdemo.knit</title>
+  <title>Section: 17 🔖 Linear Regression | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 1 Introduction | bookdemo.knit" />
+  <meta property="og:title" content="Section: 17 🔖 Linear Regression | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 1 Introduction | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 17 🔖 Linear Regression | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="best_work_2022.html"/>
+<link rel="prev" href="Decision_trees.html"/>
+<link rel="next" href="Prediction_loop.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -322,61 +322,273 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<div id="intro" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Section: 1</span> Introduction<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lr" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Section: 17</span> 🔖 Linear Regression<a href="Linear_regression.html#lr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<p>The objective of this textbook is to provide you with the shortest path to exploring your data, visualizing it, forming hypotheses and validating and defending them.</p>
-<p>Given a data set, you want to be able to make any plot you wish, find plots which show something actionable and interesting, explore data by slicing and dicing it and finally present your results in a statistically convincing manner, perhaps in a colorful and visually appealing way. Finally, you will be able to apply some basic machine learning methods to build, train and test prediction models. All of this will be accomplished in a succinct and crisp way using a small subset of R instructions.</p>
-<p>It is an active textbook. It assumes no prior programming background. We will teach you as little R as possible to achieve the goals of this book which are quite impressive. In fact you will be able to do a good chunk of work which data scientists do. We will accomplish this goal through active snippets of executable code. These are examples of R code (<strong>around 80 executable snippets of code</strong>) embedded in the textbook itself. More importantly, you will be able to modify the code and execute the modified code without need to install any application on your machine. This will allow you to understand the code in the book through “what if” exploratory process. Thus, every code snippet is just an invitation to endless modifications. This is why we call this textbook - an active textbook.</p>
-<p>Another unique aspect of this textbook is its reliance on data puzzles. These are synthetic data sets with embedded patterns and rules generated by our tool called <strong>DataMaker</strong>. We will present our data puzzles (dynamic list, may vary from year to year) in section 4 and follow by showing how to make plots of data. Then we will proceed to freestyle data exploration. This will allow us to learn more about our data, form the leads, and finally state our hypotheses. We will follow up by an elementary introduction to hypothesis testing through a permutation test. We will learn how to calculate p-values and how to use them to defend our findings against the randomness trap.</p>
-<p>We will use as few R functions as possible to achieve our goals. In fact we will demonstrate how using <strong>less than ten R functions</strong> we can perform quite sophisticated data exploration. In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries to build machine learning models. In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge function. We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.</p>
-<p>Sections <strong>5.6</strong> and <strong>5.7</strong> provide the lists of all concepts which we cover in our active textbook and all R functions which are needed. Notice how small the set of R functions is. It is important for programming novices to start small and also see how far this small set of functions can get you.</p>
-<p>Our <strong>question roulette</strong> allows self-testing on nearly 100 questions relevant to the material. Each question is answered, but students are encouraged first to answer questions themselves and only then follow it with checking the correct answer.</p>
-<p><strong>Acknowledgement: </strong><br>
-This textbook would not have been created without extensive help from Devarsh Shah</p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<script src="files/js/dcl.js"></script>
+<ul>
+<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button>
+<div id="lr12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div></li>
+</ul>
+<p>Linear regression is a linear approach to modeling the relationship between a numerical response (<span class="math inline">\(Y\)</span>) and one or more independent variables (<span class="math inline">\(X_i\)</span>).</p>
+<p>Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+- First when there is only one explanatory variable and one output variable. This type of linear regression model known as simple linear regression.
+- Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as multiple linear regression.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg" alt="" />
+<p class="caption">Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.</p>
+</div>
+<div id="lm" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Linear regression using lm() function<a href="Linear_regression.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Syntax for building the regression model using the <em>lm()</em> function is as follows:</p>
+<ul>
+<li><code>lm(formula, data, ...)</code>
+<ul>
+<li><em>formula</em>: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+<ul>
+<li><code>prediction ~ predictor1 + predictor2 + predictor3 + ...</code></li>
+</ul></li>
+<li><em>data</em>: here we provide the dataset on which the linear regression model is to be trained.</li>
+</ul></li>
+</ul>
+<p>For more info on the <em>lm()</em> function visit <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm()</a></p>
+<p>Lets look at the example on the Moody dataset.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-147">Table 17.1: </span>Snippet of Moody Num Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Midterm
+</th>
+<th style="text-align:right;">
+Project
+</th>
+<th style="text-align:right;">
+FinalExam
+</th>
+<th style="text-align:right;">
+ClassScore
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+39.60000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+68.20000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+67.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+52.47565
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+68.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+49.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+41.30000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+50.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+46.70000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+34.80494
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now we can build a simple linear regression model to predict the ClassScore attribute based on the various other attributes present in the dataset, as shown above.</p>
+<p>Since we will be predicting only one attribute values, this model will be called simple linear regression model.</p>
+<div id="snippet-1-how-much-do-midterm-project-and-final-exam-count" class="section level3 hasAnchor" number="17.1.1">
+<h3><span class="header-section-number">17.1.1</span> Snippet 1: How much do Midterm, Project and Final Exam count?<a href="Linear_regression.html#snippet-1-how-much-do-midterm-project-and-final-exam-count" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdicpXG5zcGxpdDwtMC43Km5yb3cobW9vZHlOVU0pXG5zcGxpdFxubW9vZHlOVU1UcjwtbW9vZHlOVU1bMTpzcGxpdCxdXG5tb29keU5VTVRyXG5tb29keU5VTVRzPC1tb29keU5VTVtzcGxpdDpucm93KG1vb2R5TlVNKSxdXG4jV2UgdXNlIGxpbmVhciByZWdyZXNzaW9uIHRvICNmaW5kIG91dCB0aGUgd2VpZ2h0cyBvZiAjTWlkdGVybSwgUHJvamVjdCBhbmQgRmluYWwgI0V4YW0gaW4gY2FsY3VsYXRpb24gb2YgdGhlICNmaW5hbCBjbGFzcyBzY29yZS4gRWFjaCBvZiAjdGhlbSBhcmUgc2NvcmVkIG91dCBvZiAxMDAgYW5kICN0aGUgZmluYWwgY2xhc3Mgc2NvcmUgaXMgYWxzbyAjc2NvcmVkIG91dCBvZiAxMDAgYXMgd2VpZ2h0ZWQgI3N1bSBvZiBNaWR0ZXJtLCBQcm9qZWN0IGFuZCAjRmluYWwgRXhhbSBzY29yZXMuXG50cmFpbiA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPW1vb2R5TlVNVHIpXG50cmFpblxucHJlZCA8LSBwcmVkaWN0KHRyYWluLG5ld2RhdGE9bW9vZHlOVU1Ucylcbm1lYW4oKHByZWQgLSBtb29keU5VTVRzJENsYXNzU2NvcmUpXjIpIn0=
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained from the predict function using the trained model and the test data.</li>
+</ul>
+</div>
+</div>
+<div id="mse" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Calculating the Error using mse()<a href="Linear_regression.html#mse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won’t prove useful now in our numerical predictions scenario.</p>
+<p>We don’t want to eyeball every time we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.</p>
+<p>To do this we will use the Mean Squared Error(MSE).</p>
+<ul>
+<li>The MSE is a measure of the quality of an predictor/estimator</li>
+<li>It is always non-negative</li>
+<li>Values closer to zero are better.</li>
+</ul>
+<p>The equation to calculate the MSE is as follows:</p>
+<p><span class="math display">\[\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}\]</span></p>
+<p>To implement this, we will use the <em>mse()</em> function present in the Metrics Package, so remember to install the Metrics package and use <code>library(Metrics)</code> in the code for local use.</p>
+<p>The syntax for <em>mse()</em> function is very simple:</p>
+<ul>
+<li><code>mse(actual,predicted)</code>
+<ul>
+<li><em>actual</em>: vector of the actual values of the attribute we want to predict.</li>
+<li><em>predicted</em>: vector of the predicted values obtained using our model.</li>
+</ul></li>
+</ul>
+</div>
+<div id="snippet-2-cross-validate-your-prediction" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Snippet 2: Cross Validate your prediction<a href="Linear_regression.html#snippet-2-cross-validate-your-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxudHJhaW4gPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcbiNzY3JhbWJsZSB0aGUgdHJhaW4gZnJhbWVcbnY8LXNhbXBsZSgxOm5yb3codHJhaW4pKVxudlsxOjVdXG50cmFpblNjcmFtYmxlZDwtdHJhaW5bdiwgXVxuXG4jb25lIHN0ZXAgY3Jvc3N2YWxpZGF0aW9uXG5uIDwtIDEwMFxudHJhaW5TYW1wbGU8LXRyYWluU2NyYW1ibGVkW25yb3codHJhaW5TY3JhbWJsZWQpLW46bnJvdyh0cmFpblNjcmFtYmxlZCksIF1cbnRlc3RTYW1wbGUgPC0gdHJhaW5TY3JhbWJsZWRbMTpuLF1cblxubG0udHJlZSA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPXRyYWluU2FtcGxlKVxubG0udHJlZVxuXG5wcmVkIDwtIHByZWRpY3QobG0udHJlZSxuZXdkYXRhPXRlc3RTYW1wbGUpXG5wcmVkXG5cbm1zZSh0ZXN0U2FtcGxlJENsYXNzU2NvcmUscHJlZCkifQ==
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check that if we have more accurate predictions, thus increasing the overall accuracy of the model.</li>
+</ul>
+</div>
+<div id="snippet-3-submission-with-lm" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Snippet 3: Submission with lm<a href="Linear_regression.html#snippet-3-submission-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNX3Rlc3QuY3N2JylcbnN1Ym1pc3Npb248LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMnN1Ym1pc3Npb24uY3N2JylcbnRyYWluIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW9vZHlOVU0uY3N2XCIpXG5cbnRyZWUgPC0gbG0oQ2xhc3NTY29yZX4uLCAgZGF0YT10cmFpbilcbnRyZWVcblxucHJlZGljdGlvbiA8LSBwcmVkaWN0KHRyZWUsIG5ld2RhdGE9dGVzdClcblxuI05vdyBtYWtlIHlvdXIgc3VibWlzc2lvbiBmaWxlIC0gaXQgd2lsbCBoYXZlIHRoZSBJRHMgYW5kIG5vdyB0aGUgcHJlZGljdGVkIGdyYWRlc1xuc3VibWlzc2lvbiRHcmFkZTwtcHJlZGljdGlvbiBcblxuIyB1c2Ugd3JpdGUuY3N2KHN1Ym1pc3Npb24sICdzdWJtaXNzaW9uLmNzdicsIHJvdy5uYW1lcz1GQUxTRSkgdG8gc3RvcmUgc3VibWlzc2lvbiBhcyBjc3YgZmlsZSBvbiB5b3VyIG1hY2hpbmUgYW5kIHN1YnNlcXVlbnRseSBzdWJtaXQgaXQgb24gS2FnZ2xlIn0=
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="best_work_2022.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Decision_trees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Prediction_loop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
