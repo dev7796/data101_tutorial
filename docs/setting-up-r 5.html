@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section: 5 Setting Up R | bookdemo.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section: 5 Setting Up R | bookdemo.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section: 5 Setting Up R | bookdemo.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-puzzles-secrets.html"/>
+<link rel="next" href="plots.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://dev7796.github.io/data101_tutorial/intro.html">DATA 101 Book</a>
+<a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
+<a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
+<a href="https://dev7796.shinyapps.io/testing_button/" target="black">Question Roulette</a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="b2022.html"><a href="b2022.html"><i class="fa fa-check"></i><b>2</b> 🔖 Best Works of 2022</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="b2022.html"><a href="b2022.html#datablog"><i class="fa fa-check"></i><b>2.1</b> DataBlog</a></li>
+<li class="chapter" data-level="2.2" data-path="b2022.html"><a href="b2022.html#prediction-challenge-1"><i class="fa fa-check"></i><b>2.2</b> Prediction Challenge 1</a></li>
+<li class="chapter" data-level="2.3" data-path="b2022.html"><a href="b2022.html#prediction-challenge-2"><i class="fa fa-check"></i><b>2.3</b> Prediction Challenge 2</a></li>
+<li class="chapter" data-level="2.4" data-path="b2022.html"><a href="b2022.html#prediction-challenge-3"><i class="fa fa-check"></i><b>2.4</b> Prediction Challenge 3</a></li>
+<li class="chapter" data-level="2.5" data-path="b2022.html"><a href="b2022.html#boundless-analytics"><i class="fa fa-check"></i><b>2.5</b> Boundless Analytics</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DLL.html"><a href="DLL.html"><i class="fa fa-check"></i><b>3</b> Data League Leaderboard</a></li>
+<li class="chapter" data-level="4" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html"><i class="fa fa-check"></i><b>4</b> 🔖 Data puzzles secrets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#moody-data-puzzle"><i class="fa fa-check"></i><b>4.1</b> Moody Data Puzzle</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#secrets-revealed--patterns-in-professor-moodys-data"><i class="fa fa-check"></i><b>4.1.1</b> Secrets Revealed- Patterns in Professor Moody’s data?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#best-students-submissions-2022"><i class="fa fa-check"></i><b>4.1.2</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#movies-data-hunt"><i class="fa fa-check"></i><b>4.2</b> Movies Data Hunt</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#secrets-revealed--patterns-in-movies-data"><i class="fa fa-check"></i><b>4.2.1</b> Secrets Revealed- Patterns in Movies data?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#best-students-submissions-2022-1"><i class="fa fa-check"></i><b>4.2.2</b> Best Student’s Submissions 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#minimarket-data-hunt"><i class="fa fa-check"></i><b>4.3</b> Minimarket Data Hunt</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#what-were-the-secret-associations-between-items-in-the-minimarket"><i class="fa fa-check"></i><b>4.3.1</b> What were the secret associations between items in the minimarket?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#predicting-grades-in-professor-moodys-class"><i class="fa fa-check"></i><b>4.4</b> Predicting grades in Professor Moody’s class</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-puzzles-secrets.html"><a href="data-puzzles-secrets.html#how-did-i-cook-the-professor-moody-prediction-challenge-data"><i class="fa fa-check"></i><b>4.4.1</b> How did I cook the Professor Moody Prediction challenge data?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="setting-up-r.html"><a href="setting-up-r.html"><i class="fa fa-check"></i><b>5</b> Setting Up R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="setting-up-r.html"><a href="setting-up-r.html#setting"><i class="fa fa-check"></i><b>5.1</b> Create New Project</a></li>
+<li class="chapter" data-level="5.2" data-path="setting-up-r.html"><a href="setting-up-r.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>5.2</b> How to upload a data set?</a></li>
+<li class="chapter" data-level="5.3" data-path="setting-up-r.html"><a href="setting-up-r.html#saving-your-work"><i class="fa fa-check"></i><b>5.3</b> Saving your work</a></li>
+<li class="chapter" data-level="5.4" data-path="setting-up-r.html"><a href="setting-up-r.html#general-r-references"><i class="fa fa-check"></i><b>5.4</b> General R References</a></li>
+<li class="chapter" data-level="5.5" data-path="setting-up-r.html"><a href="setting-up-r.html#textbook-concepts"><i class="fa fa-check"></i><b>5.5</b> Textbook Concepts</a></li>
+<li class="chapter" data-level="5.6" data-path="setting-up-r.html"><a href="setting-up-r.html#r-functions-used-in-this-class"><i class="fa fa-check"></i><b>5.6</b> R functions used in this class</a></li>
+<li class="chapter" data-level="5.7" data-path="setting-up-r.html"><a href="setting-up-r.html#data-sets"><i class="fa fa-check"></i><b>5.7</b> Data sets</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="setting-up-r.html"><a href="setting-up-r.html#moody"><i class="fa fa-check"></i><b>5.7.1</b> Moody</a></li>
+<li class="chapter" data-level="5.7.2" data-path="setting-up-r.html"><a href="setting-up-r.html#movies"><i class="fa fa-check"></i><b>5.7.2</b> Movies</a></li>
+<li class="chapter" data-level="5.7.3" data-path="setting-up-r.html"><a href="setting-up-r.html#traffic"><i class="fa fa-check"></i><b>5.7.3</b> Traffic</a></li>
+<li class="chapter" data-level="5.7.4" data-path="setting-up-r.html"><a href="setting-up-r.html#hindex"><i class="fa fa-check"></i><b>5.7.4</b> Hindex</a></li>
+<li class="chapter" data-level="5.7.5" data-path="setting-up-r.html"><a href="setting-up-r.html#prediction-1-dataset"><i class="fa fa-check"></i><b>5.7.5</b> Prediction 1 Dataset</a></li>
+<li class="chapter" data-level="5.7.6" data-path="setting-up-r.html"><a href="setting-up-r.html#midterm-project-and-final-exam-distribution-in-prof.-moody-class"><i class="fa fa-check"></i><b>5.7.6</b> Midterm, Project and Final Exam distribution in Prof. Moody class</a></li>
+<li class="chapter" data-level="5.7.7" data-path="setting-up-r.html"><a href="setting-up-r.html#minimarket"><i class="fa fa-check"></i><b>5.7.7</b> Minimarket</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>6</b> 🔖 Plots</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="plots.html"><a href="plots.html#vector"><i class="fa fa-check"></i><b>6.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="plots.html"><a href="plots.html#snippet-1"><i class="fa fa-check"></i><b>6.1.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="6.1.2" data-path="plots.html"><a href="plots.html#snippet-2"><i class="fa fa-check"></i><b>6.1.2</b> Snippet 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="plots.html"><a href="plots.html#data-frames"><i class="fa fa-check"></i><b>6.2</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="plots.html"><a href="plots.html#snippet-1-1"><i class="fa fa-check"></i><b>6.2.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="6.2.2" data-path="plots.html"><a href="plots.html#snippet-2-1"><i class="fa fa-check"></i><b>6.2.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="6.2.3" data-path="plots.html"><a href="plots.html#snippet-3"><i class="fa fa-check"></i><b>6.2.3</b> Snippet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="plots.html"><a href="plots.html#table"><i class="fa fa-check"></i><b>6.3</b> Table</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="plots.html"><a href="plots.html#snippet-1-2"><i class="fa fa-check"></i><b>6.3.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="6.3.2" data-path="plots.html"><a href="plots.html#code-review"><i class="fa fa-check"></i><b>6.3.2</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="plots.html"><a href="plots.html#scartterplot"><i class="fa fa-check"></i><b>6.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="6.5" data-path="plots.html"><a href="plots.html#barplot"><i class="fa fa-check"></i><b>6.5</b> Bar Plot</a></li>
+<li class="chapter" data-level="6.6" data-path="plots.html"><a href="plots.html#boxplot"><i class="fa fa-check"></i><b>6.6</b> Box Plot</a></li>
+<li class="chapter" data-level="6.7" data-path="plots.html"><a href="plots.html#mosaicplot"><i class="fa fa-check"></i><b>6.7</b> Mosaic Plot</a></li>
+<li class="chapter" data-level="6.8" data-path="plots.html"><a href="plots.html#additional-references"><i class="fa fa-check"></i><b>6.8</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>7</b> 🔖 Data Transformation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-transformation.html"><a href="data-transformation.html#basic-functions"><i class="fa fa-check"></i><b>7.1</b> Basic Functions</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-transformation.html"><a href="data-transformation.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> mean()</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-transformation.html"><a href="data-transformation.html#length"><i class="fa fa-check"></i><b>7.1.2</b> length()</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-transformation.html"><a href="data-transformation.html#max"><i class="fa fa-check"></i><b>7.1.3</b> max()</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-transformation.html"><a href="data-transformation.html#min"><i class="fa fa-check"></i><b>7.1.4</b> min()</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-transformation.html"><a href="data-transformation.html#sd"><i class="fa fa-check"></i><b>7.1.5</b> sd()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-transformation.html"><a href="data-transformation.html#subset"><i class="fa fa-check"></i><b>7.2</b> Subset</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-transformation.html"><a href="data-transformation.html#nrow"><i class="fa fa-check"></i><b>7.2.1</b> Snippet 1- example of subset function</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-transformation.html"><a href="data-transformation.html#snippet-2--example-of-subset-function"><i class="fa fa-check"></i><b>7.2.2</b> Snippet 2- example of subset function</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-transformation.html"><a href="data-transformation.html#snippet-3--subset-as-subframe"><i class="fa fa-check"></i><b>7.2.3</b> Snippet 3- subset as subframe</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-transformation.html"><a href="data-transformation.html#snippet-4--subsetting-columns"><i class="fa fa-check"></i><b>7.2.4</b> Snippet 4- subsetting columns</a></li>
+<li class="chapter" data-level="7.2.5" data-path="data-transformation.html"><a href="data-transformation.html#snippet-5--sub-setting-rows-and-columns"><i class="fa fa-check"></i><b>7.2.5</b> Snippet 5- sub-setting rows and columns</a></li>
+<li class="chapter" data-level="7.2.6" data-path="data-transformation.html"><a href="data-transformation.html#code-review-1"><i class="fa fa-check"></i><b>7.2.6</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-transformation.html"><a href="data-transformation.html#tapply"><i class="fa fa-check"></i><b>7.3</b> tapply</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="data-transformation.html"><a href="data-transformation.html#snippet-1--example-of-tapply-followed-by-barplot"><i class="fa fa-check"></i><b>7.3.1</b> Snippet 1- Example of tapply followed by barplot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-transformation.html"><a href="data-transformation.html#code-review-2"><i class="fa fa-check"></i><b>7.3.2</b> Code Review</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-transformation.html"><a href="data-transformation.html#derived-attribute"><i class="fa fa-check"></i><b>7.4</b> Derived Attribute</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="data-transformation.html"><a href="data-transformation.html#snippet-1---making-new-categorical-attribute."><i class="fa fa-check"></i><b>7.4.1</b> Snippet 1 - Making new categorical attribute.</a></li>
+<li class="chapter" data-level="7.4.2" data-path="data-transformation.html"><a href="data-transformation.html#cut"><i class="fa fa-check"></i><b>7.4.2</b> Cut</a></li>
+<li class="chapter" data-level="7.4.3" data-path="data-transformation.html"><a href="data-transformation.html#code-review-3"><i class="fa fa-check"></i><b>7.4.3</b> Code Review</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ztest.html"><a href="ztest.html"><i class="fa fa-check"></i><b>8</b> 🔖 Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ztest.html"><a href="ztest.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="ztest.html"><a href="ztest.html#permutaion"><i class="fa fa-check"></i><b>8.2</b> Snippet 1: Permutation test</a></li>
+<li class="chapter" data-level="8.3" data-path="ztest.html"><a href="ztest.html#snippet-2-z-test"><i class="fa fa-check"></i><b>8.3</b> Snippet 2: z-test</a></li>
+<li class="chapter" data-level="8.4" data-path="ztest.html"><a href="ztest.html#snippet-3-make-your-own-data-and-see-how-p-value-changes"><i class="fa fa-check"></i><b>8.4</b> Snippet 3: Make your own data and see how p-value changes</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ztest.html"><a href="ztest.html#permuation-test"><i class="fa fa-check"></i><b>8.4.1</b> Permuation test</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ztest.html"><a href="ztest.html#one-permutation-at-a-time"><i class="fa fa-check"></i><b>8.4.2</b> One permutation at a time</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ztest.html"><a href="ztest.html#z-test"><i class="fa fa-check"></i><b>8.4.3</b> z-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ztest.html"><a href="ztest.html#additional-references-1"><i class="fa fa-check"></i><b>8.5</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chitest.html"><a href="chitest.html"><i class="fa fa-check"></i><b>9</b> 🔖 Chi Square Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chitest.html"><a href="chitest.html#snippet-1-4"><i class="fa fa-check"></i><b>9.1</b> Snippet 1</a></li>
+<li class="chapter" data-level="9.2" data-path="chitest.html"><a href="chitest.html#snippet-2-2"><i class="fa fa-check"></i><b>9.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="9.3" data-path="chitest.html"><a href="chitest.html#snippet-3-1"><i class="fa fa-check"></i><b>9.3</b> Snippet 3</a></li>
+<li class="chapter" data-level="9.4" data-path="chitest.html"><a href="chitest.html#snippet-4"><i class="fa fa-check"></i><b>9.4</b> Snippet 4</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Mtest.html"><a href="Mtest.html"><i class="fa fa-check"></i><b>10</b> 🔖 Multiple Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Mtest.html"><a href="Mtest.html#snippet-1---benjamini-hochberg-algorithm"><i class="fa fa-check"></i><b>10.1</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
+<li class="chapter" data-level="10.2" data-path="Mtest.html"><a href="Mtest.html#snippet-2-3"><i class="fa fa-check"></i><b>10.2</b> Snippet 2</a></li>
+<li class="chapter" data-level="10.3" data-path="Mtest.html"><a href="Mtest.html#additional-references-2"><i class="fa fa-check"></i><b>10.3</b> Additional References</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="cr.html"><a href="cr.html"><i class="fa fa-check"></i><b>11</b> Code Review: Exploratory Queries in R</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="cr.html"><a href="cr.html#movies-dataset-example"><i class="fa fa-check"></i><b>11.1</b> Movies Dataset Example</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="cr.html"><a href="cr.html#snippet-1-what-is-the-mean-imdb-of-low-budget-comedies"><i class="fa fa-check"></i><b>11.1.1</b> Snippet 1: What is the mean imdb of low budget comedies?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="cr.html"><a href="cr.html#snippet-2-what-is-standard-deviation-of-imdb-score-of-high-gross-family-movies"><i class="fa fa-check"></i><b>11.1.2</b> Snippet 2: What is standard deviation of imdb score of high gross Family movies?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="cr.html"><a href="cr.html#snippet-3-what-is-the-lowest-imdb-score-among-high-budget-movies"><i class="fa fa-check"></i><b>11.1.3</b> Snippet 3: What is the lowest imdb score among high budget movies?</a></li>
+<li class="chapter" data-level="11.1.4" data-path="cr.html"><a href="cr.html#snippet-4-how-many-low-budget-movies-generated-high-gross-income"><i class="fa fa-check"></i><b>11.1.4</b> Snippet 4: How many low budget movies generated high gross income?</a></li>
+<li class="chapter" data-level="11.1.5" data-path="cr.html"><a href="cr.html#snippet-5-what-is-imdb-score-of-the-first-non-us-movie-in-the-movies-data-frame"><i class="fa fa-check"></i><b>11.1.5</b> Snippet 5: What is imdb score of the first non-US movie in the movies data frame?</a></li>
+<li class="chapter" data-level="11.1.6" data-path="cr.html"><a href="cr.html#snippet-6-what-is-the-least-frequent-genre-among-uk-movies"><i class="fa fa-check"></i><b>11.1.6</b> Snippet 6: What is the least frequent genre among UK movies?</a></li>
+<li class="chapter" data-level="11.1.7" data-path="cr.html"><a href="cr.html#snippet-7-which-content-rating-has-the-lowest-average-imdb-score"><i class="fa fa-check"></i><b>11.1.7</b> Snippet 7: Which content rating has the lowest average imdb score?</a></li>
+<li class="chapter" data-level="11.1.8" data-path="cr.html"><a href="cr.html#snippet-8-movies-from-which-country-have-the-smallest-average-imdb-score"><i class="fa fa-check"></i><b>11.1.8</b> Snippet 8: Movies from which country have the smallest average imdb score?</a></li>
+<li class="chapter" data-level="11.1.9" data-path="cr.html"><a href="cr.html#snippet-9-what-is-the-least-frequent-genre-in-movies-data-frame"><i class="fa fa-check"></i><b>11.1.9</b> Snippet 9: What is the least frequent genre in movies data frame?</a></li>
+<li class="chapter" data-level="11.1.10" data-path="cr.html"><a href="cr.html#snippet-10-z-value-2.4-whats-the-p-value"><i class="fa fa-check"></i><b>11.1.10</b> Snippet 10: z value = 2.4, whats the p-value?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="cr.html"><a href="cr.html#census-dataset-example"><i class="fa fa-check"></i><b>11.2</b> Census Dataset Example</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="cr.html"><a href="cr.html#snippet-11-for-the-individual-over-50-which-profession-has-the-highest-average-capital-gain"><i class="fa fa-check"></i><b>11.2.1</b> Snippet 11: For the individual over 50, which profession has the highest average capital gain?</a></li>
+<li class="chapter" data-level="11.2.2" data-path="cr.html"><a href="cr.html#snippet-12-which-profession-has-the-highest-average-capital-gains-sales-or-tech-support"><i class="fa fa-check"></i><b>11.2.2</b> Snippet 12: Which profession has the highest average capital gains; Sales or Tech-support?</a></li>
+<li class="chapter" data-level="11.2.3" data-path="cr.html"><a href="cr.html#snippet-13-what-is-most-frequent-profession-of-people-with-less-than-10-years-od-of-education"><i class="fa fa-check"></i><b>11.2.3</b> Snippet 13: What is most frequent profession of people with less than 10 years od of education?</a></li>
+<li class="chapter" data-level="11.2.4" data-path="cr.html"><a href="cr.html#snippet-14-what-is-minimum-number-of-years-of-education-for-people-with-exec-managerial-specialty"><i class="fa fa-check"></i><b>11.2.4</b> Snippet 14: What is minimum number of years of education for people with Exec-managerial specialty?</a></li>
+<li class="chapter" data-level="11.2.5" data-path="cr.html"><a href="cr.html#snippet-15-what-is-the-most-frequent-degree-for-natives-of-the-united-states"><i class="fa fa-check"></i><b>11.2.5</b> Snippet 15: What is the most frequent degree for natives of the United States?</a></li>
+<li class="chapter" data-level="11.2.6" data-path="cr.html"><a href="cr.html#snippet-16-what-is-the-least-frequent-degree-for-people-with-at-least-12-years-of-education"><i class="fa fa-check"></i><b>11.2.6</b> Snippet 16: What is the least frequent degree for people with at least 12 years of education?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="common.html"><a href="common.html"><i class="fa fa-check"></i><b>12</b> 🔖 Common Sense Judgement and Probability</a></li>
+<li class="chapter" data-level="13" data-path="br.html"><a href="br.html"><i class="fa fa-check"></i><b>13</b> 🔖 Bayesian Reasoning</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="br.html"><a href="br.html#snippet-1-covid-odds-after-positive-home-test."><i class="fa fa-check"></i><b>13.1</b> Snippet 1: Covid Odds after positive Home Test.</a></li>
+<li class="chapter" data-level="13.2" data-path="br.html"><a href="br.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman"><i class="fa fa-check"></i><b>13.2</b> Snippet 2: What are the odds that an ‘F’ student is a freshman?</a></li>
+<li class="chapter" data-level="13.3" data-path="br.html"><a href="br.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major"><i class="fa fa-check"></i><b>13.3</b> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="Pc1.html"><a href="Pc1.html"><i class="fa fa-check"></i><b>14</b> 🔖 Prediction Challenges</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="Pc1.html"><a href="Pc1.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>14.1</b> General Structure of the Prediction Challenges</a></li>
+<li class="chapter" data-level="14.2" data-path="Pc1.html"><a href="Pc1.html#challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set"><i class="fa fa-check"></i><b>14.2</b> Challenge 1 - Freestyle prediction of grades in yet another MOODY data set</a></li>
+<li class="chapter" data-level="14.3" data-path="Pc1.html"><a href="Pc1.html#challenge-2---same-data-but-using-rpart---decision-tree"><i class="fa fa-check"></i><b>14.3</b> Challenge 2 - Same data but using rpart - decision tree</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>15</b> 🔖 Free Style: Prediction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P1.html"><a href="P1.html#snippet-1-example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>15.1</b> Snippet 1: Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="15.2" data-path="P1.html"><a href="P1.html#snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>15.2</b> Snippet 2: How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="15.3" data-path="P1.html"><a href="P1.html#snippet-3-one-step-crossvalidation"><i class="fa fa-check"></i><b>15.3</b> Snippet 3: One-step crossvalidation</a></li>
+<li class="chapter" data-level="15.4" data-path="P1.html"><a href="P1.html#snippet-4-preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>15.4</b> Snippet 4: Preparing submission.csv for Kaggle</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="prpart.html"><a href="prpart.html"><i class="fa fa-check"></i><b>16</b> 🔖 Predictions with rpart</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="prpart.html"><a href="prpart.html#rpart"><i class="fa fa-check"></i><b>16.1</b> Use of Rpart</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="prpart.html"><a href="prpart.html#snippet-1-5"><i class="fa fa-check"></i><b>16.1.1</b> Snippet 1</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="prpart.html"><a href="prpart.html#rpartplot"><i class="fa fa-check"></i><b>16.2</b> Visualize the Decision tree</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="prpart.html"><a href="prpart.html#snippet-2-4"><i class="fa fa-check"></i><b>16.2.1</b> Snippet 2</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="prpart.html"><a href="prpart.html#rpartcontrol"><i class="fa fa-check"></i><b>16.3</b> Rpart Control</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="prpart.html"><a href="prpart.html#snippet-3-minsplit-200"><i class="fa fa-check"></i><b>16.3.1</b> Snippet 3: Minsplit = 200</a></li>
+<li class="chapter" data-level="16.3.2" data-path="prpart.html"><a href="prpart.html#snippet-4-minsplit-100"><i class="fa fa-check"></i><b>16.3.2</b> Snippet 4: Minsplit = 100</a></li>
+<li class="chapter" data-level="16.3.3" data-path="prpart.html"><a href="prpart.html#snippet-5-minbucket-100"><i class="fa fa-check"></i><b>16.3.3</b> Snippet 5: Minbucket = 100</a></li>
+<li class="chapter" data-level="16.3.4" data-path="prpart.html"><a href="prpart.html#snippet-6-minbucket-200"><i class="fa fa-check"></i><b>16.3.4</b> Snippet 6: Minbucket = 200</a></li>
+<li class="chapter" data-level="16.3.5" data-path="prpart.html"><a href="prpart.html#snippet-7-cp-0.05"><i class="fa fa-check"></i><b>16.3.5</b> Snippet 7: cp = 0.05</a></li>
+<li class="chapter" data-level="16.3.6" data-path="prpart.html"><a href="prpart.html#snippet-8-cp-0.005"><i class="fa fa-check"></i><b>16.3.6</b> Snippet 8: cp = 0.005</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="prpart.html"><a href="prpart.html#crossvalidation"><i class="fa fa-check"></i><b>16.4</b> Cross Validation</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="prpart.html"><a href="prpart.html#snippet-9"><i class="fa fa-check"></i><b>16.4.1</b> Snippet 9</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="prpart.html"><a href="prpart.html#rpartpredict"><i class="fa fa-check"></i><b>16.5</b> Prediction using rpart.</a>
+<ul>
+<li class="chapter" data-level="16.5.1" data-path="prpart.html"><a href="prpart.html#snippet-10"><i class="fa fa-check"></i><b>16.5.1</b> Snippet 10</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="prpart.html"><a href="prpart.html#snippet-11-your-model-with-rpart"><i class="fa fa-check"></i><b>16.6</b> Snippet 11: Your Model with rpart</a></li>
+<li class="chapter" data-level="16.7" data-path="prpart.html"><a href="prpart.html#snippet-12-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>16.7</b> Snippet 12: Freestyle + rpart: Combining rpart prediction models</a></li>
+<li class="chapter" data-level="16.8" data-path="prpart.html"><a href="prpart.html#snippet-13-submission-with-rpart"><i class="fa fa-check"></i><b>16.8</b> Snippet 13: Submission with rpart</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="lr.html"><a href="lr.html"><i class="fa fa-check"></i><b>17</b> 🔖 Linear Regression</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="lr.html"><a href="lr.html#lm"><i class="fa fa-check"></i><b>17.1</b> Linear regression using lm() function</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="lr.html"><a href="lr.html#snippet-1-how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>17.1.1</b> Snippet 1: How much do Midterm, Project and Final Exam count?</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="lr.html"><a href="lr.html#mse"><i class="fa fa-check"></i><b>17.2</b> Calculating the Error using mse()</a></li>
+<li class="chapter" data-level="17.3" data-path="lr.html"><a href="lr.html#snippet-2-cross-validate-your-prediction"><i class="fa fa-check"></i><b>17.3</b> Snippet 2: Cross Validate your prediction</a></li>
+<li class="chapter" data-level="17.4" data-path="lr.html"><a href="lr.html#snippet-3-submission-with-lm"><i class="fa fa-check"></i><b>17.4</b> Snippet 3: Submission with lm</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MLP.html"><a href="MLP.html"><i class="fa fa-check"></i><b>18</b> 🔖 Machine Learning-Prediction Loop</a></li>
+<li class="chapter" data-level="19" data-path="MAD.html"><a href="MAD.html"><i class="fa fa-check"></i><b>19</b> 🔖 How can data fool us?</a></li>
+<li class="chapter" data-level="20" data-path="dsaf.html"><a href="dsaf.html"><i class="fa fa-check"></i><b>20</b> Boundless Analytics - Pre-discovery Tool</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="dsaf.html"><a href="dsaf.html#minimarket-data-set-description"><i class="fa fa-check"></i><b>20.1</b> Minimarket Data Set description</a></li>
+<li class="chapter" data-level="20.2" data-path="dsaf.html"><a href="dsaf.html#demo-of-boundless-analytics"><i class="fa fa-check"></i><b>20.2</b> Demo of Boundless Analytics</a></li>
+<li class="chapter" data-level="20.3" data-path="dsaf.html"><a href="dsaf.html#the-boundless-analytics-web-application"><i class="fa fa-check"></i><b>20.3</b> The Boundless Analytics web application</a></li>
+<li class="chapter" data-level="20.4" data-path="dsaf.html"><a href="dsaf.html#snippet-1-chi-square-hunt"><i class="fa fa-check"></i><b>20.4</b> Snippet 1: Chi square hunt</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="setting-up-r" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Section: 5</span> Setting Up R<a href="setting-up-r.html#setting-up-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<ul>
+<li><p><strong>Important Instructions</strong></p>
+<ul>
+<li>Installation of R is required before installing RStudio
+<ul>
+<li>“R” is a programming language, and,</li>
+<li>“RStudio” is an Integrated Development Environment (IDE) which provides you a platform to code in R.</li>
+</ul></li>
+</ul></li>
+<li><p><strong>How to download and install R &amp; RStudio?</strong></p>
+<ul>
+<li><p><em>Downloading and installing R.</em></p>
+<ul>
+<li>For Windows Users.
+<ul>
+<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/base/">https://cran.r-project.org/bin/windows/base/</a></li>
+</ul></li>
+<li>Click on the link at top left where it says “Download R 4.0.3 for windows” or the latest at the time of your installation.</li>
+<li>Open the downloaded file and follow the instructions as it is.</li>
+</ul></li>
+<li>For MAC Users.
+<ul>
+<li>Click on the link provided below or copy paste it on your favourite browser and go to the website.
+<ul>
+<li><a href="https://cloud.r-project.org/bin/macosx/">https://cloud.r-project.org/bin/macosx/</a></li>
+</ul></li>
+<li>Under “Latest release”, click on “R-4.0.3.pkg” or the latest at the time of your installation.</li>
+<li>Open the downloaded file and follow the instructions as it is.</li>
+</ul></li>
+</ul></li>
+<li><p><em>Downloading and installing RStudio.</em></p>
+<ul>
+<li>For Windows Users.
+<ul>
+<li>Click on the link below or copy paste it in your favourite browser.
+<ul>
+<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
+</ul></li>
+<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
+<li>Click on the download link beside “Windows 10/8/7” to download the windows version of RStudio.</li>
+<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
+</ul></li>
+<li>For MAC Users.
+<ul>
+<li>Click on the link below or copy paste it in your favourite browser.
+<ul>
+<li><a href="https://rstudio.com/products/rstudio/download/">https://rstudio.com/products/rstudio/download/</a></li>
+</ul></li>
+<li>Scroll down almost till the end of the web page until you find a section named “All Installers”.</li>
+<li>Click on the link beside “macOS 10.13+” to start your download the MAC version of RStudio.</li>
+<li>Install RStudio by clicking on the downloaded file and following the instructions as it is.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<div id="setting" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Create New Project<a href="setting-up-r.html#setting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+<p>After installing R studio successfully the first step is to create a project R studio.</p>
+<ul>
+<li>Step 1: Go to <strong>File -&gt; New Project</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/1_text.png" alt="" />
+<p class="caption">New Project</p>
+</div>
+<ul>
+<li>Step 2: Select <strong>New Directory</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2_text.png" alt="" />
+<p class="caption">New Directory</p>
+</div>
+<ul>
+<li>Step 3: Select <strong>New Project</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/3_text.png" alt="" />
+<p class="caption">New Project</p>
+</div>
+<ul>
+<li>Step 4: Give your preferred directory name like <strong>“Data101_Assignmnets”</strong></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4_text.png" alt="" />
+<p class="caption">Directory Name</p>
+</div>
+<ul>
+<li>Step 5: Click on Create Project and finally the R studio should look like</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png" alt="" />
+<p class="caption">Rstudio</p>
+</div>
+<hr />
+</div>
+<div id="how-to-upload-a-data-set" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> How to upload a data set?<a href="setting-up-r.html#how-to-upload-a-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<ul>
+<li><p>To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.</p></li>
+<li><p>There are two options while accessing the dataset from your local machine:</p>
+<ol style="list-style-type: decimal">
+<li>To avoid giving long directory paths for accessing the dataset, one should use the command <strong>getwd()</strong> to get the current working directory and store the dataset in the same directory.</li>
+</ol></li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/5_text.png" alt="" />
+<p class="caption">Getwd</p>
+</div>
+<ul>
+<li>To access the dataset stored in the same directory one can use the following: <strong>read.csv(“MOODY_DATA.csv”)</strong>.</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/6_text.png" alt="" />
+<p class="caption">Store the moody dataset in the same directory</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>One can also store the dataset at a different location and can access it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)</li>
+</ol>
+<pre><code>- For Windows Users.
+  - Example: read.csv(&quot;C:/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv&quot;)
+
+- For MAC Users.
+  - Example: read.csv(&quot;/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv&quot;)
+  </code></pre>
+<strong>Note: </strong>
+The directory path given here is the current working directory hosted on <em>Github</em> where the dataset has been stored.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbmRmIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIilcblxuIyBQcmludCBvdXQgYGRmYFxuaGVhZChkZikifQ==
+</div>
+<hr />
+</div>
+<div id="saving-your-work" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Saving your work<a href="setting-up-r.html#saving-your-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>To save your work go to <strong>File -&gt; Save</strong>. It will ask you to give a name for your <strong>.R file</strong> and then click on Save.</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/7_text.png" alt="" />
+<p class="caption">Save</p>
+</div>
+<ul>
+<li>After making modifications to your saved file, you will need to save the file again.
+If the name of the file on the top is in <span style="color: red;"> Red Color </span> indicates that the file have <strong>unsaved</strong> changes.</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/8_text.png" alt="" />
+<p class="caption">Unsaved File</p>
+</div>
+<ul>
+<li>Go to <strong>File -&gt; Save</strong> to save your .R file again. After saving the file the color of the file name i.e. <strong>HW1.R</strong> will again change back to <strong>black</strong>.</li>
+</ul>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/9_text.png" alt="" />
+<p class="caption">Saved File</p>
+</div>
+<p><strong>Note: </strong> You can create multiple files inside the same project such as for your each homework assignments</p>
+</div>
+<div id="general-r-references" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> General R References<a href="setting-up-r.html#general-r-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.w3schools.com/r/" class="uri">https://www.w3schools.com/r/</a> <br>
+<a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf" class="uri">https://cran.r-project.org/doc/contrib/Short-refcard.pdf</a> <br>
+<a href="https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337&amp;psc=1" class="uri">https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337&amp;psc=1</a> <br>
+<a href="https://data101.cs.rutgers.edu/laboratory/" class="uri">https://data101.cs.rutgers.edu/laboratory/</a></p>
+</div>
+<div id="textbook-concepts" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Textbook Concepts<a href="setting-up-r.html#textbook-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Hypothesis testing: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>Difference of means hypothesis testing: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>Null Hypothesis: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>Alternative Hypothesis: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>z-value: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>critical value: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>significance level: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>p-value: <a href="ztest.html#ztest">8</a></p></li>
+<li><p>Bonferroni correction: <a href="Mtest.html#Mtest">10</a></p></li>
+<li><p>Chi square test: <a href="chitest.html#chitest">9</a></p></li>
+<li><p>Independence: <a href="chitest.html#chitest">9</a></p></li>
+<li><p>Multiple Hypothesis testing: <a href="Mtest.html#Mtest">10</a></p></li>
+<li><p>False Discovery Proportion: <a href="Mtest.html#Mtest">10</a></p></li>
+<li><p>Contingency Matrix: <a href="chitest.html#chitest">9</a></p></li>
+<li><p>Bayesian Reasoning: <a href="br.html#br">13</a></p></li>
+<li><p>Prior odds: <a href="br.html#br">13</a></p></li>
+<li><p>Posterior odds: <a href="br.html#br">13</a></p></li>
+<li><p>Likelihood ratio: <a href="br.html#br">13</a></p></li>
+<li><p>False positive: <a href="br.html#br">13</a></p></li>
+<li><p>True positive: <a href="br.html#br">13</a></p></li>
+<li><p>Crossvalidation: <a href="prpart.html#crossvalidation">16.4</a></p></li>
+<li><p>Decision trees: <a href="prpart.html#prpart">16</a></p></li>
+<li><p>Linear regression: <a href="lr.html#lr">17</a></p></li>
+<li><p>Recursive partitioning: <a href="lr.html#lr">17</a></p></li>
+<li><p>MSE: <a href="lr.html#lr">17</a></p></li>
+<li><p>Prediction accuracy: <a href="lr.html#lr">17</a></p></li>
+<li><p>Training: <a href="lr.html#lr">17</a></p></li>
+<li><p>Testing: <a href="lr.html#lr">17</a></p></li>
+</ul>
+</div>
+<div id="r-functions-used-in-this-class" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> R functions used in this class<a href="setting-up-r.html#r-functions-used-in-this-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<ul>
+<li><p><strong>Elementary instructions: </strong> c() <a href="plots.html#vector">6.1</a>, mean() <a href="data-transformation.html#mean">7.1.1</a>, nrow() <a href="data-transformation.html#nrow">7.2.1</a>, rep(), sd() <a href="data-transformation.html#sd">7.1.5</a>, cut() <a href="data-transformation.html#cut">7.4.2</a></p></li>
+<li><p><strong>Plots: </strong> plot() <a href="plots.html#scartterplot">6.4</a>, barplot() <a href="plots.html#barplot">6.5</a>, boxplot() <a href="plots.html#boxplot">6.6</a> mosaicplot() <a href="plots.html#mosaicplot">6.7</a></p></li>
+<li><p><strong>Data Transformations: </strong> subset() <a href="data-transformation.html#subset">7.2</a>, tapply() <a href="data-transformation.html#tapply">7.3</a>, table() <a href="plots.html#table">6.3</a>, aggregate()</p></li>
+<li><p><strong>Library functions: </strong> chisq.test() <a href="chitest.html#chitest">9</a>, pnorm() <a href="ztest.html#permutaion">8.2</a>, Permutation() <a href="ztest.html#permutaion">8.2</a>, rpart() <a href="prpart.html#prpart">16</a>, predict() <a href="prpart.html#rpartpredict">16.5</a>, lm() <a href="lr.html#lm">17.1</a>, crossvalidation() <a href="prpart.html#crossvalidation">16.4</a></p></li>
+<li><p><strong>Parameters of rpart: </strong> minsplit <a href="prpart.html#rpartcontrol">16.3</a>, minbucket <a href="prpart.html#rpartcontrol">16.3</a>, cp <a href="prpart.html#rpartcontrol">16.3</a></p></li>
+</ul>
+</div>
+<div id="data-sets" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Data sets<a href="setting-up-r.html#data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="moody" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Moody<a href="setting-up-r.html#moody" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2022_new.csv">moody2022_new.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-26">Table 5.1: </span>Snippet of Moody Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+SCORE
+</th>
+<th style="text-align:left;">
+GRADE
+</th>
+<th style="text-align:left;">
+DOZES_OFF
+</th>
+<th style="text-align:left;">
+TEXTING_IN_CLASS
+</th>
+<th style="text-align:right;">
+PARTICIPATION
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+316
+</td>
+<td style="text-align:right;">
+10.09
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+396
+</td>
+<td style="text-align:right;">
+52.56
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+rarely
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+343
+</td>
+<td style="text-align:right;">
+95.72
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+239
+</td>
+<td style="text-align:right;">
+51.09
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:right;">
+40.67
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+sometimes
+</td>
+<td style="text-align:left;">
+always
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5zdW1tYXJ5KG1vb2R5KSJ9
+</div>
+</div>
+<div id="movies" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Movies<a href="setting-up-r.html#movies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-28">Table 5.2: </span>Snippet of Movies Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+content
+</th>
+<th style="text-align:right;">
+imdb_score
+</th>
+<th style="text-align:left;">
+Gross
+</th>
+<th style="text-align:left;">
+Budget
+</th>
+<th style="text-align:left;">
+genre
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+12663
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+4.65
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Action
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11911
+</td>
+<td style="text-align:left;">
+UK
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+7.06
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9058
+</td>
+<td style="text-align:left;">
+Czech Republic
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+7.15
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Sci-Fi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6896
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+4.44
+</td>
+<td style="text-align:left;">
+High
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Drama
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10151
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+PG-13
+</td>
+<td style="text-align:right;">
+5.76
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Sci-Fi
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcblxuc3VtbWFyeShtb3ZpZXMpIn0=
+</div>
+</div>
+<div id="traffic" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Traffic<a href="setting-up-r.html#traffic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Traffic2022.csv" download="Traffic2022.csv">Traffic2022.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-30">Table 5.3: </span>Snippet of Traffic Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+TUNNEL
+</th>
+<th style="text-align:left;">
+DAY
+</th>
+<th style="text-align:right;">
+VOLUME_PER_MINUTE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2256
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+74.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1072
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+53.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1858
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+74.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1189
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+51.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1102
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+51.5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2Jylcblxuc3VtbWFyeSh0cmFmZmljKSJ9
+</div>
+</div>
+<div id="hindex" class="section level3 hasAnchor" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Hindex<a href="setting-up-r.html#hindex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv" download="Hindex.csv">Hindex.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-32">Table 5.4: </span>Snippet of Hindex Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+IDN
+</th>
+<th style="text-align:left;">
+COUNTRY
+</th>
+<th style="text-align:right;">
+HAPPINESS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+312
+</td>
+<td style="text-align:right;">
+28184
+</td>
+<td style="text-align:left;">
+Liberia
+</td>
+<td style="text-align:right;">
+3.66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4030
+</td>
+<td style="text-align:right;">
+71372
+</td>
+<td style="text-align:left;">
+Malaysia
+</td>
+<td style="text-align:right;">
+7.24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1249
+</td>
+<td style="text-align:right;">
+49430
+</td>
+<td style="text-align:left;">
+Armenia
+</td>
+<td style="text-align:right;">
+5.60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5892
+</td>
+<td style="text-align:right;">
+38595
+</td>
+<td style="text-align:left;">
+Ukraine
+</td>
+<td style="text-align:right;">
+4.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4533
+</td>
+<td style="text-align:right;">
+56836
+</td>
+<td style="text-align:left;">
+Ecuador
+</td>
+<td style="text-align:right;">
+6.63
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIilcblxuc3VtbWFyeShoaW5kZXgpIn0=
+</div>
+</div>
+<div id="prediction-1-dataset" class="section level3 hasAnchor" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Prediction 1 Dataset<a href="setting-up-r.html#prediction-1-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-34">Table 5.5: </span>Snippet of Moody Predicition 1 dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Major
+</th>
+<th style="text-align:right;">
+Score
+</th>
+<th style="text-align:left;">
+Seniority
+</th>
+<th style="text-align:left;">
+Grade
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+414
+</td>
+<td style="text-align:left;">
+CS
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Freshman
+</td>
+<td style="text-align:left;">
+D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+436
+</td>
+<td style="text-align:left;">
+Statistics
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:left;">
+Freshman
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35
+</td>
+<td style="text-align:left;">
+Statistics
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+Senior
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+512
+</td>
+<td style="text-align:left;">
+Statistics
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+Junior
+</td>
+<td style="text-align:left;">
+D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+316
+</td>
+<td style="text-align:left;">
+Statistics
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+Junior
+</td>
+<td style="text-align:left;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMnRyYWluLmNzdlwiKVxuXG5zdW1tYXJ5KG1vb2R5KSJ9
+</div>
+</div>
+<div id="midterm-project-and-final-exam-distribution-in-prof.-moody-class" class="section level3 hasAnchor" number="5.7.6">
+<h3><span class="header-section-number">5.7.6</span> Midterm, Project and Final Exam distribution in Prof. Moody class<a href="setting-up-r.html#midterm-project-and-final-exam-distribution-in-prof.-moody-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv" download="MoodyNUM.csv">MoodyNUM.csv</a></p>
+<p><strong>Assumptions:</strong> Midterm, Project and Final Exam are all out of 100</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-36">Table 5.6: </span>Midterm, Project and Final Exam distribution in Prof. Moody class
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Midterm
+</th>
+<th style="text-align:right;">
+Project
+</th>
+<th style="text-align:right;">
+FinalExam
+</th>
+<th style="text-align:right;">
+ClassScore
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+926
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+37.56863
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+34.80494
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+682
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+53.59012
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+718
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+49.30000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+607
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+19.90000
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcblxuc3VtbWFyeShtb29keSkifQ==
+</div>
+</div>
+<div id="minimarket" class="section level3 hasAnchor" number="5.7.7">
+<h3><span class="header-section-number">5.7.7</span> Minimarket<a href="setting-up-r.html#minimarket" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv" download="HomeworkMarket2022.csv">HomeworkMarket2022.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-38">Table 5.7: </span>Minimarket dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Beer
+</th>
+<th style="text-align:left;">
+Day
+</th>
+<th style="text-align:left;">
+Location
+</th>
+<th style="text-align:left;">
+SoftDrinks
+</th>
+<th style="text-align:left;">
+Sweets
+</th>
+<th style="text-align:left;">
+Wine
+</th>
+<th style="text-align:left;">
+Snacks
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+12585
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+Weekday
+</td>
+<td style="text-align:left;">
+New Brunswick
+</td>
+<td style="text-align:left;">
+Orange Juice
+</td>
+<td style="text-align:left;">
+Milky Way
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7089
+</td>
+<td style="text-align:left;">
+Lager
+</td>
+<td style="text-align:left;">
+Weekday
+</td>
+<td style="text-align:left;">
+Edison
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+Snickers
+</td>
+<td style="text-align:left;">
+White
+</td>
+<td style="text-align:left;">
+Potato Chips
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19490
+</td>
+<td style="text-align:left;">
+Lager
+</td>
+<td style="text-align:left;">
+Weekend
+</td>
+<td style="text-align:left;">
+New Brunswick
+</td>
+<td style="text-align:left;">
+Orange Juice
+</td>
+<td style="text-align:left;">
+Milky Way
+</td>
+<td style="text-align:left;">
+Red
+</td>
+<td style="text-align:left;">
+Crackers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9587
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+Weekday
+</td>
+<td style="text-align:left;">
+Metuchen
+</td>
+<td style="text-align:left;">
+Sprite
+</td>
+<td style="text-align:left;">
+Twix
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10012
+</td>
+<td style="text-align:left;">
+Ale
+</td>
+<td style="text-align:left;">
+Weekend
+</td>
+<td style="text-align:left;">
+Princeton
+</td>
+<td style="text-align:left;">
+Sprite
+</td>
+<td style="text-align:left;">
+Snickers
+</td>
+<td style="text-align:left;">
+Red
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtaW5pbWFya2V0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hvbWV3b3JrTWFya2V0MjAyMi5jc3ZcIilcblxuc3VtbWFyeShtaW5pbWFya2V0KSJ9
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-puzzles-secrets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdemo.epub", "bookdemo.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -8,12 +8,23 @@
 tutorial::go_interactive()
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#freestyle12">Data Exploration</button>
-<div id="freestyle12" class="collapse">    
-<embed src="https://docs.google.com/presentation/d/1wvWxu_DEEoYNq0qKEkepbqu2-x0SGsXGQiE2iWbv2Iw/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
+Data Puzzles are synthetically generated datasets with some embedded patterns.  Patterns have various forms from relationships between attributes to rules of the form “if condition then value” between specific attribute-value pairs.  These patterns are stochastic and embedded in datasets using **DataMaker** -  our  Data Puzzle Generation Tool developed by my team at Rutgers. 
+
+We use data puzzles extensively in the class assignments.  These range from data exploration and plotting through  hypothesis testing to prediction and machine learning.  After the assignment is completed we reveal the data secrets - the patterns which were embedded by DataMaker.  Students do not have to find exactly the embedded patterns, often they find related patterns which makes the “game” even more fun. 
+
+ In the following  we provide the list of data puzzles along with the underlying data sets.  Using DataMaker we change the patterns and even data sets from class to class.  We can also provide data puzzles of different levels of difficulty from the  one star (easy) to five star (most difficult)  ones. 
+
 
 ## Moody Data Puzzle
+
+How to get a good grade in Professor Moody’s class?  
+
+Clearly, Professor Moody does not give final grades on the basis of your total score alone. Our data shows that two students with the same total score may get widely varying final grades. Can you believe that you can even fail his class with a score as high as 82%? This is outrageous, isn’t it? 
+
+We have collected thousands of cases over the years which in addition to the total score and final grade also store bizarre and a bit intrusive information about student behaviors in the class - do they often doze off? Do they text a lot? Ask a lot of questions?  We do not know how on earth does Moody collect this data?   Does it help if you ask a lot of questions? Does it hurt if you doze off a lot?
+
+**Comment:** There is a series of Professor Moody’s puzzles which we have used over the years. We have used different attributes including the major of a student, seniority, participation etc. 
+
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -27,26 +38,6 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
-Moody Data Puzzle is our first example of a data puzzle. By data puzzles we mean synthetically generated data sets which have some embedded patterns. Your goal is to find the embedded pattern(s). You may also find patterns similar  (implied) by patterns embedded in the data puzzle. This is fine too. The goal of data puzzles is to excite you about exploratory data analysis. In many ways it is like a game.
-
-**Puzzle description:**
-
-Professor Moody has been teaching statistics 101 class for many years. His teaching evaluations went considerably south with the chief complaint:  he DOES NOT seem to assign grades fairly.   Students compared their scores among themselves and found quite a bit of discrepancies! But their complaints went nowhere since Professor promptly disappeared after posting the final grades and scores.
-
-A new brave TA,  managed to get hold of the carefully maintained grading table (spanning multiple years) of professor Moody by ….messing a bit with Moody's computer….well,  let's not explain the details because he would get in trouble. What he found out was a remarkably structured account of how professor Moody assigns his grades.  
-
-Looks like Professor Moody is in fact very alert in class. He is aware of  what students do,  detecting texting during class and remembering exactly who was dozed off in  class.  He also keeps the mysterious "participation index" which is a numerical score from 0 to 1. This is probably related to questions asked and answered by students as well as their general attentiveness in class.  Remarkable but a little creepy, isn't it?
-
-What is the best advice the new TA, can give future students how to get a good grade in Professor Moody's class? What factors influence the grade besides the score? Back your recommendation up with plots and evidence from the attached data.
-
-**What are examples of patterns we are looking for here?**   
-
-Here are some:
-
-- “Students who text a lot” have lower chance to get an A in the class”
-- “Students whose participation is lower than 0.25 fail the class more often”
-- “Dozing off does not matter if your score is more than 90, you still get an A”
-- “If you score is less than 30, you fail the class regardless of what your other attributes are”
 
 ### Secrets Revealed- Patterns in Professor Moody's data? 
 
@@ -55,20 +46,18 @@ Here are some:
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-Moody-My-patterns.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 <br>
-Many student solutions falsely attribute higher grades to higher values of participation attribute..  
+Many student solutions falsely attribute higher grades to higher values of participation attribute.. 
 
-This is a classic example of a hidden variable described in the reference attached below. 
+This is a classic example of a hidden variable described in the reference attached below. The truth is that participation attribute value impacts the score attribute value. Generally, the higher the participation in Moody’s class, the higher the score. But it is the score attribute which has a direct impact on the grade. Thus, it is the score which is the real “hidden variable” impacting the final grade.
 
-The truth is that participation attribute value impacts the  score  attribute value. Generally, the higher the participation in Moody’s class, the higher the score.  But it is the  score attribute which has a direct impact on the grade. Thus, it is the score which is  the real "hidden variable" impacting  the final grade. 
+Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above with the explanation) 
 
-Thus, the score already reflects participation. Professor Moody seemed to look only at texting and dozing off attributes in grade determination (see the power points above  with the explanation) 
+Compare with examples of hidden variables in the following reference about correlation and causation. 
 
-
-Compare with examples of hidden variables in the following reference about correlation and causation.
-
-https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
+https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html 
 
 
+<!--
 ### Best Student's Submissions 2022
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#PPT2021">Lauretta Martin</button>
@@ -86,225 +75,104 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 <div id="PPT2019" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
-<!--
-#### Snippet 1
-
-```{r,tut=TRUE,height=300}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-
-```
-
-#### Snippet 2
-
-```{r,tut=TRUE,height=300}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-```
-
-#### Snippet 3
-
-```{r,tut=TRUE,height=300}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-```
-
-#### Snippet 4
-
-```{r,tut=TRUE,height=300}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-```
-
-#### Snippet 5
-
-```{r,tut=TRUE,height=300}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-```
 -->
 
 
-<!--
-#### Snippet 1
+## Magic Coin Data Puzzle
 
-Lets look at the general distribution of Grades and scores
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tosses2022.csv" download="Tosses2022.csv">Tosses2022.csv</a>
 
-```{r,tut=TRUE,height=400}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+Your goal is to discover secrets of a magic coin. Ordinary coins when tossed a large number of times  result equally often in Heads and in Tails.  The magic though is not an ordinary coin.  Your job is to discover when the magic coin is most biased one way or another.  The data consists of thousands of tosses of the magic coin including where the toss took place, who tossed it, who reported the result as well as the time of the day.
 
-#Barplot General Grade distribution
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(moody2022$GRADE), col = colors, main = 'General Grade Distribution',
-        ylab = 'Number of students', xlab = 'Letter Grade')
-
-#Boxplot grade distribution by score
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-boxplot(SCORE~GRADE, data=moody2022, xlab = "Letter Grade", ylab="Score", 
-        main="Distribution of Scores by Grade", col = colors, border = "black")
-
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+toss<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tosses2022.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  toss[sample(1:nrow(toss),5), ], caption = 'Snippet of Magic Coin Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
 ```
 
-#### Snippet 2
-
-Does Texting affect grades?
-
+<br>
 ```{r,tut=TRUE,height=600}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+toss<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tosses2022.csv")
 
-#barplot using varibale always TEXTING_IN_CLASS
-alwaysTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'always'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(alwaysTexting$GRADE), col = colors, 
-        main = 'Grade Distribution for student always texting', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale sometimes TEXTING_IN_CLASS
-sometimesTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'sometimes'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(sometimesTexting$GRADE), col = colors, 
-        main = 'Grade Distribution for student sometimes texting', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale rarely TEXTING_IN_CLASS
-rarelyTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'rarely'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(rarelyTexting$GRADE), col = colors, 
-        main = 'Grade Distribution for student rarely texting', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale never TEXTING_IN_CLASS
-neverTexting <- moody2022[which(moody2022$TEXTING_IN_CLASS == 'never'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(neverTexting$GRADE), col = colors, 
-        main = 'Grade Distribution for student never texting', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
+summary(toss)
 ```
 
-#### Snippet 3
+## What is a good party? Puzzle
 
-Does Dozing off affect grades?
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv" download="Partyb.csv">Partyb.csv</a>
 
+We store data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does who is the host matter? Or who was present at a party? Maybe who was NOT present at the party? We have all this information. 
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  party[sample(1:nrow(party),5), ], caption = 'Snippet of Party Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+<br>
 ```{r,tut=TRUE,height=600}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
 
-#barplot using varibale always Dozing_off
-alwaysDozes <- moody2022[which(moody2022$DOZES_OFF == 'always'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(alwaysDozes$GRADE), col = colors, 
-        main = 'Grade Distribution for student always Dozing', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale rarely Dozing_off
-rarelyDozes <- moody2022[which(moody2022$DOZES_OFF == 'rarely'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(rarelyDozes$GRADE), col = colors, 
-        main = 'Grade Distribution for student rarely Dozing', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale sometimes Dozing_off
-sometimesDozes <- moody2022[which(moody2022$DOZES_OFF == 'sometimes'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(sometimesDozes$GRADE), col = colors, 
-        main = 'Grade Distribution for student sometimes Dozing', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale nevers Dozing_off
-neverDozes <- moody2022[which(moody2022$DOZES_OFF == 'never'), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(neverDozes$GRADE), col = colors, 
-        main = 'Grade Distribution for student never Dozing', xlab = 'letter Grade',
-        ylab = 'Number of Students')
-
-
+summary(party)
 ```
 
-#### Snippet 4
+## Voter preferences data puzzle
 
-Does Particiaption affect grades?
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv" download="Voting1.csv">Voting1.csv</a>
 
-```{r,tut=TRUE,height=500}
-moody2022 <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-#barplot using varibale 0-0.5 Participation
-lessParticipation <- moody2022[which(moody2022$PARTICIPATION >= 0 & moody2022$PARTICIPATION < 0.5), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(lessParticipation$GRADE), col = colors, 
-        main = 'Grade Distribution for student with low Participation', xlab = 'Letter Grade',
-        ylab = 'Number of Students')
-
-#barplot using varibale 0.5-1 Participation
-highParticipation <- moody2022[which(moody2022$PARTICIPATION >= 0.5 & moody2022$PARTICIPATION <= 1), ]
-colors<- c('red','blue','cyan','yellow','green', 'orange')
-barplot(table(highParticipation$GRADE), col = colors, 
-        main = 'Grade Distribution for student with high Participation', xlab = 'Letter Grade',
-        ylab = 'Number of Students')
-```
--->
-
-
-<!--
-#### Snippet 1
-
-Does participation affect grade or score?
-
-```{r,tut=TRUE,height=400}
-moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-barplot(table(moody$GRADE), col=rainbow(5), main="Bar Plot of Grades", xlab = "Grades", ylab = "Number of Students", 
-        border=NA, ylim=c(0, 200))
-
-
-boxplot(moody$PARTICIPATION~moody$GRADE, main = "Participation vs. Grade", xlab = "Participation", ylab = "Grade", 
-        col = rainbow(5))
-
-
-boxplot(moody$SCORE~moody$GRADE, main = "Scores vs. Grades", col = rainbow(5), xlab = "Grades", 
-        ylab = "Number of Students", ylim=c(0, 120))
-
-
-plot(moody$PARTICIPATION, moody$SCORE, main = "Participation vs. Score", xlab = "Participation", ylab = "Score", 
-     col = "blue")
-
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+voting<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  voting[sample(1:nrow(voting),5), ], caption = 'Snippet of Voting Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
 ```
 
-#### Snippet 2
+<br>
+```{r,tut=TRUE,height=600}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
 
-Does Dozing off affect grades?
-
-```{r,tut=TRUE,height=400}
-moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-barplot(table(moody$GRADE[moody$DOZES_OFF == "never"]), col=rainbow(5), main="Grades vs. Never Sleeping in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
-barplot(table(moody$GRADE[moody$DOZES_OFF == "sometimes"]), col=rainbow(5), main="Grades vs. Sometimes Sleeping in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
-barplot(table(moody$GRADE[moody$DOZES_OFF == "always"]), col=rainbow(5), main="Grades vs. Always Sleeping in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
+summary(vote)
 ```
 
-#### Snippet 3
+## Good sleep Data Puzzle
 
-Does Texting in class affect grades?
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv" download="SleepPrediction2.csv">SleepPrediction2.csv</a>
 
-```{r,tut=TRUE,height=400}
-moody <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
-
-barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "never"]), col=rainbow(5), main="Grades vs. Never Texting in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
-barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "rarely"]), col=rainbow(5), main="Grades vs. Rarely Texting in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
-barplot(table(moody$GRADE[moody$TEXTING_IN_CLASS == "always"]), col=rainbow(5), main="Grades vs. Always Texting in Class", 
-        xlab = "Grades", ylab = "Number of Students", border=NA, ylim=c(0, 200))
-
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Sleep Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
 ```
--->
+
+<br>
+```{r,tut=TRUE,height=600}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+summary(sleep)
+```
 
 ## Movies Data Hunt
 
@@ -333,6 +201,8 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/profhw4.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
 
+<!--
+
 ### Best Student's Submissions 2022
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#hw41">Joshua Sze</button>
@@ -345,6 +215,16 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 <div id="hw42" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/studen2hw4.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
+-->
+
+## Professor Canvas data puzzle
+
+You are all familiar with Canvas, right?  This is where you look to see your grades for each assignment and exam.  This is where you see the scores.  In fact, who needs the professor?  Seems like the Professor  is in fact Canvas itself.  However it seems that Professor Canvas went a bit wild and unfair!  
+
+One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but professor Canvas?   How can one get a lower grade  with a higher score?  
+
+Yes, Canvas was instructed by someone and your goal is to discover the grading method. We know who that someone is…it is DataMaker of course. 
+
 
 ## Minimarket Data Hunt 
 
@@ -360,18 +240,9 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
-**Puzzle description:**
+What items sell together? 
 
-Each row of Minimarket.csv contains one customer transaction which is represented as binary vector (treat this as NUM values). 1 means that customer bought an item, 0 - means that customer did not but that item. For example if customer bought Bread but did not buy Butter you will see 1 in the Bread column and 0 in the Butter column.
-
-**Summary**
-
-Here's what you'd do: <br>
-1. Come up with a null hypothesis: "Bread does not impact the sales of butter" <br>
-2. Come up with an alternative hypothesis: "Bread impacts the sale of butter" <br>
-3. Compute the mean value of the Butter column for all the rows where Bread value = 0. Let's say this is mean1.<br>
-4. Compute the mean value of the Butter column for all the rows where Bread value = 1. Let's say this is mean2.
-
+A small local minimarket chain (think Wawa at its early days) has a few locations in New Jersey and it sells beer, snacks, sweets. DataMaker provided the data set of several thousand of transactions in the minimarket storing what items were purchased, when they were purchased (weekday or weekend) at which location.  
 
 ### What were the secret associations  between  items in the minimarket?
 
@@ -380,13 +251,30 @@ Here's what you'd do: <br>
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ecrets-revealed-prediction-minimarket.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
 
+## Virus Data Puzzle
+
+Whose computer  is in most danger of being infected with a virus?  Let's assume that obvious protections have been secured: antivirus software is installed and an uncrackable password is in place. 
+
+Anything else?  But how about your personal characteristics - are you an optimist or a pessimist?  Do you have lots of facebook friends?  Is your instagram followed?  Massively?  Do you spend all your time online? Are you an outdoorsy type ? Do you have a dog? 
+
+## Good mood Data Puzzle
+
+What are the secrets of DataMaker’s good mood?  Now we fully admit that DataMaker is moody!  Data is not surprisingly very nerdy - amount of free disk space, number of processes, CPU utilization, number of active connections.
+
+## Airbnb data puzzle
+
 ## Predicting grades in Professor Moody's class
-
-
 
 ### How did I cook the Professor Moody Prediction challenge data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV13">Secrets Revealed</button>
 <div id="MV13" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Secrets-revealed-prediction-challenge.pptx&embedded=true" width="100%" height="500px"></embed>
+</div>
+
+## Addiotional Reference 
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#p12"> Prediction - Free Style </button> 
+<div id="p12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
