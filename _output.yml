@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: none
       before: |
-        <li><a href="https://dev7796.github.io/data101_tutorial/intro.html">DATA 101 Book</a>
+        <li><a href="./">DATA 101 Book</a>
         <a href="https://github.com/dev7796/data101_tutorial" target="blank">Github Source</a>
         <a href="https://b.socrative.com/teacher/#launch" target="blank">Socrative Quiz</a>
         <a href="https://dev7796.shinyapps.io/testing_button/" target="black">Question Roulette</a>

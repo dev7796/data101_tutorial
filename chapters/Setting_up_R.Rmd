@@ -250,7 +250,7 @@ tutorial::go_interactive()
 - **Parameters of rpart: ** minsplit \@ref(rpartcontrol), minbucket \@ref(rpartcontrol), cp \@ref(rpartcontrol)
 
 
-
+<!--
 ## Data sets
 
 ### Moody
@@ -411,7 +411,7 @@ minimarket<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial
 summary(minimarket)
 ```
 
-
+-->
 
 
 

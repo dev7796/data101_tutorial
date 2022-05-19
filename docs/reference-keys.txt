@@ -1,10 +1,3 @@
-tab:unnamed-chunk-7
-tab:unnamed-chunk-9
-tab:unnamed-chunk-11
-tab:unnamed-chunk-13
-tab:unnamed-chunk-15
-tab:unnamed-chunk-17
-tab:unnamed-chunk-19
 tab:unnamed-chunk-22
 tab:unnamed-chunk-23
 tab:unnamed-chunk-25
@@ -25,14 +18,6 @@ saving-your-work
 general-r-references
 textbook-concepts
 r-functions-used-in-this-class
-data-sets
-moody
-movies
-traffic
-hindex
-prediction-1-dataset
-midterm-project-and-final-exam-distribution-in-prof.-moody-class
-minimarket
 data-puzzles
 moody-data-puzzle
 secrets-revealed--patterns-in-professor-moodys-data
