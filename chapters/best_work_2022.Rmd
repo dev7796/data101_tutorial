@@ -17,7 +17,7 @@ tutorial::go_interactive(greedy = FALSE)
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/best1.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
 
-
+<!--
 ## Prediction Challenge 1
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#bt15"> Upsham Naik </button> 
@@ -43,6 +43,8 @@ tutorial::go_interactive(greedy = FALSE)
 <div id="bt19" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1ZKQa5-JGiQydxjOvLrE_SaX9eOnjP6jHdqJ4Dpyc-bw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
+-->
+
 
 ## Boundless Analytics
 

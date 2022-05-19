@@ -3,10 +3,8 @@ output_dir: "docs"
 delete_merged_file: true
 rmd_files: [
   "./chapters/intro.Rmd",
-  "./chapters/best_work_2022.Rmd",
-  "./chapters/Leaderboard.Rmd",
-  "./chapters/FreeStyle.Rmd",
   "./chapters/Setting_up_R.Rmd",
+  "./chapters/FreeStyle.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/tapply_subsetting.Rmd",
   "./chapters/z-test.Rmd",
@@ -21,7 +19,9 @@ rmd_files: [
   "./chapters/Linear_regression.Rmd",
   "./chapters/Prediction_loop.Rmd",
   "./chapters/Mysteries_of_Aggregated_data.Rmd",
-  "./chapters/22.Rmd",]
+  "./chapters/22.Rmd",
+  "./chapters/best_work_2022.Rmd",
+  "./chapters/Leaderboard.Rmd",]
 # rmd_subdir: "./chapters"
 
 language:
