@@ -8,22 +8,26 @@
 tutorial::go_interactive()
 ```
 
-Data Puzzles are synthetically generated datasets with some embedded patterns.  Patterns have various forms from relationships between attributes to rules of the form “if condition then value” between specific attribute-value pairs.  These patterns are stochastic and embedded in datasets using **DataMaker** -  our  Data Puzzle Generation Tool developed by my team at Rutgers. 
+Data Puzzles are synthetically generated datasets with some embedded patterns.  Patterns have various forms from relationships between attributes to rules of the form “if condition then value” between specific attribute-value pairs.  These patterns are stochastic and embedded in datasets using **DataMaker** -  our  Data Puzzle Generation Tool.
 
 We use data puzzles extensively in the class assignments.  These range from data exploration and plotting through  hypothesis testing to prediction and machine learning.  After the assignment is completed we reveal the data secrets - the patterns which were embedded by DataMaker.  Students do not have to find exactly the embedded patterns, often they find related patterns which makes the “game” even more fun. 
 
- In the following  we provide the list of data puzzles along with the underlying data sets.  Using DataMaker we change the patterns and even data sets from class to class.  We can also provide data puzzles of different levels of difficulty from the  one star (easy) to five star (most difficult)  ones. 
+ In the following  we provide the list of data puzzles along with the underlying data sets.  Using DataMaker we change the patterns and even data sets from academic year to academic year..  We can also provide data puzzles of different levels of difficulty from the  one star (easy) to five star (most difficult)  ones. 
 
 
-## Moody Data Puzzle
+
+## Strange grading methods of Professor Moody Data Puzzle
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2022_new.csv">moody2022_new.csv</a>
 
 How to get a good grade in Professor Moody’s class?  
 
-Clearly, Professor Moody does not give final grades on the basis of your total score alone. Our data shows that two students with the same total score may get widely varying final grades. Can you believe that you can even fail his class with a score as high as 82%? This is outrageous, isn’t it? 
+Professor Moody does not give final grades just on the basis of your total score alone. Our data shows that two students with the same total score may get widely varying final grades. Can you believe that you can even fail his class with a score as high as 82%? This is outrageous, isn’t it? 
 
-We have collected thousands of cases over the years which in addition to the total score and final grade also store bizarre and a bit intrusive information about student behaviors in the class - do they often doze off? Do they text a lot? Ask a lot of questions?  We do not know how on earth does Moody collect this data?   Does it help if you ask a lot of questions? Does it hurt if you doze off a lot?
+DataMaker has generated  thousands of tuples  which in addition to the total score and final grade also store bizarre information about student behaviors in the class - do they often doze off? Does a student text a lot?  Does s/he ask a lot of questions?    Does it help if you ask a lot of questions? Does it hurt if you doze off a lot?
 
-**Comment:** There is a series of Professor Moody’s puzzles which we have used over the years. We have used different attributes including the major of a student, seniority, participation etc. 
+**Comment:** There is a series of Professor Moody’s puzzles which we have used over the years. We have used different attributes including student’s major, , seniority, class participation etc. 
+
 
 
 ```{r,echo=FALSE}
@@ -39,6 +43,13 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
+```{r,tut=TRUE,height=600}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+summary(moody)
+```
+
+<!--
 ### Secrets Revealed- Patterns in Professor Moody's data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MDP12">My Patterns</button>
@@ -56,7 +67,7 @@ Compare with examples of hidden variables in the following reference about corre
 
 https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html 
 
-
+-->
 <!--
 ### Best Student's Submissions 2022
 
@@ -78,11 +89,11 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 -->
 
 
-## Magic Coin Data Puzzle
+## Magic Coin: Heads or Tails? Data Puzzle
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tosses2022.csv" download="Tosses2022.csv">Tosses2022.csv</a>
 
-Your goal is to discover secrets of a magic coin. Ordinary coins when tossed a large number of times  result equally often in Heads and in Tails.  The magic though is not an ordinary coin.  Your job is to discover when the magic coin is most biased one way or another.  The data consists of thousands of tosses of the magic coin including where the toss took place, who tossed it, who reported the result as well as the time of the day.
+Your goal is to discover secrets of a magic coin. Ordinary coins when tossed a large number of times  result equally often in Heads and in Tails.  The magic coin  though is not an ordinary coin.  Your job is to discover when the magic coin is most biased one way or another.  The data consists of thousands of tosses of the magic coin including where the toss took place, who tossed it, who reported the result as well as the time of the day.
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -103,11 +114,11 @@ toss<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 summary(toss)
 ```
 
-## What is a good party? Puzzle
+## How to predict a good party?  Data puzzle
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv" download="Partyb.csv">Partyb.csv</a>
 
-We store data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does who is the host matter? Or who was present at a party? Maybe who was NOT present at the party? We have all this information. 
+DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -128,9 +139,16 @@ party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 summary(party)
 ```
 
-## Voter preferences data puzzle
+## When election is truly local - data puzzle
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv" download="Voting1.csv">Voting1.csv</a>
+
+In local elections in some small towns, candidates of three local parties: Royalists, KnowNothings and Anarchists are running for the office of the mayor. DataMaker has generated a survey of thousands of town residents and their political sympathies. Data of course can not be more local, leaving global concerns such as inflation or global warming to national or state office candidates.  
+
+Here, the electorate cares  about  issues such as “should we allow leaflowers” (all, only electric, none?), what about CBD stores in town (none, just one, no restrictions), How about liquor (should the town be dry? Or hard liqueurs only). Speed limits? (none, 10mph etc) or even more extreme - the whole town being car-free, streets open only to bicycles and pedestrians?
+
+Can we develop the profiles of voters for each of the parties? What does the  anarchist electorate  care about? Which party is leading among young people who do not want any speed limits in town?
+
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -151,9 +169,11 @@ vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 summary(vote)
 ```
 
-## Good sleep Data Puzzle
+## Secrets of good sleep Data Puzzle 
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv" download="SleepPrediction2.csv">SleepPrediction2.csv</a>
+
+Who wouldn’t want to know the secrets of good sleep?  DataMaker has created a data set which may help to find these secrets. We store the number of exercise calories burnt during the day, the amount of wimpy tea a person has drunk (in ounces), hours spent on the computer and the quality of the preceding night’s sleep. 
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -174,7 +194,15 @@ sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 summary(sleep)
 ```
 
-## Movies Data Hunt
+## Let’s go to the movies:  Data Puzzle 
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
+
+Using DataMaker  we have started with the imdb data set from Kaggle and embedded some patterns in it.  The original data set contains data about 12,800+ movies. We have expanded this data set by DataMaker’s opinions. Yes, only DataMaker can have an opinion on each of 12,800 movies! Can you predict which  movies does DataMaker love and which movies bore him so much that she quit?   What movies DataMaker passionately hates (hmm is DataMaker even passionate about anything at all?). 
+``When does DataMaker agree with the imdb score?``
+
+Can one predict an imdb score on the basis of a combination of DataMaker opinion (sort of super critic) and other attributes?
+
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -188,12 +216,14 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
-**Puzzle description:**
 
-contains  imdb scores of 12,800+ movies  along with several attributes including budget, gross  genre, content rating etc.
+```{r,tut=TRUE,height=600}
+movie<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
-What are the most promising  alternative hypotheses  about imdb scores to test?  Name your three top candidates along with the evidence which backs them up:  either in the form of R instruction(s)  or plot.
+summary(movie)
+```
 
+<!--
 ### Secrets Revealed- Patterns in Movies data? 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
@@ -201,7 +231,7 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/profhw4.pdf&embedded=true" width="100%" height="500px"></embed>
 </div>
 
-<!--
+
 
 ### Best Student's Submissions 2022
 
@@ -217,16 +247,44 @@ What are the most promising  alternative hypotheses  about imdb scores to test? 
 </div>
 -->
 
-## Professor Canvas data puzzle
+## When canvas goes wild data puzzle 
 
-You are all familiar with Canvas, right?  This is where you look to see your grades for each assignment and exam.  This is where you see the scores.  In fact, who needs the professor?  Seems like the Professor  is in fact Canvas itself.  However it seems that Professor Canvas went a bit wild and unfair!  
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv" download="Grades2022.csv">Grades2022.csv</a>
 
-One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but professor Canvas?   How can one get a lower grade  with a higher score?  
+You are all familiar with Canvas, right?  This is where you look to see your grades for each assignment and exam.  This is where you see the scores.  However it seems that Canvas went a bit wild and unfair in this data set.
 
-Yes, Canvas was instructed by someone and your goal is to discover the grading method. We know who that someone is…it is DataMaker of course. 
+``One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but Canvas?``   How can one get a lower grade  with a higher score?  
+
+Yes, Canvas was instructed by someone and your goal is to discover the grading method.  ``How to get an A, how to pass?``  We know who that someone is… it is **DataMaker** of course. 
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+<br>
+
+```{r,tut=TRUE,height=600}
+canvas<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv")
+
+summary(canvas)
+```
 
 
-## Minimarket Data Hunt 
+
+## Very local minimarket data puzzle 
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Minimarket.csv" download="Minimarket.csv">Minimarket.csv</a>
+
+What items sell together? 
+
+A small local minimarket chain (think Wawa at its early days) has a few locations in New Jersey and it sells beer, snacks, sweets. DataMaker provided the data set of several thousand of transactions in the minimarket storing what items were purchased, when they were purchased (weekday or weekend) at which location.  
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -240,10 +298,14 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
-What items sell together? 
 
-A small local minimarket chain (think Wawa at its early days) has a few locations in New Jersey and it sells beer, snacks, sweets. DataMaker provided the data set of several thousand of transactions in the minimarket storing what items were purchased, when they were purchased (weekday or weekend) at which location.  
+```{r,tut=TRUE,height=600}
+minimarket<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Minimarket.csv")
 
+summary(minimarket)
+```
+
+<!--
 ### What were the secret associations  between  items in the minimarket?
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
@@ -271,6 +333,7 @@ What are the secrets of DataMaker’s good mood?  Now we fully admit that DataMa
 <div id="MV13" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Secrets-revealed-prediction-challenge.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
+-->
 
 ## Addiotional Reference 
 
