@@ -44,8 +44,8 @@ Sections **5.6** and **5.7** provide the lists of all concepts which we cover in
 
 Our **question roulette** allows self-testing on nearly 100 questions relevant to the material. Each question is answered, but students are encouraged first to answer questions themselves and only then follow it with checking the correct answer.
 
-**Acknowledgement:  **<br>
-This textbook would not have been created without extensive help from Devarsh Shah
+
+
 
 
 
