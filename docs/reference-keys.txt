@@ -76,6 +76,7 @@ what-would-r-say-6
 what-would-r-say-7
 more-complex-example-of-defining-derived-attributes
 snippet-1-3
+additional-reference
 ztest
 introduction
 permutaion

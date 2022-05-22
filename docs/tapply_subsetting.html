@@ -152,6 +152,7 @@
 <li class="chapter" data-level="5.4.2" data-path="tapply_subsetting.html"><a href="tapply_subsetting.html#cut"><i class="fa fa-check"></i><b>5.4.2</b> Cut</a></li>
 <li class="chapter" data-level="5.4.3" data-path="tapply_subsetting.html"><a href="tapply_subsetting.html#code-review-3"><i class="fa fa-check"></i><b>5.4.3</b> Code Review</a></li>
 </ul></li>
+<li class="chapter" data-level="5.5" data-path="tapply_subsetting.html"><a href="tapply_subsetting.html#additional-reference"><i class="fa fa-check"></i><b>5.5</b> Additional reference</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="z-test.html"><a href="z-test.html"><i class="fa fa-check"></i><b>6</b> 🔖 Hypothesis Testing</a>
 <ul>
@@ -305,13 +306,7 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Data Transformation</button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div></li>
-</ul>
+<p>Very often data is transformed before it is visualized. In this section we review basic transformation techniques. Before we do this, we review a few basic functions which are going to be very useful when transforming data.</p>
 <div id="basic-functions" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Basic Functions<a href="tapply_subsetting.html#basic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="mean" class="section level3 hasAnchor" number="5.1.1">
@@ -359,6 +354,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG4jTGV0cyBsb29rIGF0IHRoZSBzdGFuZGFyZCBkZXZpYXRpb24gb2Ygc2NvcmUgY29sdW1uXG5zZChtb29keSRzY29yZSkifQ==
 </div>
 <hr />
+<p>Now we are ready to introduce basic data transformation techniques such as slicing and dicing. Slicing otherwise known as <strong>subsetting</strong> allows to select data frame subsets. These subsets are defined by boolean conditions built from Attribute op value pairs where op is one of the arithmetic operators such as =, !=, &lt; etc. For example (Score &gt;70)&amp; (Grade ==’A’) refers to subset of a data frame describing students who scored more than 70 points and got an A.</p>
+<p>Dicing refers to eliminating some of the attributes from a data frame - it is vertical slicing - which results in more “narrow” frame.
+Finally we can also expand our data frame with new, so called derived, attributes. This is very useful operation in data analysis since it allows so called <strong>“feature engineering”</strong>.This new user defined features can lead to totally new insights into the data.</p>
 </div>
 </div>
 <div id="subset" class="section level2 hasAnchor" number="5.2">
@@ -407,6 +405,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NT09EWS0yMDE5LmNzdlwiKVxuXG5tb29keVttb29keSRTQ09SRT49ODAuMCAmIG1vb2R5JEdSQURFID09J0InLF0gXG4jIFdoYXQgd2lsbCBSIHNheT9cblxuIyBBLiBzdWJzZXQgb2YgbW9vZHkgZGF0YSBmcmFtZSB3aG8gZ290IEIgZ3JhZGUuXG4jIEIuIGVycm9yLlxuIyBDLiBzdWJzZXQgb2YgbW9vZHkgZGF0YSBmcmFtZSB3aXRoIHNjb3JlIGdyZWF0ZXIgdGhhbiA4MC5cbiMgRC4gc3Vic2V0IG9mIG1vb2R5IGRhdGEgZnJhbWUgd2l0aCBzY29yZSBtb3JlIHRoYW4gODAgYW5kIGdvdCBCIGdyYWRlLiJ9
 </div>
 <hr />
+<p>One of the most important R instructions is <strong>tapply</strong>. It allows parallel execution of an aggregate function for different values of a categorical variable.</p>
 </div>
 </div>
 </div>
@@ -498,10 +497,20 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKVxuXG5cbm1vb2R5JGNvbmRpdGlvbmFsIDwtMFxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb248MC41MCwgXSRzY29yZSAtMTAqKDEtbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHBhcnRpY2lwYXRpb24pXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJGNvbmRpdGlvbmFsIDwtIG1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kc2NvcmUgKzEwKm1vb2R5W21vb2R5JHBhcnRpY2lwYXRpb24+PTAuNTAsIF0kcGFydGljaXBhdGlvblxuXG4jIHByaW50IHRoZSBjb2x1bW4gbmFtZXNcbmNvbG5hbWVzKG1vb2R5KVxuXG4jIGxldHMgbG9vayBhdCB0aGUgY29uZGl0aW9uYWwgYXR0cmlidXRlIFxuaGVhZChtb29keSlcblxuI3N1YnNldCB0aGUgbW9vZHkgZGF0YXNldCByb3dzID0gMSB0byAxMCBhbmQgY29scyA9IDEsNVxubW9vZHlbMToxMCwgYygxLDUpXVxuXG4jc3Vic2V0IHRoZSBtb29keSBkYXRhc2V0IHJvd3MgPSAxIHRvIDEwIGFuZCBjb2xzID0gMSw1LDZcbm1vb2R5WzE6MTAsIGMoMSw1LDYpXVxuXG4jIHByaW50IHN1bW1hcnkgb2YgaW5pZGl2aWR1YWwgY29sdW1uc1xuc3VtbWFyeShtb29keSRzY29yZSlcbnN1bW1hcnkobW9vZHkkY29uZGl0aW9uYWwpXG5cbiMgUGxvdHRpbmcgdGhlIGNvbmRpdGlvbmFsIGF0dHJpYnV0ZSB1c2luZyBib3hwbG90XG5ib3hwbG90KG1vb2R5JGNvbmRpdGlvbmFsLGNvbCA9IGMoXCJyZWRcIiksbWFpbj1cIkNvbXBsZXggRXhhbXBsZVwiKVxuXG4jIFBsb3R0aW5nIHRoZSBzY29yZSBhdHRyaWJ1dGUgdXNpbmcgYm94cGxvdFxuYm94cGxvdChtb29keSRzY29yZSxjb2wgPSBjKFwiYmx1ZVwiKSxtYWluPVwiQ29tcGxleCBFeGFtcGxlXCIpIn0=
 </div>
+</div>
+</div>
+</div>
+</div>
+<div id="additional-reference" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Additional reference<a href="tapply_subsetting.html#additional-reference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
+Data Transformation
+</button>
+<div id="subset12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div>
 
-</div>
-</div>
-</div>
 </div>
 </div>
             </section>
