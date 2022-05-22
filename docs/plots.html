@@ -305,18 +305,8 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
-<div id="plots12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
-<!--
-<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
-<div id="plots11" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
-</div> --></li>
-</ul>
+<p>When you import your data to R studio one of the first things you do is plot. Data visualization is a key components of data analysis. Before we talk about plots, we introduce some very basis data structures in R: vectors, data frames and tables. These are introduced below in the form of code snippets that you can run and modify.</p>
+<p><strong>Then we are ready to plot!</strong></p>
 <div id="vector" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Vector<a href="plots.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <script src="files/js/dcl.js"></script>
@@ -548,13 +538,63 @@ rarely
 </tbody>
 </table>
 </div>
+<p><br></p>
+<p><strong>Now we are ready to plot.</strong></p>
+<p>We will introduce several basic plots such as scatter plot, bar plot, boxplot and mosaic plot. How do we know which plot to apply? It depends on whether the variables to be plotted are categorical or numerical. Below we show a simple table which can serve as a guide which plot to use depending on types of variables to be plotted.</p>
+<table>
+<tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NUM x NUM
+</td>
+<td>
+scatter plot
+</td>
+</tr>
+<tr>
+<td>
+CAT x CAT
+</td>
+<td>
+mosaic plot
+</td>
+</tr>
+<tr>
+<td>
+CAT x NUM
+</td>
+<td>
+box plot
+</td>
+</tr>
+<tr>
+<td>
+NUM
+</td>
+<td>
+box plot, histogram
+</td>
+</tr>
+<tr>
+<td>
+CAT
+</td>
+<td>
+bargraph
+</td>
+</tr>
+</table>
 <!-- --- -->
 <!-- ### Topics visited in this sub-chapter -->
 <!-- * Scatter Plot -->
 <!-- * Barplot -->
 <!-- * Boxplot -->
 <!-- * Mosaic Plot -->
-<hr />
 </div>
 </div>
 </div>
@@ -635,6 +675,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFz
 </div>
 <div id="additional-references" class="section level2 hasAnchor" number="4.8">
 <h2><span class="header-section-number">4.8</span> Additional References<a href="plots.html#additional-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">
+Plots
+</button>
+<div id="plots12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div>
 <p><a href="https://www.datamentor.io/r-programming/plot-function/" class="uri">https://www.datamentor.io/r-programming/plot-function/</a></p>
 <!--
 ```

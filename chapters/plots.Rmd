@@ -9,15 +9,9 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
-<div id="plots12" class="collapse">    
-<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
-<!--
-<button class="btn btn-primary" data-toggle="collapse" data-target="#plots11">Lecture PPT</button>
-<div id="plots11" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Plots-2022.pdf&embedded=true" width="100%" height="500px"></embed>
-</div> -->
+When you import your data to R studio one of the first things you do is plot. Data visualization is a key components of data analysis. Before we talk about plots, we introduce some very basis data structures in R: vectors, data frames and tables.  These are introduced below in the form of code snippets that you can run and modify. 
+
+**Then we are ready to plot!**
 
 ## Vector {#vector}
 
@@ -250,6 +244,61 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+<br>
+
+**Now we are ready to plot.**
+
+We will introduce several basic plots such as scatter plot, bar plot, boxplot and mosaic plot.  How do we know which plot to apply?  It depends on whether the variables to be plotted are categorical or  numerical.   Below we show a simple table which can serve as a guide which plot to use depending on types of variables to be plotted. 
+
+<table>
+<tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NUM x NUM 
+</td>
+<td>
+scatter plot
+</td>
+</tr>
+
+<tr>
+<td>
+CAT x CAT
+</td>
+<td>
+mosaic plot
+</td>
+</tr>
+
+<tr>
+<td>
+CAT x NUM 
+</td>
+<td>
+box plot
+</td>
+</tr>
+
+<tr>
+<td> NUM
+</td>
+<td> box plot, histogram
+</td>
+</tr>
+
+<tr>
+<td> CAT
+</td>
+<td> bargraph
+</td>
+</tr>
+</table>
+
 
 <!-- --- -->
 
@@ -259,8 +308,6 @@ kableExtra::scroll_box(temp,width = "100%")
 <!-- * Barplot -->
 <!-- * Boxplot -->
 <!-- * Mosaic Plot -->
-
----
 
 ## Scatter Plot {#scartterplot}
 
@@ -387,6 +434,11 @@ mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main
 ```
 
 ## Additional References
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">Plots</button>
+<div id="plots12" class="collapse">    
+<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
 
 https://www.datamentor.io/r-programming/plot-function/
 
