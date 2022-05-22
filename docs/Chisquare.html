@@ -563,21 +563,24 @@ TOTAL
 </table>
 <p>We kept fractions - although these are number of students - therefore would have to be rounded up to integers</p>
 <p>The chi-square formula calculates the <strong>“distance”</strong> between the observed contingency table and the expected contingency table.</p>
-<p><strong>∑(i⋅j)(O−E)2E</strong></p>
-<pre><code>where:
-O = observed values
-E = expected values
-i = the number of rows in the table
-j = the number of columns in the table
-For the two tables above the </code></pre>
 <p><span class="math display">\[\begin{equation}
 
-\sum \frac{(O_i - E_i)^2}{E_i}  = 60.03\\
-\text{where, X is set of numbers, $\mu$ is average of set of numbers, }\\ \text{ N is size of the set, $\sigma$ is standard deviation}
+\sum \frac{(O_i - E_j)^2}{E_i}\\
 
+
+\text{where:}\\
+\text{O = observed values}\\
+\text{E = expected values}\\
+\text{i = the number of rows in the table}\\
+\text{j = the number of columns in the table}\\
 
 \end{equation}\]</span></p>
-<p><strong>∑(i⋅j)(O−E)2E = 60.03</strong></p>
+<p>For the two tables above the,</p>
+<p><span class="math display">\[\begin{equation}
+
+\sum \frac{(O_i - E_j)^2}{E_i}  = 60.03\\
+
+\end{equation}\]</span></p>
 <p>To evaluate how far off is this result assuming that Grades are independent from Major, we run a permutation test which scrambles Grades and Majors randomly and every time computes the chi-square formula with the new observed table (the expected table is always the same). Then, we see how many times out of, say 10,000 iterations of permutation test we obtain a result larger than the observed result of 60.03? This is the p-value.</p>
 <p>Permutation test for independence hypothesis gives us again a better feeling about the impact of randomness and whether the observed chi-square result for <strong>“similarity”</strong> of grade distributions for different majors can be obtained randomly.</p>
 <p>In the following snippet we run the chisq test which is based on the so-called chi square distribution, you can learn more about it in a statistics class. Here we just simply show you a function which can calculate p-value, just like the z-test function does.</p>
