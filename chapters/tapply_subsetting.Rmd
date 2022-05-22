@@ -76,7 +76,6 @@ Now we are ready to introduce basic data transformation techniques such as slici
 Dicing refers to eliminating some of the attributes from a data frame  - it is vertical slicing - which results in a more “narrow” frame.
 Finally we can also expand our data frame with new, so called derived, attributes. This is a very useful operation in data analysis since it allows so-called **“feature engineering”**. These new user-defined features can lead to totally new insights into the data. 
 
-
 ## Subset {#subset}
 
 ### Snippet 1- example of subset function {#nrow}
