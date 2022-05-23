@@ -218,7 +218,7 @@ summary(sleep)
 
 ## Let’s go to the movies:  Data Puzzle 
 
-Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv" download="MoviesDataMaker2.csv">MoviesDataMaker2.csv</a>
 
 Using DataMaker  we have started with the imdb data set from Kaggle and embedded some patterns in it.  The original data set contains data about 12,800+ movies. We have expanded this data set by DataMaker’s opinions. Yes, only DataMaker can have an opinion on each of 12,800 movies! Can you predict which  movies does DataMaker love and which movies bore him so much that she quit?   What movies DataMaker passionately hates (hmm is DataMaker even passionate about anything at all?). 
 
@@ -229,7 +229,7 @@ Can one predict an imdb score on the basis of a combination of DataMaker opinion
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv") #web load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv") #web load
 # head(moody)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
@@ -273,7 +273,7 @@ kableExtra::scroll_box(temp,width = "100%")
 <br>
 
 ```{r,tut=TRUE,height=600}
-movie<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
+movie<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
 
 summary(movie)
 ```
