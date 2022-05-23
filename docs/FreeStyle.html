@@ -1149,7 +1149,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzbGVlcDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 </div>
 <div id="lets-go-to-the-movies-data-puzzle" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Let’s go to the movies: Data Puzzle<a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a></p>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv" download="MoviesDataMaker2.csv">MoviesDataMaker2.csv</a></p>
 <p>Using DataMaker we have started with the imdb data set from Kaggle and embedded some patterns in it. The original data set contains data about 12,800+ movies. We have expanded this data set by DataMaker’s opinions. Yes, only DataMaker can have an opinion on each of 12,800 movies! Can you predict which movies does DataMaker love and which movies bore him so much that she quit? What movies DataMaker passionately hates (hmm is DataMaker even passionate about anything at all?).</p>
 <p><strong>When does DataMaker agree with the imdb score?</strong></p>
 <p>Can one predict an imdb score on the basis of a combination of DataMaker opinion (sort of super critic) and other attributes?</p>
@@ -1180,6 +1180,9 @@ Budget
 <th style="text-align:left;">
 genre
 </th>
+<th style="text-align:left;">
+DataMaker
+</th>
 </tr>
 </thead>
 <tbody>
@@ -1191,13 +1194,13 @@ genre
 USA
 </td>
 <td style="text-align:left;">
-R
+PG
 </td>
 <td style="text-align:right;">
-6.66
+6.12
 </td>
 <td style="text-align:left;">
-High
+Medium
 </td>
 <td style="text-align:left;">
 Medium
@@ -1205,28 +1208,34 @@ Medium
 <td style="text-align:left;">
 Comedy
 </td>
+<td style="text-align:left;">
+FellAsleep
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
 7868
 </td>
 <td style="text-align:left;">
-Ireland
+USA
 </td>
 <td style="text-align:left;">
-R
+PG
 </td>
 <td style="text-align:right;">
-7.08
-</td>
-<td style="text-align:left;">
-Low
+4.65
 </td>
 <td style="text-align:left;">
 Medium
 </td>
 <td style="text-align:left;">
-Action
+Medium
+</td>
+<td style="text-align:left;">
+Comedy
+</td>
+<td style="text-align:left;">
+FellAsleep
 </td>
 </tr>
 <tr>
@@ -1237,10 +1246,10 @@ Action
 USA
 </td>
 <td style="text-align:left;">
-R
+PG-13
 </td>
 <td style="text-align:right;">
-6.77
+6.30
 </td>
 <td style="text-align:left;">
 High
@@ -1249,7 +1258,10 @@ High
 High
 </td>
 <td style="text-align:left;">
-Action
+Drama
+</td>
+<td style="text-align:left;">
+LovedIt
 </td>
 </tr>
 <tr>
@@ -1260,19 +1272,22 @@ Action
 USA
 </td>
 <td style="text-align:left;">
-PG
+R
 </td>
 <td style="text-align:right;">
-5.85
+7.88
 </td>
 <td style="text-align:left;">
 Low
 </td>
 <td style="text-align:left;">
-High
+Medium
 </td>
 <td style="text-align:left;">
-Family
+Comedy
+</td>
+<td style="text-align:left;">
+Survived
 </td>
 </tr>
 <tr>
@@ -1280,13 +1295,13 @@ Family
 4695
 </td>
 <td style="text-align:left;">
-USA
+UK
 </td>
 <td style="text-align:left;">
 R
 </td>
 <td style="text-align:right;">
-6.46
+7.53
 </td>
 <td style="text-align:left;">
 High
@@ -1295,7 +1310,10 @@ High
 Medium
 </td>
 <td style="text-align:left;">
-Comedy
+Action
+</td>
+<td style="text-align:left;">
+LovedIt
 </td>
 </tr>
 </tbody>
@@ -1303,7 +1321,7 @@ Comedy
 </div>
 <p><br></p>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb3ZpZXMyMDIyRi00LmNzdlwiKVxuXG5zdW1tYXJ5KG1vdmllKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb3ZpZXNEYXRhTWFrZXIyLmNzdlwiKVxuXG5zdW1tYXJ5KG1vdmllKSJ9
 </div>
 <!--
 ### Secrets Revealed- Patterns in Movies data? 
