@@ -10,10 +10,69 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#BR12">Bayesian Reasoning</button> 
-<div id="BR12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1gwI6y7yyqi8GWdPuS9dZlXsZs-1r1TsumQb-PL4Hu5s/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
+## Introductions 
+
+Bayesian Reasoning and Bayesian theorem are fundamental instruments to use both in data science as well as in real, everyday life. They are definitely part of data literacy and should be widely taught, especially among future doctors, lawyers and politicians.  In this section we will explain why Bayesian reasoning is so important and also teach the most simple and intuitive formulation of Bayesian theorem - the  Odds formulation.
+
+Bayesian theorem is a calming tool  - the chances of bad things happening are lower than expected!  This is why Bayes helps  pessimists.  Take a situation at a doctor's office when a patient learns that a medical test for some potentially serious condition came positive. The doctor believes the test and the test is almost 100% accurate. Should the patient despair?  Not so fast. Bayes theorem allows the patient to ask the doctor some important questions. 
+
+In bayesian reasoning we distinguish between two concepts = observation and belief.  Belief is something unknown, Observation is known. We use observation to modify the odds (probability) of the  belief from prior odds (before we learned about observation) and the posterior odds (after we learned about observation). For example a patient taking a covid test is concerned about having covid. But s/he does not know whether they have covid. Thus “having covid” is a belief.  Test result is an observation (positive or negative).  Given the prior odds of covid (say 1:100), and positive covid test what are the posterior odds of covid?  Bayesian theorem tells us how to compute posterior odds from prior odds, given the observation.
+w
+Odds formulation of Bayesian theorem states;
+
+\begin{equation}
+
+\text{POSTERIOR ODDS = LIKELIHOOD RATIO *  PRIOR ODDS} \\
+               
+
+\textbf{Prior odds}   \text{-  odds for the belief before observation (evidence)}\\
+
+\textbf{Likelihood ratio}  \text{-  effect of observation, evidence. Can be larger or smaller than 1!!}\\
+
+\textbf{Posterior odds} \text{-  New odds with observation(evidence) taken under consideration.}\\
+
+\end{equation}
+
+Let B a belief and O be an observation, then
+
+\begin{equation}
+
+\textbf{Prior odds} - \frac{P(B)}{P(\sim B)}\\
+
+\textbf{Likelihood ratio}  - \frac{P(O|B)}{P(O|\sim B)}\\
+
+\textbf{Posterior odds} - \frac{P(B|O)}{P(\sim B|O)}
+\end{equation}
+
+Let's discuss the multiplier – likelihood ratio in more detail.  It is the red colored part of the bayes Theorem:
+
+\begin{equation}
+
+\frac{P(B|O)}{P(\sim B|O)} =	\frac{P(O|B)}{P(O|\sim B)}  *   \frac{P(B)}{P(\sim B)} \\
+
+\text{The red colored ratio is the ratio of true positive and false positive,}\\
+
+\text{P(O|B) – True positive} \\
+\text{P(O|$\sim$ B) – False positive}
+
+\end{equation}
+
+True positive is the conditional probability of seeing the observation given that our  belief is true. In our medical example it is the probability of testing positive for covid, given that in fact we have covid. 
+
+False positive, on the other hand, is the probability of observation under condition that the belief is not true. For example in our case that covid test comes positive even when we do not have covid. 
+
+In real life False positives are often overlooked. And this is the critical question we should ask the doctor or health professional who administers any test. What is the false positive of this test?   Since this is what we divide the true positive by. Even if the true positive is 99.9% (almost sure), if the false positive is, say 20% - the likelihood ratio is around 5.  In such a situation, a positive test increases the odds of having covid just 5 times. If prior odds of covid are 1:100, the posterior odds of covide after such a positive test are just 5:100, still minimal!.  Even if a false positive was 10%, the likelihood ratio of 10, would increase odds of covid 10 fold, to just 1:10 and false positive of 5%, would result in a likelihood ratio of 20 - still leading to higher odds of NOT having covid than having it!  
+
+This is why false positives are so critical. IBut the main question that Bayes teaches us to ask is what are the prior odds.  Since if prior odds are very small (we are testing a really rare condition) then the likelihood ratio would have to be really large to make posterior odds significant.  For example if prior odds are one in a million, we need a likelihood ratio of more than half a million to actually make posterior odds better than proverbial fifty - fifty.
+
+Hence to main questions we should ask our doctor upon hearing that the test results are positive are:
+
+**What are the prior odds of the disease?**
+
+**What is the false positive of the test (since we assume that the true positive of the test would usually be close to 100%)?**
+
+In the following snippets we show how to calculate the posterior odds, while being tested for a disease and then closer to our data puzzles, how to calculate the posterior odds of getting an A in class, when scoring more than 85%.In all these situations we begin with identifying what is belief (the unknown), what is the observation (the known) and we use the snippets by plugging in some assumed values of prior odds, as well as true positives and false positives.
+
 
 ## Snippet 1: Covid Odds after positive Home Test. 
 
@@ -82,3 +141,10 @@ PosteriorOdds
 Posterior <-PosteriorOdds/(1+PosteriorOdds)
 Posterior
 ```
+
+## Additinal Reference
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#BR12">Bayesian Reasoning</button> 
+<div id="BR12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1gwI6y7yyqi8GWdPuS9dZlXsZs-1r1TsumQb-PL4Hu5s/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>

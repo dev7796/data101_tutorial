@@ -1,0 +1,73 @@
+Question,Answer
+"Odds of getting an A in Professor Moody's class are 1:3, what is the probability of getting A in professor Moody's class?",0.25
+Probability of failing Professor Moody's class is 20%. What are the odds of failing professor Moody's class?,1:4
+What probabilities (odds) do we need to know to calculate the odds that the winner of a Hackathon is computer science major?,Prior odds of being computer science student particpating in Hackathon Likelihood ratio computed using True positive and False positive for computer science student winning Hackathon
+What probabilities (odds) do we need to know to calculate the odds that a climate change activist will vote for democratic party candidate?,"Prior odds for a voter to be clmate change activist Likelihood ratio computed using
+True positive and False positive for climate activist voting for democratic party candidate"
+What probabilities (odds) do we need to know to calculate the odds that a student who did not complete first 3 assignments  will fail the class?,"Prior odds of student failing the class Likelihood ratio computed using
+True positive and False positive for student failing the class not comleting first 3 assignments
+"
+When is posterior probability higher than prior probability according to Bayes Theorem?,When likelihood ratio is higher than 1.
+Let S be a simplistic covid test - which is always positive for everyone no matter whether they have covid or not. What is the likelihood ratio of S?,Likelihood ratio =1
+"Given training data set, testing data set and submission file, which one is definitely not needed in Kaggle submission?",training data set
+What is the difference between training data set and testing data set?,Testing data has one extra attribute comaring to the training data
+Lets assume that for subset of Moody data set we get 90% of C's and 5% of B's. and 5% of D's.  What is the error of the best prediction rule based on this subset?,10%
+Which function is used in  evaluating prediction models?,Crossvalidation()
+"Lets assume that alternative  hypothesis states ""R rated movies have higher mean imdb than PG rated movies""  What is the null hypothesis?",R rated movies have same imdb score as PG rated movies
+What plot would you use to display distribution of movies among different countries?,Barplot
+Assume p=0.99. what does it mean?,That observed result can be obtained assuming null hypothesis with probability 0.99 (it is random)
+"When z score goes up, the p-value goes…..?",down
+"Assume 10% of  results of a permutation test are larger than 2.  Let the observed difference of means = 5, Estimate p value?",p<0.1
+"Assume 95% of  results of a permutation test are smaller than 5. Let the observed difference of means =10, Estimate p-value?",p<0.05
+When z=0 then the  p-value is equal to?,p=0.5
+"To compute minimal score for each of the grades A…F, what function(s) will you use?",tapply()
+"To calculate frequencies of each movie rating in Movies data set, which function will you use?",table()
+"To split imdb scores  into 3 intervals and label them “Low”, “Medium” and “High” which function will you use?",Cut()
+To split participation values in Moody data set  into 10 intervals which function will you use?,Cut()
+"If standard deviation doubles, what happens to z-value?",It halves
+"Let observed difference of means equal to 100, what is the corresponding z-value?",We need to know the standard deviation
+What does chi-square test?,Independece
+"We run permutation test 1000 times, what is the smallest non-zero p-value we can get?",p=0.001
+Which plot will you use to show imdb score distribution for different genres?,Boxplot
+What plot will you use to show relationship between score in the class and particpation in the class?,Scatter plot
+What plot will you use to show relationship between genre of a movie and its content rating?,Mosaic Plot
+What plot will you use to show relationship between imdb score of a movie and its genre,Boxplot
+What plot will you use to show frequency distribution of different movie genres?,Barplot
+What plot will you use to show frequency distribution of grades in Porfessor Moody data set?,Barplot
+What plot will you use to show ranges of scores for different grades in professor Moody class?,Boxplot
+What plot will you use to show ranges of  imdb scores for movies of different content ratings?,Boxplot
+What plot will you use to show score distribution in the Professor Moody's class,"Boxplot, Histogram"
+What plot will you use to show imdb distribution for all movies earning more than $100M gross?,"Boxplot, Histogram"
+what plot will you use to show frequency distribution of grades in professor Moody's class for seniors majoring in Psychology?,Barplot
+what R function will you use to show average score for each grade in profssor moody class?,tapply()
+what R function will you use to show max imdb score for each movie genre?,tapply()
+what R function(s) will you use to show min participation for   each grade for economics juniors in professor moody's class?,subset and tapply
+what R function(s) will you use to show min particpation for  each grade among economics juniors in professor moody's class,subset and tapply
+what R function(s) will you use to show frequency distribution of content rating among different movies genres among amercan movies?,subset and table
+what R function(s) will you use to show frequency of different majors among reciepients of different grades for seniors in Professor Moody's class,subset and table
+what R function(s) will you use to show number of CS majors who got an A in professor Moody's class,nrow() and subset
+what R function(s) will you use to show number of comedies which are rated R?,nrow() and subset
+what R function(s) will you use to show number of students who got an A despite scoring less than 70 in Professor's Moody's class,nrow() and subset
+what R function(s) will you use to show minimal imdb score for different movies genres among R rated movies?,tapply() and subset
+what R function(s) will you use to show distribution of  different majors among A students in professor Moody's class?,table and subset
+Lets assume that our prediction of numerical variable is systematically off by 10 for each predicted value. What would be MSE?,100
+Let Observed difference of means Dnull=5. We run permutation test 10000 times and we get 100 results larger or equal to 20 and 400 results larger than 10.,0.04=>p>=0.01
+"Let one of the lines in rpart() out be: SCORE< 29.545 177  18 F (0 0 0 0.1 0.9) *
+
+How many F's are in this bucket?
+",159
+When is p-value of 0.001 not sufficient to reject null hypothesis?,When there are at least 50 independent hypotheses tested
+"In multiple hypothesis scenario, without Bonferroni correction we may be fooled by data as follows:",We will reject null hypothesis too often
+"What is your answer to a question ""Can your observations come just by random chance?""",You show p-value and also say how many hypotheses have you tested
+We observe that dozing in class lowers average score of a student. What test will you use to confirm your observation?,z-test
+Police has blood test where the chance of matching blood from two random individuals is 1:1000. Suppose the suspect's blood matches blood on the crime scene. What is the chance that it is suspect's blood?,"It depends on number od suspects, it may even be as low as 1%"
+"Suppose Seok scores more on each homework, quiz and exam than Ria.Is it possible than Ria still has higher canvas score than Seok for the whole class?","No, although it may look like instance of Simpson paradox but it is not."
+What is the Simpson paradox about?,Trend appears in several groups of data but disappears or reverses when the groups are combined
+What is the Ecological fallacy about?,when inferences about the nature of individuals are deduced from inferences about the group to which those individuals belong.
+In one sided hypothesis testing what the negative z value mean?,We should reverse the alternative hypothesis
+We observe that mean imdb score of comedies is lower than mean imdb score of dramas. What is the null hypothesis?,That mean imdb score of comedies is the same as mean imdb score of dramas
+"We observe that mean score of psychology seniors is the same as economics seniors in professor Moody's class, What is the null hypothesis?",That mean score of psychology majors is the same  as mean score of economics seniors in professor Moody's class.
+If minsplit value goes up in rpart() function than what happens to the output of rpart()?,It shrinks
+If minbucket value goes down in rpart() function than what happens to the output of rpart()?,It grows
+what data structure is created by read.csv() function?,data frame
+What does the function aggregate() do?,It creates data frame from a table
