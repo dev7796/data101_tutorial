@@ -221,7 +221,8 @@ summary(sleep)
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
 
 Using DataMaker  we have started with the imdb data set from Kaggle and embedded some patterns in it.  The original data set contains data about 12,800+ movies. We have expanded this data set by DataMaker’s opinions. Yes, only DataMaker can have an opinion on each of 12,800 movies! Can you predict which  movies does DataMaker love and which movies bore him so much that she quit?   What movies DataMaker passionately hates (hmm is DataMaker even passionate about anything at all?). 
-``When does DataMaker agree with the imdb score?``
+
+**When does DataMaker agree with the imdb score?**
 
 Can one predict an imdb score on the basis of a combination of DataMaker opinion (sort of super critic) and other attributes?
 
@@ -238,7 +239,6 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
 )
-<<<<<<< HEAD
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
@@ -267,8 +267,6 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
 )
-=======
->>>>>>> a4896dd013af2182df378aac8f559becda95fd26
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -310,9 +308,11 @@ Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/ma
 
 You are all familiar with Canvas, right?  This is where you look to see your grades for each assignment and exam.  This is where you see the scores.  However it seems that Canvas went a bit wild and unfair in this data set.
 
-``One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but Canvas?``   How can one get a lower grade  with a higher score?  
+**One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but Canvas?**   
 
-Yes, Canvas was instructed by someone and your goal is to discover the grading method.  ``How to get an A, how to pass?``  We know who that someone is… it is **DataMaker** of course. 
+**How can one get a lower grade  with a higher score? ** 
+
+Yes, Canvas was instructed by someone and your goal is to discover the grading method.  **How to get an A, how to pass?**  We know who that someone is… it is **DataMaker** of course. 
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -326,10 +326,6 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
   booktabs = TRUE
 )
-<<<<<<< HEAD
-
-=======
->>>>>>> a4896dd013af2182df378aac8f559becda95fd26
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
