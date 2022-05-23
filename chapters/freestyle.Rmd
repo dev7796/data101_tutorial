@@ -38,6 +38,10 @@ temp<-knitr::kable(
   head(moody, 5), caption = 'Snippet of Moody Dataset',
   booktabs = TRUE
 )
+temp<-knitr::kable(
+  head(moody, 5), caption = 'Snippet of Moody Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -103,6 +107,10 @@ temp<-knitr::kable(
   toss[sample(1:nrow(toss),5), ], caption = 'Snippet of Magic Coin Dataset',
   booktabs = TRUE
 )
+temp<-knitr::kable(
+  toss[sample(1:nrow(toss),5), ], caption = 'Snippet of Magic Coin Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -118,8 +126,6 @@ summary(toss)
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv" download="Partyb.csv">Partyb.csv</a>
 
-DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
-
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv") #web load
@@ -128,9 +134,17 @@ temp<-knitr::kable(
   party[sample(1:nrow(party),5), ], caption = 'Snippet of Party Dataset',
   booktabs = TRUE
 )
+temp<-knitr::kable(
+  party[sample(1:nrow(party),5), ], caption = 'Snippet of Party Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
+
+
 
 <br>
 ```{r,tut=TRUE,height=600}
@@ -154,6 +168,10 @@ Can we develop the profiles of voters for each of the parties? What does the  an
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 voting<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv") #web load
 # head(moody)
+temp<-knitr::kable(
+  voting[sample(1:nrow(voting),5), ], caption = 'Snippet of Voting Dataset',
+  booktabs = TRUE
+)
 temp<-knitr::kable(
   voting[sample(1:nrow(voting),5), ], caption = 'Snippet of Voting Dataset',
   booktabs = TRUE
@@ -183,6 +201,10 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Sleep Dataset',
   booktabs = TRUE
 )
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Sleep Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -208,6 +230,10 @@ Can one predict an imdb score on the basis of a combination of DataMaker opinion
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv") #web load
 # head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
+  booktabs = TRUE
+)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
@@ -265,6 +291,10 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
   booktabs = TRUE
 )
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
+  booktabs = TRUE
+)
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -290,6 +320,10 @@ A small local minimarket chain (think Wawa at its early days) has a few location
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Minimarket.csv") #web load
 # head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Minimarket Dataset',
+  booktabs = TRUE
+)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Minimarket Dataset',
   booktabs = TRUE
