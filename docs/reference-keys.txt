@@ -87,13 +87,15 @@ one-permutation-at-a-time
 z-test
 additional-references-1
 chitest
+introduction-1
 snippet-1-4
 snippet-2-2
 snippet-3-1
 snippet-4
 additional-reference-1
 Mtest
-snippet-1---benjamini-hochberg-algorithm
+introduction-2
+Snippet1
 snippet-2-3
 additional-references-2
 cr

@@ -169,17 +169,19 @@
 </ul></li>
 <li class="chapter" data-level="7" data-path="Chisquare.html"><a href="Chisquare.html"><i class="fa fa-check"></i><b>7</b> 🔖 Chi Square Analysis</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="Chisquare.html"><a href="Chisquare.html#snippet-1-4"><i class="fa fa-check"></i><b>7.1</b> Snippet 1</a></li>
-<li class="chapter" data-level="7.2" data-path="Chisquare.html"><a href="Chisquare.html#snippet-2-2"><i class="fa fa-check"></i><b>7.2</b> Snippet 2</a></li>
-<li class="chapter" data-level="7.3" data-path="Chisquare.html"><a href="Chisquare.html#snippet-3-1"><i class="fa fa-check"></i><b>7.3</b> Snippet 3</a></li>
-<li class="chapter" data-level="7.4" data-path="Chisquare.html"><a href="Chisquare.html#snippet-4"><i class="fa fa-check"></i><b>7.4</b> Snippet 4</a></li>
-<li class="chapter" data-level="7.5" data-path="Chisquare.html"><a href="Chisquare.html#additional-reference-1"><i class="fa fa-check"></i><b>7.5</b> Additional Reference</a></li>
+<li class="chapter" data-level="7.1" data-path="Chisquare.html"><a href="Chisquare.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="Chisquare.html"><a href="Chisquare.html#snippet-1-4"><i class="fa fa-check"></i><b>7.2</b> Snippet 1</a></li>
+<li class="chapter" data-level="7.3" data-path="Chisquare.html"><a href="Chisquare.html#snippet-2-2"><i class="fa fa-check"></i><b>7.3</b> Snippet 2</a></li>
+<li class="chapter" data-level="7.4" data-path="Chisquare.html"><a href="Chisquare.html#snippet-3-1"><i class="fa fa-check"></i><b>7.4</b> Snippet 3</a></li>
+<li class="chapter" data-level="7.5" data-path="Chisquare.html"><a href="Chisquare.html#snippet-4"><i class="fa fa-check"></i><b>7.5</b> Snippet 4</a></li>
+<li class="chapter" data-level="7.6" data-path="Chisquare.html"><a href="Chisquare.html#additional-reference-1"><i class="fa fa-check"></i><b>7.6</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html"><i class="fa fa-check"></i><b>8</b> 🔖 Multiple Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-1---benjamini-hochberg-algorithm"><i class="fa fa-check"></i><b>8.1</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
-<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-2-3"><i class="fa fa-check"></i><b>8.2</b> Snippet 2</a></li>
-<li class="chapter" data-level="8.3" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-2"><i class="fa fa-check"></i><b>8.3</b> Additional References</a></li>
+<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#Snippet1"><i class="fa fa-check"></i><b>8.2</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
+<li class="chapter" data-level="8.3" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-2-3"><i class="fa fa-check"></i><b>8.3</b> Snippet 2</a></li>
+<li class="chapter" data-level="8.4" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-2"><i class="fa fa-check"></i><b>8.4</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="code_review.html"><a href="code_review.html"><i class="fa fa-check"></i><b>9</b> Code Review: Exploratory Queries in R</a>
 <ul>
@@ -308,6 +310,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<div id="introduction-2" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction<a href="Multiple_Hypothesis.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the process of discovery, we are often facing multiple possible hypotheses. Consciously or subconsciously we are engaging, what is often called, p-value hunting. We want to find an alternative hypothesis for which null hypothesis can be rejected with the lowest possible p-value. If we are not careful, we may “discover” what is simply random even if we correctly calculate p-value and compare it with the significance level. It is very important to learn about multiple hypothesis traps very early in the process of learning data science. Multiple hypothesis traps surely belong to data 101 and data literacy!</p>
+<p>Say, we are looking for associations between sales of individual items in a supermarket. Does bread sell with butter? Does coffee sell with spring water? There is an exponential number of possible combinations (N choose 2 to be exact, where N is the number of items). For each such pair we perform hypothesis testing. If one test is performed at the 5% level and the corresponding null hypothesis is true, there is only a 5% chance of incorrectly rejecting the null hypothesis. However, if 100 tests are each conducted at the 5% level and all corresponding null hypotheses are true, the expected number of incorrect rejections (also known as false positives or Type I errors) is 5. If the tests are statistically independent from each other, the probability of at least one incorrect rejection is approximately 99.4%.
+Bonferroni correction is a method to counteract the multiple comparisons problem. Bonferroni correction is the simplest method for counteracting this; however, it is a conservative method that gives greater chance of failure to reject a false null hypothesis than other methods, as it ignores potentially valuable information, such as the distribution of p-values across all comparisons (which, if the null hypothesis is correct for all comparisons, is expected to take uniform distribution).</p>
+<p>Statistical hypothesis testing is based on rejecting the null hypothesis if the likelihood of the observed data under the null hypothesis is low. If multiple hypotheses are tested, the chance of observing a rare event increases, and therefore, the likelihood of incorrectly rejecting a null hypothesis.</p>
+<p>The Bonferroni correction compensates for that increase by testing each individual hypothesis at a significance level of <strong>α / m</strong> where m is the number of hypotheses. For example, if a trial is testing me = 20 hypotheses with a desired α = 0.05, then the Bonferroni correction would test each individual hypothesis at</p>
+<p><span class="math display">\[\begin{equation}
+\alpha = \frac{0.05} {20} 
+       = 0.0025
+\end{equation}\]</span></p>
+<p>Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested. This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too <strong>“pro-null”</strong> and tough on alternative hypotheses to be acceptable. Moreover, With Bonferroni correction we may fail to reject the null hypothesis too often. But at least we will not make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions.</p>
+<p>There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in one of the snippets below.</p>
+<p>The <a href="Multiple_Hypothesis.html#Snippet1">8.2</a> describes the data set based on a hypothetical happiness index for individuals in different countries in the world. Is one country’s average happiness index higher than the average happiness of another country? This is the ultimate p-value hunt. Let’s compare countries pair by pair, until we find a pair with sufficiently large differences of mean happiness and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
@@ -472,25 +488,26 @@ Saudi Arabia
 </tbody>
 </table>
 </div>
-<div id="snippet-1---benjamini-hochberg-algorithm" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Snippet 1 - Benjamini-Hochberg Algorithm<a href="Multiple_Hypothesis.html#snippet-1---benjamini-hochberg-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="Snippet1" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Snippet 1 - Benjamini-Hochberg Algorithm<a href="Multiple_Hypothesis.html#Snippet1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="450" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9
 </div>
 </div>
-<div id="snippet-2-3" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Snippet 2<a href="Multiple_Hypothesis.html#snippet-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-2-3" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Snippet 2<a href="Multiple_Hypothesis.html#snippet-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing</p>
 <ul>
 <li><p>How to order by aggregate?</p></li>
-<li><p>First make data frame out of tapply? Use aggregate and list functions.</p></li>
+<li><p>First make a data frame out of tapply? Use aggregate and list functions.</p></li>
 </ul>
 <div data-datacamp-exercise="" data-height="450" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9
 </div>
 </div>
-<div id="additional-references-2" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="additional-references-2" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MPT12">
 Multiple Hypothesis Testing
 </button>

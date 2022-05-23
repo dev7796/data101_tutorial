@@ -9,6 +9,8 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
+## Introduction
+
 The difference of means hypothesis testing is not the only hypothesis testing that we will cover in this textbook.  In our view, the Test of independence very much belongs to data 101 as well.
 
 **Example:** We would like to test if student final grades are affected by their major?  The null hypothesis in this case is the hypothesis of independence. The final grades are independent from major. The alternative hypothesis is that final grades are affected by major. 
@@ -164,7 +166,6 @@ For the two tables above the,
 \sum \frac{(O_i - E_j)^2}{E_i}  = 60.03\\
 
 \end{equation}
-
 
 To evaluate how far off is this result assuming that Grades are independent from Major, we run a permutation test which scrambles Grades and Majors randomly and every time computes the chi-square formula with the new observed table (the expected table is always the same).  Then, we see how many times out of, say 10,000 iterations of permutation test we obtain a result larger than the observed result of 60.03? This is the p-value. 
 

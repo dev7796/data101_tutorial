@@ -169,17 +169,19 @@
 </ul></li>
 <li class="chapter" data-level="7" data-path="Chisquare.html"><a href="Chisquare.html"><i class="fa fa-check"></i><b>7</b> 🔖 Chi Square Analysis</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="Chisquare.html"><a href="Chisquare.html#snippet-1-4"><i class="fa fa-check"></i><b>7.1</b> Snippet 1</a></li>
-<li class="chapter" data-level="7.2" data-path="Chisquare.html"><a href="Chisquare.html#snippet-2-2"><i class="fa fa-check"></i><b>7.2</b> Snippet 2</a></li>
-<li class="chapter" data-level="7.3" data-path="Chisquare.html"><a href="Chisquare.html#snippet-3-1"><i class="fa fa-check"></i><b>7.3</b> Snippet 3</a></li>
-<li class="chapter" data-level="7.4" data-path="Chisquare.html"><a href="Chisquare.html#snippet-4"><i class="fa fa-check"></i><b>7.4</b> Snippet 4</a></li>
-<li class="chapter" data-level="7.5" data-path="Chisquare.html"><a href="Chisquare.html#additional-reference-1"><i class="fa fa-check"></i><b>7.5</b> Additional Reference</a></li>
+<li class="chapter" data-level="7.1" data-path="Chisquare.html"><a href="Chisquare.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="Chisquare.html"><a href="Chisquare.html#snippet-1-4"><i class="fa fa-check"></i><b>7.2</b> Snippet 1</a></li>
+<li class="chapter" data-level="7.3" data-path="Chisquare.html"><a href="Chisquare.html#snippet-2-2"><i class="fa fa-check"></i><b>7.3</b> Snippet 2</a></li>
+<li class="chapter" data-level="7.4" data-path="Chisquare.html"><a href="Chisquare.html#snippet-3-1"><i class="fa fa-check"></i><b>7.4</b> Snippet 3</a></li>
+<li class="chapter" data-level="7.5" data-path="Chisquare.html"><a href="Chisquare.html#snippet-4"><i class="fa fa-check"></i><b>7.5</b> Snippet 4</a></li>
+<li class="chapter" data-level="7.6" data-path="Chisquare.html"><a href="Chisquare.html#additional-reference-1"><i class="fa fa-check"></i><b>7.6</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html"><i class="fa fa-check"></i><b>8</b> 🔖 Multiple Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-1---benjamini-hochberg-algorithm"><i class="fa fa-check"></i><b>8.1</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
-<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-2-3"><i class="fa fa-check"></i><b>8.2</b> Snippet 2</a></li>
-<li class="chapter" data-level="8.3" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-2"><i class="fa fa-check"></i><b>8.3</b> Additional References</a></li>
+<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#Snippet1"><i class="fa fa-check"></i><b>8.2</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
+<li class="chapter" data-level="8.3" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-2-3"><i class="fa fa-check"></i><b>8.3</b> Snippet 2</a></li>
+<li class="chapter" data-level="8.4" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-2"><i class="fa fa-check"></i><b>8.4</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="code_review.html"><a href="code_review.html"><i class="fa fa-check"></i><b>9</b> Code Review: Exploratory Queries in R</a>
 <ul>
@@ -307,6 +309,8 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div id="introduction-1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction<a href="Chisquare.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The difference of means hypothesis testing is not the only hypothesis testing that we will cover in this textbook. In our view, the Test of independence very much belongs to data 101 as well.</p>
 <p><strong>Example:</strong> We would like to test if student final grades are affected by their major? The null hypothesis in this case is the hypothesis of independence. The final grades are independent from major. The alternative hypothesis is that final grades are affected by major.</p>
 <p>Notice that we do not specify how the grades are affected by students’ majors. Do CS students get better grades than psychology majors? Do economics majors get lower grades than Statistics majors? We do not care about this. We are only testing here whether there is a relationship between major and grade distributions.</p>
@@ -586,32 +590,33 @@ TOTAL
 <p>In the following snippet we run the chisq test which is based on the so-called chi square distribution, you can learn more about it in a statistics class. Here we just simply show you a function which can calculate p-value, just like the z-test function does.</p>
 <p>Permutation tests in both cases of difference of means and independence hypotheses give a better intuitive sense of how we answer the question - can the observed result be obtained randomly? Again no need to learn statistical foundations yet to get a grip of how we are addressing the randomness trap.</p>
 <p>Notice that the independence test is looking globally at two vectors and whether one affects another. If we wanted to be more specific and know if psychology majors are more likely to get an A than CS majors, we can frame this as a difference of means hypothesis. Testing this hypothesis will be using the difference of means of frequencies of A’s among CS majors and psychology majors. This could be done again by permutation test in section 7 or the z-test.</p>
-<div id="snippet-1-4" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Snippet 1<a href="Chisquare.html#snippet-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="snippet-1-4" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Snippet 1<a href="Chisquare.html#snippet-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJFeHBlY3RlZCA8LW1hdHJpeChjKDIwMCw0MjAsMTgwLCA0MCwxMjAsNDApLCBucm93PTMsIG5jb2w9Milcbk9ic2VydmVkPC1tYXRyaXgoYygyMDAsNDIwLDE4MCwzNSwxMjAsNDUpLCBucm93PTMsIG5jb2w9MilcbkV4cGVjdGVkXG5PYnNlcnZlZFxuY2hpc3EudGVzdChPYnNlcnZlZCkifQ==
 </div>
 </div>
-<div id="snippet-2-2" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Snippet 2<a href="Chisquare.html#snippet-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-2-2" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Snippet 2<a href="Chisquare.html#snippet-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZHBseXIpXG5vcHRpb25zKHdhcm49LTEpXG5jaGlfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixpdGVyKSB7XG4gIFxuICBkZiA8LSBkYXRhLmZyYW1lKGRhdGEpXG4gIHZhbHM8LSB1bmlxdWUoZGZbW2NvbDJdXSlcbiAgbm9fcm93cyA8LSBucm93KGRmKVxuICBkdCA8LSB0YWJsZShkZltbY29sMV1dLCBkZltbY29sMl1dKVxuICByZXMgPC0gY2hpc3EudGVzdChkdClcbiAgcmVhbF9hbnMgPC0gcmVzJHN0YXRpc3RpY1xuICBwX3ZhbHVlIDwtIHJlcyRwLnZhbHVlXG4gIGFuc192ZWMgPC0gdmVjdG9yKClcbiAgZm9yICh4IGluIDE6aXRlcil7XG5cbiAgICBuZXdfZGF0YSA8LSBzYW1wbGUoeD12YWxzLHNpemU9bm9fcm93cyxyZXBsYWNlID0gVFJVRSlcblxuICAgIGR0X25ldyA8LSB0YWJsZShkZltbY29sMV1dLCBuZXdfZGF0YSlcblxuICAgIHJlc19uZXcgPC0gY2hpc3EudGVzdChkdF9uZXcpXG5cbiAgICBhbnNfdmVjIDwtIGFwcGVuZChhbnNfdmVjLHJlc19uZXckc3RhdGlzdGljKVxuICB9XG4gIGhpc3QoYW5zX3ZlYyxtYWluPVwiUGVybXV0YXRpb24gVGVzdCBmb3IgQ2hpLVNxdWFyZVwiLHhsYWI9XCJDaGktU3F1YXJlIFZhbHVlc1wiLGJyZWFrcyA9IDEwMClcbiAgcHJpbnQocmVhbF9hbnMpXG4gIGFibGluZSh2PXJlYWxfYW5zLGNvbD1cImJsdWVcIixsd2Q9MilcbiAgcmV0dXJuIChwX3ZhbHVlKVxufSIsInNhbXBsZSI6ImQ8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW9vZHlNYXJjaDIwMjJiLmNzdlwiKVxuaGVhZChkKVxuXG5jaGlfdGVzdChkLFwiTWFqb3JcIixcIkdyYWRlXCIsMTAwMCkifQ==
 </div>
 </div>
-<div id="snippet-3-1" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Snippet 3<a href="Chisquare.html#snippet-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-3-1" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Snippet 3<a href="Chisquare.html#snippet-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxubW9vZHkkSU48LSdPdXRfU2xpY2UnXG5tb29keVttb29keSRET1pFU19PRkY9PSduZXZlcicgJiBtb29keSRURVhUSU5HX0lOX0NMQVNTPT0nYWx3YXlzJywgXSRJTjwtJ0luX1NsaWNlJ1xuZDwtdGFibGUobW9vZHkkR1JBREUsIG1vb2R5JElOKVxuZFxuY2hpc3EudGVzdChkKSJ9
 </div>
 </div>
-<div id="snippet-4" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Snippet 4<a href="Chisquare.html#snippet-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-4" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Snippet 4<a href="Chisquare.html#snippet-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW92aWVzMjAyMkYtNC5jc3ZcIilcbmRhdGE8LXRhYmxlKG1vdmllcyRjb250ZW50LCBtb3ZpZXMkZ2VucmUpXG5jaGlzcS50ZXN0KGRhdGEpIn0=
 </div>
 </div>
-<div id="additional-reference-1" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> Additional Reference<a href="Chisquare.html#additional-reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="additional-reference-1" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Additional Reference<a href="Chisquare.html#additional-reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#CS12">
 Chi Square
 </button>

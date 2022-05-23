@@ -10,6 +10,27 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
+## Introduction
+
+In the process of discovery, we are often facing multiple possible hypotheses. Consciously or subconsciously we are engaging, what is often called,  p-value hunting. We want to find an alternative hypothesis for which null hypothesis can be rejected with the lowest possible p-value. If we are not careful, we may “discover” what is simply random even if we correctly calculate p-value and compare it with the significance level. It is very important to learn about multiple hypothesis traps very early in the process of learning data science. Multiple hypothesis traps surely belong to data 101 and data literacy!
+
+Say, we are looking for associations between sales of individual items in a supermarket.  Does bread sell with butter? Does coffee sell with spring water?  There is an exponential number of possible combinations (N choose 2 to be exact, where N is the number of items).  For each such pair we perform hypothesis testing. If one test is performed at the 5% level and the corresponding null hypothesis is true, there is only a 5% chance of incorrectly rejecting the null hypothesis. However, if 100 tests are each conducted at the 5% level and all corresponding null hypotheses are true, the expected number of incorrect rejections (also known as false positives or Type I errors) is 5. If the tests are statistically independent from each other, the probability of at least one incorrect rejection is approximately 99.4%.
+Bonferroni correction is a method to counteract the multiple comparisons problem. Bonferroni correction is the simplest method for counteracting this; however, it is a conservative method that gives greater chance of failure to reject a false null hypothesis than other methods, as it ignores potentially valuable information, such as the distribution of p-values across all comparisons (which, if the null hypothesis is correct for all comparisons, is expected to take uniform distribution).
+
+Statistical hypothesis testing is based on rejecting the null hypothesis if the likelihood of the observed data under the null hypothesis is low. If multiple hypotheses are tested, the chance of observing a rare event increases, and therefore, the likelihood of incorrectly rejecting a null hypothesis.
+
+The Bonferroni correction compensates for that increase by testing each individual hypothesis at a significance level of **α / m**  where  m is the number of hypotheses. For example, if a trial is testing me = 20 hypotheses with a desired α = 0.05, then the Bonferroni correction would test each individual hypothesis at 
+
+\begin{equation}
+\alpha = \frac{0.05} {20} 
+       = 0.0025
+\end{equation}
+
+Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested.  This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too **“pro-null”**  and tough on alternative hypotheses to be acceptable. Moreover, With Bonferroni correction we may  fail to reject the null hypothesis too often. But at least we will not make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions. 
+
+There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in one of the snippets below. 
+
+The \@ref(Snippet1) describes the data set based on a hypothetical happiness index for individuals in different countries in the world.  Is one country’s average happiness index higher than the average happiness of another country?  This is the ultimate p-value hunt. Let's compare countries pair by pair, until we find a pair with sufficiently large differences of mean happiness and sufficiently low p-value.  Careful!  You may come up with false discovery if you do not correct for multiple hypotheses! 
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -23,7 +44,7 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-## Snippet 1 - Benjamini-Hochberg Algorithm
+## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
 
 ```{r,tut=TRUE,height=450}
 p<-sort(round(runif(100, min=0, max=0.05), 4))
@@ -47,7 +68,7 @@ Happiness Index synthetic data set which is used in my slides for multiple hypot
 
 - How to order by aggregate?
 
-- First make data frame out of tapply? Use  aggregate  and list functions.
+- First make a data frame out of tapply? Use  aggregate  and list functions.
 
 ```{r,tut=TRUE,height=450}
 Hindex <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv") #web load
