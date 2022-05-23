@@ -238,6 +238,7 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
 )
+<<<<<<< HEAD
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
@@ -266,6 +267,8 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
 )
+=======
+>>>>>>> a4896dd013af2182df378aac8f559becda95fd26
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
@@ -323,7 +326,10 @@ temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
   booktabs = TRUE
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> a4896dd013af2182df378aac8f559becda95fd26
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
