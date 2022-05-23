@@ -9,6 +9,11 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
+Using simple one-line “programs” it is possible to learn a lot  about your data. We call these single lines - exploratory queries. You do not even need to plot. You can familiarize yourself with the dataset and satisfy your curiosity by combining **tapply()**, **table()** and aggregates such as **mean()**. This combination of simple instructions is very powerful. And you can do it in one line. Below we present many examples over multiple data sets. 
+
+Writing these one line exploratory queries is fast and can precede hypothesis testing. Just remember about multiple hypothesis correction. 
+
+
 ## Movies Dataset Example 
 ### Snippet 1: What is the mean imdb of low budget comedies?
 
@@ -20,7 +25,7 @@ mean(movies[movies$Budget=='Low' & movies$genre=='Comedy', ]$imdb_score)
 
 ```
 
-### Snippet 2: What is standard deviation of imdb score of  high gross Family movies?
+### Snippet 2: What is the standard deviation of imdb score of  high gross Family movies?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -47,7 +52,7 @@ nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
 
 ```
 
-### Snippet 5: What is imdb score of the first non-US movie in the movies data frame?
+### Snippet 5: What is the imdb score of the first non-US movie in the movies data frame?
 
 ```{r,tut=TRUE,height=300}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -127,7 +132,7 @@ example12_data = tapply(census_data$CAPITALGAIN, census_data$PROFESSION, mean)
 example12_data
 ```
 
-### Snippet 13: What is most frequent profession of people with less than 10 years od of education?
+### Snippet 13: What is the most frequent profession of people with less than 10 years od of education?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")
@@ -136,7 +141,7 @@ example13_data = table(subset(census_data, YEARS <= 10)$PROFESSION)
 example13_data
 ```
 
-### Snippet 14: What is minimum number of years of education for people with Exec-managerial specialty?
+### Snippet 14: What is the minimum number of years of education for people with the Exec-managerial specialty?
 
 ```{r,tut=TRUE,height=300}
 census_data<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/CensusData.csv")

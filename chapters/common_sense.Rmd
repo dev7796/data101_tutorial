@@ -9,7 +9,17 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#common12">Common Sense Judgement and Probability</button>
+## Introduction
+
+We will step away from coding for a moment.   In the class description we promise to address the million dollar question **“How not to be fooled by data?”**.  Let's dive into this important issue. We have already discussed powerful tools such as hypothesis testing, p-values and Bonferroni correction for multiple hypothesis traps. But even if you never want to write a line of code, you need to know about common traps which you may be fooled by in whatever you do. We need to be informed and educated citizens who can catch the fake inferences and fake discoveries whether we read them in the news or hear politicians falling for the traps. 
+
+Daniel Kahnemann, the Nobel Prize winner in Economics is the author of the fascinating book “Think fast, think slow” and he identifies pitfalls of human relationships with numbers, frequencies.   We discuss Availability, Anchoring, Conjunctive fallacy, Narrative fallacy, Law of small numbers, Reverse to the mean and many other concepts in the attached power points. 
+
+In the next section we will also discuss Bayesian theorem and Bayesian reasoning (with some coding handy) to finally come back to the paradoxes such as prosecutorial paradox, Simpson paradox and ecological fallacy in section 21.  
+
+## Additional References
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#common12">Common Sense Judgement and Probability</button>
 <div id="common12" class="collapse">    
 <embed src="https://docs.google.com/presentation/d/1IuqMFWih6WuUAH2gCztfUjDl2SL7OUV5y7VyDs6_EGo/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
