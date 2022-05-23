@@ -215,9 +215,11 @@
 </ul></li>
 <li class="chapter" data-level="11" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html"><i class="fa fa-check"></i><b>11</b> 🔖 Bayesian Reasoning</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-1-covid-odds-after-positive-home-test."><i class="fa fa-check"></i><b>11.1</b> Snippet 1: Covid Odds after positive Home Test.</a></li>
-<li class="chapter" data-level="11.2" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman"><i class="fa fa-check"></i><b>11.2</b> Snippet 2: What are the odds that an ‘F’ student is a freshman?</a></li>
-<li class="chapter" data-level="11.3" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major"><i class="fa fa-check"></i><b>11.3</b> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?</a></li>
+<li class="chapter" data-level="11.1" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#introductions"><i class="fa fa-check"></i><b>11.1</b> Introductions</a></li>
+<li class="chapter" data-level="11.2" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-1-covid-odds-after-positive-home-test."><i class="fa fa-check"></i><b>11.2</b> Snippet 1: Covid Odds after positive Home Test.</a></li>
+<li class="chapter" data-level="11.3" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman"><i class="fa fa-check"></i><b>11.3</b> Snippet 2: What are the odds that an ‘F’ student is a freshman?</a></li>
+<li class="chapter" data-level="11.4" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major"><i class="fa fa-check"></i><b>11.4</b> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?</a></li>
+<li class="chapter" data-level="11.5" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html#additinal-reference"><i class="fa fa-check"></i><b>11.5</b> Additinal Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html"><i class="fa fa-check"></i><b>12</b> 🔖 Prediction Challenges</a>
 <ul>
@@ -314,29 +316,74 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#BR12">Bayesian Reasoning</button>
-<div id="BR12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1gwI6y7yyqi8GWdPuS9dZlXsZs-1r1TsumQb-PL4Hu5s/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div></li>
-</ul>
-<div id="snippet-1-covid-odds-after-positive-home-test." class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Snippet 1: Covid Odds after positive Home Test.<a href="bayesian_reasoning.html#snippet-1-covid-odds-after-positive-home-test." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introductions" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Introductions<a href="bayesian_reasoning.html#introductions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bayesian Reasoning and Bayesian theorem are fundamental instruments to use both in data science as well as in real, everyday life. They are definitely part of data literacy and should be widely taught, especially among future doctors, lawyers and politicians. In this section we will explain why Bayesian reasoning is so important and also teach the most simple and intuitive formulation of Bayesian theorem - the Odds formulation.</p>
+<p>Bayesian theorem is a calming tool - the chances of bad things happening are lower than expected! This is why Bayes helps pessimists. Take a situation at a doctor’s office when a patient learns that a medical test for some potentially serious condition came positive. The doctor believes the test and the test is almost 100% accurate. Should the patient despair? Not so fast. Bayes theorem allows the patient to ask the doctor some important questions.</p>
+<p>In bayesian reasoning we distinguish between two concepts = observation and belief. Belief is something unknown, Observation is known. We use observation to modify the odds (probability) of the belief from prior odds (before we learned about observation) and the posterior odds (after we learned about observation). For example a patient taking a covid test is concerned about having covid. But s/he does not know whether they have covid. Thus “having covid” is a belief. Test result is an observation (positive or negative). Given the prior odds of covid (say 1:100), and positive covid test what are the posterior odds of covid? Bayesian theorem tells us how to compute posterior odds from prior odds, given the observation.
+w
+Odds formulation of Bayesian theorem states;</p>
+<p><span class="math display">\[\begin{equation}
+
+\text{POSTERIOR ODDS = LIKELIHOOD RATIO *  PRIOR ODDS} \\
+               
+
+\textbf{Prior odds}   \text{-  odds for the belief before observation (evidence)}\\
+
+\textbf{Likelihood ratio}  \text{-  effect of observation, evidence. Can be larger or smaller than 1!!}\\
+
+\textbf{Posterior odds} \text{-  New odds with observation(evidence) taken under consideration.}\\
+
+\end{equation}\]</span></p>
+<p>Let B a belief and O be an observation, then</p>
+<p><span class="math display">\[\begin{equation}
+
+\textbf{Prior odds} - \frac{P(B)}{P(\texttildelow B)}\\
+
+\textbf{Likelihood ratio}  - \frac{P(O|B)}{P(O|\texttildelow B)}\\
+
+\textbf{Posterior odds} - \frac{P(B|O)}{P(\texttildelow B|O)}
+\end{equation}\]</span></p>
+<p>Let’s discuss the multiplier – likelihood ratio in more detail. It is the red colored part of the bayes Theorem:
+P(B|O) / P(~B|O) = P(O|B)/P(O|~B) * P(B)/P(~B)
+The red colored ratio is the ratio of true positive and false positive,
+P(O|B) – True positive
+P(O|~B) – False positive
+True positive is the conditional probability of seeing the observation given that our belief is true. In our medical example it is the probability of testing positive for covid, given that in fact we have covid.
+False positive, on the other hand, is the probability of observation under condition that the belief is not true. For example in our case that covid test comes positive even when we do not have covid.
+In real life False positives are often overlooked. And this is the critical question we should ask the doctor or health professional who administers any test. What is the false positive of this test? Since this is what we divide the true positive by. Even if the true positive is 99.9% (almost sure), if the false positive is, say 20% - the likelihood ratio is around 5. In such a situation, a positive test increases the odds of having covid just 5 times. If prior odds of covid are 1:100, the posterior odds of covide after such a positive test are just 5:100, still minimal!. Even if a false positive was 10%, the likelihood ratio of 10, would increase odds of covid 10 fold, to just 1:10 and false positive of 5%, would result in a likelihood ratio of 20 - still leading to higher odds of NOT having covid than having it!<br />
+This is why false positives are so critical. IBut the main question that Bayes teaches us to ask is what are the prior odds. Since if prior odds are very small (we are testing a really rare condition) then the likelihood ratio would have to be really large to make posterior odds significant. For example if prior odds are one in a million, we need a likelihood ratio of more than half a million to actually make posterior odds better than proverbial fifty - fifty.
+Hence to main questions we should ask our doctor upon hearing that the test results are positive are
+What are the prior odds of the disease?
+What is the false positive of the test (since we assume that the true positive of the test would usually be close to 100%)?
+In the following snippets we show how to calculate the posterior odds, while being tested for a disease and then closer to our data puzzles, how to calculate the posterior odds of getting an A in class, when scoring more than 85%. In all these situations we begin with identifying what is belief (the unknown), what is the observation (the known) and we use the snippets by plugging in some assumed values of prior odds, as well as true positives and false positives.</p>
+</div>
+<div id="snippet-1-covid-odds-after-positive-home-test." class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Snippet 1: Covid Odds after positive Home Test.<a href="bayesian_reasoning.html#snippet-1-covid-odds-after-positive-home-test." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjQmVsaWVmID0gXCJIYXZlIENvdmlkXCJcbiNPYnNlcnZhdGlvbiA9IENvdmlkIFRlc3RcbiNIb3cgbXVjaCB0aGUgcHJvYmFiaWxpdHkgb2YgaGF2aW5nIGNvdmlkIGluY3JlYXNlcyB1cG9uIHBvc2l0aXZlIENPVklELXRlc3Q/XG4jV2UgdXNlIHRoZSBvZGRzIGZvcm11bGF0aW9uIG9mIEJheWVzaWFuIFRoZW9yZW1cbiMgd2UgYmVnaW4gd2l0aCBwcmlvciBvZGRzIG9mIGhhdmluZyBDb3ZpZDogIFAoQ292aWQpLygxLVAoQ292aWQpXG5QcmlvckhhdmVDb3ZpZDwtMC4wMVxuUHJpb3JDb3ZpZE9kZHM8LVByaW9ySGF2ZUNvdmlkLygxLVByaW9ySGF2ZUNvdmlkKVxuUHJpb3JDb3ZpZE9kZHNcbiNUcnVlIHBvc2l0aXZlOiAgUHJvYmFiaWxpdHkgb2YgaGF2aW5nIHBvc2l0aXZlIENvdmlkIHRlc3Qgd2hlbiBoYXZpbmcgY292aWQgID0gUChQb3NpdGl2ZUNvdmlkVGVzdHxIYXZlQ292aWQpXG5UcnVlUG9zaXRpdmU8LTAuOTlcbiNGYWxzZSBwb3NpdGl2ZSA9IFByb2JhYmlsaXR5IG9mIGhhdmluZyBwb3NpdGl2ZSBDb3ZpZCB0ZXN0IHdoZW4gbm90IGhhdmluZyBjb3ZpZCA9IFAoUG9zdGl2ZUNvdmlkVGVzdC9Eb05vdEhhdmVDb3ZpZClcbkZhbHNlUG9zaXRpdmU8LTAuMDAxXG5MaWtlbGlob29kUmF0aW88LVRydWVQb3NpdGl2ZS9GYWxzZVBvc2l0aXZlXG5Qb3N0ZXJpb3JDb3ZpZE9kZHM8LUxpa2VsaWhvb2RSYXRpbypQcmlvckNvdmlkT2Rkc1xuUG9zdGVyaW9ySGF2ZUNvdmlkPC0gUG9zdGVyaW9yQ292aWRPZGRzLygxK1Bvc3RlcmlvckNvdmlkT2RkcylcblBvc3RlcmlvckhhdmVDb3ZpZCJ9
 </div>
 </div>
-<div id="snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Snippet 2: What are the odds that an ‘F’ student is a freshman?<a href="bayesian_reasoning.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Snippet 2: What are the odds that an ‘F’ student is a freshman?<a href="bayesian_reasoning.html#snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TWFyY2gyMDIyYi5jc3YnKVxuI0JlbGllZiAtIFN0dWRlbnQgaXMgYSBmcmVzaG1hblxuI09ic2VydmF0aW9uIC0gRmFpbGVkIHRoZSBjbGFzc1xuUHJpb3I8LW5yb3cobW9vZHlbbW9vZHkkU2VuaW9yaXR5ID09J0ZyZXNobWFuJyxdKS9ucm93KG1vb2R5KVxuUHJpb3JcblByaW9yT2Rkczwtcm91bmQoUHJpb3IvKDEtUHJpb3IpLDIpXG5Qcmlvck9kZHNcblRydWVQb3NpdGl2ZTwtcm91bmQobnJvdyhtb29keVttb29keSRHcmFkZT09J0YnICYgbW9vZHkkU2VuaW9yaXR5PT0nRnJlc2htYW4nLF0pL25yb3coXG4gIG1vb2R5W21vb2R5JFNlbmlvcml0eSA9PSdGcmVzaG1hbicsXSksMilcblRydWVQb3NpdGl2ZVxuRmFsc2VQb3NpdGl2ZTwtcm91bmQobnJvdyhtb29keVttb29keSRHcmFkZT09J0YnJiBtb29keSRTZW5pb3JpdHkgIT0nRnJlc2htYW4nLF0pL25yb3cobW9vZHlbbW9vZHkkU2VuaW9yaXR5ICE9J0ZyZXNobWFuJyxdKSwyKVxuRmFsc2VQb3NpdGl2ZVxuTGlrZWxpaG9vZFJhdGlvPC1yb3VuZChUcnVlUG9zaXRpdmUvRmFsc2VQb3NpdGl2ZSwyKVxuTGlrZWxpaG9vZFJhdGlvXG5Qb3N0ZXJpb3JPZGRzIDwtTGlrZWxpaG9vZFJhdGlvICogUHJpb3JPZGRzXG5Qb3N0ZXJpb3JPZGRzXG5Qb3N0ZXJpb3IgPC1Qb3N0ZXJpb3JPZGRzLygxK1Bvc3Rlcmlvck9kZHMpXG5yb3VuZChQb3N0ZXJpb3IsMikifQ==
 </div>
 </div>
-<div id="snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?<a href="bayesian_reasoning.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Snippet 3: What are the odds that a ‘A’ student with the score less than 80 is a psychology major?<a href="bayesian_reasoning.html#snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjQmVsaWVmIC0gd2hhdCB3ZSBkbyBub3Qga25vdy4gI0lzIGEgc3R1ZGVudCBhIHBzeWNob2xvZ3kgI21ham9yP1xuI09ic2VydmF0aW9uID0gd2hhdCB3ZSBkbyAja25vdy4gVGhleSBnb3QgYW4gQSBhbmQgbGVzcyAjdGhhbiA4MCBpbiBzY29yZVxuXG5tb29keTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TWFyY2gyMDIyYi5jc3YnKVxuUHJpb3I8LW5yb3cobW9vZHlbbW9vZHkkTWFqb3IgPT0nUHN5Y2hvbG9neScsXSkvbnJvdyhtb29keSlcblByaW9yXG5Qcmlvck9kZHM8LXJvdW5kKFByaW9yLygxLVByaW9yKSwyKVxuUHJpb3JPZGRzXG5UcnVlUG9zaXRpdmU8LXJvdW5kKG5yb3cobW9vZHlbbW9vZHkkU2NvcmUgPDgwICYgbW9vZHkkR3JhZGU9PSdBJyYgbW9vZHkkTWFqb3I9PSdQc3ljaG9sb2d5JyxdKS9ucm93KG1vb2R5W21vb2R5JE1ham9yPT0nUHN5Y2hvbG9neScsXSksMilcblRydWVQb3NpdGl2ZVxuRmFsc2VQb3NpdGl2ZTwtcm91bmQobnJvdyhtb29keVttb29keSRTY29yZSA8ODAgJiBtb29keSRHcmFkZT09J0EnJiBtb29keSRNYWpvciE9J1BzeWNob2xvZ3knLF0pL25yb3cobW9vZHlbbW9vZHkkTWFqb3IhPSdQc3ljaG9sb2d5JyxdKSwyKVxuRmFsc2VQb3NpdGl2ZVxuTGlrZWxpaG9vZFJhdGlvPC1yb3VuZChUcnVlUG9zaXRpdmUvRmFsc2VQb3NpdGl2ZSwyKVxuTGlrZWxpaG9vZFJhdGlvXG5Qb3N0ZXJpb3JPZGRzIDwtTGlrZWxpaG9vZFJhdGlvICogUHJpb3JPZGRzXG5Qb3N0ZXJpb3JPZGRzXG5Qb3N0ZXJpb3IgPC1Qb3N0ZXJpb3JPZGRzLygxK1Bvc3Rlcmlvck9kZHMpXG5Qb3N0ZXJpb3IifQ==
+</div>
+</div>
+<div id="additinal-reference" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Additinal Reference<a href="bayesian_reasoning.html#additinal-reference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#BR12">
+Bayesian Reasoning
+</button>
+<div id="BR12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1gwI6y7yyqi8GWdPuS9dZlXsZs-1r1TsumQb-PL4Hu5s/edit?usp=sharing" width="100%" height="500px">
+</embed>
 </div>
 
 </div>
