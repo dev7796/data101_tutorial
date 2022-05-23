@@ -10,7 +10,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-## Introductions 
+## Introduction
 
 Bayesian Reasoning and Bayesian theorem are fundamental instruments to use both in data science as well as in real, everyday life. They are definitely part of data literacy and should be widely taught, especially among future doctors, lawyers and politicians.  In this section we will explain why Bayesian reasoning is so important and also teach the most simple and intuitive formulation of Bayesian theorem - the  Odds formulation.
 

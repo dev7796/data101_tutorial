@@ -121,7 +121,7 @@ common
 introduction-3
 additional-references-3
 br
-introductions
+introduction-4
 snippet-1-covid-odds-after-positive-home-test.
 snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman
 snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major
