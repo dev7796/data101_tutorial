@@ -9,17 +9,13 @@ tutorial::go_interactive(greedy=TRUE)
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#dt12"> Prediction with rpart </button> 
-<div id="dt12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
-
-Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can  generate rules which are  easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
+Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can generate rules which are easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
 
 
 ## Use of Rpart {#rpart}
 
-Recursive Partitioning and Regression Tree `RPART` library is a collection of routines which implements a Decision Tree.The resulting model can be represented as a binary tree.
+Recursive Partitioning and Regression Tree `RPART` library is a collection of routines which implements a Decision Tree.The resulting model can be represented as a binary tree. For the purpose of illustration of rpart we will continue to use data puzzle 3.1 set - the Professor Moody data set. 
+
 
 The library associated with this `RPART` is called `rpart`. Install this library using `install.packages("rpart")`.
 
@@ -511,3 +507,10 @@ submission$Grade<-prediction
 
 # use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
 ```
+
+## Additional Reference
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#dt12"> Prediction with rpart </button> 
+<div id="dt12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>

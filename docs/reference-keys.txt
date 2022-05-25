@@ -152,12 +152,14 @@ snippet-10
 snippet-11-your-model-with-rpart
 snippet-12-freestyle-rpart-combining-rpart-prediction-models
 snippet-13-submission-with-rpart
+additional-reference-3
 lr
 lm
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 mse
 snippet-2-cross-validate-your-prediction
 snippet-3-submission-with-lm
+additional-reference-4
 MLP
 MAD
 dsaf

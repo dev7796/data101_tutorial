@@ -11,11 +11,11 @@ tutorial::go_interactive(greedy=TRUE)
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button> 
-<div id="lr12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
+How to build prediction models for numerical variables?
 
+So far we have discussed prediction models for categorical target variables.  In order to predict numerical variables we often use linear regression.
+
+<!--
 Linear regression is a linear approach to modeling the relationship between a numerical response ($Y$) and one or more independent variables ($X_i$).
 
 Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
@@ -23,6 +23,7 @@ Usually in linear regression, models are used to predict only one scalar variabl
 - Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as multiple linear regression.
 
 ![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg)
+-->
 
 ## Linear regression using lm() function {#lm}
 
@@ -47,9 +48,7 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-Now we can build a simple linear regression model to predict the ClassScore attribute based on the various other attributes present in the dataset, as shown above.
-
-Since we will be predicting only one attribute values, this model will be called simple linear regression model.
+Imagine that we do not know the weights of  midterm, project and final exam.  However we have the data from the previous semesters.  Can we find these weights out? The answer is yes - by using `linear regression`.
 
 ### Snippet 1: How much do Midterm, Project and Final Exam count?
 
@@ -129,8 +128,8 @@ mse(testSample$ClassScore,pred)
 
 We can see that,
 
-- The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.
-- The predicted values are obtained form the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check that if we have more accurate predictions, thus increasing the overall accuracy of the model.
+- The summary of the lm model gives us information about the parameters of the model, the residuals and coefficients, etc.
+- The predicted values are obtained from the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check if we have more accurate predictions, thus increasing the overall accuracy of the model.
 
 ## Snippet 3: Submission with lm
 
@@ -150,3 +149,10 @@ submission$Grade<-prediction
 
 # use write.csv(submission, 'submission.csv', row.names=FALSE) to store submission as csv file on your machine and subsequently submit it on Kaggle
 ```
+
+## Additional Reference 
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#lr12"> Linear Regression </button> 
+<div id="lr12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>

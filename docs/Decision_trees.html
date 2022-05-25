@@ -262,6 +262,7 @@
 <li class="chapter" data-level="13.6" data-path="Decision_trees.html"><a href="Decision_trees.html#snippet-11-your-model-with-rpart"><i class="fa fa-check"></i><b>13.6</b> Snippet 11: Your Model with rpart</a></li>
 <li class="chapter" data-level="13.7" data-path="Decision_trees.html"><a href="Decision_trees.html#snippet-12-freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>13.7</b> Snippet 12: Freestyle + rpart: Combining rpart prediction models</a></li>
 <li class="chapter" data-level="13.8" data-path="Decision_trees.html"><a href="Decision_trees.html#snippet-13-submission-with-rpart"><i class="fa fa-check"></i><b>13.8</b> Snippet 13: Submission with rpart</a></li>
+<li class="chapter" data-level="13.9" data-path="Decision_trees.html"><a href="Decision_trees.html#additional-reference-3"><i class="fa fa-check"></i><b>13.9</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="Linear_regression.html"><a href="Linear_regression.html"><i class="fa fa-check"></i><b>14</b> 🔖 Linear Regression</a>
 <ul>
@@ -272,6 +273,7 @@
 <li class="chapter" data-level="14.2" data-path="Linear_regression.html"><a href="Linear_regression.html#mse"><i class="fa fa-check"></i><b>14.2</b> Calculating the Error using mse()</a></li>
 <li class="chapter" data-level="14.3" data-path="Linear_regression.html"><a href="Linear_regression.html#snippet-2-cross-validate-your-prediction"><i class="fa fa-check"></i><b>14.3</b> Snippet 2: Cross Validate your prediction</a></li>
 <li class="chapter" data-level="14.4" data-path="Linear_regression.html"><a href="Linear_regression.html#snippet-3-submission-with-lm"><i class="fa fa-check"></i><b>14.4</b> Snippet 3: Submission with lm</a></li>
+<li class="chapter" data-level="14.5" data-path="Linear_regression.html"><a href="Linear_regression.html#additional-reference-4"><i class="fa fa-check"></i><b>14.5</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="Prediction_loop.html"><a href="Prediction_loop.html"><i class="fa fa-check"></i><b>15</b> 🔖 Machine Learning-Prediction Loop</a></li>
 <li class="chapter" data-level="16" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html"><i class="fa fa-check"></i><b>16</b> 🔖 How can data fool us?</a></li>
@@ -313,17 +315,10 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<ul>
-<li><strong>Lecture slides: </strong> <button class="btn btn-primary" data-toggle="collapse" data-target="#dt12"> Prediction with rpart </button>
-<div id="dt12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div></li>
-</ul>
 <p>Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can generate rules which are easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.</p>
 <div id="rpart" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Use of Rpart<a href="Decision_trees.html#rpart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Recursive Partitioning and Regression Tree <code>RPART</code> library is a collection of routines which implements a Decision Tree.The resulting model can be represented as a binary tree.</p>
+<p>Recursive Partitioning and Regression Tree <code>RPART</code> library is a collection of routines which implements a Decision Tree.The resulting model can be represented as a binary tree. For the purpose of illustration of rpart we will continue to use data puzzle 3.1 set - the Professor Moody data set.</p>
 <p>The library associated with this <code>RPART</code> is called <code>rpart</code>. Install this library using <code>install.packages("rpart")</code>.</p>
 <p>Syntax for building the decision tree using rpart():</p>
 <ul>
@@ -558,6 +553,16 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxuIyBJbXBvcnQgZGF0YXNldFxu
 <h2><span class="header-section-number">13.8</span> Snippet 13: Submission with rpart<a href="Decision_trees.html#snippet-13-submission-with-rpart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L00yMDIydGVzdFNOb0dyYWRlLmNzdicpXG5zdWJtaXNzaW9uPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTTIwMjJzdWJtaXNzaW9uLmNzdicpXG50cmFpbiA8LSByZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L00yMDIydHJhaW4uY3N2XCIpXG5cbnRyZWUgPC0gcnBhcnQoR3JhZGUgfiBNYWpvcitTY29yZStTZW5pb3JpdHksIGRhdGEgPSB0cmFpbiwgbWV0aG9kID0gXCJjbGFzc1wiLGNvbnRyb2w9cnBhcnQuY29udHJvbChtaW5idWNrZXQgPSAyMDApKVxudHJlZVxuXG5wcmVkaWN0aW9uIDwtIHByZWRpY3QodHJlZSwgdGVzdCwgdHlwZT1cImNsYXNzXCIpXG5cbiNOb3cgbWFrZSB5b3VyIHN1Ym1pc3Npb24gZmlsZSAtIGl0IHdpbGwgaGF2ZSB0aGUgSURzIGFuZCBub3cgdGhlIHByZWRpY3RlZCBncmFkZXNcbnN1Ym1pc3Npb24kR3JhZGU8LXByZWRpY3Rpb24gXG5cbiMgdXNlIHdyaXRlLmNzdihzdWJtaXNzaW9uLCAnc3VibWlzc2lvbi5jc3YnLCByb3cubmFtZXM9RkFMU0UpIHRvIHN0b3JlIHN1Ym1pc3Npb24gYXMgY3N2IGZpbGUgb24geW91ciBtYWNoaW5lIGFuZCBzdWJzZXF1ZW50bHkgc3VibWl0IGl0IG9uIEthZ2dsZSJ9
+</div>
+</div>
+<div id="additional-reference-3" class="section level2 hasAnchor" number="13.9">
+<h2><span class="header-section-number">13.9</span> Additional Reference<a href="Decision_trees.html#additional-reference-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#dt12">
+Prediction with rpart
+</button>
+<div id="dt12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Yw11iu0FnUbiNKrwEKyWHxZ1oXUVG0APfI9acEbB91o/edit?usp=sharing" width="100%" height="500px">
+</embed>
 </div>
 
 </div>
