@@ -134,6 +134,7 @@ general-structure-of-the-prediction-challenges
 snippet-4-preparing-submission.csv-for-kaggle
 additional-reference-2
 prpart
+introduction-5
 rpart
 snippet-1-5
 rpartplot
@@ -154,6 +155,7 @@ snippet-12-freestyle-rpart-combining-rpart-prediction-models
 snippet-13-submission-with-rpart
 additional-reference-3
 lr
+introduction-6
 lm
 snippet-1-how-much-do-midterm-project-and-final-exam-count
 mse
@@ -161,6 +163,8 @@ snippet-2-cross-validate-your-prediction
 snippet-3-submission-with-lm
 additional-reference-4
 MLP
+introduction-7
+additional-reference-5
 MAD
 dsaf
 minimarket-data-set-description

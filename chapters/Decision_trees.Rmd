@@ -9,6 +9,8 @@ tutorial::go_interactive(greedy=TRUE)
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
+## Introduction 
+
 Decision trees are one of the most powerful and popular tools for classification and prediction. The reason decision trees are very popular is that they can generate rules which are easier to understand as compared to other models. They require much less computations for performing modeling and prediction. Both continuous/numerical and categorical variables are handled easily while creating the decision trees.
 
 

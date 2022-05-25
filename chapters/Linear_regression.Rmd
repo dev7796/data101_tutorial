@@ -11,6 +11,8 @@ tutorial::go_interactive(greedy=TRUE)
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
+## Introduction 
+
 How to build prediction models for numerical variables?
 
 So far we have discussed prediction models for categorical target variables.  In order to predict numerical variables we often use linear regression.

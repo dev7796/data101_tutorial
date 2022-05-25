@@ -10,7 +10,29 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#ML12"> Prediction Loop </button> 
+## Introduction
+
+Believe it or not you are ready now to use pretty much any machine learning package from the extensive R library.  
+In other words you can drive any car without knowing how the engine works. This you can find out by taking more advanced classes in Machine learning from computer science, statistics or machine learning departments.  
+
+As per CRAN there are around 8,341 packages that are currently available.  Apart from CRAN, there are other repositories which contribute multiple packages. The simple straightforward syntax to install any of these machine learning packages is: **install.packages (“MLPackage”)**.
+
+`Install Packages(‘MLPackage’)`
+
+`Library(MLPackage)`
+
+`MlPackage<-MLPackage(Formula, data=YOUR_TRAINING,…)`
+
+`Predict(MLPackage, newdata=YOUR_TESTING…)`
+
+`Error <- ……`
+
+MLPackage can be rpart, Random Forests, naive Bayes, LDA, SVM, Neural Network and many others.
+
+
+## Additional Reference
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#ML12"> Prediction Loop </button> 
 <div id="ML12" class="collapse">
 <embed src="https://docs.google.com/presentation/d/1n-7uFUUS40SwZO31rKxblplHtkAZMvQDXQzA3lY4PPU/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
