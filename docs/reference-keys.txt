@@ -126,15 +126,13 @@ snippet-1-covid-odds-after-positive-home-test.
 snippet-2-what-are-the-odds-that-an-f-student-is-a-freshman
 snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major
 additinal-reference
-Pc1
-general-structure-of-the-prediction-challenges
-challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set
-challenge-2---same-data-but-using-rpart---decision-tree
 P1
 snippet-1-example-of-a-simple-freestyle-prediction-model
 snippet-2-how-to-build-a-freestyle-your-own-code-prediction-model
 snippet-3-one-step-crossvalidation
+general-structure-of-the-prediction-challenges
 snippet-4-preparing-submission.csv-for-kaggle
+additional-reference-2
 prpart
 rpart
 snippet-1-5

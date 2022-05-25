@@ -10,10 +10,24 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-- **Lecture slides: **     <button class="btn btn-primary" data-toggle="collapse" data-target="#p12"> Prediction - Free Style </button> 
-<div id="p12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
+
+What is a prediction model?
+
+Prediction model is a set of rules which, given the values of independent variables (predictors) determine the value of predicted (dependent variable). Here are example of such rules
+
+```If score > 80 and participation >0.6 then grade =’A’```
+
+```If score >60 and score <70 and major=’Psychology’ and Ask_questions =’always’ then grade =’B’```
+
+```If score <50 and score >40 and Doze_off =’always’ then grade = ‘F’```
+
+By freestyle prediction we mean building a prediction model without the R library functions such as rpart and other machine learning packages.  In freestyle prediction one develops models from scratch, on the basis of plots as well as exploratory queries.  Freestyle prediction is important for two reasons:  First, building prediction models from scratch allows an aspiring data scientist to “feel the data”  - as opposed to often blind direct applications of these library functions, Second, even when one uses the prediction models based on library functions, the best models are often created by combining  of several such models. These combinations often arise from skillful subsetting of datasets and applying different models to different subsets. 
+
+As our prediction challenge competitions indicate, the winning prediction models (the ones with the least error) are predominantly combinations of different models applied to different subsets of the data. Thus, freestyle prediction is almost always a part of the prediction model building. 
+We start with showing an example of a simple freestyle prediction model.
+
+
+
 
 ## Snippet 1: Example of a simple freestyle prediction model
 
@@ -36,6 +50,9 @@ error
 
 ## Snippet 2: How to build a freestyle (your own code) prediction model?
 
+The key idea behind building freestyle prediction models is to subset data and select the most frequent value of the predicted variable as prediction.  Of course we are interested in finding highly discriminative subsets of data with one highly dominant (most frequent value), since such a very frequent value as prediction choice will lead to a small error. But how to find data subsets with such dominant most frequent values?  It is a bit of a trial and error process. As we show below in the snippet 2, it is a sequence of one line exploratory queries, which the programmer can rely on. Later, in the next section we show how the rpart() package generates such discriminative  subsets of data automatically, though recursive partitioning.
+
+
 ```{r,tut=TRUE,height=500}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 
@@ -52,6 +69,12 @@ table(moody[moody$Score<40 & moody$Seniority=='Freshman',]$Grade)
 ```
 
 ## Snippet 3: One-step crossvalidation
+
+How do we know if our prediction model is any good?  After all, we may easily build a model which is close to perfect on the training data set but performs miserably on the new, testing data. This is a nightmare for every prediction model builder and it is called a Kaggle surprise. Kaggle surprise happens quite often during our prediction competitions when students build models which are overfitting the data and which give them a false feeling of great, low error just to do the opposite on the testing data and yield a miserably high error.
+
+To avoid this or at least to protect one against it, cross validation is needed. We illustrate cross-validation in the next snippet. We split training data into the *real* training data and the testing data, which is the remaining part of our training data set. Thus we use part of the training data as testing data. We do it by randomly splitting our data set. Although we show here just one step of cross-validation, we should do it multiple times. This helps us to observe how our model behaves for different random subsets of training data and helps us to observe inconsistent results (high variance of error) - which is a warning sign of  future kaggle surprise.
+
+
 
 ```{r,tut=TRUE,height=900}
 train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
@@ -90,7 +113,88 @@ error
 
 
 
-## Snippet 4: Preparing submission.csv for Kaggle
+
+
+We use selected data puzzles from section 4 in prediction challenges. Given a data puzzle (such as 4.1), we separate it into training data subset and testing data subset. The training data is given to students to build and cross-validate their prediction models. Then we use Kaggle to evaluate their models on the testing subset of the data puzzle. Each prediction challenge is structured as competition and Kaggle ranks students' models by prediction accuracy.  For categorical variables it is the **fraction of values** which are predicted correctly, for numerical variables it is **MSE (mean square error)**. 
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+## General Structure of the Prediction Challenges
+
+The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submissions. 
+
+The datasets provided for each prediction challenge is as follows: 
+
+- **Training Dataset** 
+
+  - It is used for training and cross-validation purposes in the prediction challenge. This data has all the training attributes along and the values of the attribute wich is predicted (so called, Target attribute). 
+  - Models for prediction are to be trained using this dataset only. 
+  - Training data set is the set which is used when you build your prediction model - since this is the only data set which has all values of target attribute. 
+
+- **Testing Dataset**
+
+  - It is used for applying your prediction model to new data. You do it only when you are finished with building your prediction model.
+
+  - Testing data set consists of all the attributes that were used for training, but it does not contain any values of the target attribute. 
+  - It is disjoint with the training data set - it contains new data and it is missing the target variable. 
+  
+
+- **Submission Dataset**
+
+  - After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column. Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle. 
+
+To read the datasets use the read.csv() function and for writing the dataset to the file, use the write.csv() function. Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.
+
+To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. ```write.csv(*dataframe*,*fileaddress*,row.names = F)```.
+
+<!--
+## Challenge 1 - Freestyle prediction of grades in yet another MOODY data set
+
+This is the next in the sequence of data puzzles about grading methods of the eccentric professor Moody. Professor Moody found out that his former grading methods were leaked to the student by treacherous TA and changed his grading methods (and the TA).
+
+Unfortunately, again the data was leaked to the students (Professor Moody does not use passwords). It indicates that Professor Moody may be tougher on certain majors and also may apply different grading criteria for different student seniority levels
+
+Can you build a prediction model which will mimic Moody's grading as closely as possible?
+
+Attached  are three files : One <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a> with  original Professor Moody grading data and another, the <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testS.csv" download="M2022testS.csv">M2022testS.csv</a> data with missing GRADE column.  Finally <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submissionS.csv" download="M2022submissionS.csv">M2022submissionS.csv</a> is the file you will submit to Kaggle of course after filling up the GRADE column.  
+
+ Your job is to predict the grades in the testing file, adding to it GRADE attribute  with predicted grades. 
+
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+**Canvas HW9:** https://rutgers.instructure.com/courses/159918/assignments/1953810
+
+
+## Challenge 2 - Same data but using rpart - decision tree
+
+It is the same DATA as prediction challenge 1.  Just use **rpart()** this time.  Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9.  We will talk about rpart in detail in recitations and lectures next week.
+
+**FOR THIS PREDICTION CHALLENGE:**  Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.
+
+Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what "controls" have you tried and eventually used.
+ 
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+**Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
+
+-->
+
+### Snippet 4: Preparing submission.csv for Kaggle
 
 ```{r,tut=TRUE,height=500}
 # Here you just need the test table (without grades) to apply your prediction model and calculate predicted grades. And submission data frame to fill it in with the predicted #grades
@@ -112,4 +216,16 @@ submission
 
 ```
 
+<br>
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+
+## Additional Reference
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#p12"> Prediction - Free Style </button> 
+<div id="p12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>
 

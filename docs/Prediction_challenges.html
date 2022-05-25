@@ -223,9 +223,8 @@
 </ul></li>
 <li class="chapter" data-level="12" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html"><i class="fa fa-check"></i><b>12</b> 🔖 Prediction Challenges</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.1</b> General Structure of the Prediction Challenges</a></li>
-<li class="chapter" data-level="12.2" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html#challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set"><i class="fa fa-check"></i><b>12.2</b> Challenge 1 - Freestyle prediction of grades in yet another MOODY data set</a></li>
-<li class="chapter" data-level="12.3" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html#challenge-2---same-data-but-using-rpart---decision-tree"><i class="fa fa-check"></i><b>12.3</b> Challenge 2 - Same data but using rpart - decision tree</a></li>
+<li class="chapter" data-level="12.1" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html#introduction-5"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
+<li class="chapter" data-level="12.2" data-path="Prediction_challenges.html"><a href="Prediction_challenges.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.2</b> General Structure of the Prediction Challenges</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="Free_style.html"><a href="Free_style.html"><i class="fa fa-check"></i><b>13</b> 🔖 Free Style: Prediction</a>
 <ul>
@@ -312,32 +311,23 @@
             <section class="normal" id="section-">
 <div id="Pc1" class="section level1 hasAnchor" number="12">
 <h1><span class="header-section-number">Section: 12</span> 🔖 Prediction Challenges<a href="Prediction_challenges.html#Pc1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Prediction challenges differentiate data 101 class at Rutgers from many similar classes at other universities.</p>
-<p>Here is how we are different:</p>
-<p>Typically prediction model building is illustrated using real world data. This sounds very attractive and of course is the ultimate goal - but using real world data for your first prediction models is not a good idea. Here is why:</p>
-<ul>
-<li><p>Real data sets needs cleaning - and this requires more elaborate programming skills than in data 101. But even if data is “clean” - that is uploadable to R studio.</p></li>
-<li><p>Even if real data is clean, it is often “unrelatable” - like say some animal laboratory results or drug tests. It takes time to learn the data, it may also require some domain expertize to fully comprehend the data.</p></li>
-<li><p>It may take a lot of effort to discover trends and patterns in real data. Sometimes these trends are very weak.</p></li>
-</ul>
-<p>This is why we create our prediction challenges synthetically. Our data is relatable and synthetic. For example we start with data which each student can relate to - Grading. These challenges called Professor Moody prediction challenges call for predicting the grade in class based on attributes such as major, seniority, score in class as well as behavioral characterstics in class - texting, dozing off and asking questions.</p>
-<p>Data sets for our prediction challenges are generated with hidden patterns which make prediction challenges more fun to work on. They are truly data puzzles. For example, it may be the case that asking a lot of questions in class is negatively correlated with the grade. Professor Moody does not like to be bothered! This suprising pattern could have been injected in one of our data sets.</p>
-<p>Data generation for our data puzzles is accomplished with our own tool, called Data Puzzle Generator. Using data Puzzle Generator one can generate data sets with embedded patterns in very short time. One can also built on the previous data puzzles and add or remove patterns - creating new data puzzles</p>
+<div id="introduction-5" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Introduction<a href="Prediction_challenges.html#introduction-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We use selected data puzzles from section 4 in prediction challenges. Given a data puzzle (such as 4.1), we separate it into training data subset and testing data subset. The training data is given to students to build and cross-validate their prediction models. Then we use Kaggle to evaluate their models on the testing subset of the data puzzle. Each prediction challenge is structured as competition and Kaggle ranks students’ models by prediction accuracy. For categorical variables it is the <strong>fraction of values</strong> which are predicted correctly, for numerical variables it is <strong>MSE (mean square error)</strong>.</p>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="general-structure-of-the-prediction-challenges" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> General Structure of the Prediction Challenges<a href="Prediction_challenges.html#general-structure-of-the-prediction-challenges" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submission.</p>
+</div>
+<div id="general-structure-of-the-prediction-challenges" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> General Structure of the Prediction Challenges<a href="Prediction_challenges.html#general-structure-of-the-prediction-challenges" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submissions.</p>
 <p>The datasets provided for each prediction challenge is as follows:</p>
 <ul>
 <li><p><strong>Training Dataset</strong></p>
 <ul>
-<li>It is used for training and cross-validation purpose in the prediction challenge.</li>
-<li>This data has all the training attributes along and the values of the attribute wich is predicted (so called, Target attribute).</li>
-<li>Models for prediction are to be trained using this dataset only.<br />
-</li>
+<li>It is used for training and cross-validation purposes in the prediction challenge. This data has all the training attributes along and the values of the attribute wich is predicted (so called, Target attribute).</li>
+<li>Models for prediction are to be trained using this dataset only.</li>
 <li>Training data set is the set which is used when you build your prediction model - since this is the only data set which has all values of target attribute.</li>
 </ul></li>
 <li><p><strong>Testing Dataset</strong></p>
@@ -348,36 +338,52 @@
 </ul></li>
 <li><p><strong>Submission Dataset</strong></p>
 <ul>
-<li>After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column.</li>
-<li>Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.</li>
+<li>After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column. Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.</li>
 </ul></li>
 </ul>
 <p>To read the datasets use the read.csv() function and for writing the dataset to the file, use the write.csv() function. Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.</p>
-<p>To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. write.csv(<em>dataframe</em>,<em>fileaddress</em>,row.names = F).</p>
-</div>
-<div id="challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Challenge 1 - Freestyle prediction of grades in yet another MOODY data set<a href="Prediction_challenges.html#challenge-1---freestyle-prediction-of-grades-in-yet-another-moody-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is the next in the sequence of data puzzles about grading methods of the eccentric professor Moody. Professor Moody found out that his former grading methods were leaked to the student by treacherous TA and changed his grading methods (and the TA).</p>
-<p>Unfortunately, again the data was leaked to the students (Professor Moody does not use passwords). It indicates that Professor Moody may be tougher on certain majors and also may apply different grading criteria for different student seniority levels</p>
-<p>Can you build a prediction model which will mimic Moody’s grading as closely as possible?</p>
-<p>Attached are three files : One <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a> with original Professor Moody grading data and another, the <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testS.csv" download="M2022testS.csv">M2022testS.csv</a> data with missing GRADE column. Finally <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submissionS.csv" download="M2022submissionS.csv">M2022submissionS.csv</a> is the file you will submit to Kaggle of course after filling up the GRADE column.</p>
-<p>Your job is to predict the grades in the testing file, adding to it GRADE attribute with predicted grades.</p>
-<p>This test submission will be handled through Kaggle (just the error computation part) and Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error. In this case, of Professor Moody data, it will be a fraction of grades which your prediction model have predicted incorrectly.</p>
-<p><strong>Data League:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/155" class="uri">https://data101.cs.rutgers.edu/?q=node/155</a> <br>
-<strong>Kaggle competition:</strong> <a href="https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview" class="uri">https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview</a><br>
-<strong>Kaggle submission instructions:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/150" class="uri">https://data101.cs.rutgers.edu/?q=node/150</a> <br>
-<strong>Canvas HW9:</strong> <a href="https://rutgers.instructure.com/courses/159918/assignments/1953810" class="uri">https://rutgers.instructure.com/courses/159918/assignments/1953810</a></p>
-</div>
-<div id="challenge-2---same-data-but-using-rpart---decision-tree" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Challenge 2 - Same data but using rpart - decision tree<a href="Prediction_challenges.html#challenge-2---same-data-but-using-rpart---decision-tree" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It is the same DATA as prediction challenge 1. Just use <strong>rpart()</strong> this time. Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9. We will talk about rpart in detail in recitations and lectures next week.</p>
-<p><strong>FOR THIS PREDICTION CHALLENGE:</strong> Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.</p>
-<p>Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what “controls” have you tried and eventually used.</p>
-<p>This test submission will be handled through Kaggle (just the error computation part) and Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error. In this case, of Professor Moody data, it will be a fraction of grades which your prediction model have predicted incorrectly.</p>
+<p>To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. <code>write.csv(*dataframe*,*fileaddress*,row.names = F)</code>.</p>
+<!--
+## Challenge 1 - Freestyle prediction of grades in yet another MOODY data set
+
+This is the next in the sequence of data puzzles about grading methods of the eccentric professor Moody. Professor Moody found out that his former grading methods were leaked to the student by treacherous TA and changed his grading methods (and the TA).
+
+Unfortunately, again the data was leaked to the students (Professor Moody does not use passwords). It indicates that Professor Moody may be tougher on certain majors and also may apply different grading criteria for different student seniority levels
+
+Can you build a prediction model which will mimic Moody's grading as closely as possible?
+
+Attached  are three files : One <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a> with  original Professor Moody grading data and another, the <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testS.csv" download="M2022testS.csv">M2022testS.csv</a> data with missing GRADE column.  Finally <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submissionS.csv" download="M2022submissionS.csv">M2022submissionS.csv</a> is the file you will submit to Kaggle of course after filling up the GRADE column.  
+
+ Your job is to predict the grades in the testing file, adding to it GRADE attribute  with predicted grades. 
+
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+**Canvas HW9:** https://rutgers.instructure.com/courses/159918/assignments/1953810
+
+
+## Challenge 2 - Same data but using rpart - decision tree
+
+It is the same DATA as prediction challenge 1.  Just use **rpart()** this time.  Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9.  We will talk about rpart in detail in recitations and lectures next week.
+
+**FOR THIS PREDICTION CHALLENGE:**  Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.
+
+Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what "controls" have you tried and eventually used.
+ 
+This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
+
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
+**Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
+
+-->
 <p><strong>Data League:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/155" class="uri">https://data101.cs.rutgers.edu/?q=node/155</a> <br>
 <strong>Kaggle competition:</strong> <a href="https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview" class="uri">https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview</a><br>
-<strong>Kaggle submission instructions:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/150" class="uri">https://data101.cs.rutgers.edu/?q=node/150</a> <br>
-<strong>Canvas HW10:</strong> <a href="https://rutgers.instructure.com/courses/159918/assignments/1961012" class="uri">https://rutgers.instructure.com/courses/159918/assignments/1961012</a></p>
+<strong>Kaggle submission instructions:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/150" class="uri">https://data101.cs.rutgers.edu/?q=node/150</a> <br></p>
 
 </div>
 </div>

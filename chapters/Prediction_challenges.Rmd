@@ -1,22 +1,8 @@
 # 🔖 Prediction Challenges {#Pc1}
 
-Prediction challenges differentiate data 101 class at Rutgers from many similar classes at other universities.
+## Introduction
 
-Here is how we are different:
-
-Typically prediction model building is illustrated using real world data. This sounds very attractive and of course is the ultimate goal - but using real world data for your first prediction models is not a good idea. Here is why:
-
-- Real data sets needs cleaning - and this requires more elaborate programming skills than in data 101. But even if data is "clean" - that is uploadable to R studio.
-
-- Even if real data is clean, it is often "unrelatable" - like say some animal laboratory results or drug tests. It takes time to learn the data, it may also require some domain expertize to fully comprehend the data. 
-
-- It may take a lot of effort to discover trends and patterns in real data. Sometimes these trends are very weak.
-
-This is why we create our prediction challenges synthetically. Our data is relatable and synthetic. For example we start with data which each student can relate to - Grading. These challenges called Professor Moody prediction challenges call for predicting the grade in class based on attributes such as major, seniority, score in class as well as behavioral characterstics in class - texting, dozing off and asking questions. 
-
-Data sets for our prediction challenges are generated with hidden patterns which make prediction challenges more fun to work on. They are truly data puzzles. For example, it may be the case that asking a lot of questions in class is negatively correlated with the grade. Professor Moody does not like to be bothered! This suprising pattern could have been injected in one of our data sets. 
-
-Data generation for our data puzzles is accomplished with our own tool, called Data Puzzle Generator. Using data Puzzle Generator one can generate data sets with embedded patterns in very short time. One can also built on the previous data puzzles and add or remove patterns - creating new data puzzles
+We use selected data puzzles from section 4 in prediction challenges. Given a data puzzle (such as 4.1), we separate it into training data subset and testing data subset. The training data is given to students to build and cross-validate their prediction models. Then we use Kaggle to evaluate their models on the testing subset of the data puzzle. Each prediction challenge is structured as competition and Kaggle ranks students' models by prediction accuracy.  For categorical variables it is the **fraction of values** which are predicted correctly, for numerical variables it is **MSE (mean square error)**. 
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,33 +16,33 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## General Structure of the Prediction Challenges
 
-The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submission.
+The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submissions. 
 
-The datasets provided for each prediction challenge is as follows:
+The datasets provided for each prediction challenge is as follows: 
 
-- **Training Dataset**
-  - It is used for training and cross-validation purpose in the prediction challenge.
-  - This data has all the training attributes along and the  values of the attribute wich is predicted (so called, Target attribute).
-  - Models for prediction are to be trained using this dataset only.  
-  - Training data set is the set which is used when you build your prediction model - since this is the only data set which has all values of target attribute.
+- **Training Dataset** 
+
+  - It is used for training and cross-validation purposes in the prediction challenge. This data has all the training attributes along and the values of the attribute wich is predicted (so called, Target attribute). 
+  - Models for prediction are to be trained using this dataset only. 
+  - Training data set is the set which is used when you build your prediction model - since this is the only data set which has all values of target attribute. 
 
 - **Testing Dataset**
 
   - It is used for applying your prediction model to new data. You do it only when you are finished with building your prediction model.
 
-  - Testing data set consists of all the attributes that were used for training, but it does not contain any values of the target attribute.
-
-  - It is disjoint with the training data set - it contains new data and it is missing the target variable.
+  - Testing data set consists of all the attributes that were used for training, but it does not contain any values of the target attribute. 
+  - It is disjoint with the training data set - it contains new data and it is missing the target variable. 
+  
 
 - **Submission Dataset**
 
-  - After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column.
-  - Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.
+  - After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column. Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle. 
 
 To read the datasets use the read.csv() function and for writing the dataset to the file, use the write.csv() function. Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.
 
-To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. write.csv(*dataframe*,*fileaddress*,row.names = F).
+To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. ```write.csv(*dataframe*,*fileaddress*,row.names = F)```.
 
+<!--
 ## Challenge 1 - Freestyle prediction of grades in yet another MOODY data set
 
 This is the next in the sequence of data puzzles about grading methods of the eccentric professor Moody. Professor Moody found out that his former grading methods were leaked to the student by treacherous TA and changed his grading methods (and the TA).
@@ -92,3 +78,9 @@ This test submission will be handled through Kaggle (just the error computation 
 **Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
 **Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
 **Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
+
+-->
+
+**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
+**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
+**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
