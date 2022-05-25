@@ -166,6 +166,9 @@ MLP
 introduction-7
 additional-reference-5
 MAD
+introduction-8
+ecological-paradox
+additional-reference-6
 dsaf
 minimarket-data-set-description
 demo-of-boundless-analytics
