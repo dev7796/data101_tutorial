@@ -10,9 +10,12 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-In this section we demonstrate application of Boundless Analytics - the tool developed by Tomasz Imielinski and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bargraphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs otherwise very tedious task of looking at all combinations of attribute value pairs to identify the "significant ones" - saving enormous amount of work in preliminary exploration of data. 
+## Introduction
 
-We have provided synthetic data set - describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set
+In this section we demonstrate application of Boundless Analytics - the tool developed by Tomasz Imielinski and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bar graphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs an otherwise very tedious task of looking at all combinations of attribute value pairs to identify the “significant ones” - saving enormous amounts of work in preliminary exploration of data. 
+
+We are using here the Minimarket  data puzzle (4.7) describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set 
+
 
 ## Minimarket Data Set description
 
@@ -32,15 +35,13 @@ We have provided synthetic data set - describing customer transactions in the sm
 
 Seems open ended, no? what is the "most interesting"?
 
-- Chi-square value is a good measure. The higher it is, the more interesting the data set.
+- Chi-square value is a good measure. We explain it below.
 
-- By swiping through possible plots  (using Next), one can identify good candidates for the "interesting data subsets")
+- By swiping through possible plots (using Next), one can identify good candidates for the “interesting data subsets”) 
 
-- These are plots where red and blue bars differ the most. 
+- These are plots where red and blue bars differ the most.  In other words we want to reject the null hypothesis of independence of red and blue distributions over the data slice and the complement of the data slice. The higher the chi-square is, the strongest is our rejection of independence of **red** and **blue** distributions. 
 
-- Then run chi-square test over the candidates and nominate the plot with the highest chi-square value.
-
-- Therefore this task can be seen as chi-square hunt for the highest chi-square value  (use the  snippet 20.1 code after plugging in definition of a slice and the anchor attribute)
+Therefore this task can be seen as chi-square hunt for the highest chi-square value  (use the  snippet **17.1** code after plugging in definition of a slice and the anchor attribute)
 
 ## Snippet 1: Chi square hunt
 
@@ -66,12 +67,12 @@ ATTACHED - the data set (same as on the Boundless Analytics interface)
 
 **RESULTS: **
 
-Here are two out of 250+ submissions.  The one with the highest chi-square of **600.15** is the slice  showing weekend buyers of **lager** in **New brunswick** but disproportionately more snacks (in particular Crackers). This was identified by nearly 20 students.
+Here are two out of 250+ submissions.  The one with the highest chi-square of `600.15` is the slice  showing **weekend** buyers of **lager** in **New brunswick** but disproportionately more snacks (in particular Crackers). This was identified by nearly 20 students.
 
 ![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image.png)
 
 <br> 
 
-Here is another find by Eva Zhang showing disproportionately frequent **sales of Coca Cola** on Weekdays in **Princeton** for transactions which purchased Popcorn. The chi-square  value of this find is 205.31, with  df=3.
+Here is another find by Eva Zhang showing disproportionately frequent **sales of Coca Cola** on **Weekdays** in **Princeton** for transactions which purchased Popcorn. The chi-square  value of this find is `205.31`, with  df=3.
 
 ![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/image-2.png)

@@ -170,6 +170,7 @@ introduction-8
 ecological-paradox
 additional-reference-6
 dsaf
+introduction-9
 minimarket-data-set-description
 demo-of-boundless-analytics
 the-boundless-analytics-web-application
