@@ -168,7 +168,7 @@ additional-reference-5
 MAD
 introduction-8
 ecological-paradox
-additional-reference-6
+additional-references-4
 dsaf
 introduction-9
 minimarket-data-set-description

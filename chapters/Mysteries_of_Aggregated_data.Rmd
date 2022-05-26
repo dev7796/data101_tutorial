@@ -197,7 +197,7 @@ This actually happens a lot when the population is heavily concentrated in a hea
 
 
 
-## Additional Reference
+## Additional References
 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">  How can data fool us? </button> 
