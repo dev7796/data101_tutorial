@@ -373,7 +373,7 @@ boxplot(moody$score,col = c("blue"),main="Complex Example")
 
 ```
 
-## Additional reference
+## Additional references
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Data Transformation</button>
 <div id="subset12" class="collapse">    
