@@ -22,7 +22,7 @@ r-functions-used-in-this-class
 data-puzzles
 strange-grading-methods-of-professor-moody-data-puzzle
 moody-data-quiz
-try-yourself
+check-yourself
 magic-coin-heads-or-tails-data-puzzle
 how-to-predict-a-good-party-data-puzzle
 when-election-is-truly-local---data-puzzle

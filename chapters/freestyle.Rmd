@@ -59,17 +59,18 @@ kableExtra::scroll_box(temp,width = "100%")
 ### Moody Data Quiz
 ```{r,tut=TRUE,height=300}
 
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/3_1.csv") #web load
+df<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/3_1.csv") #web load
 
 # Question
-moody[sample(1:nrow(moody),1), ]['question']
+q <- df[sample(1:nrow(df),1), ]$question
+q 
 
-# Answer
-moody[sample(1:nrow(moody),1), ]['answer']
+answer <- df$answer[df$question == q]
+answer
 
 ```
 
-### Try yourself 
+### Check yourself 
 ```{r,tut=TRUE,height=600}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
