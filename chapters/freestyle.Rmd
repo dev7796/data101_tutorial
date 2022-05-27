@@ -61,12 +61,15 @@ kableExtra::scroll_box(temp,width = "100%")
 
 df<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/3_1.csv") #web load
 
-# Question
-q <- df[sample(1:nrow(df),1), ]$question
-q 
+df1 <- df[sample(1:nrow(df),1), ]
 
-answer <- df$answer[df$question == q]
-answer
+# Question 
+df1['question']
+
+readline(prompt="Press [enter] to continue")
+
+# Answer
+df1['answer']
 
 ```
 
