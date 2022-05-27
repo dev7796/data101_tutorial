@@ -1,0 +1,7 @@
+dataset,question,answer
+3.1,What are posterior odds that a student who texts all the time gets a A in the class?,0.22? Code and test!
+3.1,What are posterior odds that a CS senior fails Professor Moody class?,0.1?  Code and test!
+3.1,Is mean score of students who doze off all the time lower than students who never doze off?,"Yes, p=0.02?  Code and test"
+3.1,Is mean particpation of students with A higher than mean particpation of students with F?,"Yes, p=0.02?  Code and test"
+3.1,What are the odds that a student will get an A with score less than 80?,1:10?  Code and Test!
+3.1,What are the posterior odds that a student scores more than 80 when the text all the time?,1:5? Code and test!

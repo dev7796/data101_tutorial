@@ -8,6 +8,15 @@
 tutorial::go_interactive()
 ```
 
+```{r setup, include=FALSE}
+library(shiny)
+library(shinythemes)
+library(shinyjs)
+library(shinymanager)
+library(googlesheets4)
+gs4_deauth()
+```
+
 Data Puzzles are synthetically generated datasets with some embedded patterns.  Patterns have various forms from relationships between attributes to rules of the form “if condition then value” between specific attribute-value pairs.  These patterns are stochastic and embedded in datasets using **DataMaker** -  our  Data Puzzle Generation Tool.
 
 We use data puzzles extensively in the class assignments.  These range from data exploration and plotting through  hypothesis testing to prediction and machine learning.  After the assignment is completed we reveal the data secrets - the patterns which were embedded by DataMaker.  Students do not have to find exactly the embedded patterns, often they find related patterns which makes the “game” even more fun. 
@@ -47,6 +56,20 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
+### Moody Data Quiz
+```{r,tut=TRUE,height=300}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/3_1.csv") #web load
+
+# Question
+moody[sample(1:nrow(moody),1), ]['question']
+
+# Answer
+moody[sample(1:nrow(moody),1), ]['answer']
+
+```
+
+### Try yourself 
 ```{r,tut=TRUE,height=600}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
