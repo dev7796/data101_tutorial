@@ -554,7 +554,7 @@ TOTAL
 <p>The chi-square formula calculates the <strong>“distance”</strong> between the observed contingency table and the expected contingency table.</p>
 <p><span class="math display">\[\begin{equation}
 
-\sum \frac{(O_i_j - E_i_j)^2}{E_i_j}\\
+\sum \frac{(O_i - E_i)^2}{E_i}\\
 
 
 \text{where:}\\
@@ -565,7 +565,7 @@ TOTAL
 <p>For the two tables above the,</p>
 <p><span class="math display">\[\begin{equation}
 
-\sum \frac{(O_i_j - E_i_j)^2}{E_i_j}  = 60.03\\
+\sum \frac{(O_i - E_i)^2}{E_i}  = 60.03\\
 
 \end{equation}\]</span></p>
 <p>To evaluate how far off is this observed result assuming that Grades are independent from Major, we run a permutation test which scrambles Grades and Majors randomly and every time computes the chi-square formula with the new observed table (the expected table is always the same). Then, we see how many times out of, say 10,000 iterations of permutation test we obtain a result larger than the observed result of 60.03? This is the p-value.</p>
