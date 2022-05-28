@@ -10,6 +10,7 @@ rmd_files: [
   "./chapters/z-test.Rmd",
   "./chapters/Chisquare.Rmd",
   "./chapters/Multiple_Hypothesis.Rmd",
+  "./chapters/code_review.Rmd",
   "./chapters/common_sense.Rmd",
   "./chapters/bayesian_reasoning.Rmd",
   "./chapters/Free_style.Rmd",
