@@ -165,12 +165,9 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+<br>
 
 DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
-
-
-
-<br>
 
 You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
 
