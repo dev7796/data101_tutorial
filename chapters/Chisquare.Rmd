@@ -86,7 +86,6 @@ The second table we need is called the expected table. This is the hypothetical 
 <td>Economics</td>
 <td>Psychology</td>
 <td>Statistics</td>
-<td>TOTAL</td>
 </tr>
 
 <tr>
