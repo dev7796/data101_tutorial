@@ -12,35 +12,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Introduction
 
-Randomness is the biggest enemy of data scientists. How not to fall into its trap? How to distinguish what's real from what's random? This is the goal of hypothesis testing. One does not need statistics to understand the key idea. Of course statistics, probability distributions, means, standard deviations will come in due time. But we do not have to start with these sometimes intimidating concepts!
-
-Permutation test is a shortest path to comprehend randomness and how not to fall for the randomness trap. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels. 
-
-`INSERT (table of the dataset correct it to 2022)`
-
-We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute in each of the tunnels using the following data. 
-
-We conclude with `68.54` for Lincoln and `67.71` for Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic. But is it?  Or it is just random deviation and maybe if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us  talk about the null hypothesis and the alternative hypothesis. 
-
-**Null hypothesis** for the Lincoln-Holland tunnel observation  is that,  not surprisingly,  there is no difference in traffic  between the two tunnels.   
-
-The **alternative hypothesis** states that Lincoln tunnel is more busy than Holland tunnel.
-Does observed data (observed traffic difference) provide us with enough evidence to *reject null hypothesis* and in fact support the alternative  hypothesis?  To answer this question we need to decide whether the observed result is reasonably likely to come randomly under the condition that NULL hypothesis holds. 
-
-How likely it is  that observed difference `(D=0.83)` comes *randomly*?
-Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.We can measure and observe it by running a permutation test, by randomly scrambling the traffic table.  
-
-Permutation test is run may times, typically `10,000`, even `100,000` times and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland vs Lincoln remain the same. Just values differ, existing values are scrambled just breaking any relationship between volume numbers and tunnel names. Just think about each permutation as rolling a dice. How often will this  random process produce the result which is at least as extreme as `D=0.83` we observed? The less often it happens the more likely it is that what we observe is NOT random. Thus if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7% our observed result cannot be random.
-
-Permutation test provides an almost palpable experience with randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get `D>0.83` relatively often (above what is called significance level usually it is at least 5% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.
-No need to calculate standard deviations, means, no need to know anything about z-test, t-test. These tests are the next step after you get a taste of randomness and understand how powerful randomness is. You would never guess!
-
-The next step, which we illustrate here only through the z-test function, is to calculate p-value using descriptive statistics and the so-called Central limit theorem. This is much cheaper computationally. And the result is always the same, as opposed to the p-value computed by the permutation test. The latter changes slightly every time we run a permutation test. But it still changes because one cannot permute data in all possible ways. The descriptive statistics tests like z-test are asymptotic. There are strings attached to them (like data has to be large enough).  And they hide randomness behind the armor of mathematics.
-
-You can understand the data analyst struggle with randomness purely by a permutation test. Here in this active textbook we discuss hypothesis testing only through the permutation test. We show you z-test and later chi square tests primarily as black box functions, but we delay the know-how behind these tests to the statistics class. 
-
-
-The following synthetic data describes daily traffic on weekday and weekend days in Lincoln and Holland tunnels. The data frame has three attributes: TUNNEL, DAY and VOLUME_PER_MINUTE.  Below we show a small sample of the TRAFFIC data frame
+Randomness is the biggest enemy of data scientists. How to distinguish what's real from what's random? This is the goal of hypothesis testing.  We will introduce hypothesis testing through the permutation test. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels. 
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -53,13 +25,36 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
-<br>
+<br> 
 
-The following snippet **8.2** shows the code for hypothesis test of difference of means.
+We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute for each of the tunnels using the provided data.
 
-Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
+We conclude with 68.54 mean volume per minute for Lincoln and 67.71  mean volume per minute for the Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic.  But is it?  Or is it just random deviation? Perhaps if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us  talk about the null hypothesis and the alternative hypothesis.
+
+
+**Null hypothesis** for the Lincoln-Holland tunnel observation  is that,  not surprisingly,  there is no difference in traffic  between the two tunnels.   
+
+The **alternative hypothesis** states that Lincoln tunnel is more busy than Holland tunnel.
+
+Does observed data (observed traffic difference) provide us with enough evidence to *reject null hypothesis* and in fact support the alternative  hypothesis?  To answer this question we need to decide whether the observed result is reasonably likely to come up randomly under the condition that NULL hypothesis holds.  
+
+How likely it is  that observed difference (D=0.83) comes *randomly*?
+Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.
+
+In each permutation of the permutation test we  randomly scramble the traffic table once. Permutation test is run many times, typically 10,000, even 100,000 times, and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland and Lincoln  tunnels respectively remain the same. Existing values are scrambled  though - breaking any relationship between volume numbers and tunnel names. Each permutation is like rolling a dice. How often will this  random process produce the result which is at least as extreme as D=0.83 that we have observed? The less often it happens the more likely it is that what we have observed is NOT random. For example, if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7% our observed result cannot be random.
+
+Permutation test provides a palpable experience of randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get D>0.83 relatively often (above what is called significance level usually it is at least 5% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.
+
+Notice, that every time we run the permutation test function we may get slightly different p-values. This is because permutations are random. The more times we run a permutation test, the closer it will approximate the “real” p-value.  Snippet 6.1 shows permutation test results for the Traffic data set. 
+
+Another test which is often used for difference of means hypothesis testing is the z-test.  It is described very well in the attached link to the Khan Academy lecture.  Here we run z-test function in one of the following snippets.
 
 ## Snippet 1: Permutation test {#permutaion}
+
+
+The following snippet \@ref(permutaion) shows the code for hypothesis test of difference of means.
+
+Is the mean traffic (VOLUME_PER_MINUTE)  in the Holland tunnel bigger than  mean  traffic (VOLUME_PER_MINUTE)  in the Lincoln? 
 
 Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets
 
@@ -106,13 +101,13 @@ Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
 #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
 ```
 
-## Snippet 2: z-test
+## Snippet 2: z-test {#ztests}
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
 **Alternative Hypothesis** - Traffic in the Holland Tunnel is larger than traffic in the Lincoln  tunnel.
 
-In the snippet **8.3**  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
+In the snippet \@ref(ztests)  we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic).  Indeed, p-value is less than the significance level  of 5%.
 This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the  observed difference of means.
 
 ```{r,tut=TRUE,ex="ztestfunction1",type="pre-exercise-code"}
@@ -177,17 +172,17 @@ z_test(TRAFFIC,"TUNNEL", "VOLUME_PER_MINUTE","Lincoln", "Holland")
 
 For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. 
 
-Build the data frame with two attributes: `Cat and Val, using rnorm() function`. 
-Our null hypothesis is that Group A and Group B  have identical **mean(Val)**.
+Build the data frame with two attributes: Cat and Val, using rnorm() function. 
+Our null hypothesis is that Group A and Group B  have identical mean(Val).
 
-The alternative hypothesis is that the mean(Val) for Group B is higher than **mean(Val)** for Group A.
+The alternative hypothesis is that the mean(Val) for Group B is higher than mean(Val) for Group A.
 We will change the mean and standard deviation of the data distributions for Group A and Group B and see how these changes affect the p-value. We will first use a permutation test and a single-step permutation test (just to illustrate what happens each single step when we run a permutation test). Then we finish off with the z-test. 
 
 ### Permuation test
 
 **Exercise** - How p-value is affected by difference of means and standard deviations
 
-We will build our two distributions ourseleves - varying the means and standard deviations.  We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
+We will build our two distributions ourseleves - varying the means and standard deviations.  We will use rnorm() to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.
 
 Build the data frame with two attributes: **Cat** and **Val**, using **rnorm()** function
 
@@ -277,11 +272,11 @@ mean(Permuted_traffic[Permuted_traffic$TUNNEL=='Lincoln', ]$VOLUME_PER_MINUTE)-m
 
 How p-value is affected by difference of means and standard deviations.
 
-We will build two distributions ourselves - varying the means and standard deviations. We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the **rnorm()** function.
+We will build two distributions ourselves - varying the means and standard deviations. We will use rnorm() to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the rnorm() function.
 
 Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value?  See for yourself.
 
-Build the data frame with two attributes: Cat and Val, using **rnorm()** function
+Build the data frame with two attributes: Cat and Val, using rnorm() function
 
 ```{r,tut=TRUE,ex="ztestfunction",type="pre-exercise-code"}
 

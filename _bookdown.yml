@@ -7,7 +7,7 @@ rmd_files: [
   "./chapters/FreeStyle.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/tapply_subsetting.Rmd",
-  "./chapters/z-test.Rmd",
+  "./chapters/hypothesis_testing.Rmd",
   "./chapters/Chisquare.Rmd",
   "./chapters/Multiple_Hypothesis.Rmd",
   "./chapters/code_review.Rmd",

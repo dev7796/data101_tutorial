@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 16 🔖 How can data fool us? | bookdemo.knit</title>
+  <title>Section: 6 🔖 Hypothesis Testing | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 16 🔖 How can data fool us? | bookdemo.knit" />
+  <meta property="og:title" content="Section: 6 🔖 Hypothesis Testing | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 16 🔖 How can data fool us? | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 6 🔖 Hypothesis Testing | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Prediction_loop.html"/>
-<link rel="next" href="22.html"/>
+<link rel="prev" href="tapply_subsetting.html"/>
+<link rel="next" href="Chisquare.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,252 +329,270 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="MAD" class="section level1 hasAnchor" number="16">
-<h1><span class="header-section-number">Section: 16</span> 🔖 How can data fool us?<a href="Mysteries_of_Aggregated_data.html#MAD" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ztest" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Section: 6</span> 🔖 Hypothesis Testing<a href="hypothesis_testing.html#ztest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="introduction-8" class="section level2 hasAnchor" number="16.1">
-<h2><span class="header-section-number">16.1</span> Introduction<a href="Mysteries_of_Aggregated_data.html#introduction-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>How not to be fooled by data?</code> In the description of this class we promised that data 101 will teach you this. Have we? I hope so. Please use our question roulette to test yourself. In this section we discuss Simpson Paradox, Prosecutorial and Ecological Fallacies. Before we proceed with the paradoxes let us summarize what we have learned so far:</p>
-<ul>
-<li><code>Beware of randomness</code> (Hypothesis testing, p-values, Multiple hypothesis testing)</li>
-<li><code>Be an optimist</code> - use Bayesian reasoning. Remember about prior odds first!</li>
-<li><code>Beware of extreme results</code> - Apply law of small numbers</li>
-<li><code>Remember we process information following availability</code> - we assign high frequency falsely to events which are just talked about very often</li>
-<li><code>Narrative fallacy - do not find false patterns</code> - “Stocks went down due to concerns about rising cost of living”</li>
-</ul>
-<p>Here we will discuss the Simpson paradox as well as Prosecutorial and Ecological fallacies.
-Let us start with the Simpson paradox. Here is a simple example of two basketball players, Aaron and Barry</p>
-<p>The Table <strong>16.1</strong> shows Aaron’s and Barry’s free throw point averages (FTP) over the 2021 and 2022 season respectively. Clearly for both seasons Barry beats Aaron in terms of FTP, in 2021 by 90% to 80% and in 2022 by 70% to 65%. <code>Can Aaron  still beat Barry over both seasons - that is get a higher FTP over the sum of two seasons, 2021+2022?</code> First answer which comes to mind is absolutely not. <code>How can Aaaron beat Barry over 2021+2022 when   Barry beats him in each of the two seasons?</code></p>
-<p><strong>Table 16.1</strong></p>
+<div id="introduction" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction<a href="hypothesis_testing.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Randomness is the biggest enemy of data scientists. How to distinguish what’s real from what’s random? This is the goal of hypothesis testing. We will introduce hypothesis testing through the permutation test. To illustrate the permutation test, let us start with a simple example of a dataset storing information about traffic in Lincoln and Holland tunnels.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
+<caption>
+<span id="tab:unnamed-chunk-81">Table 6.1: </span>Snippet of Traffic Dataset
+</caption>
+<thead>
 <tr>
-<td>
-season/player
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+TUNNEL
+</th>
+<th style="text-align:left;">
+DAY
+</th>
+<th style="text-align:right;">
+VOLUME_PER_MINUTE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1419
 </td>
-<td>
-Aaron
+<td style="text-align:left;">
+Lincoln
 </td>
-<td>
-Barry
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+51.0
 </td>
 </tr>
 <tr>
-<td>
-2021 season
+<td style="text-align:left;">
+823
 </td>
-<td>
-80%
+<td style="text-align:left;">
+Holland
 </td>
-<td>
-90%
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+123.5
 </td>
 </tr>
 <tr>
-<td>
-2022 season
+<td style="text-align:left;">
+1503
 </td>
-<td>
-65%
+<td style="text-align:left;">
+Lincoln
 </td>
-<td>
-70%
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+63.0
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+65.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+994
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+82.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+332
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+62.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+603
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+44.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2100
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+65.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1154
+</td>
+<td style="text-align:left;">
+Holland
+</td>
+<td style="text-align:left;">
+weekend
+</td>
+<td style="text-align:right;">
+45.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2208
+</td>
+<td style="text-align:left;">
+Lincoln
+</td>
+<td style="text-align:left;">
+weekday
+</td>
+<td style="text-align:right;">
+61.0
+</td>
+</tr>
+</tbody>
 </table>
-<p>But table <strong>16.2</strong> explains that it is quite possible that Aaron can beat Barry over 2021+ 2022. Indeed, since we do not know the absolute number of attempts at free throws, we can easily pick any number of attempts for each of them in any of the two seasons.</p>
-<p><strong>Indeed</strong> - here is the proof that Aaron can still beat Barry. If Barry made 100 attempts in 2021 and 20 attempts in 2022, while Barry made only 20 attempts in 2021 and 100 attempts in 2022, Aaron’s overall FRP for both 2021+2022 will be higher than Barry’s. And this is Simposon’s paradox.</p>
-<p><strong>Table 16.2</strong></p>
-<table>
-<tr>
-<td>
-season/player
-</td>
-<td>
-Aaron
-</td>
-<td>
-Barry
-</td>
-</tr>
-<tr>
-<td>
-2021 season
-</td>
-<td>
-80% out of 100
-</td>
-<td>
-90% out of 20
-</td>
-</tr>
-<tr>
-<td>
-2022 season
-</td>
-<td>
-65% out of 20
-</td>
-<td>
-70% out of 100
-</td>
-</tr>
-</table>
-<p>Indeed Aaron’s FTP over 2021+2022 is<br />
-<span class="math display">\[\begin{equation}
-\frac{80+13}{120} = \frac{93}{120}
-\end{equation}\]</span>
-which is larger than Barry’s</p>
-<p><span class="math display">\[\begin{equation}
-\frac{18+20}{120} = \frac{88}{120}
-\end{equation}\]</span></p>
-<p>More generally, trends in subsets of data may reverse themselves after aggregation.</p>
-<p>In fact we can have any number of seasons and have Barry beat Aaron in FTP in each and every season and Aaron still wins with better FTP over all seasons. This is again simply because we do not know how many attempts each player made each season. This applies to many real world situations such as graduate admissions for example (the famous Berkeley admission bias case). There women may have a higher chance to be admitted than men in each single academic department and nevertheless, men beat women in overall acceptance ratio. This is again hard to comprehend at first but it is due to the fact that the absolute number of female and male applicants may be different for each department.</p>
-<p><strong>Is such reversal always possible? </strong></p>
-<p>Let’s look at the table below:</p>
-<p><strong>Table 16.3</strong></p>
-<table>
-<tr>
-<td>
-season/player
-</td>
-<td>
-Aaron
-</td>
-<td>
-Barry
-</td>
-</tr>
-<tr>
-<td>
-2021 season
-</td>
-<td>
-65%
-</td>
-<td>
-90%
-</td>
-</tr>
-<tr>
-<td>
-2022 season
-</td>
-<td>
-60%
-</td>
-<td>
-70%
-</td>
-</tr>
-</table>
-<p><code>In this case the Simpson paradox is not possible. Why?</code> Because Aaron’s highest FTP (65% in 2021 season is lower than Barry’s lowest FTP in 2022). You can easily see that no matter what the absolute numbers of attempts in each season, Aaron can never beat Barry for 2021+2022.
-Thus the Simpson paradox was possible in this simple case only because Aaron’s highest FTP was higher than Barry’s lowest FTP.</p>
-<p>One also has to be careful with the Simpson paradox and not apply it to situations when both groups /individuals have the same absolute number of “attempts”. For example, the Simpson paradox is not possible for students and their individual scores on homework’s and exams. If Barry scores higher than Aaron on each homework and on each exam then Barry will always have a higher score overall than Aaron. There is no Simpsonian trend reversal. Every homework and every exam counts the same for all students. This is as if players always made the same number of free throw attempts.</p>
-<div id="ecological-paradox" class="section level3 hasAnchor" number="16.1.1">
-<h3><span class="header-section-number">16.1.1</span> Ecological Paradox<a href="Mysteries_of_Aggregated_data.html#ecological-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ecological paradox is kind of the reverse of the Simpson paradox. Let’s assume that we consider net worth for each member of groups A and B. Even if average net worth of group A is higher than average net worth of group B, it may be possible that random individual member of the group B has higher net worth than random individual member of the group A. Thus the order of aggregates may be reversed when we look at the level of individuals.</p>
-<p>For example as table <strong>16.4</strong> illustrates, the average net worth of Group A dominates the average net worth of Group B due to the presence of one wealthy individual. However for 90% of pairs of individuals, group B members are more wealthy than Group A members.</p>
-<p><strong>Table 16.3</strong></p>
-<table>
-<tr>
-<td>
-Group A
-</td>
-<td>
-Group B
-</td>
-</tr>
-<tr>
-<td>
-$10,000,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$100,000
-</td>
-<td>
-$290,000
-</td>
-</tr>
-<tr>
-<td>
-$120,000
-</td>
-<td>
-$220,000
-</td>
-</tr>
-<tr>
-<td>
-$80,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$60,000
-</td>
-<td>
-$270,000
-</td>
-</tr>
-<tr>
-<td>
-$160,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$110,000
-</td>
-<td>
-$240,000
-</td>
-</tr>
-<tr>
-<td>
-$100,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$200,000
-</td>
-<td>
-$240,000
-</td>
-</tr>
-</table>
-<p>For example, it is well known that Democrats win the richest states, while (until recently), the richest individuals vote republican. <code>How is it possible?</code> Explanation is simple. Everyone’s vote counts the same and there are few very rich people. Very rich people may contribute more to the average wealth of the state (due to their extreme wealth), but there are just very few of them.</p>
-<p><strong>Do not be fooled by aggregates! </strong></p>
-<p>Let’s assume that a Democrat wins 70% of the vote and a Republican wins 30% of the vote in some state. <code>Is it possible that, nevertheless, the  republican candidate wins all 19 counties out of 20 in the state?</code>
-This actually happens a lot when the population is heavily concentrated in a heavily populated urban county which has the vast majority of voters living there.</p>
+</div>
+<p><br></p>
+<p>We observe that Lincoln traffic is higher than Holland tunnel traffic by calculating average traffic volume per minute for each of the tunnels using the provided data.</p>
+<p>We conclude with 68.54 mean volume per minute for Lincoln and 67.71 mean volume per minute for the Holland tunnel. This seems to indicate that Lincoln traffic is higher than Holland traffic. But is it? Or is it just random deviation? Perhaps if we took more measurements, the trend would be reversed? This is where the permutation test comes handy. First, let us talk about the null hypothesis and the alternative hypothesis.</p>
+<p><strong>Null hypothesis</strong> for the Lincoln-Holland tunnel observation is that, not surprisingly, there is no difference in traffic between the two tunnels.</p>
+<p>The <strong>alternative hypothesis</strong> states that Lincoln tunnel is more busy than Holland tunnel.</p>
+<p>Does observed data (observed traffic difference) provide us with enough evidence to <em>reject null hypothesis</em> and in fact support the alternative hypothesis? To answer this question we need to decide whether the observed result is reasonably likely to come up randomly under the condition that NULL hypothesis holds.</p>
+<p>How likely it is that observed difference (D=0.83) comes <em>randomly</em>?
+Permutation test helps us to estimate the chance that D=0.83 will come up randomly under the condition that traffic in Holland and Lincoln tunnels is equal.</p>
+<p>In each permutation of the permutation test we randomly scramble the traffic table once. Permutation test is run many times, typically 10,000, even 100,000 times, and each permutation simulates a random process by simply reassigning the traffic volume values randomly between tunnels. The numbers of traffic measurements in Holland and Lincoln tunnels respectively remain the same. Existing values are scrambled though - breaking any relationship between volume numbers and tunnel names. Each permutation is like rolling a dice. How often will this random process produce the result which is at least as extreme as D=0.83 that we have observed? The less often it happens the more likely it is that what we have observed is NOT random. For example, if we can get our observed result only 3 times in 1000 rolls of a dice (permutation test) it means that with probability of 99.7% our observed result cannot be random.</p>
+<p>Permutation test provides a palpable experience of randomness. Just roll the dice many times and see how often you can get the observed result or more. If you can get D&gt;0.83 relatively often (above what is called significance level usually it is at least 5% of the time), then you cannot reject the null hypothesis. In other words the conclusion that your observation appeared RANDOMLY. Otherwise, we can conclude that observation was not random - and we reject the null hypothesis.</p>
+<p>Notice, that every time we run the permutation test function we may get slightly different p-values. This is because permutations are random. The more times we run a permutation test, the closer it will approximate the “real” p-value. Snippet 6.1 shows permutation test results for the Traffic data set.</p>
+<p>Another test which is often used for difference of means hypothesis testing is the z-test. It is described very well in the attached link to the Khan Academy lecture. Here we run z-test function in one of the following snippets.</p>
+</div>
+<div id="permutaion" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Snippet 1: Permutation test<a href="hypothesis_testing.html#permutaion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following snippet <a href="hypothesis_testing.html#permutaion">6.2</a> shows the code for hypothesis test of difference of means.</p>
+<p>Is the mean traffic (VOLUME_PER_MINUTE) in the Holland tunnel bigger than mean traffic (VOLUME_PER_MINUTE) in the Lincoln?</p>
+<p>Do this in your R studio, since we cannot install our package in data camp service we are using to run the code snippets</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG4jZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcblxuI1Blcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIilcbnRyYWZmaWM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2XCIpXG5QZXJtdXRhdGlvbih0cmFmZmljLCBcIlRVTk5FTFwiLCBcIlZPTFVNRV9QRVJfTUlOVVRFXCIsMTAwMCxcIkhvbGxhbmRcIiwgXCJMaW5jb2xuXCIpXG4gXG4jVGhlIFBlcm11dGF0aW9uIGZ1bmN0aW9uIHJldHVybnMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBkaWZmZXJlbmNlLiBTbyB0aGUgcmVkIGxpbmUgaXMgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBvYnNlcnZlZCBkaWZmZXJlbmNlLiBZb3Ugd2lsbCBzZWUgYSBoaXN0b2dyYW0gaGF2aW5nIGEgbm9ybWFsIGRpc3RyaWJ1dGlvbiB3aXRoIGEgcmVkIHNob3dpbmcgdGhlIG9ic2VydmVkIGRpZmZlcmVuY2UuIn0=
 </div>
 </div>
-<div id="additional-references-5" class="section level2 hasAnchor" number="16.2">
-<h2><span class="header-section-number">16.2</span> Additional References<a href="Mysteries_of_Aggregated_data.html#additional-references-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">
-How can data fool us?
+<div id="ztests" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Snippet 2: z-test<a href="hypothesis_testing.html#ztests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Null Hypothesis</strong> - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.</p>
+<p><strong>Alternative Hypothesis</strong> - Traffic in the Holland Tunnel is larger than traffic in the Lincoln tunnel.</p>
+<p>In the snippet <a href="hypothesis_testing.html#ztests">6.3</a> we end up calculating the p-value which leads to rejection of Null hypothesis (good news for data scientist, bad for the sceptic). Indeed, p-value is less than the significance level of 5%.
+This means, that under null hypothesis it is extremely unlikely (less than 5% chance) to see the result which is at least as big as the observed difference of means.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVFJBRkZJQzwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L1RyYWZmaWMyMDIyLmNzdicpXG5cbnpfdGVzdChUUkFGRklDLFwiVFVOTkVMXCIsIFwiVk9MVU1FX1BFUl9NSU5VVEVcIixcIkxpbmNvbG5cIiwgXCJIb2xsYW5kXCIpIn0=
+</div>
+</div>
+<div id="snippet-3-make-your-own-data-and-see-how-p-value-changes" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Snippet 3: Make your own data and see how p-value changes<a href="hypothesis_testing.html#snippet-3-make-your-own-data-and-see-how-p-value-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use <strong>rnorm()</strong> to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
+<p>Build the data frame with two attributes: Cat and Val, using rnorm() function.
+Our null hypothesis is that Group A and Group B have identical mean(Val).</p>
+<p>The alternative hypothesis is that the mean(Val) for Group B is higher than mean(Val) for Group A.
+We will change the mean and standard deviation of the data distributions for Group A and Group B and see how these changes affect the p-value. We will first use a permutation test and a single-step permutation test (just to illustrate what happens each single step when we run a permutation test). Then we finish off with the z-test.</p>
+<div id="permuation-test" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Permuation test<a href="hypothesis_testing.html#permuation-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Exercise</strong> - How p-value is affected by difference of means and standard deviations</p>
+<p>We will build our two distributions ourseleves - varying the means and standard deviations. We will use rnorm() to generate normal distributions with given means and standard deviations. Then we will use permutation test (can be z-test as well) to test difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values.</p>
+<p>Build the data frame with two attributes: <strong>Cat</strong> and <strong>Val</strong>, using <strong>rnorm()</strong> function</p>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJWYWwxPC1ybm9ybSgxMCxtZWFuPTI1LCBzZD0xMClcblZhbDI8LXJub3JtKDEwLG1lYW49MzAsIHNkPTEwKVxuIFxuQ2F0MTwtcmVwKFwiR3JvdXBBXCIsMTApICAjIGZvciBleGFtcGxlIEdyb3VwQSBjYW4gYmUgSG9sbGFuZCBUdW5uZWxcbkNhdDI8LXJlcChcIkdyb3VwQlwiLDEwKSAgIyBmb3IgZXhhbXBsZSBHcm91cCBCIHdpbGwgYmUgTGluY29sbiBUdW5uZWxcblxuQ2F0MVxuQ2F0MlxuXG4jVGhlIHJlcCBjb21tYW5kIHdpbGwgcmVwZWF0LCB0aGUgdmFyaWFibGVzIHdpbGwgYmUgb2YgdHlwZSBjaGFyYWN0ZXIgYW5kIHdpbGwgY29udGFpbiAxMCB2YWx1ZXMgZWFjaC5cblxuQ2F0PC1jKENhdDEsQ2F0MikgIyBBIHZhcmlhYmxlIHdpdGggZmlyc3QgMTAgdmFsdWVzIEdyb3VwQSBhbmQgbmV4dCAxMCB2YWx1ZXMgR3JvdXBCXG5DYXRcblxuVmFsPC1jKFZhbDEsVmFsMilcblZhbFxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5kXG5cblBlcm11dGF0aW9uKGQsIFwiQ2F0XCIsIFwiVmFsXCIsMTAwMCxcIkdyb3VwQVwiLCBcIkdyb3VwQlwiKVxuXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKVxuT2JzZXJ2ZWRfRGlmZmVyZW5jZVxuXG4jVGhpcyB3aWxsIGNhbGN1bGF0ZSB0aGUgbWVhbiBvZiB0aGUgc2Vjb25kIGNvbHVtbiAoaGF2aW5nIDEwIHJhbmRvbSB2YWx1ZXMgZm9yIGVhY2ggZ3JvdXApLCBhbmQgdGhlIG1lYW4gb2YgZ3JvdXBCIHZhbHVlcyBpcyBzdWJ0cmFjdGVkIGZyb20gdGhlIG1lYW4gb2YgZ3JvdXBBIHZhbHVlcywgd2hpY2ggd2lsbCBnaXZlIHlvdSB0aGUgdmFsdWUgb2YgdGhlIGRpZmZlcmVuY2Ugb2YgdGhlIG1lYW4uXG4gXG4gI1RyeSBjaGFuZ2luZyBtZWFuIGFuZCBzZCB2YWx1ZXMuIFdoZW4geW91IHJ1biB0aGlzIHlvdSB3aWxsIHNlZSB0aGF0IHRoZSBkaWZmZXJlbmNlIGlzIHNvbWV0aW1lcyBuZWdhdGl2ZSAjb3Igc29tZXRpbWVzIHBvc2l0aXZlLiJ9
+</div>
+</div>
+<div id="one-permutation-at-a-time" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> One permutation at a time<a href="hypothesis_testing.html#one-permutation-at-a-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFmZmljPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvVHJhZmZpYzIwMjIuY3N2JylcblxucmFuTnVtIDwtIHNhbXBsZSgxOm5yb3codHJhZmZpYyksbnJvdyh0cmFmZmljKSlcbnJhbk51bVsxOjVdXG5cblZPTFVNRV9QRVJfTUlOVVRFPC10cmFmZmljJFZPTFVNRV9QRVJfTUlOVVRFW3Jhbk51bV1cblRVTk5FTDwtdHJhZmZpYyRUVU5ORUxcblxuUGVybXV0ZWRfdHJhZmZpYzwtZGF0YS5mcmFtZShUVU5ORUwsIFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKHRyYWZmaWNbdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSkgLW1lYW4odHJhZmZpY1t0cmFmZmljJFRVTk5FTD09J0hvbGxhbmQnLCBdJFZPTFVNRV9QRVJfTUlOVVRFKVxuXG5tZWFuKFBlcm11dGVkX3RyYWZmaWNbUGVybXV0ZWRfdHJhZmZpYyRUVU5ORUw9PSdMaW5jb2xuJywgXSRWT0xVTUVfUEVSX01JTlVURSktbWVhbihQZXJtdXRlZF90cmFmZmljW1Blcm11dGVkX3RyYWZmaWMkVFVOTkVMPT0nSG9sbGFuZCcsIF0kVk9MVU1FX1BFUl9NSU5VVEUpIn0=
+</div>
+</div>
+<div id="z-test" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> z-test<a href="hypothesis_testing.html#z-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How p-value is affected by difference of means and standard deviations.</p>
+<p>We will build two distributions ourselves - varying the means and standard deviations. We will use rnorm() to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. You can do it by changing values of mean and standard deviation in the rnorm() function.</p>
+<p>Clearly the further apart the mean values are - the lower the p-value. But how do standard deviations affect the p-value? See for yourself.</p>
+<p>Build the data frame with two attributes: Cat and Val, using rnorm() function</p>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InpfdGVzdCA8LSBmdW5jdGlvbihkYXRhLGNvbDEsY29sMixzdWIxLHN1YjIpIHtcbiAgZGF0YSA8LSBhcy5kYXRhLmZyYW1lKGRhdGEpXG4gIFYxPC1kYXRhWyxjb2wxXVxuICBWMjwtZGF0YVssY29sMl1cbiAgI2RhdGEgY2xlYW4gYW5kIHN1YnNldCwgZWl0aGVyXG4gIGxpbmNvbG4uZGF0YSA8LSBzdWJzZXQoZGF0YSwgVjEgPT0gc3ViMSlcbiAgaG9sbGFuZC5kYXRhIDwtIHN1YnNldChkYXRhLCBWMSA9PSBzdWIyKVxuICBcbiAgI3RyYWZmaWMgYXQgbGluY29sblxuICBsaW5jb2xuLnRyYWZmaWMgPC0gbGluY29sbi5kYXRhWyxjb2wyXVxuICAjdHJhZmZpYyBhdCBob2xsYW5kXG4gIGhvbGxhbmQudHJhZmZpYyA8LSBob2xsYW5kLmRhdGFbLGNvbDJdXG4gIFxuICAjIHN0YW5kYXJkIGRldmlhdGlvbiBvZiB0d28gc2FtcGxlcy5cbiAgc2QubGluY29sbiA8LSBzZChsaW5jb2xuLnRyYWZmaWMpXG4gIHNkLmhvbGxhbmQgPC0gc2QoaG9sbGFuZC50cmFmZmljKVxuICBcbiAgI2xlbmd0aCBvZiBsaW5jb2xuIGFuZCBob2xsYW5kXG4gIGxlbl9saW5jb2xuIDwtIGxlbmd0aChsaW5jb2xuLnRyYWZmaWMpXG4gIGxlbl9ob2xsYW5kIDwtIGxlbmd0aChob2xsYW5kLnRyYWZmaWMpXG4gIGxlbl9saW5jb2xuXG4gIGxlbl9ob2xsYW5kXG4gIFxuICAjc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGRpZmZlcmVuY2UgdHJhZmZpY1xuICBzZC5saW4uaG9sIDwtIHNxcnQoc2QubGluY29sbl4yL2xlbl9saW5jb2xuICsgc2QuaG9sbGFuZF4yL2xlbl9ob2xsYW5kKVxuICBzZC5saW4uaG9sXG4gIFxuICAjbWVhbnMgb2YgdHdvIHNhbXBsZXNcbiAgbWVhbi5saW5jb2xuIDwtIG1lYW4obGluY29sbi50cmFmZmljKVxuICBtZWFuLmhvbGxhbmQgPC0gbWVhbihob2xsYW5kLnRyYWZmaWMpXG4gIG1lYW4ubGluY29sblxuICBtZWFuLmhvbGxhbmRcbiAgXG4gICN6IHNjb3JlXG4gIHpldGEgPC0gKG1lYW4ubGluY29sbiAtIG1lYW4uaG9sbGFuZCkvc2QubGluLmhvbFxuICBwcmludChwYXN0ZSh6ZXRhLFwiIGlzIHRoZSB6LXZhbHVlXCIpKVxuICBcbiAgI3Bsb3QgcmVkIGxpbmVcbiAgcGxvdCh4PXNlcShmcm9tID0gLTUsIHRvPSA1LCBieT0wLjEpLHk9ZG5vcm0oc2VxKGZyb20gPSAtNSwgdG89IDUsICBieT0wLjEpLG1lYW49MCksdHlwZT0nbCcseGxhYiA9ICdtZWFuIGRpZmZlcmVuY2UnLCAgeWxhYj0ncG9zc2liaWxpdHknKVxuICBhYmxpbmUodj16ZXRhLCBjb2w9J3JlZCcpXG4gIFxuICAjZ2V0IHBcbiAgcCA9IDEtcG5vcm0oemV0YSlcbiAgcHJpbnQocGFzdGUocCwgXCIgaXMgdGhlIHAtdmFsdWVcIikpXG59Iiwic2FtcGxlIjoiVmFsMTwtcm5vcm0oMTAsbWVhbj0yNSwgc2Q9MTApXG5WYWwyPC1ybm9ybSgxMCxtZWFuPTM1LCBzZD0xMClcbkNhdDE8LXJlcChcIkdyb3VwQVwiLDEwKSAgXG5DYXQyPC1yZXAoXCJHcm91cEJcIiwxMCkgIFxuQ2F0PC1jKENhdDEsQ2F0MikgXG5WYWw8LWMoVmFsMSxWYWwyKVxuXG5kPC1kYXRhLmZyYW1lKENhdCxWYWwpXG5PYnNlcnZlZF9EaWZmZXJlbmNlPC1tZWFuKGRbZCRDYXQ9PSdHcm91cEInLDJdKS1tZWFuKGRbZCRDYXQ9PSdHcm91cEEnLDJdKVxuT2JzZXJ2ZWRfRGlmZmVyZW5jZVxuXG56X3Rlc3QoZCxcIkNhdFwiLCBcIlZhbFwiLFwiR3JvdXBCXCIsIFwiR3JvdXBBXCIpIn0=
+</div>
+</div>
+</div>
+<div id="additional-references-2" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Additional References<a href="hypothesis_testing.html#additional-references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#HPT12">
+Hypothesis Testing
 </button>
-<div id="Mt12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1vDCRffHzeSxka1sxQSUCnZvzaKIMmwPE7UO-5IefrM4/edit?usp=sharing" width="100%" height="500px">
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PT12">
+Permutation Test
+</button>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#KH12">
+Khan Academy Video
+</button>
+<div id="HPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/17zX82imn7S3_r9Uls3pqInIwdPx1NIQW-O22ynSa9Sg/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
+<div id="PT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1Dat8r1wUbNzFCqbjxj_jbH8T11BFwmOJOxK5T_mbnUE/edit?usp=sharing" width="100%" height="500px">
+</embed>
+</div>
+<div id="KH12" class="collapse">
+<p><a href="https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means" class="uri">https://www.khanacademy.org/math/statistics-probability/significance-tests-confidence-intervals-two-samples/comparing-two-means/v/hypothesis-test-for-difference-of-means</a></p>
+</div>
+<p><a href="https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/" class="uri">https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/</a> <br>
+<a href="http://www.z-table.com/" class="uri">http://www.z-table.com/</a> <br>
+<a href="https://www.statisticshowto.com/probability-and-statistics/z-score/" class="uri">https://www.statisticshowto.com/probability-and-statistics/z-score/</a> <br>
+<a href="https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/" class="uri">https://sixsigmastudyguide.com/z-scores-z-table-z-transformations/</a></p>
 
 </div>
 </div>
@@ -583,8 +601,8 @@ How can data fool us?
           </div>
         </div>
       </div>
-<a href="Prediction_loop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="22.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tapply_subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Chisquare.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -82,7 +82,7 @@ additional-references-1
 ztest
 introduction
 permutaion
-snippet-2-z-test
+ztests
 snippet-3-make-your-own-data-and-see-how-p-value-changes
 permuation-test
 one-permutation-at-a-time
