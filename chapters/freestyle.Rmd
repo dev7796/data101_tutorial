@@ -60,7 +60,7 @@ Great job!! You have made it this far. You are now familiar with the moody datas
 
 ### Moody Data Quiz
 
-<a href = "" target = "blank"> Test Yourself </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_1/" target = "blank"> Test Yourself </a>
 
 ### Check yourself {#check1}
 ```{r,tut=TRUE,height=600}
@@ -132,6 +132,14 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 
 <br>
+
+You are now familiar with the Magic Coin dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check2). 
+
+### Magic Coin Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_2/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check2}
 ```{r,tut=TRUE,height=600}
 toss<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tosses2022.csv")
 
@@ -163,6 +171,14 @@ DataMaker has generated data about thousands of parties, some fun parties, other
 
 
 <br>
+
+You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
+
+### Party Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_3/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check3}
 ```{r,tut=TRUE,height=600}
 party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
 
@@ -197,6 +213,14 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 
 <br>
+
+You are now familiar with the Election dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check4). 
+
+### Election Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_4/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check4}
 ```{r,tut=TRUE,height=600}
 vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
 
@@ -226,6 +250,15 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 
 <br>
+
+You are now familiar with the Sleep dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check5). 
+
+### Sleep Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_5/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check5}
+
 ```{r,tut=TRUE,height=600}
 sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
 
@@ -288,6 +321,14 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
+You are now familiar with the Movies dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check6). 
+
+### Movies Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_6/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check6}
+
 ```{r,tut=TRUE,height=600}
 movie<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
 
@@ -345,6 +386,14 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
+You are now familiar with the Canvas dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check7). 
+
+### Canvas Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_7/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check7}
+
 ```{r,tut=TRUE,height=600}
 canvas<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv")
 
@@ -377,6 +426,14 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
+
+You are now familiar with the MiniMarket dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check8). 
+
+### MiniMarket Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_8/" target = "blank"> Test Yourself </a>
+
+### Check yourself {#check8}
 
 ```{r,tut=TRUE,height=600}
 minimarket<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
