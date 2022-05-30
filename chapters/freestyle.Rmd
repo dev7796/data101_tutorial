@@ -56,24 +56,13 @@ kableExtra::scroll_box(temp,width = "100%")
 ```
 <br>
 
+Great job!! You have made it this far. You are now familiar with the moody dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check1). 
+
 ### Moody Data Quiz
-```{r,tut=TRUE,height=300}
 
-df<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/3_1.csv") #web load
+<a href = "" target = "blank"> Test Yourself </a>
 
-df1 <- df[sample(1:nrow(df),1), ]
-
-# Question 
-df1['question']
-
-readline(prompt="Press [enter] to continue")
-
-# Answer
-df1['answer']
-
-```
-
-### Check yourself 
+### Check yourself {#check1}
 ```{r,tut=TRUE,height=600}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
