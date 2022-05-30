@@ -218,7 +218,7 @@ You are now familiar with the Election dataset and it's time to give your unders
 
 ### Election Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_4/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_4/" target = "blank"> Test Yourself </a>
 
 ### Check yourself {#check4}
 ```{r,tut=TRUE,height=600}
@@ -255,7 +255,7 @@ You are now familiar with the Sleep dataset and it's time to give your understan
 
 ### Sleep Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_5/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_5/" target = "blank"> Test Yourself </a>
 
 ### Check yourself {#check5}
 
@@ -325,7 +325,7 @@ You are now familiar with the Movies dataset and it's time to give your understa
 
 ### Movies Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_6/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_6/" target = "blank"> Test Yourself </a>
 
 ### Check yourself {#check6}
 
@@ -390,7 +390,7 @@ You are now familiar with the Canvas dataset and it's time to give your understa
 
 ### Canvas Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_7/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_7/" target = "blank"> Test Yourself </a>
 
 ### Check yourself {#check7}
 
