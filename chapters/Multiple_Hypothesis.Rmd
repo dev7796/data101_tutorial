@@ -49,6 +49,7 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+<!--
 ## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
 
 ```{r,tut=TRUE,height=450}
@@ -85,6 +86,7 @@ colnames(Hindex)
 
 Hindex[order(Hindex$AverageH),]
 ```
+-->
 
 ## Additional References 
 

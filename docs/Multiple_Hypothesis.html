@@ -212,9 +212,7 @@
 <li class="chapter" data-level="8" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html"><i class="fa fa-check"></i><b>8</b> 🔖 Multiple Hypothesis Testing</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#Snippet1"><i class="fa fa-check"></i><b>8.2</b> Snippet 1 - Benjamini-Hochberg Algorithm</a></li>
-<li class="chapter" data-level="8.3" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet-2-3"><i class="fa fa-check"></i><b>8.3</b> Snippet 2</a></li>
-<li class="chapter" data-level="8.4" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-3"><i class="fa fa-check"></i><b>8.4</b> Additional References</a></li>
+<li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-3"><i class="fa fa-check"></i><b>8.2</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="code_review.html"><a href="code_review.html"><i class="fa fa-check"></i><b>9</b> Code Review: Exploratory Queries in R</a>
 <ul>
@@ -274,7 +272,7 @@
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="Decision_trees.html"><a href="Decision_trees.html#rpartplot"><i class="fa fa-check"></i><b>13.3</b> Visualize the Decision tree</a>
 <ul>
-<li class="chapter" data-level="13.3.1" data-path="Decision_trees.html"><a href="Decision_trees.html#snippet-2-4"><i class="fa fa-check"></i><b>13.3.1</b> Snippet 2</a></li>
+<li class="chapter" data-level="13.3.1" data-path="Decision_trees.html"><a href="Decision_trees.html#snippet-2-3"><i class="fa fa-check"></i><b>13.3.1</b> Snippet 2</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="Decision_trees.html"><a href="Decision_trees.html#rpartcontrol"><i class="fa fa-check"></i><b>13.4</b> Rpart Control</a>
 <ul>
@@ -375,8 +373,8 @@
 <p>Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested. This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too “pro-null” and tough on alternative hypotheses to be acceptable.</p>
 <p>The unwanted side effect of Bonferroni correction is that we may fail to reject the null hypothesis too often. Bonferroni correction makes discovery sometimes too hard, making data scientists too conservative and accepting null hypothesis when they should be rejected. It may also be the case that even Bonferroni correction will not protect us, as we will show in our example below. But at least we will be much less likely to make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions.</p>
 <p>There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in the attached slides.</p>
-<p>The <a href="Multiple_Hypothesis.html#Snippet1">8.2</a> describes the data set based on a hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
-<p><a href="Multiple_Hypothesis.html#Snippet1">8.2</a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
+<p>The <a href="#Snippet1"><strong>??</strong></a> describes the data set based on a hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
+<p><a href="#Snippet1"><strong>??</strong></a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
 <p>Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township. Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.</p>
 <p>It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
@@ -543,26 +541,24 @@ Bulgaria
 </tbody>
 </table>
 </div>
+<!--
+## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
+
+<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9</div>
+
+## Snippet 2
+
+Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
+
+- How to order by aggregate?
+
+- First make a data frame out of tapply? Use  aggregate  and list functions.
+
+<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9</div>
+-->
 </div>
-<div id="Snippet1" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Snippet 1 - Benjamini-Hochberg Algorithm<a href="Multiple_Hypothesis.html#Snippet1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div data-datacamp-exercise="" data-height="450" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9
-</div>
-</div>
-<div id="snippet-2-3" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Snippet 2<a href="Multiple_Hypothesis.html#snippet-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing</p>
-<ul>
-<li><p>How to order by aggregate?</p></li>
-<li><p>First make a data frame out of tapply? Use aggregate and list functions.</p></li>
-</ul>
-<div data-datacamp-exercise="" data-height="450" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9
-</div>
-</div>
-<div id="additional-references-3" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="additional-references-3" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#MPT12">
 Multiple Hypothesis Testing
 </button>

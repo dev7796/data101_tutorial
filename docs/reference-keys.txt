@@ -111,8 +111,6 @@ snippet-4
 additional-reference
 Mtest
 introduction-2
-Snippet1
-snippet-2-3
 additional-references-3
 cr
 movies-dataset-example
@@ -154,7 +152,7 @@ introduction-5
 rpart
 snippet-1-5
 rpartplot
-snippet-2-4
+snippet-2-3
 rpartcontrol
 snippet-3-minsplit-200
 snippet-4-minsplit-100
