@@ -358,7 +358,7 @@ summary(movie)
 
 ## When canvas goes wild data puzzle 
 
-Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv" download="Grades2022.csv">Grades2022.csv</a>
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv" download="Canvas1.csv">Canvas1.csv</a>
 
 You are all familiar with Canvas, right?  This is where you look to see your grades for each assignment and exam.  This is where you see the scores.  However it seems that Canvas went a bit wild and unfair in this data set.One can still fail the class with the score of 82 (sounds familiar, yes, Professor Moody would do it, but Canvas?
 
@@ -368,7 +368,7 @@ Yes, Canvas was instructed by someone and your goal is to discover the grading m
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv") #web load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv") #web load
 # head(moody)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Canvas Dataset',
@@ -392,7 +392,7 @@ You are now familiar with the Canvas dataset and it's time to give your understa
 ### Check yourself {#check7}
 
 ```{r,tut=TRUE,height=600}
-canvas<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grades2022.csv")
+canvas<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
 
 summary(canvas)
 ```
