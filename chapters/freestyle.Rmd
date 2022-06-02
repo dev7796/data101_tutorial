@@ -191,7 +191,7 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 }
 ```
 
-```{r,tut=TRUE,ex="permutationtestfunction3",type="sample-code",height=500}
+```{r,tut=TRUE,ex="permutationtestfunction3",type="sample-code",height=400}
 #install.packages("devtools")
 #devtools::install_github("devanshagr/PermutationTestSecond")
 
@@ -269,7 +269,6 @@ https://www.stewartmath.com/precalc_7e_dp/precalc_7e_dp6.html
 <div id="PPT2019" class="collapse">    
 <embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/HW3-SS.pptx&embedded=true" width="100%" height="500px"></embed>
 </div>
--->
 
 
 ## Magic Coin: Heads or Tails? Data Puzzle
@@ -321,9 +320,14 @@ toss<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 summary(toss)
 ```
 
+-->
+
+
 ## How to predict a good party?  Data puzzle
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv" download="Partyb.csv">Partyb.csv</a>
+
+DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
@@ -340,23 +344,137 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
-<br>
-
-DataMaker has generated data about thousands of parties, some fun parties, others which were OK or simply boring.  Your goal is to discover secrets of a fun party. Is it music? Dancing? Does the host matter? Or who was present at a party? Maybe who was NOT present at the party?  All this data is stored in this data puzzle.
-
-You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
 
 ### Practice Snippets 
 
-#### Snippet 1
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+
+colnames(party)
+nrow(party)
+summary(party)
+unique(party$Party)
+unique(party$Music)
+unique(party$Host)
+unique(party$WasThere)
+unique(party$WasNotThere)
+table(party$Party)
+table(party$Music)
+table(party$Host)
+table(party$WasThere)
+table(party$WasNotThere)
+colnames(party)
+tapply(party$CaloriesDanc, party$Party, mean)
+tapply(party$CaloriesDanc, party$Music, mean)
+tapply(party$CaloriesDanc, party$Host, mean)
+tapply(party$CaloriesDanc, party$WasThere, mean)
+tapply(party$CaloriesDanc, party$WasNotThere, mean)
+
+```
+
 #### Snippet 2
+
+**Q:** Did you know that a party is often boring when Angela is not there?
+
+```{r,tut=TRUE,height=400}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+
+table(party[party$WasNotThere=='Angela',]$Party)
+
+```
+
 #### Snippet 3
+
+**Q:** What are the odds of the party being fun when Vladimir is not there? <br>
+**A:** PosteriorOdds = 2.91 <br>
+LikelihoodRatio = 3.83 <br>
+Prior Odds = 0.76
+
+
+```{r,tut=TRUE,height=400}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+
+Prior<-nrow(party[party$Party =='Fun',])/nrow(party)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(party[party$Party=='Fun'& party$WasNotThere=='Vladimir',])/nrow(party[party$Party=='Fun',]),2)
+TruePositive
+FalsePostive<-round(nrow(party[party$Party!='Fun'& party$WasNotThere=='Vladimir',])/nrow(party[party$Party!='Fun',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+```
+
 #### Snippet 4
+
+**Q:** Verify the hypothesis that there is more dancing at Fun parties than at Boring parties? <br>
+**A:** Positive. We reject null hypothesis that there is same amount of dancing at Fun and Boring parties with p < 0.00001
+
+```{r,tut=TRUE,ex="permutationtestfunction4",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction4",type="sample-code",height=400}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+
+mean(party[party$Party=='Fun',]$CaloriesDanc)
+mean(party[party$Party=='Boring',]$CaloriesDanc)
+
+PermutationTestSecond::Permutation(party, "Party", "CaloriesDanc",10000, "Fun", "Boring")
+
+```
+
 #### Snippet 5
-#### Snippet 6
-#### Snippet 7
-#### Snippet 8
-#### Snippet 9
+
+**Q:** What music is the most popular at Fun parties? <br>
+**A:** HipHop
+
+The following snippet allows us to find the most popular music, although the code just returns the frequency of music genres distribution. 
+
+```{r,tut=TRUE,height=400}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+
+table(party[party$Party=='Fun',]$Music)
+```
+<br>
+
+You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
+
 
 ### Party Data Quiz
 
