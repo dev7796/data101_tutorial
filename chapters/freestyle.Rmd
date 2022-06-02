@@ -514,6 +514,194 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+### Practice Snippets 
+
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+colnames(vote)
+nrow(vote)
+summary(vote)
+unique(vote$LeafBlowers)
+unique(vote$CBD)
+unique(vote$GasMowers)
+unique(vote$Party)
+unique(vote$LiquerStores)
+unique(vote$SpeedLimit)
+
+table(vote$Party)
+table(vote$SpeedLimit)
+table(vote$LeafBlowers)
+table(vote$GasMowers)
+
+```
+
+#### Snippet 2
+
+**Q:**  Which party has the oldest constituents? <br>
+**A:** Royalists
+
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+tapply(vote$Age, vote$Party, mean)
+
+```
+
+#### Snippet 3
+
+**Q:** How do voters who are against Gas Mowers vote? <br>
+**A:** Royalists
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$LeafBlowers=='None',]$Party)
+```
+
+#### Snippet 4
+
+**Q:** How do KnowNothings voters vote on speed limits?
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$Party=='KnowNothings',]$SpeedLimit)
+```
+
+#### Snippet 5
+
+**Q:** What is the age of the oldest voter for KnowNothings? <br>
+**A:** 100
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+max(vote[vote$Party=='KnowNothings',]$Age)
+```
+
+#### Snippet 6
+
+**Q:** Which party wins the most votes from supporters of no speed limits, no restrictions on CBD stores and Ban of Leaf Blowers?  <br>
+**A:** Anarchists
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$SpeedLimit =='NoLimits'&vote$CBD=='NoRestrictions'& vote$LeafBlowers=='None', ]$Party)
+
+```
+
+#### Snippet 7
+
+**Q:**  Which party wins the most votes of supporters of HardLiquerOnly Liquor stores?
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$LiquerStores=='HardLiquerOnly', ]$Party)
+```
+
+#### Snippet 8
+
+**Q:**  What are the odds that a voter older than 65 will vote  for Royalists? <br>
+**A:** Posterior Odds= 6.44 <br>
+Likelihood ratio = 6.08 <br>
+Prior Odds= 1.06
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+Prior<-nrow(vote[vote$Party =='Royalists',])/nrow(vote)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(vote[vote$Party=='Royalists'& vote$Age>65,])/nrow(vote[vote$Party=='Royalists',]),2)
+TruePositive
+FalsePositive<-round(nrow(vote[vote$Party!='Royalists'& vote$Age>65,])/nrow(vote[vote$Party!='Royalists',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
+#### Snippet 9
+
+**Q:** Verify the hypothesis that the average age of Anarchists voters is higher than the average age of KnowNothings voters? <br>
+**A:** Positive. Reject of null hypothesis that average ages of Anarchists and KnowNothings voters are the same
+
+```{r,tut=TRUE,ex="permutationtestfunction5",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction5",type="sample-code",height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+mean(vote[vote$Party=='Anarchists',]$Age) 
+mean(vote[vote$Party=='KnowNothings',]$Age) 
+
+PermutationTestSecond::Permutation(vote, "Party", "Age",10000, "Anarchists", "KnowNothings") 
+
+```
+
+#### Snippet 10
+
+**Q:** What is the most frequent position of Anarchists on  the Speed Limit issue?
+**A:** “No limits” is the most frequent position of Anarchists on Speed Limit issue
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$Party=='Anarchists',]$SpeedLimit)
+
+```
+
+#### Snippet 11
+
+**Q:** Which party wins the  most votes  from  supporters of Electric Leaf Blowers?
+**A:** Royalists
+
+```{r,tut=TRUE,height=400}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+
+table(vote[vote$LeafBlowers=='ElectricOnly',]$Party)
+
+```
 <br>
 
 You are now familiar with the Election dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check4). 
