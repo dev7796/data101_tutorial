@@ -717,6 +717,12 @@ vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 summary(vote)
 ```
 
+
+
+
+
+
+
 ## Secrets of good sleep Data Puzzle 
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv" download="SleepPrediction2.csv">SleepPrediction2.csv</a>
@@ -739,21 +745,128 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-<br>
-
-You are now familiar with the Sleep dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check5). 
 
 ### Practice Snippets 
 
-#### Snippet 1
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+colnames(sleep)
+nrow(sleep)
+summary(sleep)
+unique(sleep$Sleep)
+unique(sleep$WimpyTea)
+unique(sleep$Moon)
+unique(sleep$LastSleep)
+table(sleep$Sleep)
+table(sleep$WimpyTea)
+table(sleep$Moon)
+table(sleep$LastSleep)
+
+```
+
 #### Snippet 2
+
+**Q:** Is exercising more good for your sleep? <br>
+**A:** So and so. You either have Little sleep or deep sleep, much less likely to have shallow sleep
+
+```{r,tut=TRUE,height=400}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+tapply(sleep$ExerciseCal, sleep$Sleep, mean)
+
+```
+
 #### Snippet 3
+
+**Q:** What are the odds of Deep sleep when last day’s  sleep was Shallow? <br>
+**A:** Posterior Odds= 15.27 (probability = 0.93!) <br>
+Likelihood Ratio = 5.25 <br>
+Prior Odds = 2.91
+
+
+```{r,tut=TRUE,height=400}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+Prior<-nrow(sleep[sleep$Sleep =='Deep',])/nrow(sleep)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(sleep[sleep$Sleep=='Deep'& sleep$LastSleep=='Shallow',])/nrow(sleep[sleep$Sleep=='Deep',]),2)
+TruePositive
+FalsePositive<-round(nrow(vote[sleep$Sleep!='Deep'& sleep$LastSleep=='Shallow',])/nrow(sleep[sleep$Sleep!='Deep',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
 #### Snippet 4
+
+**Q:** Verify hypothesis that deep sleepers spend on average more time on the computer than Shallow sleepers? <br>
+**A:** Negative. Fail to reject null hypotheses that means are the same.
+
+```{r,tut=TRUE,ex="permutationtestfunction6",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction6",type="sample-code",height=400}
+
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+mean(sleep[sleep$Sleep=='Deep',]$OnComputer)
+mean(sleep[sleep$Sleep=='Shallow',]$OnComputer)
+
+PermutationTestSecond::Permutation(sleep, "Sleep", "OnComputer",10000, "Deep", "Shallow")
+
+```
+
 #### Snippet 5
-#### Snippet 6
-#### Snippet 7
-#### Snippet 8
-#### Snippet 9
+
+**Q:** What is the highest Room temperature experienced by a  Deep sleeper? 
+
+```{r,tut=TRUE,height=400}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+
+max(sleep[sleep$Sleep=='Deep',]$RoomTemp)
+```
+<br>
+
+You are now familiar with the Sleep dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check5). 
 
 ### Sleep Data Quiz
 
