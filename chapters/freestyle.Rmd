@@ -681,7 +681,7 @@ PermutationTestSecond::Permutation(vote, "Party", "Age",10000, "Anarchists", "Kn
 
 #### Snippet 10
 
-**Q:** What is the most frequent position of Anarchists on  the Speed Limit issue?
+**Q:** What is the most frequent position of Anarchists on  the Speed Limit issue? <br>
 **A:** “No limits” is the most frequent position of Anarchists on Speed Limit issue
 
 ```{r,tut=TRUE,height=400}
@@ -693,7 +693,7 @@ table(vote[vote$Party=='Anarchists',]$SpeedLimit)
 
 #### Snippet 11
 
-**Q:** Which party wins the  most votes  from  supporters of Electric Leaf Blowers?
+**Q:** Which party wins the  most votes  from  supporters of Electric Leaf Blowers? <br>
 **A:** Royalists
 
 ```{r,tut=TRUE,height=400}
