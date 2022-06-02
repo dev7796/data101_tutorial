@@ -402,7 +402,7 @@ PriorOdds<-round(Prior/(1-Prior),2)
 PriorOdds
 TruePositive<-round(nrow(party[party$Party=='Fun'& party$WasNotThere=='Vladimir',])/nrow(party[party$Party=='Fun',]),2)
 TruePositive
-FalsePostive<-round(nrow(party[party$Party!='Fun'& party$WasNotThere=='Vladimir',])/nrow(party[party$Party!='Fun',]),2)
+FalsePositive<-round(nrow(party[party$Party!='Fun'& party$WasNotThere=='Vladimir',])/nrow(party[party$Party!='Fun',]),2)
 FalsePositive
 LikelihoodRatio<-round(TruePositive/FalsePositive,2)
 LikelihoodRatio
@@ -478,7 +478,7 @@ You are now familiar with the Party dataset and it's time to give your understan
 
 ### Party Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_3/" target = "blank"> Quiz Time  </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_3/" target = "blank"> Quiz Time </a>
 
 ### Check yourself {#check3}
 ```{r,tut=TRUE,height=600}
