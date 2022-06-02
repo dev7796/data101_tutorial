@@ -27,7 +27,7 @@ We use data puzzles extensively in the class assignments.  These range from data
 
 ## Strange grading methods of Professor Moody Data Puzzle
 
-Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2022_new.csv">moody2022_new.csv</a>
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2020b.csv">moody2020b.csv</a>
 
 How to get a good grade in Professor Moody’s class?  
 
@@ -54,13 +54,176 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+### Practice Snippets 
+
+#### Snippet 1: Get familiar with the data set
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+colnames(moody)
+summary(moody)
+unique(moody$GRADE)
+nrow(moody)
+unique(moody$DOZES_OFF)
+unique(moody$TEXTING_IN_CLASS)
+table(moody$GRADE)
+table(moody$DOZES_OFF)
+table(moody$TEXTING_IN_CLASS)
+tapply(moody$SCORE, moody$GRADE, mean)
+tapply(moody$PARTICIPATION, moody$GRADE, mean)
+tapply(moody$SCORE, moody$DOZES_OFF, mean)
+tapply(moody$PARTICIPATION, moody$DOZES_OFF, mean)
+tapply(moody$SCORE, moody$TEXTING_IN_CLASS, mean)
+tapply(moody$PARTICIPATION, moody$TEXTING_IN_CLASS, mean)
+
+```
+
+#### Snippet 2
+
+**Q:** Did you know that students who never doze off in class have more than twice as many A’s than students who sometimes doze off?
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+table(moody$DOZES_OFF, moody$GRADE)
+```
+
+#### Snippet 3
+
+**Q:** Did you know that the students who scored over 85 and still received a B almost always dozed off all the time during class?
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+moody[(moody$SCORE>85) & (moody$GRADE=='B'), ]$DOZES_OFF
+```
+
+#### Snippet 4
+
+**Q:** What gives a higher chance of failing, texting all the time or always dozing off during class? <br>
+**A:** Always texting in class! Almost 40% chance of failing!
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+#Probability of failing the class when dozing off all the time
+nrow(moody[moody$DOZES_OFF=='always' & moody$GRADE=='F',])/nrow(moody[moody$DOZES_OFF=='always',])
+#Probability of failing the class when  always texting in class 
+nrow(moody[moody$TEXTING_IN_CLASS=='always' & moody$GRADE=='F',])/nrow(moody[moody$TEXTING_IN_CLASS=='always',])
+
+```
+
+#### Snippet 5
+
+**Q:**  What grade did a student who scores 39.57 and always dozed off received? <br>
+**A:**  D
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+moody[moody$SCORE=='39.57'&moody$DOZES_OFF=='always',]$GRADE
+
+```
+
+#### Snippet 6
+
+**Q:**  What are posterior odds that an A student never dozes off?  <br>
+**A:** Posterior Odds = 2.66 <br>
+Likelihood Ratio = 4 <br>
+Prior Odds =0.56
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+Prior<-nrow(moody[moody$DOZES_OFF =='never',])/nrow(moody)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(moody[moody$GRADE=='A'& moody$DOZES_OFF=='never',])/nrow(moody[moody$DOZES_OFF=='always',]),2)
+TruePositive
+FalsePositive<-round(nrow(moody[moody$GRADE=='A'& moody$DOZES_OFF!='never',])/nrow(moody[moody$DOZES_OFF!='always',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
+#### Snippet 7
+
+**Q:** Verify the hypothesis that C students have higher mean participation than F students? What is the p-value? <br>
+**A:** Negative.  Fail to reject null hypothesis that mean participations of C and F students are the same with p=0.11
+
+```{r,tut=TRUE,ex="permutationtestfunction3",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction3",type="sample-code",height=500}
+#install.packages("devtools")
+#devtools::install_github("devanshagr/PermutationTestSecond")
+
+#PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB") 
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+PermutationTestSecond::Permutation(moody, "GRADE", "PARTICIPATION",10000, "C", "F")
+
+```
+
+#### Snippet 8
+
+**Q:** What is the mean score of students who  always doze off in class  and what is the most frequent grade that they received? <br>
+**A:** The mean score is 50.26 and the most frequent grade is D.
+
+
+```{r,tut=TRUE,height=400}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+
+mean(moody[moody$DOZES_OFF=='always',]$SCORE)
+table(moody[moody$DOZES_OFF=='always',]$GRADE)
+
+```
+
 <br>
 
 Great job!! You have made it this far. You are now familiar with the moody dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check1). 
 
 ### Moody Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_1/" target = "blank"> Test Yourself </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_1/" target = "blank"> Quiz Time </a>
 
 ### Check yourself {#check1}
 ```{r,tut=TRUE,height=600}
@@ -135,9 +298,21 @@ kableExtra::scroll_box(temp,width = "100%")
 
 You are now familiar with the Magic Coin dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check2). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### Magic Coin Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_2/" target = "blank"> Test Yourself </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_2/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check2}
 ```{r,tut=TRUE,height=600}
@@ -171,9 +346,21 @@ DataMaker has generated data about thousands of parties, some fun parties, other
 
 You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### Party Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_3/" target = "blank"> Test Yourself </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_3/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check3}
 ```{r,tut=TRUE,height=600}
@@ -215,7 +402,7 @@ You are now familiar with the Election dataset and it's time to give your unders
 
 ### Election Data Quiz
 
-<a href = "https://textbook.shinyapps.io/data_roulette_4/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_4/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check4}
 ```{r,tut=TRUE,height=600}
@@ -250,9 +437,21 @@ kableExtra::scroll_box(temp,width = "100%")
 
 You are now familiar with the Sleep dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check5). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### Sleep Data Quiz
 
-<a href = "https://textbook.shinyapps.io/data_roulette_5/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_5/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check5}
 
@@ -320,9 +519,21 @@ kableExtra::scroll_box(temp,width = "100%")
 
 You are now familiar with the Movies dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check6). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### Movies Data Quiz
 
-<a href = "https://textbook.shinyapps.io/data_roulette_6/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_6/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check6}
 
@@ -385,9 +596,21 @@ kableExtra::scroll_box(temp,width = "100%")
 
 You are now familiar with the Canvas dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check7). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### Canvas Data Quiz
 
-<a href = "https://textbook.shinyapps.io/data_roulette_7/" target = "blank"> Test Yourself </a>
+<a href = "https://textbook.shinyapps.io/data_roulette_7/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check7}
 
@@ -426,9 +649,21 @@ kableExtra::scroll_box(temp,width = "100%")
 
 You are now familiar with the MiniMarket dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check8). 
 
+### Practice Snippets 
+
+#### Snippet 1
+#### Snippet 2
+#### Snippet 3
+#### Snippet 4
+#### Snippet 5
+#### Snippet 6
+#### Snippet 7
+#### Snippet 8
+#### Snippet 9
+
 ### MiniMarket Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_8/" target = "blank"> Test Yourself </a>
+<a href = "https://ds1778.shinyapps.io/data_roulette_8/" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check8}
 
