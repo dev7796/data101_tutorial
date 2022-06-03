@@ -342,7 +342,7 @@
 <p>In the following we provide the list of data puzzles along with the underlying data sets. Using DataMaker we change the patterns and even data sets from academic year to academic year.. We can also provide data puzzles of different levels of difficulty from the one star (easy) to five star (most difficult) ones.</p>
 <div id="strange-grading-methods-of-professor-moody-data-puzzle" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Strange grading methods of Professor Moody Data Puzzle<a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2020b.csv">moody2020b.csv</a></p>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv" download="moody2022.csv">moody2022.csv</a></p>
 <p>How to get a good grade in Professor Moody’s class?</p>
 <p>Professor Moody does not give final grades just on the basis of your total score alone. Our data shows that two students with the same total score may get widely varying final grades. Can you believe that you can even fail his class with a score as high as 82%? This is outrageous, isn’t it?</p>
 <p>DataMaker has generated thousands of tuples which in addition to the total score and final grade also store bizarre information about student behaviors in the class - do they often doze off? Does a student text a lot? Does s/he ask a lot of questions? Does it help if you ask a lot of questions? Does it hurt if you doze off a lot?</p>
@@ -354,107 +354,107 @@
 </caption>
 <thead>
 <tr>
-<th style="text-align:right;">
-SCORE
-</th>
 <th style="text-align:left;">
-GRADE
-</th>
-<th style="text-align:left;">
-DOZES_OFF
-</th>
-<th style="text-align:left;">
-TEXTING_IN_CLASS
+Major
 </th>
 <th style="text-align:right;">
-PARTICIPATION
+Score
+</th>
+<th style="text-align:left;">
+Seniority
+</th>
+<th style="text-align:right;">
+GPA
+</th>
+<th style="text-align:left;">
+Grade
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-21.33
-</td>
 <td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-never
-</td>
-<td style="text-align:left;">
-never
+Statistics
 </td>
 <td style="text-align:right;">
-0.29
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-71.57
+56
 </td>
 <td style="text-align:left;">
-C
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-rarely
+Senior
 </td>
 <td style="text-align:right;">
-0.11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-90.11
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-never
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-31.52
+2.0
 </td>
 <td style="text-align:left;">
 D
 </td>
+</tr>
+<tr>
 <td style="text-align:left;">
-sometimes
-</td>
-<td style="text-align:left;">
-rarely
+Statistics
 </td>
 <td style="text-align:right;">
-0.03
+43
+</td>
+<td style="text-align:left;">
+Sophomore
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:left;">
+F
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-95.94
-</td>
 <td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-always
-</td>
-<td style="text-align:left;">
-rarely
+Economics
 </td>
 <td style="text-align:right;">
-0.21
+26
+</td>
+<td style="text-align:left;">
+Junior
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:left;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Economics
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Sophomore
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psychology
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+Freshman
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:left;">
+F
 </td>
 </tr>
 </tbody>
@@ -465,21 +465,21 @@ rarely
 <div id="snippet-1-get-familiar-with-the-data-set" class="section level4 hasAnchor" number="3.1.1.1">
 <h4><span class="header-section-number">3.1.1.1</span> Snippet 1: Get familiar with the data set<a href="FreeStyle.html#snippet-1-get-familiar-with-the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5jb2xuYW1lcyhtb29keSlcbnN1bW1hcnkobW9vZHkpXG51bmlxdWUobW9vZHkkR1JBREUpXG5ucm93KG1vb2R5KVxudW5pcXVlKG1vb2R5JERPWkVTX09GRilcbnVuaXF1ZShtb29keSRURVhUSU5HX0lOX0NMQVNTKVxudGFibGUobW9vZHkkR1JBREUpXG50YWJsZShtb29keSRET1pFU19PRkYpXG50YWJsZShtb29keSRURVhUSU5HX0lOX0NMQVNTKVxudGFwcGx5KG1vb2R5JFNDT1JFLCBtb29keSRHUkFERSwgbWVhbilcbnRhcHBseShtb29keSRQQVJUSUNJUEFUSU9OLCBtb29keSRHUkFERSwgbWVhbilcbnRhcHBseShtb29keSRTQ09SRSwgbW9vZHkkRE9aRVNfT0ZGLCBtZWFuKVxudGFwcGx5KG1vb2R5JFBBUlRJQ0lQQVRJT04sIG1vb2R5JERPWkVTX09GRiwgbWVhbilcbnRhcHBseShtb29keSRTQ09SRSwgbW9vZHkkVEVYVElOR19JTl9DTEFTUywgbWVhbilcbnRhcHBseShtb29keSRQQVJUSUNJUEFUSU9OLCBtb29keSRURVhUSU5HX0lOX0NMQVNTLCBtZWFuKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbmNvbG5hbWVzKG1vb2R5KVxuc3VtbWFyeShtb29keSlcbnVuaXF1ZShtb29keSRHUkFERSlcbm5yb3cobW9vZHkpXG51bmlxdWUobW9vZHkkRE9aRVNfT0ZGKVxudW5pcXVlKG1vb2R5JFRFWFRJTkdfSU5fQ0xBU1MpXG50YWJsZShtb29keSRHUkFERSlcbnRhYmxlKG1vb2R5JERPWkVTX09GRilcbnRhYmxlKG1vb2R5JFRFWFRJTkdfSU5fQ0xBU1MpXG50YXBwbHkobW9vZHkkU0NPUkUsIG1vb2R5JEdSQURFLCBtZWFuKVxudGFwcGx5KG1vb2R5JFBBUlRJQ0lQQVRJT04sIG1vb2R5JEdSQURFLCBtZWFuKVxudGFwcGx5KG1vb2R5JFNDT1JFLCBtb29keSRET1pFU19PRkYsIG1lYW4pXG50YXBwbHkobW9vZHkkUEFSVElDSVBBVElPTiwgbW9vZHkkRE9aRVNfT0ZGLCBtZWFuKVxudGFwcGx5KG1vb2R5JFNDT1JFLCBtb29keSRURVhUSU5HX0lOX0NMQVNTLCBtZWFuKVxudGFwcGx5KG1vb2R5JFBBUlRJQ0lQQVRJT04sIG1vb2R5JFRFWFRJTkdfSU5fQ0xBU1MsIG1lYW4pIn0=
 </div>
 </div>
 <div id="snippet-2" class="section level4 hasAnchor" number="3.1.1.2">
 <h4><span class="header-section-number">3.1.1.2</span> Snippet 2<a href="FreeStyle.html#snippet-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q:</strong> Did you know that students who never doze off in class have more than twice as many A’s than students who sometimes doze off?</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG50YWJsZShtb29keSRET1pFU19PRkYsIG1vb2R5JEdSQURFKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbnRhYmxlKG1vb2R5JERPWkVTX09GRiwgbW9vZHkkR1JBREUpIn0=
 </div>
 </div>
 <div id="snippet-3" class="section level4 hasAnchor" number="3.1.1.3">
 <h4><span class="header-section-number">3.1.1.3</span> Snippet 3<a href="FreeStyle.html#snippet-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q:</strong> Did you know that the students who scored over 85 and still received a B almost always dozed off all the time during class?</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5tb29keVsobW9vZHkkU0NPUkU+ODUpICYgKG1vb2R5JEdSQURFPT0nQicpLCBdJERPWkVTX09GRiJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbm1vb2R5Wyhtb29keSRTQ09SRT44NSkgJiAobW9vZHkkR1JBREU9PSdCJyksIF0kRE9aRVNfT0ZGIn0=
 </div>
 </div>
 <div id="snippet-4" class="section level4 hasAnchor" number="3.1.1.4">
@@ -487,7 +487,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <p><strong>Q:</strong> What gives a higher chance of failing, texting all the time or always dozing off during class? <br>
 <strong>A:</strong> Always texting in class! Almost 40% chance of failing!</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG4jUHJvYmFiaWxpdHkgb2YgZmFpbGluZyB0aGUgY2xhc3Mgd2hlbiBkb3ppbmcgb2ZmIGFsbCB0aGUgdGltZVxubnJvdyhtb29keVttb29keSRET1pFU19PRkY9PSdhbHdheXMnICYgbW9vZHkkR1JBREU9PSdGJyxdKS9ucm93KG1vb2R5W21vb2R5JERPWkVTX09GRj09J2Fsd2F5cycsXSlcbiNQcm9iYWJpbGl0eSBvZiBmYWlsaW5nIHRoZSBjbGFzcyB3aGVuICBhbHdheXMgdGV4dGluZyBpbiBjbGFzcyBcbm5yb3cobW9vZHlbbW9vZHkkVEVYVElOR19JTl9DTEFTUz09J2Fsd2F5cycgJiBtb29keSRHUkFERT09J0YnLF0pL25yb3cobW9vZHlbbW9vZHkkVEVYVElOR19JTl9DTEFTUz09J2Fsd2F5cycsXSkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbiNQcm9iYWJpbGl0eSBvZiBmYWlsaW5nIHRoZSBjbGFzcyB3aGVuIGRvemluZyBvZmYgYWxsIHRoZSB0aW1lXG5ucm93KG1vb2R5W21vb2R5JERPWkVTX09GRj09J2Fsd2F5cycgJiBtb29keSRHUkFERT09J0YnLF0pL25yb3cobW9vZHlbbW9vZHkkRE9aRVNfT0ZGPT0nYWx3YXlzJyxdKVxuI1Byb2JhYmlsaXR5IG9mIGZhaWxpbmcgdGhlIGNsYXNzIHdoZW4gIGFsd2F5cyB0ZXh0aW5nIGluIGNsYXNzIFxubnJvdyhtb29keVttb29keSRURVhUSU5HX0lOX0NMQVNTPT0nYWx3YXlzJyAmIG1vb2R5JEdSQURFPT0nRicsXSkvbnJvdyhtb29keVttb29keSRURVhUSU5HX0lOX0NMQVNTPT0nYWx3YXlzJyxdKSJ9
 </div>
 </div>
 <div id="snippet-5" class="section level4 hasAnchor" number="3.1.1.5">
@@ -495,7 +495,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <p><strong>Q:</strong> What grade did a student who scores 39.57 and always dozed off received? <br>
 <strong>A:</strong> D</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5tb29keVttb29keSRTQ09SRT09JzM5LjU3JyZtb29keSRET1pFU19PRkY9PSdhbHdheXMnLF0kR1JBREUifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbm1vb2R5W21vb2R5JFNDT1JFPT0nMzkuNTcnJm1vb2R5JERPWkVTX09GRj09J2Fsd2F5cycsXSRHUkFERSJ9
 </div>
 </div>
 <div id="snippet-6" class="section level4 hasAnchor" number="3.1.1.6">
@@ -505,7 +505,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 Likelihood Ratio = 4 <br>
 Prior Odds =0.56</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5QcmlvcjwtbnJvdyhtb29keVttb29keSRET1pFU19PRkYgPT0nbmV2ZXInLF0pL25yb3cobW9vZHkpXG5QcmlvclxuUHJpb3JPZGRzPC1yb3VuZChQcmlvci8oMS1QcmlvciksMilcblByaW9yT2Rkc1xuVHJ1ZVBvc2l0aXZlPC1yb3VuZChucm93KG1vb2R5W21vb2R5JEdSQURFPT0nQScmIG1vb2R5JERPWkVTX09GRj09J25ldmVyJyxdKS9ucm93KG1vb2R5W21vb2R5JERPWkVTX09GRj09J2Fsd2F5cycsXSksMilcblRydWVQb3NpdGl2ZVxuRmFsc2VQb3NpdGl2ZTwtcm91bmQobnJvdyhtb29keVttb29keSRHUkFERT09J0EnJiBtb29keSRET1pFU19PRkYhPSduZXZlcicsXSkvbnJvdyhtb29keVttb29keSRET1pFU19PRkYhPSdhbHdheXMnLF0pLDIpXG5GYWxzZVBvc2l0aXZlXG5MaWtlbGlob29kUmF0aW88LXJvdW5kKFRydWVQb3NpdGl2ZS9GYWxzZVBvc2l0aXZlLDIpXG5MaWtlbGlob29kUmF0aW9cblBvc3Rlcmlvck9kZHMgPC1MaWtlbGlob29kUmF0aW8gKiBQcmlvck9kZHNcblBvc3Rlcmlvck9kZHNcblBvc3RlcmlvciA8LVBvc3Rlcmlvck9kZHMvKDErUG9zdGVyaW9yT2RkcylcblBvc3RlcmlvciJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cblByaW9yPC1ucm93KG1vb2R5W21vb2R5JERPWkVTX09GRiA9PSduZXZlcicsXSkvbnJvdyhtb29keSlcblByaW9yXG5Qcmlvck9kZHM8LXJvdW5kKFByaW9yLygxLVByaW9yKSwyKVxuUHJpb3JPZGRzXG5UcnVlUG9zaXRpdmU8LXJvdW5kKG5yb3cobW9vZHlbbW9vZHkkR1JBREU9PSdBJyYgbW9vZHkkRE9aRVNfT0ZGPT0nbmV2ZXInLF0pL25yb3cobW9vZHlbbW9vZHkkRE9aRVNfT0ZGPT0nYWx3YXlzJyxdKSwyKVxuVHJ1ZVBvc2l0aXZlXG5GYWxzZVBvc2l0aXZlPC1yb3VuZChucm93KG1vb2R5W21vb2R5JEdSQURFPT0nQScmIG1vb2R5JERPWkVTX09GRiE9J25ldmVyJyxdKS9ucm93KG1vb2R5W21vb2R5JERPWkVTX09GRiE9J2Fsd2F5cycsXSksMilcbkZhbHNlUG9zaXRpdmVcbkxpa2VsaWhvb2RSYXRpbzwtcm91bmQoVHJ1ZVBvc2l0aXZlL0ZhbHNlUG9zaXRpdmUsMilcbkxpa2VsaWhvb2RSYXRpb1xuUG9zdGVyaW9yT2RkcyA8LUxpa2VsaWhvb2RSYXRpbyAqIFByaW9yT2Rkc1xuUG9zdGVyaW9yT2Rkc1xuUG9zdGVyaW9yIDwtUG9zdGVyaW9yT2Rkcy8oMStQb3N0ZXJpb3JPZGRzKVxuUG9zdGVyaW9yIn0=
 </div>
 </div>
 <div id="snippet-7" class="section level4 hasAnchor" number="3.1.1.7">
@@ -513,7 +513,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <p><strong>Q:</strong> Verify the hypothesis that C students have higher mean participation than F students? What is the p-value? <br>
 <strong>A:</strong> Negative. Fail to reject null hypothesis that mean participations of C and F students are the same with p=0.11</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG4jZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcblxuI1Blcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIikgXG5cbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMl9uZXcuY3N2XCIpXG5cblBlcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24obW9vZHksIFwiR1JBREVcIiwgXCJQQVJUSUNJUEFUSU9OXCIsMTAwMDAsIFwiQ1wiLCBcIkZcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiIjaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG4jZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKFwiZGV2YW5zaGFnci9QZXJtdXRhdGlvblRlc3RTZWNvbmRcIilcblxuI1Blcm11dGF0aW9uVGVzdFNlY29uZDo6UGVybXV0YXRpb24oZCwgXCJDYXRcIiwgXCJWYWxcIiwxMDAwMCwgXCJHcm91cEFcIiwgXCJHcm91cEJcIikgXG5cbm1vb2R5PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vb2R5MjAyMi5jc3ZcIilcblxuUGVybXV0YXRpb25UZXN0U2Vjb25kOjpQZXJtdXRhdGlvbihtb29keSwgXCJHUkFERVwiLCBcIlBBUlRJQ0lQQVRJT05cIiwxMDAwMCwgXCJDXCIsIFwiRlwiKSJ9
 </div>
 </div>
 <div id="snippet-8" class="section level4 hasAnchor" number="3.1.1.8">
@@ -521,7 +521,7 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9u
 <p><strong>Q:</strong> What is the mean score of students who always doze off in class and what is the most frequent grade that they received? <br>
 <strong>A:</strong> The mean score is 50.26 and the most frequent grade is D.</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5tZWFuKG1vb2R5W21vb2R5JERPWkVTX09GRj09J2Fsd2F5cycsXSRTQ09SRSlcbnRhYmxlKG1vb2R5W21vb2R5JERPWkVTX09GRj09J2Fsd2F5cycsXSRHUkFERSkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbm1lYW4obW9vZHlbbW9vZHkkRE9aRVNfT0ZGPT0nYWx3YXlzJyxdJFNDT1JFKVxudGFibGUobW9vZHlbbW9vZHkkRE9aRVNfT0ZGPT0nYWx3YXlzJyxdJEdSQURFKSJ9
 </div>
 <p><br></p>
 <p>Great job!! You have made it this far. You are now familiar with the moody dataset and it’s time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet <a href="FreeStyle.html#check1">3.1.3</a>.</p>
@@ -534,7 +534,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div id="check1" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Check yourself<a href="FreeStyle.html#check1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="600" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKVxuXG5zdW1tYXJ5KG1vb2R5KSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjIuY3N2XCIpXG5cbnN1bW1hcnkobW9vZHkpIn0=
 </div>
 <!--
 ### Secrets Revealed- Patterns in Professor Moody's data? 
