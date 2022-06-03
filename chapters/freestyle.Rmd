@@ -882,7 +882,7 @@ summary(sleep)
 
 ## Let’s go to the movies:  Data Puzzle 
 
-Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv" download="MoviesDataMaker2.csv">MoviesDataMaker2.csv</a>
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
 
 Using DataMaker  we have started with the imdb data set from Kaggle and embedded some patterns in it.  The original data set contains data about 12,800+ movies. We have expanded this data set by DataMaker’s opinions. Yes, only DataMaker can have an opinion on each of 12,800 movies! Can you predict which  movies does DataMaker love and which movies bore him so much that she quit?   What movies DataMaker passionately hates (hmm is DataMaker even passionate about anything at all?). 
 
@@ -893,8 +893,12 @@ Can one predict an imdb score on the basis of a combination of DataMaker opinion
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv") #web load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv") #web load
 # head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
+  booktabs = TRUE
+)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Movies Dataset',
   booktabs = TRUE
@@ -940,7 +944,7 @@ kableExtra::scroll_box(temp,width = "100%")
 #### Snippet 1: Get to know your data
 
 ```{r,tut=TRUE,height=500}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 colnames(movies)
 nrow(movies)
@@ -969,7 +973,7 @@ tapply(movies$imdb_score, movies$genre, mean)
 **Q:** What is the mean imdb of low budget comedies?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 mean(movies[movies$Budget=='Low' & movies$genre=='Comedy', ]$imdb_score)
 ```
@@ -979,7 +983,7 @@ mean(movies[movies$Budget=='Low' & movies$genre=='Comedy', ]$imdb_score)
 **Q:** What is the lowest imdb score among high budget movies?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 min(movies[movies$Budget=='High',]$imdb)
 ```
@@ -989,7 +993,7 @@ min(movies[movies$Budget=='High',]$imdb)
 **Q:**  How many low budget movies generated high gross income?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
 ```
@@ -999,7 +1003,7 @@ nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
 **Q:** What is the least frequent genre among UK movies?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 table(movies[movies$country=='UK',]$genre, movies[movies$country=='UK',]$country)
 ```
@@ -1009,7 +1013,7 @@ table(movies[movies$country=='UK',]$genre, movies[movies$country=='UK',]$country
 **Q:** Which content rating has the lowest average imdb score?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 tapply(movies$imdb, movies$content, mean)
 ```
@@ -1019,7 +1023,7 @@ tapply(movies$imdb, movies$content, mean)
 **Q:** Movies from which country have the smallest average imdb score?
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 MA<-aggregate(movies$imdb_score, list(movies$country), mean)
 colnames(MA)<-c("Country", "Mimdb")
@@ -1036,7 +1040,7 @@ Prior Odds = 1.11
 
 
 ```{r,tut=TRUE,height=400}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 Prior<-nrow(market[movies$Gross =='High',])/nrow(movies)
 Prior
@@ -1062,7 +1066,7 @@ You are now familiar with the Movies dataset and it's time to give your understa
 ### Check yourself {#check6}
 
 ```{r,tut=TRUE,height=600}
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
 summary(movies)
 ```
@@ -1116,21 +1120,146 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+### Practice Snippets 
+
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+colnames(grades)
+nrow(grades)
+summary(grades)
+unique(grades$Grade)
+table(grades$Grade)
+tapply(grades$Homeworks, grades$Grade, mean)
+tapply(grades$Exams, grades$Grade, mean)
+tapply(grades$Score, grades$Grade, mean)
+```
+
+#### Snippet 2
+
+**Q:**  What  is the distribution of possible grades when a student’s total scores is over 80?
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+table(grades[grades$Score > 80,]$Grade)
+```
+
+#### Snippet 3
+
+**Q:** Previous snippets showed that you can only get an A or an F with a score over 80. How can you get an F?  This snippet helps to answer this question.
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+table(grades[grades$Score > 80 & grades$Exams >40,]$Grade)
+```
+
+#### Snippet 4
+
+**Q:** What is the worst exam score of a student with final grade A? <br>
+**A:** 25
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+min(grades[grades$Grade =='A',]$Exams)
+```
+
+#### Snippet 5
+
+**Q:** What are the odds of getting an A with an Exams score above 60? <br>
+**A:** Posterior Odds = 0.45 <br>
+Likelihood Ratio = 4.75 <br>
+Prior Odds = 0.17
+
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+Prior<-nrow(grades[grades$Grade =='A',])/nrow(grades)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(grades[grades$Grade=='A'& grades$Exams>60,])/nrow(grades[grades$Grade=='A',]),2)
+TruePositive
+FalsePostive<-round(nrow(grades[grades$Grade!='A'& grades$Exams<60,])/nrow(grades[grades$Grades!='A',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
+#### Snippet 6
+
+**Q:** Verify Hypothesis that Mean exam score for B students is higher than mean exam score for C students.  What is the p-value? <br>
+**A:** Negative. We fail to reject the null hypothesis with p=0.23
+
+```{r,tut=TRUE,ex="permutationtestfunction7",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction7",type="sample-code",height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+mean(grades[grades$Grade=='B',]$Exams)
+mean(grades[grades$Grade=='C',]$Exams)
+
+PermutationTestSecond::Permutation(grades, "Grade", "Exams",10000, "C", "B") 
+
+```
+
+#### Snippet 7
+
+**Q:** What is the chance of getting an A when you score less than 50 on exams? <br>
+**A:** 0.093
+
+```{r,tut=TRUE,height=400}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+
+nrow(grades[grades$Grade =='A' & grades$Exams < 50,])/nrow(grades[grades$Exams < 50,])
+
+```
 <br>
 
 You are now familiar with the Canvas dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check7). 
 
-### Practice Snippets 
 
-#### Snippet 1
-#### Snippet 2
-#### Snippet 3
-#### Snippet 4
-#### Snippet 5
-#### Snippet 6
-#### Snippet 7
-#### Snippet 8
-#### Snippet 9
 
 ### Canvas Data Quiz
 
@@ -1139,9 +1268,9 @@ You are now familiar with the Canvas dataset and it's time to give your understa
 ### Check yourself {#check7}
 
 ```{r,tut=TRUE,height=600}
-canvas<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
 
-summary(canvas)
+summary(grades)
 ```
 
 
@@ -1169,21 +1298,91 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
-<br>
-
-You are now familiar with the MiniMarket dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check8). 
 
 ### Practice Snippets 
 
-#### Snippet 1
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+
+colnames(market)
+nrow(market)
+summary(market)
+unique(market$Day)
+unique(market$Location)
+unique(market$Beer)
+unique(market$SoftDrinks)
+unique(market$Sweets)
+unique(market$Wine)
+unique(market$Snacks)
+table(market$Day)
+table(market$Location)
+table(market$Beer)
+table(market$SoftDrinks)
+table(market$Sweets)
+table(market$Wine)
+table(market$Snacks)
+
+```
+
 #### Snippet 2
+
+**Q:**  What are  the odds that a customer in New Brunswick buys Lager on a weekend? <br>
+**A:** Posterior Odds = 0.53 <br>
+Likelihood Ratio = 1.08 <br>
+Prior odds = 0.49
+
+
+```{r,tut=TRUE,height=400}
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+
+Prior<-nrow(market[market$Beer =='Lager',])/nrow(market)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(market[market$Beer=='Lager'& market$Location=='New Brunswick' & market$Day =='Weekend',])/nrow(market[market$Beer=='Lager',]),2)
+TruePositive
+FalsePositive<-round(nrow(market[market$Beer!='Lager'& market$Location=='New Brunswick' & market$Day =='Weekend',])/nrow(market[market$Beer!='Lager',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
 #### Snippet 3
+
+**Q:** What is the most frequent location of Lager purchases? <br>
+**A:** Princeton is the most frequent location where Lager is sold
+
+```{r,tut=TRUE,height=400}
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+
+table(market[market$Beer =='Lager',]$Location)
+
+```
+
 #### Snippet 4
-#### Snippet 5
-#### Snippet 6
-#### Snippet 7
-#### Snippet 8
-#### Snippet 9
+
+**Q:** Is distribution of purchases of snacks among Weekend buyers of Lager in New Brunswick  different from base  distribution of snacks? <br>
+**A:** yes, very different
+
+```{r,tut=TRUE,height=400}
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+
+market$IN<-'Out_Slice'
+market[market$Beer=='Lager' & market$Day=='Weekend' &  market$Location =='New Brunswick', ]$IN<-'In_Slice'
+d<-table(market$Snacks,market$IN)
+chisq.test(d)
+
+```
+<br>
+
+You are now familiar with the MiniMarket dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check8). 
 
 ### MiniMarket Data Quiz
 
@@ -1192,9 +1391,9 @@ You are now familiar with the MiniMarket dataset and it's time to give your unde
 ### Check yourself {#check8}
 
 ```{r,tut=TRUE,height=600}
-minimarket<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
 
-summary(minimarket)
+summary(market)
 ```
 
 <!--
