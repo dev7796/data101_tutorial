@@ -934,21 +934,126 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
-<br>
-
-You are now familiar with the Movies dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check6). 
 
 ### Practice Snippets 
 
-#### Snippet 1
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=500}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+colnames(movies)
+nrow(movies)
+summary(movies)
+unique(movies$content)
+unique(movies$genre)
+unique(movies$Gross)
+unique(movies$Budget)
+
+
+table(movies$content)
+table(movies$genre)
+table(movies$Gross)
+table(movies$Budget)
+
+tapply(movies$imdb_score, movies$content, mean)
+tapply(movies$imdb_score, movies$country, mean)
+tapply(movies$imdb_score, movies$Gross, mean)
+tapply(movies$imdb_score, movies$Budget, mean)
+tapply(movies$imdb_score, movies$genre, mean)
+
+```
+
 #### Snippet 2
+
+**Q:** What is the mean imdb of low budget comedies?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+mean(movies[movies$Budget=='Low' & movies$genre=='Comedy', ]$imdb_score)
+```
+
 #### Snippet 3
+
+**Q:** What is the lowest imdb score among high budget movies?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+min(movies[movies$Budget=='High',]$imdb)
+```
+
 #### Snippet 4
+
+**Q:**  How many low budget movies generated high gross income?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+nrow(movies[movies$Budget=='Low' & movies$Gross =='High',])
+```
+
 #### Snippet 5
+
+**Q:** What is the least frequent genre among UK movies?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+table(movies[movies$country=='UK',]$genre, movies[movies$country=='UK',]$country)
+```
+
 #### Snippet 6
+
+**Q:** Which content rating has the lowest average imdb score?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+tapply(movies$imdb, movies$content, mean)
+```
+
 #### Snippet 7
+
+**Q:** Movies from which country have the smallest average imdb score?
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+MA<-aggregate(movies$imdb_score, list(movies$country), mean)
+colnames(MA)<-c("Country", "Mimdb")
+MA<-MA[order(-MA$Mimdb), ]
+MA[1,] 
+```
+
 #### Snippet 8
-#### Snippet 9
+
+**Q:** What are the odds that a High Budget Movie will have High Gross Income? <br>
+**A:** Prior Odds = 5.59 <br>
+Likelihood  Ratio = 5.08 <br>
+Prior Odds = 1.11
+
+
+```{r,tut=TRUE,height=400}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+
+Prior<-nrow(market[movies$Gross =='High',])/nrow(movies)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(movies[movies$Gross=='High'& movies$Budget=='High',])/nrow(movies[movies$Gross=='High',]),2)
+TruePositive
+FalsePositive<-round(nrow(movies[movies$Gross!='High'& movies$Budget=='High',])/nrow(movies[movies$Gross!='High',]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,2)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+```
+<br>
+
+You are now familiar with the Movies dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check6). 
 
 ### Movies Data Quiz
 
@@ -957,9 +1062,9 @@ You are now familiar with the Movies dataset and it's time to give your understa
 ### Check yourself {#check6}
 
 ```{r,tut=TRUE,height=600}
-movie<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoviesDataMaker2.csv")
 
-summary(movie)
+summary(movies)
 ```
 
 <!--
