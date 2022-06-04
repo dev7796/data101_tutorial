@@ -1395,11 +1395,10 @@ market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/mai
 
 summary(market)
 ```
+<br>
 
 
-
-
-
+Now it's time for two real data sets - the airbnb data set and titanic sinking data set, both from Kaggle. These data sets have been cleaned before, this is why we do not have to spend our time on data wrangling!  
 
 
 ## Airbnb data puzzle 
