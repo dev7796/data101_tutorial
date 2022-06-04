@@ -1396,35 +1396,357 @@ market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/mai
 summary(market)
 ```
 
-<!--
-### What were the secret associations  between  items in the minimarket?
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MV12">Secrets Revealed</button>
-<div id="MV12" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/ecrets-revealed-prediction-minimarket.pptx&embedded=true" width="100%" height="500px"></embed>
-</div>
 
-## Virus Data Puzzle
 
-Whose computer  is in most danger of being infected with a virus?  Let's assume that obvious protections have been secured: antivirus software is installed and an uncrackable password is in place. 
 
-Anything else?  But how about your personal characteristics - are you an optimist or a pessimist?  Do you have lots of facebook friends?  Is your instagram followed?  Massively?  Do you spend all your time online? Are you an outdoorsy type ? Do you have a dog? 
 
-## Good mood Data Puzzle
 
-What are the secrets of DataMaker’s good mood?  Now we fully admit that DataMaker is moody!  Data is not surprisingly very nerdy - amount of free disk space, number of processes, CPU utilization, number of active connections.
+## Airbnb data puzzle 
 
-## Airbnb data puzzle
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv" download="airbnb.csv">airbnb.csv</a>
 
-## Predicting grades in Professor Moody's class
+The airbnb data set (Kaggle) stores around 30,000 plus data points about airbnb prices in NYC. We have modified the original set a little bit (we can’t stop!) adding the floor where the department is located to the existing attributes such as Room type, neighbourhood_group (boroughs), specific neighborhood and price.
 
-### How did I cook the Professor Moody Prediction challenge data? 
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  airbnb[sample(1:nrow(airbnb),5), ], caption = 'Snippet of Airbnb Dataset',
+  booktabs = TRUE
+)
+temp<-knitr::kable(
+  airbnb[sample(1:nrow(airbnb),5), ], caption = 'Snippet of Airbnb Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MV13">Secrets Revealed</button>
-<div id="MV13" class="collapse">    
-<embed src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/pred/Secrets-revealed-prediction-challenge.pptx&embedded=true" width="100%" height="500px"></embed>
-</div>
--->
+### Practice Snippets 
+
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+nrow(airbnb)
+summary(airbnb)
+unique(airbnb$neighbourhood_group)
+unique(airbnb$neighbourhood)
+unique(airbnb$room_type)
+unique(airbnb$floor)
+table(airbnb$neighbourhood_group)
+table(airbnb$neighbourhood)
+table(airbnb$room_type)
+table(airbnb$floor)
+tapply(airbnb$price, airbnb$floor, mean)
+tapply(airbnb$price, airbnb$neighbourhood, mean)
+tapply(airbnb$price, airbnb$room_type, mean)
+
+```
+
+#### Snippet 2
+
+**Q:** What is the price of the cheapest entire home/apt in Tribeca? <br>
+**A:** $284
+
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+min(airbnb[airbnb$room_type=='Entire home/apt' &airbnb$neighbourhood=='Tribeca',]$price)
+
+```
+
+#### Snippet 3
+
+**Q:** What is the lowest price of accommodation above the 10th floor in Manhattan? <br>
+**A:** $184
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+min(airbnb[airbnb$floor >10 &airbnb$neighbourhood_group=='Manhattan',]$price)
+
+```
+
+#### Snippet 4
+
+**Q:** What are the odds of finding a place for less than $200 in Tribeca? <br>
+**A:** Posterior Odds = 0.09 <br>
+Prior Odds = 0.86 <br>
+Likelihood Ratio = 0.11
+
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+Prior<-nrow(airbnb[airbnb$price<200,])/nrow(airbnb)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+nrow(airbnb[airbnb$price<200& airbnb$neighbourhood=='Tribeca',])
+nrow(airbnb[airbnb$neighbourhood=='Tribeca',])
+TruePositive<-round(nrow(airbnb[airbnb$price<200& airbnb$neighbourhood=='Tribeca',])/nrow(airbnb[airbnb$price<200,]),5)
+TruePositive
+FalsePositive<-round(nrow(airbnb[airbnb$price>200& airbnb$neighbourhood=='Tribeca',])/nrow(airbnb[airbnb$price>200,]),5)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,4)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
+#### Snippet 5
+
+**Q:** Verify hypothesis that West Village is more expensive than Upper East Side? <br>
+**A:** Positive. Null hypothesis is rejected with the p value p < 0.0001
+
+```{r,tut=TRUE,ex="permutationtestfunction8",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction8",type="sample-code",height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+PermutationTestSecond::Permutation(airbnb, "neighbourhood", "price",10000, "West Village", "Upper East Side")
+
+```
+<br>
+
+You are now familiar with the Airbnb dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check9). 
+
+### Airbnb Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_9/" target = "blank"> Quiz Time  </a>
+
+### Check yourself {#check9}
+
+```{r,tut=TRUE,height=600}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+summary(airbnb)
+```
+
+
+
+
+
+
+## Titanic data puzzle 
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv" download="Titanic-train.csv">Titanic-train.csv</a>
+
+The titanic data set (Kaggle) stores records of passengers of Titanic with attributes such as Survived, SibSp (family size), Fare, PClass (type of a cabin), Age etc.  Here is a sample of data
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  titanic[sample(1:nrow(titanic),5), ], caption = 'Snippet of Titanic Dataset',
+  booktabs = TRUE
+)
+temp<-knitr::kable(
+  titanic[sample(1:nrow(titanic),5), ], caption = 'Snippet of Titanic Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+### Practice Snippets 
+
+#### Snippet 1: Get to know your data
+
+```{r,tut=TRUE,height=400}
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+colnames(titanic)
+nrow(titanic)
+summary(titanic)
+unique(titanic$Pclass)
+unique(titanic$SibSp)
+unique(titanic$Sex)
+unique(titanic$Embarked)
+unique(titanic$Survived)
+table(titanic$Pclass)
+table(titanic$SibSp)
+table(titanic$Sex)
+table(titanic$Embarked)
+table(titanic$Survived)
+
+```
+
+#### Snippet 2
+
+**Q:**  What are the odds of survival of single males on Titanic? <br>
+**A:**  Posterior Odds = 0.196 <br>
+Prior Odds = 0.62 <br>
+Likelihood Ratio = 0.31
+
+
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+Prior<-nrow(titanic[titanic$Survived==1,])/nrow(titanic)
+Prior
+PriorOdds<-round(Prior/(1-Prior),2)
+PriorOdds
+TruePositive<-round(nrow(titanic[titanic$Survived==1& titanic$Sex=='male' &titanic$SibSp==0,])/nrow(titanic[titanic$Survived==1,]),2)
+TruePositive
+FalsePositive<-round(nrow(titanic[titanic$Survived==0& titanic$Sex=='male'&titanic$SibSp==0,,])/nrow(titanic[titanic$Survived==0,]),2)
+FalsePositive
+LikelihoodRatio<-round(TruePositive/FalsePositive,4)
+LikelihoodRatio
+PosteriorOdds <-LikelihoodRatio * PriorOdds
+PosteriorOdds
+Posterior <-PosteriorOdds/(1+PosteriorOdds)
+Posterior
+
+```
+
+#### Snippet 3
+
+**Q:** Verify hypothesis that survivors paid on average more for the ticker than those who did not survive? <br>
+**A:** Positive. Null hypothesis rejected with p < 0.0001
+
+```{r,tut=TRUE,ex="permutationtestfunction9",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction9",type="sample-code",height=400}
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+PermutationTestSecond::Permutation(titanic, "Survived", "Fare",10000, "1", "0")
+
+
+```
+
+#### Snippet 4
+
+**Q:** What is the probability of survival for passengers who paid more than 100 pounds for a ticket?  How about those who paid less than 10 pounds? <br>
+**A:**  0.73  for passengers who paid more than 100 pounds <br>
+0.20 for passengers who paid less than 10 pounds <br>
+0.38 for all passengers
+
+
+
+
+```{r,tut=TRUE,height=400}
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+nrow(titanic[titanic$Fare >100 & titanic$Survived ==1,])/nrow(titanic[titanic$Fare >100,])
+nrow(titanic[titanic$Fare <10 & titanic$Survived ==1,])/nrow(titanic[titanic$Fare <10,])
+nrow(titanic[titanic$Survived ==1,])/nrow(titanic)
+
+```
+
+#### Snippet 5
+
+**Q:** What was the chance of survival for passengers who traveled at least in a group of 3? <br>
+**A:** Just 10%!
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+table(titanic[titanic$SibSp>3,]$Survived)
+
+```
+
+#### Snippet 6
+
+**Q:**  Did survival depend on the class of the cabin? <br>
+**A:** Positive. Null hypothesis of independence rejected with p-value less than $e^{-16}$
+
+```{r,tut=TRUE,height=400}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+
+chisq.test(titanic$Survived, titanic$Pclass)
+
+```
+<br>
+
+You are now familiar with the Titanic dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check9). 
+
+### Titanic Data Quiz
+
+<a href = "https://ds1778.shinyapps.io/data_roulette_10/" target = "blank"> Quiz Time  </a>
+
+### Check yourself {#check9}
+
+```{r,tut=TRUE,height=600}
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+
+summary(titanic)
+```
+
+
+
+
+
 
 ## Addiotional Reference 
 
