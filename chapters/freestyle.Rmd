@@ -27,7 +27,7 @@ We use data puzzles extensively in the class assignments.  These range from data
 
 ## Strange grading methods of Professor Moody Data Puzzle
 
-Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv" download="moody2022.csv">moody2022.csv</a>
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv" download="moody2022_new.csv">moody2022_new.csv</a>
 
 How to get a good grade in Professor Moody’s class?  
 
@@ -41,7 +41,7 @@ DataMaker has generated  thousands of tuples  which in addition to the total sco
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv") #web load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
 # head(moody)
 temp<-knitr::kable(
   head(moody, 5), caption = 'Snippet of Moody Dataset',
@@ -60,7 +60,7 @@ kableExtra::scroll_box(temp,width = "100%")
 #### Snippet 1: Get familiar with the data set
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 colnames(moody)
 summary(moody)
@@ -85,7 +85,7 @@ tapply(moody$PARTICIPATION, moody$TEXTING_IN_CLASS, mean)
 **Q:** Did you know that students who never doze off in class have more than twice as many A’s than students who sometimes doze off?
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 table(moody$DOZES_OFF, moody$GRADE)
 ```
@@ -95,7 +95,7 @@ table(moody$DOZES_OFF, moody$GRADE)
 **Q:** Did you know that the students who scored over 85 and still received a B almost always dozed off all the time during class?
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 moody[(moody$SCORE>85) & (moody$GRADE=='B'), ]$DOZES_OFF
 ```
@@ -106,7 +106,7 @@ moody[(moody$SCORE>85) & (moody$GRADE=='B'), ]$DOZES_OFF
 **A:** Always texting in class! Almost 40% chance of failing!
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 #Probability of failing the class when dozing off all the time
 nrow(moody[moody$DOZES_OFF=='always' & moody$GRADE=='F',])/nrow(moody[moody$DOZES_OFF=='always',])
@@ -121,7 +121,7 @@ nrow(moody[moody$TEXTING_IN_CLASS=='always' & moody$GRADE=='F',])/nrow(moody[moo
 **A:**  D
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 moody[moody$SCORE=='39.57'&moody$DOZES_OFF=='always',]$GRADE
 
@@ -135,7 +135,7 @@ Likelihood Ratio = 4 <br>
 Prior Odds =0.56
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 Prior<-nrow(moody[moody$DOZES_OFF =='never',])/nrow(moody)
 Prior
@@ -197,7 +197,7 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 
 #PermutationTestSecond::Permutation(d, "Cat", "Val",10000, "GroupA", "GroupB") 
 
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 PermutationTestSecond::Permutation(moody, "GRADE", "PARTICIPATION",10000, "C", "F")
 
@@ -210,7 +210,7 @@ PermutationTestSecond::Permutation(moody, "GRADE", "PARTICIPATION",10000, "C", "
 
 
 ```{r,tut=TRUE,height=400}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 mean(moody[moody$DOZES_OFF=='always',]$SCORE)
 table(moody[moody$DOZES_OFF=='always',]$GRADE)
@@ -227,7 +227,7 @@ Great job!! You have made it this far. You are now familiar with the moody datas
 
 ### Check yourself {#check1}
 ```{r,tut=TRUE,height=600}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
 
 summary(moody)
 ```
@@ -1710,7 +1710,7 @@ nrow(titanic[titanic$Survived ==1,])/nrow(titanic)
 **A:** Just 10%!
 
 ```{r,tut=TRUE,height=400}
-airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
 
 table(titanic[titanic$SibSp>3,]$Survived)
 
