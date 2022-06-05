@@ -18,8 +18,8 @@ setting
 how-to-upload-a-data-set
 saving-your-work
 general-r-references
-textbook-concepts
-r-functions-used-in-this-class
+rconcepts
+rfunctions
 data-puzzles
 strange-grading-methods-of-professor-moody-data-puzzle
 practice-snippets

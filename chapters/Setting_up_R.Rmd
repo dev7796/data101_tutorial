@@ -170,7 +170,7 @@ https://cran.r-project.org/doc/contrib/Short-refcard.pdf <br>
 https://www.amazon.com/Statistics-Engineers-Scientists-William-Navidi/dp/0073376337/ref=pd_lpo_3?pd_rd_i=0073376337&psc=1 <br>
 https://data101.cs.rutgers.edu/laboratory/
 
-## Textbook Concepts
+## Textbook Concepts {#rconcepts}
 
 - Hypothesis testing: \@ref(ztest)
 
@@ -229,7 +229,7 @@ https://data101.cs.rutgers.edu/laboratory/
 - Testing: \@ref(lr)
 
 
-## R functions used in this class
+## R functions used in this class {#rfunctions}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
