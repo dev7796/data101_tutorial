@@ -1550,7 +1550,7 @@ You are now familiar with the Airbnb dataset and it's time to give your understa
 
 ### Airbnb Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_9/" target = "blank"> Quiz Time  </a>
+<a href = " https://textbook.shinyapps.io/data_roulette_9/?_ga=2.146438262.333337169.1654557226-2077060180.1654557226" target = "blank"> Quiz Time  </a>
 
 ### Check yourself {#check9}
 
@@ -1728,13 +1728,13 @@ chisq.test(titanic$Survived, titanic$Pclass)
 ```
 <br>
 
-You are now familiar with the Titanic dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check9). 
+You are now familiar with the Titanic dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check10). 
 
 ### Titanic Data Quiz
 
-<a href = "https://ds1778.shinyapps.io/data_roulette_10/" target = "blank"> Quiz Time  </a>
+<a href = "https://dev7796.shinyapps.io/data_roulette_10/" target = "blank"> Quiz Time  </a>
 
-### Check yourself {#check9}
+### Check yourself {#check10}
 
 ```{r,tut=TRUE,height=600}
 titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
