@@ -1,4 +1,4 @@
-# 🔖 Data Transformation
+# 🔖 Basic R Intructions
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -8,19 +8,241 @@
 tutorial::go_interactive()
 ```
 
-Very often data is transformed before it is visualized. In this section we review basic transformation techniques. Before we do this, we review a few basic functions which are going to be very useful when transforming data. 
+In this section we introduce the absolutely basic R instructions, call it R101, which will be sufficient for the entire data 101 class. This is a very small subset of the entire R. The good news is that using this very small subset of R we can accomplish all coding objectives for data 101! 
+
+The set we present  below is a mix of simple arithmetic aggregate functions such as mean() \@ref(mean), max() \@ref(max), sum() , basic data structures such as vectors and data frames and finally, two  core functions defined for data frames: subset() \@ref(subset), tapply() \@ref(tapply) and table() \@ref(table) function defined on vectors. 
+
+
+## Vector {#vector}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+- A vector is simply a list of items that are of the same type.
+
+<!-- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
+- All of the items inside a vector to are of the same type like numerical or categorical. -->
+
+### Snippet 1
+
+Lets look at example of creating a vector:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create 3 vectors with title, author and year.
+color <- c('Red','Blue','Yellow','Green')
+
+#Lets look at how the created vectors look.
+color
+```
+
+### Snippet 2
+
+Create a vector with numerical values in a sequence, use the **:** operator:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with numerical sequence.
+year <- 2018:2022
+
+#Lets look at how the created vectors look.
+year
+
+```
+
+---
+
+<!--
+<br />
+
+- To find out how many items a vector has, use the **length()** function:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with categorical values
+author <- c('Foreman', 'John', 'Said')
+
+# You can access the vector items by referring to its index number inside brackets []. The first item has index 1, the second item has index 2, and so on:
+author[1]
+
+#Lets look at the size of a vectors.
+length(author)
+
+```
+
+<br />
+
+- To sort items in a vector alphabetically or numerically, use the **sort()** function and to change the value of a specific item, refer to the **index number**:
+
+```{r,tut=TRUE,height=300}
+
+#Lets create a vectors with categorical values
+title <- c('Data Smart','Orientalism','False Impressions','Making Software')
+
+#sorting titles
+sort(title)
+
+# change the title 'Data Smart' to 'Smart Data'
+title[1] <- "Smart Data"
+
+#Lets look at how the updated vectors look.
+title 
+```
+
+-->
+
+---
+
+## Data Frames
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+- Data Frames are data displayed in a format as a table.
+<!--
+- Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
+
+- Following are the characteristics of a data frame.
+  - The column names should be non-empty.
+  - The row names should be unique.
+  - The data stored in a data frame can be of numeric, factor or character type.
+  - Each column should contain same number of data items.
+
+Use the **data.frame()** function to create a data frame:-->
+
+### Snippet 1
+
+Data frames will serve as containers of imported data - typically data provided in csv format, like the moody data set above. Snippet 4.21 shows how to populate a data frame using read.csv() instruction. Notice that the moody data frame which is the container for the imported  data set  will automatically inherit attribute names (columns) of the underlying data set.
+
+```{r,tut=TRUE,height=300}
+
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+
+# Now lets view the dataframe moody with just 5-6 tuples
+head(moody)
+```
+
+### Snippet 2 
+
+Get the summary of the dataframe:
+
+```{r,tut=TRUE,height=300}
+
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+
+# Use the summary() function to summarize the data from a Data Frame:
+summary(moody)
+```
+<!--
+- Just like vectors, you can access specific data **(Slicing)** in dataframes using brackets. 
+- But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. -->
+
+### Snippet 3 
+
+We can select subsets of columns and subsets of rows for a data frame using the following the notation data[rows, columns]:
+
+```{r,tut=TRUE,height=500}
+
+# Load the dataset into the moody variable
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+
+# Return row 1
+moody[1, ]
+
+# Return column 5
+moody[, 5]
+
+# Rows 1:5 and column 2
+moody[1:5, 2]
+
+# Give me rows 1-3 and columns 2 and 4 of moody
+moody[1:3, c(2:4)]
+```
+
+---
+
+
+
+
+
+## Table {#table}
+
+The function table() displays frequency distribution of its arguments. table()  function is fundamental for plots as well as a tool to “know your data”.
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive( greedy = FALSE)
+
+```
+
+<!--
+- Tables (i.e. frequency distribution table) can be created using **table()** along with some of its variations. 
+- To use **table()**, simply add in the variables you want to tabulate separated by a comma. 
+- You must reference the variable using **dataset$variable**. 
+- By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. -->
+### Snippet 1
+
+The below examples show how to use this function:
+
+```{r, tut=TRUE,height=400}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv") #web load
+
+#lets make a table for the grades of students and counts of students for each Grade. 
+grades <- table(moody$Grade)
+
+#Joint distribution of grade and major
+table(moody$Grade, moody$Major)
+
+
+```
+
+
+
+---
 
 ## Basic Functions
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+# head(moody)
+temp<-knitr::kable(
+  moody[sample(1:nrow(moody),5), ], caption = 'Snippet of moody Dataset',
+  booktabs = TRUE
+)
+temp<-knitr::kable(
+  moody[sample(1:nrow(moody),5), ], caption = 'Snippet of moody Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
 
 ### mean() {#mean}
 
 - **mean()** function is used to find the average of values in a numerical vector.
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 #Lets look at the mean of score column.
-mean(moody$score)
+mean(moody$Score)
 ```
 
 
@@ -29,21 +251,21 @@ mean(moody$score)
 - **length()** function is used to get the number of elements in any vector
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 #Lets look at the length of the grade column 
-length(moody$grade)
+length(moody$Grade)
 ```
 
-### max()
+### max() {#max}
 
 - **max()** function is used to get the maximum value in a numerical vector.
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 #lets look at the maximum value of the score in the score column
-max(moody$score)
+max(moody$Score)
 ```
 
 ### min()
@@ -51,10 +273,10 @@ max(moody$score)
 - **min()** function is used to get the minimum value in a numerical vector
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 #Lets look at the minimum value of score in the score column.
-min(moody$score)
+min(moody$Score)
 
 ```
 
@@ -63,13 +285,16 @@ min(moody$score)
 - **sd()** function is used to find the standard deviation of numerical vector
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 #Lets look at the standard deviation of score column
-sd(moody$score)
+sd(moody$Score)
 ```
 
 ---
+
+
+
 
 Now we are ready to introduce basic data transformation techniques such as slicing and dicing.  Slicing, otherwise known as **subsetting**, allows the selection of data frame subsets. These subsets are defined by boolean conditions built from Attribute op value pairs where op is one of the arithmetic operators such as =, !=, < etc.  For example (Score >70)& (Grade ==’A’) refers to a subset of a data frame describing students who scored more than 70 points and got an A.  
 
@@ -78,43 +303,42 @@ Finally we can also expand our data frame with new, so called derived, attribute
 
 ## Subset {#subset}
 
-### Snippet 1- example of subset function {#nrow}
+The following snippets demonstrate two ways of subsetting a data frame: first  through explicit function subset() and second through the native sub-data frame notation df[ ].
+
+### Snippet 1 {#nrow}
+
+Subsetting data frame via subset() function
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 #Subset of rows
-moody_never_smartphone<-subset(moody,ON_SMARTPHONE=="never")
+moody_psychology<-subset(moody, Major== 'Psychology')
 nrow(moody)
-nrow(moody_never_smartphone)
+nrow(moody_psychology)
 
 ```
 
-### Snippet 2- example of  subset  function
+### Snippet 2
+
+Example of  subset  function
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-#Subset of rows
-moody1<-subset(moody,ON_SMARTPHONE=="never")
-# You can see only student never on smartphone are in the subset.
-table(moody1$ON_SMARTPHONE) 
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
-```
-
-### Snippet 3- subset as subframe 
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
 #Alternate way to subset.
-moody2<-moody[moody$ON_SMARTPHONE=="never", ]
-# You can see a similar table as above.
-table(moody2$ON_SMARTPHONE) 
+moody[moody$Major=="Psychology", ]
+moody[moody$Major!="Psychology", ]
+moody[moody$Score >80, ]
+moody[moody$Score >80 & moody$Grade == 'B', ]
 
 ```
 
-### Snippet 4- subsetting columns
+### Snippet 3
+
+Subsetting columns
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 colnames(moody)
 #subset of columns
 moody3<-subset(moody, select = -c(1))
@@ -124,74 +348,63 @@ ncol(moody3)
 
 ```
 
-### Snippet 5- sub-setting rows and columns
+### Snippet 4
+
+Sub-setting rows and columns
 
 ```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 #Subset of Rows and Columns
-moody1<-subset(moody, select = c(2:4), ON_SMARTPHONE == "never")
+moody1<-subset(moody, select = c(2:4), Major=="Psychology")
 colnames(moody1)
 #Notice that only 3 columns are remaining
 dim(moody1)
 
 ```
 
-### Code Review
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-moody[moody$SCORE>=90,3]
-# What will R say?
-
-
-# A. Get subset of all columns which contains students who scored more than equal to 90
-# B. error
-# C. get all score values which are more than equal to 90
-# D. get subset of only the grades of students with score greater than equal to 90
-
-
-```
-
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-moody[moody$SCORE>=80.0 & moody$GRADE =='B',] 
-# What will R say?
-
-# A. subset of moody data frame who got B grade.
-# B. error.
-# C. subset of moody data frame with score greater than 80.
-# D. subset of moody data frame with score more than 80 and got B grade.
-
-
-```
-
 ---
+
+
 
 One of the most important R instructions is **tapply**. It allows parallel execution of an aggregate function for different values of a categorical variable.
 
 ## tapply {#tapply}
 
-- **tapply()** computes a measure (mean, median, min, max, etc..) or a function for each factor variable in a vector. It is a very useful function that lets you create a subset of a vector and then apply some functions to each of the subset.
-- tapply(numerical, categorical, aggregagte function)
+tapply()  has four arguments:  the data frame (df), numerical attribute of df, categorical attribute of df and aggregate function (mean, max, min etc).  Syntax of df is as follows:
+ 
+```tapply(df$numerical attribute, df$categorical attribute, aggregate function)```
 
-### Snippet 1-  Example of tapply followed by barplot
+- tapply() first slices data frame  df by different values of a categorical attribute and then computes an aggregate  (mean, median, min, max, etc..) of a numerical attribute  to each slice. 
+
+
+### Snippet 1
+
+Example of tapply followed by plot
 
 ```{r,height=700}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
-
-# To apply tapply() on SCORE factored on ON_SMARTPHONE
-
-moody1<-tapply(moody$SCORE,moody$ON_SMARTPHONE,mean)
-moody1 # We can see it calculated mean value of the score by students with respect to their use of phone in class.
-
-barplot(moody1,col = "cyan",xlab = "Labels", ylab = "mean_val",main = "tapply() example 1",las = 2, cex.names = 0.75)#plot
+# To see distributions of mean scores for different grades only for students who were “always” on smartphones in class. 
+tapply(moody[moody$Seniority == "Junior",]$Score, moody[moody$Seniority== "Junior",]$Grade, mean)
 
 ```
+
+### Snippet 2
+
+Combining table and subset
+
+```{r,height=300}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
+
+#Distribution of grades for juniors
+table(moody[moody$Seniority == 'Junior',]$Grade)
+#Distribution of grades for seniors who major in Economics
+table(moody[moody$Seniority == 'Senior' & moody$Major == 'Economics', ,]$Grade)
+```
+
+
+
 <!--
 ### Snippet 2 (*)
 
@@ -203,64 +416,6 @@ moody2<-tapply(moody$GRADE,list(moody$ON_SMARTPHONE,moody$GRADE),length)
 # We can see it calculated count of the grade of student with respect to their in-class smartphone usage  and grade category.
 moody2
 barplot(moody2,col=c("red","cyan","orange","blue"),main = "tapply() example 2",beside = TRUE,legend=rownames(moody2))
-```
--->
-### Code Review
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-tapply(moody, GRADE, SCORE, min)
-# What will R say?
-
-# A. minimum score for each grade
-# B. minimum grade for each score
-# C. minimum grade only 
-# D. Error.
-
-
-```
-<!--
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-tapply(moody$GRADE, list(moody$ON_SMARTPHONE,moody$GRADE), length)
-# What will R say?
-
-# A. Total no. of students grade for each values of on_smartphone attribute
-# B. mean value of on_smartphone attribute for each grade
-# C. mean category of on_smartphone only 
-# D. error.
-```
--->
----
-
-## Derived Attribute
-
-R allows creating new data frame attributes (columns) “on the fly”.  These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived  attributes. 
-
-Derived attributes will play an important role  in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.
-
-The term feature engineering is often used in machine learning to describe creation of derived attributes.
-
-### Snippet 1  - Making  new categorical attribute. 
- 
-The  line 4 initializes the new attribute PF (Pass/Fail) to "Pass".  The line 5 replaces "Pass" by “Fail”  for students who received F. This new attribute, PF, will allow exploratory analysis to find “How to pass Professor Moody’s class”. The answer to this question may be different than then answer to “How to get a good grade in Professor Moody’s class”.
-
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-# Cut Example using breaks - Cutting data using defined vector. 
-moody$PF<-'Pass'
-moody[moody$GRADE=='F',]$PF<-'Fail'
-
-# lets see our added column PF
-moody
-
 ```
 
 
@@ -278,53 +433,6 @@ table(score1)
 
 ```
 
-### Code Review
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-cut(moody$SCORE, breaks=c(0,25,70,100),labels=c("low", "medium", "high"))
-#What would R say?
-
-# A. 5 intervals of attribute score
-# B. 3 intervals (0,25) (25,70) (75,100)
-# C. 3 categorical values "low", "medium" and "high" for different score intervals
-# D. 3 separate datasets with similar score values
-
-```
-
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-output<-cut(moody$SCORE, 5)
-summary(output)
-#What would R say?
-
-# A. 5 intervals of attribute score of unequal count of elements
-# B. 5 intervals of attribute score of equal count of elements
-# C. 5 categorical values for different score intervals
-# D. 5 separate dataset with similar score values
-
-```
-
-#### What would R say?
-
-```{r}
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MOODY-2019.csv")
-
-output<-cut(moody$ASKS_QUESTIONS, 2)
-summary(output)
-#What would R say?
-
-# A. 2 intervals of attribute ask_questions of unequal count of elements in each interval
-# B. 2 intervals of attribute ask_questions of equal count of elements in each interval
-# C. 2 categorical values for different ask_questions intervals
-# D. Error.
-
-```
 
 #### More complex  example of defining derived attributes
 
@@ -372,6 +480,7 @@ boxplot(moody$conditional,col = c("red"),main="Complex Example")
 boxplot(moody$score,col = c("blue"),main="Complex Example")
 
 ```
+-->
 
 ## Additional references
 
