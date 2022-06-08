@@ -219,7 +219,20 @@ table(moody[moody$DOZES_OFF=='always',]$GRADE)
 
 <br>
 
-Great job!! You have made it this far. You are now familiar with the moody dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check1). 
+Great job!! You have made it this far. You are now familiar with the moody dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check1).
+
+#### Snippet 9 
+
+Visualizing the grade w.r.t score for the moody dataset.
+
+```{r,tut=TRUE,height=500}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
+colors<- c('red','blue','cyan','yellow','green')
+
+boxplot(moody$SCORE~moody$GRADE, xlab="Grade",ylab="Score",col=colors, 
+        main="Boxplot for student score and grade distribution",border="black")
+
+```
 
 ### Moody Data Quiz
 
@@ -471,6 +484,23 @@ party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 
 table(party[party$Party=='Fun',]$Music)
 ```
+
+#### Snippet 6 
+
+Bar graph of average CaloriesDanc per Music played.
+
+```{r,tut=TRUE,height=500}
+party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+t<-tapply(party$CaloriesDanc, party$Music, mean)
+
+barplot(t, xlab="Type of music",ylab="Calories per dance",col=colors, ylim = c(0,300),
+        main="Barplot for music and calories per dance distribution",border="black")
+
+
+```
+
 <br>
 
 You are now familiar with the Party dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check3). 
@@ -702,6 +732,23 @@ vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 table(vote[vote$LeafBlowers=='ElectricOnly',]$Party)
 
 ```
+
+#### Snippet 12
+
+Bar graph of Vote distribution among parties.
+
+```{r,tut=TRUE,height=500}
+vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+t<-table(vote$Party)
+
+
+barplot(t,xlab="Party",ylab="Number of votes",col=colors, 
+      main="Barplot for party vote distribution",border="black")
+
+```
+
 <br>
 
 You are now familiar with the Election dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check4). 
@@ -864,9 +911,24 @@ sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 
 max(sleep[sleep$Sleep=='Deep',]$RoomTemp)
 ```
+
+#### Snippet 6
+
+Boxplot showing calories exercising in function of sleep attribute.
+
+```{r,tut=TRUE,height=500}
+sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+summary(sleep)
+
+boxplot( sleep$ExerciseCal~sleep$Sleep, xlab=" Type of Sleep",ylab="Calories",col=colors, 
+        main="Boxplot for sleep and calories distribution",border="black")
+```
 <br>
 
 You are now familiar with the Sleep dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check5). 
+
+
 
 ### Sleep Data Quiz
 
@@ -1055,6 +1117,21 @@ LikelihoodRatio
 PosteriorOdds <-LikelihoodRatio * PriorOdds
 PosteriorOdds
 ```
+
+#### Snippet 9
+
+Histogram of imdb scores for High Gross movies?
+
+```{r,tut=TRUE,height=500}
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+HighGross <- movies[movies$Gross=='High',]$imdb_score
+HighGross
+hist(HighGross)
+
+```
+
 <br>
 
 You are now familiar with the Movies dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check6). 
@@ -1255,6 +1332,20 @@ grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/mai
 nrow(grades[grades$Grade =='A' & grades$Exams < 50,])/nrow(grades[grades$Exams < 50,])
 
 ```
+
+#### Snippet 8
+
+Boxplot of Exams Score w.r.t. Grades.
+
+```{r,tut=TRUE,height=500}
+grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+boxplot(grades$Exams ~ grades$Grade, xlab="Grades",ylab="Exam Score",col=colors, 
+        main="Boxplot for Exam score and grade distribution",border="black")
+
+```
+
 <br>
 
 You are now familiar with the Canvas dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check7). 
@@ -1380,6 +1471,22 @@ d<-table(market$Snacks,market$IN)
 chisq.test(d)
 
 ```
+
+#### Snippet 8
+
+Mosiac plot to check market of beer w.r.t. location.
+
+```{r,tut=TRUE,height=500}
+market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+t<-table(market$Beer, market$Location)
+
+mosaicplot(t, xlab="Type of Beer",ylab="Location",col=colors, 
+        main="Mosaic plot for Beer and Location distribution",border="black")
+
+```
+
 <br>
 
 You are now familiar with the MiniMarket dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check8). 
@@ -1544,6 +1651,20 @@ airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/mai
 Permutation(airbnb, "neighbourhood", "price",10000, "West Village", "Upper East Side")
 
 ```
+
+#### Snippet 6
+
+Box plot to check price w.r.t. neighbourhood.
+
+```{r,tut=TRUE,height=500}
+airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+boxplot(airbnb$price ~ airbnb$neighbourhood_group, xlab="Location",ylab="Price",col=colors, 
+        main="Box plot for Price and neighbourhood distribution",border="black")
+
+```
+
 <br>
 
 You are now familiar with the Airbnb dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check9). 
@@ -1721,14 +1842,29 @@ table(titanic[titanic$SibSp>3,]$Survived)
 **A:** Positive. Null hypothesis of independence rejected with p-value less than $e^{-16}$
 
 ```{r,tut=TRUE,height=400}
-airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
 chisq.test(titanic$Survived, titanic$Pclass)
+
+```
+
+#### Snippet 7
+
+Fare distribution among survived and perished.
+
+```{r,tut=TRUE,height=500}
+titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
+colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+
+boxplot(titanic$Fare~titanic$Survived, xlab="Survived",ylab="Fare",col=colors, 
+        main="Box plot for survived and fare distribution",border="black")
 
 ```
 <br>
 
 You are now familiar with the Titanic dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check10). 
+
 
 ### Titanic Data Quiz
 
