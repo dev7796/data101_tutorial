@@ -15,14 +15,6 @@ The set we present  below is a mix of simple arithmetic aggregate functions such
 
 ## Vector {#vector}
 
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-```{r ,include=FALSE}
-tutorial::go_interactive( greedy = FALSE)
-
-```
 - A vector is simply a list of items that are of the same type.
 
 <!-- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
@@ -100,14 +92,6 @@ title
 
 ## Data Frames
 
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-```{r ,include=FALSE}
-tutorial::go_interactive( greedy = FALSE)
-
-```
 - Data Frames are data displayed in a format as a table.
 <!--
 - Data Frames can have different types of data inside it. While the first column can be character, the second and third can be numeric or logical. 
@@ -178,17 +162,6 @@ moody[1:3, c(2:4)]
 
 
 ## Table {#table}
-
-The function table() displays frequency distribution of its arguments. table()  function is fundamental for plots as well as a tool to “know your data”.
-
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-```{r ,include=FALSE}
-tutorial::go_interactive( greedy = FALSE)
-
-```
 
 <!--
 - Tables (i.e. frequency distribution table) can be created using **table()** along with some of its variations. 
