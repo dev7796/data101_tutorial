@@ -675,7 +675,7 @@ vote<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/
 mean(vote[vote$Party=='Anarchists',]$Age) 
 mean(vote[vote$Party=='KnowNothings',]$Age) 
 
-PermutationTestSecond::Permutation(vote, "Party", "Age",10000, "Anarchists", "KnowNothings") 
+Permutation(vote, "Party", "Age",10000, "Anarchists", "KnowNothings") 
 
 ```
 
@@ -851,7 +851,7 @@ sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 mean(sleep[sleep$Sleep=='Deep',]$OnComputer)
 mean(sleep[sleep$Sleep=='Shallow',]$OnComputer)
 
-PermutationTestSecond::Permutation(sleep, "Sleep", "OnComputer",10000, "Deep", "Shallow")
+Permutation(sleep, "Sleep", "OnComputer",10000, "Deep", "Shallow")
 
 ```
 
@@ -1240,7 +1240,7 @@ grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/mai
 mean(grades[grades$Grade=='B',]$Exams)
 mean(grades[grades$Grade=='C',]$Exams)
 
-PermutationTestSecond::Permutation(grades, "Grade", "Exams",10000, "C", "B") 
+Permutation(grades, "Grade", "Exams",10000, "C", "B") 
 
 ```
 
@@ -1541,7 +1541,7 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 ```{r,tut=TRUE,ex="permutationtestfunction8",type="sample-code",height=400}
 airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
 
-PermutationTestSecond::Permutation(airbnb, "neighbourhood", "price",10000, "West Village", "Upper East Side")
+Permutation(airbnb, "neighbourhood", "price",10000, "West Village", "Upper East Side")
 
 ```
 <br>
@@ -1679,7 +1679,7 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 ```{r,tut=TRUE,ex="permutationtestfunction9",type="sample-code",height=400}
 titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
 
-PermutationTestSecond::Permutation(titanic, "Survived", "Fare",10000, "1", "0")
+Permutation(titanic, "Survived", "Fare",10000, "1", "0")
 
 
 ```

@@ -38,10 +38,11 @@ Now we can disclose that we have created our Temp data set completely randomly -
 
 It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.
 
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv" download="Tempratures.csv">Tempratures.csv</a>
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-hindex<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Temperatures.csv") #web load
+hindex<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv") #web load
 # head(moody)
 temp<-knitr::kable(
   hindex[sample(1:nrow(hindex),10), ], caption = 'Snippet of Temperature Dataset',
@@ -51,19 +52,55 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+<br>
+
 The Temp data set assigned random temperatures between 50 and 100 degrees to around 20 townships in New Jersey. 
 
 Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests  (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).  
 
-## Snippet 1 {#snippet1}
-```{r,echo=FALSE}
-Temp <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Temperatures.csv") #web load
+### Snippet 1 {#snippet1}
 
-PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Princeton", "Trenton")
-PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Passaic", "Newark")
-PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Ocean Grove", "New Brunswick")
-PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "New Brunswick", "Holmdel")
-PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Red Bank", "Holmdel")
+```{r,tut=TRUE,ex="permutationtestfunction10",type="pre-exercise-code"}
+Permutation <- function(df1,c1,c2,n,w1,w2){
+  df <- as.data.frame(df1)
+  D_null<-c()
+  V1<-df[,c1]
+  V2<-df[,c2]
+  sub.value1 <- df[df[, c1] == w1, c2]
+  sub.value2 <- df[df[, c1] == w2, c2]
+  D <-  abs(mean(sub.value2, na.rm=TRUE) - mean(sub.value1, na.rm=TRUE))
+  m=length(V1)
+  l=length(V1[V1==w2])
+  for(jj in 1:n){
+    null <- rep(w1,length(V1))
+    null[sample(m,l)] <- w2
+    nf <- data.frame(Key=null, Value=V2)
+    names(nf) <- c("Key","Value")
+    w1_null <- nf[nf$Key == w1,2]
+    w2_null <- nf[nf$Key == w2,2]
+    D_null <- c(D_null,mean(w2_null, na.rm=TRUE) - mean(w1_null, na.rm=TRUE))
+  }
+  myhist<-hist(D_null, prob=TRUE)
+  multiplier <- myhist$counts / myhist$density
+  mydensity <- density(D_null, adjust=2)
+  mydensity$y <- mydensity$y * multiplier[1]
+  plot(myhist)
+  lines(mydensity, col='blue')
+  abline(v=D, col='red')
+  M<-mean(D_null>D)
+  return(M)
+}
+```
+
+```{r,tut=TRUE,ex="permutationtestfunction10",type="sample-code",height=400}
+
+Temp <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv") #web load
+
+Permutation(Temp, "Township", "Temprature",10000, "Princeton", "Trenton")
+Permutation(Temp, "Township", "Temprature",10000, "Passaic", "Newark")
+Permutation(Temp, "Township", "Temprature",10000, "Ocean Grove", "New Brunswick")
+Permutation(Temp, "Township", "Temprature",10000, "New Brunswick", "Holmdel")
+Permutation(Temp, "Township", "Temprature",10000, "Red Bank", "Holmdel")
 ```
 <!--
 ## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}

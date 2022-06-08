@@ -165,7 +165,10 @@
 </ul></li>
 <li class="chapter" data-level="8" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html"><i class="fa fa-check"></i><b>8</b> 🔖 Multiple Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#snippet1"><i class="fa fa-check"></i><b>8.1.1</b> Snippet 1</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="Multiple_Hypothesis.html"><a href="Multiple_Hypothesis.html#additional-references-3"><i class="fa fa-check"></i><b>8.2</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="bayesian_reasoning.html"><a href="bayesian_reasoning.html"><i class="fa fa-check"></i><b>9</b> 🔖 Bayesian Reasoning</a>
@@ -360,173 +363,150 @@
 <p>Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested. This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too “pro-null” and tough on alternative hypotheses to be acceptable.</p>
 <p>The unwanted side effect of Bonferroni correction is that we may fail to reject the null hypothesis too often. Bonferroni correction makes discovery sometimes too hard, making data scientists too conservative and accepting null hypothesis when they should be rejected. It may also be the case that even Bonferroni correction will not protect us, as we will show in our example below. But at least we will be much less likely to make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions.</p>
 <p>There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in the attached slides.</p>
-<p>The <a href="#Snippet1"><strong>??</strong></a> describes the data set based on a hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
-<p><a href="#Snippet1"><strong>??</strong></a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
+<p>We illustrate the p-value hunt in snippet 8.1 below. It is based on synthetic data set showing summer temperatures in New Jersey townships.
+Table below describes the data set based on hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
+<p>The <a href="Multiple_Hypothesis.html#snippet1">8.1.1</a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
 <p>Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township. Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.</p>
 <p>It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.</p>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv" download="Tempratures.csv">Tempratures.csv</a></p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-73">Table 8.1: </span>Snippet of Hindex Dataset
+<span id="tab:unnamed-chunk-73">Table 8.1: </span>Snippet of Temperature Dataset
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
 </th>
-<th style="text-align:right;">
-IDN
-</th>
 <th style="text-align:left;">
-COUNTRY
+Township
 </th>
 <th style="text-align:right;">
-HAPPINESS
+Temprature
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
+1194
+</td>
+<td style="text-align:left;">
+Highland Park
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 1270
 </td>
-<td style="text-align:right;">
-49450
-</td>
 <td style="text-align:left;">
-Latvia
+Trenton
 </td>
 <td style="text-align:right;">
-4.61
+80
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-4455
-</td>
-<td style="text-align:right;">
-15743
+359
 </td>
 <td style="text-align:left;">
-North Cyprus
+Highland Park
 </td>
 <td style="text-align:right;">
-2.57
+67
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-5276
-</td>
-<td style="text-align:right;">
-19061
+1180
 </td>
 <td style="text-align:left;">
-Tajikistan
+Asbury Park
 </td>
 <td style="text-align:right;">
-2.49
+71
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-4390
-</td>
-<td style="text-align:right;">
-37027
+692
 </td>
 <td style="text-align:left;">
-Azerbaijan
+Atlantic City
 </td>
 <td style="text-align:right;">
-4.62
+85
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-3609
-</td>
-<td style="text-align:right;">
-89386
+294
 </td>
 <td style="text-align:left;">
-Czech Republic
+Highland Park
 </td>
 <td style="text-align:right;">
-8.55
+68
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-3846
-</td>
-<td style="text-align:right;">
-18075
+1991
 </td>
 <td style="text-align:left;">
-Iraq
+Asbury Park
 </td>
 <td style="text-align:right;">
-2.60
+98
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-5807
-</td>
-<td style="text-align:right;">
-86933
+1594
 </td>
 <td style="text-align:left;">
-Croatia
+Atlantic City
 </td>
 <td style="text-align:right;">
-8.56
+100
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2318
-</td>
-<td style="text-align:right;">
-21655
+1274
 </td>
 <td style="text-align:left;">
-Finland
+Passaic
 </td>
 <td style="text-align:right;">
-3.30
+70
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-3369
-</td>
-<td style="text-align:right;">
-66225
+1144
 </td>
 <td style="text-align:left;">
-Armenia
+Red Bank
 </td>
 <td style="text-align:right;">
-6.70
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4762
-</td>
-<td style="text-align:right;">
-69650
-</td>
-<td style="text-align:left;">
-Kyrgyzstan
-</td>
-<td style="text-align:right;">
-7.47
+66
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+<p><br></p>
+<p>The Temp data set assigned random temperatures between 50 and 100 degrees to around 20 townships in New Jersey.</p>
+<p>Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).</p>
+<div id="snippet1" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Snippet 1<a href="Multiple_Hypothesis.html#snippet1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJUZW1wIDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9UZW1wcmF0dXJlcy5jc3ZcIikgI3dlYiBsb2FkXG5cblBlcm11dGF0aW9uKFRlbXAsIFwiVG93bnNoaXBcIiwgXCJUZW1wcmF0dXJlXCIsMTAwMDAsIFwiUHJpbmNldG9uXCIsIFwiVHJlbnRvblwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJQYXNzYWljXCIsIFwiTmV3YXJrXCIpXG5QZXJtdXRhdGlvbihUZW1wLCBcIlRvd25zaGlwXCIsIFwiVGVtcHJhdHVyZVwiLDEwMDAwLCBcIk9jZWFuIEdyb3ZlXCIsIFwiTmV3IEJydW5zd2lja1wiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJOZXcgQnJ1bnN3aWNrXCIsIFwiSG9sbWRlbFwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJSZWQgQmFua1wiLCBcIkhvbG1kZWxcIikifQ==
 </div>
 <!--
 ## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
@@ -543,6 +523,7 @@ Happiness Index synthetic data set which is used in my slides for multiple hypot
 
 <div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9</div>
 -->
+</div>
 </div>
 <div id="additional-references-3" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
