@@ -12,9 +12,9 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Introduction
 
-In this section we demonstrate application of Boundless Analytics - the tool developed by **Tomasz Imielinski** and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bar graphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs an otherwise very tedious task of looking at all combinations of attribute value pairs to identify the “significant ones” - saving enormous amounts of work in preliminary exploration of data. 
+In this section we demonstrate application of Boundless Analytics - the tool developed by Tomasz Imielinski and his team at Rutgers (and supported by NSF subcontract of Center of Science of Information at Purdue University). Boundless Analytics calculates all significant bar graphs from the data set and allows to find data subsets (slices) which deviate the most from the whole data set in regard to frequency distribution of an attribute. Boundless performs an otherwise very tedious task of looking at all combinations of attribute value pairs to identify the “significant ones” - saving enormous amounts of work in preliminary exploration of data. 
 
-We are using here the Minimarket  data puzzle **3.8** describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set 
+We are using here the Minimarket  data puzzle \@ref(minimarket) describing customer transactions in the small chain of minimarkets in NJ. Data 101 students used Boundless Analytics to discover the most interesting subsets of this data set 
 
 
 ## Minimarket Data Set description

@@ -1,0 +1,99 @@
+# 🔖  Data Transformation with Derived Attributes
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive()
+```
+
+R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.
+
+Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.
+
+The term feature engineering is often used in machine learning to describe creation of derived attributes.
+
+
+## Making new categorical attributes
+
+Here we define a new attribute PF (Pass/Fail) to “Pass”.  Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF. 
+
+The line 5 replaces “Pass” by “Fail” for students who received F. 
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
+
+# Cut Example using breaks - Cutting data using defined vector. 
+moody$PF<-'Pass'
+moody[moody$GRADE=='F',]$PF<-'Fail'
+moody
+
+```
+
+## Making categorical attribute from numerical attribute using function Cut()
+
+- **cut()** function  divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.
+
+```{r}
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
+
+# Cut Example using breaks - Cutting data using defined vector. 
+score1 <- cut(moody$SCORE,breaks=c(0,50,100),labels=c("F","P"))
+table(score1)
+
+```
+
+
+## Making new numerical attribute from numerical attributes
+
+Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute. 
+
+```{r,height=300}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
+
+moody$Combined <- (moody$SCORE  + 10* moody$PARTICIPATION)
+moody[1:10,]
+
+
+```
+
+
+
+## More complex  example of defining derived attributes
+
+The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance. 
+
+The next snippet illustrates defining  such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation  or rewards for good participation. 
+
+Score is adjusted by the value of participation attribute in the following way:
+ 
+- If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.
+- If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.
+
+In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.
+
+```{r,height=700}
+
+moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
+
+moody$conditional <-0
+moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
+
+moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+
+#Lets see a sample of new rows of moody with the new derived attribute
+moody[1:10,]
+
+
+```
+
+We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above.  Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later. 
+
+## Additional references
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Data Transformation</button>
+<div id="subset12" class="collapse">    
+<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px"></embed>
+</div>

@@ -1275,7 +1275,7 @@ summary(grades)
 
 
 
-## Very local minimarket data puzzle 
+## Very local minimarket data puzzle {#minimarket}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv" download="Minimarket.csv">HomeworkMarket2022.csv</a>
 

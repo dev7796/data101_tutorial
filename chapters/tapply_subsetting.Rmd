@@ -87,9 +87,6 @@ title
 ```
 
 -->
-
----
-
 ## Data Frames
 
 - Data Frames are data displayed in a format as a table.
@@ -455,9 +452,3 @@ boxplot(moody$score,col = c("blue"),main="Complex Example")
 ```
 -->
 
-## Additional references
-
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">Data Transformation</button>
-<div id="subset12" class="collapse">    
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px"></embed>
-</div>
