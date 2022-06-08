@@ -29,26 +29,42 @@ The unwanted side effect of Bonferroni correction is that  we may  fail to rejec
 
 There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in the attached slides.
 
-The \@ref(Snippet1) describes the data set based on a hypothetical temperature readings in various municipalities of New Jersey over summer.  Is one city experiencing higher average temperatures than another?  Can we find such a pair of cities?   This is the ultimate p-value hunt. Let's compare townshiships  pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value.  Careful!  You may come up with false discovery if you do not correct for multiple hypotheses! 
+We illustrate the p-value hunt in snippet 8.1 below. It is based on synthetic data set showing summer temperatures in New Jersey townships.
+Table below describes the data set based on hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!
 
-\@ref(Snippet1) shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%.  Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel?  Indeed, both pairs result in p-values significantly lower than 5%.  If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses.  But there are around 20 townships in the Temp data set.  Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%.  None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%.  Thus, for none of the four pairs we can reject null hypotheses. 
+The \@ref(snippet1)  shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.
 
-Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township.  Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.  
+Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township. Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.
 
-It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with  p-value of 0.01%!  (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%).  It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.
+It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.
+
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-hindex<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Hindex.csv") #web load
+hindex<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Temperatures.csv") #web load
 # head(moody)
 temp<-knitr::kable(
-  hindex[sample(1:nrow(hindex),10), ], caption = 'Snippet of Hindex Dataset',
+  hindex[sample(1:nrow(hindex),10), ], caption = 'Snippet of Temperature Dataset',
   booktabs = TRUE
 )
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+The Temp data set assigned random temperatures between 50 and 100 degrees to around 20 townships in New Jersey. 
+
+Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests  (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).  
+
+## Snippet 1 {#snippet1}
+```{r,echo=FALSE}
+Temp <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Temperatures.csv") #web load
+
+PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Princeton", "Trenton")
+PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Passaic", "Newark")
+PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Ocean Grove", "New Brunswick")
+PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "New Brunswick", "Holmdel")
+PermutationTestSecond::Permutation(Temp, "Township", "Temprature",10000, "Red Bank", "Holmdel")
+```
 <!--
 ## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
 
