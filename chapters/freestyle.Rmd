@@ -55,7 +55,10 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-![Boxplot for student score and grade distribution](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle1.png)
+<br>
+
+![ Figiure 1: Boxplot for student score and grade distribution \@ref(check1-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle1.png)
+
 ### Practice Snippets 
 
 #### Snippet 1: Get familiar with the data set
@@ -222,7 +225,7 @@ table(moody[moody$DOZES_OFF=='always',]$GRADE)
 
 Great job!! You have made it this far. You are now familiar with the moody dataset and it's time to give your understanding a test. Please click the link below to get to the quiz and come back here to cross-check your answer in the snippet \@ref(check1).
 
-#### Snippet 9 
+#### Snippet 9 {#check1-9}
 
 Visualizing the grade w.r.t score for the moody dataset.
 
@@ -359,6 +362,10 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+<br>
+
+![ Figiure 2: Distribution of party evaluation when HipHop music was played \@ref(check3-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle2.png)
+
 ### Practice Snippets 
 
 #### Snippet 1: Get to know your data
@@ -486,7 +493,7 @@ party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 table(party[party$Party=='Fun',]$Music)
 ```
 
-#### Snippet 6 
+#### Snippet 6 {#check3-6}
 
 Bargraph of party distribution  for Music Hiphop.
 
@@ -545,6 +552,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+<br>
+
+![ Figiure 3: Barplot for party vote distribution \@ref(check4-12)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle3.png)
+
 
 ### Practice Snippets 
 
@@ -735,7 +747,7 @@ table(vote[vote$LeafBlowers=='ElectricOnly',]$Party)
 
 ```
 
-#### Snippet 12
+#### Snippet 12 {#check4-12}
 
 Bar graph of Vote distribution among parties.
 
@@ -794,6 +806,9 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+<br>
+
+![ Figiure 4: Boxplot for sleep and calories distribution \@ref(check5-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle4.png)
 
 ### Practice Snippets 
 
@@ -914,7 +929,7 @@ sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 max(sleep[sleep$Sleep=='Deep',]$RoomTemp)
 ```
 
-#### Snippet 6
+#### Snippet 6 {#check5-6}
 
 Boxplot showing calories exercising in function of sleep attribute.
 
@@ -1001,6 +1016,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+<br>
+
+![ Figiure 5: Boxplot for Genre and IMDB score distribution \@ref(check6-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle5.png)
+
 
 ### Practice Snippets 
 
@@ -1119,7 +1139,7 @@ PosteriorOdds <-LikelihoodRatio * PriorOdds
 PosteriorOdds
 ```
 
-#### Snippet 9
+#### Snippet 9 {#check6-9}
 
 Histogram of imdb scores for different genres of the movies
 
@@ -1198,6 +1218,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+<br>
+
+![ Figiure 6: Grade distribution for students who passed the homeoworks but failed exam \@ref(check7-8)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle6.png)
+
 
 ### Practice Snippets 
 
@@ -1334,7 +1359,7 @@ nrow(grades[grades$Grade =='A' & grades$Exams < 50,])/nrow(grades[grades$Exams <
 
 ```
 
-#### Snippet 8
+#### Snippet 8 {#check7-8}
 
 Boxplot of Exams Score w.r.t. Grades.
 
@@ -1392,6 +1417,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+<br>
+
+![ Figiure 7: Distribution of snacks sales among Weekend buyers of Lager in New Brunswick \@ref(check8-5)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle7.png)
+
 
 ### Practice Snippets 
 
@@ -1475,7 +1505,7 @@ chisq.test(d)
 
 ```
 
-#### Snippet 8
+#### Snippet 5 {#check8-5}
 
 Bar plot to check market of snaks w.r.t. beer, day and location.
 
@@ -1532,6 +1562,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+
+<br>
+
+![ Figiure 8: Box plot for Price and neighbourhood distribution \@ref(check9-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle8.png)
 
 ### Practice Snippets 
 
@@ -1655,7 +1690,7 @@ Permutation(airbnb, "neighbourhood", "price",10000, "West Village", "Upper East 
 
 ```
 
-#### Snippet 6
+#### Snippet 6 {#check9-6}
 
 Box plot to check price w.r.t. neighbourhood.
 
@@ -1710,6 +1745,11 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+
+<br>
+
+![ Figiure 9: Age distribution among survivors of Titanic disaster \@ref(check10-7)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle9.png)
 
 ### Practice Snippets 
 
@@ -1852,7 +1892,7 @@ chisq.test(titanic$Survived, titanic$Pclass)
 
 ```
 
-#### Snippet 7
+#### Snippet 7 {#check10-7}
 
 Fare distribution among survived and perished.
 
