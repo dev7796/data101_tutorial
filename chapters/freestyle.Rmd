@@ -55,7 +55,7 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
-![Boxplot for student score and grade distribution](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data puzzle/puzzle1.png)
+![Boxplot for student score and grade distribution](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle1.png)
 ### Practice Snippets 
 
 #### Snippet 1: Get familiar with the data set
