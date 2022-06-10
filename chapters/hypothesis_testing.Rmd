@@ -49,7 +49,7 @@ Notice, that every time we run the permutation test function we may get slightly
 
 Another test which is often used for difference of means hypothesis testing is the z-test.  It is described very well in the attached link to the Khan Academy lecture.  Here we run z-test function in one of the following snippets.
 
-## Snippet 1: Permutation test {#permutaion}
+## Permutation test {#permutaion}
 
 
 The following snippet \@ref(permutaion) shows the code for hypothesis test of difference of means.
@@ -101,7 +101,7 @@ Permutation(traffic, "TUNNEL", "VOLUME_PER_MINUTE",1000,"Holland", "Lincoln")
 #The Permutation function returns the absolute value of the difference. So the red line is the absolute value of the observed difference. You will see a histogram having a normal distribution with a red showing the observed difference.
 ```
 
-## Snippet 2: z-test {#ztests}
+## z-test {#ztests}
 
 **Null Hypothesis** - Traffic in Holland tunnel is the same as traffic in Lincoln tunnel.
 
@@ -168,7 +168,7 @@ z_test(TRAFFIC,"TUNNEL", "VOLUME_PER_MINUTE","Lincoln", "Holland")
 ```
 
 
-## Snippet 3: Make your own data and see how p-value changes
+## Make your own data and see how p-value changes
 
 For students familiar with basic descriptive statistics (mean, standard deviation)we build a synthetic data set ourselves and see how difference of means and difference of standard deviations affects the p-value. We will build our two distributions ourselves - varying the means and standard deviations. We will use **rnorm()** to generate normal distributions with given means and standard deviations. Then we will use a permutation test (can be a z-test as well) to test the difference of means for these two synthetic distributions. See for yourself the impact means and standard deviations have on p-values. 
 

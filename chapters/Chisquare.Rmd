@@ -172,7 +172,7 @@ Notice that the independence test is looking globally at two vectors and whether
 
 
 
-## Snippet 1
+## Chisq test
 
 ```{r,tut=TRUE,height=300}
 Expected <-matrix(c(200,420,180, 40,120,40), nrow=3, ncol=2)
@@ -182,7 +182,7 @@ Observed
 chisq.test(Observed)
 ```
 
-## Snippet 2
+## Chisq permutation test
 
 ```{r,tut=TRUE,ex="chisquarefunction",type="pre-exercise-code"}
 library(dplyr)
@@ -225,7 +225,7 @@ chi_test(d,"Major","Grade",1000)
 
 ```
 
-## Snippet 3
+## Chisq and slicing
 
 ```{r,tut=TRUE,height=300}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv")
@@ -236,7 +236,7 @@ d
 chisq.test(d)
 ```
 
-## Snippet 4
+## Contingency table
 
 
 ```{r,tut=TRUE,height=300}

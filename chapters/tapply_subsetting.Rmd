@@ -20,7 +20,7 @@ The set we present  below is a mix of simple arithmetic aggregate functions such
 <!-- To combine the list of items to a vector, use the **c()** function and separate the items by a comma.
 - All of the items inside a vector to are of the same type like numerical or categorical. -->
 
-### Snippet 1
+### Categorical vectors
 
 Lets look at example of creating a vector:
 
@@ -33,7 +33,7 @@ color <- c('Red','Blue','Yellow','Green')
 color
 ```
 
-### Snippet 2
+### Numerical vectors
 
 Create a vector with numerical values in a sequence, use the **:** operator:
 
@@ -101,7 +101,7 @@ title
 
 Use the **data.frame()** function to create a data frame:-->
 
-### Snippet 1
+### Data Frame creation
 
 Data frames will serve as containers of imported data - typically data provided in csv format, like the moody data set above. Snippet 4.21 shows how to populate a data frame using read.csv() instruction. Notice that the moody data frame which is the container for the imported  data set  will automatically inherit attribute names (columns) of the underlying data set.
 
@@ -114,23 +114,7 @@ moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 head(moody)
 ```
 
-### Snippet 2 
-
-Get the summary of the dataframe:
-
-```{r,tut=TRUE,height=300}
-
-# Load the dataset into the moody variable
-moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
-
-# Use the summary() function to summarize the data from a Data Frame:
-summary(moody)
-```
-<!--
-- Just like vectors, you can access specific data **(Slicing)** in dataframes using brackets. 
-- But now, instead of just using one indexing vector, we use two indexing vectors: one for the rows and one for the columns. -->
-
-### Snippet 3 
+### Data frame subsetting  
 
 We can select subsets of columns and subsets of rows for a data frame using the following the notation data[rows, columns]:
 
@@ -165,7 +149,8 @@ moody[1:3, c(2:4)]
 - To use **table()**, simply add in the variables you want to tabulate separated by a comma. 
 - You must reference the variable using **dataset$variable**. 
 - By default, missing values are excluded from the counts; if you want a count for these missing values you must specify the argument **useNA=“ifany”** or **useNA=“always”**. -->
-### Snippet 1
+
+### Table()
 
 The below examples show how to use this function:
 
@@ -184,7 +169,6 @@ table(moody$Grade, moody$Major)
 
 
 
----
 
 ## Basic Functions
 
@@ -261,8 +245,6 @@ moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 sd(moody$Score)
 ```
 
----
-
 
 
 
@@ -275,9 +257,8 @@ Finally we can also expand our data frame with new, so called derived, attribute
 
 The following snippets demonstrate two ways of subsetting a data frame: first  through explicit function subset() and second through the native sub-data frame notation df[ ].
 
-### Snippet 1 {#nrow}
+### subset() {#nrow}
 
-Subsetting data frame via subset() function
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
@@ -288,9 +269,8 @@ nrow(moody_psychology)
 
 ```
 
-### Snippet 2
+### Subframe
 
-Example of  subset  function
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
@@ -303,9 +283,7 @@ moody[moody$Score >80 & moody$Grade == 'B', ]
 
 ```
 
-### Snippet 3
-
-Subsetting columns
+### Subsetting columns
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
@@ -318,9 +296,8 @@ ncol(moody3)
 
 ```
 
-### Snippet 4
+### Subsetting rows and columns
 
-Sub-setting rows and columns
 
 ```{r}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
@@ -331,8 +308,6 @@ colnames(moody1)
 dim(moody1)
 
 ```
-
----
 
 
 
@@ -347,9 +322,7 @@ tapply()  has four arguments:  the data frame (df), numerical attribute of df, c
 - tapply() first slices data frame  df by different values of a categorical attribute and then computes an aggregate  (mean, median, min, max, etc..) of a numerical attribute  to each slice. 
 
 
-### Snippet 1
-
-Example of tapply followed by plot
+### tapply()
 
 ```{r,height=700}
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
@@ -359,9 +332,8 @@ tapply(moody[moody$Seniority == "Junior",]$Score, moody[moody$Seniority== "Junio
 
 ```
 
-### Snippet 2
+### Combining table() and subset()
 
-Combining table and subset
 
 ```{r,height=300}
 
