@@ -74,7 +74,7 @@ Hence to main questions we should ask our doctor upon hearing that the test resu
 In the following snippets we show how to calculate the posterior odds, while being tested for a disease and then closer to our data puzzles, how to calculate the posterior odds of getting an A in class, when scoring more than 85%.In all these situations we begin with identifying what is belief (the unknown), what is the observation (the known) and we use the snippets by plugging in some assumed values of prior odds, as well as true positives and false positives.
 
 
-## Snippet 1: Covid Odds after positive Home Test. 
+## Covid Odds after positive Home Test. 
 
 ```{r,tut=TRUE,height=600}
 #Belief = "Have Covid"
@@ -95,7 +95,7 @@ PosteriorHaveCovid<- PosteriorCovidOdds/(1+PosteriorCovidOdds)
 PosteriorHaveCovid
 ```
 
-## Snippet 2: What are the odds that an 'F' student is a freshman?
+## What are the odds that an 'F' student is a freshman?
 
 ```{r,tut=TRUE,height=600}
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv')
@@ -119,7 +119,7 @@ round(Posterior,2)
 ```
 
 
-## Snippet 3: What are the odds that a 'A' student with the score less than 80 is a psychology major?
+## What are the odds that a 'A' student with the score less than 80 is a psychology major?
 
 ```{r,tut=TRUE,height=600}
 #Belief - what we do not know. #Is a student a psychology #major?

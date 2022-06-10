@@ -43,7 +43,7 @@ Seems open ended, no? what is the "most interesting"?
 
 Therefore this task can be seen as chi-square hunt for the highest chi-square value  (use the  snippet **17.1** code after plugging in definition of a slice and the anchor attribute)
 
-## Snippet 1: Chi square hunt
+## Chi square hunt
 
 ```{r,tut=TRUE,height=600}
 

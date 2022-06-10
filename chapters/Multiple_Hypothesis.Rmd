@@ -58,7 +58,7 @@ The Temp data set assigned random temperatures between 50 and 100 degrees to aro
 
 Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests  (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).  
 
-### Snippet 1 {#snippet1}
+### Multiple Permutation Tests {#snippet1}
 
 ```{r,tut=TRUE,ex="permutationtestfunction10",type="pre-exercise-code"}
 Permutation <- function(df1,c1,c2,n,w1,w2){

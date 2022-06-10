@@ -29,7 +29,7 @@ We start with showing an example of a simple freestyle prediction model.
 
 
 
-## Snippet 1: Example of a simple freestyle prediction model
+## Example of a simple freestyle prediction model
 
 ```{r,tut=TRUE,height=400}
 
@@ -48,7 +48,7 @@ error <- mean(test$Grade!= myprediction$Grade)
 error
 ```
 
-## Snippet 2: How to build a freestyle (your own code) prediction model?
+## How to build a freestyle (your own code) prediction model?
 
 The key idea behind building freestyle prediction models is to subset data and select the most frequent value of the predicted variable as prediction.  Of course we are interested in finding highly discriminative subsets of data with one highly dominant (most frequent value), since such a very frequent value as prediction choice will lead to a small error. But how to find data subsets with such dominant most frequent values?  It is a bit of a trial and error process. As we show below in the snippet 2, it is a sequence of one line exploratory queries, which the programmer can rely on. Later, in the next section we show how the rpart() package generates such discriminative  subsets of data automatically, though recursive partitioning.
 
@@ -68,7 +68,7 @@ table(moody[moody$Score<40 & moody$Major=='Economics',]$Grade)
 table(moody[moody$Score<40 & moody$Seniority=='Freshman',]$Grade)
 ```
 
-## Snippet 3: One-step crossvalidation
+## One-step crossvalidation
 
 How do we know if our prediction model is any good?  After all, we may easily build a model which is close to perfect on the training data set but performs miserably on the new, testing data. This is a nightmare for every prediction model builder and it is called a Kaggle surprise. Kaggle surprise happens quite often during our prediction competitions when students build models which are overfitting the data and which give them a false feeling of great, low error just to do the opposite on the testing data and yield a miserably high error.
 
@@ -194,7 +194,7 @@ This test submission will be handled through Kaggle (just the error computation 
 
 -->
 
-### Snippet 4: Preparing submission.csv for Kaggle
+### Preparing submission.csv for Kaggle
 
 ```{r,tut=TRUE,height=500}
 # Here you just need the test table (without grades) to apply your prediction model and calculate predicted grades. And submission data frame to fill it in with the predicted #grades

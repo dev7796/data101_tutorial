@@ -52,7 +52,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 Imagine that we do not know the weights of  midterm, project and final exam.  However we have the data from the previous semesters.  Can we find these weights out? The answer is yes - by using `linear regression`.
 
-### Snippet 1: How much do Midterm, Project and Final Exam count?
+### How much do Midterm, Project and Final Exam count?
 
 ```{r,tut=TRUE,height=500}
 moodyNUM<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyNUM.csv')
@@ -101,7 +101,7 @@ The syntax for *mse()* function is very simple:
   - *predicted*: vector of the predicted values obtained using our model.
 
 
-## Snippet 2: Cross Validate your prediction
+## Cross Validate your prediction
 
 ```{r,tut=TRUE,height=600}
 library(ModelMetrics)
@@ -133,7 +133,7 @@ We can see that,
 - The summary of the lm model gives us information about the parameters of the model, the residuals and coefficients, etc.
 - The predicted values are obtained from the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check if we have more accurate predictions, thus increasing the overall accuracy of the model.
 
-## Snippet 3: Submission with lm
+## Submission with lm
 
 ```{r,tut=TRUE,height=600}
 library(rpart)

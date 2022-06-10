@@ -13,8 +13,6 @@ rmd_files: [
   "./chapters/bayesian_reasoning.Rmd",
   "./chapters/FreeStyle.Rmd",
   "./chapters/common_sense.Rmd",
-  "./chapters/common_sense.Rmd",
-  "./chapters/bayesian_reasoning.Rmd",
   "./chapters/Free_style.Rmd",
   "./chapters/Decision_trees.Rmd",
   "./chapters/Linear_regression.Rmd",

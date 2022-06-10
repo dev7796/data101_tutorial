@@ -42,7 +42,7 @@ Lets look at an example on the Moody 2022 dataset.
   - method -> "class" for classification.
 
 
-### Snippet 1
+### rpart()
 ```{r,tut=TRUE,height=300}
 library(rpart)
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
@@ -69,7 +69,8 @@ To visualize and understand the rpart() tree output in the easiest way possible,
 
 *NOTE*: The online runnable code block does not support `rpart.plot` library and functions, thus the output of the following code examples are provided directly.
 
-### Snippet 2
+### rpart.plot()
+
 ```{r,tut=TRUE,height=500}
 # First lets import the rpart library
 library(rpart)
@@ -116,7 +117,7 @@ Let look at few examples.
 
 Suppose you want to set the control parameter minsplit=200. 
 
-### Snippet 3: Minsplit = 200
+### rpart(): Minsplit = 200
 
 ```{r,tut=TRUE,height=500}
 library(rpart)
@@ -132,7 +133,7 @@ tree
 ```
 ![Output tree plot of after setting minsplit=200 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt2.png)
 
-### Snippet 4: Minsplit = 100
+### rpart(): Minsplit = 100
 
 ```{r,tut=TRUE,height=500}
 library(rpart)
@@ -152,7 +153,7 @@ We can see from the output of `tree$splits` and the tree plot, that at each spli
 
 Now, lets set the minbucket parameter to 100, and see how that affects the tree parameters.
 
-### Snippet 5: Minbucket = 100
+### rpart(): Minbucket = 100
 
 ```{r,tut=TRUE,height=500}
 
@@ -172,7 +173,7 @@ tree
 
 We can see for the output and the tree plot, that the count of observations in each leaf node is greater than 100. Also, the tree height has shortened, suggesting that the control method was able to shorten the tree size.
 
-### Snippet 6: Minbucket = 200
+### rpart(): Minbucket = 200
 
 ```{r,tut=TRUE,height=500}
 
@@ -194,7 +195,7 @@ We can see for the output and the tree plot, that the count of observations in e
 
 Lets now use the `cp` parameter and see its effect on the tree.
 
-### Snippet 7: cp = 0.05
+### rpart(): cp = 0.05
 
 ```{r}
 
@@ -214,7 +215,7 @@ tree
 ![Output tree plot of after setting cp=0.05 in rpart.control() function](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling/2022dt6.png)
 
 
-### Snippet 8: cp = 0.005
+### rpart(): cp = 0.005
 
 ```{r}
 
@@ -282,7 +283,7 @@ devtools::install_github("devanshagr/CrossValidation")
 CrossValidation::cross_validate()
 ```
 
-### Snippet 9
+### cross_validate()
 
 ```{r,tut=TRUE,ex="crossvalidate",type="pre-exercise-code"}
 
@@ -422,7 +423,7 @@ From the moody example, we are trying to predict the grade of students. Lets loo
 
 Now lets use the predict function to predict the grades of students using the tree generated on the Moody dataset.
 
-### Snippet 10
+### predict()
 
 ```{r,tut=TRUE,height=500}
 # First lets import the rpart library
@@ -440,7 +441,7 @@ pred <- predict(tree, moody, type="class")
 head(pred)
 ```
 
-## Snippet 11: Your Model with rpart
+## Your Model with rpart
 
 ```{r,tut=TRUE,height=600}
 #How to combine your freestyle prediction model with the rpart? 
@@ -468,7 +469,7 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 #error
 ```
 
-## Snippet 12: Freestyle +  rpart: Combining rpart prediction models
+## Freestyle +  rpart: Combining rpart prediction models
 
 ```{r,tut=TRUE,height=600}
 
@@ -491,7 +492,7 @@ error
 
 ```
 
-## Snippet 13: Submission with rpart
+## Submission with rpart
 
 ```{r,tut=TRUE,height=600}
 library(rpart)
