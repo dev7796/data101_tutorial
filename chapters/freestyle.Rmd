@@ -55,6 +55,7 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+![Boxplot for student score and grade distribution](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data puzzle/puzzle1.png)
 ### Practice Snippets 
 
 #### Snippet 1: Get familiar with the data set
@@ -487,16 +488,17 @@ table(party[party$Party=='Fun',]$Music)
 
 #### Snippet 6 
 
-Bar graph of average CaloriesDanc per Music played.
+Bargraph of party distribution  for Music Hiphop.
 
 ```{r,tut=TRUE,height=500}
 party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
-t<-tapply(party$CaloriesDanc, party$Music, mean)
+t<-table(party[party$Music=='HipHop',]$Party)
 
-barplot(t, xlab="Type of music",ylab="Calories per dance",col=colors, ylim = c(0,300),
-        main="Barplot for music and calories per dance distribution",border="black")
+
+barplot(t, xlab="Type of music",ylab="Calories per dance",col=colors,
+        main="Distribution of party evaluation when HipHop music was played",border="black")
 
 
 ```
@@ -919,7 +921,6 @@ Boxplot showing calories exercising in function of sleep attribute.
 ```{r,tut=TRUE,height=500}
 sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
-summary(sleep)
 
 boxplot( sleep$ExerciseCal~sleep$Sleep, xlab=" Type of Sleep",ylab="Calories",col=colors, 
         main="Boxplot for sleep and calories distribution",border="black")
@@ -1120,15 +1121,15 @@ PosteriorOdds
 
 #### Snippet 9
 
-Histogram of imdb scores for High Gross movies?
+Histogram of imdb scores for different genres of the movies
 
 ```{r,tut=TRUE,height=500}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
-colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+colors<- c('red','blue','cyan','yellow','green','brown') # Assigning different colors to bars
 
-HighGross <- movies[movies$Gross=='High',]$imdb_score
-HighGross
-hist(HighGross)
+boxplot(movies$imdb_score~movies$genre, xlab=" Genre",ylab="IMDB score",col=colors, 
+        main="Boxplot for Genre and IMDB score distribution",border="black")
+
 
 ```
 
@@ -1341,8 +1342,10 @@ Boxplot of Exams Score w.r.t. Grades.
 grades<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
-boxplot(grades$Exams ~ grades$Grade, xlab="Grades",ylab="Exam Score",col=colors, 
-        main="Boxplot for Exam score and grade distribution",border="black")
+t <- table(grades[grades$Exams <50 & grades$Score >50,]$Grade)
+
+barplot(t, xlab="Grades",ylab="Exam Score",col=colors, 
+        main="Grade distribution for students who passed the homeoworks but failed exam",border="black")
 
 ```
 
@@ -1474,16 +1477,16 @@ chisq.test(d)
 
 #### Snippet 8
 
-Mosiac plot to check market of beer w.r.t. location.
+Bar plot to check market of snaks w.r.t. beer, day and location.
 
 ```{r,tut=TRUE,height=500}
 market<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/HomeworkMarket2022.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
-t<-table(market$Beer, market$Location)
+t<-table(market[market$Beer=='Lager' &market$Day=='Weekend' &market$Location=='New Brunswick',]$Snacks)
 
-mosaicplot(t, xlab="Type of Beer",ylab="Location",col=colors, 
-        main="Mosaic plot for Beer and Location distribution",border="black")
+barplot(t, xlab="Type of Snack",ylab="Sales",col=colors, 
+        main="Distribution of snacks sales among Weekend buyers of Lager in New Brunswick",border="black")
 
 ```
 
@@ -1855,10 +1858,10 @@ Fare distribution among survived and perished.
 
 ```{r,tut=TRUE,height=500}
 titanic<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv")
-colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
+colors<- c('red','blue','cyan','yellow','green','brown','grey') # Assigning different colors to bars
 
-boxplot(titanic$Fare~titanic$Survived, xlab="Survived",ylab="Fare",col=colors, 
-        main="Box plot for survived and fare distribution",border="black")
+hist(titanic[titanic$Survived ==0,]$Age, 100, xlab="Age",ylab="Survived",col=colors, 
+        main="Age distribution among survivors of Titanic disaster",border="black")
 
 ```
 <br>

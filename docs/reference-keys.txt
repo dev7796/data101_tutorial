@@ -84,7 +84,6 @@ snippet-3-what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-ps
 additinal-reference
 data-puzzles
 strange-grading-methods-of-professor-moody-data-puzzle
-practice-snippets
 snippet-1-get-familiar-with-the-data-set
 snippet-2-5
 snippet-3-3
@@ -97,7 +96,7 @@ snippet-9
 moody-data-quiz
 check1
 how-to-predict-a-good-party-data-puzzle
-practice-snippets-1
+practice-snippets
 snippet-1-get-to-know-your-data
 snippet-2-6
 snippet-3-4
@@ -107,7 +106,7 @@ snippet-6-1
 party-data-quiz
 check3
 when-election-is-truly-local---data-puzzle
-practice-snippets-2
+practice-snippets-1
 snippet-1-get-to-know-your-data-1
 snippet-2-7
 snippet-3-5
@@ -123,7 +122,7 @@ snippet-12
 election-data-quiz
 check4
 secrets-of-good-sleep-data-puzzle
-practice-snippets-3
+practice-snippets-2
 snippet-1-get-to-know-your-data-2
 snippet-2-8
 snippet-3-6
@@ -133,7 +132,7 @@ snippet-6-3
 sleep-data-quiz
 check5
 lets-go-to-the-movies-data-puzzle
-practice-snippets-4
+practice-snippets-3
 snippet-1-get-to-know-your-data-3
 snippet-2-9
 snippet-3-7
@@ -146,7 +145,7 @@ snippet-9-2
 movies-data-quiz
 check6
 when-canvas-goes-wild-data-puzzle
-practice-snippets-5
+practice-snippets-4
 snippet-1-get-to-know-your-data-4
 snippet-2-10
 snippet-3-8
@@ -158,7 +157,7 @@ snippet-8-3
 canvas-data-quiz
 check7
 minimarket
-practice-snippets-6
+practice-snippets-5
 snippet-1-get-to-know-your-data-5
 snippet-2-11
 snippet-3-9
@@ -167,7 +166,7 @@ snippet-8-4
 minimarket-data-quiz
 check8
 airbnb-data-puzzle
-practice-snippets-7
+practice-snippets-6
 snippet-1-get-to-know-your-data-6
 snippet-2-12
 snippet-3-10
@@ -177,7 +176,7 @@ snippet-6-6
 airbnb-data-quiz
 check9
 titanic-data-puzzle
-practice-snippets-8
+practice-snippets-7
 snippet-1-get-to-know-your-data-7
 snippet-2-13
 snippet-3-11
