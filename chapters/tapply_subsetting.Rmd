@@ -324,12 +324,12 @@ tapply()  has four arguments:  the data frame (df), numerical attribute of df, c
 
 ### tapply()
 
-```{r,height=700}
+```{r,height=300}
+
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
-# To see distributions of mean scores for different grades only for students who were “always” on smartphones in class. 
-tapply(moody[moody$Seniority == "Junior",]$Score, moody[moody$Seniority== "Junior",]$Grade, mean)
-
+#Distribution of grades for seniors who major in Economics
+tapply(moody[moody$Seniority == 'Junior',]$Score, moody[moody$Seniority == 'Junior',]$Grade,mean)
 ```
 
 ### Combining table() and subset()
@@ -344,7 +344,6 @@ table(moody[moody$Seniority == 'Junior',]$Grade)
 #Distribution of grades for seniors who major in Economics
 table(moody[moody$Seniority == 'Senior' & moody$Major == 'Economics', ,]$Grade)
 ```
-
 
 
 <!--
