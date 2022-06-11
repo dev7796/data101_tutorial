@@ -57,7 +57,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 1: Boxplot for student score and grade distribution \@ref(check1-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle1.png)
+![ Figiure 1: Boxplot for student score and grade distribution \@ref(check1-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/3-1.png)
 
 ### Practice Snippets 
 
@@ -364,7 +364,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 2: Distribution of party evaluation when HipHop music was played \@ref(check3-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle2.png)
+![ Figiure 2: Distribution of party evaluation when HipHop music was played \@ref(check3-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/3-2.png)
 
 ### Practice Snippets 
 
@@ -504,8 +504,8 @@ colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to
 t<-table(party[party$Music=='HipHop',]$Party)
 
 
-barplot(t, xlab="Type of music",ylab="Calories per dance",col=colors,
-        main="Distribution of party evaluation when HipHop music was played",border="black")
+barplot(t, xlab="Type of music", ylab="Number of Parties", col=colors,
+        main="Distribution of party evaluation when HipHop music was played", border="black")
 
 
 ```
@@ -808,7 +808,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 4: Boxplot for sleep and calories distribution \@ref(check5-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle4.png)
+![ Figiure 4: Boxplot for sleep and calories distribution \@ref(check5-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/4-3.png)
 
 ### Practice Snippets 
 
@@ -937,7 +937,7 @@ Boxplot showing calories exercising in function of sleep attribute.
 sleep<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
-boxplot( sleep$ExerciseCal~sleep$Sleep, xlab=" Type of Sleep",ylab="Calories",col=colors, 
+boxplot( sleep$ExerciseCal~sleep$Sleep, xlab=" Type of Sleep",ylab="Exercise calories",col=colors, 
         main="Boxplot for sleep and calories distribution",border="black")
 ```
 <br>
@@ -1221,7 +1221,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 6: Grade distribution for students who passed the homeoworks but failed exam \@ref(check7-8)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle6.png)
+![ Figiure 6: Grade distribution for students who passed the homeoworks but failed exam \@ref(check7-8)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/6-3.png)
 
 
 ### Practice Snippets 
@@ -1369,7 +1369,7 @@ colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to
 
 t <- table(grades[grades$Exams <50 & grades$Score >50,]$Grade)
 
-barplot(t, xlab="Grades",ylab="Exam Score",col=colors, 
+barplot(t, xlab="Grades",ylab=" Number of students",col=colors, 
         main="Grade distribution for students who passed the homeoworks but failed exam",border="black")
 
 ```
@@ -1566,7 +1566,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 8: Box plot for Price and neighbourhood distribution \@ref(check9-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/puzzle8.png)
+![ Figiure 8: Box plot for Price and neighbourhood distribution \@ref(check9-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/8-3.png)
 
 ### Practice Snippets 
 
@@ -1698,7 +1698,7 @@ Box plot to check price w.r.t. neighbourhood.
 airbnb<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/airbnb.csv")
 colors<- c('red','blue','cyan','yellow','green') # Assigning different colors to bars
 
-boxplot(airbnb$price ~ airbnb$neighbourhood_group, xlab="Location",ylab="Price",col=colors, 
+boxplot(airbnb$price ~ airbnb$neighbourhood_group, xlab="Location",ylab="Transactions",col=colors, 
         main="Box plot for Price and neighbourhood distribution",border="black")
 
 ```
