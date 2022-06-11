@@ -57,7 +57,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 1: Boxplot for student score and grade distribution \@ref(check1-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/3-1.png)
+![ Figiure 1: Boxplot for student score and grade distribution \@ref(check1-9)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/1-3.png)
 
 ### Practice Snippets 
 
@@ -364,7 +364,7 @@ kableExtra::scroll_box(temp,width = "100%")
 
 <br>
 
-![ Figiure 2: Distribution of party evaluation when HipHop music was played \@ref(check3-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/3-2.png)
+![ Figiure 2: Distribution of party evaluation when HipHop music was played \@ref(check3-6)](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/data_puzzle/2-3.png)
 
 ### Practice Snippets 
 
