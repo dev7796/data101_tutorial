@@ -195,22 +195,31 @@ chi_test <- function(data,col1,col2,iter) {
   dt <- table(df[[col1]], df[[col2]])
   res <- chisq.test(dt)
   real_ans <- res$statistic
-  p_value <- res$p.value
   ans_vec <- vector()
+  total<-0
   for (x in 1:iter){
-
+    
     new_data <- sample(x=vals,size=no_rows,replace = TRUE)
-
+    
     dt_new <- table(df[[col1]], new_data)
-
+    
     res_new <- chisq.test(dt_new)
-
+    if(res_new$statistic > real_ans){
+      total <- total + res_new$statistic
+    }
+    
     ans_vec <- append(ans_vec,res_new$statistic)
+   
   }
-  hist(ans_vec,main="Permutation Test for Chi-Square",xlab="Chi-Square Values",breaks = 100)
+  hist(ans_vec,main="Permutation Test for Chi-Square",xlab="Chi-Square Values", breaks=100)
   print(real_ans)
+  if(total == 0){
+    print('p < 0.001')
+  }
+  else{
+    cat('p-value: ', total/iter)
+  }
   abline(v=real_ans,col="blue",lwd=2)
-  return (p_value)
 }
 
 ```
@@ -221,7 +230,7 @@ chi_test <- function(data,col1,col2,iter) {
 d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 head(d)
 
-chi_test(d,"Major","Grade",1000)
+chi_test(d,"Seniority","Grade",10000)
 
 ```
 
