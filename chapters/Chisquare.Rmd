@@ -187,7 +187,7 @@ chisq.test(Observed)
 ```{r,tut=TRUE,ex="chisquarefunction",type="pre-exercise-code"}
 library(dplyr)
 options(warn=-1)
-chi_test <- function(data,col1,col2,iter) {
+chi_permutation_test <- function(data,col1,col2,iter) {
   
   df <- data.frame(data)
   vals<- unique(df[[col2]])
@@ -230,7 +230,7 @@ chi_test <- function(data,col1,col2,iter) {
 d<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/MoodyMarch2022b.csv")
 head(d)
 
-chi_test(d,"Seniority","Grade",10000)
+chi_permutation_test(d,"Seniority","Grade",10000)
 
 ```
 

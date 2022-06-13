@@ -441,6 +441,7 @@ pred <- predict(tree, moody, type="class")
 head(pred)
 ```
 
+<!--
 ## Your Model with rpart
 
 ```{r,tut=TRUE,height=600}
@@ -491,8 +492,152 @@ error <- mean(moody$GRADE!= myprediction$GRADE)
 error
 
 ```
+-->
 
-## Submission with rpart
+## Combining multiple prediction models 
+
+How to build highly predictive models? 
+
+This is the million dollar question which many students always ask in the context of our Prediction Challenges (see the leaderboard for 2022). These usually consist of 4-5 prediction tasks and students who achieve the lowest cumulative error make it to the top of the leaderboard and are widely celebrated. What is the secret of building a competitive prediction model?  It is not blind application of machine learning library functions such as rpart(). Even with the great set up of parameter values and careful cross validation a singular model will usually not be very competitive. The top prediction models combine human ingenuity, knowledge of data with machine learning library functions. But how to combine different prediction models to build the “supermodel”:-)? . First - know your data, do some preliminary freestyle data exploration, make some plots, see how data is distributed. Possibly identify subsets of data which may behave very differently and may require different prediction models - either “hand made” or ML made. 
+
+We will start by showing how to combine two different prediction models - applied to different partitions of the data set.  We assume that the partition is “given”. It is usually the result of preliminary data exploration and plotting. In the next section we show an elegant and generic method of combining arbitrary numbers of prediction models using rpart() function.
+
+For now, let us assume that we have partitioned  the moody data set based on the attribute SCORE into two subsets: one with SCORE >50 and another with SCORE <=50. Furthermore we have trained separate rpart() prediction models for each of the two partitions. Now we want to combine these two models into the one, combined model and apply the combined model to the testing data set moodyTest.
+
+The following snippet 16.6.1 shows how to do it.  Two models: model1 and model2 are trained  by running rpart() on two partitions of moody - *the training data set,  based on SCORE. Then we use predict() function by applying model1 to the partition of SCORE >50 and model2  for the subset defined by SCORE <=50 of the testing data set - moodyTest.  Finally the lines 11-14 built the  decision vector which combines predictions of models 1 and 2 into one prediction vector on the moodyTest. 
+
+### Combining rpart prediction models 
+
+```{r,tut=TRUE,height=600}
+library(rpart) 
+
+# Import dataset 
+
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/fil/dataset/moody2022_new.csv') 
+moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/fil/dataset/moody2022_test.csv') 
+
+# We need two sets here: training moody and testing moody (the full testing like Kaggle stores but does not give to students
+model1<-rpart(GRADE~., data=moody[moody$SCORE>50,]); 
+model2<-rpart(GRADE~., data=moody[moody$SCORE<=50,]); 
+model1 
+model2 
+
+pred1 <- predict(model1, newdata=moodyTest[moodyTest$SCORE>50,], type="class") 9 
+pred2 <- predict(model2, newdata=moodyTest[moodyTest$SCORE<=50,], type="class") 10 
+myprediction<-moodyTest 
+
+decision <- rep('F',nrow(myprediction)) 
+
+decision[myprediction$SCORE>50] <- as.character(pred1) 
+ 
+decision[myprediction$SCORE<=50] <-as.character(pred2) 
+ 
+myprediction$GRADE <-decision 
+
+error <- mean(moody$GRADE!= myprediction$GRADE) 
+
+```
+
+###  Combining multiple prediction models using rpart
+
+We describe here an elegant method which will allow us to build a combined model in two (or more) phases. Let us start with two prediction models:  pred1 which is freestyle model and pred2 which is rpart() model.  We have faced this situation in our prediction challenges in the spring of 2022. Students were asked to create two prediction modes: one, which was their own code (freestyle prediction) and another - through application of rpart(). Turned out that top freestyle prediction models had lower error on the testing data than rpart().  The challenging task was to combine two models and make the best out of the two, hopefully getting a combined model which beats both freestyle and rpart() models. But how to build such a model?  In the previous section we just described the mechanics of combining two models - by splitting the data set into two disjoint partitions and applying each model to just one partition.  But how to find such partitions?  Fortunately we have rpart() to help us. 
+
+We will demonstrate the proposed method using some pseudo-code and then illustrate it further with an executable snippet combining two specific prediction models. We will expand first the training (and testing) data with two additional, derived attributes. One for each prediction model. Call these attributes $model1$ and $model2$. Then use rpart() to find the best model which uses original attributes of the data set as well as these two new attributes. Therefore we just let rpart() decide what is the best use of these two new attributes. 
+
+Let df_train be the training data set (data frame) and let df_test be the testing data frame.  Let pred_yourModel be the freestyle prediction function which  returns a decision vector according to a freestyle prediction model. For example 16.6.2 snippet shows such a very simplistic model for a moody data set, which assigns grades based on the disjoint intervals of SCORE attribute. 
+
+```
+df_train$model1<- pred_yourModel(df_train)
+tree<-rpart(df_traing,...)
+df_train$model2 <- predict(tree, test, type="class") 
+
+Now, the training data set has two extra attributes: model1 and model2.
+
+Finally we create a compound model by using the extended attribute set of moody.
+
+Tree_combined <- rpart(F, data = df_train, method = "class")) 
+
+F is of the form T~.  where T is the target attribute of df (the one we predict). We let rpart() use all attributes including the new ones: model1 and model2. 
+
+Tree_combined will use both prediction models as attributes and depending on their information gain these two new attributes may play an important role. We can cross validate like before and estimate the error of this combined prediction model on the training data set. 
+
+If we are satisfied with the combined model, we then repeat the same process on testing data.
+
+df_test$model1<- pred_yourModel(df_test)
+tree<-rpart()
+df_test$model2 <- predict(tree, df_test, type="class") 
+Now, the training data set has two extra attributes: model1 and model2.
+
+And calculate final prediction using predict function: 
+
+predict(Tree_combined, moody_test, type="class") 
+
+
+The next snippet illustrates this process  for a moody data set.  Freestyle model is very simplistic:
+
+decision <- rep('F',nrow(moody))
+decision[moody$Score>40] <- 'D'
+decision[moody$Score>60] <- 'C'
+decision[moody$Score>70] <- 'B'
+decision[moody$Score>80] <- 'A'
+moody$model2 <-decision
+
+```
+
+This prediction model assigns grades solely on the basis of SCORE attribute: A’s for SCORE over 80, B’s for SCORE between 70 and 80, C’s for SCORE between 60 and 70, D’ s for SCORE between 40 and 60 and finally F for SCORE <40.
+
+We combine this model with model1 which uses rpart(). 
+
+Last two lines of the code show where model1 and model2 differ and how often do these two models differ (in almost 25% of the data set)
+
+####  Combining two prediction models using rpart() for moody data set
+
+```{r,tut=TRUE,height=600}
+# First lets import the rpart library
+library(rpart)
+install.packages('rpart.plot')
+library(rpart.plot)
+
+# Use of the rpart.plot() function  to visualize the decision tree.
+
+
+# Import dataset
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+#These are the same two sets - but I wanted to distinguish that one of them is training and another is testing.
+ #Maybe we can then use moody  and moodyTest as two partitions of moody, like in cross validation.
+
+
+# Use of the rpart() function.
+tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody ,method = "class")
+tree
+
+# Now let's predict the Grades of the Moody Dataset.
+moody$model1<-rep('F',nrow(moody))
+moody$model2<-rep('F',nrow(moody))
+moody$model1<- predict(tree, moody, type="class")
+decision <- rep('F',nrow(moody))
+decision[moody$SCORE>40] <- 'D'
+decision[moody$SCORE>60] <- 'C'
+decision[moody$SCORE>70] <- 'B'
+decision[moody$SCORE>80] <- 'A'
+moody$model2 <-decision
+colnames(moody)
+tree_combined<-rpart(GRADE~., data=moody, method='class')
+tree_combined
+rpart.plot(tree_combined)
+predict(tree_combined, moodyTest, type='class')
+nrow(moody[moody$model1!=moody$model2,])
+nrow(moody)
+
+```
+<br>
+
+Next snippet shows how to submit your prediction vector to Kaggle by creating your submission data frame. 
+
+## Submission of your prediction vector
 
 ```{r,tut=TRUE,height=600}
 library(rpart)

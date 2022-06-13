@@ -103,13 +103,36 @@ After installing R studio successfully the first step is to create a project R s
 ![Rstudio](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/4.5_text.png)
 
 
----
 
 ## How to upload a data set?
 <script src="files/js/dcl.js"></script>
 ```{r ,include=FALSE}
 tutorial::go_interactive()
 
+```
+
+### Moody boring dataset
+
+Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv" download="moody2022.csv">moody2022.csv</a>
+
+Grades in Professor Moody’s class data set. 
+
+Our working data set  will be the Moody data set which stores data about students' grades in a large signature class taught by Professor Moody. The data set stores individual scores of students in class, their major, seniority and GPA.  Data scientists may ask many questions such as, given the student’s score in class, does the final grade depend on the major and/or student’s seniority?  For example, is it more difficult for computer science majors to earn an A, pass the class, than, say for students majoring in psychology?  Does GPA play any role in  grading?  It should not - but maybe it does?  We are still far away from being able to ask such questions, for now we will use Moody data set in code snippets which illustrates the core R functions which we will use in the active textbook.
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Boring Moody Dataset',
+  booktabs = TRUE
+)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Boring Moody Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
 ```
 
  - To upload the dataset/file present in csv format the read.csv() and read.csv2() functions are frequently used The read.csv() and read.csv2() have different separator symbol: for the former this is a comma, whereas the latter uses a semicolon.
@@ -119,17 +142,17 @@ tutorial::go_interactive()
   
 ![Getwd](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/5_text.png)
 
-- To access the dataset stored in the same directory one can use the following: **read.csv("MOODY_DATA.csv")**.
+- To access the dataset stored in the same directory one can use the following: **read.csv("moody2022.csv")**.
 
-![Store the moody dataset in the same directory](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/6_text.png)
+![Store the moody dataset in the same directory](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2.3.1.png)
 
   2. One can also store the dataset at a different location and can access it using the following command: (Suppose the dataset is stored inside the folder Data101_Tutorials on the desktop)
   
     - For Windows Users.
-      - Example: read.csv("C:/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv")
+      - Example: read.csv("C:/Users/Desktop/Data101_Tutorials/moody2022.csv")
 
     - For MAC Users.
-      - Example: read.csv("/Users/Desktop/Data101_Tutorials/MOODY_DATA.csv")
+      - Example: read.csv("/Users/Desktop/Data101_Tutorials/moody2022.csv")
       
 
 **Note: **
@@ -137,29 +160,29 @@ The directory path given here is the current working directory hosted on *Github
 ```{r, tut=TRUE}
 
 # Read in the data
-df <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2020b.csv")
+df <- read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv")
 
 # Print out `df`
 head(df)
 ```
 
----
+
 
 ## Saving your work
 
 - To save your work go to **File -> Save**. It will ask you to give a name for your **.R file** and then click on Save.
 
-![Save](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/7_text.png)
+![Save](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2.3.2.png)
 
 - After making modifications to your saved file, you will need to save the file again. 
 If the name of the file on the top is in <span style="color: red;"> Red Color </span> indicates that the file have **unsaved** changes.
 
-![Unsaved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/8_text.png)
+![Unsaved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2.3.3.png)
 
 
 - Go to **File -> Save** to save your .R file again. After saving the file the color of the file name i.e. **HW1.R** will again change back to **black**.
 
-![Saved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/9_text.png)
+![Saved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/2.3.4.png)
 
 **Note: ** You can create multiple files inside the same project such as for your each homework assignments
 

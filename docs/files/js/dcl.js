@@ -1,4 +1,4 @@
-﻿/*
+/*
  DataCamp Light
  Version 1.1.0
  */
@@ -80,7 +80,7 @@
   function d() {
     var e = document.createElement("style");
     e.type = "text/css", l("head", e);
-    var t = 'div.datacamp-exercise {  margin: 0;  border: 1px solid #d5eaef;  background: none;  position: relative;  min-height: 300px;  color: black;  box-shadow: none;}div[data-datacamp-exercise] {  margin: 0;  border: 1px solid #d5eaef;  background: #fff url(https://cdn.datacamp.com/spinner.gif) no-repeat center center !important;  background-size: auto 80px !important;  position: relative;  min-height: 300px;  color: transparent;  box-shadow: none;}div[data-datacamp-exercise] > code,div[data-datacamp-exercise] > div,div[data-datacamp-exercise] > p {  display: none;}div.powered-by-datacamp {  margin: 5px 0;  display: block;}div.powered-by-datacamp a {@import "https://fonts.googleapis.com/css?family=Open+Sans";  font-family: "Open Sans", sans-serif;  text-decoration: none;  border: 0;  color: #3ac;  font-size: 20px;}div.powered-by-datacamp .logo {  vertical-align: sub;  display: inline-block;  background: url("https://cdn.datacamp.com/dcl/assets/images/logo_blue.svg") no-repeat center center;  background-size: contain;  height: 27px;  width: 23px;  margin-left: 4px;}';
+    var t = 'div.datacamp-exercise {  margin: 0;  border: 1px solid #d5eaef;  background: none;  position: relative;  min-height: 300px;  color: black;  box-shadow: none;}div[data-datacamp-exercise] {  margin: 0;  border: 1px solid #d5eaef;  background: #fff url(https://cdn.datacamp.com/spinner.gif) no-repeat center center !important;  background-size: auto 80px !important;  position: relative;  min-height: 300px;  color: transparent;  box-shadow: none;}div[data-datacamp-exercise] > code,div[data-datacamp-exercise] > div,div[data-datacamp-exercise] > p {  display: none;}div.powered-by-datacamp {  margin: 5px 0;  display: block;}div.powered-by-datacamp a {@import "https://fonts.googleapis.com/css?family=Open+Serif";  font-family: "Open Serif", sans-serif;  text-decoration: none;  border: 0;  color: #3ac;  font-size: 20px;}div.powered-by-datacamp .logo {  vertical-align: sub;  display: inline-block;  background: url("https://cdn.datacamp.com/dcl/assets/images/logo_blue.svg") no-repeat center center;  background-size: contain;  height: 27px;  width: 23px;  margin-left: 4px;}';
     e.styleSheet ? e.styleSheet.cssText = t : e.innerHTML = t
   }
 
