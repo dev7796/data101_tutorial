@@ -17,7 +17,7 @@ intro
 setting-up-r
 setting
 how-to-upload-a-data-set
-moody-boring-dataset
+grades-dataset
 saving-your-work
 general-r-references
 rconcepts

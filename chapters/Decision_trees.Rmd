@@ -513,8 +513,8 @@ library(rpart)
 
 # Import dataset 
 
-moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/fil/dataset/moody2022_new.csv') 
-moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/fil/dataset/moody2022_test.csv') 
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv') 
 
 # We need two sets here: training moody and testing moody (the full testing like Kaggle stores but does not give to students
 model1<-rpart(GRADE~., data=moody[moody$SCORE>50,]); 
@@ -522,8 +522,8 @@ model2<-rpart(GRADE~., data=moody[moody$SCORE<=50,]);
 model1 
 model2 
 
-pred1 <- predict(model1, newdata=moodyTest[moodyTest$SCORE>50,], type="class") 9 
-pred2 <- predict(model2, newdata=moodyTest[moodyTest$SCORE<=50,], type="class") 10 
+pred1 <- predict(model1, newdata=moodyTest[moodyTest$SCORE>50,], type="class") 
+pred2 <- predict(model2, newdata=moodyTest[moodyTest$SCORE<=50,], type="class") 
 myprediction<-moodyTest 
 
 decision <- rep('F',nrow(myprediction)) 
@@ -535,6 +535,7 @@ decision[myprediction$SCORE<=50] <-as.character(pred2)
 myprediction$GRADE <-decision 
 
 error <- mean(moody$GRADE!= myprediction$GRADE) 
+error
 
 ```
 
@@ -592,19 +593,18 @@ Last two lines of the code show where model1 and model2 differ and how often do 
 
 ####  Combining two prediction models using rpart() for moody data set
 
-```{r,tut=TRUE,height=600}
+```{r,tut=TRUE,height=800}
 # First lets import the rpart library
 library(rpart)
-install.packages('rpart.plot')
-library(rpart.plot)
+#install.packages('rpart.plot')
+#library(rpart.plot)
 
 # Use of the rpart.plot() function  to visualize the decision tree.
 
 
 # Import dataset
 moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
-
-moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv') 
 
 #These are the same two sets - but I wanted to distinguish that one of them is training and another is testing.
  #Maybe we can then use moody  and moodyTest as two partitions of moody, like in cross validation.
@@ -627,7 +627,7 @@ moody$model2 <-decision
 colnames(moody)
 tree_combined<-rpart(GRADE~., data=moody, method='class')
 tree_combined
-rpart.plot(tree_combined)
+#rpart.plot(tree_combined)
 predict(tree_combined, moodyTest, type='class')
 nrow(moody[moody$model1!=moody$model2,])
 nrow(moody)

@@ -111,7 +111,7 @@ tutorial::go_interactive()
 
 ```
 
-### Moody boring dataset
+### Grades dataset
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv" download="moody2022.csv">moody2022.csv</a>
 
@@ -124,11 +124,11 @@ Our working data set  will be the Moody data set which stores data about student
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022.csv") #web load
 # head(moody)
 temp<-knitr::kable(
-  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Boring Moody Dataset',
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Grades Dataset',
   booktabs = TRUE
 )
 temp<-knitr::kable(
-  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Boring Moody Dataset',
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Grades Dataset',
   booktabs = TRUE
 )
 library(kableExtra)
