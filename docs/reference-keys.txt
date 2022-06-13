@@ -201,6 +201,7 @@ common
 introduction-5
 additional-references-4
 P1
+introduction-6
 example-of-a-simple-freestyle-prediction-model
 how-to-build-a-freestyle-your-own-code-prediction-model
 one-step-crossvalidation
@@ -208,7 +209,7 @@ general-structure-of-the-prediction-challenges
 preparing-submission.csv-for-kaggle
 additional-reference-1
 prpart
-introduction-6
+introduction-7
 rpart
 rpart-1
 rpartplot
@@ -231,7 +232,7 @@ combining-two-prediction-models-using-rpart-for-moody-data-set
 submission-of-your-prediction-vector
 additional-reference-2
 lr
-introduction-7
+introduction-8
 lm
 how-much-do-midterm-project-and-final-exam-count
 mse
@@ -239,14 +240,14 @@ cross-validate-your-prediction
 submission-with-lm
 additional-reference-3
 MLP
-introduction-8
+introduction-9
 additional-reference-4
 MAD
-introduction-9
+introduction-10
 ecological-paradox
 additional-references-5
 dsaf
-introduction-10
+introduction-11
 minimarket-data-set-description
 demo-of-boundless-analytics
 the-boundless-analytics-web-application

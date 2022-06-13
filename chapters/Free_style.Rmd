@@ -10,6 +10,7 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
+## Introduction
 
 What is a prediction model?
 
