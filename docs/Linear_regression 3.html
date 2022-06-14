@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit</title>
+  <title>Section: 14 🔖 Linear Regression | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta property="og:title" content="Section: 14 🔖 Linear Regression | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 14 🔖 Linear Regression | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
-<link rel="next" href="hypothesis_testing.html"/>
+<link rel="prev" href="Decision_trees.html"/>
+<link rel="next" href="Prediction_loop.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -83,7 +83,7 @@
 <li class="chapter" data-level="2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
 <li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#grades-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Grades dataset</a></li>
+<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#moody-boring-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Moody boring dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="Setting_up_R.html"><a href="Setting_up_R.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
 <li class="chapter" data-level="2.4" data-path="Setting_up_R.html"><a href="Setting_up_R.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
@@ -186,49 +186,49 @@
 <li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#introduction-4"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
 <li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> Strange grading methods of Professor Moody Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.2.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.2.3</b> Moody Data Quiz</a></li>
 <li class="chapter" data-level="10.2.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.2.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.3</b> How to predict a good party? Data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.3.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.3.3</b> Party Data Quiz</a></li>
 <li class="chapter" data-level="10.3.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.3.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.4</b> When election is truly local - data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.4.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.4.3</b> Election Data Quiz</a></li>
 <li class="chapter" data-level="10.4.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.4.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Secrets of good sleep Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.5.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.5.3</b> Sleep Data Quiz</a></li>
 <li class="chapter" data-level="10.5.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.5.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> Let’s go to the movies: Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.6.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.6.3</b> Movies Data Quiz</a></li>
 <li class="chapter" data-level="10.6.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.6.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.7</b> When canvas goes wild data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.7.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.7.3</b> Canvas Data Quiz</a></li>
 <li class="chapter" data-level="10.7.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.7.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.8</b> Very local minimarket data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> 🧙 Secret patterns embedded by DataMaker</a></li>
+<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> Secret patterns embedded by DataMaker</a></li>
 <li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.8.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.8.3</b> MiniMarket Data Quiz</a></li>
 <li class="chapter" data-level="10.8.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.8.4</b> Check yourself</a></li>
@@ -254,19 +254,18 @@
 </ul></li>
 <li class="chapter" data-level="12" data-path="Free_style.html"><a href="Free_style.html"><i class="fa fa-check"></i><b>12</b> 🔖 Free Style: Prediction</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#introduction-6"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.2</b> Example of a simple freestyle prediction model</a></li>
-<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.3</b> How to build a freestyle (your own code) prediction model?</a></li>
-<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.4</b> One-step crossvalidation</a></li>
-<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.5</b> General Structure of the Prediction Challenges</a>
+<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.1</b> Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.2</b> How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.3</b> One-step crossvalidation</a></li>
+<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.4</b> General Structure of the Prediction Challenges</a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.5.1</b> Preparing submission.csv for Kaggle</a></li>
+<li class="chapter" data-level="12.4.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.4.1</b> Preparing submission.csv for Kaggle</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.6</b> Additional Reference</a></li>
+<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.5</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="Decision_trees.html"><a href="Decision_trees.html"><i class="fa fa-check"></i><b>13</b> 🔖 Predictions with rpart</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-7"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-6"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart"><i class="fa fa-check"></i><b>13.2</b> Use of Rpart</a>
 <ul>
 <li class="chapter" data-level="13.2.1" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart-1"><i class="fa fa-check"></i><b>13.2.1</b> rpart()</a></li>
@@ -302,7 +301,7 @@
 </ul></li>
 <li class="chapter" data-level="14" data-path="Linear_regression.html"><a href="Linear_regression.html"><i class="fa fa-check"></i><b>14</b> 🔖 Linear Regression</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-8"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-7"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
 <li class="chapter" data-level="14.2" data-path="Linear_regression.html"><a href="Linear_regression.html#lm"><i class="fa fa-check"></i><b>14.2</b> Linear regression using lm() function</a>
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="Linear_regression.html"><a href="Linear_regression.html#how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>14.2.1</b> How much do Midterm, Project and Final Exam count?</a></li>
@@ -314,12 +313,12 @@
 </ul></li>
 <li class="chapter" data-level="15" data-path="Prediction_loop.html"><a href="Prediction_loop.html"><i class="fa fa-check"></i><b>15</b> 🔖 Machine Learning-Prediction Loop</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-9"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-8"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="Prediction_loop.html"><a href="Prediction_loop.html#additional-reference-4"><i class="fa fa-check"></i><b>15.2</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html"><i class="fa fa-check"></i><b>16</b> 🔖 How can data fool us?</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-10"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-9"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="16.1.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#ecological-paradox"><i class="fa fa-check"></i><b>16.1.1</b> Ecological Paradox</a></li>
 </ul></li>
@@ -327,7 +326,7 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="22.html"><a href="22.html"><i class="fa fa-check"></i><b>17</b> Boundless Analytics - Pre-discovery Tool</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-11"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-10"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="22.html"><a href="22.html#minimarket-data-set-description"><i class="fa fa-check"></i><b>17.2</b> Minimarket Data Set description</a></li>
 <li class="chapter" data-level="17.3" data-path="22.html"><a href="22.html#demo-of-boundless-analytics"><i class="fa fa-check"></i><b>17.3</b> Demo of Boundless Analytics</a></li>
 <li class="chapter" data-level="17.4" data-path="22.html"><a href="22.html#the-boundless-analytics-web-application"><i class="fa fa-check"></i><b>17.4</b> The Boundless Analytics web application</a></li>
@@ -359,60 +358,269 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation-with-derived-attributes" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Section: 5</span> 🔖 Data Transformation with Derived Attributes<a href="Derived_attributes.html#data-transformation-with-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lr" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Section: 14</span> 🔖 Linear Regression<a href="Linear_regression.html#lr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.</p>
-<p>Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.</p>
-<p>The term feature engineering is often used in machine learning to describe creation of derived attributes.</p>
-<div id="making-new-categorical-attributes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Making new categorical attributes<a href="Derived_attributes.html#making-new-categorical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we define a new attribute PF (Pass/Fail) to “Pass”. Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF.</p>
-<p>The line 5 replaces “Pass” by “Fail” for students who received F.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxubW9vZHkkUEY8LSdQYXNzJ1xubW9vZHlbbW9vZHkkR1JBREU9PSdGJyxdJFBGPC0nRmFpbCdcbm1vb2R5In0=
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<script src="files/js/dcl.js"></script>
+<div id="introduction-7" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Introduction<a href="Linear_regression.html#introduction-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How to build prediction models for numerical variables?</p>
+<p>So far we have discussed prediction models for categorical target variables. In order to predict numerical variables we often use linear regression.</p>
+<!--
+Linear regression is a linear approach to modeling the relationship between a numerical response ($Y$) and one or more independent variables ($X_i$).
+
+Usually in linear regression, models are used to predict only one scalar variable. But there are two subtype if these models:
+- First when there is only one explanatory variable and one output variable. This type of linear regression model known as simple linear regression.
+- Second, when there are multiple predictors, i.e. explanatory/dependent variables for the output variable. This type of linear regression model known as multiple linear regression.
+
+![Linear models fitted to various different type of data spread. This illustrates the pitfalls of relying solely on a fitted model to understand the relationship between variables. Credits: Wikipedia.](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/modeling2/lmvariants.svg)
+-->
 </div>
-</div>
-<div id="making-categorical-attribute-from-numerical-attribute-using-function-cut" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Making categorical attribute from numerical attribute using function Cut()<a href="Derived_attributes.html#making-categorical-attribute-from-numerical-attribute-using-function-cut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="lm" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Linear regression using lm() function<a href="Linear_regression.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Syntax for building the regression model using the <em>lm()</em> function is as follows:</p>
 <ul>
-<li><strong>cut()</strong> function divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.</li>
-</ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxuc2NvcmUxIDwtIGN1dChtb29keSRTQ09SRSxicmVha3M9YygwLDUwLDEwMCksbGFiZWxzPWMoXCJGXCIsXCJQXCIpKVxudGFibGUoc2NvcmUxKSJ9
-</div>
-</div>
-<div id="making-new-numerical-attribute-from-numerical-attributes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Making new numerical attribute from numerical attributes<a href="Derived_attributes.html#making-new-numerical-attribute-from-numerical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkQ29tYmluZWQgPC0gKG1vb2R5JFNDT1JFICArIDEwKiBtb29keSRQQVJUSUNJUEFUSU9OKVxubW9vZHlbMToxMCxdIn0=
-</div>
-</div>
-<div id="more-complex-example-of-defining-derived-attributes" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> More complex example of defining derived attributes<a href="Derived_attributes.html#more-complex-example-of-defining-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance.</p>
-<p>The next snippet illustrates defining such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation or rewards for good participation.</p>
-<p>Score is adjusted by the value of participation attribute in the following way:</p>
+<li><code>lm(formula, data, ...)</code>
 <ul>
-<li>If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.</li>
-<li>If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.</li>
+<li><em>formula</em>: here we mention the prediction column and the other related columns(predictors) on which the prediction will be based on.
+<ul>
+<li><code>prediction ~ predictor1 + predictor2 + predictor3 + ...</code></li>
+</ul></li>
+<li><em>data</em>: here we provide the dataset on which the linear regression model is to be trained.</li>
+</ul></li>
 </ul>
-<p>In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkY29uZGl0aW9uYWwgPC0wXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHNjb3JlIC0xMCooMS1tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kcGFydGljaXBhdGlvbilcblxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHNjb3JlICsxMCptb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHBhcnRpY2lwYXRpb25cblxuI0xldHMgc2VlIGEgc2FtcGxlIG9mIG5ldyByb3dzIG9mIG1vb2R5IHdpdGggdGhlIG5ldyBkZXJpdmVkIGF0dHJpYnV0ZVxubW9vZHlbMToxMCxdIn0=
+<p>For more info on the <em>lm()</em> function visit <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm()</a></p>
+<p>Lets look at the example on the Moody dataset.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-201">Table 14.1: </span>Snippet of Moody Num Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Midterm
+</th>
+<th style="text-align:right;">
+Project
+</th>
+<th style="text-align:right;">
+FinalExam
+</th>
+<th style="text-align:right;">
+ClassScore
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+39.60000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+68.20000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+67.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+52.47565
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+68.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+49.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+41.30000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+50.10000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+46.70000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+34.80494
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above. Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later.</p>
+<p>Imagine that we do not know the weights of midterm, project and final exam. However we have the data from the previous semesters. Can we find these weights out? The answer is yes - by using <code>linear regression</code>.</p>
+<div id="how-much-do-midterm-project-and-final-exam-count" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> How much do Midterm, Project and Final Exam count?<a href="Linear_regression.html#how-much-do-midterm-project-and-final-exam-count" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keU5VTTwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNLmNzdicpXG5zcGxpdDwtMC43Km5yb3cobW9vZHlOVU0pXG5zcGxpdFxubW9vZHlOVU1UcjwtbW9vZHlOVU1bMTpzcGxpdCxdXG5tb29keU5VTVRyXG5tb29keU5VTVRzPC1tb29keU5VTVtzcGxpdDpucm93KG1vb2R5TlVNKSxdXG4jV2UgdXNlIGxpbmVhciByZWdyZXNzaW9uIHRvICNmaW5kIG91dCB0aGUgd2VpZ2h0cyBvZiAjTWlkdGVybSwgUHJvamVjdCBhbmQgRmluYWwgI0V4YW0gaW4gY2FsY3VsYXRpb24gb2YgdGhlICNmaW5hbCBjbGFzcyBzY29yZS4gRWFjaCBvZiAjdGhlbSBhcmUgc2NvcmVkIG91dCBvZiAxMDAgYW5kICN0aGUgZmluYWwgY2xhc3Mgc2NvcmUgaXMgYWxzbyAjc2NvcmVkIG91dCBvZiAxMDAgYXMgd2VpZ2h0ZWQgI3N1bSBvZiBNaWR0ZXJtLCBQcm9qZWN0IGFuZCAjRmluYWwgRXhhbSBzY29yZXMuXG50cmFpbiA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPW1vb2R5TlVNVHIpXG50cmFpblxucHJlZCA8LSBwcmVkaWN0KHRyYWluLG5ld2RhdGE9bW9vZHlOVU1Ucylcbm1lYW4oKHByZWQgLSBtb29keU5VTVRzJENsYXNzU2NvcmUpXjIpIn0=
 </div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Additional references<a href="Derived_attributes.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
-Data Transformation
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model give us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained from the predict function using the trained model and the test data.</li>
+</ul>
+</div>
+</div>
+<div id="mse" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Calculating the Error using mse()<a href="Linear_regression.html#mse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As was the simple case in the categorical predictions of the classification models, where we could just compare the predicted categories and the actual categories, this type of direct comparison as an accuracy test won’t prove useful now in our numerical predictions scenario.</p>
+<p>We don’t want to eyeball every time we predict, to find the accuracy of our predictions each row by row, so lets see a method to calculate the accuracy of our predictions, using some statistical technique.</p>
+<p>To do this we will use the Mean Squared Error(MSE).</p>
+<ul>
+<li>The MSE is a measure of the quality of an predictor/estimator</li>
+<li>It is always non-negative</li>
+<li>Values closer to zero are better.</li>
+</ul>
+<p>The equation to calculate the MSE is as follows:</p>
+<p><span class="math display">\[\begin{equation}
+MSE=\frac{1}{n} \sum_{i=1}^{n}{(Y_i - \hat{Y_i})^2}
+\\ \text{where $n$ is the number of data points, $Y_i$ are the observed value}\\ \text{and $\hat{Y_i}$ are the predicted values}
+\end{equation}\]</span></p>
+<p>To implement this, we will use the <em>mse()</em> function present in the Metrics Package, so remember to install the Metrics package and use <code>library(Metrics)</code> in the code for local use.</p>
+<p>The syntax for <em>mse()</em> function is very simple:</p>
+<ul>
+<li><code>mse(actual,predicted)</code>
+<ul>
+<li><em>actual</em>: vector of the actual values of the attribute we want to predict.</li>
+<li><em>predicted</em>: vector of the predicted values obtained using our model.</li>
+</ul></li>
+</ul>
+</div>
+<div id="cross-validate-your-prediction" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Cross Validate your prediction<a href="Linear_regression.html#cross-validate-your-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KE1vZGVsTWV0cmljcylcblxudHJhaW4gPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU5VTS5jc3ZcIilcbiNzY3JhbWJsZSB0aGUgdHJhaW4gZnJhbWVcbnY8LXNhbXBsZSgxOm5yb3codHJhaW4pKVxudlsxOjVdXG50cmFpblNjcmFtYmxlZDwtdHJhaW5bdiwgXVxuXG4jb25lIHN0ZXAgY3Jvc3N2YWxpZGF0aW9uXG5uIDwtIDEwMFxudHJhaW5TYW1wbGU8LXRyYWluU2NyYW1ibGVkW25yb3codHJhaW5TY3JhbWJsZWQpLW46bnJvdyh0cmFpblNjcmFtYmxlZCksIF1cbnRlc3RTYW1wbGUgPC0gdHJhaW5TY3JhbWJsZWRbMTpuLF1cblxubG0udHJlZSA8LSBsbShDbGFzc1Njb3Jlfi4sICBkYXRhPXRyYWluU2FtcGxlKVxubG0udHJlZVxuXG5wcmVkIDwtIHByZWRpY3QobG0udHJlZSxuZXdkYXRhPXRlc3RTYW1wbGUpXG5wcmVkXG5cbm1zZSh0ZXN0U2FtcGxlJENsYXNzU2NvcmUscHJlZCkifQ==
+</div>
+<p>We can see that,</p>
+<ul>
+<li>The summary of the lm model gives us information about the parameters of the model, the residuals and coefficients, etc.</li>
+<li>The predicted values are obtained from the predict function using the trained model and the test data. In comparison to the previous model we are using the cross validation technique to check if we have more accurate predictions, thus increasing the overall accuracy of the model.</li>
+</ul>
+</div>
+<div id="submission-with-lm" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Submission with lm<a href="Linear_regression.html#submission-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="600" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHJwYXJ0KVxudGVzdDwtcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TlVNX3Rlc3QuY3N2JylcbnN1Ym1pc3Npb248LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMnN1Ym1pc3Npb24uY3N2JylcbnRyYWluIDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTW9vZHlOVU0uY3N2XCIpXG5cbnRyZWUgPC0gbG0oQ2xhc3NTY29yZX4uLCAgZGF0YT10cmFpbilcbnRyZWVcblxucHJlZGljdGlvbiA8LSBwcmVkaWN0KHRyZWUsIG5ld2RhdGE9dGVzdClcblxuI05vdyBtYWtlIHlvdXIgc3VibWlzc2lvbiBmaWxlIC0gaXQgd2lsbCBoYXZlIHRoZSBJRHMgYW5kIG5vdyB0aGUgcHJlZGljdGVkIGdyYWRlc1xuc3VibWlzc2lvbiRHcmFkZTwtcHJlZGljdGlvbiBcblxuIyB1c2Ugd3JpdGUuY3N2KHN1Ym1pc3Npb24sICdzdWJtaXNzaW9uLmNzdicsIHJvdy5uYW1lcz1GQUxTRSkgdG8gc3RvcmUgc3VibWlzc2lvbiBhcyBjc3YgZmlsZSBvbiB5b3VyIG1hY2hpbmUgYW5kIHN1YnNlcXVlbnRseSBzdWJtaXQgaXQgb24gS2FnZ2xlIn0=
+</div>
+</div>
+<div id="additional-reference-3" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> Additional Reference<a href="Linear_regression.html#additional-reference-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#lr12">
+Linear Regression
 </button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
+<div id="lr12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1RuAidmZGDoTRYMjONLEsw3bfx_aQb-f3C0V4Jjk4Vzs/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
 
@@ -423,8 +631,8 @@ Data Transformation
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis_testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Decision_trees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Prediction_loop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

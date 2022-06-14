@@ -607,8 +607,7 @@ moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv') 
 
 #These are the same two sets - but I wanted to distinguish that one of them is training and another is testing.
- #Maybe we can then use moody  and moodyTest as two partitions of moody, like in cross validation.
-
+#Maybe we can then use moody  and moodyTest as two partitions of moody, like in cross validation.
 
 # Use of the rpart() function.
 tree <- rpart(GRADE ~ SCORE+DOZES_OFF+TEXTING_IN_CLASS+PARTICIPATION, data = moody ,method = "class")
@@ -625,15 +624,46 @@ decision[moody$SCORE>70] <- 'B'
 decision[moody$SCORE>80] <- 'A'
 moody$model2 <-decision
 colnames(moody)
+moodyTest$model1<-rep('F',nrow(moody))
+moodyTest$model2<-rep('F',nrow(moody))
+moodyTest$model1<- predict(tree, moodyTest, type="class")
+decision <- rep('F',nrow(moody))
+decision[moodyTest$SCORE>40] <- 'D'
+decision[moodyTest$SCORE>60] <- 'C'
+decision[moodyTest$SCORE>70] <- 'B'
+decision[moodyTest$SCORE>80] <- 'A'
+moodyTest$model2 <-decision
+colnames(moody)
 tree_combined<-rpart(GRADE~., data=moody, method='class')
 tree_combined
+colnames(moodyTest)
 #rpart.plot(tree_combined)
 predict(tree_combined, moodyTest, type='class')
 nrow(moody[moody$model1!=moody$model2,])
 nrow(moody)
+error<-mean(moodyTest$GRADE!=predict(tree_combined, moodyTest, type='class'))
+error
+
 
 ```
-<br>
+
+```{r,echo=FALSE}
+# moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody_multi_model.csv") #web load
+# head(moody)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of combined models Dataset',
+  booktabs = TRUE
+)
+temp<-knitr::kable(
+  movies[sample(1:nrow(movies),5), ], caption = 'Snippet of combined models Dataset',
+  booktabs = TRUE
+)
+library(kableExtra)
+kableExtra::scroll_box(temp,width = "100%")
+```
+
+![Output tree plot of after combining model1 and model2](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/multi_model.png)
 
 Next snippet shows how to submit your prediction vector to Kaggle by creating your submission data frame. 
 

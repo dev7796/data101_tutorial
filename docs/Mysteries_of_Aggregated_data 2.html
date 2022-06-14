@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit</title>
+  <title>Section: 16 🔖 How can data fool us? | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta property="og:title" content="Section: 16 🔖 How can data fool us? | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 16 🔖 How can data fool us? | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
-<link rel="next" href="hypothesis_testing.html"/>
+<link rel="prev" href="Prediction_loop.html"/>
+<link rel="next" href="22.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -83,7 +83,7 @@
 <li class="chapter" data-level="2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
 <li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#grades-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Grades dataset</a></li>
+<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#moody-boring-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Moody boring dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="Setting_up_R.html"><a href="Setting_up_R.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
 <li class="chapter" data-level="2.4" data-path="Setting_up_R.html"><a href="Setting_up_R.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
@@ -186,49 +186,49 @@
 <li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#introduction-4"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
 <li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> Strange grading methods of Professor Moody Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.2.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.2.3</b> Moody Data Quiz</a></li>
 <li class="chapter" data-level="10.2.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.2.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.3</b> How to predict a good party? Data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.3.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.3.3</b> Party Data Quiz</a></li>
 <li class="chapter" data-level="10.3.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.3.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.4</b> When election is truly local - data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.4.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.4.3</b> Election Data Quiz</a></li>
 <li class="chapter" data-level="10.4.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.4.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Secrets of good sleep Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.5.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.5.3</b> Sleep Data Quiz</a></li>
 <li class="chapter" data-level="10.5.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.5.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> Let’s go to the movies: Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.6.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.6.3</b> Movies Data Quiz</a></li>
 <li class="chapter" data-level="10.6.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.6.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.7</b> When canvas goes wild data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
+<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> Secret patterns embedded by the Data Maker (hint)</a></li>
 <li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.7.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.7.3</b> Canvas Data Quiz</a></li>
 <li class="chapter" data-level="10.7.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.7.4</b> Check yourself</a></li>
 </ul></li>
 <li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.8</b> Very local minimarket data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> 🧙 Secret patterns embedded by DataMaker</a></li>
+<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> Secret patterns embedded by DataMaker</a></li>
 <li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.8.2</b> Practice Snippets</a></li>
 <li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.8.3</b> MiniMarket Data Quiz</a></li>
 <li class="chapter" data-level="10.8.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.8.4</b> Check yourself</a></li>
@@ -254,19 +254,18 @@
 </ul></li>
 <li class="chapter" data-level="12" data-path="Free_style.html"><a href="Free_style.html"><i class="fa fa-check"></i><b>12</b> 🔖 Free Style: Prediction</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#introduction-6"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.2</b> Example of a simple freestyle prediction model</a></li>
-<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.3</b> How to build a freestyle (your own code) prediction model?</a></li>
-<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.4</b> One-step crossvalidation</a></li>
-<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.5</b> General Structure of the Prediction Challenges</a>
+<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.1</b> Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.2</b> How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.3</b> One-step crossvalidation</a></li>
+<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.4</b> General Structure of the Prediction Challenges</a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.5.1</b> Preparing submission.csv for Kaggle</a></li>
+<li class="chapter" data-level="12.4.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.4.1</b> Preparing submission.csv for Kaggle</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.6</b> Additional Reference</a></li>
+<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.5</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="Decision_trees.html"><a href="Decision_trees.html"><i class="fa fa-check"></i><b>13</b> 🔖 Predictions with rpart</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-7"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-6"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart"><i class="fa fa-check"></i><b>13.2</b> Use of Rpart</a>
 <ul>
 <li class="chapter" data-level="13.2.1" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart-1"><i class="fa fa-check"></i><b>13.2.1</b> rpart()</a></li>
@@ -302,7 +301,7 @@
 </ul></li>
 <li class="chapter" data-level="14" data-path="Linear_regression.html"><a href="Linear_regression.html"><i class="fa fa-check"></i><b>14</b> 🔖 Linear Regression</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-8"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-7"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
 <li class="chapter" data-level="14.2" data-path="Linear_regression.html"><a href="Linear_regression.html#lm"><i class="fa fa-check"></i><b>14.2</b> Linear regression using lm() function</a>
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="Linear_regression.html"><a href="Linear_regression.html#how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>14.2.1</b> How much do Midterm, Project and Final Exam count?</a></li>
@@ -314,12 +313,12 @@
 </ul></li>
 <li class="chapter" data-level="15" data-path="Prediction_loop.html"><a href="Prediction_loop.html"><i class="fa fa-check"></i><b>15</b> 🔖 Machine Learning-Prediction Loop</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-9"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-8"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="Prediction_loop.html"><a href="Prediction_loop.html#additional-reference-4"><i class="fa fa-check"></i><b>15.2</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html"><i class="fa fa-check"></i><b>16</b> 🔖 How can data fool us?</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-10"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-9"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="16.1.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#ecological-paradox"><i class="fa fa-check"></i><b>16.1.1</b> Ecological Paradox</a></li>
 </ul></li>
@@ -327,7 +326,7 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="22.html"><a href="22.html"><i class="fa fa-check"></i><b>17</b> Boundless Analytics - Pre-discovery Tool</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-11"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-10"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="22.html"><a href="22.html#minimarket-data-set-description"><i class="fa fa-check"></i><b>17.2</b> Minimarket Data Set description</a></li>
 <li class="chapter" data-level="17.3" data-path="22.html"><a href="22.html#demo-of-boundless-analytics"><i class="fa fa-check"></i><b>17.3</b> Demo of Boundless Analytics</a></li>
 <li class="chapter" data-level="17.4" data-path="22.html"><a href="22.html#the-boundless-analytics-web-application"><i class="fa fa-check"></i><b>17.4</b> The Boundless Analytics web application</a></li>
@@ -359,60 +358,250 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation-with-derived-attributes" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Section: 5</span> 🔖 Data Transformation with Derived Attributes<a href="Derived_attributes.html#data-transformation-with-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="MAD" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Section: 16</span> 🔖 How can data fool us?<a href="Mysteries_of_Aggregated_data.html#MAD" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.</p>
-<p>Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.</p>
-<p>The term feature engineering is often used in machine learning to describe creation of derived attributes.</p>
-<div id="making-new-categorical-attributes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Making new categorical attributes<a href="Derived_attributes.html#making-new-categorical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we define a new attribute PF (Pass/Fail) to “Pass”. Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF.</p>
-<p>The line 5 replaces “Pass” by “Fail” for students who received F.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxubW9vZHkkUEY8LSdQYXNzJ1xubW9vZHlbbW9vZHkkR1JBREU9PSdGJyxdJFBGPC0nRmFpbCdcbm1vb2R5In0=
-</div>
-</div>
-<div id="making-categorical-attribute-from-numerical-attribute-using-function-cut" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Making categorical attribute from numerical attribute using function Cut()<a href="Derived_attributes.html#making-categorical-attribute-from-numerical-attribute-using-function-cut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<div id="introduction-9" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Introduction<a href="Mysteries_of_Aggregated_data.html#introduction-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>How not to be fooled by data?</code> In the description of this class we promised that data 101 will teach you this. Have we? I hope so. Please use our question roulette to test yourself. In this section we discuss Simpson Paradox, Prosecutorial and Ecological Fallacies. Before we proceed with the paradoxes let us summarize what we have learned so far:</p>
 <ul>
-<li><strong>cut()</strong> function divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.</li>
+<li><code>Beware of randomness</code> (Hypothesis testing, p-values, Multiple hypothesis testing)</li>
+<li><code>Be an optimist</code> - use Bayesian reasoning. Remember about prior odds first!</li>
+<li><code>Beware of extreme results</code> - Apply law of small numbers</li>
+<li><code>Remember we process information following availability</code> - we assign high frequency falsely to events which are just talked about very often</li>
+<li><code>Narrative fallacy - do not find false patterns</code> - “Stocks went down due to concerns about rising cost of living”</li>
 </ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxuc2NvcmUxIDwtIGN1dChtb29keSRTQ09SRSxicmVha3M9YygwLDUwLDEwMCksbGFiZWxzPWMoXCJGXCIsXCJQXCIpKVxudGFibGUoc2NvcmUxKSJ9
+<p>Here we will discuss the Simpson paradox as well as Prosecutorial and Ecological fallacies.
+Let us start with the Simpson paradox. Here is a simple example of two basketball players, Aaron and Barry</p>
+<p>The Table <strong>16.1</strong> shows Aaron’s and Barry’s free throw point averages (FTP) over the 2021 and 2022 season respectively. Clearly for both seasons Barry beats Aaron in terms of FTP, in 2021 by 90% to 80% and in 2022 by 70% to 65%. <code>Can Aaron  still beat Barry over both seasons - that is get a higher FTP over the sum of two seasons, 2021+2022?</code> First answer which comes to mind is absolutely not. <code>How can Aaaron beat Barry over 2021+2022 when   Barry beats him in each of the two seasons?</code></p>
+<p><strong>Table 16.1</strong></p>
+<table>
+<tr>
+<td>
+season/player
+</td>
+<td>
+Aaron
+</td>
+<td>
+Barry
+</td>
+</tr>
+<tr>
+<td>
+2021 season
+</td>
+<td>
+80%
+</td>
+<td>
+90%
+</td>
+</tr>
+<tr>
+<td>
+2022 season
+</td>
+<td>
+65%
+</td>
+<td>
+70%
+</td>
+</tr>
+</table>
+<p>But table <strong>16.2</strong> explains that it is quite possible that Aaron can beat Barry over 2021+ 2022. Indeed, since we do not know the absolute number of attempts at free throws, we can easily pick any number of attempts for each of them in any of the two seasons.</p>
+<p><strong>Indeed</strong> - here is the proof that Aaron can still beat Barry. If Barry made 100 attempts in 2021 and 20 attempts in 2022, while Barry made only 20 attempts in 2021 and 100 attempts in 2022, Aaron’s overall FRP for both 2021+2022 will be higher than Barry’s. And this is Simposon’s paradox.</p>
+<p><strong>Table 16.2</strong></p>
+<table>
+<tr>
+<td>
+season/player
+</td>
+<td>
+Aaron
+</td>
+<td>
+Barry
+</td>
+</tr>
+<tr>
+<td>
+2021 season
+</td>
+<td>
+80% out of 100
+</td>
+<td>
+90% out of 20
+</td>
+</tr>
+<tr>
+<td>
+2022 season
+</td>
+<td>
+65% out of 20
+</td>
+<td>
+70% out of 100
+</td>
+</tr>
+</table>
+<p>Indeed Aaron’s FTP over 2021+2022 is<br />
+<span class="math display">\[\begin{equation}
+\frac{80+13}{120} = \frac{93}{120}
+\end{equation}\]</span>
+which is larger than Barry’s</p>
+<p><span class="math display">\[\begin{equation}
+\frac{18+20}{120} = \frac{88}{120}
+\end{equation}\]</span></p>
+<p>More generally, trends in subsets of data may reverse themselves after aggregation.</p>
+<p>In fact we can have any number of seasons and have Barry beat Aaron in FTP in each and every season and Aaron still wins with better FTP over all seasons. This is again simply because we do not know how many attempts each player made each season. This applies to many real world situations such as graduate admissions for example (the famous Berkeley admission bias case). There women may have a higher chance to be admitted than men in each single academic department and nevertheless, men beat women in overall acceptance ratio. This is again hard to comprehend at first but it is due to the fact that the absolute number of female and male applicants may be different for each department.</p>
+<p><strong>Is such reversal always possible? </strong></p>
+<p>Let’s look at the table below:</p>
+<p><strong>Table 16.3</strong></p>
+<table>
+<tr>
+<td>
+season/player
+</td>
+<td>
+Aaron
+</td>
+<td>
+Barry
+</td>
+</tr>
+<tr>
+<td>
+2021 season
+</td>
+<td>
+65%
+</td>
+<td>
+90%
+</td>
+</tr>
+<tr>
+<td>
+2022 season
+</td>
+<td>
+60%
+</td>
+<td>
+70%
+</td>
+</tr>
+</table>
+<p><code>In this case the Simpson paradox is not possible. Why?</code> Because Aaron’s highest FTP (65% in 2021 season is lower than Barry’s lowest FTP in 2022). You can easily see that no matter what the absolute numbers of attempts in each season, Aaron can never beat Barry for 2021+2022.
+Thus the Simpson paradox was possible in this simple case only because Aaron’s highest FTP was higher than Barry’s lowest FTP.</p>
+<p>One also has to be careful with the Simpson paradox and not apply it to situations when both groups /individuals have the same absolute number of “attempts”. For example, the Simpson paradox is not possible for students and their individual scores on homework’s and exams. If Barry scores higher than Aaron on each homework and on each exam then Barry will always have a higher score overall than Aaron. There is no Simpsonian trend reversal. Every homework and every exam counts the same for all students. This is as if players always made the same number of free throw attempts.</p>
+<div id="ecological-paradox" class="section level3 hasAnchor" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Ecological Paradox<a href="Mysteries_of_Aggregated_data.html#ecological-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ecological paradox is kind of the reverse of the Simpson paradox. Let’s assume that we consider net worth for each member of groups A and B. Even if average net worth of group A is higher than average net worth of group B, it may be possible that random individual member of the group B has higher net worth than random individual member of the group A. Thus the order of aggregates may be reversed when we look at the level of individuals.</p>
+<p>For example as table <strong>16.4</strong> illustrates, the average net worth of Group A dominates the average net worth of Group B due to the presence of one wealthy individual. However for 90% of pairs of individuals, group B members are more wealthy than Group A members.</p>
+<p><strong>Table 16.3</strong></p>
+<table>
+<tr>
+<td>
+Group A
+</td>
+<td>
+Group B
+</td>
+</tr>
+<tr>
+<td>
+$10,000,000
+</td>
+<td>
+$210,000
+</td>
+</tr>
+<tr>
+<td>
+$100,000
+</td>
+<td>
+$290,000
+</td>
+</tr>
+<tr>
+<td>
+$120,000
+</td>
+<td>
+$220,000
+</td>
+</tr>
+<tr>
+<td>
+$80,000
+</td>
+<td>
+$210,000
+</td>
+</tr>
+<tr>
+<td>
+$60,000
+</td>
+<td>
+$270,000
+</td>
+</tr>
+<tr>
+<td>
+$160,000
+</td>
+<td>
+$210,000
+</td>
+</tr>
+<tr>
+<td>
+$110,000
+</td>
+<td>
+$240,000
+</td>
+</tr>
+<tr>
+<td>
+$100,000
+</td>
+<td>
+$210,000
+</td>
+</tr>
+<tr>
+<td>
+$200,000
+</td>
+<td>
+$240,000
+</td>
+</tr>
+</table>
+<p>For example, it is well known that Democrats win the richest states, while (until recently), the richest individuals vote republican. <code>How is it possible?</code> Explanation is simple. Everyone’s vote counts the same and there are few very rich people. Very rich people may contribute more to the average wealth of the state (due to their extreme wealth), but there are just very few of them.</p>
+<p><strong>Do not be fooled by aggregates! </strong></p>
+<p>Let’s assume that a Democrat wins 70% of the vote and a Republican wins 30% of the vote in some state. <code>Is it possible that, nevertheless, the  republican candidate wins all 19 counties out of 20 in the state?</code>
+This actually happens a lot when the population is heavily concentrated in a heavily populated urban county which has the vast majority of voters living there.</p>
 </div>
 </div>
-<div id="making-new-numerical-attribute-from-numerical-attributes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Making new numerical attribute from numerical attributes<a href="Derived_attributes.html#making-new-numerical-attribute-from-numerical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkQ29tYmluZWQgPC0gKG1vb2R5JFNDT1JFICArIDEwKiBtb29keSRQQVJUSUNJUEFUSU9OKVxubW9vZHlbMToxMCxdIn0=
-</div>
-</div>
-<div id="more-complex-example-of-defining-derived-attributes" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> More complex example of defining derived attributes<a href="Derived_attributes.html#more-complex-example-of-defining-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance.</p>
-<p>The next snippet illustrates defining such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation or rewards for good participation.</p>
-<p>Score is adjusted by the value of participation attribute in the following way:</p>
-<ul>
-<li>If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.</li>
-<li>If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.</li>
-</ul>
-<p>In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkY29uZGl0aW9uYWwgPC0wXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHNjb3JlIC0xMCooMS1tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kcGFydGljaXBhdGlvbilcblxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHNjb3JlICsxMCptb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHBhcnRpY2lwYXRpb25cblxuI0xldHMgc2VlIGEgc2FtcGxlIG9mIG5ldyByb3dzIG9mIG1vb2R5IHdpdGggdGhlIG5ldyBkZXJpdmVkIGF0dHJpYnV0ZVxubW9vZHlbMToxMCxdIn0=
-</div>
-<p>We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above. Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later.</p>
-</div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Additional references<a href="Derived_attributes.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
-Data Transformation
+<div id="additional-references-5" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Additional References<a href="Mysteries_of_Aggregated_data.html#additional-references-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">
+How can data fool us?
 </button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
+<div id="Mt12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1vDCRffHzeSxka1sxQSUCnZvzaKIMmwPE7UO-5IefrM4/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
 
@@ -423,8 +612,8 @@ Data Transformation
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis_testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Prediction_loop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="22.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

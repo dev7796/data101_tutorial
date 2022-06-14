@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit</title>
+  <title>Section: 4 🔖 Plots | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta property="og:title" content="Section: 4 🔖 Plots | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 4 🔖 Plots | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
-<link rel="next" href="hypothesis_testing.html"/>
+<link rel="prev" href="tapply_subsetting.html"/>
+<link rel="next" href="Derived_attributes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -81,10 +81,7 @@
 <li class="chapter" data-level="2" data-path="Setting_up_R.html"><a href="Setting_up_R.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
-<li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#grades-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Grades dataset</a></li>
-</ul></li>
+<li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a></li>
 <li class="chapter" data-level="2.3" data-path="Setting_up_R.html"><a href="Setting_up_R.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
 <li class="chapter" data-level="2.4" data-path="Setting_up_R.html"><a href="Setting_up_R.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
 <li class="chapter" data-level="2.5" data-path="Setting_up_R.html"><a href="Setting_up_R.html#rconcepts"><i class="fa fa-check"></i><b>2.5</b> Textbook Concepts</a></li>
@@ -183,90 +180,81 @@
 </ul></li>
 <li class="chapter" data-level="10" data-path="FreeStyle.html"><a href="FreeStyle.html"><i class="fa fa-check"></i><b>10</b> 🔖 Data puzzles</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#introduction-4"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> Strange grading methods of Professor Moody Data Puzzle</a>
+<li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.1</b> Strange grading methods of Professor Moody Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.2.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.2.3</b> Moody Data Quiz</a></li>
-<li class="chapter" data-level="10.2.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.2.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.1.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.1.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.1.2" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.1.2</b> Moody Data Quiz</a></li>
+<li class="chapter" data-level="10.1.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.1.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.3</b> How to predict a good party? Data puzzle</a>
+<li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> How to predict a good party? Data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.3.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.3.3</b> Party Data Quiz</a></li>
-<li class="chapter" data-level="10.3.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.3.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.2.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.2.2</b> Party Data Quiz</a></li>
+<li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.2.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.4</b> When election is truly local - data puzzle</a>
+<li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.3</b> When election is truly local - data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.4.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.4.3</b> Election Data Quiz</a></li>
-<li class="chapter" data-level="10.4.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.4.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.3.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.3.2</b> Election Data Quiz</a></li>
+<li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.3.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Secrets of good sleep Data Puzzle</a>
+<li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.4</b> Secrets of good sleep Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.5.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.5.3</b> Sleep Data Quiz</a></li>
-<li class="chapter" data-level="10.5.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.5.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.4.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.4.2</b> Sleep Data Quiz</a></li>
+<li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.4.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> Let’s go to the movies: Data Puzzle</a>
+<li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Let’s go to the movies: Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.6.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.6.3</b> Movies Data Quiz</a></li>
-<li class="chapter" data-level="10.6.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.6.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.5.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.5.2</b> Movies Data Quiz</a></li>
+<li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.5.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.7</b> When canvas goes wild data puzzle</a>
+<li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> When canvas goes wild data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.7.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.7.3</b> Canvas Data Quiz</a></li>
-<li class="chapter" data-level="10.7.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.7.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.6.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.6.2</b> Canvas Data Quiz</a></li>
+<li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.6.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.8</b> Very local minimarket data puzzle</a>
+<li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.7</b> Very local minimarket data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> 🧙 Secret patterns embedded by DataMaker</a></li>
-<li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.8.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.8.3</b> MiniMarket Data Quiz</a></li>
-<li class="chapter" data-level="10.8.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.8.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.7.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.7.2</b> MiniMarket Data Quiz</a></li>
+<li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.7.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.9" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-puzzle"><i class="fa fa-check"></i><b>10.9</b> Airbnb data puzzle</a>
+<li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-puzzle"><i class="fa fa-check"></i><b>10.8</b> Airbnb data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.9.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-7"><i class="fa fa-check"></i><b>10.9.1</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.9.2" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-quiz"><i class="fa fa-check"></i><b>10.9.2</b> Airbnb Data Quiz</a></li>
-<li class="chapter" data-level="10.9.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check9"><i class="fa fa-check"></i><b>10.9.3</b> Check yourself</a></li>
+<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-7"><i class="fa fa-check"></i><b>10.8.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-quiz"><i class="fa fa-check"></i><b>10.8.2</b> Airbnb Data Quiz</a></li>
+<li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check9"><i class="fa fa-check"></i><b>10.8.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.10" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-puzzle"><i class="fa fa-check"></i><b>10.10</b> Titanic data puzzle</a>
+<li class="chapter" data-level="10.9" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-puzzle"><i class="fa fa-check"></i><b>10.9</b> Titanic data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-8"><i class="fa fa-check"></i><b>10.10.1</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-quiz"><i class="fa fa-check"></i><b>10.10.2</b> Titanic Data Quiz</a></li>
-<li class="chapter" data-level="10.10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check10"><i class="fa fa-check"></i><b>10.10.3</b> Check yourself</a></li>
+<li class="chapter" data-level="10.9.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-8"><i class="fa fa-check"></i><b>10.9.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.9.2" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-quiz"><i class="fa fa-check"></i><b>10.9.2</b> Titanic Data Quiz</a></li>
+<li class="chapter" data-level="10.9.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check10"><i class="fa fa-check"></i><b>10.9.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.11" data-path="FreeStyle.html"><a href="FreeStyle.html#addiotional-reference"><i class="fa fa-check"></i><b>10.11</b> Addiotional Reference</a></li>
+<li class="chapter" data-level="10.10" data-path="FreeStyle.html"><a href="FreeStyle.html#addiotional-reference"><i class="fa fa-check"></i><b>10.10</b> Addiotional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="common_sense.html"><a href="common_sense.html"><i class="fa fa-check"></i><b>11</b> 🔖 Common Sense Judgement and Probability</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="common_sense.html"><a href="common_sense.html#introduction-5"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.1" data-path="common_sense.html"><a href="common_sense.html#introduction-4"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
 <li class="chapter" data-level="11.2" data-path="common_sense.html"><a href="common_sense.html#additional-references-4"><i class="fa fa-check"></i><b>11.2</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="Free_style.html"><a href="Free_style.html"><i class="fa fa-check"></i><b>12</b> 🔖 Free Style: Prediction</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#introduction-6"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.2</b> Example of a simple freestyle prediction model</a></li>
-<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.3</b> How to build a freestyle (your own code) prediction model?</a></li>
-<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.4</b> One-step crossvalidation</a></li>
-<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.5</b> General Structure of the Prediction Challenges</a>
+<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.1</b> Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.2</b> How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.3</b> One-step crossvalidation</a></li>
+<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.4</b> General Structure of the Prediction Challenges</a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.5.1</b> Preparing submission.csv for Kaggle</a></li>
+<li class="chapter" data-level="12.4.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.4.1</b> Preparing submission.csv for Kaggle</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.6</b> Additional Reference</a></li>
+<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.5</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="Decision_trees.html"><a href="Decision_trees.html"><i class="fa fa-check"></i><b>13</b> 🔖 Predictions with rpart</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-7"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-5"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart"><i class="fa fa-check"></i><b>13.2</b> Use of Rpart</a>
 <ul>
 <li class="chapter" data-level="13.2.1" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart-1"><i class="fa fa-check"></i><b>13.2.1</b> rpart()</a></li>
@@ -292,17 +280,14 @@
 <ul>
 <li class="chapter" data-level="13.6.1" data-path="Decision_trees.html"><a href="Decision_trees.html#predict"><i class="fa fa-check"></i><b>13.6.1</b> predict()</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-multiple-prediction-models"><i class="fa fa-check"></i><b>13.7</b> Combining multiple prediction models</a>
-<ul>
-<li class="chapter" data-level="13.7.1" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-rpart-prediction-models"><i class="fa fa-check"></i><b>13.7.1</b> Combining rpart prediction models</a></li>
-<li class="chapter" data-level="13.7.2" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-multiple-prediction-models-using-rpart"><i class="fa fa-check"></i><b>13.7.2</b> Combining multiple prediction models using rpart</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="Decision_trees.html"><a href="Decision_trees.html#submission-of-your-prediction-vector"><i class="fa fa-check"></i><b>13.8</b> Submission of your prediction vector</a></li>
-<li class="chapter" data-level="13.9" data-path="Decision_trees.html"><a href="Decision_trees.html#additional-reference-2"><i class="fa fa-check"></i><b>13.9</b> Additional Reference</a></li>
+<li class="chapter" data-level="13.7" data-path="Decision_trees.html"><a href="Decision_trees.html#your-model-with-rpart"><i class="fa fa-check"></i><b>13.7</b> Your Model with rpart</a></li>
+<li class="chapter" data-level="13.8" data-path="Decision_trees.html"><a href="Decision_trees.html#freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>13.8</b> Freestyle + rpart: Combining rpart prediction models</a></li>
+<li class="chapter" data-level="13.9" data-path="Decision_trees.html"><a href="Decision_trees.html#submission-with-rpart"><i class="fa fa-check"></i><b>13.9</b> Submission with rpart</a></li>
+<li class="chapter" data-level="13.10" data-path="Decision_trees.html"><a href="Decision_trees.html#additional-reference-2"><i class="fa fa-check"></i><b>13.10</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="Linear_regression.html"><a href="Linear_regression.html"><i class="fa fa-check"></i><b>14</b> 🔖 Linear Regression</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-8"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-6"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
 <li class="chapter" data-level="14.2" data-path="Linear_regression.html"><a href="Linear_regression.html#lm"><i class="fa fa-check"></i><b>14.2</b> Linear regression using lm() function</a>
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="Linear_regression.html"><a href="Linear_regression.html#how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>14.2.1</b> How much do Midterm, Project and Final Exam count?</a></li>
@@ -314,12 +299,12 @@
 </ul></li>
 <li class="chapter" data-level="15" data-path="Prediction_loop.html"><a href="Prediction_loop.html"><i class="fa fa-check"></i><b>15</b> 🔖 Machine Learning-Prediction Loop</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-9"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-7"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="Prediction_loop.html"><a href="Prediction_loop.html#additional-reference-4"><i class="fa fa-check"></i><b>15.2</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html"><i class="fa fa-check"></i><b>16</b> 🔖 How can data fool us?</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-10"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-8"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="16.1.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#ecological-paradox"><i class="fa fa-check"></i><b>16.1.1</b> Ecological Paradox</a></li>
 </ul></li>
@@ -327,7 +312,7 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="22.html"><a href="22.html"><i class="fa fa-check"></i><b>17</b> Boundless Analytics - Pre-discovery Tool</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-11"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-9"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="22.html"><a href="22.html#minimarket-data-set-description"><i class="fa fa-check"></i><b>17.2</b> Minimarket Data Set description</a></li>
 <li class="chapter" data-level="17.3" data-path="22.html"><a href="22.html#demo-of-boundless-analytics"><i class="fa fa-check"></i><b>17.3</b> Demo of Boundless Analytics</a></li>
 <li class="chapter" data-level="17.4" data-path="22.html"><a href="22.html#the-boundless-analytics-web-application"><i class="fa fa-check"></i><b>17.4</b> The Boundless Analytics web application</a></li>
@@ -359,62 +344,159 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation-with-derived-attributes" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Section: 5</span> 🔖 Data Transformation with Derived Attributes<a href="Derived_attributes.html#data-transformation-with-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="plots" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Section: 4</span> 🔖 Plots<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.</p>
-<p>Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.</p>
-<p>The term feature engineering is often used in machine learning to describe creation of derived attributes.</p>
-<div id="making-new-categorical-attributes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Making new categorical attributes<a href="Derived_attributes.html#making-new-categorical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we define a new attribute PF (Pass/Fail) to “Pass”. Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF.</p>
-<p>The line 5 replaces “Pass” by “Fail” for students who received F.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxubW9vZHkkUEY8LSdQYXNzJ1xubW9vZHlbbW9vZHkkR1JBREU9PSdGJyxdJFBGPC0nRmFpbCdcbm1vb2R5In0=
-</div>
-</div>
-<div id="making-categorical-attribute-from-numerical-attribute-using-function-cut" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Making categorical attribute from numerical attribute using function Cut()<a href="Derived_attributes.html#making-categorical-attribute-from-numerical-attribute-using-function-cut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you import your data to R studio one of the first things you do is plot. Data visualization is a key components of data analysis. Before we talk about plots, we introduce some very basis data structures in R: vectors, data frames and tables. These are introduced below in the form of code snippets that you can run and modify.</p>
+<p><strong>Then we are ready to plot!</strong></p>
+<p>We will introduce several basic plots such as scatter plot, bar plot, boxplot and mosaic plot. How do we know which plot to apply? It depends on whether the variables to be plotted are categorical or numerical. Below we show a simple table which can serve as a guide which plot to use depending on types of variables to be plotted.</p>
+<table>
+<tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NUM x NUM
+</td>
+<td>
+scatter plot
+</td>
+</tr>
+<tr>
+<td>
+CAT x CAT
+</td>
+<td>
+mosaic plot
+</td>
+</tr>
+<tr>
+<td>
+CAT x NUM
+</td>
+<td>
+box plot
+</td>
+</tr>
+<tr>
+<td>
+NUM
+</td>
+<td>
+box plot, histogram
+</td>
+</tr>
+<tr>
+<td>
+CAT
+</td>
+<td>
+bargraph
+</td>
+</tr>
+</table>
+<!-- --- -->
+<!-- ### Topics visited in this sub-chapter -->
+<!-- * Scatter Plot -->
+<!-- * Barplot -->
+<!-- * Boxplot -->
+<!-- * Mosaic Plot -->
+<div id="scartterplot" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Scatter Plot<a href="plots.html#scartterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><strong>cut()</strong> function divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.</li>
+<li>Scatter Plot are used to plot two numerical variables.</li>
+<li>Hence it is used when both the labels are numerical values.</li>
 </ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxuc2NvcmUxIDwtIGN1dChtb29keSRTQ09SRSxicmVha3M9YygwLDUwLDEwMCksbGFiZWxzPWMoXCJGXCIsXCJQXCIpKVxudGFibGUoc2NvcmUxKSJ9
-</div>
-</div>
-<div id="making-new-numerical-attribute-from-numerical-attributes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Making new numerical attribute from numerical attributes<a href="Derived_attributes.html#making-new-numerical-attribute-from-numerical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkQ29tYmluZWQgPC0gKG1vb2R5JFNDT1JFICArIDEwKiBtb29keSRQQVJUSUNJUEFUSU9OKVxubW9vZHlbMToxMCxdIn0=
-</div>
-</div>
-<div id="more-complex-example-of-defining-derived-attributes" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> More complex example of defining derived attributes<a href="Derived_attributes.html#more-complex-example-of-defining-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance.</p>
-<p>The next snippet illustrates defining such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation or rewards for good participation.</p>
-<p>Score is adjusted by the value of participation attribute in the following way:</p>
-<ul>
-<li>If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.</li>
-<li>If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.</li>
-</ul>
-<p>In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.</p>
+<p>Lets look at example of scatter plot using Moody.</p>
 <div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkY29uZGl0aW9uYWwgPC0wXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHNjb3JlIC0xMCooMS1tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kcGFydGljaXBhdGlvbilcblxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHNjb3JlICsxMCptb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHBhcnRpY2lwYXRpb25cblxuI0xldHMgc2VlIGEgc2FtcGxlIG9mIG5ldyByb3dzIG9mIG1vb2R5IHdpdGggdGhlIG5ldyBkZXJpdmVkIGF0dHJpYnV0ZVxubW9vZHlbMToxMCxdIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExldCdzIGxvb2sgYXQgYSAyIGF0dHJpYnV0ZSBzY2F0dGVyIHBsb3QuXG4jIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbnBsb3QobW9vZHkkcGFydGljaXBhdGlvbixtb29keSRzY29yZSx5bGFiPVwic2NvcmVcIix4bGFiPVwicGFydGljaXBhdGlvblwiLG1haW49XCIgUGFydGljaXBhdGlvbiB2cyBTY29yZVwiLGNvbD1cInJlZFwiKSJ9
 </div>
-<p>We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above. Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later.</p>
+<hr />
 </div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Additional references<a href="Derived_attributes.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
-Data Transformation
+<div id="barplot" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Bar Plot<a href="plots.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A bar plot are used to plot a categorical variable.</li>
+<li>This rectangle height is proportional to the value of the variable in the vector.
+<!--
+- Barplots are also used to graphically represent the distribution of a categorical variable, after converting the categorical vector into a table(i.e. frequency distribution table)
+- In a bar plot, you can also give different colors to each bar. --></li>
+</ul>
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI2xldHMgbWFrZSBhIHRhYmxlIGZvciB0aGUgZ3JhZGVzIG9mIHN0dWRlbnRzIGFuZCBjb3VudHMgb2Ygc3R1ZGVudHMgZm9yIGVhY2ggR3JhZGUuIFxuXG50PC10YWJsZShtb29keSRncmFkZSlcblxuI29uY2Ugd2UgaGF2ZSB0aGUgdGFibGUgbGV0cyBjcmVhdGUgYSBiYXJwbG90IGZvciBpdC5cblxuYmFycGxvdCh0LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJOdW1iZXIgb2YgU3R1ZGVudHNcIixjb2w9Y29sb3JzLCBcbiAgICAgICAgbWFpbj1cIkJhcnBsb3QgZm9yIHN0dWRlbnQgZ3JhZGUgZGlzdHJpYnV0aW9uXCIsYm9yZGVyPVwiYmxhY2tcIikifQ==
+</div>
+<hr />
+</div>
+<div id="boxplot" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Box Plot<a href="plots.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A boxplot is used to display a numerical variable.</li>
+<li>A boxplot shows the distribution of data in a dataset.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/boxplot1.png" alt="Boxplot" />
+<br /></p>
+<ul>
+<li>A boxplot shows the following things:
+<ul>
+<li>Minimum</li>
+<li>Maximum</li>
+<li>Median</li>
+<li>First quartile</li>
+<li>Third quartile</li>
+<li>Outliers</li>
+</ul></li>
+</ul>
+<!--
+- You can create a single boxplot using just a vector or a multiple boxplot using a formula.
+- When you write a formula, you should use the Tilde (~) operator. This column name on the left side of this operator goes on the y axis and the column name on the right side of this operator goes on the x axis.-->
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI1N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCB0aGUgZGlzdHJpYnV0aW9uIG9mIHN0dWRlbnRzIHNjb3JlIHBlciBHcmFkZS4gV2UgdXNlIGJveCBwbG90IGZvciBnZXR0aW5nIHRoYXQuIFxuYm94cGxvdChzY29yZX5ncmFkZSxkYXRhPW1vb2R5LHhsYWI9XCJHcmFkZVwiLHlsYWI9XCJTY29yZVwiLCBtYWluPVwiQm94cGxvdCBvZiBncmFkZSB2cyBzY29yZVwiLGNvbD1jb2xvcnMsYm9yZGVyPVwiYmxhY2tcIilcblxuIyB0aGUgY2lyY2xlcyByZXByZXNlbnQgb3V0bGllcnMuIn0=
+</div>
+<!-- ## 4. Histogram -->
+<!-- Refer Slide 15. -->
+<!-- ```{r} -->
+<!-- #Suppose you want to find the frequecy/distribution of cars with mileage in particular range. We use histogram for this.  -->
+<!-- hist(automobile$`city-mpg`,xlim = c(0,100),xlab = 'milage', main = "Histogram of Car milage",col=colors,border="black") -->
+<!-- # You can Change column range using breaks. -->
+<!-- ``` -->
+<!-- For more detail,reference and example refer Slides -->
+<hr />
+</div>
+<div id="mosaicplot" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Mosaic Plot<a href="plots.html#mosaicplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Mosaic plot is used to visualize two categorical variables.</li>
+</ul>
+<!--
+- Mosaic plot is a graphical method for visualizing data from two or more qualitative variables.
+- The length of the rectangles in the mosaic plot represents the frequency of that particular value.
+- The width and length of the mosaic plot can be used to interpret the frequencies of the elements.
+- For example, if you want to plot the number of individuals per letter grade using a smartphone, you want to look at a mosaic plot. -->
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIG1vb2R5PC1yZWFkLmNzdihcIi4uL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3ZcIikgI3N0YXRpYyBMb2FkXG5tb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjBiLmNzdlwiKSAjd2ViIGxvYWRcbmNvbG9yczwtIGMoJ3JlZCcsJ2JsdWUnLCdjeWFuJywneWVsbG93JywnZ3JlZW4nKSAjIEFzc2lnbmluZyBkaWZmZXJlbnQgY29sb3JzIHRvIGJhcnNcblxuI3N1cHBvc2UgeW91IHdhbnQgdG8gZmluZCBudW1iZXJzIG9mIHN0dWRlbnRzIHdpdGggYSBwYXJ0aWN1bGFyIGdyYWRlIGJhc2VkIG9uIHRoZWlyIHRleHRpbmcgaGFiaXRzLiBVc2UgTW9zaWFjLXBsb3QuXG5cbm1vc2FpY3Bsb3QobW9vZHkkZ3JhZGV+bW9vZHkkdGV4dGluZyx4bGFiID0gJ0dyYWRlJyx5bGFiID0gJ1RleHRpbmcgaGFiaXQnLCBtYWluID0gXCJNb3NpYWMgb2YgZ3JhZGUgdnMgdGV4aW5nIGhhYml0IGluIGNsYXNzXCIsY29sPWNvbG9ycyxib3JkZXI9XCJibGFja1wiKSJ9
+</div>
+</div>
+<div id="additional-references" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Additional References<a href="plots.html#additional-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#plots12">
+Plots
 </button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
+<div id="plots12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1L7ml_mwV7ms3eZ2qbznGgNdarhTfrSP6PWq-RxNUgQM/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
+<p><a href="https://www.datamentor.io/r-programming/plot-function/" class="uri">https://www.datamentor.io/r-programming/plot-function/</a></p>
+<!--
+```
+{r child="./chapters/datatransformation.Rmd"}
+```
+ 
+ -->
 
 </div>
 </div>
@@ -423,8 +505,8 @@ Data Transformation
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis_testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tapply_subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Derived_attributes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

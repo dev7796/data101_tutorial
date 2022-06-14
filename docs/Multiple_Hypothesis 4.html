@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit</title>
+  <title>Section: 8 🔖 Multiple Hypothesis Testing | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta property="og:title" content="Section: 8 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 8 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
-<link rel="next" href="hypothesis_testing.html"/>
+<link rel="prev" href="Chisquare.html"/>
+<link rel="next" href="bayesian_reasoning.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -81,10 +81,7 @@
 <li class="chapter" data-level="2" data-path="Setting_up_R.html"><a href="Setting_up_R.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#setting"><i class="fa fa-check"></i><b>2.1</b> Create New Project</a></li>
-<li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="Setting_up_R.html"><a href="Setting_up_R.html#grades-dataset"><i class="fa fa-check"></i><b>2.2.1</b> Grades dataset</a></li>
-</ul></li>
+<li class="chapter" data-level="2.2" data-path="Setting_up_R.html"><a href="Setting_up_R.html#how-to-upload-a-data-set"><i class="fa fa-check"></i><b>2.2</b> How to upload a data set?</a></li>
 <li class="chapter" data-level="2.3" data-path="Setting_up_R.html"><a href="Setting_up_R.html#saving-your-work"><i class="fa fa-check"></i><b>2.3</b> Saving your work</a></li>
 <li class="chapter" data-level="2.4" data-path="Setting_up_R.html"><a href="Setting_up_R.html#general-r-references"><i class="fa fa-check"></i><b>2.4</b> General R References</a></li>
 <li class="chapter" data-level="2.5" data-path="Setting_up_R.html"><a href="Setting_up_R.html#rconcepts"><i class="fa fa-check"></i><b>2.5</b> Textbook Concepts</a></li>
@@ -183,90 +180,81 @@
 </ul></li>
 <li class="chapter" data-level="10" data-path="FreeStyle.html"><a href="FreeStyle.html"><i class="fa fa-check"></i><b>10</b> 🔖 Data puzzles</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#introduction-4"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> Strange grading methods of Professor Moody Data Puzzle</a>
+<li class="chapter" data-level="10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#strange-grading-methods-of-professor-moody-data-puzzle"><i class="fa fa-check"></i><b>10.1</b> Strange grading methods of Professor Moody Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint"><i class="fa fa-check"></i><b>10.2.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.2.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.2.3</b> Moody Data Quiz</a></li>
-<li class="chapter" data-level="10.2.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.2.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.1.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets"><i class="fa fa-check"></i><b>10.1.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.1.2" data-path="FreeStyle.html"><a href="FreeStyle.html#moody-data-quiz"><i class="fa fa-check"></i><b>10.1.2</b> Moody Data Quiz</a></li>
+<li class="chapter" data-level="10.1.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check1"><i class="fa fa-check"></i><b>10.1.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.3</b> How to predict a good party? Data puzzle</a>
+<li class="chapter" data-level="10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#how-to-predict-a-good-party-data-puzzle"><i class="fa fa-check"></i><b>10.2</b> How to predict a good party? Data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-1"><i class="fa fa-check"></i><b>10.3.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.3.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.3.3</b> Party Data Quiz</a></li>
-<li class="chapter" data-level="10.3.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.3.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.2.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-1"><i class="fa fa-check"></i><b>10.2.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.2.2" data-path="FreeStyle.html"><a href="FreeStyle.html#party-data-quiz"><i class="fa fa-check"></i><b>10.2.2</b> Party Data Quiz</a></li>
+<li class="chapter" data-level="10.2.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check3"><i class="fa fa-check"></i><b>10.2.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.4</b> When election is truly local - data puzzle</a>
+<li class="chapter" data-level="10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#when-election-is-truly-local---data-puzzle"><i class="fa fa-check"></i><b>10.3</b> When election is truly local - data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-2"><i class="fa fa-check"></i><b>10.4.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.4.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.4.3</b> Election Data Quiz</a></li>
-<li class="chapter" data-level="10.4.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.4.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.3.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-2"><i class="fa fa-check"></i><b>10.3.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.3.2" data-path="FreeStyle.html"><a href="FreeStyle.html#election-data-quiz"><i class="fa fa-check"></i><b>10.3.2</b> Election Data Quiz</a></li>
+<li class="chapter" data-level="10.3.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check4"><i class="fa fa-check"></i><b>10.3.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Secrets of good sleep Data Puzzle</a>
+<li class="chapter" data-level="10.4" data-path="FreeStyle.html"><a href="FreeStyle.html#secrets-of-good-sleep-data-puzzle"><i class="fa fa-check"></i><b>10.4</b> Secrets of good sleep Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-3"><i class="fa fa-check"></i><b>10.5.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.5.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.5.3</b> Sleep Data Quiz</a></li>
-<li class="chapter" data-level="10.5.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.5.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.4.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-3"><i class="fa fa-check"></i><b>10.4.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.4.2" data-path="FreeStyle.html"><a href="FreeStyle.html#sleep-data-quiz"><i class="fa fa-check"></i><b>10.4.2</b> Sleep Data Quiz</a></li>
+<li class="chapter" data-level="10.4.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check5"><i class="fa fa-check"></i><b>10.4.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> Let’s go to the movies: Data Puzzle</a>
+<li class="chapter" data-level="10.5" data-path="FreeStyle.html"><a href="FreeStyle.html#lets-go-to-the-movies-data-puzzle"><i class="fa fa-check"></i><b>10.5</b> Let’s go to the movies: Data Puzzle</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-4"><i class="fa fa-check"></i><b>10.6.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.6.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.6.3</b> Movies Data Quiz</a></li>
-<li class="chapter" data-level="10.6.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.6.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.5.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-4"><i class="fa fa-check"></i><b>10.5.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.5.2" data-path="FreeStyle.html"><a href="FreeStyle.html#movies-data-quiz"><i class="fa fa-check"></i><b>10.5.2</b> Movies Data Quiz</a></li>
+<li class="chapter" data-level="10.5.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check6"><i class="fa fa-check"></i><b>10.5.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.7</b> When canvas goes wild data puzzle</a>
+<li class="chapter" data-level="10.6" data-path="FreeStyle.html"><a href="FreeStyle.html#when-canvas-goes-wild-data-puzzle"><i class="fa fa-check"></i><b>10.6</b> When canvas goes wild data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-the-data-maker-hint-5"><i class="fa fa-check"></i><b>10.7.1</b> 🧙 Secret patterns embedded by the Data Maker (hint)</a></li>
-<li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.7.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.7.3</b> Canvas Data Quiz</a></li>
-<li class="chapter" data-level="10.7.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.7.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.6.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-5"><i class="fa fa-check"></i><b>10.6.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.6.2" data-path="FreeStyle.html"><a href="FreeStyle.html#canvas-data-quiz"><i class="fa fa-check"></i><b>10.6.2</b> Canvas Data Quiz</a></li>
+<li class="chapter" data-level="10.6.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check7"><i class="fa fa-check"></i><b>10.6.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.8</b> Very local minimarket data puzzle</a>
+<li class="chapter" data-level="10.7" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket"><i class="fa fa-check"></i><b>10.7</b> Very local minimarket data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#secret-patterns-embedded-by-datamaker"><i class="fa fa-check"></i><b>10.8.1</b> 🧙 Secret patterns embedded by DataMaker</a></li>
-<li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.8.2</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.8.3</b> MiniMarket Data Quiz</a></li>
-<li class="chapter" data-level="10.8.4" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.8.4</b> Check yourself</a></li>
+<li class="chapter" data-level="10.7.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-6"><i class="fa fa-check"></i><b>10.7.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.7.2" data-path="FreeStyle.html"><a href="FreeStyle.html#minimarket-data-quiz"><i class="fa fa-check"></i><b>10.7.2</b> MiniMarket Data Quiz</a></li>
+<li class="chapter" data-level="10.7.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check8"><i class="fa fa-check"></i><b>10.7.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.9" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-puzzle"><i class="fa fa-check"></i><b>10.9</b> Airbnb data puzzle</a>
+<li class="chapter" data-level="10.8" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-puzzle"><i class="fa fa-check"></i><b>10.8</b> Airbnb data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.9.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-7"><i class="fa fa-check"></i><b>10.9.1</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.9.2" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-quiz"><i class="fa fa-check"></i><b>10.9.2</b> Airbnb Data Quiz</a></li>
-<li class="chapter" data-level="10.9.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check9"><i class="fa fa-check"></i><b>10.9.3</b> Check yourself</a></li>
+<li class="chapter" data-level="10.8.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-7"><i class="fa fa-check"></i><b>10.8.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.8.2" data-path="FreeStyle.html"><a href="FreeStyle.html#airbnb-data-quiz"><i class="fa fa-check"></i><b>10.8.2</b> Airbnb Data Quiz</a></li>
+<li class="chapter" data-level="10.8.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check9"><i class="fa fa-check"></i><b>10.8.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.10" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-puzzle"><i class="fa fa-check"></i><b>10.10</b> Titanic data puzzle</a>
+<li class="chapter" data-level="10.9" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-puzzle"><i class="fa fa-check"></i><b>10.9</b> Titanic data puzzle</a>
 <ul>
-<li class="chapter" data-level="10.10.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-8"><i class="fa fa-check"></i><b>10.10.1</b> Practice Snippets</a></li>
-<li class="chapter" data-level="10.10.2" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-quiz"><i class="fa fa-check"></i><b>10.10.2</b> Titanic Data Quiz</a></li>
-<li class="chapter" data-level="10.10.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check10"><i class="fa fa-check"></i><b>10.10.3</b> Check yourself</a></li>
+<li class="chapter" data-level="10.9.1" data-path="FreeStyle.html"><a href="FreeStyle.html#practice-snippets-8"><i class="fa fa-check"></i><b>10.9.1</b> Practice Snippets</a></li>
+<li class="chapter" data-level="10.9.2" data-path="FreeStyle.html"><a href="FreeStyle.html#titanic-data-quiz"><i class="fa fa-check"></i><b>10.9.2</b> Titanic Data Quiz</a></li>
+<li class="chapter" data-level="10.9.3" data-path="FreeStyle.html"><a href="FreeStyle.html#check10"><i class="fa fa-check"></i><b>10.9.3</b> Check yourself</a></li>
 </ul></li>
-<li class="chapter" data-level="10.11" data-path="FreeStyle.html"><a href="FreeStyle.html#addiotional-reference"><i class="fa fa-check"></i><b>10.11</b> Addiotional Reference</a></li>
+<li class="chapter" data-level="10.10" data-path="FreeStyle.html"><a href="FreeStyle.html#addiotional-reference"><i class="fa fa-check"></i><b>10.10</b> Addiotional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="common_sense.html"><a href="common_sense.html"><i class="fa fa-check"></i><b>11</b> 🔖 Common Sense Judgement and Probability</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="common_sense.html"><a href="common_sense.html#introduction-5"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.1" data-path="common_sense.html"><a href="common_sense.html#introduction-4"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
 <li class="chapter" data-level="11.2" data-path="common_sense.html"><a href="common_sense.html#additional-references-4"><i class="fa fa-check"></i><b>11.2</b> Additional References</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="Free_style.html"><a href="Free_style.html"><i class="fa fa-check"></i><b>12</b> 🔖 Free Style: Prediction</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#introduction-6"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.2</b> Example of a simple freestyle prediction model</a></li>
-<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.3</b> How to build a freestyle (your own code) prediction model?</a></li>
-<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.4</b> One-step crossvalidation</a></li>
-<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.5</b> General Structure of the Prediction Challenges</a>
+<li class="chapter" data-level="12.1" data-path="Free_style.html"><a href="Free_style.html#example-of-a-simple-freestyle-prediction-model"><i class="fa fa-check"></i><b>12.1</b> Example of a simple freestyle prediction model</a></li>
+<li class="chapter" data-level="12.2" data-path="Free_style.html"><a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model"><i class="fa fa-check"></i><b>12.2</b> How to build a freestyle (your own code) prediction model?</a></li>
+<li class="chapter" data-level="12.3" data-path="Free_style.html"><a href="Free_style.html#one-step-crossvalidation"><i class="fa fa-check"></i><b>12.3</b> One-step crossvalidation</a></li>
+<li class="chapter" data-level="12.4" data-path="Free_style.html"><a href="Free_style.html#general-structure-of-the-prediction-challenges"><i class="fa fa-check"></i><b>12.4</b> General Structure of the Prediction Challenges</a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.5.1</b> Preparing submission.csv for Kaggle</a></li>
+<li class="chapter" data-level="12.4.1" data-path="Free_style.html"><a href="Free_style.html#preparing-submission.csv-for-kaggle"><i class="fa fa-check"></i><b>12.4.1</b> Preparing submission.csv for Kaggle</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.6</b> Additional Reference</a></li>
+<li class="chapter" data-level="12.5" data-path="Free_style.html"><a href="Free_style.html#additional-reference-1"><i class="fa fa-check"></i><b>12.5</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="Decision_trees.html"><a href="Decision_trees.html"><i class="fa fa-check"></i><b>13</b> 🔖 Predictions with rpart</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-7"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1" data-path="Decision_trees.html"><a href="Decision_trees.html#introduction-5"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart"><i class="fa fa-check"></i><b>13.2</b> Use of Rpart</a>
 <ul>
 <li class="chapter" data-level="13.2.1" data-path="Decision_trees.html"><a href="Decision_trees.html#rpart-1"><i class="fa fa-check"></i><b>13.2.1</b> rpart()</a></li>
@@ -292,17 +280,14 @@
 <ul>
 <li class="chapter" data-level="13.6.1" data-path="Decision_trees.html"><a href="Decision_trees.html#predict"><i class="fa fa-check"></i><b>13.6.1</b> predict()</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-multiple-prediction-models"><i class="fa fa-check"></i><b>13.7</b> Combining multiple prediction models</a>
-<ul>
-<li class="chapter" data-level="13.7.1" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-rpart-prediction-models"><i class="fa fa-check"></i><b>13.7.1</b> Combining rpart prediction models</a></li>
-<li class="chapter" data-level="13.7.2" data-path="Decision_trees.html"><a href="Decision_trees.html#combining-multiple-prediction-models-using-rpart"><i class="fa fa-check"></i><b>13.7.2</b> Combining multiple prediction models using rpart</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="Decision_trees.html"><a href="Decision_trees.html#submission-of-your-prediction-vector"><i class="fa fa-check"></i><b>13.8</b> Submission of your prediction vector</a></li>
-<li class="chapter" data-level="13.9" data-path="Decision_trees.html"><a href="Decision_trees.html#additional-reference-2"><i class="fa fa-check"></i><b>13.9</b> Additional Reference</a></li>
+<li class="chapter" data-level="13.7" data-path="Decision_trees.html"><a href="Decision_trees.html#your-model-with-rpart"><i class="fa fa-check"></i><b>13.7</b> Your Model with rpart</a></li>
+<li class="chapter" data-level="13.8" data-path="Decision_trees.html"><a href="Decision_trees.html#freestyle-rpart-combining-rpart-prediction-models"><i class="fa fa-check"></i><b>13.8</b> Freestyle + rpart: Combining rpart prediction models</a></li>
+<li class="chapter" data-level="13.9" data-path="Decision_trees.html"><a href="Decision_trees.html#submission-with-rpart"><i class="fa fa-check"></i><b>13.9</b> Submission with rpart</a></li>
+<li class="chapter" data-level="13.10" data-path="Decision_trees.html"><a href="Decision_trees.html#additional-reference-2"><i class="fa fa-check"></i><b>13.10</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="Linear_regression.html"><a href="Linear_regression.html"><i class="fa fa-check"></i><b>14</b> 🔖 Linear Regression</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-8"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1" data-path="Linear_regression.html"><a href="Linear_regression.html#introduction-6"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
 <li class="chapter" data-level="14.2" data-path="Linear_regression.html"><a href="Linear_regression.html#lm"><i class="fa fa-check"></i><b>14.2</b> Linear regression using lm() function</a>
 <ul>
 <li class="chapter" data-level="14.2.1" data-path="Linear_regression.html"><a href="Linear_regression.html#how-much-do-midterm-project-and-final-exam-count"><i class="fa fa-check"></i><b>14.2.1</b> How much do Midterm, Project and Final Exam count?</a></li>
@@ -314,12 +299,12 @@
 </ul></li>
 <li class="chapter" data-level="15" data-path="Prediction_loop.html"><a href="Prediction_loop.html"><i class="fa fa-check"></i><b>15</b> 🔖 Machine Learning-Prediction Loop</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-9"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1" data-path="Prediction_loop.html"><a href="Prediction_loop.html#introduction-7"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="Prediction_loop.html"><a href="Prediction_loop.html#additional-reference-4"><i class="fa fa-check"></i><b>15.2</b> Additional Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html"><i class="fa fa-check"></i><b>16</b> 🔖 How can data fool us?</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-10"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<li class="chapter" data-level="16.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#introduction-8"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="16.1.1" data-path="Mysteries_of_Aggregated_data.html"><a href="Mysteries_of_Aggregated_data.html#ecological-paradox"><i class="fa fa-check"></i><b>16.1.1</b> Ecological Paradox</a></li>
 </ul></li>
@@ -327,7 +312,7 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="22.html"><a href="22.html"><i class="fa fa-check"></i><b>17</b> Boundless Analytics - Pre-discovery Tool</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-11"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="22.html"><a href="22.html#introduction-9"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="22.html"><a href="22.html#minimarket-data-set-description"><i class="fa fa-check"></i><b>17.2</b> Minimarket Data Set description</a></li>
 <li class="chapter" data-level="17.3" data-path="22.html"><a href="22.html#demo-of-boundless-analytics"><i class="fa fa-check"></i><b>17.3</b> Demo of Boundless Analytics</a></li>
 <li class="chapter" data-level="17.4" data-path="22.html"><a href="22.html#the-boundless-analytics-web-application"><i class="fa fa-check"></i><b>17.4</b> The Boundless Analytics web application</a></li>
@@ -359,62 +344,196 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation-with-derived-attributes" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Section: 5</span> 🔖 Data Transformation with Derived Attributes<a href="Derived_attributes.html#data-transformation-with-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="Mtest" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Section: 8</span> 🔖 Multiple Hypothesis Testing<a href="Multiple_Hypothesis.html#Mtest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.</p>
-<p>Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.</p>
-<p>The term feature engineering is often used in machine learning to describe creation of derived attributes.</p>
-<div id="making-new-categorical-attributes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Making new categorical attributes<a href="Derived_attributes.html#making-new-categorical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we define a new attribute PF (Pass/Fail) to “Pass”. Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF.</p>
-<p>The line 5 replaces “Pass” by “Fail” for students who received F.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxubW9vZHkkUEY8LSdQYXNzJ1xubW9vZHlbbW9vZHkkR1JBREU9PSdGJyxdJFBGPC0nRmFpbCdcbm1vb2R5In0=
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<div id="introduction-2" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction<a href="Multiple_Hypothesis.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We often consider multiple possible hypotheses in our search for discovery to find one with lowest possible p-value. Consciously or subconsciously we are engaging, what is often called, p-value hunting. We have to be very careful! We may “discover” what is simply random even if we correctly calculate p-value and compare it with the significance level. It is very important to learn about multiple hypothesis traps very early in the process of learning data science.</p>
+<p>For example assume that we are looking for associations between sales of individual items in a supermarket. Does bread sell with butter? Does coffee sell with spring water? There is an exponential number of possible combinations (N choose 2 to be exact, where N is the number of items). For each such pair we perform hypothesis testing. If one test is performed at the 5% significance level and the corresponding null hypothesis is true, there is only a 5% chance of incorrectly rejecting the null hypothesis. However, if 100 tests are each conducted at the 5% significance level and all corresponding null hypotheses are true, the expected number of incorrect rejections (also known as false positives or Type I errors) is 5. If the tests are statistically independent from each other, the probability of at least one incorrect rejection is approximately 99.4%. Thus, we will almost surely find one false positive! In other words we will be fooled by data.</p>
+<p>Bonferroni correction is a method to counteract the multiple hypothesis (often called multiple comparison problem. Make it harder to reject null hypotheses by dividing the significance level by number of hypotheses. The Bonferroni correction compensates for that increase by testing each individual hypothesis at a significance level of <strong>α / m</strong> where m is the number of hypotheses. For example, if a trial is testing me = 20 hypotheses with a desired α = 0.05, then the Bonferroni correction would test each individual hypothesis at</p>
+<p><span class="math display">\[\begin{equation}
+\alpha = \frac{0.05} {20} 
+       = 0.0025
+\end{equation}\]</span></p>
+<p>Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested. This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too “pro-null” and tough on alternative hypotheses to be acceptable.</p>
+<p>The unwanted side effect of Bonferroni correction is that we may fail to reject the null hypothesis too often. Bonferroni correction makes discovery sometimes too hard, making data scientists too conservative and accepting null hypothesis when they should be rejected. It may also be the case that even Bonferroni correction will not protect us, as we will show in our example below. But at least we will be much less likely to make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions.</p>
+<p>There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in the attached slides.</p>
+<p>We illustrate the p-value hunt in snippet 8.1 below. It is based on synthetic data set showing summer temperatures in New Jersey townships.
+Table below describes the data set based on hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
+<p>The <a href="Multiple_Hypothesis.html#snippet1">8.1.1</a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
+<p>Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township. Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.</p>
+<p>It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.</p>
+<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv" download="Tempratures.csv">Tempratures.csv</a></p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-72">Table 8.1: </span>Snippet of Temperature Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Township
+</th>
+<th style="text-align:right;">
+Temprature
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+426
+</td>
+<td style="text-align:left;">
+Passaic
+</td>
+<td style="text-align:right;">
+71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1967
+</td>
+<td style="text-align:left;">
+North Brunswick
+</td>
+<td style="text-align:right;">
+73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1795
+</td>
+<td style="text-align:left;">
+Jersey City
+</td>
+<td style="text-align:right;">
+73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1685
+</td>
+<td style="text-align:left;">
+Princeton
+</td>
+<td style="text-align:right;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1400
+</td>
+<td style="text-align:left;">
+New Brunswick
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1634
+</td>
+<td style="text-align:left;">
+Highland Park
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+269
+</td>
+<td style="text-align:left;">
+Hoboken
+</td>
+<td style="text-align:right;">
+68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+783
+</td>
+<td style="text-align:left;">
+New Brunswick
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+892
+</td>
+<td style="text-align:left;">
+Holmdel
+</td>
+<td style="text-align:right;">
+91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+185
+</td>
+<td style="text-align:left;">
+Highland Park
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>The Temp data set assigned random temperatures between 50 and 100 degrees to around 20 townships in New Jersey.</p>
+<p>Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).</p>
+<div id="snippet1" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Multiple Permutation Tests<a href="Multiple_Hypothesis.html#snippet1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJUZW1wIDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9UZW1wcmF0dXJlcy5jc3ZcIikgI3dlYiBsb2FkXG5cblBlcm11dGF0aW9uKFRlbXAsIFwiVG93bnNoaXBcIiwgXCJUZW1wcmF0dXJlXCIsMTAwMDAsIFwiUHJpbmNldG9uXCIsIFwiVHJlbnRvblwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJQYXNzYWljXCIsIFwiTmV3YXJrXCIpXG5QZXJtdXRhdGlvbihUZW1wLCBcIlRvd25zaGlwXCIsIFwiVGVtcHJhdHVyZVwiLDEwMDAwLCBcIk9jZWFuIEdyb3ZlXCIsIFwiTmV3IEJydW5zd2lja1wiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJOZXcgQnJ1bnN3aWNrXCIsIFwiSG9sbWRlbFwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJSZWQgQmFua1wiLCBcIkhvbG1kZWxcIikifQ==
+</div>
+<!--
+## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
+
+<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9</div>
+
+## Snippet 2
+
+Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
+
+- How to order by aggregate?
+
+- First make a data frame out of tapply? Use  aggregate  and list functions.
+
+<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9</div>
+-->
 </div>
 </div>
-<div id="making-categorical-attribute-from-numerical-attribute-using-function-cut" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Making categorical attribute from numerical attribute using function Cut()<a href="Derived_attributes.html#making-categorical-attribute-from-numerical-attribute-using-function-cut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><strong>cut()</strong> function divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.</li>
-</ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxuc2NvcmUxIDwtIGN1dChtb29keSRTQ09SRSxicmVha3M9YygwLDUwLDEwMCksbGFiZWxzPWMoXCJGXCIsXCJQXCIpKVxudGFibGUoc2NvcmUxKSJ9
-</div>
-</div>
-<div id="making-new-numerical-attribute-from-numerical-attributes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Making new numerical attribute from numerical attributes<a href="Derived_attributes.html#making-new-numerical-attribute-from-numerical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkQ29tYmluZWQgPC0gKG1vb2R5JFNDT1JFICArIDEwKiBtb29keSRQQVJUSUNJUEFUSU9OKVxubW9vZHlbMToxMCxdIn0=
-</div>
-</div>
-<div id="more-complex-example-of-defining-derived-attributes" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> More complex example of defining derived attributes<a href="Derived_attributes.html#more-complex-example-of-defining-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance.</p>
-<p>The next snippet illustrates defining such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation or rewards for good participation.</p>
-<p>Score is adjusted by the value of participation attribute in the following way:</p>
-<ul>
-<li>If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.</li>
-<li>If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.</li>
-</ul>
-<p>In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkY29uZGl0aW9uYWwgPC0wXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHNjb3JlIC0xMCooMS1tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kcGFydGljaXBhdGlvbilcblxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHNjb3JlICsxMCptb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHBhcnRpY2lwYXRpb25cblxuI0xldHMgc2VlIGEgc2FtcGxlIG9mIG5ldyByb3dzIG9mIG1vb2R5IHdpdGggdGhlIG5ldyBkZXJpdmVkIGF0dHJpYnV0ZVxubW9vZHlbMToxMCxdIn0=
-</div>
-<p>We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above. Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later.</p>
-</div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Additional references<a href="Derived_attributes.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
-Data Transformation
+<div id="additional-references-3" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#MPT12">
+Multiple Hypothesis Testing
 </button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
+<div id="MPT12" class="collapse">
+<embed src="https://docs.google.com/presentation/d/1dCbhnuGMsXYJEltQXUfPhl8dCTAqJWCZ0xI-0IhnxAc/edit?usp=sharing" width="100%" height="500px">
 </embed>
 </div>
+<p><a href="https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/" class="uri">https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/</a></p>
 
 </div>
 </div>
@@ -423,8 +542,8 @@ Data Transformation
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis_testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Chisquare.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bayesian_reasoning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
