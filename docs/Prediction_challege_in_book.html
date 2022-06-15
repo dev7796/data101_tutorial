@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit</title>
+  <title>Section: 16 Prediction Challenge | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta property="og:title" content="Section: 16 Prediction Challenge | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 5 🔖 Data Transformation with Derived Attributes | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 16 Prediction Challenge | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
-<link rel="next" href="hypothesis_testing.html"/>
+<link rel="prev" href="Prediction_loop.html"/>
+<link rel="next" href="Mysteries_of_Aggregated_data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,61 +364,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation-with-derived-attributes" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Section: 5</span> 🔖 Data Transformation with Derived Attributes<a href="Derived_attributes.html#data-transformation-with-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="pc" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Section: 16</span> Prediction Challenge<a href="Prediction_challege_in_book.html#pc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>R allows creating new data frame attributes (columns) “on the fly”. These are new vectors, which are often defined as functions of existing attributes. Hence, the name - derived attributes.</p>
-<p>Derived attributes will play an important role in data exploration as well as in building prediction models. Very often, derived attributes allow discovery of important patterns in data. Similarly, derived attributes may be more predictive than original attributes in the imported data sets.</p>
-<p>The term feature engineering is often used in machine learning to describe creation of derived attributes.</p>
-<div id="making-new-categorical-attributes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Making new categorical attributes<a href="Derived_attributes.html#making-new-categorical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we define a new attribute PF (Pass/Fail) to “Pass”. Students who got A, B or C, passed. Students who received F, failed. We are grouping values of Grade into two categories of a new categorical attribute PF.</p>
-<p>The line 5 replaces “Pass” by “Fail” for students who received F.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxubW9vZHkkUEY8LSdQYXNzJ1xubW9vZHlbbW9vZHkkR1JBREU9PSdGJyxdJFBGPC0nRmFpbCdcbm1vb2R5In0=
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+<div id="introduction-10" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Introduction<a href="Prediction_challege_in_book.html#introduction-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-</div>
-<div id="making-categorical-attribute-from-numerical-attribute-using-function-cut" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Making categorical attribute from numerical attribute using function Cut()<a href="Derived_attributes.html#making-categorical-attribute-from-numerical-attribute-using-function-cut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><strong>cut()</strong> function divides the range of x into intervals. Provides ability to label intervals as well. It plays important role in defining derived attributes from attributes which are numerical.</li>
-</ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxuIyBDdXQgRXhhbXBsZSB1c2luZyBicmVha3MgLSBDdXR0aW5nIGRhdGEgdXNpbmcgZGVmaW5lZCB2ZWN0b3IuIFxuc2NvcmUxIDwtIGN1dChtb29keSRTQ09SRSxicmVha3M9YygwLDUwLDEwMCksbGFiZWxzPWMoXCJGXCIsXCJQXCIpKVxudGFibGUoc2NvcmUxKSJ9
-</div>
-</div>
-<div id="making-new-numerical-attribute-from-numerical-attributes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Making new numerical attribute from numerical attributes<a href="Derived_attributes.html#making-new-numerical-attribute-from-numerical-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose we would like to combine score and participation into one combined score. We can define a new numerical attribute from SCORE and PARTICIPATION . We can see that the moody data frame will be expanded by the additional attribute.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkQ29tYmluZWQgPC0gKG1vb2R5JFNDT1JFICArIDEwKiBtb29keSRQQVJUSUNJUEFUSU9OKVxubW9vZHlbMToxMCxdIn0=
-</div>
-</div>
-<div id="more-complex-example-of-defining-derived-attributes" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> More complex example of defining derived attributes<a href="Derived_attributes.html#more-complex-example-of-defining-derived-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The way we define combined score attributes rewards students even for poor participation. Their combined score is always higher than their score in class even if their participation was quite low. It would make more sense to define combined score by either penalizing for poor performance or rewarding good performance.</p>
-<p>The next snippet illustrates defining such a new numerical attribute, $adjustedScore of a student in the Moody data frame. adjustedScore penalizes low participation or rewards for good participation.</p>
-<p>Score is adjusted by the value of participation attribute in the following way:</p>
-<ul>
-<li>If participation is larger than 0.5 - a bonus proportional to participation * 10 is added to the score.</li>
-<li>If participation is smaller than 0.5, a penalty of 1-participation) * 10 is subtracted from the score.</li>
-</ul>
-<p>In this way, for someone with very small participation, the 10 point penalty will be imposed (10 points subtracted from the score). Conversely, someone with perfect participation (1.0) will receive a 10 point bonus.</p>
-<div data-datacamp-exercise="" data-height="700" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9tb29keTIwMjJfbmV3LmNzdlwiKSAjd2ViIGxvYWRcblxubW9vZHkkY29uZGl0aW9uYWwgPC0wXG5tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kY29uZGl0aW9uYWwgPC0gbW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbjwwLjUwLCBdJHNjb3JlIC0xMCooMS1tb29keVttb29keSRwYXJ0aWNpcGF0aW9uPDAuNTAsIF0kcGFydGljaXBhdGlvbilcblxubW9vZHlbbW9vZHkkcGFydGljaXBhdGlvbj49MC41MCwgXSRjb25kaXRpb25hbCA8LSBtb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHNjb3JlICsxMCptb29keVttb29keSRwYXJ0aWNpcGF0aW9uPj0wLjUwLCBdJHBhcnRpY2lwYXRpb25cblxuI0xldHMgc2VlIGEgc2FtcGxlIG9mIG5ldyByb3dzIG9mIG1vb2R5IHdpdGggdGhlIG5ldyBkZXJpdmVkIGF0dHJpYnV0ZVxubW9vZHlbMToxMCxdIn0=
-</div>
-<p>We are now able to transform our data by slicing and dicing rows and columns, using subset function (or sub-data frame), we can also add new attributes as shown above. Data Transformation is critical not just in data exploration and plotting but foremost in building high quality prediction models as we will show later.</p>
-</div>
-<div id="additional-references-1" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Additional references<a href="Derived_attributes.html#additional-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#subset12">
-Data Transformation
-</button>
-<div id="subset12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1--AeLFVrESqyWO7iNiIBRW7pX-VSYtBco1o8bOpOatE/edit?usp=sharing" width="100%" height="500px">
-</embed>
+<div id="challenge-1-party-data-puzzle" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Challenge 1: Party Data Puzzle<a href="Prediction_challege_in_book.html#challenge-1-party-data-puzzle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InZlcmlmeSA8LSBmdW5jdGlvbihkYXRhMSkge1xuICBkYXRhMiA8LSByZWFkLmNzdignfi9EZXNrdG9wL0Rlc2t0b3AgLSBEZXZcdTIwMTlzIE1hY0Jvb2sgUHJvL0RHUy9TdHVkeS9EYXRhMTAxX1R1dG9yaWFscy9maWxlcy9kYXRhc2V0L3BhcnR5X3Rlc3QuY3N2JylcbiAgZGF0YWZyYW1lMTwtIGRhdGEuZnJhbWUoUGFydHkgPSBkYXRhMSlcbiAgaGVhZChkYXRhZnJhbWUxKVxuICBkYXRhZnJhbWUyIDwtIGRhdGEyWydQYXJ0eSddXG4gIG5yb3coZGF0YWZyYW1lMilcbiAgZGF0YWZyYW1lMyA8LSBkYXRhLmZyYW1lKCdQYXJ0eScpXG4gIGFjY3VyYWN5PC1tZWFuKGRhdGFmcmFtZTEkUGFydHkgPT0gZGF0YWZyYW1lMiRQYXJ0eSlcbiAgcHJpbnQoYWNjdXJhY3kpXG59Iiwic2FtcGxlIjoiI3MgaW1wb3J0IHRoZSBycGFydCBsaWJyYXJ5XG5saWJyYXJ5KHJwYXJ0KVxuXG4jIEltcG9ydCBkYXRhc2V0cyAodHJhaW5pbmcgYW5kIHRlc3RpbmcpXG50cmFpbjwtcmVhZC5jc3YoXCJ+L0Rlc2t0b3AvRGVza3RvcCAtIERldlx1MjAxOXMgTWFjQm9vayBQcm8vREdTL1N0dWR5L0RhdGExMDFfVHV0b3JpYWxzL2ZpbGVzL2RhdGFzZXQvcGFydHlfdHJhaW4uY3N2XCIpXG50ZXN0PC1yZWFkLmNzdignfi9EZXNrdG9wL0Rlc2t0b3AgLSBEZXZcdTIwMTlzIE1hY0Jvb2sgUHJvL0RHUy9TdHVkeS9EYXRhMTAxX1R1dG9yaWFscy9maWxlcy9kYXRhc2V0L3BhcnR5X3RyYWluX3Rlc3QuY3N2JylcblxudHJlZSA8LSBycGFydChQYXJ0eSB+IC4sIGRhdGEgPSB0cmFpbiwgbWV0aG9kID0gXCJjbGFzc1wiKVxudHJlZVxuc3VibWlzc2lvbjwtIHByZWRpY3QodHJlZSwgdGVzdCwgdHlwZT1cImNsYXNzXCIpXG5cbnZlcmlmeShzdWJtaXNzaW9uKVxuIyB3aWxsIHJldHVybiB0aGUgZXJyb3Igb2Ygc3R1ZGVudCBTdWJtaXNzaW9uIChhY2N1cmFjeSBvciBNU0UpIHZzIHRoZSBoaWRkZW4gdGVzdGluZyBkYXRhIHNldCB3aGljaCB3aWxsIGJlIHBhcnQgb2YgVkVSSUZZIGJ1dCBoaWRkZW4gZnJvbSB0aGUgc3R1ZGVudC4gIn0=
 </div>
 
 </div>
@@ -428,8 +386,8 @@ Data Transformation
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis_testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Prediction_loop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Mysteries_of_Aggregated_data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

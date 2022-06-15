@@ -1,0 +1,45 @@
+# Prediction Challenge {#pc}
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+
+```
+
+## Introduction
+
+## Challenge 1: Party Data Puzzle 
+
+```{r,tut=TRUE,ex="challenge1",type="pre-exercise-code"}
+verify <- function(data1) {
+  data2 <- read.csv('~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_test.csv')
+  dataframe1<- data.frame(Party = data1)
+  head(dataframe1)
+  dataframe2 <- data2['Party']
+  nrow(dataframe2)
+  dataframe3 <- data.frame('Party')
+  accuracy<-mean(dataframe1$Party == dataframe2$Party)
+  print(accuracy)
+}
+```
+
+```{r,tut=TRUE,ex="challenge1",type="sample-code",height=500}
+#s import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+train<-read.csv("~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_train.csv")
+test<-read.csv('~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_train_test.csv')
+
+tree <- rpart(Party ~ ., data = train, method = "class")
+tree
+submission<- predict(tree, test, type="class")
+
+verify(submission)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+
+```

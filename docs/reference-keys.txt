@@ -13,7 +13,7 @@ tab:unnamed-chunk-157
 tab:unnamed-chunk-166
 tab:unnamed-chunk-199
 tab:unnamed-chunk-202
-tab:unnamed-chunk-212
+tab:unnamed-chunk-215
 intro
 setting-up-r
 setting
@@ -243,12 +243,15 @@ additional-reference-3
 MLP
 introduction-9
 additional-reference-4
-MAD
+pc
 introduction-10
+challenge-1-party-data-puzzle
+MAD
+introduction-11
 ecological-paradox
 additional-references-5
 dsaf
-introduction-11
+introduction-12
 minimarket-data-set-description
 demo-of-boundless-analytics
 the-boundless-analytics-web-application
