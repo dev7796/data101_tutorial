@@ -256,12 +256,12 @@ chisq.test(data)
 
 ## Additional Reference
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#CS12">Chi Square</button> 
+<button class="btn btn-primary" data-toggle="collapse" data-target="#CS12">Chi Square Permutation Test</button> 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#KH13">Khan Academy Video</button>
 
 <div id="CS12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1h-h2S5lW6ReFwdeJKNflPpE0iCjoS08T0mpgSLiFv88/edit?usp=sharing" width="100%" height="500px"></embed>
+<embed src="https://docs.google.com/presentation/d/1GiiBTHhI-NDlY3YROCxl5AJu1w2Jc_-2iZuK0AjVpAw/edit?usp=sharing" width="100%" height="500px"></embed>
 </div>
 
 <div id="KH13" class="collapse">https://www.khanacademy.org/math/ap-statistics/chi-square-tests/chi-square-goodness-fit/v/chi-square-statistic
