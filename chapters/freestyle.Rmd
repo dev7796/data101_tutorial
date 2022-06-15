@@ -1041,7 +1041,7 @@ The documentaries (History) have a tendency to have higher imdb scores. The high
 
 ### Practice Snippets 
 
-#### Snippet 1: Get to know your data
+#### Snippet 1: Get to know your data  <a href="https://rutgers.zoom.us/rec/share/KiUs7dEpUocmTIeOZ0TeV3Km0St9h2I3cursegAhfQGiZUf-8xOXXeNFzdANVsro.Ko4JKR86_XuEWskV">🔊</a>
 
 ```{r,tut=TRUE,height=500}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
