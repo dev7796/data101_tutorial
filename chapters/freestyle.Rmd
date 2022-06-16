@@ -1,4 +1,4 @@
-# 🔖 Data puzzles
+# 🔖 Data puzzles {#dp}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -318,7 +318,7 @@ summary(moody)
 
 
 
-## How to predict a good party?  Data puzzle
+## How to predict a good party?  Data puzzle {#party}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Partyb.csv" download="Partyb.csv">Partyb.csv</a>
 
@@ -517,7 +517,7 @@ summary(party)
 
 
 
-## When election is truly local - data puzzle
+## When election is truly local - data puzzle {#election}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Voting1.csv" download="Voting1.csv">Voting1.csv</a>
 
@@ -780,7 +780,7 @@ summary(vote)
 
 
 
-## Secrets of good sleep Data Puzzle 
+## Secrets of good sleep Data Puzzle {#sleep}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/SleepPrediction2.csv" download="SleepPrediction2.csv">SleepPrediction2.csv</a>
 
@@ -972,7 +972,7 @@ summary(sleep)
 
 
 
-## Let’s go to the movies:  Data Puzzle 
+## Let’s go to the movies:  Data Puzzle {#movie}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
 
@@ -1041,7 +1041,7 @@ The documentaries (History) have a tendency to have higher imdb scores. The high
 
 ### Practice Snippets 
 
-#### Snippet 1: Get to know your data  <a href="https://rutgers.zoom.us/rec/share/KiUs7dEpUocmTIeOZ0TeV3Km0St9h2I3cursegAhfQGiZUf-8xOXXeNFzdANVsro.Ko4JKR86_XuEWskV">🔊</a>
+#### Snippet 1: Get to know your data  <a href="https://rutgers.zoom.us/rec/share/KiUs7dEpUocmTIeOZ0TeV3Km0St9h2I3cursegAhfQGiZUf-8xOXXeNFzdANVsro.Ko4JKR86_XuEWskV", target="blank">🔊</a>
 
 ```{r,tut=TRUE,height=500}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -1210,7 +1210,7 @@ summary(movies)
 </div>
 -->
 
-## When canvas goes wild data puzzle 
+## When canvas goes wild data puzzle {#canvas}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Canvas1.csv" download="Canvas1.csv">Canvas1.csv</a>
 
@@ -1752,7 +1752,7 @@ summary(airbnb)
 
 
 
-## Titanic data puzzle 
+## Titanic data puzzle {#titanic}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Titanic-train.csv" download="Titanic-train.csv">Titanic-train.csv</a>
 

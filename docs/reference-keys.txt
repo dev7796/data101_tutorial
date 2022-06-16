@@ -13,7 +13,7 @@ tab:unnamed-chunk-157
 tab:unnamed-chunk-166
 tab:unnamed-chunk-199
 tab:unnamed-chunk-202
-tab:unnamed-chunk-215
+tab:unnamed-chunk-223
 intro
 setting-up-r
 setting
@@ -84,7 +84,7 @@ covid-odds-after-positive-home-test.
 what-are-the-odds-that-an-f-student-is-a-freshman
 what-are-the-odds-that-a-a-student-with-the-score-less-than-80-is-a-psychology-major
 additinal-reference
-data-puzzles
+dp
 introduction-4
 strange-grading-methods-of-professor-moody-data-puzzle
 secret-patterns-embedded-by-the-data-maker-hint
@@ -100,7 +100,7 @@ snippet-8
 check1-9
 moody-data-quiz
 check1
-how-to-predict-a-good-party-data-puzzle
+party
 secret-patterns-embedded-by-the-data-maker-hint-1
 practice-snippets-1
 snippet-1-get-to-know-your-data
@@ -111,7 +111,7 @@ snippet-5-1
 check3-6
 party-data-quiz
 check3
-when-election-is-truly-local---data-puzzle
+election
 secret-patterns-embedded-by-the-data-maker-hint-2
 practice-snippets-2
 snippet-1-get-to-know-your-data-1
@@ -128,7 +128,7 @@ snippet-11
 check4-12
 election-data-quiz
 check4
-secrets-of-good-sleep-data-puzzle
+sleep
 secret-patterns-embedded-by-the-data-maker-hint-3
 practice-snippets-3
 snippet-1-get-to-know-your-data-2
@@ -139,10 +139,10 @@ snippet-5-3
 check5-6
 sleep-data-quiz
 check5
-lets-go-to-the-movies-data-puzzle
+movie
 secret-patterns-embedded-by-the-data-maker-hint-4
 practice-snippets-4
-snippet-1-get-to-know-your-data-3
+snippet-1-get-to-know-your-data-a-hrefhttpsrutgers.zoom.usrecsharekius7depuocmtieoz0tev3km0st9h2i3cursegahfqgizuf-8xoxxenfzdanvsro.ko4jkr86_xuewskv-targetblank
 snippet-2-4
 snippet-3-4
 snippet-4-4
@@ -153,10 +153,10 @@ snippet-8-2
 check6-9
 movies-data-quiz
 check6
-when-canvas-goes-wild-data-puzzle
+canvas
 secret-patterns-embedded-by-the-data-maker-hint-5
 practice-snippets-5
-snippet-1-get-to-know-your-data-4
+snippet-1-get-to-know-your-data-3
 snippet-2-5
 snippet-3-5
 snippet-4-5
@@ -169,7 +169,7 @@ check7
 minimarket
 secret-patterns-embedded-by-datamaker
 practice-snippets-6
-snippet-1-get-to-know-your-data-5
+snippet-1-get-to-know-your-data-4
 snippet-2-6
 snippet-3-6
 snippet-4-6
@@ -178,7 +178,7 @@ minimarket-data-quiz
 check8
 airbnb-data-puzzle
 practice-snippets-7
-snippet-1-get-to-know-your-data-6
+snippet-1-get-to-know-your-data-5
 snippet-2-7
 snippet-3-7
 snippet-4-7
@@ -186,9 +186,9 @@ snippet-5-6
 check9-6
 airbnb-data-quiz
 check9
-titanic-data-puzzle
+titanic
 practice-snippets-8
-snippet-1-get-to-know-your-data-7
+snippet-1-get-to-know-your-data-6
 snippet-2-8
 snippet-3-8
 snippet-4-8
@@ -245,7 +245,11 @@ introduction-9
 additional-reference-4
 pc
 introduction-10
-challenge-1-party-data-puzzle
+onesixone
+predict-if-sleep-will-be-deep-shallow-little-or-not-at-all
+predict-if-a-local-voter-will-vote-for-anarchists-knownothings-or-royalists
+predict-students-grade
+onesixfive
 MAD
 introduction-11
 ecological-paradox

@@ -12,28 +12,34 @@ tutorial::go_interactive(greedy = FALSE)
 
 ## Introduction
 
-## Challenge 1: Party Data Puzzle 
+The following five snippets are designed to practice your prediction model building skills.  Each snippet uses one of the data puzzles from section \@ref(dp) - the party \@ref(party), sleep \@ref(sleep), voting \@ref(election), canvas \@ref(canvas) and finally the real data set - the titanic \@ref(titanic). 
+
+We begin with an example created for a moody data set - snippet \@ref(onesixone).  We upload the training and testing data sets for the moody data puzzle. The task there is to predict the grade attribute. We begin with uploading the training and the testing data set (this one misses GRADE attribute). Students use the training data set to build the prediction model. In \@ref(onesixone), a simple rpart() model was built. Then this rpart() model is applied to the testing data set to create the  vector of predicted GRADE values. This constitutes the submission vector. Finally, the VERIFY function evaluates the error of the submission vector by comparing the predicted values with the real grades from the testing data set. It simulates what Kaggle does when students submit their submission file. The full testing data set is not available to students and is embedded inside the VERIFY() function. Students have access only to the training data set and to the testing data set WITHOUT the grade attribute. Just like in our prediction challenges on Kaggle. 
+
+Snippets \@ref(onesixone)-\@ref(onesixfive) provide the training and testing data for  party, sleep, voting, canvass and the titanic data sets. Students can use these snippets to plug in their submission vectors, just as they submit them to Kaggle. 
+
+
+## Predict if the party will be fun? Boring? Just Ok? {#onesixone}
+
+Description of the dataset: \@ref(party)
 
 ```{r,tut=TRUE,ex="challenge1",type="pre-exercise-code"}
 verify <- function(data1) {
-  data2 <- read.csv('~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_test.csv')
+  data2 <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_test.csv')
   dataframe1<- data.frame(Party = data1)
-  head(dataframe1)
   dataframe2 <- data2['Party']
-  nrow(dataframe2)
-  dataframe3 <- data.frame('Party')
   accuracy<-mean(dataframe1$Party == dataframe2$Party)
-  print(accuracy)
+  return(accuracy)
 }
 ```
 
-```{r,tut=TRUE,ex="challenge1",type="sample-code",height=500}
+```{r,tut=TRUE,ex="challenge1",type="sample-code",height=600}
 #s import the rpart library
 library(rpart)
 
 # Import datasets (training and testing)
-train<-read.csv("~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_train.csv")
-test<-read.csv('~/Desktop/Desktop - Dev’s MacBook Pro/DGS/Study/Data101_Tutorials/files/dataset/party_train_test.csv')
+train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_train.csv")
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_train_test.csv')
 
 tree <- rpart(Party ~ ., data = train, method = "class")
 tree
@@ -42,4 +48,146 @@ submission<- predict(tree, test, type="class")
 verify(submission)
 # will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
 
+
+
 ```
+
+
+
+
+## Predict if sleep will be deep, shallow, little or not at all? 
+
+Description of the dataset: \@ref(sleep)
+
+```{r,tut=TRUE,ex="challenge2",type="pre-exercise-code"}
+verify <- function(data1) {
+  data2 <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/sleep_test.csv')
+  dataframe1<- data.frame(Sleep = data1)
+  dataframe2 <- data2['Sleep']
+  accuracy<-mean(dataframe1$Sleep == dataframe2$Sleep)
+  return(accuracy)
+}
+```
+
+```{r,tut=TRUE,ex="challenge2",type="sample-code",height=600}
+#s import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/sleep_train.csv")
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/sleep_train_test.csv')
+
+tree <- rpart(Sleep ~ ., data = train, method = "class")
+tree
+submission<- predict(tree, test, type="class")
+
+verify(submission)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+
+
+
+```
+
+
+
+## Predict if a local voter will vote for Anarchists, KnowNothings, or Royalists? 
+
+Description of the dataset: \@ref(election)
+
+```{r,tut=TRUE,ex="challenge3",type="pre-exercise-code"}
+verify <- function(data1) {
+  data2 <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_test.csv')
+  dataframe1<- data.frame(Party = data1)
+  dataframe2 <- data2['Party']
+  accuracy<-mean(dataframe1$Party == dataframe2$Party)
+  return(accuracy)
+}
+```
+
+```{r,tut=TRUE,ex="challenge3",type="sample-code",height=600}
+#s import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_train.csv")
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/party_train_test.csv')
+
+tree <- rpart(Party ~ ., data = train, method = "class")
+tree
+submission<- predict(tree, test, type="class")
+
+verify(submission)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+
+
+
+```
+
+
+
+## Predict student's grade 
+
+Description of the dataset: \@ref(grade)
+
+```{r,tut=TRUE,ex="challenge4",type="pre-exercise-code"}
+verify <- function(data1) {
+  data2 <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grade_test.csv')
+  dataframe1<- data.frame(Grade = data1)
+  dataframe2 <- data2['Grade']
+  accuracy<-mean(dataframe1$Grade == dataframe2$Grade)
+  return(accuracy)
+}
+```
+
+```{r,tut=TRUE,ex="challenge4",type="sample-code",height=600}
+#s import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grade_train.csv")
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Grade_train_test.csv')
+
+tree <- rpart(Grade ~ ., data = train, method = "class")
+tree
+submission<- predict(tree, test, type="class")
+
+verify(submission)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+
+```
+
+
+
+## Predict Titanic passenger's survival {#onesixfive}
+
+Description of the dataset: \@ref(titanic)
+
+```{r,tut=TRUE,ex="challenge5",type="pre-exercise-code"}
+verify <- function(data1) {
+  data2 <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/titanic_test.csv')
+  dataframe1<- data.frame(Survived = data1)
+  dataframe2 <- data2['Survived']
+  accuracy<-mean(dataframe1$Survived == dataframe2$Survived)
+  return(accuracy)
+}
+```
+
+```{r,tut=TRUE,ex="challenge5",type="sample-code",height=600}
+#s import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+train<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/titanic_train.csv")
+test<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/titanic_train_test.csv')
+
+tree <- rpart(Survived ~ ., data = train, method = "class")
+tree
+submission<- predict(tree, test, type="class")
+
+verify(submission)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+
+
+
+```
+
