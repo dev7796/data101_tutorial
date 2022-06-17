@@ -18,6 +18,32 @@ We begin with an example created for a moody data set - snippet \@ref(onesixone)
 
 Snippets \@ref(onesixone)-\@ref(onesixfive) provide the training and testing data for  party, sleep, voting, canvass and the titanic data sets. Students can use these snippets to plug in their submission vectors, just as they submit them to Kaggle. 
 
+**Example:**
+
+Note: Student code in red.
+
+```
+# First lets import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+moody<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv')
+
+moodyTest<-read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_test_students.csv')  [testing data set without target variable]
+```
+
+<span style="color: red;">
+tree <- rpart(Grade ~ Major+Score+Seniority, data = train, method = "class",control=rpart.control(minbucket = 200)) </span>
+
+<span style="color: red;">
+submission<- predict(tree, test, type="class")
+</span>
+
+```
+VERIFY(submission, moody_Test)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. 
+```
+
 
 ## Predict if the party will be fun? Boring? Just Ok? {#onesixone}
 

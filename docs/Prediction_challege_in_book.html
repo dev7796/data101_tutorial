@@ -379,6 +379,22 @@
 <p>The following five snippets are designed to practice your prediction model building skills. Each snippet uses one of the data puzzles from section <a href="FreeStyle.html#dp">10</a> - the party <a href="FreeStyle.html#party">10.3</a>, sleep <a href="FreeStyle.html#sleep">10.5</a>, voting <a href="FreeStyle.html#election">10.4</a>, canvas <a href="FreeStyle.html#canvas">10.7</a> and finally the real data set - the titanic <a href="FreeStyle.html#titanic">10.10</a>.</p>
 <p>We begin with an example created for a moody data set - snippet <a href="Prediction_challege_in_book.html#onesixone">16.2</a>. We upload the training and testing data sets for the moody data puzzle. The task there is to predict the grade attribute. We begin with uploading the training and the testing data set (this one misses GRADE attribute). Students use the training data set to build the prediction model. In <a href="Prediction_challege_in_book.html#onesixone">16.2</a>, a simple rpart() model was built. Then this rpart() model is applied to the testing data set to create the vector of predicted GRADE values. This constitutes the submission vector. Finally, the VERIFY function evaluates the error of the submission vector by comparing the predicted values with the real grades from the testing data set. It simulates what Kaggle does when students submit their submission file. The full testing data set is not available to students and is embedded inside the VERIFY() function. Students have access only to the training data set and to the testing data set WITHOUT the grade attribute. Just like in our prediction challenges on Kaggle.</p>
 <p>Snippets <a href="Prediction_challege_in_book.html#onesixone">16.2</a>-<a href="Prediction_challege_in_book.html#onesixfive">16.6</a> provide the training and testing data for party, sleep, voting, canvass and the titanic data sets. Students can use these snippets to plug in their submission vectors, just as they submit them to Kaggle.</p>
+<p><strong>Example:</strong></p>
+<p>Note: Student code in red.</p>
+<pre><code># First lets import the rpart library
+library(rpart)
+
+# Import datasets (training and testing)
+moody&lt;-read.csv(&#39;https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv&#39;)
+
+moodyTest&lt;-read.csv(&#39;https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_test_students.csv&#39;)  [testing data set without target variable]</code></pre>
+<p><span style="color: red;">
+tree &lt;- rpart(Grade ~ Major+Score+Seniority, data = train, method = “class”,control=rpart.control(minbucket = 200)) </span></p>
+<p><span style="color: red;">
+submission&lt;- predict(tree, test, type=“class”)
+</span></p>
+<pre><code>VERIFY(submission, moody_Test)
+# will return the error of student Submission (accuracy or MSE) vs the hidden testing data set which will be part of VERIFY but hidden from the student. </code></pre>
 </div>
 <div id="onesixone" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">16.2</span> Predict if the party will be fun? Boring? Just Ok?<a href="Prediction_challege_in_book.html#onesixone" class="anchor-section" aria-label="Anchor link to header"></a></h2>
