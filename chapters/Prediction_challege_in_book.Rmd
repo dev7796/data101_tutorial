@@ -127,7 +127,7 @@ verify(submission)
 
 ## Predict student's grade 
 
-Description of the dataset: \@ref(grade)
+Description of the dataset: \@ref(canvas)
 
 ```{r,tut=TRUE,ex="challenge4",type="pre-exercise-code"}
 verify <- function(data1) {

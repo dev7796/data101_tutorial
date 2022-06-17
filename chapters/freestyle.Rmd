@@ -970,8 +970,6 @@ summary(sleep)
 
 
 
-
-
 ## Let’s go to the movies:  Data Puzzle {#movie}
 
 Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv" download="Movies2022F-4.csv">Movies2022F-4.csv</a>
