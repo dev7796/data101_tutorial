@@ -142,7 +142,7 @@ check5
 movie
 secret-patterns-embedded-by-the-data-maker-hint-4
 practice-snippets-4
-snippet-1-get-to-know-your-data-a-hrefhttpsrutgers.zoom.usrecsharekius7depuocmtieoz0tev3km0st9h2i3cursegahfqgizuf-8xoxxenfzdanvsro.ko4jkr86_xuewskv-targetblank
+snippet-1-get-to-know-your-data-3
 snippet-2-4
 snippet-3-4
 snippet-4-4
@@ -156,7 +156,7 @@ check6
 canvas
 secret-patterns-embedded-by-the-data-maker-hint-5
 practice-snippets-5
-snippet-1-get-to-know-your-data-3
+snippet-1-get-to-know-your-data-4
 snippet-2-5
 snippet-3-5
 snippet-4-5
@@ -169,7 +169,7 @@ check7
 minimarket
 secret-patterns-embedded-by-datamaker
 practice-snippets-6
-snippet-1-get-to-know-your-data-4
+snippet-1-get-to-know-your-data-5
 snippet-2-6
 snippet-3-6
 snippet-4-6
@@ -178,7 +178,7 @@ minimarket-data-quiz
 check8
 airbnb-data-puzzle
 practice-snippets-7
-snippet-1-get-to-know-your-data-5
+snippet-1-get-to-know-your-data-6
 snippet-2-7
 snippet-3-7
 snippet-4-7
@@ -188,7 +188,7 @@ airbnb-data-quiz
 check9
 titanic
 practice-snippets-8
-snippet-1-get-to-know-your-data-6
+snippet-1-get-to-know-your-data-7
 snippet-2-8
 snippet-3-8
 snippet-4-8
