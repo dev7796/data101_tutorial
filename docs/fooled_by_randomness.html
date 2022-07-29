@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 20 🔖 How can data fool us? | bookdemo.knit</title>
+  <title>Section: 6 Fooled By Randomness | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 20 🔖 How can data fool us? | bookdemo.knit" />
+  <meta property="og:title" content="Section: 6 Fooled By Randomness | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 20 🔖 How can data fool us? | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 6 Fooled By Randomness | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Prediction_challege_in_book.html"/>
-<link rel="next" href="22.html"/>
+<link rel="prev" href="datascience_databases.html"/>
+<link rel="next" href="normal_distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -387,262 +387,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="MAD" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">Section: 20</span> 🔖 How can data fool us?<a href="Mysteries_of_Aggregated_data.html#MAD" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fbr" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Section: 6</span> Fooled By Randomness<a href="fooled_by_randomness.html#fbr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="introduction-11" class="section level2 hasAnchor" number="20.1">
-<h2><span class="header-section-number">20.1</span> Introduction<a href="Mysteries_of_Aggregated_data.html#introduction-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>How not to be fooled by data?</code> In the description of this class we promised that data 101 will teach you this. Have we? I hope so. Please use our question roulette to test yourself. In this section we discuss Simpson Paradox, Prosecutorial and Ecological Fallacies. Before we proceed with the paradoxes let us summarize what we have learned so far:</p>
-<ul>
-<li><code>Beware of randomness</code> (Hypothesis testing, p-values, Multiple hypothesis testing)</li>
-<li><code>Be an optimist</code> - use Bayesian reasoning. Remember about prior odds first!</li>
-<li><code>Beware of extreme results</code> - Apply law of small numbers</li>
-<li><code>Remember we process information following availability</code> - we assign high frequency falsely to events which are just talked about very often</li>
-<li><code>Narrative fallacy - do not find false patterns</code> - “Stocks went down due to concerns about rising cost of living”</li>
-</ul>
-<p>Here we will discuss the Simpson paradox as well as Prosecutorial and Ecological fallacies.
-Let us start with the Simpson paradox. Here is a simple example of two basketball players, Aaron and Barry</p>
-<p>The Table <strong>16.1</strong> shows Aaron’s and Barry’s free throw point averages (FTP) over the 2021 and 2022 season respectively. Clearly for both seasons Barry beats Aaron in terms of FTP, in 2021 by 90% to 80% and in 2022 by 70% to 65%. <code>Can Aaron  still beat Barry over both seasons - that is get a higher FTP over the sum of two seasons, 2021+2022?</code> First answer which comes to mind is absolutely not. <code>How can Aaaron beat Barry over 2021+2022 when   Barry beats him in each of the two seasons?</code></p>
-<p><strong>Table 16.1</strong></p>
-<table>
-<tr>
-<td>
-season/player
-</td>
-<td>
-Aaron
-</td>
-<td>
-Barry
-</td>
-</tr>
-<tr>
-<td>
-2021 season
-</td>
-<td>
-80%
-</td>
-<td>
-90%
-</td>
-</tr>
-<tr>
-<td>
-2022 season
-</td>
-<td>
-65%
-</td>
-<td>
-70%
-</td>
-</tr>
-</table>
-<p>But table <strong>16.2</strong> explains that it is quite possible that Aaron can beat Barry over 2021+ 2022. Indeed, since we do not know the absolute number of attempts at free throws, we can easily pick any number of attempts for each of them in any of the two seasons.</p>
-<p><strong>Indeed</strong> - here is the proof that Aaron can still beat Barry. If Barry made 100 attempts in 2021 and 20 attempts in 2022, while Barry made only 20 attempts in 2021 and 100 attempts in 2022, Aaron’s overall FRP for both 2021+2022 will be higher than Barry’s. And this is Simposon’s paradox.</p>
-<p><strong>Table 16.2</strong></p>
-<table>
-<tr>
-<td>
-season/player
-</td>
-<td>
-Aaron
-</td>
-<td>
-Barry
-</td>
-</tr>
-<tr>
-<td>
-2021 season
-</td>
-<td>
-80% out of 100
-</td>
-<td>
-90% out of 20
-</td>
-</tr>
-<tr>
-<td>
-2022 season
-</td>
-<td>
-65% out of 20
-</td>
-<td>
-70% out of 100
-</td>
-</tr>
-</table>
-<p>Indeed Aaron’s FTP over 2021+2022 is<br />
-<span class="math display">\[\begin{equation}
-\frac{80+13}{120} = \frac{93}{120}
-\end{equation}\]</span>
-which is larger than Barry’s</p>
-<p><span class="math display">\[\begin{equation}
-\frac{18+20}{120} = \frac{88}{120}
-\end{equation}\]</span></p>
-<p>More generally, trends in subsets of data may reverse themselves after aggregation.</p>
-<p>In fact we can have any number of seasons and have Barry beat Aaron in FTP in each and every season and Aaron still wins with better FTP over all seasons. This is again simply because we do not know how many attempts each player made each season. This applies to many real world situations such as graduate admissions for example (the famous Berkeley admission bias case). There women may have a higher chance to be admitted than men in each single academic department and nevertheless, men beat women in overall acceptance ratio. This is again hard to comprehend at first but it is due to the fact that the absolute number of female and male applicants may be different for each department.</p>
-<p><strong>Is such reversal always possible? </strong></p>
-<p>Let’s look at the table below:</p>
-<p><strong>Table 16.3</strong></p>
-<table>
-<tr>
-<td>
-season/player
-</td>
-<td>
-Aaron
-</td>
-<td>
-Barry
-</td>
-</tr>
-<tr>
-<td>
-2021 season
-</td>
-<td>
-65%
-</td>
-<td>
-90%
-</td>
-</tr>
-<tr>
-<td>
-2022 season
-</td>
-<td>
-60%
-</td>
-<td>
-70%
-</td>
-</tr>
-</table>
-<p><code>In this case the Simpson paradox is not possible. Why?</code> Because Aaron’s highest FTP (65% in 2021 season is lower than Barry’s lowest FTP in 2022). You can easily see that no matter what the absolute numbers of attempts in each season, Aaron can never beat Barry for 2021+2022.
-Thus the Simpson paradox was possible in this simple case only because Aaron’s highest FTP was higher than Barry’s lowest FTP.</p>
-<p>One also has to be careful with the Simpson paradox and not apply it to situations when both groups /individuals have the same absolute number of “attempts”. For example, the Simpson paradox is not possible for students and their individual scores on homework’s and exams. If Barry scores higher than Aaron on each homework and on each exam then Barry will always have a higher score overall than Aaron. There is no Simpsonian trend reversal. Every homework and every exam counts the same for all students. This is as if players always made the same number of free throw attempts.</p>
-<div id="ecological-paradox" class="section level3 hasAnchor" number="20.1.1">
-<h3><span class="header-section-number">20.1.1</span> Ecological Paradox<a href="Mysteries_of_Aggregated_data.html#ecological-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ecological paradox is kind of the reverse of the Simpson paradox. Let’s assume that we consider net worth for each member of groups A and B. Even if average net worth of group A is higher than average net worth of group B, it may be possible that random individual member of the group B has higher net worth than random individual member of the group A. Thus the order of aggregates may be reversed when we look at the level of individuals.</p>
-<p>For example as table <strong>16.4</strong> illustrates, the average net worth of Group A dominates the average net worth of Group B due to the presence of one wealthy individual. However for 90% of pairs of individuals, group B members are more wealthy than Group A members.</p>
-<p><strong>Table 16.3</strong></p>
-<table>
-<tr>
-<td>
-Group A
-</td>
-<td>
-Group B
-</td>
-</tr>
-<tr>
-<td>
-$10,000,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$100,000
-</td>
-<td>
-$290,000
-</td>
-</tr>
-<tr>
-<td>
-$120,000
-</td>
-<td>
-$220,000
-</td>
-</tr>
-<tr>
-<td>
-$80,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$60,000
-</td>
-<td>
-$270,000
-</td>
-</tr>
-<tr>
-<td>
-$160,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$110,000
-</td>
-<td>
-$240,000
-</td>
-</tr>
-<tr>
-<td>
-$100,000
-</td>
-<td>
-$210,000
-</td>
-</tr>
-<tr>
-<td>
-$200,000
-</td>
-<td>
-$240,000
-</td>
-</tr>
-</table>
-<p>For example, it is well known that Democrats win the richest states, while (until recently), the richest individuals vote republican. <code>How is it possible?</code> Explanation is simple. Everyone’s vote counts the same and there are few very rich people. Very rich people may contribute more to the average wealth of the state (due to their extreme wealth), but there are just very few of them.</p>
-<p><strong>Do not be fooled by aggregates! </strong></p>
-<p>Let’s assume that a Democrat wins 70% of the vote and a Republican wins 30% of the vote in some state. <code>Is it possible that, nevertheless, the  republican candidate wins all 19 counties out of 20 in the state?</code>
-This actually happens a lot when the population is heavily concentrated in a heavily populated urban county which has the vast majority of voters living there.</p>
-</div>
-</div>
-<div id="additional-references-5" class="section level2 hasAnchor" number="20.2">
-<h2><span class="header-section-number">20.2</span> Additional References<a href="Mysteries_of_Aggregated_data.html#additional-references-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#Mt12">
-How can data fool us?
-</button>
-<div id="Mt12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1vDCRffHzeSxka1sxQSUCnZvzaKIMmwPE7UO-5IefrM4/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="Prediction_challege_in_book.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="22.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="datascience_databases.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="normal_distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

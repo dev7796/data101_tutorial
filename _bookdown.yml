@@ -7,6 +7,8 @@ rmd_files: [
   "./chapters/tapply_subsetting.Rmd",
   "./chapters/plots.Rmd",
   "./chapters/datascience_databases.Rmd",
+  "./chapters/fooled_by_randomness.Rmd",
+  "./chapters/normal_distribution.Rmd",
   "./chapters/Derived_attributes.Rmd",
   "./chapters/hypothesis_testing.Rmd",
   "./chapters/Chisquare.Rmd",

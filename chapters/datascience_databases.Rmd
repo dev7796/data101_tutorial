@@ -1,4 +1,4 @@
-# 🔖 Data science vs Databases {#dbds}
+# Data science vs Databases {#dbds}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -89,7 +89,7 @@ The following three histograms show distribution of frequency of Brooklyn apartm
 
 The Histogram below shows distribution of frequencies of Brooklyn Airbnb rentals if our database has only 100 offerings. Notice that now if we run 1000 such samples of size 100, the spread is much larger (it is determined by standard deviation) . Now we can get frequencies ranging from 30% to 55%!
 
-![Figure 5.2](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/predblog/BrooklynSamples100.png)
+![Figure 5.2](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynSamples100.png)
 
 Finally, the last of the three histograms shows spread of frequencies over 1000 samples each of size 5000.  This time the spread is much smaller – and we range from 41 to 44% with some outliers of course.  All these histograms illustrate a simple fact that if we believe our data set to be incomplete and just a sample of a larger data set, we can only answer queries with estimates.  One of the key objectives of data science is to provide these estimates with some measure of confidence (see section 11)
 
