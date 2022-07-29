@@ -201,55 +201,55 @@ Beware of misleading graphs.
 
 The following graphs artificially exaggerate the argument by manipulating either the Y-axis or X-axis. Typically this effect can be achieved by not moving the beginning of the scale (Y or X) from zero to much larger value.  Such axes manipulations result in exaggerating otherwise minor trends and differences. 
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading1.PNG)
+![Figure 4.6.1](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading1.PNG)
 
 Differences between calories are not as large as it appears on the graph above. The range is just between 590 and 720, but because of moving the origin of the X-axis to 590, the bottom three bars seem to be multiple times larger than the top 3, an KFC and MacDonald look much better than they should. 
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading5.PNG)
+![Figure 4.6.2](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading5.PNG)
 
 Number of people on welfare appears to be growing rapidly while in fact, although it is growing by only around 12% total in 3 years, not 4 times – when judging from the height of the last bar as compared with the first, leftmost bar.
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading6.PNG)
+![Figure 4.6.3](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading6.PNG)
 
 It seems like the fraction of Democrats who agree with the court is much higher than the fraction of Republicans or Independents (seems like 3x of democrats agree with the court as compared to Republicans).  By moving the origin of the Y-axis to 50, the difference of 8% points between Democrats and  republicans is grossly exaggerated. 
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading13.png)
+![Figure 4.6.4](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading13.png)
 
 Similar effects are achieved in the graphs below – moving the origins of axes exaggerates the difference in bar sizes.
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading11.PNG)
+![Figure 4.6.5](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading11.PNG)
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading12.PNG)
+![Figure 4.6.6](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading12.PNG)
 
 The home price increase is not massive! It only appears to be by manipulation of the graph!
 
-**Optical Illusions**
+- **Optical Illusions**
 
 Depending how pie-chart is presented some slices may appear much larger than they really are. For example item C is the same size as slice A, but it appears much larger.
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading2.PNG)
+![Figure 4.6.7](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading2.PNG)
 
 Notice the graph below is reversed. What looks like a drop is in fact increasing!
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading10.PNG)
+![Figure 4.6.8](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading10.PNG)
 
-**Misleading Message**
+- **Misleading Message**
 
 In these two side-by-side graphs we have Y-axes labeled by different variables (number of countries and cases per 10000 respectively). This is why the comparison is a bit like apples and oranges. 
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading3.PNG)
+![Figure 4.6.9](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading3.PNG)
 
-**Correlation vs Causation**
+- **Correlation vs Causation**
 
 This is one of many examples of graphs showing spurious correlation which looks like causation. The two unrelated quantities change in time very similarly but have nothing to do with one another!
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading4.PNG)
+![Figure 4.6.10](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading4.PNG)
 
-**One sided arguments**
+- **One sided arguments**
 
 The graph below shows only half of what should be the full argument.  What about people who did not go to college at all? We are missing the “base” here.
 
-![](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading7.PNG)
+![Figure 4.6.11](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading7.PNG)
 
 
 

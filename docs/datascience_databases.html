@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 1 Introduction | bookdemo.knit</title>
+  <title>Section: 5 🔖 Data science vs Databases | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 1 Introduction | bookdemo.knit" />
+  <meta property="og:title" content="Section: 5 🔖 Data science vs Databases | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 1 Introduction | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 5 🔖 Data science vs Databases | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="Setting_up_R.html"/>
+<link rel="prev" href="plots.html"/>
+<link rel="next" href="Derived_attributes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -382,62 +382,288 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-<div id="intro" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Section: 1</span> Introduction<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="dbds" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Section: 5</span> 🔖 Data science vs Databases<a href="datascience_databases.html#dbds" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<p>The objective of this textbook is to provide you with the shortest path to exploring your data, visualizing it, forming hypotheses and validating and defending them. In other words, to introduce you to data science. We call it an active textbook, since students can interact with the book by running and modifying snippets of R code. Students can also test themselves using Query and Code Roulette - on questions and simple coding tasks. Thus, an active textbook interacts with its reader, helps to run code and also asks students questions and gives them simple coding tasks. Concepts which we discuss in the book are widely covered on the web with countless youtube video tutorials. We briefly introduce the basic concepts here as well, but our focus is on problem solving and simple coding. In other words, honing the skills to do something with the data, not just talk about it. To learn a concept you have to know how to code it. To put it bluntly, no coding, no learning!</p>
-<p>Active textbook is data-centric. We stress that prior to data analysis and exploration, you have to know your data. Paraphrasing the famous saying that real estate is about “location, location and location”, data science is about data, data and data. Using numerous data sets we guide the student through the process of getting acquainted with their data. We call these data sets - data puzzles, since each of them is synthetically created and has hidden patterns embedded in the process of data generation. For each of our data puzzles we show the process of getting familiar with the data beginning from simple scripts called queries and proceeding through as-hoc hypothesis testing as well as Bayesian reasoning. As we said, each data puzzle hides interesting and non-trivial patterns which are to be discovered. This process of discovery makes data science similar to the work of a detective. Discoveries range from grading methods of Professor Moody, factors influencing quality of a party, voter profiles in local town elections or quality of sleep determinants.</p>
-<p>Given a data set, you want to be able to make any plot you wish, find plots which show something actionable and interesting, explore data by slicing and dicing it and finally present your results in a statistically convincing manner, perhaps in a colorful and visually appealing way. Finally, you will be able to apply some basic machine learning methods to build, train and test prediction models. All of this will be accomplished in a succinct and crisp way using a small subset of R instructions.</p>
-<p>We assume no prior programming background. We will teach you as little R as necessary to achieve the goals of this book: explore the data, visualize it, verify hypotheses and build prediction models. Thus, you will be able to do a good chunk of work which data scientists do. We will accomplish this goal through active snippets of executable code. These are examples of R code (around 100 executable snippets of code) embedded in the textbook itself. More importantly, you will be able to modify the code and execute the modified code without need to install any application on your machine. This will allow you to understand the code in the book through the “what if” exploratory process. Thus, every code snippet is just an invitation to endless modifications. This is why we call this textbook - active.</p>
-<p>Another unique aspect of this textbook is its reliance on data puzzles. These are synthetic data sets with embedded patterns and rules generated by our tool called <strong>DataMaker</strong>. We will present our data puzzles (dynamic list, may vary from year to year) in section 8 following introduction to plots, then we will proceed to freestyle data exploration. This will allow us to learn more about our data, form the leads, and finally state our hypotheses. We will follow up by an elementary introduction to hypothesis testing through a permutation test. We will learn how to calculate p-values and how to use them to defend our findings against the randomness trap. This will be particularly important in case of multiple hypotheses when one has to be particularly careful to avoid “false positives” . We will introduce Bayesian reasoning and learn how to compute posterior odds of a belief given an observation. All these important concepts will be introduced via executable snippets of code and “what if” practicing. We will then enter the key section of the book - the data puzzles section. In the data puzzle section, for each data set we will go through the process of getting to know the data and using the concepts learned so far by executing code tailored to each of the data puzzles.</p>
-<p>In the second part of the book we discuss prediction models. We focus on decision trees (rpart() - recursive partitioning) and linear regression. But we also show how to use other machine learning methods from the rich R-library. We go over cross-validation and show how to build prediction models which combine multiple machine learning models. We stress the importance of knowing your data first, instead of just blind application of machine learning packages. Humans in the loop is very important and prior data exploration and visualization leads to improved quality prediction models. Students can practice prediction model building on especially prediction snippets to make themselves prepared for Kaggle based prediction challenge competition which takes the last months of the data 101 class. The last leaderboard of 2022 challenge is presented here <a href="https://data101.cs.rutgers.edu/?q=node/151"> LeaderBoard </a>.</p>
-<p>We will use as few R functions as possible to achieve our goals. In fact we will demonstrate how using less than ten R functions is sufficient for us. In the appendix, we show many more useful commands of R which eventually you would have to use. However, our goal in this short textbook, is to present the shortest path to data analysis which will let you import the data, plot it, make some analysis yourself and use R-libraries to build machine learning models. In this textbook and in this class we do not teach how to clean the data (data wrangling) and how to deal with a wide variety of data types. We also do not address complex data transformations such as multi-frame operations like merge function. We also do not explain how different machine learning methods work, we only show you how to use them. It is similar to teaching one how to drive a car without knowing how a car engine works.</p>
-<p>Sections <a href="Setting_up_R.html#rconcepts">2.5</a> and <a href="Setting_up_R.html#rfunctions">2.6</a> provide the lists of all concepts which we cover in our active textbook and all R functions which are needed. Notice how small the set of R functions is. It is important for programming novices to start small and also see how far this small set of functions can get you.</p>
-<p>Our <strong>question roulette</strong> allows self-testing on nearly 100 questions relevant to the material. Each question is answered, but students are encouraged first to answer questions themselves and only then follow it with checking the correct answer. The <strong>code roulette</strong>, on the other hand, consists of around 100 of simple common data science coding tasks.</p>
+<p>At the beginning there is always data. But is it complete or is it partial?
+Data science and statistics deal with situations when data is partial. In other words we do not have the whole data set. We only have a sample, even if this sample is very large. No matter how large the data is, it is still just a sample from a larger hypothetical data set that may involve future, unknown yet, data values.
+On the other hand, In the field of databases we believe that our data set is complete. Data is “as is”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and <em>complete</em>. This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set.</p>
+<p>We formulate the main principle behind data science</p>
+<p><strong>Data is always a sample</strong></p>
+<p><strong>Example:</strong> Airbnb data set.</p>
+<p>Let airbnb be the data set describing Airbnb rentals in New York City. It has 5287 tuples and is a set of listings with room type, neighborhood, neighborhood group (more specific names of hundreds of NYC neighborhoods such as Tribeca, East Village, Park Slope etc), floor and price.</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-51">Table 5.1: </span>Snippet of small airbnb Dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+host_name
+</th>
+<th style="text-align:left;">
+neighbourhood_group
+</th>
+<th style="text-align:left;">
+neighbourhood
+</th>
+<th style="text-align:left;">
+room_type
+</th>
+<th style="text-align:right;">
+floor
+</th>
+<th style="text-align:right;">
+price
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5756241
+</td>
+<td style="text-align:left;">
+1 bedroom in a 2 bedroom apartment
+</td>
+<td style="text-align:left;">
+Teri
+</td>
+<td style="text-align:left;">
+Manhattan
+</td>
+<td style="text-align:left;">
+Midtown
+</td>
+<td style="text-align:left;">
+Entire home/apt
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+531.3010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5692807
+</td>
+<td style="text-align:left;">
+Charming Two Bedroom in Chelsea 30 days+
+</td>
+<td style="text-align:left;">
+Eric
+</td>
+<td style="text-align:left;">
+Manhattan
+</td>
+<td style="text-align:left;">
+Chelsea
+</td>
+<td style="text-align:left;">
+Entire home/apt
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+287.3102
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6286253
+</td>
+<td style="text-align:left;">
+SunLit Room in Hip Neighborhood
+</td>
+<td style="text-align:left;">
+Rebekah
+</td>
+<td style="text-align:left;">
+Brooklyn
+</td>
+<td style="text-align:left;">
+Bushwick
+</td>
+<td style="text-align:left;">
+Private room
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+267.7120
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+594732
+</td>
+<td style="text-align:left;">
+Greenwich Village Skylit 1BR +deck!
+</td>
+<td style="text-align:left;">
+Chris
+</td>
+<td style="text-align:left;">
+Manhattan
+</td>
+<td style="text-align:left;">
+Greenwich Village
+</td>
+<td style="text-align:left;">
+Entire home/apt
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+537.4393
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35199464
+</td>
+<td style="text-align:left;">
+Penthouse on the beach 3 floors of art, fun,surf,
+</td>
+<td style="text-align:left;">
+Sata
+</td>
+<td style="text-align:left;">
+Queens
+</td>
+<td style="text-align:left;">
+Far Rockaway
+</td>
+<td style="text-align:left;">
+Entire home/apt
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+152.7281
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>There are two approaches of treating this data set:</p>
+<ul>
+<li><p><strong>Approach 1:</strong> airbnb data set is complete. It is all about Airbnb prices in New York city. We ignore the time the data set is collected. We just treat it as “as is” like a used car. There is no hidden larger data set which we do not have access to. We can run queries against Airbnb data sets and return definite query answers. For example we can ask about the fraction of Airbnb rental offerings in Brooklyn (it is around 42.1%). Or the average price of Brooklyn rental? $179.06.</p></li>
+<li><p><strong>Approach 2:</strong> airbnb data set is incomplete. It is just a sample of much larger, unknown set of all prices of airbnb rentals <em>ever</em> (even though we do not have timestamps associated with rentals stored in the Airbnb table) If this is the case, answers to queries are no longer definite and deterministic but rather estimators of <em>real values</em> which are unknown to us. But how do we know what we do not know, if the data is incomplete? If we make no assumptions whatsoever, we do not know anything. Thus, we need some assumptions about data distributions. This is where statistics enters the picture.</p></li>
+</ul>
+<p>Let us examine these two queries: query Q1 about frequency of Brooklyn Airbnb rentals and query Q2 about mean price of Brooklyn Airbnb rentals.<br />
+We begin by running this two queries against airbnb data, assuming it is <em>complete data set</em>. In other words we follow Approach 1. Thus, we treat the airbnb data set “as is” – and the answers to our queries are prices: 42.1% and $179.06 respectively.</p>
+<div id="query-1-fraction-of-brooklyn-airbnb-rentals" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> <strong>Query 1:</strong> Fraction of Brooklyn Airbnb Rentals<a href="datascience_databases.html#query-1-fraction-of-brooklyn-airbnb-rentals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following query returns the required fraction of Brooklyn rentals</p>
+<p><code>round(nrow(airbnb[airbnb$neighbourhood_group=='Brooklyn',])/nrow(airbnb),3)</code></p>
+<p>calculates the fraction of Brooklyn Airbnb offerings – 42.1%.</p>
+<div id="fraction-of-brooklyn-airbnb-rentals" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Fraction of Brooklyn Airbnb rentals)<a href="datascience_databases.html#fraction-of-brooklyn-airbnb-rentals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmJTbWFsbC5jc3YnKSAgIFxuY29sbmFtZXMoYWlyYm5iKVxuXG5yb3VuZChucm93KGFpcmJuYlthaXJibmIkbmVpZ2hib3VyaG9vZF9ncm91cD09J0Jyb29rbHluJyxdKS9ucm93KGFpcmJuYiksMykifQ==
+</div>
+<p>Now, let’s follow Approach 2 and not trust that the airbnb data set is complete, but rather a sample of some larger “complete” airbnb data set. Under normal circumstances we will never know this “real” data set. But here let us assume that we know about airbnbReal. It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573 of airbnbReal. Not surprisingly, the value of our query will now return a different value (42.4%) - making our original fraction just an estimate.</p>
+</div>
+<div id="fraction-of-brooklyn-airbnb-rentals-in-the-real-airbnb-data-set" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Fraction of Brooklyn Airbnb rentals in the <em>real</em> airbnb data set<a href="datascience_databases.html#fraction-of-brooklyn-airbnb-rentals-in-the-real-airbnb-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvYWlyYm5iLmNzdicpXG5cbnJvdW5kKG5yb3coYWlyYm5iUmVhbFthaXJibmJSZWFsJG5laWdoYm91cmhvb2RfZ3JvdXA9PSdCcm9va2x5bicsXSkvbnJvdyhhaXJibmIpLDMpIn0=
+</div>
+<p>Thus, our query now returns a “soft” value, which is not exact. It is rather an interval of possible values. The quality of this estimate depends on the size of our sample data set. In our case that sample size was 5278 tuples. The smaller the size of the sample, the less accurate the estimate is. Notice that we make a conscious decision here, the decision is about trusting the data set at hand. Do we trust that it is complete? Or do we take a cautionary view that what we have is just a sample from an unknown, much larger universe. The former assumption is the database approach (data is complete), the latter, that data is an incomplete sample from a much larger universe. This is the data science approach.</p>
+<p>The following three histograms show distribution of frequency of Brooklyn apartments across 1000 samples of 1000 size each, 100 size each and finally 5000 each taken from the airbnbReal data set. Notice how the spread of the frequency values depend on the sample size. The larger the data sample is, the “tighter” is the histogram. In the case of a sample size of 1000, we may obtain frequencies of Brooklyn offerings ranging from 38 to 46%.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Brooklyn-samples1000.png" alt="" />
+<p class="caption">Figure 5.1</p>
+</div>
+<p>The Histogram below shows distribution of frequencies of Brooklyn Airbnb rentals if our database has only 100 offerings. Notice that now if we run 1000 such samples of size 100, the spread is much larger (it is determined by standard deviation) . Now we can get frequencies ranging from 30% to 55%!</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/plots/predblog/BrooklynSamples100.png" alt="" />
+<p class="caption">Figure 5.2</p>
+</div>
+<p>Finally, the last of the three histograms shows spread of frequencies over 1000 samples each of size 5000. This time the spread is much smaller – and we range from 41 to 44% with some outliers of course. All these histograms illustrate a simple fact that if we believe our data set to be incomplete and just a sample of a larger data set, we can only answer queries with estimates. One of the key objectives of data science is to provide these estimates with some measure of confidence (see section 11)</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynSamples5000.png" alt="" />
+<p class="caption">Figure 5.3</p>
+</div>
+</div>
+</div>
+<div id="query-2-mean-price-of-brooklyn-airbnb-rentals" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> <strong>Query 2:</strong> Mean price of Brooklyn Airbnb rentals<a href="datascience_databases.html#query-2-mean-price-of-brooklyn-airbnb-rentals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following query returns the mean price of Brooklyn rentals</p>
+<p><code>round(mean(airbnb[airbnb$neighbourhood_group=='Brooklyn',]$price),2)</code></p>
+<p>This returns $179.06</p>
+<div id="mean-price-of-brooklyn-airbnb-rentals" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Mean price of Brooklyn airbnb rentals<a href="datascience_databases.html#mean-price-of-brooklyn-airbnb-rentals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmJTbWFsbC5jc3YnKSAgXG5cbnJvdW5kKG1lYW4oYWlyYm5iW2FpcmJuYiRuZWlnaGJvdXJob29kX2dyb3VwPT0nQnJvb2tseW4nLF0kcHJpY2UpLDIpIn0=
+</div>
+<p>Trusting airbnb it is a complete data set and following approach (1), we view $179.06 as precise and definite answer.</p>
+<p>As in case of query 1, we also follow approach (2) and assume that in fact airbnb is nothing but a sample of 5287 tuples from the airbnbReal data set of It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573. Not surprisingly, the value of our query will now return a different value $179.84 making our original mean price just an estimate. Thus, the mean price of $179.06 was only an estimate of the real mean price of $179.84.</p>
+</div>
+<div id="mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Mean price of Brooklyn airbnb rentals in real Airbnb data set<a href="datascience_databases.html#mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmIuY3N2JykgIFxuXG5yb3VuZChtZWFuKGFpcmJuYlthaXJibmIkbmVpZ2hib3VyaG9vZF9ncm91cD09J0Jyb29rbHluJyxdJHByaWNlKSwyKSJ9
+</div>
+<p>In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the same, the tighter are the histograms. For example, for samples of size 100, we mean price can range from 140s to 220s.</p>
+<p>These histograms for mean price illustrate a very important concept in statistics called Central Limit Theorem. This remarkable theorem says that regardless of what the original distribution of data is, the distribution of means of samples follows normal distribution (the Bell curve), as illustrated in the histograms below.</p>
+<p>Again, if we treat the data set we have only as a sample, we have to provide measures of the quality of estimates such data provides for any query. Only when we take data ‘as is’ can we talk about definite query answers. Otherwise, no matter how large our data set is, it is only a sample. This is probably the shortest summary of data science methodology. Nothing is exact. Everything is just a sample. As such, we need to do better than just mistrust the data – we should provide measures of quality of the estimates that are down from data as samples.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynPriceSample1000.png" alt="" />
+<p class="caption">Figure 5.4</p>
+</div>
+<p><strong>Figure 5.4</strong> 1000 samples each of size = 1000</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/brooklyn2.png" alt="" />
+<p class="caption">Figure 5.5</p>
+</div>
+<p><strong>Figure 5.5</strong> 1000 samples each of size = 100</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynPriceSample5000.png" alt="" />
+<p class="caption">Figure 5.6</p>
+</div>
+<p><strong>Figure 5.6</strong> 1000 samples each of size = 5000</p>
+<p>The following snippet (5.5) shows impact of different samples of airbnbReal data set on queries Q1 and Q2. You can change the size of a sample and run this code repetitively to see how the values returned by query 1 and query 2 change. Instead of obtaining this particular sample of 5287 of tuples from the aibnbReal we could have obtained a different random sample of 5287 tuples and get different estimators of frequency of Brooklyn rentals as well of the mean price. Change 5287 to any number (1000, 100,2000) and rerun the snippet 5.5</p>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvYWlyYm5iLmNzdicpICBcblxudiA8LSBzYW1wbGUoMTpucm93KGFpcmJuYlJlYWwpKVxuYWlyYm5iPC1haXJibmJSZWFsW3YsXVxuYWlyYm5iPC1haXJibmJbMTo1Mjg3LF1cbnJvdW5kKG5yb3coYWlyYm5iW2FpcmJuYiRuZWlnaGJvdXJob29kX2dyb3VwPT0nQnJvb2tseW4nLF0pL25yb3coYWlyYm5iKSwzKVxucm91bmQobWVhbihhaXJibmJbYWlyYm5iJG5laWdoYm91cmhvb2RfZ3JvdXA9PSdCcm9va2x5bicsXSRwcmljZSksMikifQ==
+</div>
+<p>We can repeat similar snippets and histograms for any queries for Airbnb data set such as</p>
+<ul>
+<li><p>Q3: Mean prices of Tribeca apartments on floors higher than 5th floor</p></li>
+<li><p>Q4: Fraction of high floor offerings in Manhattan (high floor &gt;6)</p></li>
+<li><p>Q5: Mean prices of high floor apartments in Manhattan</p></li>
+<li><p>Q6: Fraction of private rooms under $150 in Queens</p></li>
+</ul>
+<p>Etc.</p>
+<p>Each such query has an exact answer if we believe that data is complete and is only an estimate if we treat data as a sample.</p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="Setting_up_R.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Derived_attributes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

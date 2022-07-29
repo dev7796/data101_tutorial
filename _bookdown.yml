@@ -6,6 +6,7 @@ rmd_files: [
   "./chapters/Setting_up_R.Rmd",
   "./chapters/tapply_subsetting.Rmd",
   "./chapters/plots.Rmd",
+  "./chapters/datascience_databases.Rmd",
   "./chapters/Derived_attributes.Rmd",
   "./chapters/hypothesis_testing.Rmd",
   "./chapters/Chisquare.Rmd",
