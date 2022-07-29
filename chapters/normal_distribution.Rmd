@@ -19,15 +19,17 @@ Standard deviation is a very important measure of data spread. It is as importan
 
 \begin{equation}
 
-\sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}\\
+\sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}}\\
 
 \text{where:}\\
-\text{\sigma = population standard deviation}\\
+\sigma \text{= population standard deviation}\\
 \text{N = the size of the population}\\
-\text{x_i = each value from the population}\\
-\text{\mu = the population mean}\\
+x_i \text{= each value from the population}\\
+\mu \text{= the population mean}\\
 
-\end{equation}
+\end{equation} 
+
+
 
 
 The squaring of differences between data points and the mean value is important since it treats negative and positive differences identically. Dividing by the number of data points is important for normalization.
@@ -36,7 +38,7 @@ Given a numerical variable x, sd(x) is the R function which computes standard de
 
 These will be useful later in hypothesis testing.
 
-In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1.  Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section).  Normal distribution plays a special role due to the Central Limit Theorem (section 11).
+In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1.  Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section).  Normal distribution plays a special role due to the Central Limit Theorem \@ref(Mtest).
 
 Feel free to change parameters of rnorm() in snippet 7.1 and see the effect of mean and standard deviation in the shapes of resulting bell curves.
 
@@ -48,7 +50,6 @@ The function pnorm(z) calculates the fraction of data points in normal distribut
 
 The reader is encouraged to change all the parameters of this snippet and see the effect of z-value on the number of values exceeding z. This fraction becomes negligible roughly around z approaching 3. For z-values larger than 5, one cannot observe a single value with z>5, unless the data set is very large.  Thus, the decline of the Gaussian Bell curve is very steep!
 
-## Normal Distribution 
 
 ```{r,tut=TRUE,height=300}
 

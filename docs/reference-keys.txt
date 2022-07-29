@@ -63,7 +63,6 @@ mean-price-of-brooklyn-airbnb-rentals
 mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set
 fbr
 nd
-normal-distribution
 data-transformation-with-derived-attributes
 making-new-categorical-attributes
 making-categorical-attribute-from-numerical-attribute-using-function-cut

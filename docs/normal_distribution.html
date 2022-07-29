@@ -150,10 +150,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a></li>
-<li class="chapter" data-level="7" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>7</b> Normal distribution</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="normal_distribution.html"><a href="normal_distribution.html#normal-distribution"><i class="fa fa-check"></i><b>7.1</b> Normal Distribution</a></li>
-</ul></li>
+<li class="chapter" data-level="7" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>7</b> Normal distribution</a></li>
 <li class="chapter" data-level="8" data-path="Derived_attributes.html"><a href="Derived_attributes.html"><i class="fa fa-check"></i><b>8</b> 🔖 Data Transformation with Derived Attributes</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="Derived_attributes.html"><a href="Derived_attributes.html#making-new-categorical-attributes"><i class="fa fa-check"></i><b>8.1</b> Making new categorical attributes</a></li>
@@ -401,32 +398,29 @@
 <p>Standard deviation is a very important measure of data spread. It is as important as the mean value, since it tells us how widely or narrowly data is spread around the mean. Mathematically, standard deviation is defined by the following formula:</p>
 <p><span class="math display">\[\begin{equation}
 
-\sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}\\
+\sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}}\\
 
 \text{where:}\\
-\text{\sigma = population standard deviation}\\
+\sigma \text{= population standard deviation}\\
 \text{N = the size of the population}\\
-\text{x_i = each value from the population}\\
-\text{\mu = the population mean}\\
+x_i \text{= each value from the population}\\
+\mu \text{= the population mean}\\
 
 \end{equation}\]</span></p>
 <p>The squaring of differences between data points and the mean value is important since it treats negative and positive differences identically. Dividing by the number of data points is important for normalization.</p>
 <p>Given a numerical variable x, sd(x) is the R function which computes standard deviation. It is demonstrated in the snippet 7.1</p>
 <p>These will be useful later in hypothesis testing.</p>
-<p>In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1. Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section). Normal distribution plays a special role due to the Central Limit Theorem (section 11).</p>
+<p>In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1. Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section). Normal distribution plays a special role due to the Central Limit Theorem <a href="Multiple_Hypothesis.html#Mtest">11</a>.</p>
 <p>Feel free to change parameters of rnorm() in snippet 7.1 and see the effect of mean and standard deviation in the shapes of resulting bell curves.</p>
 <p>The statement length(normal[normal &gt;x]) shows the number of data points which are larger than x. In the snippet x=12. Notice how quickly length(normal[normal &gt;x]) goes down to zero when one increases x. The statement z&lt;-(12-10)/10 calculate the z-value, which is defined as difference between x and the mean of the distribution divided by standard deviation. This helps normalization and allows talking about vastly different data sets in the same terms.</p>
 <p>Z-value is the distance measured in sigmas, where sigma stands for one standard deviation.</p>
 <p>The function pnorm(z) calculates the fraction of data points in normal distribution whose z-value is less than z. Regardless of what standard deviation and mean of a given data set is, this fraction is always the same for the same values of z. Z-value is the common denominator normalizing all data distributions. With z-values we may disregard the range of data as well as its mean. It allows us to define distance from the mean in units which are standard deviations (sigmas).</p>
 <p>The reader is encouraged to change all the parameters of this snippet and see the effect of z-value on the number of values exceeding z. This fraction becomes negligible roughly around z approaching 3. For z-values larger than 5, one cannot observe a single value with z&gt;5, unless the data set is very large. Thus, the decline of the Gaussian Bell curve is very steep!</p>
-<div id="normal-distribution" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Normal Distribution<a href="normal_distribution.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJub3JtYWw8LXJub3JtKDEwMDAwLG1lYW49MTAsIHNkPTEpXG5zZChub3JtYWwpXG5tZWFuKG5vcm1hbClcbmhpc3Qobm9ybWFsLCA1MClcbmxlbmd0aChub3JtYWxbbm9ybWFsID4xMl0pXG56PC0oMTItMTApLzEwXG4xLXBub3JtKHopIn0=
 </div>
 <p>1-pnorm(z) returns the area under the bell curve with z value larger than z. In our case z=0.2. As you can check 1-pnorm(z) returns 0.42. Thus, 42% of the area under the bell curve is larger than z=0.2.</p>
 
-</div>
 </div>
             </section>
 
