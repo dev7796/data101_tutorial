@@ -51,6 +51,7 @@ scartterplot
 barplot
 boxplot
 mosaicplot
+misleading-graphs
 additional-references
 data-transformation-with-derived-attributes
 making-new-categorical-attributes
