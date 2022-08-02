@@ -38,7 +38,7 @@ Given a numerical variable x, sd(x) is the R function which computes standard de
 
 These will be useful later in hypothesis testing.
 
-In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1.  Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section).  Normal distribution plays a special role due to the Central Limit Theorem \@ref(Mtest).
+In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1.  Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section).  Normal distribution plays a special role due to the Central Limit Theorem \@ref(sampling).
 
 Feel free to change parameters of rnorm() in snippet 7.1 and see the effect of mean and standard deviation in the shapes of resulting bell curves.
 
