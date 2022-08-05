@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 16 🔖 Free Style: Prediction | bookdemo.knit</title>
+  <title>Section: 11 Sampling (and special role of normal distributions) | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 16 🔖 Free Style: Prediction | bookdemo.knit" />
+  <meta property="og:title" content="Section: 11 Sampling (and special role of normal distributions) | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 16 🔖 Free Style: Prediction | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 11 Sampling (and special role of normal distributions) | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="common_sense.html"/>
-<link rel="next" href="Decision_trees.html"/>
+<link rel="prev" href="Chisquare.html"/>
+<link rel="next" href="Multiple_Hypothesis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -398,131 +398,73 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="P1" class="section level1 hasAnchor" number="16">
-<h1><span class="header-section-number">Section: 16</span> 🔖 Free Style: Prediction<a href="Free_style.html#P1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sampling-and-special-role-of-normal-distributions" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Section: 11</span> Sampling (and special role of normal distributions)<a href="Sampling.html#sampling-and-special-role-of-normal-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="introduction-6" class="section level2 hasAnchor" number="16.1">
-<h2><span class="header-section-number">16.1</span> Introduction<a href="Free_style.html#introduction-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>What is a prediction model?</p>
-<p>Prediction model is a set of rules which, given the values of independent variables (predictors) determine the value of predicted (dependent variable). Here are example of such rules</p>
-<p><code>If score &gt; 80 and participation &gt;0.6 then grade =’A’</code></p>
-<p><code>If score &gt;60 and score &lt;70 and major=’Psychology’ and Ask_questions =’always’ then grade =’B’</code></p>
-<p><code>If score &lt;50 and score &gt;40 and Doze_off =’always’ then grade = ‘F’</code></p>
-<p>By freestyle prediction we mean building a prediction model without the R library functions such as rpart and other machine learning packages. In freestyle prediction one develops models from scratch, on the basis of plots as well as exploratory queries. Freestyle prediction is important for two reasons: First, building prediction models from scratch allows an aspiring data scientist to “feel the data” - as opposed to often blind direct applications of these library functions, Second, even when one uses the prediction models based on library functions, the best models are often created by combining of several such models. These combinations often arise from skillful subsetting of datasets and applying different models to different subsets.</p>
-<p>As our prediction challenge competitions indicate, the winning prediction models (the ones with the least error) are predominantly combinations of different models applied to different subsets of the data. Thus, freestyle prediction is almost always a part of the prediction model building.
-We start with showing an example of a simple freestyle prediction model.</p>
-</div>
-<div id="example-of-a-simple-freestyle-prediction-model" class="section level2 hasAnchor" number="16.2">
-<h2><span class="header-section-number">16.2</span> Example of a simple freestyle prediction model<a href="Free_style.html#example-of-a-simple-freestyle-prediction-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In section @ref(#dbds) we already introduced the concept of a sample. For educational purposes we assume that we also know the universe from which sample was taken. This of course happens very rarely, if at all. Usually we do not know the universe.</p>
+<p>Here, we discuss how we can calculate the quality of estimation, when we do not know the universe which is sampled. Is this even possible? Yes, it is. This is the power of statistics. We introduce confidence intervals for means and for proportions and show how such intervals can serve as estimators along with the confidence probabilities as measures of estimators quality.</p>
+<div id="estimator-of-proportions" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Estimator of Proportions<a href="Sampling.html#estimator-of-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us start with the estimation of proportion. This is the problem we witness in each election, when we see partial results and try to estimate who won, on the basis of the sample of votes which were counted so far. Different TV networks call a winner at different times and sometimes (although rarely) they may be wrong.
+How can we estimate the quality of the estimated proportion calculated on the basis of a sample.</p>
+<p>For example assume that in our Local Election data puzzle, we consider a sample of 1000 voters, who are above 50 years old. Let’s assume that 62% of them voted for Royalists. Of course by now we know that each data set is really, only a sample and each value computed from that sample is just an estimate of an unknown “real” value. Thus, we do believe that 62% is the exact population proportion of voters under 50 who chose to vote for Royalists</p>
+<p>Instead of 62% we return so called confidence interval of proportions</p>
+<p><span class="math display">\[\begin{equation}
+
+&lt;62-e, 62+e&gt;
+
+\end{equation}\]</span></p>
+<p>Examples of such intervals would be &lt;59,65&gt; (in this case e=3). In addition, along with the confidence interval, we return the confidence level, say 99%, 95% etc. Thus, our answer has the form of an interval as well as confidence level of this interval.</p>
+<p>Technically, we estimate the unknown population proportion p* with the sample population proportion p (in our case it is 62%). This sample proportion comes from the universe of sample proportions and we must know something more about this universe to be able to infer the relationship between the p* and p. It makes sense to assume that this possible population proportions p* are centered around p. It is also reasonable to assume that the larger the size of the sample N, the tighter this population will cluster around p. Thus, we assume that the mean of the population of samples is equal to observed population proportion p. </p>
+<p>Turns out that the set of all sample proportions will be normally distributed around the mean which is equal to p and with standard deviation which is equal to</p>
+<p><span class="math display">\[\begin{equation}
+
+\sqrt{(p(1-p)/N)} \\
+
+\text{where N is the size of the sample (see eg Martin Sternstein, “Statistics” )}\\
+
+\end{equation}\]</span></p>
+<p>For example, coming back to out example of sample of 1000 voters who are over 50 years old voting for Royalists, we calculate the mean = 0.62 and the standard deviation</p>
+<strong>Snippet 11.1:</strong>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0ZXN0PC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L01vb2R5TWFyY2gyMDIyYi5jc3ZcIilcblxuc3VtbWFyeSh0ZXN0KVxuXG5teXByZWRpY3Rpb248LXRlc3RcbmRlY2lzaW9uIDwtIHJlcCgnRicsbnJvdyhteXByZWRpY3Rpb24pKVxuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjQwXSA8LSAnRCdcbmRlY2lzaW9uW215cHJlZGljdGlvbiRTY29yZT42MF0gPC0gJ0MnXG5kZWNpc2lvbltteXByZWRpY3Rpb24kU2NvcmU+NzBdIDwtICdCJ1xuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjgwXSA8LSAnQSdcbm15cHJlZGljdGlvbiRHcmFkZSA8LWRlY2lzaW9uXG5lcnJvciA8LSBtZWFuKHRlc3QkR3JhZGUhPSBteXByZWRpY3Rpb24kR3JhZGUpXG5lcnJvciJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzaWdtYSA9IFNxcnQoMC42MiowLjM4LzEwMDApXG5wbm9ybSh6KVxuXG4jVG8gY2FsY3VsYXRlIHRoZSBwcm9iYWJpbGl0eSBvZiBpbnRlcnZhbCBvZiA8cC16KnNpZ21hLCBwK3oqc2lnbWE+ICB3ZSBjb21wdXRlIFxuMS0yKDEtcG5vcm0oeikpXG5cbiN0aGlzIGlzIHRoZSBzYW1lIGFzIFxuMipwbm9ybSh6KS0xIn0=
 </div>
+<p>Thus for example, with p=0.62 and sigma = 0.0027, we can get 99% interval with z=3, which would be
+The interval &lt;61.2%, 62.8%&gt; with confidence of 99%</p>
+<p>Notice that if our sample was 10 times smaller, N=100 then sigma = 0.048 and 99% confidence interval would be much wider
+&lt;57.2%, 66.8%&gt;</p>
 </div>
-<div id="how-to-build-a-freestyle-your-own-code-prediction-model" class="section level2 hasAnchor" number="16.3">
-<h2><span class="header-section-number">16.3</span> How to build a freestyle (your own code) prediction model?<a href="Free_style.html#how-to-build-a-freestyle-your-own-code-prediction-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The key idea behind building freestyle prediction models is to subset data and select the most frequent value of the predicted variable as prediction. Of course we are interested in finding highly discriminative subsets of data with one highly dominant (most frequent value), since such a very frequent value as prediction choice will lead to a small error. But how to find data subsets with such dominant most frequent values? It is a bit of a trial and error process. As we show below in the snippet 2, it is a sequence of one line exploratory queries, which the programmer can rely on. Later, in the next section we show how the rpart() package generates such discriminative subsets of data automatically, though recursive partitioning.</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU1hcmNoMjAyMmIuY3N2XCIpXG5cbiMgSG93IGRvIHdlIGJ1aWxkIGEgZnJlZXN0eWxlIHByZWRpY3Rpb24gbW9kZWw/ICBEZWZpbml0ZWx5IHN0YXJ0IHdpdGggcGxvdHMgbGlrZSB0aGUgYm94cGxvdCBmcm9tIHRoZSBzZWN0aW9uIDUgKGRhdGEgZXhwbG9yYXRpb24pLiAgQnV0IHRoZW4gZm9sbG93IHVwIHdpdGggZXhwbG9yYXRvcnkgcXVlcmllcyBhcyBpbiB0aGUgcmVjZW50IHF1aXp6ZXMuIEV4YW1wbGVzIGhlcmUgdXNlIHRhYmxlKCkgIGZ1bmN0b24gYW5kIGxvb2sgZm9yIHNpdHVhdGlvbnMgd2hlbiBvbmUgZ3JhZGUgaXMgYWJzb3V0ZWx5IGRvbWluYW50LiBUaGlzIHdvdWxkIGJlIHlvdXIgcHJlZGljdGlvbi4gVGh1cywgdGhlIGdvYWwgaXMgdG8gc2xpY2UgdGhlIGRhdGEgdXNpbmcgc3Vic2V0dGluZyBpbiBzdWNoIGEgd2F5IHRoYXQgZm9yIGVhY2ggc2xpY2UgeW91IGdldCBhIGNsZWFyIFwid2lubmVyIGdyYWRlXCIuIFRoZW4gY29tYmluZSB0aGVzZSBzdWJzZXQgcnVsZXMgaW50byBkZWNpc2lvbiB2ZWN0b3IgLSBqdXN0IGFzIHdlIGRpZCBpbiBzbmlwcGV0IDE0LjEuXG5cbiMgQmVsb3cgc29tZSBleGFtcGxlcyBvZiBzdWNoIGV4cGxvcmF0b3J5IHF1ZXJpZXMgd2l0aCBjbGVhciBncmFkZSB3aW5uZXJzLlxuXG5zdW1tYXJ5KG1vb2R5KVxudGFibGUobW9vZHkkR3JhZGUpXG50YWJsZShtb29keVttb29keSRTY29yZT44MCxdJEdyYWRlKVxudGFibGUobW9vZHlbbW9vZHkkU2NvcmU+ODAgJiBtb29keSRNYWpvcj09J1BzeWNob2xvZ3knLF0kR3JhZGUpXG50YWJsZShtb29keVttb29keSRTY29yZTw0MCAmIG1vb2R5JE1ham9yPT0nRWNvbm9taWNzJyxdJEdyYWRlKVxudGFibGUobW9vZHlbbW9vZHkkU2NvcmU8NDAgJiBtb29keSRTZW5pb3JpdHk9PSdGcmVzaG1hbicsXSRHcmFkZSkifQ==
+<div id="estimator-of-mean" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Estimator of Mean<a href="Sampling.html#estimator-of-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a sample of 500 movies taken from a movie data set (see data puzzles). The scheme contains imdb_score, genre, content, nationality etc.</p>
+<p>Suppose we calculated the mean of imdb_score of comedies</p>
+<p><strong>Snippet 11.2:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXMgPC1yZWFkLmNzdignbW92aWVzU2FtcGxlLmNzdicpICAgIFxubWVhbihtb3ZpZXNbbW92aWVzJGdlbnJlPT0nQ29tZWR5JyxdJGltZGJfc2NvcmUpIn0=
 </div>
-</div>
-<div id="one-step-crossvalidation" class="section level2 hasAnchor" number="16.4">
-<h2><span class="header-section-number">16.4</span> One-step crossvalidation<a href="Free_style.html#one-step-crossvalidation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>How do we know if our prediction model is any good? After all, we may easily build a model which is close to perfect on the training data set but performs miserably on the new, testing data. This is a nightmare for every prediction model builder and it is called a Kaggle surprise. Kaggle surprise happens quite often during our prediction competitions when students build models which are overfitting the data and which give them a false feeling of great, low error just to do the opposite on the testing data and yield a miserably high error.</p>
-<p>To avoid this or at least to protect one against it, cross validation is needed. We illustrate cross-validation in the next snippet. We split training data into the <em>real</em> training data and the testing data, which is the remaining part of our training data set. Thus we use part of the training data as testing data. We do it by randomly splitting our data set. Although we show here just one step of cross-validation, we should do it multiple times. This helps us to observe how our model behaves for different random subsets of training data and helps us to observe inconsistent results (high variance of error) - which is a warning sign of future kaggle surprise.</p>
-<div data-datacamp-exercise="" data-height="900" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0cmFpbjwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9Nb29keU1hcmNoMjAyMmIuY3N2XCIpXG5zdW1tYXJ5KHRyYWluKVxuI3NjcmFtYmxlIHRoZSB0cmFpbiBmcmFtZVxudjwtc2FtcGxlKDE6bnJvdyh0cmFpbikpXG52WzE6NV1cbnRyYWluU2NyYW1ibGVkPC10cmFpblt2LCBdXG4jb25lIHN0ZXAgY3Jvc3N2YWxpZGF0aW9uXG50cmFpblNhbXBsZTwtdHJhaW5TY3JhbWJsZWRbbnJvdyh0cmFpblNjcmFtYmxlZCktMTA6bnJvdyh0cmFpblNjcmFtYmxlZCksIF1cbm15cHJlZGljdGlvbjwtdHJhaW5TYW1wbGVcblxuI3ByZWRpY3Rpb24gbW9kZWwgLSBmcmVlIHN0eWxlXG4jSG93IHRvIHRlc3QgaG93IGdvb2QgeW91ciBtb2RlbCBpcz9cbiNDcm9zc3ZhbGlkYXRpb246ICBEaXZpZGUgdHJhaW4gZGF0YSBzZXQgaW50byB0d28gZGlzam9pbnQgc3Vic2V0cyBUICh0cmFpbikgYW5kIHRyYWluIE1JTlVTIFQsIHRoZSBjb21wbGVtZW50IG9mIFQuIFxuI1lvdSB1c2UgVCB0byBkZXJpdmUgeW91ciBwcmVkaWN0aW9uIG1vZGVsIGFuZCB0aGUgY29tcGxlbWVudCBvZiBUICh0cmFpbiBNSU5VUyBUKSB0byB2YWxpZGF0ZSAodGVzdCBpdCkuXG4jIFdlIGFzc3VtZSB0aGF0IHlvdSBjcmVhdGVkIHByZWRpY3Rpb24gbW9kZWwgbG9va2luZyBqdXN0IGF0IHRoZSBzdWJzZXQgb2YgdHJhaW5pbmcgZGF0YSBUPXRyYWluU2NyYW1ibGVkWzE6OTkwLCAgXS4gXG4jU2luY2UgZm9yIGNyb3NzdmFsaWRhdGlvbiB3ZSB0cmFpbiBvbiBhIHN1YnNldCBUIG9mIHRoZSB0cmFpbmluZyBkYXRhIHNldCBhbmQgdmFsaWRhdGUgKHRlc3QpIG9uIHRoZSBjb21wbGVtZW50IG9mIFQuIFxuI0luIHRoaXMgY2FzZSBUPSB0cmFpblNjcmFtYmxlZFsxOjk5MCwgIF0gYW5kIGNvbXBsZW1lbnQgb2YgVCAodG8gdmFsaWRhdGUvdGVzdCkgaXMgc3RvcmVkIGFzIHRyYWluU2FtcGxlLlxuI1lvdSBjYW4gZG8gaXQgbXVsdGlwbGUgdGltZXMuIEFuZCBvYnNlcnZlIHRoZSBlcnJvciBhbmQgaXRzIHN0YWJpbGl0eS5cbiNZb3UgYnVpbGQgeW91ciBtb2RlbCB1c2luZyB0aGUgZGVjaXNpb24gdmVjdG9yLiAgSGVyZSBpcyB2ZXJ5IFNJTVBMSVNUSUMgTU9ERUwgd2hpY2ggaXMganVzdCBpbGx1c3RyYXRpb24uIFlvdXIgbW9kZWwgc2hvdWxkIGhhdmUgbXVjaCBiZXR0ZXIgZXJyb3IgYW5kIGJlIG1vcmUgc29waGlzdGljYXRlZC4gXG5cbmRlY2lzaW9uIDwtIHJlcCgnRicsbnJvdyhteXByZWRpY3Rpb24pKVxuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjQwXSA8LSAnRCdcblxuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjYwXSA8LSAnQydcblxuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjcwXSA8LSAnQidcblxuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjgwIF0gPC0gJ0EnXG5cbm15cHJlZGljdGlvbiRHcmFkZSA8LWRlY2lzaW9uXG5lcnJvciA8LSBtZWFuKHRyYWluU2FtcGxlJEdyYWRlIT0gbXlwcmVkaWN0aW9uJEdyYWRlKVxuZXJyb3IgICAifQ==
-</div>
-<p>We use selected data puzzles from section 4 in prediction challenges. Given a data puzzle (such as 4.1), we separate it into training data subset and testing data subset. The training data is given to students to build and cross-validate their prediction models. Then we use Kaggle to evaluate their models on the testing subset of the data puzzle. Each prediction challenge is structured as competition and Kaggle ranks students’ models by prediction accuracy. For categorical variables it is the <strong>fraction of values</strong> which are predicted correctly, for numerical variables it is <strong>MSE (mean square error)</strong>.</p>
-<script src="files/js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-</div>
-<div id="general-structure-of-the-prediction-challenges" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> General Structure of the Prediction Challenges<a href="Free_style.html#general-structure-of-the-prediction-challenges" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The submission will take place on Kaggle which is used for organizing these prediction challenges online, helping in validating submissions, placing deadlines for submission and also calculating the prediction scores along with ranking all the submissions.</p>
-<p>The datasets provided for each prediction challenge is as follows:</p>
+<p>There are 160 comedies in our sample and the mean imdb score of this sample of Comedies is equal to 6.52. But it is just an estimate. We only have a sample from an unknown larger data set (of course we may consider the original movies data set with thousands of movies as the universe of movies from which we have drawn the sample, but how do we know that it is the source of data for our sample? Therefore we have to assume that we do not know the source of data for our movie sample. Can we still assess the quality of the imdb_score estimator based on this limited sample of 160 comedies?</p>
+<p>Turns out that thanks to the central limit theorem we can.</p>
+<p>Our sample is one sample from the population of sample means. How do these means vary? It is clear that the means of samples are centered around the mean of the entire, unknown population. Again, the larger the size of a sample, the tighter the population of means of samples of this size is. The lesser the spread (standard deviations) of means around the mean of the population.</p>
+<p>It turns out (see Martin Sterenstein, Statistics), that the standard deviation of the population of means</p>
+<p>sigma-samples= sigma-population/sqrt(n)</p>
+<p>This leads us to the central limit theorem, which says that regardless of what is the distribution of the original data, the distribution of means of samples from this population is normal. This is really a stunning finding, since it is so universal. It lets us be completely blind to the original distribution of data!</p>
+<p><strong>Central Limit Theorem</strong></p>
 <ul>
-<li><p><strong>Training Dataset</strong></p>
-<ul>
-<li>It is used for training and cross-validation purposes in the prediction challenge. This data has all the training attributes along and the values of the attribute wich is predicted (so called, Target attribute).</li>
-<li>Models for prediction are to be trained using this dataset only.</li>
-<li>Training data set is the set which is used when you build your prediction model - since this is the only data set which has all values of target attribute.</li>
-</ul></li>
-<li><p><strong>Testing Dataset</strong></p>
-<ul>
-<li><p>It is used for applying your prediction model to new data. You do it only when you are finished with building your prediction model.</p></li>
-<li><p>Testing data set consists of all the attributes that were used for training, but it does not contain any values of the target attribute.</p></li>
-<li><p>It is disjoint with the training data set - it contains new data and it is missing the target variable.</p></li>
-</ul></li>
-<li><p><strong>Submission Dataset</strong></p>
-<ul>
-<li>After prediction using the “testing” dataset, for submitting on Kaggle, we must copy the predicted attribute column to this Submission Dataset which only has 2 columns, first an index column(e.g. ID or name,etc) and second the predicted attribute column. Remember after copying the predicted attribute column to this dataset, one should also save this dataset into the same submission dataset file, which then can be used to upload on Kaggle.</li>
-</ul></li>
+<li>The set of all sample means is approximately normally distributed</li>
+<li>The mean of the set of sample means is equal to the mean of population</li>
+<li>The standard deviation, sigma-samples is equal to sigma-population/sqrt(n)</li>
 </ul>
-<p>To read the datasets use the read.csv() function and for writing the dataset to the file, use the write.csv() function. Offen times while writing the dataframe from R to a csv file, people make mistake of writing even the row names, which results in error upon submission of this file to Kaggle.</p>
-<p>To avoid this, you can add the parameter, row.names = F in the write.csv() function. e.g. <code>write.csv(*dataframe*,*fileaddress*,row.names = F)</code>.</p>
-<!--
-## Challenge 1 - Freestyle prediction of grades in yet another MOODY data set
-
-This is the next in the sequence of data puzzles about grading methods of the eccentric professor Moody. Professor Moody found out that his former grading methods were leaked to the student by treacherous TA and changed his grading methods (and the TA).
-
-Unfortunately, again the data was leaked to the students (Professor Moody does not use passwords). It indicates that Professor Moody may be tougher on certain majors and also may apply different grading criteria for different student seniority levels
-
-Can you build a prediction model which will mimic Moody's grading as closely as possible?
-
-Attached  are three files : One <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022train.csv" download="M2022train.csv">M2022train.csv</a> with  original Professor Moody grading data and another, the <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022testS.csv" download="M2022testS.csv">M2022testS.csv</a> data with missing GRADE column.  Finally <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/M2022submissionS.csv" download="M2022submissionS.csv">M2022submissionS.csv</a> is the file you will submit to Kaggle of course after filling up the GRADE column.  
-
- Your job is to predict the grades in the testing file, adding to it GRADE attribute  with predicted grades. 
-
-This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
-
-**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
-**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-1-2022/overview<br>
-**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
-**Canvas HW9:** https://rutgers.instructure.com/courses/159918/assignments/1953810
-
-
-## Challenge 2 - Same data but using rpart - decision tree
-
-It is the same DATA as prediction challenge 1.  Just use **rpart()** this time.  Lets see if you can do better (certainly faster) with the rpart than with freestyle prediction. You have to use rpart, but you can use it as part of your prediction model and combine it with your model which you submitted for HW9.  We will talk about rpart in detail in recitations and lectures next week.
-
-**FOR THIS PREDICTION CHALLENGE:**  Have to use rpart function (and predict of course). Have to use and show crossvalidation (use crossvalidate(). Explain in ppts how you used crossvalidation.
-
-Use rpart contol functions - like minbucket and minsplit as well as different subsets of attributes - when corssvalidating. Make sure you explain in your ppts what "controls" have you tried and eventually used.
- 
-This test submission will be handled through Kaggle (just the error computation part)  and  Canvas just like for any assignments so far (Kaggle submission instructions coming). Kaggle will automatically calculate your prediction error.  In this case, of Professor Moody data, it will be a fraction of  grades which your prediction model have predicted incorrectly. 
-
-
-**Data League:** https://data101.cs.rutgers.edu/?q=node/155 <br>
-**Kaggle competition:** https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview<br>
-**Kaggle submission instructions:** https://data101.cs.rutgers.edu/?q=node/150 <br>
-**Canvas HW10:** https://rutgers.instructure.com/courses/159918/assignments/1961012
-
--->
-<div id="preparing-submission.csv-for-kaggle" class="section level3 hasAnchor" number="16.5.1">
-<h3><span class="header-section-number">16.5.1</span> Preparing submission.csv for Kaggle<a href="Free_style.html#preparing-submission.csv-for-kaggle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEhlcmUgeW91IGp1c3QgbmVlZCB0aGUgdGVzdCB0YWJsZSAod2l0aG91dCBncmFkZXMpIHRvIGFwcGx5IHlvdXIgcHJlZGljdGlvbiBtb2RlbCBhbmQgY2FsY3VsYXRlIHByZWRpY3RlZCBncmFkZXMuIEFuZCBzdWJtaXNzaW9uIGRhdGEgZnJhbWUgdG8gZmlsbCBpdCBpbiB3aXRoIHRoZSBwcmVkaWN0ZWQgI2dyYWRlc1xuXG50ZXN0PC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvTTIwMjJ0ZXN0U05vR3JhZGUuY3N2JylcbnN1Ym1pc3Npb248LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9NMjAyMnN1Ym1pc3Npb24uY3N2JylcblxubXlwcmVkaWN0aW9uPC10ZXN0XG4jSGVyZSBpcyB5b3VyIG1vZGVsLiBJIGp1c3Qgc2hvdyBleGFtcGxlIG9mIHRyaXZpYWwgcHJlZGljdGlvbiBtb2RlbFxuZGVjaXNpb24gPC0gcmVwKCdGJyxucm93KG15cHJlZGljdGlvbikpXG5kZWNpc2lvbltteXByZWRpY3Rpb24kU2NvcmU+NDBdIDwtICdEJ1xuZGVjaXNpb25bbXlwcmVkaWN0aW9uJFNjb3JlPjYwXSA8LSAnQydcbmRlY2lzaW9uW215cHJlZGljdGlvbiRTY29yZT43MF0gPC0gJ0InXG5kZWNpc2lvbltteXByZWRpY3Rpb24kU2NvcmU+ODBdIDwtICdBJ1xuI05vdyBtYWtlIHlvdXIgc3VibWlzc2lvbiBmaWxlIC0gaXQgd2lsbCBoYXZlIHRoZSBJRHMgYW5kIG5vdyB0aGUgcHJlZGljdGVkIGdyYWRlc1xuc3VibWlzc2lvbiRHcmFkZTwtZGVjaXNpb25cbnN1Ym1pc3Npb25cbiMgdXNlIHdyaXRlLmNzdihzdWJtaXNzaW9uLCAnc3VibWlzc2lvbi5jc3YnLCByb3cubmFtZXM9RkFMU0UpIHRvIHN0b3JlIHN1Ym1pc3Npb24gYXMgY3N2IGZpbGUgb24geW91ciBtYWNoaW5lIGFuZCBzdWJzZXF1ZW50bHkgc3VibWl0IGl0IG9uIEthZ2dsZSJ9
+<p><strong>Snippet 11.3:</strong> Confidence interval for the mean imdb score of comedies</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzaWdtYTwtc2QobW92aWVzW21vdmllcyRnZW5yZT09J0NvbWVkeScsXSRpbWRiX3Njb3JlKVxuc2lnbWEgPC1zaWdtYS9zcXJ0KDE2MClcbnNpZ21hIn0=
 </div>
-<p><br></p>
-<p><strong>Data League:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/155" class="uri">https://data101.cs.rutgers.edu/?q=node/155</a> <br>
-<strong>Kaggle competition:</strong> <a href="https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview" class="uri">https://www.kaggle.com/competitions/predictive-challenge-2-2022/overview</a><br>
-<strong>Kaggle submission instructions:</strong> <a href="https://data101.cs.rutgers.edu/?q=node/150" class="uri">https://data101.cs.rutgers.edu/?q=node/150</a> <br></p>
-</div>
-</div>
-<div id="additional-reference-1" class="section level2 hasAnchor" number="16.6">
-<h2><span class="header-section-number">16.6</span> Additional Reference<a href="Free_style.html#additional-reference-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#p12">
-Prediction - Free Style
-</button>
-<div id="p12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1pA0bzMGr_Tu2CXsgtT9Ks5apHqxWh8l1XXBVvwWr6zc/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
+<p>Let’s assume we would like to get a confidence interval with a confidence level of 99%, This means setting up an interval with plus minus 3z from the mean. Since sigma=0.077, 3z = 0.23. Thus</p>
+<p>&lt;6.52-0.23, 6.52+0.23&gt; = &lt;6.31, 6.83&gt; with 99% confidence.</p>
+<p>Again, like in case of the confidence interval for population proportions, we replace the specific value of the mean imdb with the interval and its confidence level.
+Notice that, as sample size, we have not used N=500 but N=160, which is the number of Comedies – the size of the data frame subset which we use to calculate the mean.</p>
+<p>Also notice again that if our sample was ten times smaller, that is N=16 comedies, sigma would reach almost 0.25 and the width of the interval would be much wider - 1.5 (0.75 on each side). This our mean estimator would be far less precise.</p>
 
 </div>
 </div>
@@ -531,8 +473,8 @@ Prediction - Free Style
           </div>
         </div>
       </div>
-<a href="common_sense.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="Decision_trees.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Chisquare.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Multiple_Hypothesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

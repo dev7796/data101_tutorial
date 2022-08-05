@@ -12,6 +12,7 @@ rmd_files: [
   "./chapters/Derived_attributes.Rmd",
   "./chapters/hypothesis_testing.Rmd",
   "./chapters/Chisquare.Rmd",
+  "./chapters/Sampling.Rmd",
   "./chapters/Multiple_Hypothesis.Rmd",
   "./chapters/bayesian_reasoning.Rmd",
   "./chapters/FreeStyle.Rmd",

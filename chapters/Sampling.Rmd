@@ -1,0 +1,115 @@
+# Sampling (and special role of normal distributions)
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r ,include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+```
+
+In section \@ref(#dbds) we already introduced the concept of  a sample. For educational purposes we assume that we also know the universe from which sample was taken. This of course happens very rarely, if at all. Usually we do not know the universe.  
+
+Here, we discuss how we can calculate the quality of estimation, when we do not know the universe which is sampled. Is this even possible?  Yes, it is. This is the power of statistics. We introduce confidence intervals for means and for proportions and show how such intervals can serve as estimators along with the confidence probabilities as measures of estimators quality. 
+
+## Estimator of Proportions
+
+Let us start with the estimation of proportion. This is the problem we witness in each election, when we see partial results and try to estimate who won, on the basis of the sample of votes which were counted so far. Different TV networks call a winner at different times and sometimes (although rarely) they may be wrong. 
+How can we estimate the quality of the estimated proportion calculated on the basis of a sample. 
+
+For example assume that in our Local Election data puzzle, we consider a sample of 1000 voters, who are above 50 years old.  Let's assume that 62% of them voted for Royalists. Of course by now we know that each data set is  really, only a sample and each value computed from that sample is just an estimate of an unknown “real” value.  Thus, we do believe that 62% is the exact population proportion of voters under 50 who chose to vote for Royalists 
+
+Instead of 62% we return so called confidence interval of proportions
+
+\begin{equation}
+
+<62-e, 62+e>
+
+\end{equation}
+
+ 
+
+Examples of such intervals would be  <59,65> (in this case e=3).  In addition, along with the confidence interval, we return the confidence level, say 99%, 95% etc. Thus, our answer has the form of an interval as well as confidence level of this interval. 
+
+Technically, we estimate the unknown population proportion p* with the sample population proportion p (in our case it is 62%). This sample proportion comes from the universe of sample proportions and we must know something more about this universe to be able to infer the relationship between the p* and p. It makes sense to assume that this possible population proportions p*  are centered around p.  It is also reasonable to assume that the larger the size of the sample N, the tighter this population will cluster around p.  Thus, we assume that the mean of the population of samples is equal to observed population proportion p. 
+
+Turns out that the set of all sample proportions will be normally distributed around the mean which is equal to p and with standard deviation which is equal to 
+
+\begin{equation}
+
+\sqrt{(p(1-p)/N)} \\
+
+\text{where N is the size of the sample (see eg Martin Sternstein, “Statistics” )}\\
+
+\end{equation}
+
+
+
+For example, coming back to out example of sample of 1000 voters who are over 50 years old voting for Royalists, we calculate the mean = 0.62 and the standard deviation
+
+**Snippet 11.1:**
+```{r, tut=TRUE, height = 400}
+sigma = Sqrt(0.62*0.38/1000)
+pnorm(z)
+
+#To calculate the probability of interval of <p-z*sigma, p+z*sigma>  we compute 
+1-2(1-pnorm(z))
+
+#this is the same as 
+2*pnorm(z)-1
+```
+
+
+Thus for example, with p=0.62 and sigma = 0.0027,  we can get 99% interval with z=3, which would be 
+The interval <61.2%, 62.8%>    with confidence of 99%
+
+Notice that if our sample was 10 times smaller, N=100 then sigma = 0.048 and 99% confidence interval would be much wider
+<57.2%, 66.8%>
+
+##  Estimator of  Mean
+Consider a sample of 500 movies taken from a movie data set (see data puzzles). The scheme contains imdb_score, genre, content, nationality etc.
+
+Suppose we calculated the mean of imdb_score of comedies
+
+**Snippet 11.2:**
+
+```{r, tut=TRUE, height = 300}
+movies <-read.csv('moviesSample.csv')    
+mean(movies[movies$genre=='Comedy',]$imdb_score)
+```
+
+There are 160 comedies in our sample and the mean imdb score  of this sample of Comedies is equal to 6.52. But it is just an estimate. We only have a sample from an unknown larger data set (of course we may consider the original movies data set with thousands of movies as the universe of movies from which we have drawn the sample, but how do we know that it is the source of data for our sample?  Therefore we have to assume that we do not know the source of data for our movie sample.  Can we  still assess the quality of the imdb_score estimator based on this limited sample of 160 comedies?
+
+Turns out that thanks to the central limit theorem we can. 
+
+Our sample is one sample from the population of sample means. How do these means vary?  It is clear that the means of samples are centered around the mean of the entire, unknown population.  Again, the larger the size of a sample, the tighter the population of means of samples of this size is. The lesser the spread (standard deviations) of means around the mean of the population.
+
+It turns out (see Martin Sterenstein, Statistics), that the standard deviation of the population of means
+
+sigma-samples= sigma-population/sqrt(n)
+
+This leads us to the central limit theorem, which says that regardless of what is the distribution of the original data, the distribution of means of samples from this population is normal. This is really a stunning finding, since it is so universal. It lets us be completely blind to the original distribution of data!  
+
+**Central Limit Theorem**
+
+- The set of all sample means is approximately normally distributed
+- The mean of the set of sample means is equal to the mean of population
+- The standard deviation, sigma-samples is equal to sigma-population/sqrt(n)
+
+**Snippet 11.3:** Confidence interval for the mean imdb score of comedies
+
+```{r, tut=TRUE, height = 300}
+sigma<-sd(movies[movies$genre=='Comedy',]$imdb_score)
+sigma <-sigma/sqrt(160)
+sigma
+```
+
+Let's assume we would like to get a confidence interval with a confidence level of 99%, This means setting up an interval with plus minus 3z from the mean. Since sigma=0.077, 3z = 0.23. Thus 
+
+<6.52-0.23, 6.52+0.23> =    <6.31, 6.83> with 99% confidence. 
+
+Again, like in case of the confidence interval for population proportions, we replace the specific value of the mean imdb with the interval and its confidence level. 
+Notice that, as sample size, we have not used N=500 but N=160, which is the number of Comedies – the size of the data frame subset which we use to calculate the mean. 
+
+Also notice again that if our sample was ten times smaller, that is N=16 comedies, sigma would reach almost 0.25 and the width of the interval would be much wider -  1.5 (0.75 on each side).  This our mean estimator would be far less precise. 
+
