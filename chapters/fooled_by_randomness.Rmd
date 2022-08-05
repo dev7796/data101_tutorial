@@ -253,7 +253,7 @@ Notice how for a smaller sample of 500 the distribution of average age varies fo
 
 ```{r,echo=FALSE}
 # moody<-read.csv("../files/dataset/moody2020b.csv") #static Load
-movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Elections1.csv") #web load
+movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/ElectionsID.csv") #web load
 # head(moody)
 temp<-knitr::kable(
   movies[sample(1:nrow(movies),5), ], caption = 'Snippet of Election Dataset',
@@ -279,7 +279,7 @@ In the following snippet we would like students to experience the effects of sam
 ```{r, tut=TRUE, height = 300}
 
 # Read in the data
-Elections <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Elections1.csv")
+Elections <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/ElectionsID.csv")
 colnames(Elections)
 
 v <- sample(1:nrow(Elections))
