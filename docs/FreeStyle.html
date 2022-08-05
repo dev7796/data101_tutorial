@@ -149,7 +149,15 @@
 <li class="chapter" data-level="5.2.2" data-path="datascience_databases.html"><a href="datascience_databases.html#mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Mean price of Brooklyn airbnb rentals in real Airbnb data set</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a></li>
+<li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#false-discoveries"><i class="fa fa-check"></i><b>6.1</b> False Discoveries</a></li>
+<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#sampling"><i class="fa fa-check"></i><b>6.2</b> Sampling</a></li>
+<li class="chapter" data-level="6.3" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.4</b> What is randomness?</a></li>
+<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.5</b> Data sets with embedded patterns</a></li>
+<li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.6</b> Hidden Variables</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>7</b> Normal distribution</a></li>
 <li class="chapter" data-level="8" data-path="Derived_attributes.html"><a href="Derived_attributes.html"><i class="fa fa-check"></i><b>8</b> 🔖 Data Transformation with Derived Attributes</a>
 <ul>
@@ -452,7 +460,7 @@ tapply(moody$PARTICIPATION, moody$DOZES_OFF, mean)
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-93">Table 13.1: </span>Snippet of Moody Dataset
+<span id="tab:unnamed-chunk-112">Table 13.1: </span>Snippet of Moody Dataset
 </caption>
 <thead>
 <tr>
@@ -665,7 +673,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-105">Table 13.2: </span>Snippet of Party Dataset
+<span id="tab:unnamed-chunk-124">Table 13.2: </span>Snippet of Party Dataset
 </caption>
 <thead>
 <tr>
@@ -694,30 +702,7 @@ CaloriesDanc
 <tbody>
 <tr>
 <td style="text-align:left;">
-1540
-</td>
-<td style="text-align:left;">
-Fun
-</td>
-<td style="text-align:left;">
-Rock
-</td>
-<td style="text-align:left;">
-Xi
-</td>
-<td style="text-align:left;">
-Ada
-</td>
-<td style="text-align:left;">
-Vladimir
-</td>
-<td style="text-align:right;">
-496
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3795
+1647
 </td>
 <td style="text-align:left;">
 Boring
@@ -726,27 +711,27 @@ Boring
 Techno
 </td>
 <td style="text-align:left;">
-Xi
+Sonya
 </td>
 <td style="text-align:left;">
 Ada
 </td>
 <td style="text-align:left;">
-Manny
+Angela
 </td>
 <td style="text-align:right;">
-1
+385
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2011
+4941
 </td>
 <td style="text-align:left;">
 Fun
 </td>
 <td style="text-align:left;">
-Techno
+Rock
 </td>
 <td style="text-align:left;">
 Janek
@@ -755,56 +740,79 @@ Janek
 Billy
 </td>
 <td style="text-align:left;">
-Joe
+Vladimir
 </td>
 <td style="text-align:right;">
-28
+333
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-4009
-</td>
-<td style="text-align:left;">
-ItwasOK
-</td>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:left;">
-Sonya
-</td>
-<td style="text-align:left;">
-Qiong
-</td>
-<td style="text-align:left;">
-Joe
-</td>
-<td style="text-align:right;">
-466
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4139
+1739
 </td>
 <td style="text-align:left;">
 Fun
 </td>
 <td style="text-align:left;">
-Classical
+HipHop
 </td>
 <td style="text-align:left;">
-Sonya
+Xi
 </td>
 <td style="text-align:left;">
-Qiong
+Janusz
+</td>
+<td style="text-align:left;">
+Vladimir
+</td>
+<td style="text-align:right;">
+372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+586
+</td>
+<td style="text-align:left;">
+Boring
+</td>
+<td style="text-align:left;">
+HipHop
+</td>
+<td style="text-align:left;">
+Janek
+</td>
+<td style="text-align:left;">
+Ada
+</td>
+<td style="text-align:left;">
+Angela
+</td>
+<td style="text-align:right;">
+167
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4128
+</td>
+<td style="text-align:left;">
+Fun
+</td>
+<td style="text-align:left;">
+HipHop
+</td>
+<td style="text-align:left;">
+Katya
+</td>
+<td style="text-align:left;">
+Janusz
 </td>
 <td style="text-align:left;">
 Joe
 </td>
 <td style="text-align:right;">
-471
+494
 </td>
 </tr>
 </tbody>
@@ -891,7 +899,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwYXJ0eTwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-114">Table 13.3: </span>Snippet of Voting Dataset
+<span id="tab:unnamed-chunk-133">Table 13.3: </span>Snippet of Voting Dataset
 </caption>
 <thead>
 <tr>
@@ -923,7 +931,85 @@ Age
 <tbody>
 <tr>
 <td style="text-align:left;">
-4783
+4519
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+Royalists
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+10mph
+</td>
+<td style="text-align:right;">
+68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2322
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+OneStore
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+Royalists
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+10mph
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1013
+</td>
+<td style="text-align:left;">
+ElectricOnly
+</td>
+<td style="text-align:left;">
+NoRestrictions
+</td>
+<td style="text-align:left;">
+ElectircOnly
+</td>
+<td style="text-align:left;">
+Royalists
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+10mph
+</td>
+<td style="text-align:right;">
+94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1872
 </td>
 <td style="text-align:left;">
 NoRestrictions
@@ -935,120 +1021,42 @@ NoStores
 ElectircOnly
 </td>
 <td style="text-align:left;">
-Royalists
-</td>
-<td style="text-align:left;">
-NoLimits
-</td>
-<td style="text-align:left;">
-NoLimits
-</td>
-<td style="text-align:right;">
-94
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1954
-</td>
-<td style="text-align:left;">
-NoRestrictions
-</td>
-<td style="text-align:left;">
-NoRestrictions
-</td>
-<td style="text-align:left;">
-NoRestrictions
-</td>
-<td style="text-align:left;">
-KnowNothings
-</td>
-<td style="text-align:left;">
-HardLiquerOnly
-</td>
-<td style="text-align:left;">
-25mph
-</td>
-<td style="text-align:right;">
-59
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2277
-</td>
-<td style="text-align:left;">
-NoRestrictions
-</td>
-<td style="text-align:left;">
-OneStore
-</td>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:left;">
-Royalists
-</td>
-<td style="text-align:left;">
-NoLimits
-</td>
-<td style="text-align:left;">
-NoLimits
-</td>
-<td style="text-align:right;">
-34
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1201
-</td>
-<td style="text-align:left;">
-NoRestrictions
-</td>
-<td style="text-align:left;">
-NoStores
-</td>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:left;">
 Anarchists
 </td>
 <td style="text-align:left;">
 NoLimits
 </td>
 <td style="text-align:left;">
-NoCars
+25mph
 </td>
 <td style="text-align:right;">
-46
+20
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2882
+4525
 </td>
 <td style="text-align:left;">
 None
+</td>
+<td style="text-align:left;">
+NoStores
 </td>
 <td style="text-align:left;">
 NoRestrictions
 </td>
 <td style="text-align:left;">
-None
-</td>
-<td style="text-align:left;">
 Royalists
 </td>
 <td style="text-align:left;">
-HardLiquerOnly
+NoLimits
 </td>
 <td style="text-align:left;">
 10mph
 </td>
 <td style="text-align:right;">
-86
+38
 </td>
 </tr>
 </tbody>
@@ -1180,7 +1188,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2b3RlPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-129">Table 13.4: </span>Snippet of Sleep Dataset
+<span id="tab:unnamed-chunk-148">Table 13.4: </span>Snippet of Sleep Dataset
 </caption>
 <thead>
 <tr>
@@ -1212,68 +1220,42 @@ LastSleep
 <tbody>
 <tr>
 <td style="text-align:left;">
-1211
+244
 </td>
 <td style="text-align:left;">
 Deep
 </td>
 <td style="text-align:right;">
-973
+416
 </td>
 <td style="text-align:right;">
-4
+6
 </td>
 <td style="text-align:left;">
 2Cups
 </td>
 <td style="text-align:right;">
-70
+71
 </td>
 <td style="text-align:left;">
 Dark
 </td>
 <td style="text-align:left;">
-Deep
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1320
-</td>
-<td style="text-align:left;">
-Shallow
-</td>
-<td style="text-align:right;">
-669
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-ManyCups
-</td>
-<td style="text-align:right;">
-69
-</td>
-<td style="text-align:left;">
-Full
-</td>
-<td style="text-align:left;">
 Shallow
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1625
+1772
 </td>
 <td style="text-align:left;">
 Deep
 </td>
 <td style="text-align:right;">
-946
+381
 </td>
 <td style="text-align:right;">
-0
+9
 </td>
 <td style="text-align:left;">
 3Cups
@@ -1285,27 +1267,27 @@ Deep
 Half
 </td>
 <td style="text-align:left;">
-Shallow
+Deep
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1953
+1482
 </td>
 <td style="text-align:left;">
-Deep
+Shallow
 </td>
 <td style="text-align:right;">
-891
+40
 </td>
 <td style="text-align:right;">
-1
+5
 </td>
 <td style="text-align:left;">
-2Cups
+1Cup
 </td>
 <td style="text-align:right;">
-58
+73
 </td>
 <td style="text-align:left;">
 Dark
@@ -1316,22 +1298,48 @@ Deep
 </tr>
 <tr>
 <td style="text-align:left;">
-918
+1946
 </td>
 <td style="text-align:left;">
-Deep
+Shallow
 </td>
 <td style="text-align:right;">
-958
+140
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:left;">
-3Cups
+ManyCups
 </td>
 <td style="text-align:right;">
-67
+68
+</td>
+<td style="text-align:left;">
+Dark
+</td>
+<td style="text-align:left;">
+Shallow
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1920
+</td>
+<td style="text-align:left;">
+Shallow
+</td>
+<td style="text-align:right;">
+661
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+ManyCups
+</td>
+<td style="text-align:right;">
+72
 </td>
 <td style="text-align:left;">
 Half
@@ -1424,7 +1432,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzbGVlcDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRo
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-138">Table 13.5: </span>Snippet of Movies Dataset
+<span id="tab:unnamed-chunk-157">Table 13.5: </span>Snippet of Movies Dataset
 </caption>
 <thead>
 <tr>
@@ -1453,85 +1461,85 @@ genre
 <tbody>
 <tr>
 <td style="text-align:left;">
-5429
+2460
 </td>
 <td style="text-align:left;">
-USA
+China
 </td>
 <td style="text-align:left;">
-PG-13
+R
 </td>
 <td style="text-align:right;">
-7.12
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-<td style="text-align:left;">
-Comedy
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4414
-</td>
-<td style="text-align:left;">
-UK
-</td>
-<td style="text-align:left;">
-PG
-</td>
-<td style="text-align:right;">
-7.36
+5.54
 </td>
 <td style="text-align:left;">
 Low
 </td>
 <td style="text-align:left;">
-Medium
+High
 </td>
 <td style="text-align:left;">
-Comedy
+Family
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-8835
+4835
 </td>
 <td style="text-align:left;">
 USA
 </td>
 <td style="text-align:left;">
-PG-13
+PG
 </td>
 <td style="text-align:right;">
-7.56
-</td>
-<td style="text-align:left;">
-Low
+6.40
 </td>
 <td style="text-align:left;">
 Medium
 </td>
 <td style="text-align:left;">
-Comedy
+Medium
+</td>
+<td style="text-align:left;">
+Drama
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1772
+10711
 </td>
 <td style="text-align:left;">
-Germany
+USA
 </td>
 <td style="text-align:left;">
-PG
+R
 </td>
 <td style="text-align:right;">
-5.20
+8.46
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+<td style="text-align:left;">
+Low
+</td>
+<td style="text-align:left;">
+History
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1489
+</td>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+6.94
 </td>
 <td style="text-align:left;">
 Medium
@@ -1545,25 +1553,25 @@ Family
 </tr>
 <tr>
 <td style="text-align:left;">
-1482
+12260
 </td>
 <td style="text-align:left;">
 USA
 </td>
 <td style="text-align:left;">
-PG
+R
 </td>
 <td style="text-align:right;">
-5.67
+7.88
 </td>
 <td style="text-align:left;">
-High
+Low
 </td>
 <td style="text-align:left;">
-High
+Low
 </td>
 <td style="text-align:left;">
-Family
+History
 </td>
 </tr>
 </tbody>
@@ -1691,7 +1699,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-149">Table 13.6: </span>Snippet of Canvas Dataset
+<span id="tab:unnamed-chunk-168">Table 13.6: </span>Snippet of Canvas Dataset
 </caption>
 <thead>
 <tr>
@@ -1714,16 +1722,16 @@ Grade
 <tbody>
 <tr>
 <td style="text-align:left;">
-284
+402
 </td>
 <td style="text-align:right;">
-25
+57
 </td>
 <td style="text-align:right;">
-15
+4
 </td>
 <td style="text-align:right;">
-24.0
+51.7
 </td>
 <td style="text-align:left;">
 F
@@ -1731,16 +1739,33 @@ F
 </tr>
 <tr>
 <td style="text-align:left;">
-609
+1791
 </td>
 <td style="text-align:right;">
-47
+37
 </td>
 <td style="text-align:right;">
-42
+23
 </td>
 <td style="text-align:right;">
-46.5
+35.6
+</td>
+<td style="text-align:left;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1980
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+54.2
 </td>
 <td style="text-align:left;">
 C
@@ -1748,50 +1773,33 @@ C
 </tr>
 <tr>
 <td style="text-align:left;">
-1951
+1059
 </td>
 <td style="text-align:right;">
-35
+55
 </td>
 <td style="text-align:right;">
-60
+72
 </td>
 <td style="text-align:right;">
-37.5
+56.7
 </td>
 <td style="text-align:left;">
-F
+C
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1861
+1997
 </td>
 <td style="text-align:right;">
-62
+93
 </td>
 <td style="text-align:right;">
-13
+94
 </td>
 <td style="text-align:right;">
-57.1
-</td>
-<td style="text-align:left;">
-F
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1521
-</td>
-<td style="text-align:right;">
-96
-</td>
-<td style="text-align:right;">
-86
-</td>
-<td style="text-align:right;">
-95.0
+93.1
 </td>
 <td style="text-align:left;">
 A
@@ -1896,7 +1904,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJncmFkZXM8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-160">Table 13.7: </span>Snippet of Minimarket Dataset
+<span id="tab:unnamed-chunk-179">Table 13.7: </span>Snippet of Minimarket Dataset
 </caption>
 <thead>
 <tr>
@@ -1928,19 +1936,19 @@ Snacks
 <tbody>
 <tr>
 <td style="text-align:left;">
-10231
+12662
 </td>
 <td style="text-align:left;">
-Lager
+Ale
 </td>
 <td style="text-align:left;">
 Weekday
 </td>
 <td style="text-align:left;">
-Metuchen
+Edison
 </td>
 <td style="text-align:left;">
-None
+Cola
 </td>
 <td style="text-align:left;">
 Milky Way
@@ -1954,19 +1962,19 @@ None
 </tr>
 <tr>
 <td style="text-align:left;">
-347
+5437
 </td>
 <td style="text-align:left;">
-Lager
+None
 </td>
 <td style="text-align:left;">
-Weekday
+Weekend
 </td>
 <td style="text-align:left;">
 Edison
 </td>
 <td style="text-align:left;">
-Sprite
+Orange Juice
 </td>
 <td style="text-align:left;">
 Snickers
@@ -1980,7 +1988,7 @@ Crackers
 </tr>
 <tr>
 <td style="text-align:left;">
-6312
+10634
 </td>
 <td style="text-align:left;">
 Ale
@@ -1989,7 +1997,33 @@ Ale
 Weekday
 </td>
 <td style="text-align:left;">
-Princeton
+Metuchen
+</td>
+<td style="text-align:left;">
+Orange Juice
+</td>
+<td style="text-align:left;">
+Snickers
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9643
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+Weekday
+</td>
+<td style="text-align:left;">
+Edison
 </td>
 <td style="text-align:left;">
 None
@@ -2001,15 +2035,15 @@ Snickers
 Red
 </td>
 <td style="text-align:left;">
-None
+Potato Chips
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-6361
+18454
 </td>
 <td style="text-align:left;">
-Ale
+None
 </td>
 <td style="text-align:left;">
 Weekend
@@ -2018,33 +2052,7 @@ Weekend
 Princeton
 </td>
 <td style="text-align:left;">
-Sprite
-</td>
-<td style="text-align:left;">
-Twix
-</td>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:left;">
-None
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-13729
-</td>
-<td style="text-align:left;">
-Ale
-</td>
-<td style="text-align:left;">
-Weekday
-</td>
-<td style="text-align:left;">
-New Brunswick
-</td>
-<td style="text-align:left;">
-None
+Cola
 </td>
 <td style="text-align:left;">
 Snickers
@@ -2053,7 +2061,7 @@ Snickers
 Red
 </td>
 <td style="text-align:left;">
-Pretzels
+None
 </td>
 </tr>
 </tbody>
@@ -2132,7 +2140,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtYXJrZXQ8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-167">Table 13.8: </span>Snippet of Airbnb Dataset
+<span id="tab:unnamed-chunk-186">Table 13.8: </span>Snippet of Airbnb Dataset
 </caption>
 <thead>
 <tr>
@@ -2167,138 +2175,80 @@ price
 <tbody>
 <tr>
 <td style="text-align:left;">
-25932
+23199
 </td>
 <td style="text-align:right;">
-20616929
+36415915
 </td>
 <td style="text-align:left;">
-Spacious 1 Bd. Apt. Inwood near Fort Tryon Park
+Two bedroom cute apartment in the lower east side
 </td>
 <td style="text-align:left;">
-Galen
+Anna
 </td>
 <td style="text-align:left;">
 Manhattan
 </td>
 <td style="text-align:left;">
-Inwood
+East Village
 </td>
 <td style="text-align:left;">
-Private room
+Entire home/apt
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-125.1715
+287.31018
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-3848
+18340
 </td>
 <td style="text-align:right;">
-1514939
+9493324
 </td>
 <td style="text-align:left;">
-Bright Studio Apt on Prospect Park
+Private Comfortable Room
 </td>
 <td style="text-align:left;">
-Jon
+Jake
 </td>
 <td style="text-align:left;">
 Brooklyn
 </td>
 <td style="text-align:left;">
-Prospect-Lefferts Gardens
-</td>
-<td style="text-align:left;">
-Entire home/apt
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-130.2320
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-14283
-</td>
-<td style="text-align:right;">
-13171703
-</td>
-<td style="text-align:left;">
-Park Avenue, Lux Studio Murray Hill apartment
-</td>
-<td style="text-align:left;">
-Ken
-</td>
-<td style="text-align:left;">
-Manhattan
-</td>
-<td style="text-align:left;">
-Murray Hill
-</td>
-<td style="text-align:left;">
-Entire home/apt
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-538.0561
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-12260
-</td>
-<td style="text-align:right;">
-12628500
-</td>
-<td style="text-align:left;">
-Private room for 2 NY Close to LGA No hidden fees
-</td>
-<td style="text-align:left;">
-Dante
-</td>
-<td style="text-align:left;">
-Queens
-</td>
-<td style="text-align:left;">
-Jackson Heights
+Williamsburg
 </td>
 <td style="text-align:left;">
 Private room
 </td>
 <td style="text-align:right;">
-20
+16
 </td>
 <td style="text-align:right;">
-245.9911
+524.11924
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-10642
+14666
 </td>
 <td style="text-align:right;">
-2771877
+19162180
 </td>
 <td style="text-align:left;">
-Central Park Treasure
+Private, Quiet 2-Bed Place near Brooklyn College
 </td>
 <td style="text-align:left;">
-Anasha
+Joy
 </td>
 <td style="text-align:left;">
-Manhattan
+Brooklyn
 </td>
 <td style="text-align:left;">
-Upper West Side
+Flatbush
 </td>
 <td style="text-align:left;">
 Entire home/apt
@@ -2307,7 +2257,65 @@ Entire home/apt
 1
 </td>
 <td style="text-align:right;">
-272.9733
+190.71400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14176
+</td>
+<td style="text-align:right;">
+34723946
+</td>
+<td style="text-align:left;">
+Suit3
+</td>
+<td style="text-align:left;">
+H Ai
+</td>
+<td style="text-align:left;">
+Queens
+</td>
+<td style="text-align:left;">
+Flushing
+</td>
+<td style="text-align:left;">
+Private room
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+77.95441
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7930
+</td>
+<td style="text-align:right;">
+36315759
+</td>
+<td style="text-align:left;">
+Quaint Tribeca Studio w/ Gym, W/D, Doorman, Garage, Valet, by Blueground
+</td>
+<td style="text-align:left;">
+Blueground
+</td>
+<td style="text-align:left;">
+Manhattan
+</td>
+<td style="text-align:left;">
+Tribeca
+</td>
+<td style="text-align:left;">
+Entire home/apt
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+284.04189
 </td>
 </tr>
 </tbody>
@@ -2388,7 +2396,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-176">Table 13.9: </span>Snippet of Titanic Dataset
+<span id="tab:unnamed-chunk-195">Table 13.9: </span>Snippet of Titanic Dataset
 </caption>
 <thead>
 <tr>
@@ -2435,25 +2443,25 @@ Embarked
 <tbody>
 <tr>
 <td style="text-align:left;">
-303
+289
 </td>
 <td style="text-align:right;">
-303
+289
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-3
+2
 </td>
 <td style="text-align:left;">
-Johnson, Mr. William Cahoone Jr
+Hosono, Mr. Masabumi
 </td>
 <td style="text-align:left;">
 male
 </td>
 <td style="text-align:right;">
-19
+42
 </td>
 <td style="text-align:right;">
 0
@@ -2462,10 +2470,10 @@ male
 0
 </td>
 <td style="text-align:left;">
-LINE
+237798
 </td>
 <td style="text-align:right;">
-0.0000
+13.0000
 </td>
 <td style="text-align:left;">
 </td>
@@ -2475,59 +2483,19 @@ S
 </tr>
 <tr>
 <td style="text-align:left;">
-49
+508
 </td>
 <td style="text-align:right;">
-49
+508
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-3
+1
 </td>
 <td style="text-align:left;">
-Samaan, Mr. Youssef
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-2662
-</td>
-<td style="text-align:right;">
-21.6792
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-C
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-429
-</td>
-<td style="text-align:right;">
-429
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-Flynn, Mr. James
+Bradley, Mr. George (“George Arthur Brayton”)
 </td>
 <td style="text-align:left;">
 male
@@ -2542,50 +2510,10 @@ NA
 0
 </td>
 <td style="text-align:left;">
-364851
+111427
 </td>
 <td style="text-align:right;">
-7.7500
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Q
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-811
-</td>
-<td style="text-align:right;">
-811
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-Alexander, Mr. William
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:right;">
-26
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-3474
-</td>
-<td style="text-align:right;">
-7.8875
+26.5500
 </td>
 <td style="text-align:left;">
 </td>
@@ -2595,25 +2523,65 @@ S
 </tr>
 <tr>
 <td style="text-align:left;">
-73
+334
 </td>
 <td style="text-align:right;">
-73
+334
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 <td style="text-align:left;">
-Hood, Mr. Ambrose Jr
+Vander Planke, Mr. Leo Edmondus
 </td>
 <td style="text-align:left;">
 male
 </td>
 <td style="text-align:right;">
-21
+16
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+345764
+</td>
+<td style="text-align:right;">
+18.0000
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+S
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+164
+</td>
+<td style="text-align:right;">
+164
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Calic, Mr. Jovo
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+17
 </td>
 <td style="text-align:right;">
 0
@@ -2622,12 +2590,53 @@ male
 0
 </td>
 <td style="text-align:left;">
-S.O.C. 14879
+315093
 </td>
 <td style="text-align:right;">
-73.5000
+8.6625
 </td>
 <td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+S
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+337
+</td>
+<td style="text-align:right;">
+337
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Pears, Mr. Thomas Clinton
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+113776
+</td>
+<td style="text-align:right;">
+66.6000
+</td>
+<td style="text-align:left;">
+C2
 </td>
 <td style="text-align:left;">
 S

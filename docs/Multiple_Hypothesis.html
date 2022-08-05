@@ -149,7 +149,15 @@
 <li class="chapter" data-level="5.2.2" data-path="datascience_databases.html"><a href="datascience_databases.html#mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Mean price of Brooklyn airbnb rentals in real Airbnb data set</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a></li>
+<li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#false-discoveries"><i class="fa fa-check"></i><b>6.1</b> False Discoveries</a></li>
+<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#sampling"><i class="fa fa-check"></i><b>6.2</b> Sampling</a></li>
+<li class="chapter" data-level="6.3" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.4</b> What is randomness?</a></li>
+<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.5</b> Data sets with embedded patterns</a></li>
+<li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.6</b> Hidden Variables</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>7</b> Normal distribution</a></li>
 <li class="chapter" data-level="8" data-path="Derived_attributes.html"><a href="Derived_attributes.html"><i class="fa fa-check"></i><b>8</b> 🔖 Data Transformation with Derived Attributes</a>
 <ul>
@@ -411,7 +419,7 @@ Table below describes the data set based on hypothetical temperature readings in
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-83">Table 11.1: </span>Snippet of Temperature Dataset
+<span id="tab:unnamed-chunk-102">Table 11.1: </span>Snippet of Temperature Dataset
 </caption>
 <thead>
 <tr>
@@ -428,76 +436,32 @@ Temprature
 <tbody>
 <tr>
 <td style="text-align:left;">
-1223
-</td>
-<td style="text-align:left;">
-North Brunswick
-</td>
-<td style="text-align:right;">
-96
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-196
-</td>
-<td style="text-align:left;">
-Trenton
-</td>
-<td style="text-align:right;">
-70
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-418
-</td>
-<td style="text-align:left;">
-Princeton
-</td>
-<td style="text-align:right;">
-93
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-239
-</td>
-<td style="text-align:left;">
-Trenton
-</td>
-<td style="text-align:right;">
-86
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1061
+1668
 </td>
 <td style="text-align:left;">
 Hoboken
 </td>
 <td style="text-align:right;">
-92
+62
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1539
+1006
 </td>
 <td style="text-align:left;">
-Newark
+Passaic
 </td>
 <td style="text-align:right;">
-90
+83
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-1950
+499
 </td>
 <td style="text-align:left;">
-Atlantic City
+Ocean Grove
 </td>
 <td style="text-align:right;">
 100
@@ -505,35 +469,79 @@ Atlantic City
 </tr>
 <tr>
 <td style="text-align:left;">
-1003
+1715
+</td>
+<td style="text-align:left;">
+Hoboken
+</td>
+<td style="text-align:right;">
+59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+390
+</td>
+<td style="text-align:left;">
+Hoboken
+</td>
+<td style="text-align:right;">
+69
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1673
+</td>
+<td style="text-align:left;">
+Red Bank
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+397
+</td>
+<td style="text-align:left;">
+Red Bank
+</td>
+<td style="text-align:right;">
+52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1894
+</td>
+<td style="text-align:left;">
+Holmdel
+</td>
+<td style="text-align:right;">
+56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1043
+</td>
+<td style="text-align:left;">
+Highland Park
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1916
 </td>
 <td style="text-align:left;">
 Trenton
 </td>
 <td style="text-align:right;">
-94
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1260
-</td>
-<td style="text-align:left;">
-Jersey City
-</td>
-<td style="text-align:right;">
-100
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1438
-</td>
-<td style="text-align:left;">
-North Brunswick
-</td>
-<td style="text-align:right;">
-89
+74
 </td>
 </tr>
 </tbody>
