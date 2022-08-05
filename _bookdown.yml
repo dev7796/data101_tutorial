@@ -20,6 +20,7 @@ rmd_files: [
   "./chapters/Free_style.Rmd",
   "./chapters/Decision_trees.Rmd",
   "./chapters/Linear_regression.Rmd",
+  "./chapters/Power_law.Rmd",
   "./chapters/Prediction_loop.Rmd",
   "./chapters/Prediction_challege_in_book.Rmd",
   "./chapters/Mysteries_of_Aggregated_data.Rmd",

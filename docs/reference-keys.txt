@@ -17,7 +17,7 @@ tab:unnamed-chunk-190
 tab:unnamed-chunk-199
 tab:unnamed-chunk-232
 tab:unnamed-chunk-235
-tab:unnamed-chunk-256
+tab:unnamed-chunk-258
 intro
 setting-up-r
 setting
@@ -264,6 +264,7 @@ mse
 cross-validate-your-prediction
 submission-with-lm
 additional-reference-3
+pld
 MLP
 introduction-9
 additional-reference-4

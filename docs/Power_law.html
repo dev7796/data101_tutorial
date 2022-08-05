@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 12 🔖 Multiple Hypothesis Testing | bookdemo.knit</title>
+  <title>Section: 19 Power Law Distribution | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 12 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
+  <meta property="og:title" content="Section: 19 Power Law Distribution | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 12 🔖 Multiple Hypothesis Testing | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 19 Power Law Distribution | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Sampling.html"/>
-<link rel="next" href="bayesian_reasoning.html"/>
+<link rel="prev" href="Linear_regression.html"/>
+<link rel="next" href="Prediction_loop.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -399,206 +399,167 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Mtest" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Section: 12</span> 🔖 Multiple Hypothesis Testing<a href="Multiple_Hypothesis.html#Mtest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="pld" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Section: 19</span> Power Law Distribution<a href="Power_law.html#pld" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="introduction-2" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Introduction<a href="Multiple_Hypothesis.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We often consider multiple possible hypotheses in our search for discovery to find one with lowest possible p-value. Consciously or subconsciously we are engaging, what is often called, p-value hunting. We have to be very careful! We may “discover” what is simply random even if we correctly calculate p-value and compare it with the significance level. It is very important to learn about multiple hypothesis traps very early in the process of learning data science.</p>
-<p>For example assume that we are looking for associations between sales of individual items in a supermarket. Does bread sell with butter? Does coffee sell with spring water? There is an exponential number of possible combinations (N choose 2 to be exact, where N is the number of items). For each such pair we perform hypothesis testing. If one test is performed at the 5% significance level and the corresponding null hypothesis is true, there is only a 5% chance of incorrectly rejecting the null hypothesis. However, if 100 tests are each conducted at the 5% significance level and all corresponding null hypotheses are true, the expected number of incorrect rejections (also known as false positives or Type I errors) is 5. If the tests are statistically independent from each other, the probability of at least one incorrect rejection is approximately 99.4%. Thus, we will almost surely find one false positive! In other words we will be fooled by data.</p>
-<p>Bonferroni correction is a method to counteract the multiple hypothesis (often called multiple comparison problem. Make it harder to reject null hypotheses by dividing the significance level by number of hypotheses. The Bonferroni correction compensates for that increase by testing each individual hypothesis at a significance level of <strong>α / m</strong> where m is the number of hypotheses. For example, if a trial is testing me = 20 hypotheses with a desired α = 0.05, then the Bonferroni correction would test each individual hypothesis at</p>
-<p><span class="math display">\[\begin{equation}
-\alpha = \frac{0.05} {20} 
-       = 0.0025
-\end{equation}\]</span></p>
-<p>Thus, there is a very simple remedy for multiple hypothesis traps. Just divide the significance level by the number of (potential) hypotheses tested. This will make it harder, often much much harder to reject the null hypothesis and yell Eureka! Critics say that in fact Bonferroni correction is too conservative and too “pro-null” and tough on alternative hypotheses to be acceptable.</p>
-<p>The unwanted side effect of Bonferroni correction is that we may fail to reject the null hypothesis too often. Bonferroni correction makes discovery sometimes too hard, making data scientists too conservative and accepting null hypothesis when they should be rejected. It may also be the case that even Bonferroni correction will not protect us, as we will show in our example below. But at least we will be much less likely to make fools of ourselves coming with false discoveries leading potentially to very wrong business decisions.</p>
-<p>There are other less conservative methods of correcting for multiple hypotheses - such as the Benjamini-Hochberg method described in the attached slides.</p>
-<p>We illustrate the p-value hunt in snippet 8.1 below. It is based on synthetic data set showing summer temperatures in New Jersey townships.
-Table below describes the data set based on hypothetical temperature readings in various municipalities of New Jersey over summer. Is one city experiencing higher average temperatures than another? Can we find such a pair of cities? This is the ultimate p-value hunt. Let’s compare townshiships pair by pair, until we find a pair with sufficiently large differences of mean temperatures and sufficiently low p-value. Careful! You may come up with false discovery if you do not correct for multiple hypotheses!</p>
-<p>The <a href="Multiple_Hypothesis.html#snippet1">12.1.1</a> shows several permutation tests for different pairs of townships and difference of means of temperatures hypothesis test. Two of four pairs show p–values less than customary significance level of 5%. Should we then reject the null hypothesis and conclude that indeed Ocean Grove is warmer than New Brunswick and that New Brunswick is warmer than Holmdel? Indeed, both pairs result in p-values significantly lower than 5%. If we incorrectly disregard the number of hypotheses considered, we may come to wrong conclusions supporting these two alternative hypotheses. But there are around 20 townships in the Temp data set. Thus there are around 200 possible hypotheses (200 pairs of townships) which we may consider in our p-value hunt. If we apply Bonferroni correction for N=200, the significance level will be 200 times lower, instead of 5%, it will be 0.025%. None of the two hypotheses (Ocean Grove vs New Brunswick and New Brunswick vs Holmdel) meets the new significance level. Indeed in both cases p-values are significantly larger than 0.025%. Thus, for none of the four pairs we can reject null hypotheses.</p>
-<p>Now we can disclose that we have created our Temp data set completely randomly - assigning random temperatures between 50 and 100 degrees to each township. Thus, without Bonferroni coefficient we would be fooled by data, not once, but twice in our four tests. We would find a trend when it does not exist - it is simply random deviation.</p>
-<p>It turns out however that even Bonferroni correction is not sufficient to protect us against incorrectly rejecting null hypothesis. Indeed, for Red Bank and Holmdel, we conclude that Red Band is warmer than Holmdel with p-value of 0.01%! (see the last permutation test in the snippet 1). This p-value falls even below significance level adjusted with Bonferroni correction (0.025%). It only shows that dealing with multiple hypotheses is a risky adventure. We may end up being fooled by data even when we apply Bonferroni correction. But at least we are less likely to fall into the trap of multiple hypotheses when we apply Bonferroni Correction.</p>
-<p>Download: <a href="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv" download="Tempratures.csv">Tempratures.csv</a></p>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<p>Power law distributions have been known for a while but came to prominence with the advent of the world wide web where power law occurs quite frequently.</p>
+<p>Naseem Taleeb in his book Black Swan has termed Power Law as Extremistan and Normal (Gaussian) distribution as Mediocristan. The Mandelbrotian and the Gaussian. from Mandelbrodt and his pioneering work in the field of fractals and power distribution.</p>
+<p>Figure 1 displays power law which reflects acute concentration and so-called long tail characteristics to virtual quantities such as web traffic, sales data, wealth data, youtube views, word frequency etc. Gausian law (Bell curve) usually displays more physical quantities such as weight, height etc. The latter concentrate heavily around mean and decline quickly (so called Gausian decline). Long tail of power law distributions declines much slower and as we will see helps to explain much more wild deviation of wealth, sales etc.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Normalplot.png" alt="" />
+<p class="caption">Figure 19.1 Power Law</p>
+</div>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Long_tail.png" alt="" />
+<p class="caption">Figure 19.2 Bell curve – Gaussian Distribution</p>
+</div>
+<p>For example, take the height of men and women. Average height is 1.67 meters. It is distributed normally around this mean height. Assume that standard deviation of height is 10 cm.</p>
+<p>Consider odds of being</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-106">Table 12.1: </span>Snippet of Temperature Dataset
-</caption>
-<thead>
 <tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Township
-</th>
-<th style="text-align:right;">
-Temprature
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-1668
+<td>
+10 centimeters taller than the average (i.e., taller than 1.77 m,
 </td>
-<td style="text-align:left;">
-Hoboken
-</td>
-<td style="text-align:right;">
-62
+<td>
+1 in 6.3
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-1006
+<td>
+20 centimeters taller than the average (i.e., taller than 1.87 m, or 6 feet 2
 </td>
-<td style="text-align:left;">
-Passaic
-</td>
-<td style="text-align:right;">
-83
+<td>
+1 in 44
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-499
+<td>
+30 centimeters taller than the average (i.e., taller than 1.97 m, or 6 feet 6): 1 in 740
 </td>
-<td style="text-align:left;">
-Ocean Grove
-</td>
-<td style="text-align:right;">
-100
+<td>
+1 in 740
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-1715
+<td>
+40 centimeters taller than the average (i.e., taller than 2.07 m, or 6 feet
 </td>
-<td style="text-align:left;">
-Hoboken
-</td>
-<td style="text-align:right;">
-59
+<td>
+1 in 32000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-390
+<td>
+50 centimeters taller than the average (i.e., taller than 2.17 m, or 7 feet
 </td>
-<td style="text-align:left;">
-Hoboken
-</td>
-<td style="text-align:right;">
-69
+<td>
+1 in 3,500,000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-1673
+<td>
+<p>60 centimeters taller than the average (i.e., taller than 2.27 m, or 7 feet </p>
+70 centimeters taller than the average (i.e., taller than 2.37 m,
+or 8 feet 9
 </td>
-<td style="text-align:left;">
-Red Bank
-</td>
-<td style="text-align:right;">
-53
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-397
-</td>
-<td style="text-align:left;">
-Red Bank
-</td>
-<td style="text-align:right;">
-52
+<td>
+1 in 1,000,000,0000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-1894
+<td>
+100 centimeters taller than the average (i.e., taller than 2.67 m,
+or 8 feet 9
 </td>
-<td style="text-align:left;">
-Holmdel
-</td>
-<td style="text-align:right;">
-56
+<td>
+1 in 130,000,000,000,000,000,000,000
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-1043
-</td>
-<td style="text-align:left;">
-Highland Park
-</td>
-<td style="text-align:right;">
-54
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1916
-</td>
-<td style="text-align:left;">
-Trenton
-</td>
-<td style="text-align:right;">
-74
-</td>
-</tr>
-</tbody>
 </table>
-</div>
-<p><br></p>
-<p>The Temp data set assigned random temperatures between 50 and 100 degrees to around 20 townships in New Jersey.</p>
-<p>Without Bonferroni correction we would have to incorrectly reject the null hypothesis in the last three permutation tests (3rd, 4th and 5th) tests. We will still reject null hypothesis (and have false positive discovery) in the last, 5th case. Indeed, the 5th p-value is 0.0002 which is less than the significance level after Bonferroni correction (0.00025).</p>
-<div id="snippet1" class="section level3 hasAnchor" number="12.1.1">
-<h3><span class="header-section-number">12.1.1</span> Multiple Permutation Tests<a href="Multiple_Hypothesis.html#snippet1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br /></p>
+<p><span class="math display">\[\begin{equation}
+
+P(X&gt;x) = a * x ^{-c}
+
+\end{equation}\]</span></p>
+<p>Thus if one doubles x (the threshold) then the probability of exceeding x goes down <span class="math inline">\(2^{-c}\)</span> times. If exponent c=1, then x doubles the <span class="math inline">\(P(X&gt;2x) = ½ * P(X&gt;x)\)</span></p>
+<p>The following snippet illustrates the radical differences between power law distribution and the normal distribution.</p>
+<p>We first generate the power law distribution with the exponent -1. To this aim we first generate uniform distribution (runif() function does this) of real numbers between 0.001 and 1. We are also rounding these numbers up to 3 digits using round(). Power distribution is generated by one line of code</p>
+<p><span class="math display">\[\begin{equation}
+
+Power &lt; -v ^ {-1} 
+
+\end{equation}\]</span></p>
+<p>We generate 10000 data points which range from 1000 down to 1. The mean value of the power law distribution is 7. Now to compare the power law distribution and normal distributions we use rnorm() to create 10000 data points distributed normally around the same mean =7 and with standard deviation of 0.1. We show histograms of both distributions to illustrate the different shapes, long tail shape of the power law distribution and the characteristic Bell curve of the Gaussian distribution. Then we follow by illustrating the main point: the rapid descending of the Gaussian distribution. Just change the values in two last statements of the snippet: length(normal[normal&gt;7.1]) and length(power[power&gt;7.1]). Notice that the number of values which are larger than 7.1 (one standard deviation from the mean) is roughly the same for both distributions: it is around 1500. But now observe what happens when we move x higher in length(normal[normal&gt;x]), and length(power[power&gt;x]). The value of x=7.3 is the largest value when there are still 19 values left in length(normal[normal&gt;x]), when we move x to 7.4, this number is already zero. Now compare it with the power law distribution. For x =7.3 we get 1319 values.</p>
+<p>Try x=8, 16,32, 64 and there are still a substantial number of values left. We get 140 values for power&gt;64. Notice that each time we double x, we halve the number of values above x.</p>
+<p>length(power[power&gt;8])</p>
+<p>length(power[power&gt;16])</p>
+<p>length(power[power&gt;32])</p>
+<p>length(power[power&gt;64])
+…
+length(power[power&gt;256]) still gets us 27 values (it is stochastic, so when you run it values may be slightly different.</p>
+<p>You are encouraged to experiment with the exponent (-1) by increasing and decreasing it, as well as with standard deviation of the normal distribution (increase it and decrease it). Just remember to keep the mean of normal distribution the same as the mean of power law distribution for easier comparison.
+The rapid descent of normal distribution is clearly visible, when all values are between 6.61 and 7.35. while power law distribution values range from 1000 to 1.</p>
+<p><strong>Snippet 19.1:</strong> Power Law snippet</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IlBlcm11dGF0aW9uIDwtIGZ1bmN0aW9uKGRmMSxjMSxjMixuLHcxLHcyKXtcbiAgZGYgPC0gYXMuZGF0YS5mcmFtZShkZjEpXG4gIERfbnVsbDwtYygpXG4gIFYxPC1kZlssYzFdXG4gIFYyPC1kZlssYzJdXG4gIHN1Yi52YWx1ZTEgPC0gZGZbZGZbLCBjMV0gPT0gdzEsIGMyXVxuICBzdWIudmFsdWUyIDwtIGRmW2RmWywgYzFdID09IHcyLCBjMl1cbiAgRCA8LSAgYWJzKG1lYW4oc3ViLnZhbHVlMiwgbmEucm09VFJVRSkgLSBtZWFuKHN1Yi52YWx1ZTEsIG5hLnJtPVRSVUUpKVxuICBtPWxlbmd0aChWMSlcbiAgbD1sZW5ndGgoVjFbVjE9PXcyXSlcbiAgZm9yKGpqIGluIDE6bil7XG4gICAgbnVsbCA8LSByZXAodzEsbGVuZ3RoKFYxKSlcbiAgICBudWxsW3NhbXBsZShtLGwpXSA8LSB3MlxuICAgIG5mIDwtIGRhdGEuZnJhbWUoS2V5PW51bGwsIFZhbHVlPVYyKVxuICAgIG5hbWVzKG5mKSA8LSBjKFwiS2V5XCIsXCJWYWx1ZVwiKVxuICAgIHcxX251bGwgPC0gbmZbbmYkS2V5ID09IHcxLDJdXG4gICAgdzJfbnVsbCA8LSBuZltuZiRLZXkgPT0gdzIsMl1cbiAgICBEX251bGwgPC0gYyhEX251bGwsbWVhbih3Ml9udWxsLCBuYS5ybT1UUlVFKSAtIG1lYW4odzFfbnVsbCwgbmEucm09VFJVRSkpXG4gIH1cbiAgbXloaXN0PC1oaXN0KERfbnVsbCwgcHJvYj1UUlVFKVxuICBtdWx0aXBsaWVyIDwtIG15aGlzdCRjb3VudHMgLyBteWhpc3QkZGVuc2l0eVxuICBteWRlbnNpdHkgPC0gZGVuc2l0eShEX251bGwsIGFkanVzdD0yKVxuICBteWRlbnNpdHkkeSA8LSBteWRlbnNpdHkkeSAqIG11bHRpcGxpZXJbMV1cbiAgcGxvdChteWhpc3QpXG4gIGxpbmVzKG15ZGVuc2l0eSwgY29sPSdibHVlJylcbiAgYWJsaW5lKHY9RCwgY29sPSdyZWQnKVxuICBNPC1tZWFuKERfbnVsbD5EKVxuICByZXR1cm4oTSlcbn0iLCJzYW1wbGUiOiJUZW1wIDwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9UZW1wcmF0dXJlcy5jc3ZcIikgI3dlYiBsb2FkXG5cblBlcm11dGF0aW9uKFRlbXAsIFwiVG93bnNoaXBcIiwgXCJUZW1wcmF0dXJlXCIsMTAwMDAsIFwiUHJpbmNldG9uXCIsIFwiVHJlbnRvblwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJQYXNzYWljXCIsIFwiTmV3YXJrXCIpXG5QZXJtdXRhdGlvbihUZW1wLCBcIlRvd25zaGlwXCIsIFwiVGVtcHJhdHVyZVwiLDEwMDAwLCBcIk9jZWFuIEdyb3ZlXCIsIFwiTmV3IEJydW5zd2lja1wiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJOZXcgQnJ1bnN3aWNrXCIsIFwiSG9sbWRlbFwiKVxuUGVybXV0YXRpb24oVGVtcCwgXCJUb3duc2hpcFwiLCBcIlRlbXByYXR1cmVcIiwxMDAwMCwgXCJSZWQgQmFua1wiLCBcIkhvbG1kZWxcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2PC1yb3VuZChydW5pZigxMDAwMCwgbWluID0gMC4wMDEsIG1heCA9IDEpLCAzKVxudltvcmRlcih2KV1cbnBvd2VyPC12XigtMSlcbm1lYW4ocG93ZXIpXG5tYXgocG93ZXIpXG5taW4ocG93ZXIpXG5ub3JtYWw8LXJub3JtKDEwMDAwLG1lYW49Nywgc2Q9MC4xKVxuaGlzdChub3JtYWwsNTApXG5oaXN0KHBvd2VyLDUwKVxubGVuZ3RoKG5vcm1hbFtub3JtYWw+Ny4xXSlcbmxlbmd0aChwb3dlcltwb3dlcj43LjFdKSJ9
 </div>
-<!--
-## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
+<p>In general the probability of exceeding the mean by number of sigmas (standard deviations) is</p>
+<p>0 sigmas: 1 in 2 times</p>
+<p>1 sigmas: 1 in 6.3 times</p>
+<p>2 sigmas: 1 in 44 times</p>
+<p>3 sigmas: 1 in 740 times</p>
+<p>4 sigmas: 1 in 32,000 times</p>
+<p>5 sigmas: 1 in 3,500,000 times</p>
+<p>6 sigmas: 1 in 1,000,000,000 times</p>
+<p>7 sigmas: 1 in 780,000,000,000 times</p>
+<p>8 sigmas: 1 in 1,600,000,000,000,000 times</p>
+<p>9 sigmas: 1 in 8,900,000,000,000,000,000 times</p>
+<p>10 sigmas: 1 in 130,000,000,000,000,000,000,000 times</p>
+<p>and, skipping a bit:</p>
+<p>20 sigmas: 1 in 36,000,000,000,000,000,000,000,000,000,000,000
+,000,000,000,000,000,000,000,000,000,000,000,0
+00,000,000,000,000,000, 000 times</p>
+<p>Soon, after about 22 sigmas, one hits a “googol”, which is 1 with 100 zeros behind it</p>
+<p>We find that the odds of encountering a millionaire
+in Europe are as follows:</p>
+<p>Richer than 1 million: 1 in 62.5</p>
+<p>Richer than 2 million: 1 in 250</p>
+<p>Richer than 4 million: 1 in 1,000</p>
+<p>Richer than 8 million: 1 in 4,000</p>
+<p>Richer than 16 million: 1 in 16,000</p>
+<p>Richer than 32 million: 1 in 64,000</p>
+<p>Richer than 320 million: 1 in 6,400,000</p>
+<p>One of the most misunderstood aspects of a Gaussian is its fragility and vulnerability in the estimation of tail events. The odds of a 4 sigma move are twice that of a 4.15 sigma. The odds of a 20 sigma are a trillion times higher than those of a 21 sigma! It means that a small measurement error of the sigma will lead to a massive underestimation of the probability. We can be a trillion times wrong about some events</p>
+<p>If wealth was distributed according to Gaussian</p>
+<p>If Wealth Distribution was following Gaussian Law</p>
+<p>People with a net worth higher than €1 million: 1 in 63</p>
+<p>Higher than €2 million: 1 in 127,000</p>
+<p>Higher than €3 million: 1 in 14,000,000,000</p>
+<p>Higher than €4 million: 1 in 886,000,000,000,000,000</p>
+<p>Higher than €8 million:
+1 in 16,000,000,000,000,000,000,000,000,000,000,000</p>
+<p>Very egalitarian!</p>
+<p>Other differences between Mediocristan vs Extremistan</p>
+<p>Take a random sample of any two people from the U.S. population who jointly earn $1 million per annum. What is the most likely breakdown of their respective incomes?</p>
+<p>In Mediocristan, the most likely combination is half a million each.</p>
+<p>In Extremistan, it would be between $50,000 and $950,000.</p>
+<p>For two authors to have sold a total of a million copies of their books, the most likely combination is 993,000 copies sold for one and 7,000 for the other.</p>
+<p>This is far more likely than that the books each sold 500,000 copies.</p>
+<p>For any large total, the breakdown will be more and more asymmetric.</p>
+<p>Similarly for Height of two people if Total height of two people is fourteen feet, the most likely breakdown is seven feet each, not two feet and twelve feet, not even eight feet and six feet!</p>
+<p>Persons taller than eight feet are so rare that such a combination would be impossible</p>
 
-<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwPC1zb3J0KHJvdW5kKHJ1bmlmKDEwMCwgbWluPTAsIG1heD0wLjA1KSwgNCkpXG5wXG5wPC1wKzAuMDAwM1xucFxuI2ltcGxlbWVudCBCZW5qYW1pbmktSG9jaGJlcmcgZm9ybXVsYVxucTwtcmVwKDAuMDUsMTAwKVxucVxucj1jKDE6MTAwKVxucTwtcm91bmQocSpyLzEwMCw0KVxudGVtcDwtcDxxXG4jU2VsZWN0IHAtdmFsdWVzIHdoaWNoIGNvcnJlc3BvbmQgdG8gZGlzY292ZXJpZXMgKHJlamVjdCBOVUxMKVxubWF4aW5kZXg8LW1heCh3aGljaCh0ZW1wPT0nVFJVRScpKVxucFsxOm1heGluZGV4XSJ9</div>
-
-## Snippet 2
-
-Happiness Index synthetic data set which is used in my slides for multiple hypotheses testing
-
-- How to order by aggregate?
-
-- First make a data frame out of tapply? Use  aggregate  and list functions.
-
-<div data-datacamp-exercise data-height="450" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kZXggPC1yZWFkLmNzdihcImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L0hpbmRleC5jc3ZcIikgI3dlYiBsb2FkXG5cbkhpbmRleDwtYWdncmVnYXRlKEhpbmRleCRIQVBQSU5FU1MsIGxpc3QoSGluZGV4JENPVU5UUlkpLCBtZWFuKVxuY29sbmFtZXMoSGluZGV4KTwtIGMoXCJDb3VudHJ5XCIsXCJBdmVyYWdlSFwiKVxuI3JlbmFtZXMgY29sdW1ucyBvZiB0aGUgSGluZGV4IGRhdGEgZnJhbWVcbmNvbG5hbWVzKEhpbmRleClcblxuSGluZGV4W29yZGVyKEhpbmRleCRBdmVyYWdlSCksXSJ9</div>
--->
-</div>
-</div>
-<div id="additional-references-3" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Additional References<a href="Multiple_Hypothesis.html#additional-references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<button class="btn btn-primary" data-toggle="collapse" data-target="#MPT12">
-Multiple Hypothesis Testing
-</button>
-<div id="MPT12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1dCbhnuGMsXYJEltQXUfPhl8dCTAqJWCZ0xI-0IhnxAc/edit?usp=sharing" width="100%" height="500px">
-</embed>
-</div>
-<p><a href="https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/" class="uri">https://multithreaded.stitchfix.com/blog/2015/10/15/multiple-hypothesis-testing/</a></p>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="Sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bayesian_reasoning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Linear_regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Prediction_loop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

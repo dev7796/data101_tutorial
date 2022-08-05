@@ -295,7 +295,7 @@ The next snippet is the only one when we  use a simple  for loop in this entire 
 
 Instead of trying several samples “manually” we iterate through 1000 samples of size 500 and we observe how the support for Democrats varies. We then display the result  in the form of histogram. Please observe that the histogram’s shape approached Bell’s curve with the mean of 45% (true voter support for Democrats). Notice however that there is a fraction of samples which would incorrectly have Democrats as winners, exceeding 50% of vote.
 
-![Democratic votes](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png)
+![Figure 6.1 Democratic votes](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png)
 
 
 
