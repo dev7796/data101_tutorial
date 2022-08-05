@@ -68,6 +68,7 @@ fbr
 false-discoveries
 sampling
 confidence-intervals
+law-of-small-numbers
 what-is-randomness
 data-sets-with-embedded-patterns
 hidden-variables

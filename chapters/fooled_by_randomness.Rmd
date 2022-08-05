@@ -267,6 +267,8 @@ library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
 
+<br />
+
 This data contains synthetic data on 200000 voters in some small county who voted either Democrat or Republican. The majority of voters (55%) voted republican, while the minority voted for Democrats. Typically votes are not counted simultaneously and we are all familiar with “calling elections” on the basis of a smaller subset of counted votes. 
 
 In the following snippet we would like students to experience the effects of samples of different sizes. Samples may provide different results from an even more decisive win of Republicans (like 60%+) to a slight win by Democrats.
@@ -293,7 +295,10 @@ The next snippet is the only one when we  use a simple  for loop in this entire 
 
 Instead of trying several samples “manually” we iterate through 1000 samples of size 500 and we observe how the support for Democrats varies. We then display the result  in the form of histogram. Please observe that the histogram’s shape approached Bell’s curve with the mean of 45% (true voter support for Democrats). Notice however that there is a fraction of samples which would incorrectly have Democrats as winners, exceeding 50% of vote.
 
-![Saved File](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png)
+![Democratic votes](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png)
+
+
+
 ## Law of Small Numbers
 
 The term “Law of small numbers”  have been coined by Kahneman in his book “Thinking fast, Thinking slow”.  
@@ -382,6 +387,8 @@ temp<-knitr::kable(
 library(kableExtra)
 kableExtra::scroll_box(temp,width = "100%")
 ```
+
+<br />
 
 **Snippet 6.16**   Incomes of school graduates – the case of Hidden Variable
 

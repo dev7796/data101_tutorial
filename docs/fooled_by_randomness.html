@@ -154,9 +154,10 @@
 <li class="chapter" data-level="6.1" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#false-discoveries"><i class="fa fa-check"></i><b>6.1</b> False Discoveries</a></li>
 <li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#sampling"><i class="fa fa-check"></i><b>6.2</b> Sampling</a></li>
 <li class="chapter" data-level="6.3" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.4</b> What is randomness?</a></li>
-<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.5</b> Data sets with embedded patterns</a></li>
-<li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.6</b> Hidden Variables</a></li>
+<li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#law-of-small-numbers"><i class="fa fa-check"></i><b>6.4</b> Law of Small Numbers</a></li>
+<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.5</b> What is randomness?</a></li>
+<li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.6</b> Data sets with embedded patterns</a></li>
+<li class="chapter" data-level="6.7" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.7</b> Hidden Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>7</b> Normal distribution</a></li>
 <li class="chapter" data-level="8" data-path="Derived_attributes.html"><a href="Derived_attributes.html"><i class="fa fa-check"></i><b>8</b> 🔖 Data Transformation with Derived Attributes</a>
@@ -670,6 +671,7 @@ Republican
 </tbody>
 </table>
 </div>
+<p><br /></p>
 <p>This data contains synthetic data on 200000 voters in some small county who voted either Democrat or Republican. The majority of voters (55%) voted republican, while the minority voted for Democrats. Typically votes are not counted simultaneously and we are all familiar with “calling elections” on the basis of a smaller subset of counted votes.</p>
 <p>In the following snippet we would like students to experience the effects of samples of different sizes. Samples may provide different results from an even more decisive win of Republicans (like 60%+) to a slight win by Democrats.</p>
 <p><strong>Snippet 6.13:</strong> Distribution of votes for Democrats vs Republicans in a random sample of 100 voters may deviate from 45:55 split in the general population.</p>
@@ -679,8 +681,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkVsZWN0aW9ucyA8LXJl
 <p>Just run the code several times and observe how the distribution of votes between Democrats and Republicans changes. Also, change the size of the sample from 100 to 1000 and perhaps even to 10000. Observe how more “stable” the results are and how much closer the vote distribution is now to the true vote distribution in the general population of voters.</p>
 <p>The next snippet is the only one when we use a simple for loop in this entire textbook.</p>
 <p>Instead of trying several samples “manually” we iterate through 1000 samples of size 500 and we observe how the support for Democrats varies. We then display the result in the form of histogram. Please observe that the histogram’s shape approached Bell’s curve with the mean of 45% (true voter support for Democrats). Notice however that there is a fraction of samples which would incorrectly have Democrats as winners, exceeding 50% of vote.</p>
-<p><img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png" alt="Saved File" />
-## Law of Small Numbers</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png" alt="" />
+<p class="caption">Democratic votes</p>
+</div>
+</div>
+<div id="law-of-small-numbers" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Law of Small Numbers<a href="fooled_by_randomness.html#law-of-small-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The term “Law of small numbers” have been coined by Kahneman in his book “Thinking fast, Thinking slow”.</p>
 <p>The law of small numbers states that small samples are more prone to extreme results than large samples. Kahneman refers to the example of incidences of kidney cancers. It seems that they are less frequent in small rural counties in mid-west. - probably because life in small rural counties is more healthy, food is organic etc. Unfortunately, kidney cancers are also more frequent in small rural counties in midwest. Again, this can be attributed to poverty and poor access to healthcare. In fact none of the two narrative is correct. Small samples (small counties in this case) are simply more prone to extreme results. This is analogous to selecting small number of balls from urn containing red and black balls. With small number of balls (4) the extreme results (4 black, 0 red, 4 red, 0 black) occur more often than when the number of selected balls is larger, say 7.</p>
 <p>Here we illustrate the law of small numbers using our Car dealerships data set. For small sizes of samples (10), we observe that Winter is the season when car sales are dramatically higher than expected seasonal sales (about 25% of sales for each of the 4 seasons in our synthetic data set). For different samples of size 10, we may conclude that winter is the season when sales are much lower than expected. Thus, the opposite effect!</p>
@@ -690,8 +697,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkVsZWN0aW9ucyA8LXJl
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcbnY8LXNhbXBsZSgxOm5yb3coQ2FycykpXG5zYW1wbGVDYXJzPC1DYXJzW3YsXVxudGFibGUoc2FtcGxlQ2Fyc1sxOjEwLF0kU2Vhc29uKSJ9
 </div>
 </div>
-<div id="what-is-randomness" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> What is randomness?<a href="fooled_by_randomness.html#what-is-randomness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-is-randomness" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> What is randomness?<a href="fooled_by_randomness.html#what-is-randomness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One may argue that our queries simply state what was inferred from the data. And data “is what it is”. We simply analyze what we have and these queries merely report the facts.
 The key however is repeatability In other words, how predictive are these results?</p>
 <p>How likely is it that GMC are bought more often by females than males in Columbus, season after season, sample after sample?</p>
@@ -699,8 +706,8 @@ The key however is repeatability In other words, how predictive are these result
 <p>Notice that if we generate new samples, we may get a complete reversal of the trends, in the same dealership we may get Toyota as most popular and Honda as least popular, and for another sample Toyota and Honda may switch places!</p>
 <p>Randomness is the main force fooling us and has to be treated very seriously. This is the whole objective of data science, and hypothesis testing, p-values, multiple hypothesis correction etc to account for randomness as the “causing factor” of false discoveries.</p>
 </div>
-<div id="data-sets-with-embedded-patterns" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Data sets with embedded patterns<a href="fooled_by_randomness.html#data-sets-with-embedded-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-sets-with-embedded-patterns" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Data sets with embedded patterns<a href="fooled_by_randomness.html#data-sets-with-embedded-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Using the DataMaker tool we have embedded the following two patterns into Cars data:</p>
 <p>Subaru in Austin is bought by 95% females</p>
 <p>GMC in Columbus is bought by 93% males</p>
@@ -712,8 +719,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnNCIDwtIHJlYWQu
 <p>These two patterns are intended to be legitimate - not false discoveries. We have made them rather extreme, skewing the gender distribution in both cases above 90%. But what if we made it slightly more than the uniform – random distribution in Cars, for example 60:40 distribution? The challenge for statistical evaluation methods is not to reject such True discoveries. The closer the real pattern is through to the possible random pattern, the more likely such False Negatives are. Thus, in the process of rejection of False Positives we may also fall into the trap of False Negatives and reject the legitimate discoveries.
 Being too cautious may deprive us from discovering a real business value in our data. Being too adventurous, may result in false discoveries. There is a cost associated with each of these two errors. Is it better to be too optimistic than to be too pessimistic?</p>
 </div>
-<div id="hidden-variables" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Hidden Variables<a href="fooled_by_randomness.html#hidden-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="hidden-variables" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Hidden Variables<a href="fooled_by_randomness.html#hidden-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another common situation when data may fool us is the case of hidden variables. This is also known as the dilemma between correlation and causation.
 To illustrate the famous problem of hidden variables, we will use the following data set describing incomes of law school graduates of top 100 universities, 5 years after graduation.</p>
 <p>Each tuple records the income of a graduate, ranking of the school they attended (from 1 to 100), tuition they paid, their SAT score and finally their GPA. The common belief is that the rank of a school (and tuition paid) is the prime factor driving salaries up. The higher the school rank, the higher the 5-year after graduation salary. However, the real variable which drives salaries is SAT score. Students with higher SAT scores are accepted to higher ranked schools, while students with lower SAT scores are chosen by lower ranked schools. Thus (as actually pointed out in famous New York Times article), higher ranked schools simply accept stronger students and school “success” has less to do with how they teach but more with the academic quality of students they accept.</p>
@@ -849,6 +856,7 @@ GPA
 </tbody>
 </table>
 </div>
+<p><br /></p>
 <p><strong>Snippet 6.16</strong> Incomes of school graduates – the case of Hidden Variable</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJJUzwtcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9JbmNvbWVTY2hvb2wuY3N2XCIpXG5cbnBsb3QoSVMkU0FULCBJUyRJbmNvbWUpXG5wbG90KElTJFR1aXRpb24sIElTJEluY29tZSlcbnBsb3QoSVMkU2Nob29sUmFuaywgSVMkSW5jb21lKVxuXG5wbG90KElTJFNjaG9vbFJhbmssIElTJEluY29tZSlcbnBsb3QoSVMkU0FULCBJUyRJbmNvbWUpXG5wbG90KElTJFNBVCwgSVMkU2Nob29sUmFuaykifQ==
