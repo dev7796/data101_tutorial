@@ -199,29 +199,28 @@ mosaicplot(moody$grade~moody$texting,xlab = 'Grade',ylab = 'Texting habit', main
 
 Beware of misleading graphs. 
 
-The following graphs artificially exaggerate the argument by manipulating either the Y-axis or X-axis. Typically this effect can be achieved by not moving the beginning of the scale (Y or X) from zero to much larger value.  Such axes manipulations result in exaggerating otherwise minor trends and differences. 
+The following graphs artificially exaggerate their claims by manipulating either the Y-axis or X-axis. Typically this effect can be achieved by  moving the beginning of the scale (Y or X) from zero to much larger value.  Such axes manipulations result in exaggerating otherwise minor trends and differences. 
 
 ![Figure 4.6.1](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading1.PNG)
 
-Differences between calories are not as large as it appears on the graph above. The range is just between 590 and 720, but because of moving the origin of the X-axis to 590, the bottom three bars seem to be multiple times larger than the top 3, an KFC and MacDonald look much better than they should. 
+Differences between calories are not as large as it appears on the graph above. The range is just between 590 and 720, but because of moving the origin of the X-axis to 590, the bottom three bars seem to be multiple times larger than the top 3. KFC and MacDonald look much better than they should. 
 
 ![Figure 4.6.2](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading5.PNG)
 
-Number of people on welfare appears to be growing rapidly while in fact, although it is growing by only around 12% total in 3 years, not 4 times – when judging from the height of the last bar as compared with the first, leftmost bar.
+Number of people on welfare appears to be growing rapidly.  In fact,  it is growing by total of  around 12%  in 3 years. This is a far cry from   4 times – when judging from the height of the last bar as compared with the first, leftmost bar.
+
 
 ![Figure 4.6.3](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading6.PNG)
 
 It seems like the fraction of Democrats who agree with the court is much higher than the fraction of Republicans or Independents (seems like 3x of democrats agree with the court as compared to Republicans).  By moving the origin of the Y-axis to 50, the difference of 8% points between Democrats and  republicans is grossly exaggerated. 
 
-![Figure 4.6.4](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading13.png)
-
-Similar effects are achieved in the graphs below – moving the origins of axes exaggerates the difference in bar sizes.
+Similar effects are achieved in the graphs below – moving the origins of axes exaggerates the difference in bar sizes. 
 
 ![Figure 4.6.5](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading11.PNG)
 
 ![Figure 4.6.6](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Misleading12.PNG)
 
-The home price increase is not massive! It only appears to be by manipulation of the graph!
+The home price increase is not massive! It only appears to be by manipulation of the graph! Neither is average class score for Ms Smith vs Mr. Jones.
 
 - **Optical Illusions**
 

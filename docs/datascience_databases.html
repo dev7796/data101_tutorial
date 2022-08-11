@@ -404,9 +404,10 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>At the beginning there is always data. But is it complete or is it partial?
-Data science and statistics deal with situations when data is partial. In other words we do not have the whole data set. We only have a sample, even if this sample is very large. No matter how large the data is, it is still just a sample from a larger hypothetical data set that may involve future, unknown yet, data values.
-On the other hand, In the field of databases we believe that our data set is complete. Data is “as is”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and <em>complete</em>. This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set.</p>
+<p>At the beginning there is always data. But is it complete or is it partial?</p>
+<p>In other words, is our dataset “all there is”? Or is it just a sample from a possibly much larger, unknown, universe?</p>
+<p>Data science and statistics deal with situations when data is partial. In other words we do not have the whole data set. We only have a sample, even if this sample is very large. No matter how large the data is, it is still just a sample from a larger hypothetical data set that may involve future, unknown yet, data values.
+On the other hand, In the field of databases we believe that our data set is complete. Data is “as is”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and <em>complete</em>. This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set. Thus, data science, deals with approximations.</p>
 <p>We formulate the main principle behind data science</p>
 <p><strong>Data is always a sample</strong></p>
 <p><strong>Example:</strong> Airbnb data set.</p>
@@ -581,11 +582,11 @@ Entire home/apt
 <p><br></p>
 <p>There are two approaches of treating this data set:</p>
 <ul>
-<li><p><strong>Approach 1:</strong> airbnb data set is complete. It is all about Airbnb prices in New York city. We ignore the time the data set is collected. We just treat it as “as is” like a used car. There is no hidden larger data set which we do not have access to. We can run queries against Airbnb data sets and return definite query answers. For example we can ask about the fraction of Airbnb rental offerings in Brooklyn (it is around 42.1%). Or the average price of Brooklyn rental? $179.06.</p></li>
-<li><p><strong>Approach 2:</strong> airbnb data set is incomplete. It is just a sample of much larger, unknown set of all prices of airbnb rentals <em>ever</em> (even though we do not have timestamps associated with rentals stored in the Airbnb table) If this is the case, answers to queries are no longer definite and deterministic but rather estimators of <em>real values</em> which are unknown to us. But how do we know what we do not know, if the data is incomplete? If we make no assumptions whatsoever, we do not know anything. Thus, we need some assumptions about data distributions. This is where statistics enters the picture.</p></li>
+<li><p><strong>Approach 1:</strong> airbnb data set is complete. We just treat it as “as is”. We can run queries against Airbnb data sets and return definite query answers. For example we can ask about the fraction of Airbnb rental offerings which are located in Brooklyn (it is around 42.1%). Or the average price of Brooklyn rental? It is $179.06. Answers to our queries are exact.</p></li>
+<li><p><strong>Approach 2:</strong> airbnb data set is incomplete. It is just a sample of much larger, unknown set of all prices of airbnb rentals <em>ever</em> (even though we do not have timestamps associated with rentals stored in the Airbnb table) If this is the case, answers to queries are no longer definite and deterministic but rather estimators of <em>real values</em> which are unknown to us.</p></li>
 </ul>
-<p>Let us examine these two queries: query Q1 about frequency of Brooklyn Airbnb rentals and query Q2 about mean price of Brooklyn Airbnb rentals.<br />
-We begin by running this two queries against airbnb data, assuming it is <em>complete data set</em>. In other words we follow Approach 1. Thus, we treat the airbnb data set “as is” – and the answers to our queries are prices: 42.1% and $179.06 respectively.</p>
+<p>Let us examine these same queries: query Q1 about frequency of Brooklyn Airbnb rentals and query Q2 about mean price of Brooklyn Airbnb rentals.</p>
+<p>We begin by running this two queries against airbnb data, assuming it is <em>complete data set</em>. In other words we follow Approach 1. Thus, we treat the airbnb data set “as is” – and the answers to our queries are prices: 42.1% and $179.06 respectively.</p>
 <div id="query-1-fraction-of-brooklyn-airbnb-rentals" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> <strong>Query 1:</strong> Fraction of Brooklyn Airbnb Rentals<a href="datascience_databases.html#query-1-fraction-of-brooklyn-airbnb-rentals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following query returns the required fraction of Brooklyn rentals</p>
@@ -596,28 +597,28 @@ We begin by running this two queries against airbnb data, assuming it is <em>com
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmJTbWFsbC5jc3YnKSAgIFxuY29sbmFtZXMoYWlyYm5iKVxuXG5yb3VuZChucm93KGFpcmJuYlthaXJibmIkbmVpZ2hib3VyaG9vZF9ncm91cD09J0Jyb29rbHluJyxdKS9ucm93KGFpcmJuYiksMykifQ==
 </div>
-<p>Now, let’s follow Approach 2 and not trust that the airbnb data set is complete, but rather a sample of some larger “complete” airbnb data set. Under normal circumstances we will never know this “real” data set. But here let us assume that we know about airbnbReal. It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573 of airbnbReal. Not surprisingly, the value of our query will now return a different value (42.4%) - making our original fraction just an estimate.</p>
+<p>Now, let’s follow Approach 2 and not trust that the airbnb data set is complete, but rather a sample of some larger “complete” airbnb data set. Under normal circumstances we will never know this “real” data set. But here let us assume that we know about airbnbReal. It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573 of airbnbReal. Not surprisingly, the value of our query will now return a different value (42.4%) - making our original query answer just an estimate.</p>
 </div>
 <div id="fraction-of-brooklyn-airbnb-rentals-in-the-real-airbnb-data-set" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Fraction of Brooklyn Airbnb rentals in the <em>real</em> airbnb data set<a href="datascience_databases.html#fraction-of-brooklyn-airbnb-rentals-in-the-real-airbnb-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvYWlyYm5iLmNzdicpXG5cbnJvdW5kKG5yb3coYWlyYm5iUmVhbFthaXJibmJSZWFsJG5laWdoYm91cmhvb2RfZ3JvdXA9PSdCcm9va2x5bicsXSkvbnJvdyhhaXJibmIpLDMpIn0=
 </div>
-<p>Thus, our query now returns a “soft” value, which is not exact. It is rather an interval of possible values. The quality of this estimate depends on the size of our sample data set. In our case that sample size was 5278 tuples. The smaller the size of the sample, the less accurate the estimate is. Notice that we make a conscious decision here, the decision is about trusting the data set at hand. Do we trust that it is complete? Or do we take a cautionary view that what we have is just a sample from an unknown, much larger universe. The former assumption is the database approach (data is complete), the latter, that data is an incomplete sample from a much larger universe. This is the data science approach.</p>
-<p>The following three histograms show distribution of frequency of Brooklyn apartments across 1000 samples of 1000 size each, 100 size each and finally 5000 each taken from the airbnbReal data set. Notice how the spread of the frequency values depend on the sample size. The larger the data sample is, the “tighter” is the histogram. In the case of a sample size of 1000, we may obtain frequencies of Brooklyn offerings ranging from 38 to 46%.</p>
+<p>The answer to our query - the real fraction of Brooklyn rentals differs now from 42.4%. It is close, but not the same. Thus, the fraction 42.4% obtained from the sample is only an estimate of the real fraction of Brooklyn apartments. The quality of this estimate depends on the size of our sample data set. In our case that sample size was 5278 tuples. The smaller the size of the sample, the less accurate the estimate is. Data is just a sample. This is the data science approach.</p>
+<p>The following three histograms show distribution of frequency of Brooklyn apartments across 1000 samples of different sizes. We show three sample sizes here: samples of 1000 apartments each, 100 apartments each and finally 5000 apartments each taken from the airbnbReal data set. Notice how the spread of the frequency values depend on the sample size. The larger the data sample is, the “tighter” is the histogram. In the case of a sample size of 1000, we may obtain frequencies of Brooklyn offerings ranging from 38 to 46%.</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Brooklyn-samples1000.png" alt="" />
-<p class="caption">Figure 5.1</p>
+<p class="caption">Figure 5.1: Distribution of the fraction of Brooklyn apartments - 1000 samples each of the size =1000</p>
 </div>
 <p>The Histogram below shows distribution of frequencies of Brooklyn Airbnb rentals if our database has only 100 offerings. Notice that now if we run 1000 such samples of size 100, the spread is much larger (it is determined by standard deviation) . Now we can get frequencies ranging from 30% to 55%!</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynSamples100.png" alt="" />
-<p class="caption">Figure 5.2</p>
+<p class="caption">Figure 5.2: Distribution of the fraction of Brooklyn apartments - 1000 samples each of the size =100</p>
 </div>
 <p>Finally, the last of the three histograms shows spread of frequencies over 1000 samples each of size 5000. This time the spread is much smaller – and we range from 41 to 44% with some outliers of course. All these histograms illustrate a simple fact that if we believe our data set to be incomplete and just a sample of a larger data set, we can only answer queries with estimates. One of the key objectives of data science is to provide these estimates with some measure of confidence (see section 11)</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynSamples5000.png" alt="" />
-<p class="caption">Figure 5.3</p>
+<p class="caption">Figure 5.3: Distribution of the fraction of Brooklyn apartments - 1000 samples each of the size =5000</p>
 </div>
 </div>
 </div>
@@ -632,40 +633,37 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcu
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmJTbWFsbC5jc3YnKSAgXG5cbnJvdW5kKG1lYW4oYWlyYm5iW2FpcmJuYiRuZWlnaGJvdXJob29kX2dyb3VwPT0nQnJvb2tseW4nLF0kcHJpY2UpLDIpIn0=
 </div>
 <p>Trusting airbnb it is a complete data set and following approach (1), we view $179.06 as precise and definite answer.</p>
-<p>As in case of query 1, we also follow approach (2) and assume that in fact airbnb is nothing but a sample of 5287 tuples from the airbnbReal data set of It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573. Not surprisingly, the value of our query will now return a different value $179.84 making our original mean price just an estimate. Thus, the mean price of $179.06 was only an estimate of the real mean price of $179.84.</p>
+<p>As in case of query 1, we also follow approach (2) and assume that in fact airbnb is nothing but a sample of 5287 tuples from the airbnbReal data set of It comprises 35,573 tuples. Our data set airbnb was the random sample of 5278 tuples out of the total of 35,573. Not surprisingly, the value of our query will now return a different value $179.84 making our originally returned mean price just an estimate. Thus, the mean price of $179.06 was only an estimate of the real mean price of $179.84.</p>
 </div>
 <div id="mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Mean price of Brooklyn airbnb rentals in real Airbnb data set<a href="datascience_databases.html#mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmIuY3N2JykgIFxuXG5yb3VuZChtZWFuKGFpcmJuYlthaXJibmIkbmVpZ2hib3VyaG9vZF9ncm91cD09J0Jyb29rbHluJyxdJHByaWNlKSwyKSJ9
 </div>
-<p>In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the same, the tighter are the histograms. For example, for samples of size 100, we mean price can range from 140s to 220s.</p>
+<p>In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the sample, the tighter the histograms. For example, for samples of size 100, the mean price can range from $140s to $220s.</p>
 <p>These histograms for mean price illustrate a very important concept in statistics called Central Limit Theorem. This remarkable theorem says that regardless of what the original distribution of data is, the distribution of means of samples follows normal distribution (the Bell curve), as illustrated in the histograms below.</p>
-<p>Again, if we treat the data set we have only as a sample, we have to provide measures of the quality of estimates such data provides for any query. Only when we take data ‘as is’ can we talk about definite query answers. Otherwise, no matter how large our data set is, it is only a sample. This is probably the shortest summary of data science methodology. Nothing is exact. Everything is just a sample. As such, we need to do better than just mistrust the data – we should provide measures of quality of the estimates that are down from data as samples.</p>
+<p>Again, if we treat the airbnb data set we have only as a sample, we have to provide measures of the quality of estimates such data provides for any query. Only when we take data ‘as is’ can we talk about definite query answers. Otherwise, no matter how large our data set is, it is only a sample. This is probably the shortest summary of data science methodology. Nothing is exact. Everything is just a sample. As such, we need to do better than just mistrust the data – we should provide measures of quality of the estimates that are down from data as samples.</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynPriceSample1000.png" alt="" />
-<p class="caption">Figure 5.4</p>
+<p class="caption">Figure 5.4: Distribution of mean Brooklyn airbnb rental price for 1000 samples each of size =1000</p>
 </div>
-<p><strong>Figure 5.4</strong> 1000 samples each of size = 1000</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/brooklyn2.png" alt="" />
-<p class="caption">Figure 5.5</p>
+<p class="caption">Figure 5.5: Distribution of mean Brooklyn airbnb rental price for 1000 samples each of size =100</p>
 </div>
-<p><strong>Figure 5.5</strong> 1000 samples each of size = 100</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/BrooklynPriceSample5000.png" alt="" />
-<p class="caption">Figure 5.6</p>
+<p class="caption">Figure 5.6: Distribution of mean Brooklyn airbnb rental price for 1000 samples each of size =5000</p>
 </div>
-<p><strong>Figure 5.6</strong> 1000 samples each of size = 5000</p>
 <p>The following snippet (5.5) shows impact of different samples of airbnbReal data set on queries Q1 and Q2. You can change the size of a sample and run this code repetitively to see how the values returned by query 1 and query 2 change. Instead of obtaining this particular sample of 5287 of tuples from the aibnbReal we could have obtained a different random sample of 5287 tuples and get different estimators of frequency of Brooklyn rentals as well of the mean price. Change 5287 to any number (1000, 100,2000) and rerun the snippet 5.5</p>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvYWlyYm5iLmNzdicpICBcblxudiA8LSBzYW1wbGUoMTpucm93KGFpcmJuYlJlYWwpKVxuYWlyYm5iPC1haXJibmJSZWFsW3YsXVxuYWlyYm5iPC1haXJibmJbMTo1Mjg3LF1cbnJvdW5kKG5yb3coYWlyYm5iW2FpcmJuYiRuZWlnaGJvdXJob29kX2dyb3VwPT0nQnJvb2tseW4nLF0pL25yb3coYWlyYm5iKSwzKVxucm91bmQobWVhbihhaXJibmJbYWlyYm5iJG5laWdoYm91cmhvb2RfZ3JvdXA9PSdCcm9va2x5bicsXSRwcmljZSksMikifQ==
 </div>
-<p>We can repeat similar snippets and histograms for any queries for Airbnb data set such as</p>
+<p>We can repeat similar histograms for any queries on the Airbnb data set such as</p>
 <ul>
 <li><p>Q3: Mean prices of Tribeca apartments on floors higher than 5th floor</p></li>
 <li><p>Q4: Fraction of high floor offerings in Manhattan (high floor &gt;6)</p></li>
-<li><p>Q5: Mean prices of high floor apartments in Manhattan</p></li>
+<li><p>Q5: Mean prices of private room apartments in Manhattan</p></li>
 <li><p>Q6: Fraction of private rooms under $150 in Queens</p></li>
 </ul>
 <p>Etc.</p>
