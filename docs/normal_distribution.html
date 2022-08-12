@@ -152,10 +152,10 @@
 <li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#false-discoveries"><i class="fa fa-check"></i><b>6.1</b> False Discoveries</a></li>
-<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#sampling"><i class="fa fa-check"></i><b>6.2</b> Sampling</a></li>
+<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#more-about-sampling"><i class="fa fa-check"></i><b>6.2</b> More about Sampling</a></li>
 <li class="chapter" data-level="6.3" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#law-of-small-numbers"><i class="fa fa-check"></i><b>6.4</b> Law of Small Numbers</a></li>
-<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.5</b> What is randomness?</a></li>
+<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#randomness-and-repeatability"><i class="fa fa-check"></i><b>6.5</b> Randomness and repeatability</a></li>
 <li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.6</b> Data sets with embedded patterns</a></li>
 <li class="chapter" data-level="6.7" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.7</b> Hidden Variables</a></li>
 </ul></li>
@@ -425,7 +425,7 @@ x_i \text{= each value from the population}\\
 <p>The squaring of differences between data points and the mean value is important since it treats negative and positive differences identically. Dividing by the number of data points is important for normalization.</p>
 <p>Given a numerical variable x, sd(x) is the R function which computes standard deviation. It is demonstrated in the snippet 7.1</p>
 <p>These will be useful later in hypothesis testing.</p>
-<p>In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1. Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section). Normal distribution plays a special role due to the Central Limit Theorem <a href="fooled_by_randomness.html#sampling">6.2</a>.</p>
+<p>In the following snippet we use two functions rnorm() and pnorm(). Function rnorm() generates a number of data points according to normal distribution assuming the mean=10 and standard deviation (sd) =1. Normal distribution is the core distribution in data science (although power law distribution is also gaining ground as we explain in a separate section). Normal distribution plays a special role due to the Central Limit Theorem <a href="#sampling"><strong>??</strong></a>.</p>
 <p>Feel free to change parameters of rnorm() in snippet 7.1 and see the effect of mean and standard deviation in the shapes of resulting bell curves.</p>
 <p>The statement length(normal[normal &gt;x]) shows the number of data points which are larger than x. In the snippet x=12. Notice how quickly length(normal[normal &gt;x]) goes down to zero when one increases x. The statement z&lt;-(12-10)/10 calculate the z-value, which is defined as difference between x and the mean of the distribution divided by standard deviation. This helps normalization and allows talking about vastly different data sets in the same terms.</p>
 <p>Z-value is the distance measured in sigmas, where sigma stands for one standard deviation.</p>

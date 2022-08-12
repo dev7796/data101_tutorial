@@ -66,10 +66,10 @@ mean-price-of-brooklyn-airbnb-rentals
 mean-price-of-brooklyn-airbnb-rentals-in-real-airbnb-data-set
 fbr
 false-discoveries
-sampling
+more-about-sampling
 confidence-intervals
 law-of-small-numbers
-what-is-randomness
+randomness-and-repeatability
 data-sets-with-embedded-patterns
 hidden-variables
 nd

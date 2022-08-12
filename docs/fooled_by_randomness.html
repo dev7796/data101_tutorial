@@ -152,10 +152,10 @@
 <li class="chapter" data-level="6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html"><i class="fa fa-check"></i><b>6</b> Fooled By Randomness</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#false-discoveries"><i class="fa fa-check"></i><b>6.1</b> False Discoveries</a></li>
-<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#sampling"><i class="fa fa-check"></i><b>6.2</b> Sampling</a></li>
+<li class="chapter" data-level="6.2" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#more-about-sampling"><i class="fa fa-check"></i><b>6.2</b> More about Sampling</a></li>
 <li class="chapter" data-level="6.3" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="6.4" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#law-of-small-numbers"><i class="fa fa-check"></i><b>6.4</b> Law of Small Numbers</a></li>
-<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#what-is-randomness"><i class="fa fa-check"></i><b>6.5</b> What is randomness?</a></li>
+<li class="chapter" data-level="6.5" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#randomness-and-repeatability"><i class="fa fa-check"></i><b>6.5</b> Randomness and repeatability</a></li>
 <li class="chapter" data-level="6.6" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#data-sets-with-embedded-patterns"><i class="fa fa-check"></i><b>6.6</b> Data sets with embedded patterns</a></li>
 <li class="chapter" data-level="6.7" data-path="fooled_by_randomness.html"><a href="fooled_by_randomness.html#hidden-variables"><i class="fa fa-check"></i><b>6.7</b> Hidden Variables</a></li>
 </ul></li>
@@ -404,9 +404,9 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>In this section we show how misleading the random data can be. Often, random findings may look real, in fact so real that we mistake them for real discoveries. It is one of the main objectives of statistics and data science to help identify such false discoveries. This chapter provides a motivation and justification for hypothesis testing methods, multiple hypothesis corrections, p-values and permutation tests which we discuss in subsequent sections of the active textbook.</p>
+<p>In this section we show how random data can be fool us. Often, random findings may look real, in fact so real that we mistake them for real discoveries. It is one of the main objectives of statistics and data science to help identify such false discoveries. This chapter provides a motivation and justification for hypothesis testing methods, multiple hypothesis corrections, p-values and permutation tests which we discuss in subsequent sections of the active textbook.</p>
 <p>Here we show how randomly generated data set can lead to seemingly astonishing discoveries – which are simply …random, although they look anything but random!</p>
-<p>In order to illustrate false discoveries we have used our DataMaker to generate a data set Cars describing hypothetical sales data for car dealerships in 15 major cities in the US. We have considered 10 major car makers, different seasons of the year (winter, spring, summer, fall). In addition Cars stores information about buyer gender as well as buyer’s age. Below we show a sample of several tuples of Cars</p>
+<p>In order to illustrate false discoveries we have used our DataMaker data generation tool to generate a data set Cars describing hypothetical sales data for car dealerships in 15 major cities in the US. We have considered 10 major car makers, different seasons of the year (winter, spring, summer, fall). In addition Cars stores information about buyer gender as well as buyer’s age. Below we show a sample of several tuples of Cars</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
@@ -537,10 +537,10 @@ Female
 </tbody>
 </table>
 </div>
-<p>We have generated the Cars data set as completely random data set, with uniform distributions of dealerships, car makes sold there, seasons, buyer’s gender’s and their age. Thus any buyer with any age is equally likely to buy any car in any of the dealerships.</p>
-<p>We have run several queries on Cars and demonstrated in the following snippets, how random data can lead to query findings which look “real”.</p>
-<p>If we knew that data was generated randomly, following uniform distribution, then clearly all cars would have the same market share, so would all dealerships, there would be an equal number of male and female buyers and their average age would be 50. This is how the data was generated.</p>
-<p><strong>Snippet 6.1:</strong> Let us start with the first snippet which shows that indeed our data set follows uniform distribution and it has been randomly generated.</p>
+<p>We have generated the Cars data set as completely random data set, with uniform distributions of dealerships, car makes sold there, four seasons, buyer’s gender’s and their age. Thus any buyer with any age is equally likely to buy any car in any of the dealerships.</p>
+<p>We have run several queries on Cars dataset and demonstrated through the following snippets, how random data can lead to query findings which look “real”.</p>
+<p>Let us start with the first snippet which shows that indeed our data set follows uniform distribution and it has been randomly generated.</p>
+<strong>Snippet 6.1:</strong> Get to know your data
 <div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxubnJvdyhDYXJzKVxuc3VtbWFyeShDYXJzKVxudW5pcXVlKENhcnMkRGVhbGVyc2hpcClcbnVuaXF1ZShDYXJzJENhcilcbnVuaXF1ZShDYXJzJFNlYXNvbilcbnVuaXF1ZShDYXJzJEJ1eWVyKVxudGFibGUoQ2FycyREZWFsZXJzaGlwKVxudGFibGUoQ2FycyRDYXIpXG50YWJsZShDYXJzJFNlYXNvbilcbnRhYmxlKENhcnMkQnV5ZXIpXG50YXBwbHkoQ2FycyRCdXllcl9BZ2UsIENhcnMkQ2FyLCBtZWFuKVxudGFwcGx5KENhcnMkQnV5ZXJfQWdlLCBDYXJzJERlYWxlcnNoaXAsIG1lYW4pXG50YXBwbHkoQ2FycyRCdXllcl9BZ2UsIENhcnMkU2Vhc29uLCBtZWFuKSJ9
 </div>
@@ -549,7 +549,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 <div id="false-discoveries" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> False Discoveries<a href="fooled_by_randomness.html#false-discoveries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here we list some of the false discoveries:</p>
-<p><strong>Snippet 6.2:</strong> Among very young customers (Age &lt;22) of Chicago dealership Dealership, 12.2% buy Hyundai and only 7.4% by GMC. Thus, almost twice as many of very young customers prefer Hyundai to GMC.</p>
+<p><strong>Snippet 6.2:</strong> Among very young customers (Age &lt;22) of Chicago dealership Dealership, 12.2% buy Hyundai and only 7.4% by GMC. Thus, almost twice as many of the very young customers prefer Hyundai to GMC.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxucm91bmQodGFibGUoQ2Fyc1tDYXJzJERlYWxlcnNoaXA9PSdDaGljYWdvJyYgQ2FycyRCdXllcl9BZ2UgPDIyLF0kQ2FyKS9ucm93KENhcnNbQ2FycyREZWFsZXJzaGlwPT0nQ2hpY2FnbycmIENhcnMkQnV5ZXJfQWdlPDIyLF0pLDQpIn0=
 </div>
@@ -561,7 +561,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxucm91bmQodGFibGUoQ2Fyc1tDYXJzJENhcj09J0hvbmRhJyAmQ2FycyREZWFsZXJzaGlwPT0nQXVzdGluJyxdJEJ1eWVyKS9ucm93KENhcnNbQ2FycyRDYXI9PSdIb25kYScmQ2FycyREZWFsZXJzaGlwPT0nQXVzdGluJyxdKSw0KSJ9
 </div>
-<p>Again seemingly a significant disparity between genders in completely random data. 8% difference looks good for a “headline”.</p>
+<p>We discover seemingly a significant disparity between genders among Honda Buyers in Austin. 8% difference between female and male customer share seems significant.</p>
 <p><strong>Snippet 6.5:</strong> Mean age of Jeep buyers in Chicago in spring is 4 years higher than in summer. It is 54 in spring vs 50 in spring.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxudGFwcGx5KENhcnNbQ2FycyRDYXI9PSdKZWVwJyZDYXJzJERlYWxlcnNoaXA9PSdDaGljYWdvJyxdJEJ1eWVyX0FnZSwgQ2Fyc1tDYXJzJENhcj09J0plZXAnJkNhcnMkRGVhbGVyc2hpcD09J0NoaWNhZ28nLF0kU2Vhc29uLCBtZWFuKSJ9
@@ -571,7 +571,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxucm91bmQodGFibGUoQ2Fyc1tDYXJzJENhcj09J0dNQycgJkNhcnMkRGVhbGVyc2hpcD09J0xBJyAmIENhcnMkQnV5ZXJfQWdlID4yNSAmQ2FycyRCdXllcl9BZ2UgPDMwICAsXSRCdXllcikvbnJvdyhDYXJzW0NhcnMkQ2FyPT0nR01DJyZDYXJzJERlYWxlcnNoaXA9PSdMQScmIENhcnMkQnV5ZXJfQWdlID4yNSAmQ2FycyRCdXllcl9BZ2UgPDMwLF0pLDQpIn0=
 </div>
-<p>GMCs are drastically more popular among women than among men in LA</p>
+<p>GMCs are drastically more popular among women than among men in LA. Certainly all these discoveries are false! Tricks that random data plays on us.</p>
 <p>There is a number of factors leading to these false discoveries:</p>
 <ul>
 <li><p>Subsets of data are pretty narrow – GMC buyers in winter in one dealership who are in a certain age bracket constitute a small subpopulation of the whole data set. So called Law of small numbers which we discuss later states that such small data sets are prone to extreme results.</p></li>
@@ -579,9 +579,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 <li><p>Difference of means may be due to a simple random process. We need a permutation test, z-test and similar test to see if a conclusion like 6.3 is statistically legitimate. It is not. But we cannot just eyeball it and decide.</p></li>
 </ul>
 </div>
-<div id="sampling" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Sampling<a href="fooled_by_randomness.html#sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Very often instead of dealing with the entire data set, we work with a (random) sample. One has to be very careful though since sampling can lead to significant errors.</p>
+<div id="more-about-sampling" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> More about Sampling<a href="fooled_by_randomness.html#more-about-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have already shown the distribution of prices of Brooklyn apartments across samples of different sizes. Here we show more examples of sampling and its impact on different queries.</p>
 <p>We will begin by showing how we select a sample of a given size from the data set. Here for Cars, we select 5000 random tuples from the total of 50,000 tuples.</p>
 <p><strong>Snippet 6.7:</strong> Sampling</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
@@ -597,13 +597,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcbnY8LXNhbXBsZSgxOm5yb3coQ2FycykpWzE6NTAwMF1cblNhbXBsZUNhcnM8LUNhcnNbdiwgXVxubWVhbihTYW1wbGVDYXJzW1NhbXBsZUNhcnMkRGVhbGVyc2hpcD09J0NoaWNhZ28nICYgU2FtcGxlQ2FycyRDYXI9PSdGb3JkJyxdJEJ1eWVyX0FnZSlcbm1lYW4oQ2Fyc1tDYXJzJERlYWxlcnNoaXA9PSdDaGljYWdvJyZDYXJzJENhcj09J0ZvcmQnLF0kQnV5ZXJfQWdlKSJ9
 </div>
-<p>We can observe large discrepancies between mean age for sample as opposed to mean age over the entire data set for the more narrow query.</p>
+<p>The more narrow is the query, the more discrepancy there is between query results over samples.</p>
 <p><strong>Snippet 6.10:</strong> Skewed car maker distributions among female buyers older than 45 in theSan Antonio dealership</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcbnY8LXNhbXBsZSgxOm5yb3coQ2FycykpWzE6NTAwMF1cblNhbXBsZUNhcnM8LUNhcnNbdiwgXVxucm91bmQodGFibGUoU2FtcGxlQ2Fyc1tTYW1wbGVDYXJzJEJ1eWVyX0FnZT40NSAmIFNhbXBsZUNhcnMkQnV5ZXI9PSdGZW1hbGUnJlNhbXBsZUNhcnMkRGVhbGVyc2hpcD09J1NhbiBBbnRvbmlvJyxdJENhcikvbnJvdyhTYW1wbGVDYXJzW1NhbXBsZUNhcnMkQnV5ZXJfQWdlPjQ1ICYgU2FtcGxlQ2FycyRCdXllcj09J0ZlbWFsZScmU2FtcGxlQ2FycyREZWFsZXJzaGlwPT0nU2FuIEFudG9uaW8nLF0pLDQpXG5yb3VuZCh0YWJsZShDYXJzW0NhcnMkQnV5ZXJfQWdlPjQ1ICYgQ2FycyRCdXllcj09J0ZlbWFsZScmQ2FycyREZWFsZXJzaGlwPT0nU2FuIEFudG9uaW8nLF0kQ2FyKS9ucm93KENhcnNbQ2FycyRCdXllcl9BZ2U+NDUgJiBDYXJzJEJ1eWVyPT0nRmVtYWxlJyZDYXJzJERlYWxlcnNoaXA9PSdTYW4gQW50b25pbycsXSksNCkifQ==
 </div>
-<p>We observe a very skewed result here – Honda is best seller among Female buyers over 45 in San Antonio, with 14% buyers of Honda vs just 5.4% buyers of GMC. This is far more skewed that the same query runs over the whole data set. The gap between best seller and worst seller (Honda vs Jeep) is less than 3% as opposed to 7.6% for one of the samples. Of course if we generate another sample, this bestseller may change.</p>
-<p>We have generated three more samples and every time the best seller was different!</p>
+<p>We observe a very skewed result here – Honda is best seller among Female buyers over 45 in San Antonio, with 14% buyers of Honda vs just 5.4% buyers of GMC.</p>
+<p>We have generated three more samples and every time the best seller in this group of buyers was different!</p>
 <ul>
 <li>First Sample:
 <ul>
@@ -622,13 +622,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5j
 </ul></li>
 </ul>
 <p>Quite a variation!</p>
-<p>Let us now take one specific Car make- say GMC and analyze its purchases among buyers younger than 30</p>
+<p>Let us now take one specific Car make-, say GMC and analyze its purchases among buyers younger than 30</p>
 <p><strong>Snippet 6.11:</strong> Analysis of market for GMC buyers</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxudjwtc2FtcGxlKDE6bnJvdyhDYXJzKSlbMTo1MDAwXVxuU2FtcGxlQ2FyczwtQ2Fyc1t2LCBdXG4gXG5yb3VuZChucm93KFNhbXBsZUNhcnNbU2FtcGxlQ2FycyRDYXI9PSdHTUMnICZTYW1wbGVDYXJzJEJ1eWVyX0FnZSA8MzAgLF0pL25yb3coU2FtcGxlQ2Fyc1tTYW1wbGVDYXJzJEJ1eWVyX0FnZSA8MzAgLF0pLDQpIn0=
 </div>
 <p>We can observe quite substantial variation of GMC market share among buyers younger than 30. The market share varies from 6 to 10% among different samples. In general samples become more sensitive also with more narrow queries. If we only considered GMC market share (dropping age constraints), we would observe much smaller market share variation.</p>
-<p><strong>Snippet 6.12</strong> Average age distribution for car makes in in Chicago</p>
+<p><strong>Snippet 6.12</strong> Average age distribution grouped by all car makes in in Chicago</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcblxudjwtc2FtcGxlKDE6bnJvdyhDYXJzKSlbMTo1MDBdXG5TYW1wbGVDYXJzPC1DYXJzW3YsIF1cbnRhcHBseShTYW1wbGVDYXJzW1NhbXBsZUNhcnMkRGVhbGVyc2hpcD09J0NoaWNhZ28nLF0kQnV5ZXJfQWdlLCBTYW1wbGVDYXJzW1NhbXBsZUNhcnMkRGVhbGVyc2hpcD09J0NoaWNhZ28nLF0kQ2FyLCBtZWFuKSJ9
 </div>
@@ -721,7 +721,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkVsZWN0aW9ucyA8LXJl
 </div>
 <p>Just run the code several times and observe how the distribution of votes between Democrats and Republicans changes. Also, change the size of the sample from 100 to 1000 and perhaps even to 10000. Observe how more “stable” the results are and how much closer the vote distribution is now to the true vote distribution in the general population of voters.</p>
 <p>The next snippet is the only one when we use a simple for loop in this entire textbook.</p>
-<p>Instead of trying several samples “manually” we iterate through 1000 samples of size 500 and we observe how the support for Democrats varies. We then display the result in the form of histogram. Please observe that the histogram’s shape approached Bell’s curve with the mean of 45% (true voter support for Democrats). Notice however that there is a fraction of samples which would incorrectly have Democrats as winners, exceeding 50% of vote.</p>
+<p>Below we display the histogram of 1000 samples of size 500 and we observe how the support for Democrats varies. Please observe that the histogram’s shape approached Bell’s curve with the mean of 45% (true voter support for Democrats). Notice however that there is a fraction of samples which would incorrectly have Democrats as winners, exceeding 50% of vote.</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/DemocraticVotes.png" alt="" />
 <p class="caption">Figure 6.1 Democratic votes</p>
@@ -730,7 +730,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkVsZWN0aW9ucyA8LXJl
 <div id="law-of-small-numbers" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Law of Small Numbers<a href="fooled_by_randomness.html#law-of-small-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The term “Law of small numbers” have been coined by Kahneman in his book “Thinking fast, Thinking slow”.</p>
-<p>The law of small numbers states that small samples are more prone to extreme results than large samples. Kahneman refers to the example of incidences of kidney cancers. It seems that they are less frequent in small rural counties in mid-west. - probably because life in small rural counties is more healthy, food is organic etc. Unfortunately, kidney cancers are also more frequent in small rural counties in midwest. Again, this can be attributed to poverty and poor access to healthcare. In fact none of the two narrative is correct. Small samples (small counties in this case) are simply more prone to extreme results. This is analogous to selecting small number of balls from urn containing red and black balls. With small number of balls (4) the extreme results (4 black, 0 red, 4 red, 0 black) occur more often than when the number of selected balls is larger, say 7.</p>
+<p>The law of small numbers states that small samples are more prone to extreme results than large samples. Kahneman refers to the example of incidences of kidney cancers. It seems that kidney cancers are less frequent in small rural counties in mid-west. - probably because life in small rural counties is more healthy, food is organic etc. Unfortunately, kidney cancers are also more frequent in small rural counties in midwest. This time (false) narrative can attribute it to poverty and poor access to healthcare. In fact none of the two narratives is correct. Small samples (small counties in this case) are simply more prone to extreme results. This is analogous to selecting a small number of balls from an urn containing red and black balls. With a small number of balls (4) the extreme results (4 black, 0 red, 4 red, 0 black) occur more often than when the number of selected balls is larger, say 7.</p>
 <p>Here we illustrate the law of small numbers using our Car dealerships data set. For small sizes of samples (10), we observe that Winter is the season when car sales are dramatically higher than expected seasonal sales (about 25% of sales for each of the 4 seasons in our synthetic data set). For different samples of size 10, we may conclude that winter is the season when sales are much lower than expected. Thus, the opposite effect!</p>
 <p>Use the snippet by running the code several times and also changing the size of the sample from 10 to 20, 30 and down to 5 as well to observe effects of law of small numbers.</p>
 <p><strong>Snippet 6.14</strong> Law of small numbers snippet</p>
@@ -738,10 +738,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkVsZWN0aW9ucyA8LXJl
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgaW4gdGhlIGRhdGFcbkNhcnMgPC0gcmVhZC5jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9DYXJzMjAyMi5jc3ZcIilcbnY8LXNhbXBsZSgxOm5yb3coQ2FycykpXG5zYW1wbGVDYXJzPC1DYXJzW3YsXVxudGFibGUoc2FtcGxlQ2Fyc1sxOjEwLF0kU2Vhc29uKSJ9
 </div>
 </div>
-<div id="what-is-randomness" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> What is randomness?<a href="fooled_by_randomness.html#what-is-randomness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One may argue that our queries simply state what was inferred from the data. And data “is what it is”. We simply analyze what we have and these queries merely report the facts.
-The key however is repeatability In other words, how predictive are these results?</p>
+<div id="randomness-and-repeatability" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Randomness and repeatability<a href="fooled_by_randomness.html#randomness-and-repeatability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Randomness causes lack of repeatability.</p>
 <p>How likely is it that GMC are bought more often by females than males in Columbus, season after season, sample after sample?</p>
 <p>If the data is always random, i.e. the next data is again randomly generated, we are likely to see the reversal of the trend. In fact every time we get the new data, data may be reversed. In data science we are looking for lasting trends, we would like to treat the data as representative of the general trend which outlasts the current sample. The whole data set after all is a sample of some unknown “universal data set”. Here we demonstrate what happens when universal data set is in fact randomly uniform,</p>
 <p>Notice that if we generate new samples, we may get a complete reversal of the trends, in the same dealership we may get Toyota as most popular and Honda as least popular, and for another sample Toyota and Honda may switch places!</p>
@@ -762,11 +761,14 @@ Being too cautious may deprive us from discovering a real business value in our 
 </div>
 <div id="hidden-variables" class="section level2 hasAnchor" number="6.7">
 <h2><span class="header-section-number">6.7</span> Hidden Variables<a href="fooled_by_randomness.html#hidden-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Another common situation when data may fool us is the case of hidden variables. This is also known as the dilemma between correlation and causation.
-To illustrate the famous problem of hidden variables, we will use the following data set describing incomes of law school graduates of top 100 universities, 5 years after graduation.</p>
-<p>Each tuple records the income of a graduate, ranking of the school they attended (from 1 to 100), tuition they paid, their SAT score and finally their GPA. The common belief is that the rank of a school (and tuition paid) is the prime factor driving salaries up. The higher the school rank, the higher the 5-year after graduation salary. However, the real variable which drives salaries is SAT score. Students with higher SAT scores are accepted to higher ranked schools, while students with lower SAT scores are chosen by lower ranked schools. Thus (as actually pointed out in famous New York Times article), higher ranked schools simply accept stronger students and school “success” has less to do with how they teach but more with the academic quality of students they accept.</p>
+<p>Another common situation when data may fool us is the case of hidden variables. This is also known as the dilemma between correlation and causation.</p>
+<p>To illustrate the famous problem of hidden variables, we will use the following synthetic data set describing incomes of law school graduates of top 100 universities, 5 years after graduation.</p>
+<p>Each tuple records the income of a graduate, ranking of the school they attended (from 1 to 100), tuition they paid, their SAT score and finally their GPA. The common belief is that the rank of a school (and tuition paid) is the prime factor driving salaries up. The higher the school rank, the higher the 5-year after graduation salary. This is what schools like to tell their prospective students - you pay higher tuition in return for higher future earnings. Great investment!</p>
+<p>Not quite so.</p>
+<p>The real variable which drives salaries is SAT score. Students with higher SAT scores are accepted to higher ranked schools, while students with lower SAT scores are chosen by lower ranked schools. Thus (as actually pointed out in famous New York Times article), higher ranked schools simply accept stronger students and school “success” has less to do with how they teach but more with the academic quality of students they accept.</p>
 <p>This is illustrated by the linear relationship between the Income and SAT. There is also a linear relationship between the SAT scores and the ranking of the school (higher ranked schools accept candidates with higher SAT) as well as a linear relationship between Tuition and the school rank - the higher ranked schools charged higher tuitions.</p>
 <p>This is a fundamental question between Causality and Correlation. SAT is called Hidden variable which may possibly incorrectly indicate that Income is driven by school rank or by tuition, instead, both variables are driven by SAT score. Thus, in this data set it is a SAT score which drives Incomes.</p>
+<p>SAT score is the hidden variable in this example.</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>

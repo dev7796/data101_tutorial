@@ -15,7 +15,8 @@ Here, we discuss how we can calculate the quality of estimation, when we do not 
 ## Estimator of Proportions
 
 Let us start with the estimation of proportion. This is the problem we witness in each election, when we see partial results and try to estimate who won, on the basis of the sample of votes which were counted so far. Different TV networks call a winner at different times and sometimes (although rarely) they may be wrong. 
-How can we estimate the quality of the estimated proportion calculated on the basis of a sample. 
+
+How can we estimate the quality of the estimated proportion calculated on the basis of a sample?
 
 For example assume that in our Local Election data puzzle, we consider a sample of 1000 voters, who are above 50 years old.  Let's assume that 62% of them voted for Royalists. Of course by now we know that each data set is  really, only a sample and each value computed from that sample is just an estimate of an unknown “real” value.  Thus, we do believe that 62% is the exact population proportion of voters under 50 who chose to vote for Royalists 
 
