@@ -8,7 +8,7 @@
 tutorial::go_interactive(greedy = FALSE)
 ```
 
-In section \@ref(dbds) we already introduced the concept of  a sample. For educational purposes we assume that we also know the universe from which sample was taken. This of course happens very rarely, if at all. Usually we do not know the universe.  
+In section \@ref(dbds) we already introduced the concept of  a sample. For educational purposes we assume that we also know the universe from which the sample was taken. This of course happens very rarely, if at all. Usually we do not know the universe.  
 
 Here, we discuss how we can calculate the quality of estimation, when we do not know the universe which is sampled. Is this even possible?  Yes, it is. This is the power of statistics. We introduce confidence intervals for means and for proportions and show how such intervals can serve as estimators along with the confidence probabilities as measures of estimators quality. 
 

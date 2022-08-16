@@ -10,15 +10,15 @@ tutorial::go_interactive(greedy = FALSE)
 ```
 
 
-At the beginning there is always data. But is it complete or is it partial?
-
-In other words, is our dataset  “all there  is”?  Or is it just a sample from a possibly much larger, unknown, universe?
-
+At the beginning there is always data.  In R, it is a data frame which is a set of rows and columns.  Our Moody data set is an example of a data set.  It contains thousands of rows and a handful of columns.  
+But is it a complete data set or is it just “tip of an iceberg”?    Is our dataset  “all there  is”?  Or is it just a sample from a possibly much larger, unknown, universe?
 
 Data science and statistics deal with situations when data is partial.  In other words we do not have the whole data set.  We only have a sample, even if this sample is very large.  No matter how large the data is, it is still just  a sample from a larger hypothetical data set that may involve future, unknown yet, data values. 
-On the other hand, In the field of databases we believe that our data set is complete. Data is “as is”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and *complete*.   This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set.   Thus, data science, deals with approximations.
+
+On the other hand ,in the field of databases we believe that our data set is complete. Data is “as presented”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and *complete*.   This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set.  Thus, data science deals with approximations.
 
 We formulate the main principle behind data science
+
 
 **Data is always a sample**
 
@@ -92,7 +92,7 @@ The answer to our query - the real fraction of Brooklyn rentals differs now from
 The following three histograms show distribution of frequency of Brooklyn apartments across 1000 samples of  different sizes.  We show three sample sizes here:  samples of 1000 apartments each, 100 apartments each and finally 5000 apartments each taken from the airbnbReal data set.  Notice how the spread of the frequency values depend on the sample size. The larger the data sample is, the “tighter” is the histogram. In the case of a sample size of 1000, we may obtain frequencies of Brooklyn offerings ranging from 38 to 46%.
 
 
-![Figure 5.1: Distribution of the fraction of Brooklyn apartments - 1000 samples each of the size =1000](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Brooklyn-samples1000.png)
+![Figure 5.1: Distribution of the fraction of airbnb apartments which are located in Brooklyn - 1000 samples each of the size =1000](https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Brooklyn-samples1000.png)
 
 The Histogram below shows distribution of frequencies of Brooklyn Airbnb rentals if our database has only 100 offerings. Notice that now if we run 1000 such samples of size 100, the spread is much larger (it is determined by standard deviation) . Now we can get frequencies ranging from 30% to 55%!
 
@@ -135,7 +135,7 @@ round(mean(airbnb[airbnb$neighbourhood_group=='Brooklyn',]$price),2)
 ```
 
 
-In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the sample, the tighter the histograms. For example, for samples of size 100, the mean price can range from $140s to $220s. 
+In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the sample, the tighter the histograms. For example, for samples of size 100, the mean price for a sample can range from $140s to $220s. 
 
 These histograms for mean price illustrate a very important concept in statistics called Central Limit Theorem.   This remarkable theorem says that regardless of what the original distribution of data is, the distribution of means of samples follows normal distribution (the Bell curve), as illustrated in the histograms below. 
 

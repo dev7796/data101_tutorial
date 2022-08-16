@@ -404,10 +404,10 @@
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<p>At the beginning there is always data. But is it complete or is it partial?</p>
-<p>In other words, is our dataset “all there is”? Or is it just a sample from a possibly much larger, unknown, universe?</p>
-<p>Data science and statistics deal with situations when data is partial. In other words we do not have the whole data set. We only have a sample, even if this sample is very large. No matter how large the data is, it is still just a sample from a larger hypothetical data set that may involve future, unknown yet, data values.
-On the other hand, In the field of databases we believe that our data set is complete. Data is “as is”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and <em>complete</em>. This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set. Thus, data science, deals with approximations.</p>
+<p>At the beginning there is always data. In R, it is a data frame which is a set of rows and columns. Our Moody data set is an example of a data set. It contains thousands of rows and a handful of columns.<br />
+But is it a complete data set or is it just “tip of an iceberg”? Is our dataset “all there is”? Or is it just a sample from a possibly much larger, unknown, universe?</p>
+<p>Data science and statistics deal with situations when data is partial. In other words we do not have the whole data set. We only have a sample, even if this sample is very large. No matter how large the data is, it is still just a sample from a larger hypothetical data set that may involve future, unknown yet, data values.</p>
+<p>On the other hand ,in the field of databases we believe that our data set is complete. Data is “as presented”. We query such data and treat the answers as exact values, since we fundamentally trust that the data we have is correct and <em>complete</em>. This is quite different from the data science approach which always treats data as an incomplete sample of the unknown, real, data set. Thus, data science deals with approximations.</p>
 <p>We formulate the main principle behind data science</p>
 <p><strong>Data is always a sample</strong></p>
 <p><strong>Example:</strong> Airbnb data set.</p>
@@ -608,7 +608,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmJSZWFsPC1yZWFkLmNzdignaHR0cHM6Ly9yYXcu
 <p>The following three histograms show distribution of frequency of Brooklyn apartments across 1000 samples of different sizes. We show three sample sizes here: samples of 1000 apartments each, 100 apartments each and finally 5000 apartments each taken from the airbnbReal data set. Notice how the spread of the frequency values depend on the sample size. The larger the data sample is, the “tighter” is the histogram. In the case of a sample size of 1000, we may obtain frequencies of Brooklyn offerings ranging from 38 to 46%.</p>
 <div class="figure">
 <img src="https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/img/predblog/Brooklyn-samples1000.png" alt="" />
-<p class="caption">Figure 5.1: Distribution of the fraction of Brooklyn apartments - 1000 samples each of the size =1000</p>
+<p class="caption">Figure 5.1: Distribution of the fraction of airbnb apartments which are located in Brooklyn - 1000 samples each of the size =1000</p>
 </div>
 <p>The Histogram below shows distribution of frequencies of Brooklyn Airbnb rentals if our database has only 100 offerings. Notice that now if we run 1000 such samples of size 100, the spread is much larger (it is determined by standard deviation) . Now we can get frequencies ranging from 30% to 55%!</p>
 <div class="figure">
@@ -640,7 +640,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRo
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhaXJibmI8LXJlYWQuY3N2KCdodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGV2Nzc5Ni9kYXRhMTAxX3R1dG9yaWFsL21haW4vZmlsZXMvZGF0YXNldC9haXJibmIuY3N2JykgIFxuXG5yb3VuZChtZWFuKGFpcmJuYlthaXJibmIkbmVpZ2hib3VyaG9vZF9ncm91cD09J0Jyb29rbHluJyxdJHByaWNlKSwyKSJ9
 </div>
-<p>In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the sample, the tighter the histograms. For example, for samples of size 100, the mean price can range from $140s to $220s.</p>
+<p>In a similar way for Query 1, we present histograms of mean price of Brooklyn Airbnb offerings for 1000 samples of sizes 1000, 100 and 5000 respectively from airbnbReal data set of 35,573 tuples. Again we observe that the larger the sample, the tighter the histograms. For example, for samples of size 100, the mean price for a sample can range from $140s to $220s.</p>
 <p>These histograms for mean price illustrate a very important concept in statistics called Central Limit Theorem. This remarkable theorem says that regardless of what the original distribution of data is, the distribution of means of samples follows normal distribution (the Bell curve), as illustrated in the histograms below.</p>
 <p>Again, if we treat the airbnb data set we have only as a sample, we have to provide measures of the quality of estimates such data provides for any query. Only when we take data ‘as is’ can we talk about definite query answers. Otherwise, no matter how large our data set is, it is only a sample. This is probably the shortest summary of data science methodology. Nothing is exact. Everything is just a sample. As such, we need to do better than just mistrust the data – we should provide measures of quality of the estimates that are down from data as samples.</p>
 <div class="figure">

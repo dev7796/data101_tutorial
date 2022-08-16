@@ -9,11 +9,12 @@ tutorial::go_interactive(greedy = FALSE)
 
 ```
 
-In this section we show how random data can be fool us. Often, random findings may look real, in fact so real that we mistake them for real discoveries.  It is one of the main objectives of statistics and data science to help identify such false discoveries.  This chapter provides a motivation and justification for hypothesis testing methods, multiple hypothesis corrections, p-values and permutation tests  which we discuss in subsequent sections of the active textbook.
+In this section we show how random data can fool us. Often, random findings may look real, in fact so real that we mistake them for real discoveries.  It is one of the main objectives of statistics and data science to help identify such false discoveries.  This chapter provides a motivation and justification for hypothesis testing methods, multiple hypothesis corrections, p-values and permutation tests  which we discuss in subsequent sections of the active textbook.
 
 Here we show how randomly generated data set can lead to seemingly astonishing discoveries – which are simply …random, although they look anything but random!
 
 In order to illustrate false discoveries we have used our DataMaker data generation tool to generate a data set Cars describing hypothetical sales data for car dealerships in 15 major cities in the US. We have considered 10 major car makers, different seasons of the year (winter, spring, summer, fall). In addition  Cars stores information about buyer gender as well as buyer’s age.  Below we show a sample of several tuples of Cars
+
 
 
 
@@ -301,7 +302,7 @@ Below we display the histogram of 1000 samples of size 500 and we observe how th
 
 ## Law of Small Numbers
 
-The term “Law of small numbers”  have been coined by Kahneman in his book “Thinking fast, Thinking slow”.  
+The term “Law of small numbers”  has been coined by Kahneman in his book “Thinking fast, Thinking slow”.  
 
 The law of small numbers states that small samples are more prone to extreme results than large samples.  Kahneman refers to the example of incidences of kidney cancers. It seems that kidney cancers are less frequent in small rural counties in mid-west.  - probably because life in small rural counties is more healthy, food is organic etc.  Unfortunately, kidney  cancers are also more frequent in small rural counties in midwest. This time (false) narrative can attribute it to poverty and poor access to healthcare. In fact none of the two narratives is correct. Small samples (small counties in this case) are simply more prone to extreme results.  This is analogous to selecting a small number of balls from an urn containing red and black balls. With a small number of balls (4) the extreme results (4 black, 0 red, 4 red, 0 black) occur more often than when the number of selected balls is larger, say 7. 
 
@@ -322,8 +323,7 @@ table(sampleCars[1:10,]$Season)
 
 ## Randomness and repeatability
 
- 
-Randomness causes lack of repeatability.
+When data is random, “observed” trends do not repeat themselves.. They come and go, with different random samples. 
 
 How likely is it that GMC are bought more often by females than males in Columbus, season after season, sample after sample?
 
@@ -331,7 +331,7 @@ If the data is always random, i.e. the next data is again randomly generated, we
  
 Notice that if we generate new samples, we may get a complete reversal of the trends, in the same dealership we may get Toyota as most popular and Honda as least popular, and for another sample Toyota and Honda may switch places!
 
-Randomness  is the main force fooling us and has to be treated very seriously. This is the whole objective of data science, and hypothesis testing, p-values, multiple hypothesis correction etc to account for randomness as the “causing factor” of false discoveries.
+Randomness  is the main force fooling us and has to be treated very seriously.  Eliminating randomness as the “cause” of our observations is one of the main goals of data science. Hypothesis testing allows us to take randomness into account and the concept of p-value is a quantitative measure of possible impact of random data.  
  
 
 ##  Data sets with embedded patterns
