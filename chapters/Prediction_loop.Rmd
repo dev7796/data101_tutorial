@@ -1,4 +1,4 @@
-# 🔖 Machine Learning-Prediction Loop {#MLP}
+# Prediction models from R library {#MLP}
 
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -29,7 +29,7 @@ As per CRAN there are around 8,341 packages that are currently available.  Apart
 
 MLPackage can be rpart, Random Forests, naive Bayes, LDA, SVM, Neural Network and many others.
 
-
+<!--
 ## Additional Reference
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#ML12"> Prediction Loop </button> 
