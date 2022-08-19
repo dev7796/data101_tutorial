@@ -175,4 +175,3 @@ We can repeat similar histograms for any queries on the Airbnb data set such as
 Etc.
 
 Each such query has an exact answer if we believe that data is complete and is only an estimate if we treat data as a sample. 
-

@@ -1,0 +1,24 @@
+# example
+
+<script src="files/js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+```{r}
+library(DBI)
+db <- dbConnect(
+  MySQL(),
+  host = "209.97.156.178",
+  port =3307,
+  user = "student", 
+  password = "cs336", 
+  dbname = "BarBeerDrinker"
+)
+knitr::opts_chunk$set(connection = db, max.print = 20)
+tutorial::go_interactive(greedy = FALSE)
+```
+
+```{sql,connection = db}
+select * from Penna limit 10;
+
+```
