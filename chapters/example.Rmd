@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-```{r}
+```{r, include=FALSE, tut=TRUE}
 library(DBI)
+library(RMySQL)
 db <- dbConnect(
   MySQL(),
   host = "209.97.156.178",
@@ -18,7 +19,6 @@ knitr::opts_chunk$set(connection = db, max.print = 20)
 tutorial::go_interactive(greedy = FALSE)
 ```
 
-```{sql,connection = db}
-select * from Penna limit 10;
-
+```{sql, connection = db} 
+SELECT * FROM Beers limit 10;
 ```
