@@ -18,7 +18,6 @@ tab:unnamed-chunk-199
 tab:unnamed-chunk-232
 tab:unnamed-chunk-235
 tab:unnamed-chunk-258
-tab:unnamed-chunk-260
 intro
 setting-up-r
 setting

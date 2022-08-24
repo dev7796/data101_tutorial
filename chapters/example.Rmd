@@ -15,10 +15,16 @@ db <- dbConnect(
   password = "cs336", 
   dbname = "BarBeerDrinker"
 )
-knitr::opts_chunk$set(connection = db, max.print = 20)
+names(knitr::knit_engines$get("sql"))
+#knitr::opts_chunk$set(connection = db, max.print = 20)
 tutorial::go_interactive(greedy = FALSE)
 ```
 
-```{sql, connection = db} 
+```{sql, tut=TRUE, connection = db} 
 SELECT * FROM Beers limit 10;
+```
+
+```{python, tut=TRUE}
+x = 'hello, python world!'
+print(x.split(' '))
 ```
