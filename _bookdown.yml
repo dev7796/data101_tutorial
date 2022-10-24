@@ -26,8 +26,7 @@ rmd_files: [
   "./chapters/Mysteries_of_Aggregated_data.Rmd",
   "./chapters/22.Rmd",
   "./chapters/best_work_2022.Rmd",
-  "./chapters/Leaderboard.Rmd",
-  "./chapters/example.Rmd"]
+  "./chapters/Leaderboard.Rmd"]
 # rmd_subdir: "./chapters"
 
 language:

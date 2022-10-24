@@ -50,7 +50,7 @@ For example, coming back to out example of sample of 1000 voters who are over 50
 
 **Snippet 11.1:**
 ```{r, tut=TRUE, height = 400}
-sigma = Sqrt(0.62*0.38/1000)
+sigma = sqrt(0.62*0.38/1000)
 pnorm(z)
 
 #To calculate the probability of interval of <p-z*sigma, p+z*sigma>  we compute 
@@ -75,7 +75,7 @@ Suppose we calculated the mean of imdb_score of comedies
 **Snippet 11.2:**
 
 ```{r, tut=TRUE, height = 300}
-movies <-read.csv('moviesSample.csv')    
+movies <-read.csv('movies.csv')    
 mean(movies[movies$genre=='Comedy',]$imdb_score)
 ```
 
@@ -100,6 +100,7 @@ This leads us to the central limit theorem, which says that regardless of what i
 **Snippet 11.3:** Confidence interval for the mean imdb score of comedies
 
 ```{r, tut=TRUE, height = 300}
+movies <- read.csv('https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/movies.csv')
 sigma<-sd(movies[movies$genre=='Comedy',]$imdb_score)
 sigma <-sigma/sqrt(160)
 sigma

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section: 20 Prediction models from R library | bookdemo.knit</title>
+  <title>Section: 26 testing | bookdemo.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section: 20 Prediction models from R library | bookdemo.knit" />
+  <meta property="og:title" content="Section: 26 testing | bookdemo.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section: 20 Prediction models from R library | bookdemo.knit" />
+  <meta name="twitter:title" content="Section: 26 testing | bookdemo.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Power_law.html"/>
-<link rel="next" href="Prediction_challege_in_book.html"/>
+<link rel="prev" href="Leaderboard.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -378,6 +378,10 @@
 <li class="chapter" data-level="24.2" data-path="best_work_2022.html"><a href="best_work_2022.html#boundless-analytics"><i class="fa fa-check"></i><b>24.2</b> Boundless Analytics</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="Leaderboard.html"><a href="Leaderboard.html"><i class="fa fa-check"></i><b>25</b> Data League Leaderboard</a></li>
+<li class="chapter" data-level="26" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>26</b> testing</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="testing.html"><a href="testing.html#subseciton-to-testing"><i class="fa fa-check"></i><b>26.1</b> subseciton to testing</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -398,31 +402,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="MLP" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">Section: 20</span> Prediction models from R library<a href="Prediction_loop.html#MLP" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="testing" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Section: 26</span> testing<a href="testing.html#testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="files/js/dcl.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script>
-<div id="introduction-9" class="section level2 hasAnchor" number="20.1">
-<h2><span class="header-section-number">20.1</span> Introduction<a href="Prediction_loop.html#introduction-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Believe it or not you are ready now to use pretty much any machine learning package from the extensive R library.<br />
-In other words you can drive any car without knowing how the engine works. This you can find out by taking more advanced classes in Machine learning from computer science, statistics or machine learning departments.</p>
-<p>As per CRAN there are around 8,341 packages that are currently available. Apart from CRAN, there are other repositories which contribute multiple packages. The simple straightforward syntax to install any of these machine learning packages is: <strong>install.packages (“MLPackage”)</strong>.</p>
-<p><code>Install Packages(‘MLPackage’)</code></p>
-<p><code>Library(MLPackage)</code></p>
-<p><code>MlPackage&lt;-MLPackage(Formula, data=YOUR_TRAINING,…)</code></p>
-<p><code>Predict(MLPackage, newdata=YOUR_TESTING…)</code></p>
-<p><code>Error &lt;- ……</code></p>
-<p>MLPackage can be rpart, Random Forests, naive Bayes, LDA, SVM, Neural Network and many others.</p>
-<!--
-## Additional Reference
+<p>introduction of the chapter</p>
+<div id="subseciton-to-testing" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> subseciton to testing<a href="testing.html#subseciton-to-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>example</strong></p>
+<p>This is the bullet point</p>
+<ul>
+<li><p>point 1</p></li>
+<li><p>point 2</p></li>
+</ul>
+<p><code>this is a formula</code></p>
+<p><span class="math display">\[\begin{equation}
 
-<button class="btn btn-primary" data-toggle="collapse" data-target="#ML12"> Prediction Loop </button> 
-<div id="ML12" class="collapse">
-<embed src="https://docs.google.com/presentation/d/1n-7uFUUS40SwZO31rKxblplHtkAZMvQDXQzA3lY4PPU/edit?usp=sharing" width="100%" height="500px"></embed>
+\sum \frac{(O_i - E_i)^2}{E_i}\\
+
+
+\text{where:}\\
+\text{O = observed values}\\
+\text{E = expected values}\\
+
+\end{equation}\]</span></p>
+<div data-datacamp-exercise="" data-height="400" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb29keSA8LSByZWFkLmNzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rldjc3OTYvZGF0YTEwMV90dXRvcmlhbC9tYWluL2ZpbGVzL2RhdGFzZXQvbW9vZHkyMDIwYi5jc3YnKVxuaGVhZChtb29keSkifQ==
 </div>
-
 
 </div>
 </div>
@@ -431,8 +438,8 @@ In other words you can drive any car without knowing how the engine works. This 
           </div>
         </div>
       </div>
-<a href="Power_law.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="Prediction_challege_in_book.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Leaderboard.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

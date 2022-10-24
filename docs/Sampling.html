@@ -378,7 +378,6 @@
 <li class="chapter" data-level="24.2" data-path="best_work_2022.html"><a href="best_work_2022.html#boundless-analytics"><i class="fa fa-check"></i><b>24.2</b> Boundless Analytics</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="Leaderboard.html"><a href="Leaderboard.html"><i class="fa fa-check"></i><b>25</b> Data League Leaderboard</a></li>
-<li class="chapter" data-level="26" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>26</b> example</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -430,7 +429,7 @@
 <p>For example, coming back to out example of sample of 1000 voters who are over 50 years old voting for Royalists, we calculate the mean = 0.62 and the standard deviation</p>
 <strong>Snippet 11.1:</strong>
 <div data-datacamp-exercise="" data-height="400" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzaWdtYSA9IFNxcnQoMC42MiowLjM4LzEwMDApXG5wbm9ybSh6KVxuXG4jVG8gY2FsY3VsYXRlIHRoZSBwcm9iYWJpbGl0eSBvZiBpbnRlcnZhbCBvZiA8cC16KnNpZ21hLCBwK3oqc2lnbWE+ICB3ZSBjb21wdXRlIFxuMS0yKDEtcG5vcm0oeikpXG5cbiN0aGlzIGlzIHRoZSBzYW1lIGFzIFxuMipwbm9ybSh6KS0xIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzaWdtYSA9IHNxcnQoMC42MiowLjM4LzEwMDApXG5wbm9ybSh6KVxuXG4jVG8gY2FsY3VsYXRlIHRoZSBwcm9iYWJpbGl0eSBvZiBpbnRlcnZhbCBvZiA8cC16KnNpZ21hLCBwK3oqc2lnbWE+ICB3ZSBjb21wdXRlIFxuMS0yKDEtcG5vcm0oeikpXG5cbiN0aGlzIGlzIHRoZSBzYW1lIGFzIFxuMipwbm9ybSh6KS0xIn0=
 </div>
 <p>Thus for example, with p=0.62 and sigma = 0.0027, we can get 99% interval with z=3, which would be
 The interval &lt;61.2%, 62.8%&gt; with confidence of 99%</p>
@@ -443,7 +442,7 @@ The interval &lt;61.2%, 62.8%&gt; with confidence of 99%</p>
 <p>Suppose we calculated the mean of imdb_score of comedies</p>
 <p><strong>Snippet 11.2:</strong></p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXMgPC1yZWFkLmNzdignbW92aWVzU2FtcGxlLmNzdicpICAgIFxubWVhbihtb3ZpZXNbbW92aWVzJGdlbnJlPT0nQ29tZWR5JyxdJGltZGJfc2NvcmUpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXMgPC1yZWFkLmNzdignbW92aWVzLmNzdicpICAgIFxubWVhbihtb3ZpZXNbbW92aWVzJGdlbnJlPT0nQ29tZWR5JyxdJGltZGJfc2NvcmUpIn0=
 </div>
 <p>There are 160 comedies in our sample and the mean imdb score of this sample of Comedies is equal to 6.52. But it is just an estimate. We only have a sample from an unknown larger data set (of course we may consider the original movies data set with thousands of movies as the universe of movies from which we have drawn the sample, but how do we know that it is the source of data for our sample? Therefore we have to assume that we do not know the source of data for our movie sample. Can we still assess the quality of the imdb_score estimator based on this limited sample of 160 comedies?</p>
 <p>Turns out that thanks to the central limit theorem we can.</p>
@@ -459,7 +458,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXMgPC1yZWFkLmNzdignbW92aWVzU2FtcGxlLmNz
 </ul>
 <p><strong>Snippet 11.3:</strong> Confidence interval for the mean imdb score of comedies</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzaWdtYTwtc2QobW92aWVzW21vdmllcyRnZW5yZT09J0NvbWVkeScsXSRpbWRiX3Njb3JlKVxuc2lnbWEgPC1zaWdtYS9zcXJ0KDE2MClcbnNpZ21hIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtb3ZpZXMgPC0gcmVhZC5jc3YoJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9kZXY3Nzk2L2RhdGExMDFfdHV0b3JpYWwvbWFpbi9maWxlcy9kYXRhc2V0L21vdmllcy5jc3YnKVxuc2lnbWE8LXNkKG1vdmllc1ttb3ZpZXMkZ2VucmU9PSdDb21lZHknLF0kaW1kYl9zY29yZSlcbnNpZ21hIDwtc2lnbWEvc3FydCgxNjApXG5zaWdtYSJ9
 </div>
 <p>Let’s assume we would like to get a confidence interval with a confidence level of 99%, This means setting up an interval with plus minus 3z from the mean. Since sigma=0.077, 3z = 0.23. Thus</p>
 <p>&lt;6.52-0.23, 6.52+0.23&gt; = &lt;6.31, 6.83&gt; with 99% confidence.</p>

@@ -4,9 +4,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-```{r, include=FALSE, tut=TRUE}
+```{r}
 library(DBI)
 library(RMySQL)
+library(odbc)
 db <- dbConnect(
   MySQL(),
   host = "209.97.156.178",
@@ -15,16 +16,22 @@ db <- dbConnect(
   password = "cs336", 
   dbname = "BarBeerDrinker"
 )
+
+
 names(knitr::knit_engines$get("sql"))
-#knitr::opts_chunk$set(connection = db, max.print = 20)
+knitr::opts_chunk$set(connection = db, max.print = 20)
 tutorial::go_interactive(greedy = FALSE)
 ```
 
-```{sql, tut=TRUE, connection = db} 
-SELECT * FROM Beers limit 10;
+## Option 1
+
+```{sql,tut=TRUE, connection = db} 
+
+SELECT * FROM Beers limit 10
 ```
 
+## Python 
+
 ```{python, tut=TRUE}
-x = 'hello, python world!'
-print(x.split(' '))
+print("Hello world")
 ```

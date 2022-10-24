@@ -460,7 +460,7 @@ party<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main
 mean(party[party$Party=='Fun',]$CaloriesDanc)
 mean(party[party$Party=='Boring',]$CaloriesDanc)
 
-PermutationTestSecond::Permutation(party, "Party", "CaloriesDanc",10000, "Fun", "Boring")
+Permutation(party, "Party", "CaloriesDanc",10000, "Fun", "Boring")
 
 ```
 
@@ -864,7 +864,7 @@ PriorOdds<-round(Prior/(1-Prior),2)
 PriorOdds
 TruePositive<-round(nrow(sleep[sleep$Sleep=='Deep'& sleep$LastSleep=='Shallow',])/nrow(sleep[sleep$Sleep=='Deep',]),2)
 TruePositive
-FalsePositive<-round(nrow(vote[sleep$Sleep!='Deep'& sleep$LastSleep=='Shallow',])/nrow(sleep[sleep$Sleep!='Deep',]),2)
+FalsePositive<-round(nrow(sleep[sleep$Sleep!='Deep'& sleep$LastSleep=='Shallow',])/nrow(sleep[sleep$Sleep!='Deep',]),2)
 FalsePositive
 LikelihoodRatio<-round(TruePositive/FalsePositive,2)
 LikelihoodRatio
@@ -1118,7 +1118,7 @@ tapply(movies$imdb, movies$content, mean)
 
 #### Snippet 7
 
-**Q:** Movies from which country have the smallest average imdb score?
+**Q:** Movies from which country have the largest average imdb score?
 
 ```{r,tut=TRUE,height=400}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
@@ -1140,7 +1140,7 @@ Prior Odds = 1.11
 ```{r,tut=TRUE,height=400}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")
 
-Prior<-nrow(market[movies$Gross =='High',])/nrow(movies)
+Prior<-nrow(movies[movies$Gross =='High',])/nrow(movies)
 Prior
 PriorOdds<-round(Prior/(1-Prior),2)
 PriorOdds
@@ -1156,7 +1156,7 @@ PosteriorOdds
 
 #### Snippet 9 {#check6-9}
 
-Histogram of imdb scores for different genres of the movies
+Boxplot of imdb scores for different genres of the movies
 
 ```{r,tut=TRUE,height=500}
 movies<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Movies2022F-4.csv")

@@ -96,11 +96,11 @@ Permutation <- function(df1,c1,c2,n,w1,w2){
 
 Temp <-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/Tempratures.csv") #web load
 
-Permutation(Temp, "Township", "Temprature",10000, "Princeton", "Trenton")
-Permutation(Temp, "Township", "Temprature",10000, "Passaic", "Newark")
-Permutation(Temp, "Township", "Temprature",10000, "Ocean Grove", "New Brunswick")
-Permutation(Temp, "Township", "Temprature",10000, "New Brunswick", "Holmdel")
-Permutation(Temp, "Township", "Temprature",10000, "Red Bank", "Holmdel")
+Permutation(Temp, "Township", "Temprature",1000, "Princeton", "Trenton")
+Permutation(Temp, "Township", "Temprature",1000, "Passaic", "Newark")
+Permutation(Temp, "Township", "Temprature",1000, "Ocean Grove", "New Brunswick")
+Permutation(Temp, "Township", "Temprature",1000, "New Brunswick", "Holmdel")
+Permutation(Temp, "Township", "Temprature",1000, "Red Bank", "Holmdel")
 ```
 <!--
 ## Snippet 1 - Benjamini-Hochberg Algorithm {#Snippet1}
