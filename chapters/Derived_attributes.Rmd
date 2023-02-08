@@ -78,12 +78,14 @@ In this way, for someone with very small participation, the 10 point penalty wil
 
 moody<-read.csv("https://raw.githubusercontent.com/dev7796/data101_tutorial/main/files/dataset/moody2022_new.csv") #web load
 
-moody$conditional <-0
-moody[moody$participation<0.50, ]$conditional <- moody[moody$participation<0.50, ]$score -10*(1-moody[moody$participation<0.50, ]$participation)
+moody$AdjustedScore <-0
 
-moody[moody$participation>=0.50, ]$conditional <- moody[moody$participation>=0.50, ]$score +10*moody[moody$participation>=0.50, ]$participation
+moody[moody$PARTICIPATION<0.50, ]$AdjustedScore <- moody[moody$ PARTICIPATION <0.50, ]$SCORE -10*(1-moody[moody$ PARTICIPATION <0.50, ]$ PARTICIPATION)
+
+moody[moody$ PARTICIPATION >=0.50, ]$AdjustedScore <- moody[moody$ PARTICIPATION >=0.50, ]$SCORE +10*moody[moody$ PARTICIPATION >=0.50, ]$ PARTICIPATION
 
 #Lets see a sample of new rows of moody with the new derived attribute
+
 moody[1:10,]
 
 
